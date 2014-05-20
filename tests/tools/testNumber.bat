@@ -1,0 +1,1 @@
+python testNumberVocalized.py -f samples\vocalized\rndlines.txt >output\number.rnd.txt 

@@ -1,0 +1,21 @@
+﻿#INSTALL
+Requirements
+----------------
+Installation on Apache
+----------------
+enable mod_python in Apache
+extract the qutrub package and run it from the web.
+The program use sqlite database.
+
+Installation as an application
+---------------
+check that python 2.5 or higher is installed
+extract the package
+run the conjugate.py script 
+
+Usage : in README file
+--------------
+
+This program is licensed under the GPL License
+Description of Input file format : is detailled in  README  file
+This program is licensed under the GPL License

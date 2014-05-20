@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>aranalex.stem_verb.verbStemmer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;aranalex ::
+        <a href="aranalex.stem_verb-module.html">Module&nbsp;stem_verb</a> ::
+        Class&nbsp;verbStemmer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="aranalex.stem_verb.verbStemmer-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class verbStemmer</h1><p class="nomargin-top"><span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer">source&nbsp;code</a></span></p>
+<p>Arabic verb stemmer</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">debug</span>=<span class="summary-sig-default">False</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="create_index_affix"></a><span class="summary-sig-name">create_index_affix</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      create index from the affix dictionary to accelerate the search in 
+      the dictionary for verbs</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.create_index_affix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="generate_possible_conjug"></a><span class="summary-sig-name">generate_possible_conjug</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">infinitive_verb</span>,
+        <span class="summary-sig-arg">unstemed_verb</span>,
+        <span class="summary-sig-arg">affix</span>,
+        <span class="summary-sig-arg">future_type</span>=<span class="summary-sig-default"><code class="variable-quote">u'</code><code class="variable-string">&#1614;</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">externPrefix</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">-</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">externSuffix</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">-</code><code class="variable-quote">'</code></span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.generate_possible_conjug">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getInfinitiveVerbByStem"></a><span class="summary-sig-name">getInfinitiveVerbByStem</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">verb</span>,
+        <span class="summary-sig-arg">transitive</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.getInfinitiveVerbByStem">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">True/False.</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="aranalex.stem_verb.verbStemmer-class.html#is_compatible_proaffix_affix" class="summary-sig-name">is_compatible_proaffix_affix</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">procletic</span>,
+        <span class="summary-sig-arg">encletic</span>,
+        <span class="summary-sig-arg">affix</span>)</span><br />
+      Verify if proaffixes (sytaxic affixes) are compatable with affixes ( 
+      conjugation)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.is_compatible_proaffix_affix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="is_compatible_proaffix_tense"></a><span class="summary-sig-name">is_compatible_proaffix_tense</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">procletic</span>,
+        <span class="summary-sig-arg">encletic</span>,
+        <span class="summary-sig-arg">tense</span>,
+        <span class="summary-sig-arg">pronoun</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.is_compatible_proaffix_tense">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="aranalex.stem_verb.verbStemmer-class.html#set_debug" class="summary-sig-name">set_debug</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">debug</span>)</span><br />
+      Set the debug attribute to allow printing internal analysis results.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.set_debug">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="stemming_verb"></a><span class="summary-sig-name">stemming_verb</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">verb</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.stemming_verb">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="verify_affix"></a><span class="summary-sig-name">verify_affix</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">word</span>,
+        <span class="summary-sig-arg">list_seg</span>,
+        <span class="summary-sig-arg">affix_list</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.verify_affix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">unicode.</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="aranalex.stem_verb.verbStemmer-class.html#vocalize" class="summary-sig-name">vocalize</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">verb</span>,
+        <span class="summary-sig-arg">proclitic</span>,
+        <span class="summary-sig-arg">enclitic</span>)</span><br />
+      Join the  verb and its affixes, and get the vocalized form</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.vocalize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="is_compatible_proaffix_affix"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_compatible_proaffix_affix</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">procletic</span>,
+        <span class="sig-arg">encletic</span>,
+        <span class="sig-arg">affix</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.is_compatible_proaffix_affix">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Verify if proaffixes (sytaxic affixes) are compatable with affixes ( 
+  conjugation)</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>procletic</code></strong> (unicode.) - first level prefix.</li>
+        <li><strong class="pname"><code>encletic</code></strong> (unicode.) - first level suffix.</li>
+        <li><strong class="pname"><code>affix</code></strong> (unicode.) - second level affix.</li>
+    </ul></dd>
+    <dt>Returns: True/False.</dt>
+        <dd>compatible.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_debug"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_debug</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">debug</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.set_debug">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set the debug attribute to allow printing internal analysis 
+  results.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>debug</code></strong> (True/False.) - the debug value.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="vocalize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">vocalize</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">verb</span>,
+        <span class="sig-arg">proclitic</span>,
+        <span class="sig-arg">enclitic</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="aranalex.stem_verb-pysrc.html#verbStemmer.vocalize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Join the  verb and its affixes, and get the vocalized form</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>verb</code></strong> (unicode.) - verb found in dictionary.</li>
+        <li><strong class="pname"><code>proclitic</code></strong> (unicode.) - first level prefix.</li>
+        <li><strong class="pname"><code>enclitic</code></strong> (unicode.) - first level suffix.</li>
+    </ul></dd>
+    <dt>Returns: unicode.</dt>
+        <dd>vocalized word.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Mar 16 22:44:15 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

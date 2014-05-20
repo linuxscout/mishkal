@@ -1,0 +1,1 @@
+python testanalex.py -l 100 -f samples\vocalized\rndlines.txt >output\clause.rnd.txt 

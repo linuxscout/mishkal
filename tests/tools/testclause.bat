@@ -1,0 +1,1 @@
+python testSplitClause.py -f samples\vocalized\rndlines.txt >output\clause.rnd.txt 

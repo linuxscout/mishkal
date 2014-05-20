@@ -1,0 +1,20 @@
+
+For mishkal we need some libraries
+1- essential libs :
+	- Tashaphyne: Arabic light stemmer
+		http://pypi.python.org/pypi/Tashaphyne/ 
+	- Qalsadi: Arabic full stemmer and morphological analyzer
+		http://pypi.python.org/pypi/qalsadi
+	- pyarabic: python and arabic library
+		http://pypi.python.org/pypi/PyArabic/
+	- libqutrub:  Arabic verb conjugation library
+		http://pypi.python.org/pypi/LibQutrub/
+	- naftawayh: arabic word classifier 
+		http://pypi.python.org/pypi?name=Naftawayh&version=0.1&:action=display
+2- for web server :
+	- okasha: trivial WSGI web framework
+		http://git.ojuba.org/cgit/okasha/tree/okasha
+	- simplejson: json python lib
+		http://pypi.python.org/pypi/simplejson/
+	- paste : "a framework for web frameworks used by okacha
+		http://pythonpaste.org/

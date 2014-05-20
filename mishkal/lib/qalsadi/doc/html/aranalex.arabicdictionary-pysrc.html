@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>aranalex.arabicdictionary</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;aranalex ::
+        Module&nbsp;arabicdictionary
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="aranalex.arabicdictionary-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="aranalex.arabicdictionary-module.html">Module aranalex.arabicdictionary</a></h1>
+<pre class="py-src">
+&#239;&#187;&#191;import re
+#from pysqlite2 import dbapi2 as sqlite
+import sqlite3 as sqlite
+FILE_DB=u"aranalex/data/verbs.sqlite"
+import pyarabic.araby as araby
+class arabicDictionary:
+        """
+        Arabic dictionary Class
+                Used to allow abstract acces to lexicon of arabic language,
+                can get indexed and hashed entries from the  basic lexicon
+                add also, support to extract attributtes from entries
+        """
+
+        def __init__(self, tableName, attribIndex, keyAttribute='vocalized'):
+                """
+                initialisation of dictionary from a data dictionary, create indexes to speed up the access.
+
+                """
+                # load data from the brut dictionary into a new dictionary with numeric ids
+                self.dictionary={};
+                self.attribIndex=attribIndex;
+                self.keyAttribute= keyAttribute;
+                self.attribNumIndex={};
+                # create the attribute num index
+                # attribIndex:          attribNumIndex
+                # vocalized: 0          0: vocalized
+                #unvocalized: 1         1: unvocalized
+                #
+                for k in self.attribIndex.keys():
+                        v=self.attribIndex[k];
+                        self.attribNumIndex[v]=k;
+                self.tableName=tableName;
+                try:
+                        self.dbConnect = sqlite.connect(FILE_DB)
+                        self.cursor = self.dbConnect.cursor()
+                except:
+                        print "Fatal Error Can't find the database file", FILE_DB
+                #create index  by word stampfor dictionary to accelerate word search.
+                # the word stamp is the arabic word without any affixation  letters, for example
+                # the word &#217;&#133;&#216;&#182;&#216;&#177;&#216;&#168; give &#216;&#182;&#216;&#177;, by removing meem and beh, the word &#216;&#182;&#216;&#177;&#217;&#133; give &#216;&#182;&#216;&#177;. the stamp is used as a first level of indexing,especially
+                # for verbs
+                # the stamp pattern is used to create the word stamp
+                self.STAMP_pat=re.compile(u"[%s%s%s%s%s%s%s%s%s]"%(araby.ALEF, araby.YEH, araby.HAMZA,  araby.ALEF_HAMZA_ABOVE, araby.WAW_HAMZA,  araby.YEH_HAMZA,   araby.WAW,  araby.ALEF_MAKSURA, araby.SHADDA),re.UNICODE)
+                
+        def getEntryById(self,id):
+                """ Get dictionary entry by id from the dictionary
+                @param id word identifier
+                @type id: integer
+                @param attribute the attribute name
+                @type attribute: unicode
+                @return: all attributes
+                @rtype: dict
+                """
+                # if the id exists and the attribute existe return the value, else return False
+                # The keys in the dictinary are numeric, for comression reason,
+                # then we use text keys in output, according to the self.attribNumIndex
+                # eg.
+                # entry ={0:"kataba", 1:"ktb"}
+                # output entry ={'vocalized':'kataba', 'unvocalized':'ktb'}
+                sql = u"select * FROM %s WHERE id='%s'"%(self.tableName,id);
+                try:
+                        self.cursor.execute(sql);
+                        if self.cursor:
+                                for row in self.cursor:
+                                        entryDict={}
+                                        for numKey in self.attribNumIndex:
+                                                textKey = self.attribNumIndex[numKey]
+                                                entryDict[textKey] = row[numKey]
+                                        return entryDict;
+                except:
+                        return False;
+                return False;
+
+        def getAttribById(self,id, attribute):
+                """ Get attribute value by id from the dictionary
+                @param id word identifier
+                @type id: integer
+                @param attribute the attribute name
+                @type attribute: unicode
+                @return: The attribute
+                value
+                @rtype: mix.
+                """
+                # if the given attribute existes on the attrib index
+                #in order to redure the dictionary size we use numecric index to show the attributes
+                # like
+                #NOUN_DICTIONATY_INDEX={u'vocalized':0, u'unvocalized':1, u'wordtype':2, u'root':3, u'original':4, u'mankous':5, u'feminable':6, u'number':7, u'dualable':8, u'masculin_plural':9, u'feminin_plural':10, u'broken_plural':11, u'mamnou3_sarf':12, u'relative':13, u'w_suffix':14, u'hm_suffix':15, u'kal_prefix':16, u'ha_suffix':17, u'k_suffix':18, u'annex':19, u'definition':20, u'note':21, }
+                #NOUN_DICTIONARY={
+                #u'&#217;&#133;&#217;&#129;&#216;&#177;&#216;&#175;/&#216;&#170;&#217;&#131;&#216;&#179;&#217;&#138;&#216;&#177;':{0:u'&#217;&#133;&#217;&#129;&#216;&#177;&#216;&#175;/&#216;&#170;&#217;&#131;&#216;&#179;&#217;&#138;&#216;&#177;', 1:u'&#217;&#133;&#217;&#129;&#216;&#177;&#216;&#175;/&#216;&#170;&#217;&#131;&#216;&#179;&#217;&#138;&#216;&#177;', 2:u'&#216;&#167;&#216;&#179;&#217;&#133; &#217;&#129;&#216;&#167;&#216;&#185;&#217;&#132;', 3:u'', 4:u'', 5:u'&#216;&#167;&#217;&#132;&#217;&#133;&#217;&#134;&#217;&#130;&#217;&#136;&#216;&#181;', 6:u'&#216;&#167;&#217;&#132;&#216;&#170;&#216;&#163;&#217;&#134;&#217;&#138;&#216;&#171;', 7:u'&#216;&#172;&#217;&#133;&#216;&#185; &#216;&#170;&#217;&#131;&#216;&#179;&#217;&#138;&#216;&#177;', 8:u'&#216;&#167;&#217;&#132;&#216;&#170;&#216;&#171;&#217;&#134;&#217;&#138;&#216;&#169;', 9:u'"&#216;&#172;. &#217;&#133;&#216;&#176;. &#216;&#179;."', 10:u'"&#216;&#172;. &#217;&#133;&#216;&#164;. &#216;&#179;."', 11:u'&#216;&#167;&#217;&#132;&#216;&#172;&#217;&#133;&#216;&#185;', 12:u'', 13:u'&#217;&#134;&#216;&#179;&#216;&#168;', 14:u'&#217;&#128;&#217;&#136;', 15:u'&#217;&#135;&#217;&#133;', 16:u'&#217;&#131;&#216;&#167;&#217;&#132;', 17:u'&#217;&#135;&#216;&#167;', 18:u'&#217;&#131;', 19:u'"&#216;&#165;&#216;&#182;. &#217;&#132;&#217;&#129;."', 20:u'', 21:u':&#217;&#132;&#216;&#167; &#216;&#172;&#216;&#176;&#216;&#177;:&#217;&#132;&#216;&#167; &#217;&#133;&#217;&#129;&#216;&#177;&#216;&#175;:&#217;&#132;&#216;&#167; &#216;&#170;&#216;&#180;&#217;&#131;&#217;&#138;&#217;&#132;:&#217;&#132;&#216;&#167; &#216;&#180;&#216;&#177;&#216;&#173;', },
+                #u'&#216;&#180;&#217;&#142;&#216;&#167;&#216;&#176;&#217;&#145;':{0:u'&#216;&#180;&#217;&#142;&#216;&#167;&#216;&#176;&#217;&#145;', 1:u'&#216;&#180;&#216;&#167;&#216;&#176;', 2:u'&#216;&#167;&#216;&#179;&#217;&#133; &#217;&#129;&#216;&#167;&#216;&#185;&#217;&#132;', 3:u'', 4:u'', 5:u'', 6:u'Ta', 7:u'&#216;&#172;&#217;&#133;&#216;&#185; &#216;&#170;&#217;&#131;&#216;&#179;&#217;&#138;&#216;&#177;', 8:u'DnT', 9:u'Pm', 10:u'Pf', 11:u'":&#216;&#180;&#217;&#136;&#216;&#167;&#216;&#176;"', 12:u'', 13:u'', 14:u'', 15:u'', 16:u'', 17:u'', 18:u'', 19:u'', 20:u'', 21:u':&#217;&#132;&#216;&#167; &#216;&#172;&#216;&#176;&#216;&#177;:&#217;&#132;&#216;&#167; &#217;&#133;&#217;&#129;&#216;&#177;&#216;&#175;:&#217;&#132;&#216;&#167; &#216;&#180;&#216;&#177;&#216;&#173;', },
+
+                if self.attribIndex.has_key(attribute):
+                        attnum=self.attribIndex[attribute];
+                else:
+                        return False;
+                # if the id exists and the attribute existe return the value, else return False
+                sql = u"select * FROM %s WHERE id='%s'"%(self.tableName,id);
+                try:
+                        self.cursor.execute(sql);
+                        entryDict={}            
+                        if self.cursor:
+                                for row in self.cursor:
+                                                return  row[attnum]
+                except:
+                        return False;                                   
+                return False;
+
+        def lookup(self,normalized, has_plural_suffix=False):
+                """
+                look up for all word forms in the dictionary
+                @param normalized the normalized word.
+                @type text: unicode.
+                @return: list of dictionary entries IDs.
+                @rtype: list.
+                """
+                idList=[];
+                normword=araby.normalizeHamza(normalized)
+                
+                sql = u"select id FROM %s WHERE normalized='%s'"%(self.tableName,normword);
+                try:
+                        self.cursor.execute(sql);
+                        if self.cursor:
+                                for row in self.cursor:
+                                                idList.append(row[0]);
+                        return idList;
+                except:
+                        return [];
+        def existsAsStamp(self, word):
+                """
+                look up for word if exists by using the stamp index,
+                the input word is stamped by removing infixes letters like alef, teh
+                the stamped word is looked up in the stamp index
+                @param word to look for.
+                @type text: unicode.
+                @return: True if exists.
+                @rtype: Boolean.
+                """
+                stamp=self.wordStamp(word)              
+                sql = u"select id FROM %s WHERE stamped='%s'"%(self.tableName,stamp);
+                try:
+                        self.cursor.execute(sql);
+                        if self.cursor:
+                                return True;
+                except:
+                        return False;
+                return False;
+        def lookupByStamp(self,word):
+                """
+                look up for word if exists by using the stamp index,
+                the input word is stamped by removing infixes letters like alef, teh
+                the stamped word is looked up in the stamp index
+                @param word to look for.
+                @type text: unicode.
+                @return: list of dictionary entries IDs.
+                @rtype: list.
+                """
+                idList=[]
+                stamp=self.wordStamp(word)
+                sql = u"select id FROM %s WHERE stamped='%s'"%(self.tableName,stamp);
+                try:
+                        self.cursor.execute(sql);
+                        if self.cursor:
+                                for row in self.cursor:
+                                                idList.append(row[0]);
+                except:
+                        return [];
+                return idList;
+
+
+
+        def wordStamp(self,word):
+                """
+                generate a stamp for a word,
+                remove all letters which can change form in the word :
+                - ALEF,
+                - HAMZA,
+                - YEH,
+                - WAW,
+                - ALEF_MAKSURA
+                - SHADDA
+                @return: stamped word
+                """
+                # strip the last letter if is doubled
+                if word[-1:]== word[-2:-1]:
+                        word=word[:-1];
+                return self.STAMP_pat.sub('',word)
+
+#Class test
+if __name__ == '__main__':
+        #ToDo: use the full dictionary of arramooz
+        VERB_DICTIONARY_INDEX={
+u'id':0,
+u'vocalized':1,
+u'unvocalized':2,
+u'root':3,
+u'normalized':4,
+u'stamped':5,
+u'future_type':6,
+u'triliteral':7,
+u'transitive':8,
+u'double_trans':9,
+u'think_trans':10,
+u'unthink_trans':11,
+u'reflexive_trans':12,
+u'past':13,
+u'future':14,
+u'imperative':15,
+u'passive':16,
+u'future_moode':17,
+u'confirmed':18,
+        }
+        #from   dictionaries.verb_dictionary  import *
+        mydict=arabicDictionary('verbs', VERB_DICTIONARY_INDEX);
+        wordlist=[u"&#216;&#167;&#216;&#179;&#216;&#170;&#217;&#130;&#217;&#132;&#217;&#145;", u'&#216;&#167;&#216;&#179;&#216;&#170;&#217;&#130;&#217;&#132;']
+        for word in wordlist:
+                print "jjjjjjjj"
+                idlist=mydict.lookupByStamp(word);
+                print idlist;
+                for id in idlist:
+                        print mydict.getAttribById(id, u'vocalized').encode('utf8');
+                        myentry= mydict.getEntryById(id);
+                        print repr(myentry);
+                        for k in myentry.keys():
+                                print u"\t".join([k,unicode(myentry[k])]).encode('utf8');
+<script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Mar 16 22:44:15 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

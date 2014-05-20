@@ -1,0 +1,51 @@
+<!DOCTYPE html 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="ar">
+<head>
+<title>مشاريع للغة العربية</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="icon" type="image/png" href="favicon.ico">
+
+</head>
+<body dir="rtl">
+<center>
+<img src="images/logo.png" alt="مشكال: تشكيل النصوص العربية" align='center' width=300 style='align:center;'>
+<h1>
+مشكال النصوص العربية
+</h1>
+<hr>
+<h2 >400 Bad Request</h2>
+<h3> خطأ في الطلب </h3>
+<hr>
+<h3>يمكنك العودة إلى
+<a href='/'>  الصفحة الرئيسية
+</a></h3>
+<p>يرجى الاتصال بمسؤول الموقع</p>
+<h1>أترك تعليقا</h1>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mishkal'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+  <div id="footer">
+    <a href="/mishkal/contact">للاتصال</a>&nbsp;
+    &nbsp;بدعم من &nbsp;&nbsp; <a href="http://www.arabeyes.org">arabeyes.org</a>
+	<a href="http://blog.tahadz.com">مدونتي</a>
+	</div>
+<script type="text/javascript">var script="%(script)s";</script>
+<!--<script type="text/javascript" src="%(script)s/_files/qamoos.js"></script>-->
+<script type="text/javascript" src="%(script)s/_files/adawat.js"></script>
+</center>
+</body>
+</html>

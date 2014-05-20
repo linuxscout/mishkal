@@ -1,0 +1,106 @@
+2014-03-29:
+	- ajust حالة كسر هاء الشمير المتصل بعد الكسرة
+08-01-2014
+	- work on integrated spellcheker
+08-01-2014
+	- add a curser as pointer on vocalized texts
+07-01-2014
+	- work on integrated spellcheker
+06-01-2014
+	* ajust unicode display in logging file, by adding a new class core.myrepr.py
+	* add a buuton to get random text from local and from maqola.org
+	* ajust time display in logging file
+	* cancel results logging, they consume much space and no objectives
+05-01-2014
+	* ajust images in doc file
+16-12-2013
+	* fork arramooz library from qlasadi 
+	* fork collocations library from tashkeel 
+17-july-2013:
+	* ajust punctuation in web output
+11-july-2013:
+	* Qalsadi: ajust the NOON WIQAYA in morphological analysis
+	* Qalsadi: ajust the ALEF MAKSURA transformatio into ALEF with enclitic
+10-july-2013:
+	* ajust library path
+	* restructure directories
+07-may-2013:
+	* reorganize wordtag module
+	* relocate number module into pyarabic
+	* relocate unshape module into pyarabic
+06-may-2013:
+	* add synNode module to group word cases in syntaxic analysis
+	* add tokenize function to pyarabic.araby module
+	* add stripShadaa function to  pyarabic.araby module
+	* add number words recognation module unnumber
+	* add preTashkeel function to tashkeel module and number words tashkeel.
+	* work on named enteties recognation
+
+12-04-2013:Taha
+	* Add Cache to wordtag to reduce treatment
+	* reduce thye stemmedSynWord class creation
+	* add __repr_ to stemmedword and stemmedsynword
+	* move the stemmedword class to qalsadi
+	* change the qalsadi result structure from dict to stemmedword
+	* change pattern in wordtag to compiled patterns
+
+31-12-2012: Taha
+	* Add connections betwwen nodes semanticly and syntacticlys
+	* add  more options to test tashkeel like: semantic, syntaxic, last mark, compare
+	* add a function to evaluate the vocalization similarity
+02-12-2012: Taha
+	* Initial case
+	* change tashkeel choice method
+	* fix the index page
+	* create the ASMAI: Arabic semantic Analyzer 
+23-11-2012: Taha
+	* add adjective feature to stemmedSynword class
+	*  add coolocations show feature to the web interface
+17-09-2012: Taha
+	* reduce database access fo wordfreq
+	* speed up database access by indexes
+	*- fix added yeh problem
+	* improving GUI-
+16-09-2012: Taha
+	*-  add suggestion edition features
+	*- fix added yeh problem
+13-09-2012: Taha
+	* Generate random text
+	* update Qalsadi mopho analyzer
+11-9-2012:
+	* - ÇáÅÖÇÝÉ ÇááÝÙíÉ ãËá áÇÚÈæ ÇáÝÑíÞ
+05-01-12:Taha
+	* gui/appgui.py: fix the thread problem
+	*
+07-01-12:Taha
+	* gui/appgui.py: Add application icon
+	* First windows desktop release.
+	* data/randomtext : add random texts separated by '###'
+	* gui/appgui.py: Correct the font problems and setting application.
+	* tashkeel/tashkeel.py : add limit text length to 1000.
+	* tashkeel/tashkeel.py : atashkeel/tashkeel.pydd function to set the limit text lenght to be vocalized.
+	* gui/appgui.py: Enable actions features before tashkeel
+06-01-12:Taha
+	* gui: fix the font problem and RightToLeft direction.
+	* gui: add a progress bar, while process tashkeel.
+05-01-2012:Taha
+	* add rewrite rules to improve urls.
+	* aranalex/analex: improve speed, by avoiding multiple morphological analysis for a word;
+	* aranalex/analex: guess word type before analysis to speed up the process.
+04-01-2012:Taha
+	* Replace python data dictionary, by sqlite dictionary, aranalex/arabicdictionary.py
+	* Thanks to Sohaib Affifi and Assem Chelli for testing the web interface.
+03-01-2012:Taha
+	publish the full open source on web: http://mishkal.sf.net
+21-12-2011:Taha
+	* Add logging feature
+	* Add reduceTashkeel function to pyArabic
+20-12-2011:Taha
+	* Create a GUI
+	* Add tashkeel evaluation to test the tashkeel performance
+	* Fix a bug in syntax analyzer, which avoid stopwords to change the next word state
+15-12-2011:Taha
+	* Add vocalized collocations
+24-11-2011:Taha
+	* first alpha release on the web
+	* The script use cgi to run web frame work.

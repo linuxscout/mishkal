@@ -1,0 +1,99 @@
+الْدَرَاجَةُ	الدراجة	ـََْـَُ	ـــــــ
+الْدَرَاجَةُ	الدراجة	ـََْـَُ	ـــــــ
+الْدَرَاجَةُ	الْدَرَاجَةُ
+الدّرّاجة	الدراجة	ــْـْــــ	ــّّـــ
+الدّرّاجة	الدّرّاجة	ــْـْــــ	ــّّـــ
+الدّرّاجة	الدّرّاجة
+سّلّامْ	سلام	ْـْــْ	ّّــ
+سّلّامْ	سّلّام	ْـْــْ	ّّــ
+سّلّامْ	سّلّامْ
+         284942 function calls (284934 primitive calls) in 0.330 CPU seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.330    0.330 <string>:1(<module>)
+        2    0.000    0.000    0.000    0.000 __init__.py:49(normalize_encoding)
+        2    0.001    0.000    0.001    0.000 __init__.py:71(search_function)
+        1    0.006    0.006    0.321    0.321 araby.py:26(<module>)
+     3000    0.002    0.000    0.004    0.000 araby.py:728(stripShadda)
+     3000    0.105    0.000    0.282    0.000 araby.py:791(separate)
+        6    0.000    0.000    0.000    0.000 araby.py:842(joint)
+        2    0.000    0.000    0.000    0.000 codecs.py:77(__new__)
+     6000    0.008    0.000    0.037    0.000 re.py:144(sub)
+        8    0.000    0.000    0.032    0.004 re.py:188(compile)
+     6008    0.007    0.000    0.042    0.000 re.py:229(_compile)
+       15    0.000    0.000    0.030    0.002 sre_compile.py:184(_compile_charset)
+       15    0.003    0.000    0.030    0.002 sre_compile.py:213(_optimize_charset)
+      101    0.000    0.000    0.000    0.000 sre_compile.py:24(_identityfunction)
+       28    0.001    0.000    0.001    0.000 sre_compile.py:264(_mk_bitmap)
+       14    0.018    0.001    0.028    0.002 sre_compile.py:307(_optimize_unicode)
+        1    0.000    0.000    0.000    0.000 sre_compile.py:360(_simple)
+       10    0.000    0.000    0.013    0.001 sre_compile.py:367(_compile_info)
+    13/10    0.000    0.000    0.018    0.002 sre_compile.py:38(_compile)
+       20    0.000    0.000    0.000    0.000 sre_compile.py:480(isstring)
+       10    0.000    0.000    0.031    0.003 sre_compile.py:486(_code)
+       10    0.000    0.000    0.032    0.003 sre_compile.py:501(compile)
+        8    0.000    0.000    0.000    0.000 sre_parse.py:132(__len__)
+       14    0.000    0.000    0.000    0.000 sre_parse.py:136(__getitem__)
+        1    0.000    0.000    0.000    0.000 sre_parse.py:140(__setitem__)
+       14    0.000    0.000    0.000    0.000 sre_parse.py:144(append)
+    14/11    0.000    0.000    0.000    0.000 sre_parse.py:146(getwidth)
+       10    0.000    0.000    0.000    0.000 sre_parse.py:184(__init__)
+      110    0.000    0.000    0.000    0.000 sre_parse.py:188(__next)
+       73    0.000    0.000    0.000    0.000 sre_parse.py:201(match)
+       96    0.000    0.000    0.000    0.000 sre_parse.py:207(get)
+        1    0.000    0.000    0.000    0.000 sre_parse.py:231(_class_escape)
+       10    0.000    0.000    0.001    0.000 sre_parse.py:307(_parse_sub)
+       11    0.000    0.000    0.001    0.000 sre_parse.py:385(_parse)
+       10    0.000    0.000    0.001    0.000 sre_parse.py:669(parse)
+       10    0.000    0.000    0.000    0.000 sre_parse.py:73(__init__)
+       13    0.000    0.000    0.000    0.000 sre_parse.py:96(__init__)
+        1    0.000    0.000    0.000    0.000 stack.py:20(<module>)
+        1    0.000    0.000    0.000    0.000 stack.py:21(Stack)
+     9018    0.014    0.000    0.014    0.000 stack.py:22(__init__)
+    54054    0.034    0.000    0.048    0.000 stack.py:25(push)
+    41096    0.043    0.000    0.070    0.000 stack.py:28(pop)
+    41108    0.014    0.000    0.014    0.000 stack.py:34(isEmpty)
+        1    0.000    0.000    0.000    0.000 utf_16_be.py:18(IncrementalEncoder)
+        1    0.000    0.000    0.000    0.000 utf_16_be.py:22(IncrementalDecoder)
+        1    0.000    0.000    0.000    0.000 utf_16_be.py:25(StreamWriter)
+        1    0.000    0.000    0.000    0.000 utf_16_be.py:28(StreamReader)
+        1    0.000    0.000    0.000    0.000 utf_16_be.py:33(getregentry)
+        1    0.000    0.000    0.000    0.000 utf_16_be.py:8(<module>)
+        1    0.000    0.000    0.000    0.000 utf_8.py:18(IncrementalEncoder)
+        1    0.000    0.000    0.000    0.000 utf_8.py:22(IncrementalDecoder)
+        1    0.000    0.000    0.000    0.000 utf_8.py:25(StreamWriter)
+        1    0.000    0.000    0.000    0.000 utf_8.py:28(StreamReader)
+        1    0.000    0.000    0.000    0.000 utf_8.py:33(getregentry)
+        1    0.000    0.000    0.000    0.000 utf_8.py:8(<module>)
+       10    0.000    0.000    0.000    0.000 {_sre.compile}
+        2    0.000    0.000    0.000    0.000 {built-in method __new__ of type object at 0x1E1CB2E8}
+     6000    0.019    0.000    0.019    0.000 {built-in method sub}
+        1    0.008    0.008    0.330    0.330 {execfile}
+        2    0.000    0.000    0.000    0.000 {hasattr}
+       68    0.000    0.000    0.000    0.000 {isinstance}
+  307/305    0.000    0.000    0.000    0.000 {len}
+        2    0.000    0.000    0.000    0.000 {max}
+    54723    0.014    0.000    0.014    0.000 {method 'append' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        9    0.000    0.000    0.001    0.000 {method 'encode' of 'unicode' objects}
+       16    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
+     6016    0.003    0.000    0.003    0.000 {method 'get' of 'dict' objects}
+       10    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+        8    0.000    0.000    0.000    0.000 {method 'join' of 'str' objects}
+     6018    0.003    0.000    0.003    0.000 {method 'join' of 'unicode' objects}
+    38084    0.013    0.000    0.013    0.000 {method 'pop' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+     3000    0.002    0.000    0.002    0.000 {method 'replace' of 'unicode' objects}
+     3012    0.001    0.000    0.001    0.000 {method 'reverse' of 'list' objects}
+     3584    0.009    0.000    0.009    0.000 {method 'setdefault' of 'dict' objects}
+        2    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+       14    0.000    0.000    0.000    0.000 {method 'tolist' of 'array.array' objects}
+       14    0.000    0.000    0.000    0.000 {method 'tostring' of 'array.array' objects}
+        2    0.000    0.000    0.000    0.000 {method 'translate' of 'str' objects}
+       28    0.000    0.000    0.000    0.000 {min}
+       53    0.000    0.000    0.000    0.000 {ord}
+        3    0.000    0.000    0.000    0.000 {range}
+
+

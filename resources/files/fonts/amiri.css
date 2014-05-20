@@ -1,0 +1,36 @@
+
+@font-face {
+    font-family: AmiriWeb;
+    font-style: normal;
+    font-weight: 400;
+    src: url('amiri-regular.eot?') format('eot'),
+         url('amiri-regular.woff') format('woff'),
+         url('amiri-regular.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: AmiriWeb;
+    font-style: normal;
+    font-weight: 700;
+    src: url('amiri-bold.eot?') format('eot'),
+         url('amiri-bold.woff') format('woff'),
+         url('amiri-bold.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: AmiriWeb;
+    font-style: oblique;
+    font-weight: 400;
+    src: url('amiri-slanted.eot?') format('eot'),
+         url('amiri-slanted.woff') format('woff'),
+         url('amiri-slanted.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: AmiriWeb;
+    font-style: oblique;
+    font-weight: 700;
+    src: url('amiri-boldslanted.eot?') format('eot'),
+         url('amiri-boldslanted.woff') format('woff'),
+         url('amiri-boldslanted.ttf')  format('truetype');
+}

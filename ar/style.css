@@ -1,0 +1,38 @@
+﻿body {
+	direction: rtl;
+	font-family: Traditional Arabic, "Times New Roman";
+	font-size: 16pt;
+	padding: 1cm;
+	padding-top: 0.25cm;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+
+h1 {
+	color: rgb(255, 255, 255);
+	background-color: rgb(204, 0, 0);
+	width: 839px;
+	height: 1.5em;
+	text-align: right;
+	margin-left: auto;
+	margin-right: 0px;
+}
+
+p {
+	text-align: right;
+	margin-top: 0;
+	margin-right: 5%;
+}
+
+table {
+	direction: rtl;
+	width: 100%;
+	margin: 0;
+}
+
+td {vertical-align: top;}
+th {text-align: right;white-space: nowrap;}
+#result {	font-size:16pt;}
+.result {	font-size:16pt;}
+img#logo {	border: 0px solid;}

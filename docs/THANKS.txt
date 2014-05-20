@@ -1,0 +1,16 @@
+﻿Credits
+Many thanks to the following individuals who have provided useful feedback and contibutions.
+
+	Abdelwahab Djoudi
+	Sohaib Afifi.
+	Assem Chelli
+	Bassem Jarkas
+	Ibrahim Bounehasse
+	Mohamed Attia
+	Dr. Nada Ghoneim
+	Waleed Alhassan 
+	Mohamed Chaaban ( linuxac.org)
+	Mos'ab alZu'bi (linuxac.org)
+	Taha munzir
+	Walid Ziouche
+	
