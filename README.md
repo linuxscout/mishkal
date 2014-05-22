@@ -1,4 +1,4 @@
 mishkal
 =======
 
-Miskal Arabic text vocalization software
+Mishkal Arabic text vocalization software
