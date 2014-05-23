@@ -3,11 +3,14 @@
 mishkal
 =======
   Mishkal Arabic text vocalization software
+  
   Mishkal : Arabic text vocalization system
+  
   مشكال لتشكيل النصوص العربية
+  
   This program is licensed under the GPL License
-  Developpers:
-	Taha Zerrouki: http://tahadz.com
+  
+  Developpers: 	Taha Zerrouki: http://tahadz.com
 	taha dot zerrouki at gmail dot com
 
 
@@ -60,54 +63,51 @@ Run MishkalGui
 
 Files
 =====
-  file/directory	category	description 
-  [program]
-  	mishkal-console.py	program	Mishkal script used on shell command
-  	mishkal-gui.py	program	launch mishkal GUI interface with QT
-  	mishkal-webserver.py	web	lauch mishkal web server\n
+* file/directory	category	description 
+* [program]
+	- mishkal-console.py	program	Mishkal script used on shell command
+	- mishkal-gui.py	program	launch mishkal GUI interface with QT
+	- mishkal-webserver.py	web	lauch mishkal web server\n
   
-  [docs]
+* [docs]
   	docs/	docs	documentation
-  [setup]
-  	exe_setup.py	setup	prepare setup for windows using py2exe
-  	setup.py	setup	setup for library and linux package
-  [src]
-  	aranasyn/	src	Arabic syntaxic analyzer
-  	asmai/	src	Arabic syntaxic analyzer
-  	core/	src	basic tools
-  	gui/	src	GUI source
-  	tashkeel/	src	Tashkeel module source
-  [lib]
-  	lib/	lib	Libraries
-  [data]
-  	data/	data	databases files
-  [resouces]
-  	ar/	resources	reources for gui arabic
-  [log]
-  	tmp/	log	tomporary fdirectory for web service
-  [tools]
-  	cleanpyc	setup	a shell script to remove .pyc files
-  [test]
-  	output/	test	test output
-  	samples/	test	sample files
-  	tools/	test	script to use mishkal
-  [web]
-  	files/	web	files used for web service
-  	templates/	web	Templates used for web service
-  	adawaty.py	web	a script for web service
-  	cgirunner.py	web	a script for web service using cgi
-  	crossdomain.xml	web	Configuration file to allow cross domain json API
-  	index.html	web	an index file to avoid directory access
-  	mishkal	web	A cgi Script used on web service
-  	mishkal-webserver.py	web	lauch mishkal web server
-  [apps]
-  	mintiq	TTS	a shell script to join mishkla with espeak Text to speech
+* [setup]
+	- exe_setup.py	setup	prepare setup for windows using py2exe
+  	- setup.py	setup	setup for library and linux package
+* [src]
+  	- aranasyn/	src	Arabic syntaxic analyzer
+  	- asmai/	src	Arabic syntaxic analyzer
+  	- core/	src	basic tools
+  	- gui/	src	GUI source
+  	- tashkeel/	src	Tashkeel module source
+* [lib]
+  	- lib/	lib	Libraries
+* [data]
+  	- data/	data	databases files
+* [resouces]
+  	- ar/	resources	reources for gui arabic
+* [log]
+  	- tmp/	log	tomporary fdirectory for web service
+* [tools]
+	- cleanpyc	setup	a shell script to remove .pyc files
+* [test]
+	- output/	test	test output
+	- samples/	test	sample files
+	- tools/	test	script to use mishkal
+* [web]
+  	- files/	web	files used for web service
+  	- templates/	web	Templates used for web service
+  	- adawaty.py	web	a script for web service
+  	- cgirunner.py	web	a script for web service using cgi
+  	- crossdomain.xml	web	Configuration file to allow cross domain json API
+  	- index.html	web	an index file to avoid directory access
+  	- mishkal	web	A cgi Script used on web service
+  	- mishkal-webserver.py	web	lauch mishkal web server
+* [apps]
+  	- mintiq	TTS	a shell script to join mishkla with espeak Text to speech
 
 JSON connection API:
 -----------------
-view docs/html/index.html (in arabic)
-
-
 
 <a name="API"><h3>التشكيل عن بعد</h3></a>
 يمكن استدعاء خدمة الموقع عبر مكتبة جيسون json و ajax من أي موقع، ويمكنك استعمالها في موقعك
