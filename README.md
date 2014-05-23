@@ -28,22 +28,24 @@ http://github.com/linuxscout/mishkal
 
 Usage
 =====
-* Windows :
+### Windows :
 -----------
-Run MishkalGui
+ * Run MishkalGui
 
-* GUI: Linux
+### GUI: Linux
 ---------------
  - mishkal-gui
-*Web server (linux, windows)
+### Web server (linux, windows)
 -----------
-  mishkal-webserver
-  serving on 0.0.0.0:8080 view at http://127.0.0.1:8080
-  open in your browser the URL: http://127.0.0.1:8080
+  * mishkal-webserver
+  * serving on 0.0.0.0:8080 view at http://127.0.0.1:8080
+  * open in your browser the URL: http://127.0.0.1:8080
 
-* Console (linux/windows)
------------------
+### Console (linux/windows)
+
  Usage: mishkal-console -f filename [OPTIONS]
+
+
         mishkal-console 'السلام عليكم' [OPTIONS]
 
 	[-f | --file= filename]input file to mishkal-console
