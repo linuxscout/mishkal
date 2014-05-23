@@ -34,7 +34,8 @@ Usage
 
 ### GUI: Linux
 ---------------
- - mishkal-gui
+  - mishkal-gui
+
 ### Web server (linux, windows)
 -----------
   * mishkal-webserver
