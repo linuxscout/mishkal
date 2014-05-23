@@ -74,14 +74,18 @@ Files
 * [setup]
 	- exe_setup.py	setup	prepare setup for windows using py2exe
   	- setup.py	setup	setup for library and linux package
-* [src]
-  	- aranasyn/	src	Arabic syntaxic analyzer
-  	- asmai/	src	Arabic syntaxic analyzer
-  	- core/	src	basic tools
-  	- gui/	src	GUI source
-  	- tashkeel/	src	Tashkeel module source
+* [mishkal]
+  	- lib/aranasyn/		Arabic syntaxic analyzer
+  	- lib/asmai/		Arabic syntaxic analyzer
+  	- gui/		GUI source
+  	- tashkeel/		Tashkeel module source
+* core/		basic tools
+
 * [lib]
-  	- lib/	lib	Libraries
+  	- web/	lib	Libraries fot web interface
+  	- web/okasha	trivial web framework
+  	- web/paste		web frame work
+  	- web/simplejson	simple json library		
 * [data]
   	- data/	data	databases files
 * [resouces]
@@ -94,7 +98,7 @@ Files
 	- output/	test	test output
 	- samples/	test	sample files
 	- tools/	test	script to use mishkal
-* [web]
+* [resources]
   	- files/	web	files used for web service
   	- templates/	web	Templates used for web service
   	- adawaty.py	web	a script for web service
