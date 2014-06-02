@@ -5,20 +5,6 @@ __pycache__/
 # C extensions
 *.so
 
-# Distribution / packaging
-.Python
-env/
-bin/
-build/
-develop-eggs/
-dist/
-eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
 .installed.cfg
 *.egg
 
@@ -52,5 +38,5 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
-tmp/
-tests/output
+/tmp/
+/tests/output
