@@ -7297,3 +7297,92 @@ INFO:MyTestWebApp:got uri=[/ajaxGet]
 INFO:MyTestWebApp:2014-05-19 11:54	Tashkeel2		من أقوال مصطفى محمود،
 INFO:MyTestWebApp:got uri=[/ajaxGet]
 INFO:MyTestWebApp:2014-05-19 11:54	Tashkeel2		- من مساهمات زوار الموقع.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-19 12:29	Tashkeel2	يلسع البعوض.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-19 12:31	Tashkeel2	الجو معتدل .
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-19 12:31	Tashkeel2	الجو معتدل .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-19 12:32	Tashkeel2	لا ترافق الأشرار .
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-19 12:33	Tashkeel2	لا ترافق الأشرار .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-19 12:34	Tashkeel2	يلسع البعوض.
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-19 12:35	Tashkeel2	ضاع المفتاح .
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-19 12:35	Tashkeel2	يصدق التاجر كي يرضي الله .
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
