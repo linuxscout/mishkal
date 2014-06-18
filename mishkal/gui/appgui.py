@@ -966,7 +966,7 @@ body {
 
             word=unicode(word);
             word = word.strip(' ');
-            self.result["HTML"]=araby.stripTashkeel(word);
+            self.result["HTML"]=araby.strip_tashkeel(word);
             self.display_result_in_tab()
 
 

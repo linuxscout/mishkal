@@ -12,7 +12,7 @@
 #-------------------------------------------------------------------------------
 
 """
-The original web interface is friom webQamoos,
+The original web interface is from webQamoos,
 
 Copyright © 2009, Muayyad Alsadi <alsadi@ojuba.org>
     Released under terms of Waqf Public License.
@@ -96,7 +96,7 @@ class webApp(baseWebApp):
 		return {
 	  'title':u'أدوات',
 	  'script':rq.script,
-	  'DefaultText':core.adaat.randomText(),
+	  'DefaultText':core.adaat.random_text(),
 	  'ResultText':u"السلام عليكم",
 		'header':header,
 		"footer":footer,	  
@@ -107,7 +107,7 @@ class webApp(baseWebApp):
 		return {
 	  'title':u'مشكال لتشكيل النصوص',
 	  'script':rq.script,
-	  'DefaultText':core.adaat.randomText(),
+	  'DefaultText':core.adaat.random_text(),
 	  'ResultText':u"السلام عليكم",
 		'header':header,
 		"footer":footer,	  

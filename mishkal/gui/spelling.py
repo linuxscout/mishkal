@@ -26,7 +26,7 @@ class myspeller:
 	def __init__(self):
 		self.dict={};
 	def check(self, word):
-		key=araby.stripTashkeel(word);
+		key=araby.strip_tashkeel(word);
 		if self.dict.has_key(key):
 			return False;
 		else:
@@ -42,9 +42,9 @@ class myspeller:
 				# suggestList=set(suggestList);
 				# self.dict[word]=suggestList;
 			#else:
-			self.dict[araby.stripTashkeel(word)]=suggestList;
+			self.dict[araby.strip_tashkeel(word)]=suggestList;
 	def suggest(self, word):
-		key=araby.stripTashkeel(word)
+		key=araby.strip_tashkeel(word)
 		if self.dict.has_key(key):
 			return self.dict[key];
 		return [];

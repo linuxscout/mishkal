@@ -7297,3 +7297,579 @@ INFO:MyTestWebApp:got uri=[/ajaxGet]
 INFO:MyTestWebApp:2014-05-19 11:54	Tashkeel2		من أقوال مصطفى محمود،
 INFO:MyTestWebApp:got uri=[/ajaxGet]
 INFO:MyTestWebApp:2014-05-19 11:54	Tashkeel2		- من مساهمات زوار الموقع.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/favicon.ico]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-05-22 11:14	Tashkeel2	أرجو أن يعتدل الجو .
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-05-22 11:15	Tashkeel2	أرجو أن يعتدل الجو .
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-05-22 11:26	Tashkeel2	ادخل البستان ومتع نفسك بمنظره ، ولا تعبث بأزهاره وثماره.
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:MyTestWebApp:got uri=[/doc]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/samples/mishkal_alpha_smpl.png]
+INFO:MyTestWebApp:got uri=[/_files/samples/mixkal.jpg]
+INFO:MyTestWebApp:got uri=[/_files/samples/gotashkeel.png]
+INFO:MyTestWebApp:got uri=[/mishkal/projects]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/projects]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-03 01:28	RandomText	ZerroukiTAha
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-03 01:28	RandomText	ZerroukiTAha
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-03 01:28	RandomText	ZerroukiTAha
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-03 01:28	RandomText	ZerroukiTAha
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-03 01:28	LightStemmer	باضت الدجاجة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-03 01:28	RandomText	ZerroukiTAha
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-03 01:28	LightStemmer	لا تلبس الملابس الضيقة .
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 12:48	Tashkeel2	تحمل الشجرة ثمارا ناضجة .
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 12:49	Tashkeel2	تحمل الشجرة ثمارا ناضجة .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:26	LightStemmer	لا تشرب الماء الراكد .
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:27	LightStemmer	لا تهمل دروسك .
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:28	LightStemmer	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:29	StripHarakat	لا تهمل دروسك .
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:30	StripHarakat	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:30	ReduceTashkeel	لا تهمل دروسك .
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:31	ReduceTashkeel	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:31	CompareTashkeel	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:31	showCollocations	لا تهمل دروسك .
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:32	CompareTashkeel	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:32	showCollocations	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:32	Tokenize	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:32	Affixate	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:32	Normalize	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:32	Wordtag	لا تهمل دروسك .
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:33	Wordtag	لا تهمل دروسك .
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:34	Wordtag	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:35	Tashkeel2	لا تهمل دروسك .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:35	Wordtag	لا تهمل دروسك .
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:36	Wordtag	لا تهمل دروسك .
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:37	Wordtag	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:38	Language	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 06:38	extractNamed	لا تهمل دروسك .
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:47	LightStemmer	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:47	StripHarakat	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:47	ReduceTashkeel	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:47	CompareTashkeel	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:47	showCollocations	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:47	Tokenize	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:47	Affixate	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:47	Normalize	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:47	Wordtag	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:47	Language	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:47	extractNamed	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:48	extractNamed	لا تهمل دروسك .
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:48	extractNamed	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:48	extractNumbered	لا تهمل دروسك .
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:49	extractNumbered	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:50	NumberToLetters	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:50	Inverse	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:50	Poetry	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:50	Unshape	لا تهمل دروسك .
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:50	RandomText	ZerroukiTAha
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:50	Tokenize	
+	مَوَاعِيدُ عُرْقُوبٍ
+
+	قَالَ أبو عبيد‏:‏ هو رجل من العَمَاليق، أتاه أخ له يسأله، فَقَالَ له عرقوب‏:‏ إذا أطْلَعَتْ هذه النخلة فلك طَلْعُها، فلما أطلعت أتاه للعِدَةِ، فَقَالَ‏:‏ دَعْها حتى تصير بَلَحا، فلما أبْلَحَتْ قَالَ‏:‏ دَعْها حتى تصيرَ زَهْوًا، فلما زَهَت قَالَ‏:‏ دَعْها حتى تصير رُطَبا، فلما أرْطَبَتْ قَالَ‏:‏ دَعْها حتى تصير تمراً، فلما أتْمَرَتْ عمد إليها عرقوبٌ من الليل فجدَّها ولم يُعْطِ أخاه شيئاً، فصار مثلاً في الخُلْفِ.
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:50	extractNumbered	
+	مَوَاعِيدُ عُرْقُوبٍ
+
+	قَالَ أبو عبيد‏:‏ هو رجل من العَمَاليق، أتاه أخ له يسأله، فَقَالَ له عرقوب‏:‏ إذا أطْلَعَتْ هذه النخلة فلك طَلْعُها، فلما أطلعت أتاه للعِدَةِ، فَقَالَ‏:‏ دَعْها حتى تصير بَلَحا، فلما أبْلَحَتْ قَالَ‏:‏ دَعْها حتى تصيرَ زَهْوًا، فلما زَهَت قَالَ‏:‏ دَعْها حتى تصير رُطَبا، فلما أرْطَبَتْ قَالَ‏:‏ دَعْها حتى تصير تمراً، فلما أتْمَرَتْ عمد إليها عرقوبٌ من الليل فجدَّها ولم يُعْطِ أخاه شيئاً، فصار مثلاً في الخُلْفِ.
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:50	extractNumbered	
+	مَوَاعِيدُ عُرْقُوبٍ
+
+	قَالَ أبو عبيد‏:‏ هو رجل من العَمَاليق، أتاه أخ له يسأله، فَقَالَ له عرقوب‏:‏ إذا أطْلَعَتْ هذه النخلة فلك طَلْعُها، فلما أطلعت أتاه للعِدَةِ، فَقَالَ‏:‏ دَعْها حتى تصير بَلَحا، فلما أبْلَحَتْ قَالَ‏:‏ دَعْها حتى تصيرَ زَهْوًا، فلما زَهَت قَالَ‏:‏ دَعْها حتى تصير رُطَبا، فلما أرْطَبَتْ قَالَ‏:‏ دَعْها حتى تصير تمراً، فلما أتْمَرَتْ عمد إليها عرقوبٌ من الليل فجدَّها ولم يُعْطِ أخاه شيئاً، فصار مثلاً في الخُلْفِ.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:53	extractNumbered	
+	مَوَاعِيدُ عُرْقُوبٍ
+
+	قَالَ أبو عبيد‏:‏ هو رجل من العَمَاليق، أتاه أخ له يسأله، فَقَالَ له عرقوب‏:‏ إذا أطْلَعَتْ هذه النخلة فلك طَلْعُها، فلما أطلعت أتاه للعِدَةِ، فَقَالَ‏:‏ دَعْها حتى تصير بَلَحا، فلما أبْلَحَتْ قَالَ‏:‏ دَعْها حتى تصيرَ زَهْوًا، فلما زَهَت قَالَ‏:‏ دَعْها حتى تصير رُطَبا، فلما أرْطَبَتْ قَالَ‏:‏ دَعْها حتى تصير تمراً، فلما أتْمَرَتْ عمد إليها عرقوبٌ من الليل فجدَّها ولم يُعْطِ أخاه شيئاً، فصار مثلاً في الخُلْفِ.
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:53	NumberToLetters	
+	مَوَاعِيدُ عُرْقُوبٍ
+
+	قَالَ أبو عبيد‏:‏ هو رجل من العَمَاليق، أتاه أخ له يسأله، فَقَالَ له عرقوب‏:‏ إذا أطْلَعَتْ هذه النخلة فلك طَلْعُها، فلما أطلعت أتاه للعِدَةِ، فَقَالَ‏:‏ دَعْها حتى تصير بَلَحا، فلما أبْلَحَتْ قَالَ‏:‏ دَعْها حتى تصيرَ زَهْوًا، فلما زَهَت قَالَ‏:‏ دَعْها حتى تصير رُطَبا، فلما أرْطَبَتْ قَالَ‏:‏ دَعْها حتى تصير تمراً، فلما أتْمَرَتْ عمد إليها عرقوبٌ من الليل فجدَّها ولم يُعْطِ أخاه شيئاً، فصار مثلاً في الخُلْفِ.
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:53	Inverse	
+	مَوَاعِيدُ عُرْقُوبٍ
+
+	قَالَ أبو عبيد‏:‏ هو رجل من العَمَاليق، أتاه أخ له يسأله، فَقَالَ له عرقوب‏:‏ إذا أطْلَعَتْ هذه النخلة فلك طَلْعُها، فلما أطلعت أتاه للعِدَةِ، فَقَالَ‏:‏ دَعْها حتى تصير بَلَحا، فلما أبْلَحَتْ قَالَ‏:‏ دَعْها حتى تصيرَ زَهْوًا، فلما زَهَت قَالَ‏:‏ دَعْها حتى تصير رُطَبا، فلما أرْطَبَتْ قَالَ‏:‏ دَعْها حتى تصير تمراً، فلما أتْمَرَتْ عمد إليها عرقوبٌ من الليل فجدَّها ولم يُعْطِ أخاه شيئاً، فصار مثلاً في الخُلْفِ.
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:53	Poetry	
+	مَوَاعِيدُ عُرْقُوبٍ
+
+	قَالَ أبو عبيد‏:‏ هو رجل من العَمَاليق، أتاه أخ له يسأله، فَقَالَ له عرقوب‏:‏ إذا أطْلَعَتْ هذه النخلة فلك طَلْعُها، فلما أطلعت أتاه للعِدَةِ، فَقَالَ‏:‏ دَعْها حتى تصير بَلَحا، فلما أبْلَحَتْ قَالَ‏:‏ دَعْها حتى تصيرَ زَهْوًا، فلما زَهَت قَالَ‏:‏ دَعْها حتى تصير رُطَبا، فلما أرْطَبَتْ قَالَ‏:‏ دَعْها حتى تصير تمراً، فلما أتْمَرَتْ عمد إليها عرقوبٌ من الليل فجدَّها ولم يُعْطِ أخاه شيئاً، فصار مثلاً في الخُلْفِ.
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:53	Unshape	
+	مَوَاعِيدُ عُرْقُوبٍ
+
+	قَالَ أبو عبيد‏:‏ هو رجل من العَمَاليق، أتاه أخ له يسأله، فَقَالَ له عرقوب‏:‏ إذا أطْلَعَتْ هذه النخلة فلك طَلْعُها، فلما أطلعت أتاه للعِدَةِ، فَقَالَ‏:‏ دَعْها حتى تصير بَلَحا، فلما أبْلَحَتْ قَالَ‏:‏ دَعْها حتى تصيرَ زَهْوًا، فلما زَهَت قَالَ‏:‏ دَعْها حتى تصير رُطَبا، فلما أرْطَبَتْ قَالَ‏:‏ دَعْها حتى تصير تمراً، فلما أتْمَرَتْ عمد إليها عرقوبٌ من الليل فجدَّها ولم يُعْطِ أخاه شيئاً، فصار مثلاً في الخُلْفِ.
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:53	RandomText	ZerroukiTAha
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-17 08:53	Tokenize	سئلُ أديب : ما هي أجملُ حكمة ؟  فقالَ: لي 70 عاما وأنا اقرأ .. ما وجدتُ أجملَ من هذه...  "إنَ مشقة الطاعة تذهبُ ويبقى ثوابها  وإن لذةَ المعصية تذهب ويبقى عقابها"     
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/favicon.ico]
+INFO:MyTestWebApp:got uri=[/favicon.ico]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:25	Tashkeel2	الدجاجة تبيض كل يوم بيضة.
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:25	LightStemmer	الدجاجة تبيض كل يوم بيضة.
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:25	Tashkeel2	الدجاجة تبيض كل يوم بيضة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:26	Tashkeel2	الدجاجة تبيض كل يوم بيضة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:26	Tashkeel2	الدجاجة تبيض كل يوم بيضة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:36	Tashkeel2	المطر غزير .
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:36	Tashkeel2	ربح التاجر الأمين .
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:36	Tashkeel2	يندم الكسلان .
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:37	Tashkeel2	لا تبلع طعاما قبل أن تجيد مضغه .
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:38	Tashkeel2	يسرني أن الزهرة ناضرة .
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:57	Tashkeel2	يسرني أن الزهرة ناضرة .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:57	Tashkeel2	يسرني أن الزهرة ناضرة .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:57	RandomText	ZerroukiTAha
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:57	Tashkeel2	يحرث الفلاح الأرض كي يزرعها .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:57	RandomText	ZerroukiTAha
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:57	Tashkeel2	قطعت الحبل بالسكين.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:58	RandomText	ZerroukiTAha
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:58	Tashkeel2	يربح السابق جائزة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:58	Tashkeel2	يربح السابق جائزة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:58	RandomText	ZerroukiTAha
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:58	Tashkeel2	الولد أراد الجلوس.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 10:05	Tashkeel2	الولد أراد الجلوس.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 10:10	LightStemmer	الولد أراد الجلوس.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 10:18	Tashkeel2	الولد أراد الجلوس.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 12:39	Tashkeel2	الولد أراد الجلوس.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 12:39	Tashkeel2	الولد أراد الجلوس.
+INFO:MyTestWebApp:got uri=[/download]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/mishkal/doc]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 01:12	Tashkeel2	لن يبيع أبي حصانه.
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:MyTestWebApp:got uri=[/link]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 08:43	LightStemmer	الولد يلعب بالكرة في.
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 08:53	Tashkeel2	في الدار
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 08:53	LightStemmer	في الدار
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 08:54	LightStemmer	
+	أقادَةُ أندَلسٍ هؤلاءَ و هُم - مَن سَقَوها كُؤوسَ الرَّدى
+	فيا أُمَّةً دَبَّ فيها الفَسادُ - و طَمَّ بأقطابِها واغتلى
+	وما اتقنَت غَيرَ فَنِّ النِفاقِ - غَذَتُهُ ورَوَّتهُ حتى رَبى
+	إذا رَفَّ نَجمٌ فَخُدَّامُهُ - و أحنَقُ أعدائِهِ إن هَوى
+	ضَلَلتُم بإسفافِكُم في الهوانِ - فَسُحقاً لَكُم يا عَبيدَ العصى 
+
+	هل يا تُرى، يوجَدُ فرقٌ بين حال الهزيمةِ في الأمسِ وحالُها اليوم؟
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:15	Tashkeel2	في الربح
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-18 09:15	LightStemmer	في الربح
