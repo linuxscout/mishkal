@@ -7873,3 +7873,18 @@ INFO:MyTestWebApp:got uri=[/ajaxGet]
 INFO:MyTestWebApp:2014-06-18 09:15	Tashkeel2	في الربح
 INFO:MyTestWebApp:got uri=[/ajaxGet]
 INFO:MyTestWebApp:2014-06-18 09:15	LightStemmer	في الربح
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-06-19 12:24	Tashkeel2	يلسع البعوض.
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
