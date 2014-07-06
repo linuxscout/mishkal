@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="kasratan.svg"
+   inkscape:export-filename="/home/hacko/Projects/git/mishkal (copy)/ar/images/kasratan.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.12"
+     inkscape:cx="39.709786"
+     inkscape:cy="14.875481"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:snap-bbox="true"
+     inkscape:snap-page="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1004.3622)">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2985"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
+         id="flowRegion2987"><rect
+           id="rect2989"
+           width="157.5838"
+           height="115.15739"
+           x="157.5838"
+           y="264.44321" /></flowRegion><flowPara
+         id="flowPara2991" /></flowRoot>    <g
+       id="g3903"
+       transform="matrix(1,0,0,-1,-0.35932921,2056.7244)"
+       inkscape:export-filename="/home/hacko/Projects/git/mishkal (copy)/ar/images/kasra.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sketch:type="MSShapeGroup"
+         id="path5724"
+         d="m 0.71865842,1028.3622 c 0,-13.2548 10.58428758,-24 23.64067158,-24 13.056382,0 23.64067,10.7452 23.64067,24 0,13.2548 -10.584288,24 -23.64067,24 -13.056384,0 -23.64067158,-10.7452 -23.64067158,-24 z m 0,0"
+         inkscape:connector-curvature="0"
+         style="fill:#d40000;stroke:none" />
+      <path
+         sodipodi:nodetypes="cscsccscsccscscccccccscsccsssccsssc"
+         d="m 37.294992,1037.6698 c -4.2e-5,1.1679 -0.560564,1.7517 -1.681579,1.7517 -1.214494,0 -1.82174,-0.5838 -1.821699,-1.7517 -4.1e-5,-1.1677 0.607205,-1.7516 1.821699,-1.7516 1.121015,0 1.681537,0.5839 1.681579,1.7516 m -5.184856,-3.4332 c -2.8e-5,1.1445 -0.56055,1.7167 -1.681565,1.7167 -1.214508,0 -1.821741,-0.5722 -1.821713,-1.7167 -2.8e-5,-1.1911 0.607205,-1.7866 1.821713,-1.7866 1.121015,0 1.681537,0.5955 1.681565,1.7866 m 8.653093,8.6181 c -3.7e-5,1.1911 -0.595594,1.7866 -1.786672,1.7866 -1.144434,0 -1.716644,-0.5955 -1.716602,-1.7866 -4.2e-5,-1.1443 0.595517,-1.7166 1.786675,-1.7166 1.14436,0 1.716562,0.5723 1.716599,1.7166 m -14.748799,-9.9143 c -1.4e-5,1.1912 -0.583898,1.7868 -1.751625,1.7866 -1.167782,2e-4 -1.751666,-0.5954 -1.751638,-1.7866 -2.8e-5,-1.1443 0.583856,-1.7165 1.751638,-1.7166 1.167727,10e-5 1.751611,0.5723 1.751625,1.7166 m -6.060654,1.2962 c -2.8e-5,1.1445 -0.595573,1.7167 -1.786676,1.7167 -1.14442,0 -1.716616,-0.5722 -1.716602,-1.7167 -1.4e-5,-1.1911 0.572182,-1.7866 1.716602,-1.7866 1.191103,0 1.786648,0.5955 1.786676,1.7866 m -5.184856,3.4332 c -1.4e-5,1.1679 -0.583885,1.7517 -1.751639,1.7517 -1.167768,0 -1.75164,-0.5488 -1.75164,-1.6465 0,-1.2379 0.583872,-1.8568 1.75164,-1.8568 1.167754,0 1.751625,0.5839 1.751639,1.7516 m -3.468242,5.1849 c -1.4e-5,1.1911 -0.560535,1.7866 -1.6815788,1.7866 -1.214465,0 -1.821698,-0.5955 -1.821698,-1.7866 0,-1.1443 0.58387,-1.7166 1.751638,-1.7166 1.1677548,0 1.7516248,0.5723 1.7516388,1.7166"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Droid Arabic Naskh;-inkscape-font-specification:Droid Arabic Naskh"
+         id="path3876"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 34.098038,1024.8846 0.09831,-1.0487 c -1.6e-5,-0.6554 -0.163852,-1.3436 -0.491538,-2.0644 -0.305859,-0.721 -0.895701,-1.2671 -1.769529,-1.6384 -4.063377,-1.7259 -9.295502,-3.4955 -15.696393,-5.3087 l 0.327689,3.9651 c 6.073202,1.835 11.917016,3.8667 17.531462,6.0951"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Droid Arabic Naskh;-inkscape-font-specification:Droid Arabic Naskh"
+         id="path3815"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccccc" />
+      <path
+         sketch:type="MSShapeGroup"
+         id="reflec-8"
+         d="m 48,1028.3622 c 0,13.2548 -10.584288,24 -23.64067,24 -4.842304,0 -9.344572,-1.478 -13.092876,-4.0138 L 38.35463,1009.0177 C 44.204149,1013.3867 48,1020.4244 48,1028.3622 z m 0,0"
+         inkscape:connector-curvature="0"
+         style="fill:#000000;fill-opacity:0.07999998;stroke:none" />
+    </g>
+  </g>
+</svg>

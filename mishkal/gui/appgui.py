@@ -492,7 +492,7 @@ class Ui_MainWindow(object):
         self.readSettings();
         self.applySettings();
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ar/images/appicon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("ar/images/appicon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.MainWindow.setWindowIcon(icon)
 #create a Progressbar
         self.singleProgress = QtGui.QProgressBar(self.centralwidget)

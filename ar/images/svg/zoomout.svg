@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="zoomin.svg"
+   inkscape:export-filename="/home/hacko/Projects/git/mishkal/ar/images/exit.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.12"
+     inkscape:cx="62.059957"
+     inkscape:cy="27.923825"
+     inkscape:document-units="px"
+     inkscape:current-layer="g3191"
+     showgrid="false"
+     inkscape:snap-bbox="true"
+     inkscape:snap-page="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1004.3622)">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2985"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
+         id="flowRegion2987"><rect
+           id="rect2989"
+           width="157.5838"
+           height="115.15739"
+           x="157.5838"
+           y="264.44321" /></flowRegion><flowPara
+         id="flowPara2991" /></flowRoot>    <path
+       style="fill:#aa0044;stroke:none"
+       inkscape:connector-curvature="0"
+       d="m 0.35932921,1028.3622 c 0,13.2548 10.58428779,24 23.64067179,24 13.056382,0 23.64067,-10.7452 23.64067,-24 0,-13.2548 -10.584288,-24 -23.64067,-24 -13.056384,0 -23.64067179,10.7452 -23.64067179,24 z m 0,0"
+       id="path5724"
+       sketch:type="MSShapeGroup" />
+    <g
+       style="fill:#ffffff"
+       id="g3064"
+       transform="matrix(0.06041516,0,0,0.06041516,11.191327,1014.7075)" />
+    <g
+       style="fill:#ffffff"
+       id="g3191"
+       transform="matrix(0.05301961,0,0,0.05301961,10.695122,1014.4951)">
+      <path
+         id="path3183"
+         d="M 496.131,435.698 374.855,332.551 C 362.318,321.268 348.91,316.088 338.079,316.588 366.707,283.054 384,239.549 384,192 384,85.961 298.039,0 192,0 85.962,0 0,85.961 0,192 c 0,106.039 85.961,192 192,192 47.549,0 91.054,-17.293 124.588,-45.922 -0.5,10.831 4.68,24.239 15.963,36.776 L 435.698,496.13 c 17.661,19.623 46.511,21.277 64.11,3.678 17.599,-17.599 15.946,-46.449 -3.677,-64.11 z M 192,320 C 121.308,320 64,262.692 64,192 64,121.308 121.308,64 192,64 c 70.692,0 128,57.308 128,128 0,70.692 -57.307,128 -128,128 z m -96,-160 0,64 192,0 0,-64 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff"
+         sodipodi:nodetypes="cccsssscccscsssssccccc" />
+    </g>
+    <path
+       style="fill:#000000;fill-opacity:0.07999998;stroke:none"
+       inkscape:connector-curvature="0"
+       d="m 47.640671,1028.3622 c 0,-13.2548 -10.584288,-24 -23.64067,-24 -4.842304,0 -9.344572,1.478 -13.092876,4.0138 l 27.088176,39.3307 c 5.849519,-4.369 9.64537,-11.4067 9.64537,-19.3445 z m 0,0"
+       id="reflec-8"
+       sketch:type="MSShapeGroup" />
+  </g>
+</svg>
