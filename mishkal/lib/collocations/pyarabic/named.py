@@ -187,11 +187,11 @@ def detectNamed(text):
 			if len(phrase)>=1:
 				if word.startswith(u'ال') and word.endswith(u'ي'):
 					phrase.append(word);
-				phrases.append(u" ".join(phrase));
+				phrases.append(u"".join(phrase));
 			phrase=[];
 		previous = key;
 	# add the final phrases 
-	if phrase: phrases.append(u" ".join(phrase));
+	if phrase: phrases.append(u"".join(phrase));
 	return phrases
 	
 def getPreviousTag(word):

@@ -26,7 +26,7 @@ class WorkThread(QtCore.QThread):
         thread, to keep the UI responding.  It will take a callable `target'
         and execute it in a separate thread with the given `args'.  Please
         note that a reference to the thread object will be pre-pendend to the
-        arguments list passed to the callable, to allow acces to the methods
+        arguments list passed to th callable, to allow acces to the methods
         provided by this class to modify the progress bar used to show the
         user the progress of the work executed in the thread.
         """
@@ -576,7 +576,7 @@ class Ui_MainWindow(object):
         vocalizedText=u"";
         for itemD in vocalizedTextDict:
             if itemD.has_key('chosen'):
-                vocalizedText+=" "+itemD['chosen'];
+                vocalizedText+=""+itemD['chosen'];
                 suggestList=itemD['suggest'].split(u";");
                 self.ResultVocalized.dict.add(itemD['chosen'],suggestList)
         if partialVocalization:

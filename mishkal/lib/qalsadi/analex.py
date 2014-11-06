@@ -128,7 +128,8 @@ class analex :
 			return [];
 		else:
 			mylist = self.token_pat.split(text)
-			mylist = [re.sub("\s",'',x) for x in mylist if x]
+			p = re.compile('\t|\r|\f|\v')
+			mylist = [p.sub('',x) for x in mylist if x]
 			# for i in range(len(mylist)):
 				# mylist[i]=re.sub("\s",'',mylist[i]);
 			# while u'' in mylist: mylist.remove(u'');

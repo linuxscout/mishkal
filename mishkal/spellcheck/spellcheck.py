@@ -228,7 +228,7 @@ class SpellcheckClass:
 		#create texts from chosen cases
 		for i in range(len(ChosenList)):
 			word = ChosenList[i].getWord();
-			vocalized_text=u" ".join([vocalized_text,self.display(word,format)]);
+			vocalized_text=u"".join([vocalized_text,self.display(word,format)]);
 			outputSuggestList.append({'chosen':word,'suggest':u";".join(suggestsList[i])});
 		if suggestion:
 			return outputSuggestList;
