@@ -369,7 +369,7 @@ class SemanticAnalyzer:
 		curorigin = current.getOriginal();
 		if current.isProperNoun():
 			curorigin = u'فلان'
-		key=u" ".join([preorigin, curorigin])
+		key=u"".join([preorigin, curorigin])
 		relation = sem_const.SemanticTable.get(key,'');
 		if debug: print u" ".join([key,unicode(relation)]).encode('utf8');
 		

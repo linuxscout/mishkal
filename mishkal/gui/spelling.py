@@ -62,6 +62,7 @@ class SpellTextEdit(QPlainTextEdit):
         self.dict = myspeller()
         # self.highlighter = Highlighter(self.document())
         # self.highlighter.setDict(self.dict)
+        self.pretxt=''
  
     def mousePressEvent(self, event):
         if event.button() == Qt.RightButton:
@@ -82,7 +83,16 @@ class SpellTextEdit(QPlainTextEdit):
         # Check if the selected word is misspelled and offer spelling
         # suggestions if it is.
         if self.textCursor().hasSelection():
-            text = unicode(self.textCursor().selectedText())
+            #this is a workaround for QT bug when double click selects Arabic punctuation marks
+        	# plus the word in the text editor see https://bugreports.qt-project.org/browse/QTBUG-42397
+            orginaltext = unicode(self.textCursor().selectedText())
+            arabicmarks = [u'؟',u'،',u'؛',u'“',u'”',u'‘',u'’']
+            holder = orginaltext[-1]
+            if holder in arabicmarks:
+            	self.pretxt = holder
+            else:
+            	self.pretxt=''
+            text = orginaltext.strip(u'؟،؛“”‘’')
             if not self.dict.check(text):
                 spell_menu = QMenu(u'اقتراحات التشكيل')
                 spell_menu.setLayoutDirection(RightToLeft)
@@ -107,7 +117,7 @@ class SpellTextEdit(QPlainTextEdit):
         cursor.beginEditBlock()
  
         cursor.removeSelectedText()
-        cursor.insertText(word)
+        cursor.insertText(word+self.pretxt)
  
         cursor.endEditBlock()
  

@@ -285,7 +285,7 @@ class TashkeelClass:
 			# omit the last haraka if the option LastMark is False
 			if not self.getEnabledLastMark():
 				word = araby.stripLastHaraka(word);
-			vocalized_text=u" ".join([vocalized_text,self.display(word,format)]);
+			vocalized_text=u"".join([vocalized_text,self.display(word,format)]);
 			outputSuggestList.append({'chosen':word,'suggest':u";".join(suggestsList[i])});
 		
 		# correct the resulted text to ajust some case of consonant neighbor
@@ -917,7 +917,7 @@ class TashkeelClass:
 		prevocalizedList = pyarabic.number.preTashkeelNumber(wordlist);
 		#Todo ajust prevocalization of named enteties
 		prevocalizedList = pyarabic.named.preTashkeelNamed(prevocalizedList);		
-		return u" ".join(prevocalizedList);
+		return u"".join(prevocalizedList);
 
 
 
@@ -947,7 +947,7 @@ class TashkeelClass:
 		# if else, delete the last element, and return the other to the list.
 		newlist= self.collo.lookup(wordlist);
 		#todo: return a text from the statistical tashkeel
-		text=u" ".join(newlist);
+		text=u"".join(newlist);
 		return text;
 		# is done temporaly to test statistical tashkeel
 		#for word in newlist:
