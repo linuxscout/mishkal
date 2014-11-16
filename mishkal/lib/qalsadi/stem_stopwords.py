@@ -61,7 +61,7 @@ class StopWordStemmer:
             'tags':            sw_tuple['tags'],
             'type':            sw_tuple['type'],
             'freq':'freqstopword',
-            'originaltags':sw_tuple['tags'],
+            'originaltags': "", #sw_tuple['tags'],
             'syntax':'',
             }))
         return detailed_result

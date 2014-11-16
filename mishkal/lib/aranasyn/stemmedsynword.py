@@ -29,83 +29,41 @@ class StemmedSynWord (stemmedword.StemmedWord):
         # ToDo
         # copy the super class attributes to curesult_dictrrent classe
         #stemmedword.stemmedWord.__init__(self, result_dict.get_dict())
-
-
         
         if result_dict: 
             self.__dict__ = result_dict.__dict__.copy()
             self.unvocalized =  araby.strip_tashkeel(self.vocalized)
             self.unvoriginal =  araby.strip_tashkeel(self.original)
-        if self.tag_stopword:
-            self.tag_direct_jar =   self._is_direct_jar()
-            self.tag_jar =   self._is_jar()
-            self.tag_direct_naseb =   self._is_direct_naseb()
-            self.tag_direct_rafe3 =   self._is_direct_rafe3()            
-            self.tag_direct_nominal_factor =  self.tag_jar or \
-            self.tag_direct_jar \
-             or self.tag_direct_naseb or self.tag_direct_rafe3 or  \
-             self._is_direct_nominal_factor()
-            self.tag_nominal_factor =   self._is_nominal_factor()
-
+        self.tag_verbal_factor  =   0
+        self.tag_nominal_factor =   0
+        self.tag_kana_rafe3     =   False         
+        if self.is_stopword():
+            self.tag_kana_rafe3 =   self._is_kana_rafe3()  
+            self.tag_nominal_factor = self.__get_nominal_factor()
             #verbal factor
-            self.tag_direct_jazem =   self._is_direct_jazem()
-            self.tag_direct_verb_naseb =   not self.tag_direct_jazem and \
-            self._is_direct_verb_naseb()
-            self.tag_direct_verb_rafe3 =   not self.tag_direct_verb_naseb and\
-             self._is_direct_verb_rafe3()
-            self.tag_verbal_factor =  self.tag_direct_jazem or \
-            self.tag_direct_verb_naseb or self.tag_direct_verb_rafe3 or  \
-            self._is_verbal_factor()
-            self.tag_direct_verbal_factor =  self.tag_direct_jazem or \
-            self.tag_direct_verb_naseb or self.tag_direct_verb_rafe3 or  \
-            self._is_direct_verbal_factor()
+            self.tag_verbal_factor  = self.__get_verbal_factor()
 
-            self.tag_jazem =   self._is_jazem()
-            self.tag_naseb =   not self.tag_jazem and self._is_naseb()
-            self.tag_rafe3 =   not self.tag_naseb and self._is_rafe3()
-            self.tag_kana_rafe3 =   self._is_kana_rafe3()        
-            self.tag_verb_naseb =   self._is_verb_naseb()
-            self.tag_verb_rafe3 =  not self.tag_verb_naseb \
-             and self._is_verb_rafe3()
-        else:
-            self.tag_direct_jar =  False
-            self.tag_direct_jazem =  False
-            self.tag_direct_naseb =  False
-            self.tag_direct_nominal_factor =  False
-            self.tag_direct_rafe3 =  False
-            self.tag_direct_verb_naseb =  False
-            self.tag_direct_verb_rafe3 =  False
-            self.tag_nominal_factor =  False
-            self.tag_jar =  False
-            self.tag_jazem =  False
-            self.tag_naseb =  False
-            self.tag_rafe3 =  False
-            self.tag_kana_rafe3 =      False    
-            self.tag_verb_naseb =  False
-            self.tag_verb_rafe3 =  False            
-
-
-        self.tag_direct_addition =  self._is_direct_addition()
+        #~self.tag_direct_addition =  self._is_direct_addition()
         self.tag_addition =  self._is_addition()                
 
         self.tag_break =  self._is_break() 
         self.tag_kana_noun = False # اسم كان
         self.tag_inna_noun = False # اسم إنّ
-        self.set_order(order)
+        #~self.set_order(order)
         self.forced_word_case = False
         self.syntax =  u""   # used for syntaxique analysis porpos
         self.semantic =  u""  # used for semantic analysis porposes
-        self.unvocalized =  u""
-        self.unvoriginal =  u""
-        self.order  = 0   
+        #~self.unvocalized =  u""
+        #~self.unvoriginal =  u""
         self.forced_wordtype = False        
-        #self.order =  order
+        self.order =  order
         self.next =  {}
         self.previous =  {}
         # to , specify semantic relations
         self.sem_next =  {}
         self.sem_previous =  {}
         self.score =  0
+ 
 
     def __del__(self, ):
         """ desctructor """
@@ -127,13 +85,13 @@ class StemmedSynWord (stemmedword.StemmedWord):
             else :
                 return u""
         return self.unvocalized
-    def set_unvocalized(self, newunvocalized):
-        """
-        Set the unvocalized word
-        @param newunvocalized: the new given unvocalized.
-        @type newunvocalized: unicode string
-        """
-        self.unvocalized =  newunvocalized
+    #~def set_unvocalized(self, newunvocalized):
+        #~"""
+        #~Set the unvocalized word
+        #~@param newunvocalized: the new given unvocalized.
+        #~@type newunvocalized: unicode string
+        #~"""
+        #~self.unvocalized =  newunvocalized
         
     def get_unvoriginal(self, ):
         """
@@ -278,13 +236,28 @@ class StemmedSynWord (stemmedword.StemmedWord):
 
     def get_previous(self):
         """
-        Add a position number in the case word list.
-        @param previous: the previous of  the stemmed word 
-        in the word case list.
-        @tyep previous: integer
+        get all privous word list of relations.
         """
-        return self.previous.keys()        
+        return self.previous.keys()
 
+    def get_previous_relation(self, previous_order):
+        """
+        get the previous relation between the current case and the previous given by order
+        @param previous_order: the previous of  the stemmed word 
+        in the word case list.
+        @tyep previous_order: integer
+        """
+        return self.previous.get(previous_order, 0)
+
+    def get_next_relation(self, next_order):
+        """
+        get the next relation between the current case and the next given by order
+        @param next_order: the next of  the stemmed word 
+        in the word case list.
+        @tyep next_order: integer
+        """
+        return self.next.get(next_order, 0)
+        
     def add_sem_next(self, nextw, weight = 1):
         """
         Add  next word position number, if the word is semanticly related
@@ -365,87 +338,6 @@ class StemmedSynWord (stemmedword.StemmedWord):
     #{ Tags extraction Functions
     ######################################################################
 
-
-
-
-    def _is_jar(self):
-        """
-        Return True if the word is a  Jar.
-        @return:  Jar.
-        @rtype: True/False
-        """    
-        if (not self.has_encletic()) and u"حرف جر" in self.get_tags(): 
-            return True
-        if (not self.has_encletic()) and u"ظرف مكان" in self.get_tags():
-            return True
-        if (not self.has_encletic()) and u"اسم إضافة" \
-          in self.get_tags():
-            return True            
-        if self.get_unvocalized() in syn_const.JAR_LIST:
-            return True
-        return False
-
-    def _is_verb_naseb(self):
-        """
-        Return True if the word is a  Naseb of verb.
-        @return:  Naseb.
-        @rtype: True/False
-        """    
-        if self.get_vocalized() in syn_const.VERB_NASEB_LIST :
-            return True
-        if (not self.has_encletic() and \
-        self.get_original() in syn_const.VERB_NASEB_LIST ):
-            return True
-        return False
-
-
-    def _is_jazem(self, ):
-        """
-        Return True if the word is a  Jazem.
-        @return:  Jazem.
-        @rtype: True/False
-        """
-
-        if self.get_unvocalized() in syn_const.JAZEM_LIST  :
-            return True
-        if (not self.has_encletic() and \
-        self.get_unvoriginal() in syn_const.JAZEM_LIST  ):
-            return True
-        return False
-
-    def _is_naseb(self):
-        """
-        Return True if the word is a  Naseb of noun.
-        @return:  Naseb of noun.
-        @rtype: True/False
-        """
-        if self.get_unvocalized() in syn_const.NOUN_NASEB_LIST :
-            return True
-        elif (not self.has_encletic()) and \
-        u"إن و أخواتها" in self.get_tags():
-            return True
-        elif (not self.has_encletic() and \
-        self.get_unvoriginal() in syn_const.NOUN_NASEB_LIST ):
-            return True
-        return False
-
-
-    def _is_rafe3(self):
-        """
-        Return True if the word is a  Rafe3.
-        @return:  Rafe3.
-        @rtype: True/False
-        """
-        if self.get_unvocalized() in syn_const.RAFE3_LIST or \
-        (not self.has_encletic() and \
-        self.get_unvoriginal() in syn_const.RAFE3_LIST ):
-            return True
-        elif (not self.has_encletic()) and \
-        u"كان و أخواتها" in self.get_tags():
-            return True
-
-        return False
-
     def _is_kana_rafe3(self):
         """
         Return True if the word is a  Rafe3.
@@ -458,33 +350,6 @@ class StemmedSynWord (stemmedword.StemmedWord):
         return False
 
 
-
-    def _is_verb_rafe3(self):
-        """
-        Return True if the word is a  Rafe3 of verb
-        @return:  Rafe3 of verb.
-        @rtype: True/False
-        """
-        if self.get_unvocalized() in syn_const.VERB_RAFE3_LIST or \
-        (not self.has_encletic() and \
-        self.get_unvoriginal() in syn_const.VERB_RAFE3_LIST ):
-            return True
-        return False
-        
-    def _is_nominal_factor(self):
-        """
-        Return True if the word is a  nominal factor.
-        @return:  is a  nominal factor.
-        @rtype: True/False
-        """
-        if self.get_unvocalized() in syn_const.NOMINAl_FACTOR_LIST or \
-        (not self.has_encletic() and \
-        self.get_unvoriginal() in syn_const.NOMINAl_FACTOR_LIST ):
-            return True
-        elif self._is_jar() or self._is_naseb() or self._is_rafe3() or \
-        self._is_initial():
-            return True 
-        return False        
     def _is_addition(self):
         """
         Return True if the word is a  nominal addition اسم إضافة مثل نحو ومعاذ
@@ -494,159 +359,139 @@ class StemmedSynWord (stemmedword.StemmedWord):
             return True
         return False
 
-    def _is_verbal_factor(self):
+    def __get_verbal_factor(self):
         """
-        Return True if the word is a  verbal factor.
-        @return:  is a  verbal factor.
-        @rtype: True/False
+        Return int code of verbal factor.
+        the inflected cases are coded in binary like
+        not defined        : 0  00000
+        factor             : 1  00001      
+        Rafe3              : 2  00010
+        Naseb              : 4  00100
+        Jar                : 8  01000
+        Jazem              : 16 10000
+        active             : 32 100000
+        this codification allow to have two verb factor for the same case, 
+        like feminin plural which ahve the same mark for Nasb and jar
+هذا الترميز يرمز حالتين في وقت واحد
+        النصب والجر
+        @return: verbal factor state numeric code
+        @rtype:        
         """    
         #if the stopword is a  verb factor
         # without vocalization
+        # inactive عاطل
+        # active عامل
+        # Rafe3    رافع
+        # Naseb    ناصب
+        # Jazem     جازم
         if self.get_unvocalized() in syn_const.VERBAL_FACTOR_LIST :
-            return True
+            self.tag_verbal_factor = 1
         # with encletics
         elif self.has_encletic() and \
         self.get_unvoriginal() in syn_const.VERBAL_FACTOR_LIST :
-            return True
+            self.tag_verbal_factor = 1
         # with encletic and Harakat            
         elif self.has_encletic() and \
         self.get_original() in syn_const.VERBAL_FACTOR_LIST:
-            return True
-        elif self._is_jazem() or self._is_verb_naseb() or self._is_verb_rafe3():
-            return True             
-        return False
+            self.tag_verbal_factor = 1
+            
+        #~if self.tag_verbal_factor:
+        #~if self._is_verb_rafe3():
+        if self.get_vocalized() in syn_const.VERB_RAFE3_LIST or \
+        (not self.has_encletic() and \
+        self.get_original() in syn_const.VERB_RAFE3_LIST ): 
+            self.tag_verbal_factor += 2 
+            
+        #~if self._is_verb_naseb() :
+        if self.get_vocalized() in syn_const.VERB_NASEB_LIST \
+         or (not self.has_encletic() and \
+        self.get_original() in syn_const.VERB_NASEB_LIST ):                
+            self.tag_verbal_factor += 4 
 
-    def _is_direct_jar(self):
+        #~if self._is_verb_jazem() :
+        if self.get_vocalized() in syn_const.JAZEM_LIST  \
+         or (not self.has_encletic() and \
+         self.get_original() in syn_const.JAZEM_LIST  ):
+                self.tag_verbal_factor += 16
+                
+            #~# if factor is different from 1 then is active
+            #~if self.tag_verbal_factor > 1 :
+                #~self.tag_verbal_factor += 32
+                 
+        return self.tag_verbal_factor
+
+
+    def __get_nominal_factor(self):
         """
-        Return True if the word is a direct Jar.
-        @return: direct Jar.
-        @rtype: True/False
+        Return int code of nominal factor.
+        the inflected cases are coded in binary like
+        not defined        : 0  00000
+        factor             : 1  00001      
+        Rafe3              : 2  00010
+        Naseb              : 4  00100
+        Jar                : 8  01000
+        Jazem              : 16 10000
+        active             : 32 100000
+        this codification allow to have two noun factor for the same case, 
+        like feminin plural which ahve the same mark for Nasb and jar
+هذا الترميز يرمز حالتين في وقت واحد
+        النصب والجر
+        @return: nominal factor state numeric code
+        @rtype:        
         """    
-        if (not self.has_encletic()) and u"حرف جر" in self.get_tags():    
-            return True
-        if (not self.has_encletic()) and u"ظرف مكان" in self.get_tags():
-            return True
-        return False
-
-    def _is_direct_verb_naseb(self):
-        """
-        Return True if the word is a direct Naseb of verb.
-        @return: direct Naseb.
-        @rtype: True/False
-        """    
-        if self.get_unvocalized() in syn_const.DIRECT_VERB_NASEB_LIST :
-            return True
-        if (not self.has_encletic() and \
-        self.get_unvoriginal() in syn_const.DIRECT_VERB_NASEB_LIST ):
-            return True
-        return False
-
-
-    def _is_direct_jazem(self, ):
-        """
-        Return True if the word is a direct Jazem.
-        @return: direct Jazem.
-        @rtype: True/False
-        """
-
-        if self.get_unvocalized() in syn_const.DIRECT_JAZEM_LIST  :
-            return True
-        if (not self.has_encletic() and \
-        self.get_unvoriginal() in syn_const.DIRECT_JAZEM_LIST  ):
-            return True
-        return False
-
-    def _is_direct_naseb(self):
-        """
-        Return True if the word is a direct Naseb of noun.
-        @return: direct Naseb of noun.
-        @rtype: True/False
-        """
-        if self.get_unvocalized() in syn_const.DIRECT_NOUN_NASEB_LIST :
-            return True
-        elif (not self.has_encletic()) and \
-        u"إن و أخواتها" in self.get_tags():    
-            return True
-        elif (not self.has_encletic() and \
-        self.get_unvoriginal() in syn_const.DIRECT_NOUN_NASEB_LIST ):
-            return True
-        return False
-
-
-    def _is_direct_rafe3(self):
-        """
-        Return True if the word is a direct Rafe3.
-        @return: direct Rafe3.
-        @rtype: True/False
-        """
-        if self.get_unvocalized() in syn_const.DIRECT_RAFE3_LIST or (\
-        not self.has_encletic() and self.get_unvoriginal() in \
-        syn_const.DIRECT_RAFE3_LIST ):
-            return True
-        elif (not self.has_encletic()) and \
-        u"كان و أخواتها" in self.get_tags():
-            return True
-
-        return False
-
-
-    def _is_direct_verb_rafe3(self):
-        """
-        Return True if the word is a direct Rafe3 of verb
-        @return: direct Rafe3 of verb.
-        @rtype: True/False
-        """
-        if self.get_unvocalized() in syn_const.DIRECT_VERB_RAFE3_LIST or\
-         (not self.has_encletic() and self.get_unvoriginal() in \
-         syn_const.DIRECT_VERB_RAFE3_LIST ):
-            return True
-        return False
-        
-    def _is_direct_nominal_factor(self):
-        """
-        Return True if the word is a direct nominal factor.
-        @return:  is a direct nominal factor.
-        @rtype: True/False
-        """
-        if self.get_unvocalized() in syn_const.DIRECT_NOMINAl_FACTOR_LIST\
-         or (not self.has_encletic() and self.get_unvoriginal() in\
-          syn_const.DIRECT_NOMINAl_FACTOR_LIST ):
-            return True
-        elif self._is_direct_jar() or self._is_direct_naseb() or \
-        self._is_direct_rafe3() or self._is_initial():
-            return True 
-        return False        
-    def _is_direct_addition(self):
-        """
-        Return True if the word is a direct nominal addition اسم إضافة مثل نحو ومعاذ
-        @rtype: True/False
-        """
-        if u'اسم إضافة' in self.get_tags() and not self.has_encletic():
-            return True
-        return False
-
-    def _is_direct_verbal_factor(self):
-        """
-        Return True if the word is a direct verbal factor.
-        @return:  is a direct verbal factor.
-        @rtype: True/False
-        """    
-        #if the stopword is a direct verb factor
+        #if the stopword is a  noun factor
         # without vocalization
-        if self.get_unvocalized() in syn_const.DIRECT_VERBAL_FACTOR_LIST :
-            return True
+        # inactive عاطل
+        # active عامل
+        # Rafe3    رافع
+        # Naseb    ناصب
+        # Jazem     جازم                       NOMINAL_FACTOR_LIST
+        if self.get_unvocalized() in syn_const.NOMINAL_FACTOR_LIST:
+            self.tag_nominal_factor = 1
         # with encletics
-        elif self.has_encletic() and self.get_unvoriginal() in \
-        syn_const.DIRECT_VERBAL_FACTOR_LIST :
-            return True
+        elif self.has_encletic() and \
+        self.get_unvoriginal() in syn_const.NOMINAL_FACTOR_LIST:
+            self.tag_nominal_factor = 1
         # with encletic and Harakat            
-        elif self.has_encletic() and self.get_original() in \
-        syn_const.DIRECT_VERBAL_FACTOR_LIST:
-            return True
-        elif self._is_direct_jazem() or self._is_direct_verb_naseb() or \
-        self._is_direct_verb_rafe3():
-            return True             
-        return False
+        elif self.has_encletic() and \
+        self.get_original() in syn_const.NOMINAL_FACTOR_LIST:
+            self.tag_nominal_factor = 1
+            
+        #~if self.tag_nominal_factor:
+        #~if self._is_noun_rafe3():
+        if self.get_unvocalized() in syn_const.RAFE3_LIST or \
+        (not self.has_encletic() and \
+        self.get_unvoriginal() in syn_const.RAFE3_LIST ) or \
+         (not self.has_encletic()) and \
+          u"كان و أخواتها" in self.get_tags():           
+            self.tag_nominal_factor += 2 
+            
+        #~if self._is_noun_naseb() :
+        if self.get_vocalized() in syn_const.NOUN_NASEB_LIST :
+            self.tag_nominal_factor += 4 
+        elif (not self.has_encletic()) and \
+        u"إن و أخواتها" in self.get_tags():
+            self.tag_nominal_factor += 4 
+        elif (not self.has_encletic() and \
+        self.get_original() in syn_const.NOUN_NASEB_LIST ):
+            self.tag_nominal_factor += 4 
+
+        #~if self._is_noun_jar() :
+        if self.get_unvocalized() in syn_const.JAR_LIST or \
+           self.get_original() in syn_const.JAR_LIST:
+            self.tag_nominal_factor += 8        
+        elif (not self.has_encletic()):
+            if  u"حرف جر" in self.get_tags() or \
+             u"ظرف مكان" in self.get_tags() or \
+              u"اسم إضافة" in self.get_tags():
+                self.tag_nominal_factor += 8        
+
+            # if factor is different from 1 then is active
+            #~if self.tag_nominal_factor > 1 :
+                #~#self.tag_nominal_factor += 1
+                #~self.tag_nominal_factor += 32
+                 
+        return self.tag_nominal_factor
 
         
     def _is_break(self):
@@ -664,8 +509,8 @@ class StemmedSynWord (stemmedword.StemmedWord):
         # if the affix is a break affix 
         if stemmedword.StemmedWord.is_break(self):
             return True
-        if self.is_direct_jar():
-            return True            
+        #~if self.is_direct_jar():
+            #~return True            
         elif self.is_pounct() and 'break' in self.get_tags():
             return True
         elif self.is_stopword():
@@ -699,42 +544,13 @@ class StemmedSynWord (stemmedword.StemmedWord):
         """
         return self.tag_initial
 
-
-    def is_direct_jar(self):
+    def is_pronoun(self):
         """
-        Return True if the word is a direct Jar.
-        @return: direct Jar.
-        @rtype: True/False
-        """    
-
-        return self.tag_direct_jar
-
-    def is_direct_verb_naseb(self):
-        """
-        Return True if the word is a direct Naseb of verb.
-        @return: direct Naseb.
-        @rtype: True/False
-        """    
-        return self.tag_direct_verb_naseb
-
-
-    def is_direct_jazem(self, ):
-        """
-        Return True if the word is a direct Jazem.
-        @return: direct Jazem.
+        Return True if the word has the 3rd person.
+        @return: has the 3rd persontense.
         @rtype: True/False
         """
-
-        return self.tag_direct_jazem
-
-    def is_direct_naseb(self):
-        """
-        Return True if the word is a direct Naseb of noun.
-        @return: direct Naseb of noun.
-        @rtype: True/False
-        """
-        return self.tag_direct_naseb
-
+        return self.get_unvoriginal() in syn_const.PRONOUN_LIST
 
     def canhave_tanwin(self, ):
         """
@@ -742,63 +558,21 @@ class StemmedSynWord (stemmedword.StemmedWord):
         """
         return u'ينون' in self.get_tags()
 
-    def is_direct_rafe3(self):
+    def is_verb_rafe3(self):
         """
-        Return True if the word is a direct Rafe3.
-        @return: direct Rafe3.
+        Return True if the word is a  Rafe3 of verb
+        @return:  Rafe3 of verb.
         @rtype: True/False
         """
-        return self.tag_direct_rafe3
-
-
-    def is_direct_verb_rafe3(self):
-        """
-        Return True if the word is a direct Rafe3 of verb
-        @return: direct Rafe3 of verb.
-        @rtype: True/False
-        """
-        return self.tag_direct_verb_rafe3
+        return bool(self.tag_verbal_factor / 2 % 2)
         
-    def is_direct_nominal_factor(self):
-        """
-        Return True if the word is a direct nominal factor.
-        @return:  is a direct nominal factor.
-        @rtype: True/False
-        """
-        return self.tag_direct_nominal_factor        
-    def is_direct_addition(self):
-        """
-        Return True if the word is a direct Addition اسم إضافة مثل نحو ومعاذ.
-        @return:  is a direct addition.
-        @rtype: True/False
-        """
-        return self.tag_direct_addition    
-
-    def is_direct_verbal_factor(self):
-        """
-        Return True if the word is a direct verbal factor.
-        @return:  is a direct verbal factor.
-        @rtype: True/False
-        """    
-        return self.tag_direct_verbal_factor
-
-        
-    def is_jar(self):
-        """
-        Return True if the word is a  Jar.
-        @return:  Jar.
-        @rtype: True/False
-        """    
-        return self.tag_jar
-
     def is_verb_naseb(self):
         """
         Return True if the word is a  Naseb of verb.
         @return:  Naseb.
         @rtype: True/False
         """    
-        return self.tag_verb_naseb
-
+        return bool(self.tag_verbal_factor / 4 % 2)
 
     def is_jazem(self, ):
         """
@@ -806,8 +580,24 @@ class StemmedSynWord (stemmedword.StemmedWord):
         @return:  Jazem.
         @rtype: True/False
         """
+        return bool(self.tag_verbal_factor / 16 % 2)
 
-        return self.tag_jazem
+    def is_nominal_factor(self):
+        """
+        Return True if the word is a  nominal factor.
+        @return:  is a  nominal factor.
+        @rtype: True/False
+        """
+        #~return bool(self.tag_nominal_factor % 2)   
+        return bool(self.tag_nominal_factor)   
+            
+    def is_rafe3(self):
+        """
+        Return True if the word is a  Rafe3.
+        @return:  Rafe3.
+        @rtype: True/False
+        """
+        return bool(self.tag_nominal_factor / 2 % 2) 
 
     def is_naseb(self):
         """
@@ -815,20 +605,24 @@ class StemmedSynWord (stemmedword.StemmedWord):
         @return:  Naseb of noun.
         @rtype: True/False
         """
-        return self.tag_naseb
-
-
-
-
-    def is_rafe3(self):
+        return bool(self.tag_nominal_factor / 4 % 2)
+    
+    def is_jar(self):
         """
-        Return True if the word is a  Rafe3.
-        @return:  Rafe3.
+        Return True if the word is a  Jar.
+        @return:  Jar.
+        @rtype: True/False
+        """    
+        return bool(self.tag_nominal_factor / 8 % 2)
+
+    def is_condition_factor(self, ):
+        """
+        Return True if the word is a  condition factor.
+        @return:  condition factor.
         @rtype: True/False
         """
-        return self.tag_rafe3
-
-
+        return self.get_original() in syn_const.CONDITION_FACTORS
+        
     def is_kana_rafe3(self):
         """
         Return True if the word is a  Rafe3.
@@ -837,21 +631,7 @@ class StemmedSynWord (stemmedword.StemmedWord):
         """
         return self.tag_kana_rafe3
 
-    def is_verb_rafe3(self):
-        """
-        Return True if the word is a  Rafe3 of verb
-        @return:  Rafe3 of verb.
-        @rtype: True/False
-        """
-        return self.tag_verb_rafe3
         
-    def is_nominal_factor(self):
-        """
-        Return True if the word is a  nominal factor.
-        @return:  is a  nominal factor.
-        @rtype: True/False
-        """
-        return self.tag_nominal_factor        
     def is_addition(self):
         """
         Return True if the word is a  Addition اسم إضافة مثل نحو ومعاذ.
@@ -894,7 +674,8 @@ class StemmedSynWord (stemmedword.StemmedWord):
         @return:  is a  verbal factor.
         @rtype: True/False
         """    
-        return self.tag_verbal_factor
+        #~return bool(self.tag_verbal_factor % 2)
+        return bool(self.tag_verbal_factor)
 
     def ajust_tanwin(self):
         """
@@ -1028,15 +809,8 @@ def mainly():
     rdict = stemmedword.StemmedWord(rdict)
     stmwrd = StemmedSynWord(rdict)    
     print stmwrd.get_dict()
-    print stmwrd.is_direct_jar()
-    print stmwrd.is_direct_jazem()
-    print stmwrd.is_direct_naseb()
-    print stmwrd.is_direct_nominal_factor()
-    print stmwrd.is_direct_rafe3()
-    print stmwrd.is_direct_verbal_factor()
-    print stmwrd.is_direct_verb_naseb()
-    print stmwrd.is_direct_verb_rafe3()
     print stmwrd.is_initial()
     print stmwrd
 if __name__ == "__main__":
     mainly()
+    syn_const.NOMINAL_FACTOR_LIST

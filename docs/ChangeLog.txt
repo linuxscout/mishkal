@@ -1,3 +1,53 @@
+2014-11-08:
+    - Ajust pounctuation keep in Gui
+2014-07-08:
+    - add progress status on mishkal-console.py
+    - refactor stopwords stemming, to use it for syntaxique analysis
+2014-07-06:
+    - Display informations about vocalized word as hint
+    (we display inflection, suggestions and previous relation)
+2014-07-05:
+
+    - refactor some attributes to have less attributes
+    - use a numeric code for
+        - number: single, dual, plural (feminin, masculin, irregular)
+        - inflaction : majrour, mansoub, marfou3, majrour, mabni
+        - add alternative inflection to stemmedSynWord class : محل من الإعراب
+        - add pronoun and tense fields to stemmed word for verbs.
+- إضافة علاقة التبعية
+- إضافة حقل محل الإعراب للكلمة * تم
+- إضافة البناء للكلمة  *تم
+- إضافة الضمير والزمن إلى الفعل 
+	- الضمير نوعه ونوعه
+	-  الزمن نوعه بناؤه 
+- تقليل الحقول: *تم
+	استخدام ترميز ثنائي من أجل السماح بعدة خيارات
+        not defined        : 0  00000
+        factor             : 1  00001      
+        Rafe3              : 2  00010
+        Naseb              : 4  00100
+        Jar                : 8  01000
+        Jazem              : 16 10000
+        active             : 32 100000
+	- حقل واحد للحالة الإعرابية
+		- مبني مرفوع، منصوب، مجرور، مجزوم
+	- حقل واحد للعدد
+		- مفرد، مثنى، جمع (نوع الجمع: مؤنث سالم، مذكر سالم، تكسير
+	- حقل واحد للجنس: مذكر مؤنث
+	- حقل واحد للقسم: اسم، حرف، فعل
+		- أقسام الاسم: علم، صفة، 
+	- حقل واحد للعامل: عامل/ عاطل، رافع، ناصب، جار، جازم، 
+- عرض معلومات أكثر في الموقع، عرض إعراب الكلمة  * تم 
+        - allow multile Part of speech like stopword and noun
+        السماح بأن تكون الأداة اسمًا
+2014-07-04:
+    - add a hint to display given vocalization and automated vocalization
+    in comparing vocalization
+    - 
+2014-07-01:
+    - add colored mentions to vocalization compare
+2014-06-17:
+    -pylint code
 2014-03-29:
 	- ajust حالة كسر هاء الشمير المتصل بعد الكسرة
 08-01-2014

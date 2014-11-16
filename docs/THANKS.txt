@@ -13,4 +13,5 @@ Many thanks to the following individuals who have provided useful feedback and c
 	Mos'ab alZu'bi (linuxac.org)
 	Taha munzir
 	Walid Ziouche
+    Fahad Al-Saidi‏
 	

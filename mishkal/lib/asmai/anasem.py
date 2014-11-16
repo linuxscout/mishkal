@@ -256,6 +256,7 @@ class SemanticAnalyzer:
         if current.is_proper_noun():
             curorigin  =  u'فلان'
         key = u" ".join([preorigin, curorigin])
+        #~key = u"".join([preorigin, curorigin])
         relation  =  sem_const.SemanticTable.get(key, '')
         
         if relation == '':

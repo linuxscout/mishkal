@@ -1,3 +1,40 @@
+/* strip tashkeel*/
+var CHARCODE_SHADDA = 1617;
+var CHARCODE_SUKOON = 1618;
+var CHARCODE_SUPERSCRIPT_ALIF = 1648;
+var CHARCODE_TATWEEL = 1600;
+var CHARCODE_ALIF = 1575;
+
+function isCharTashkeel(letter)
+{
+    if (typeof(letter) == "undefined" || letter == null)
+        return false;
+
+    var code = letter.charCodeAt(0);
+    //1648 - superscript alif
+    //1619 - madd: ~
+    return (code == CHARCODE_TATWEEL || code == CHARCODE_SUPERSCRIPT_ALIF || code >= 1611 && code <= 1631); //tashkeel
+}
+
+function strip_tashkeel(input)
+{
+  var output = "";
+  //todo consider using a stringbuilder to improve performance
+  for (var i = 0; i < input.length; i++)
+  {
+    var letter = input.charAt(i);
+    if (!isCharTashkeel(letter)) //tashkeel
+      output += letter;                                
+  }
+
+
+return output;                   
+}
+ function ajust_ligature(input)
+{
+return  x= input.replace("لَا", "لاَ");
+}
+
 ﻿$().ready(function() {
 
   $('#btn1').click( function() {
@@ -60,10 +97,38 @@
         //"#result").text(d.time);
       });
   });   
-//--------------------------------------  
+//----------Tabs----------------------  
    $('#more').click( function() {
-      $(".moresection").toggle();
+      //~$(this).toggleClass('tab-visited');
+      $("#vocalizesection").hide();
+      //$("#moresection").toggle();
+      $("#moresection").slideToggle();      
+      $("#formatsection").hide();
+      $("#convertsection").hide();
       });
+   $('#vocalize_group').click( function() {
+      $("#vocalizesection").toggle();
+      $("#moresection").hide();
+      $("#formatsection").hide();
+      $("#convertsection").hide();
+      });      
+      
+   $('#format').click( function() {
+      $("#vocalizesection").hide();
+      $("#moresection").hide();
+      $("#formatsection").toggle();
+      $("#convertsection").hide();
+      });
+   $('#convert').click( function() {
+      $("#vocalizesection").hide();
+      $("#moresection").hide();
+      $("#formatsection").hide();
+      $("#convertsection").toggle();
+      });   
+      
+   $('#help').click( function() {
+      $("#help ul").slideToggle();
+      });      
  // }); 
   
  //Unshape text 
@@ -132,15 +197,11 @@
 		td = document.createElement('td');
 		td.appendChild(document.createTextNode( item['stem']) );
 		tr.appendChild(td);
-		// td = document.createElement('td');
-		// td.appendChild(document.createTextNode( item['suffix']+'-'+item['encletic']) );
-		// tr.appendChild(td);
+
 		td = document.createElement('td');
-		td.appendChild(document.createTextNode( item['tags']) );
+		td.appendChild(document.createTextNode( item['tags'].replace(/:/g,': ') ));
 		tr.appendChild(td);
-		// td = document.createElement('td');
-		// td.appendChild(document.createTextNode( item['root']) );
-		// tr.appendChild(td);
+
 		td = document.createElement('td');
 		td.appendChild(document.createTextNode( item['type']) );
 		tr.appendChild(td);	
@@ -445,7 +506,8 @@
 		// replace all spaces to save it in the output
 		// in order to keep the same typography 
 		// inputText=inputText.replace(/ /g,SEPARATOR); 
-		var textlistOne=inputText.split('\n');
+		//~var textlistOne=inputText.split('\n');
+		var textlistOne=inputText.split('###');
 		$("#result").html("");
 		$("#loading").show();
 		$('#loading').data('length',0);
@@ -495,9 +557,13 @@
 		// item.chosen=item.chosen.replace(SEPARATOR,' '); 
 		// if (item.chosen==SEPARATOR) text+=" ";
 		// else  
-		text+="<span class='vocalized' id='"+currentId+"'>"+item.chosen+"</span>";
+		//~text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"'>"+item.chosen+"</span>";
+		//text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"' suggest='"+item.suggest.replace(/;/g,'، ') + "' link='"+item.link+"'>"+item.chosen+"</span>";
+
+		text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"' suggest='"+item.suggest.replace(/;/g,'، ') + "' link='"+item.link+"'><span class='vocalized-color'>"+ajust_ligature(item.chosen)+"</span><span class='vocalized-letters'>"+strip_tashkeel(item.chosen)+"</span></span>";
 		//text+=" <span>"+item.chosen+"</span>";
 		$('#result').data(currentId.toString(), item.suggest);
+        
 		}
 		}
 		// display the result
@@ -526,7 +592,6 @@
 		
     }); 
 	
-	
   $('.vocalized').live("click", function() {
 
   $(".txkl").change();
@@ -542,7 +607,7 @@
 		{
 		if (list[i]!="")
 			{
-			if (myword.text()!=list[i])
+			if (myword.children('.vocalized-color').text()!=list[i])
 			text+="<option>"+list[i]+"</option>";
 			else text+="<option selected="+list[i]+">"+list[i]+"</option>";
 			cpt+=1;
@@ -554,11 +619,11 @@
 	// disable others suggestion lists	
 	 //$(".txkl").change();
 	 if (cpt>1)  {
-				myword.replaceWith(text);
+				myword.children('.vocalized-color').replaceWith(text);
 				}
 	else { 
-		text="<input type='text' class='txkl'  size='10' id='"+myword.attr('id')+"' value='"+myword.text()+"'/>";
-		myword.replaceWith(text);
+		text="<input type='text' class='txkl'  size='10' id='"+myword.attr('id')+"' value='"+myword.children('.vocalized-color').text()+"'/>";
+		myword.children('.vocalized-color').replaceWith(text);
 
 		}	
    		
@@ -570,7 +635,7 @@
    $('.txkl').live('change',function() {
 	if ($(this).val()!="تعديــل...")
 	{
-	var text="<span class='vocalized' id='"+$(this).attr('id')+"'>"+$(this).val()+"</span>";
+	var text="<span class='vocalized-color' id='"+$(this).attr('id')+"'>"+$(this).val()+"</span>";
 	 $(this).replaceWith(text);	 
 	 }
 	 else // case of editing other choice
@@ -604,6 +669,8 @@
 		// in order to keep the same typography 
 		// inputText=inputText.replace(/ /g,SEPARATOR); 
 		var textlistOne=inputText.split('\n');
+		//~var textlistOne=inputText.split('###');
+		//~var textlistOne=array(inputText, );        
 		$("#result").html("");
 		$("#loading").show();
 		$('#loading').data('length',0);
@@ -704,7 +771,7 @@
 		{
 		if (list[i]!="")
 			{
-			if (myword.text()!=list[i])
+			if (myword.children('.vocalized-color').text()!=list[i])
 			text+="<option>"+list[i]+"</option>";
 			else text+="<option selected="+list[i]+">"+list[i]+"</option>";
 			cpt+=1;
@@ -716,7 +783,7 @@
 	// disable others suggestion lists	
 	 //$(".txkl").change();
 	 if (cpt>1)  {
-				myword.replaceWith(text);
+				myword.children('.vocalized-color').replaceWith(text);
 				}
 	else { 
 		text="<input type='text' class='txkl'  size='10' id='"+myword.attr('id')+"' value='"+myword.text()+"'/>";
@@ -728,7 +795,26 @@
 	
 	 });
 
+// change diff 
+$('#diff').live("hover", function() {
+  $('#hint').html($(this).text() +" : " + $(this).attr('original') + "</br>" + $(this).attr('inflect') +"</br>"+ $(this).attr('link'));
+ });
+ 
+// change diff 
+$('#diff').live("mouseleave", function() {
+  $('#hint').html("");
+ });
+ 
 
+// display infos on vocalized  
+$('.vocalized').live("hover", function() {
+  $('#hint').html($(this).children(".vocalized-color").text() +" : " + $(this).attr('inflect') +"</br>"+ $(this).attr('suggest') +"</br>" + $(this).attr('link'));
+ });
+ 
+// change diff 
+$('.vocalized').live("mouseleave", function() {
+  $('#hint').html("");
+ });
 
 });
 //});

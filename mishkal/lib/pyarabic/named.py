@@ -5,7 +5,16 @@
 Arabic Named enteties recognation pyarabic.named
 """
 import sys
-sys.path.append('../lib')
+#~if __name__ == '__main__':
+    #~import  araby
+    #~import  named_const
+    #~import  propernouns    
+#~else:
+    #~sys.path.append('../lib')
+    #~import pyarabic.araby as araby
+    #~import pyarabic.named_const as named_const
+    #~import pyarabic.propernouns as propernouns
+sys.path.append('../../lib')
 import pyarabic.araby as araby
 import pyarabic.named_const as named_const
 import pyarabic.propernouns as propernouns
@@ -196,11 +205,13 @@ def detect_named(text):
                 if word.startswith(u'ال') and word.endswith(u'ي'):
                     phrase.append(word)    
                 phrases.append(u" ".join(phrase))    
+                #~phrases.append(u"".join(phrase))    
             phrase = []    
         previous = key    
     # add the final phrases 
     if phrase:
-        phrases.append(u" ".join(phrase))    
+        #~phrases.append(u" ".join(phrase))    
+        phrases.append(u"".join(phrase))    
     return phrases
     
 def get_previous_tag(word):

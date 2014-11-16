@@ -34,12 +34,12 @@ class VerbStemmer:
         self.comp_stemmer = tashaphyne.stemming.ArabicLightStemmer() 
 
         # configure the stemmer object
-        self.comp_stemmer.set_infix_letters(svconst.COMP_INFIX_LETTERS) 
-        self.comp_stemmer.set_prefix_letters(svconst.COMP_PREFIX_LETTERS) 
-        self.comp_stemmer.set_suffix_letters(svconst.COMP_SUFFIX_LETTERS) 
-        self.comp_stemmer.set_max_prefix_length(svconst.COMP_MAX_PREFIX) 
-        self.comp_stemmer.set_max_suffix_length(svconst.COMP_MAX_SUFFIX) 
-        self.comp_stemmer.set_min_stem_length(svconst.COMP_MIN_STEM) 
+        #~self.comp_stemmer.set_infix_letters(svconst.COMP_INFIX_LETTERS) 
+        #~self.comp_stemmer.set_prefix_letters(svconst.COMP_PREFIX_LETTERS) 
+        #~self.comp_stemmer.set_suffix_letters(svconst.COMP_SUFFIX_LETTERS) 
+        #~self.comp_stemmer.set_max_prefix_length(svconst.COMP_MAX_PREFIX) 
+        #~self.comp_stemmer.set_max_suffix_length(svconst.COMP_MAX_SUFFIX) 
+        #~self.comp_stemmer.set_min_stem_length(svconst.COMP_MIN_STEM) 
         self.comp_stemmer.set_prefix_list(svconst.COMP_PREFIX_LIST) 
         self.comp_stemmer.set_suffix_list(svconst.COMP_SUFFIX_LIST) 
 
@@ -48,12 +48,12 @@ class VerbStemmer:
         self.conj_stemmer = tashaphyne.stemming.ArabicLightStemmer() 
 
         # configure the stemmer object
-        self.conj_stemmer.set_infix_letters(svconst.CONJ_INFIX_LETTERS) 
-        self.conj_stemmer.set_prefix_letters(svconst.CONJ_PREFIX_LETTERS) 
-        self.conj_stemmer.set_suffix_letters(svconst.CONJ_SUFFIX_LETTERS) 
-        self.conj_stemmer.set_max_prefix_length(svconst.CONJ_MAX_PREFIX) 
-        self.conj_stemmer.set_max_suffix_length(svconst.CONJ_MAX_SUFFIX) 
-        self.conj_stemmer.set_min_stem_length(svconst.CONJ_MIN_STEM) 
+        #~self.conj_stemmer.set_infix_letters(svconst.CONJ_INFIX_LETTERS) 
+        #~self.conj_stemmer.set_prefix_letters(svconst.CONJ_PREFIX_LETTERS) 
+        #~self.conj_stemmer.set_suffix_letters(svconst.CONJ_SUFFIX_LETTERS) 
+        #~self.conj_stemmer.set_max_prefix_length(svconst.CONJ_MAX_PREFIX) 
+        #~self.conj_stemmer.set_max_suffix_length(svconst.CONJ_MAX_SUFFIX) 
+        #~self.conj_stemmer.set_min_stem_length(svconst.CONJ_MIN_STEM) 
         self.conj_stemmer.set_prefix_list(svconst.CONJ_PREFIX_LIST) 
         self.conj_stemmer.set_suffix_list(svconst.CONJ_SUFFIX_LIST) 
         # enable the last mark (Harakat Al-I3rab) 
@@ -204,7 +204,7 @@ class VerbStemmer:
                                 list_correct_conj += onelist_correct_conj 
                     for conj in list_correct_conj:
                         result.append(conj['verb'])
-
+                        #~print "stemverb: tense", conj['tense'].encode('utf8')
                         detailed_result.append(wordcase.WordCase({
                         'word':verb, 
                         'affix': ( procletic, prefix_conj, suffix_conj, 
@@ -222,7 +222,9 @@ class VerbStemmer:
                         svconst.COMP_SUFFIX_LIST_TAGS[encletic]['tags']), 
                         'type':'Verb', 
                         #~ 'root':'', 
-                        #~ 'template':'', 
+                        #~ 'template':'',
+                        'tense': conj['tense'], 
+                        'pronoun': conj['pronoun'], 
                         'freq':'freqverb', 
                         'originaltags':original_tags, 
                         'syntax':'', 

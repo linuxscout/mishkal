@@ -494,8 +494,12 @@ def extractNamed(text):
     """
     import pyarabic.named as named
     phrases = []
+
     wordlist = araby.tokenize(text)
+    wordlist = named.pretashkeel_named(wordlist)
+    #~print text.encode('utf8')
     positions = named.detect_named_position(wordlist)
+
     previous_pos = 0 # to keep the previous pos in the list
     for pos in positions:
         if len(pos) >= 2:
@@ -578,20 +582,24 @@ def compare_tashkeel(text):
     correct_text = text
     text = araby.strip_tashkeel(text)
     vocalizer = ArabicVocalizer.TashkeelClass()
-    vocalized_text = vocalizer.tashkeel(text)
+    #~vocalized_text = vocalizer.tashkeel(text)
+    vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(text)
+       
     
     # compare voalized text with a correct text
     text1 = correct_text
-    text2 = vocalized_text
+    #~text2 = vocalized_text
+    displayed_html = u""
     # remove collocations symboles
-    text2 = text2.replace("'", "")
-    text2 = text2.replace("~", "")
+    #~text2 = text2.replace("'", "")
+    #~text2 = text2.replace("~", "")
     
     #stemmer=tashaphyne.stemming.ArabicLightStemmer()
     list1 = vocalizer.analyzer.tokenize(text1)
-    list2 = vocalizer.analyzer.tokenize(text2)
+    #~list2 = vocalizer.analyzer.tokenize(text2)
+    list2 = vocalized_dict
     print u":".join(list1).encode('utf8')
-    print u":".join(list2).encode('utf8')
+    #~print u":".join(list2).encode('utf8')
     correct = 0
     incorrect = 0
     total = len(list1)
@@ -599,12 +607,32 @@ def compare_tashkeel(text):
         print "lists haven't the same length"
     else:
         for i in range(total):
-            if araby.vocalizedlike(list1[i], list2[i]):
+            wo1 = list1[i]
+            wo2 = list2[i]['chosen']
+            inflect = list2[i]['inflect']
+            link = list2[i]['link']
+            if araby.vocalizedlike(wo1, wo2):
+                displayed_html += u" " + wo2
                 correct += 1
             else:
                 incorrect += 1
+                # green for last mark difference
+                wo1_strip = araby.strip_lastharaka(wo1)
+                wo2_strip = araby.strip_lastharaka(wo2)                
+                if araby.vocalizedlike(wo1_strip, wo2_strip):
+                    style = 'diff-mark'
+                else:
+                    # if the last marks are equal
+                    wm1 = wo1[-1:]
+                    wm2 = wo2[-1:]
+                    if (araby.is_haraka(wm1) and araby.is_haraka(wm2) and wm1 == wm2) \
+                    or (bool(araby.is_haraka(wm1)) ^  bool(araby.is_haraka(wm2))):
+                        style = "diff-word"
+                    else:
+                        style = 'diff-all'
+                displayed_html += u" <span id='diff'  class='%s' original='%s' inflect='%s' link='%s'>%s</span>" % ( style, wo1, inflect, link, wo2)
     
-    result = [vocalized_text, "correct:%0.2f%%" % round(correct*100.00/total, 
+    result = [displayed_html, "correct:%0.2f%%" % round(correct*100.00/total, 
      2), "incorrect:%0.2f%%"%round(incorrect*100.00/total, 2), total]
     return result#correct*100/total
 

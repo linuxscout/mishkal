@@ -27,7 +27,8 @@ import qalsadi.analex_const as analex_const# special constant for analex
 import qalsadi.stem_noun   as  stem_noun    # noun stemming 
 import qalsadi.stem_verb   as  stem_verb  # verb stemming
 import qalsadi.stem_unknown as  stem_unknown      # unknown word stemming
-import qalsadi.stem_stopwords as  stem_stopwords     # stopwords word stemming
+#~import qalsadi.stem_stopwords as  stem_stopwords     # stopwords word stemming
+import qalsadi.stem_stop as  stem_stopwords     # stopwords word stemming
 import qalsadi.stem_pounct_const as stem_pounct_const# pounctaution constants 
 import naftawayh.wordtag  # word tagger
 import arramooz.wordfreqdictionaryclass as wordfreqdictionaryclass
@@ -95,7 +96,8 @@ class Analex :
         #added as a global variable to avoid duplucated search 
         #in mutliple call of analex
         # cache used to avoid duplicata
-        self.allow_cache_use = True
+        #~self.allow_cache_use = True
+        self.allow_cache_use = False
         if self.allow_cache_use:
             self.cache = cache.cache()
 
@@ -135,7 +137,9 @@ class Analex :
             return []
         else:
             mylist = self.token_pat.split(text)
-            mylist = [re.sub(r"\s", '', x) for x in mylist if x]
+            #~mylist = [re.sub(r"\s", '', x) for x in mylist if x]
+            p = re.compile('\t|\r|\f|\v| ')
+            mylist = [p.sub('',x) for x in mylist if x]            
             # for i in range(len(mylist)):
                 # mylist[i] = re.sub("\s", '', mylist[i])
             # while u'' in mylist: mylist.remove(u'')
@@ -502,12 +506,14 @@ tags of affixes and tags extracted form lexical dictionary
             if wordtype:
                 # if frequency is already get from database, 
                 #  don't access to database
-                if self.allow_cache_use: 
+                if self.allow_cache_use and  self.cache.existsCacheFreq(original, 
+                    wordtype): 
                     item.__dict__['freq'] = self.cache.getFreq(original, 
                     wordtype)
 
                 else:
                     freq = self.wordfreq.get_freq(original, wordtype)
+                    #~print freq, wordtype, original.encode('utf8')
                     #store the freq in the cache
                     if self.allow_cache_use:
                         #~ self.cache['FreqWords'][wordtype][original] = freq

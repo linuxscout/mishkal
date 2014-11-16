@@ -42,6 +42,7 @@ def usage():
     print "\t[-c | --compare]  compare the vocalized text with the program output"
     print "\n\t* Tashkeel Options\n\t------------------"
     print "\t[-l | --limit]    vocalize only a limited number of line"
+    print "\t[-p | --progress]    show execution progress"
     print "\t[-x | --syntax]   disable syntaxic analysis"
     print "\t[-m | --semantic] disable semantic analysis"
     print "\t[-i | --ignore]   ignore the last Mark on output words."    
@@ -149,13 +150,14 @@ if __name__ ==  '__main__':
             # print detailled_syntax;
             for synnode in synnodeList:
                 if synnode.get_break_type() in ("break", "mostBreak"):
-                    print;
+                    print "break";
                 print synnode.get_word().encode('utf8'),                 
             for previous, currents, nxt in previous_and_next(detailled_syntax):
                 for wordcase in currents:
                     print wordcase.get_word().encode('utf8'), wordcase.get_next();
                     nextWordCasePositions =  wordcase.get_next();
                     previousWordCasePositions =  wordcase.get_previous();
+
                     if previous and previousWordCasePositions:    
                         for p in previousWordCasePositions:
                             if p <len(previous):

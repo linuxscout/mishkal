@@ -249,7 +249,7 @@ ALEFAT_PATTERN  = re.compile(ur"["+u"".join(ALEFAT)+u"]",  re.UNICODE)
 #~ """ all alef like letters """
 LIGUATURES_PATTERN  = re.compile(ur"["+u"".join(LIGUATURES)+u"]",  re.UNICODE)
 #~ """ all liguatures pattern """
-TOKEN_PATTERN = re.compile(ur"[^\w\u064b-\u0652']+", re.UNICODE)
+TOKEN_PATTERN =  re.compile(ur"([\w%s]+)" % u"".join(TASHKEEL), re.UNICODE)
 #~ """ pattern to tokenize a text"""
 ################################################
 #{ is letter functions
@@ -939,9 +939,24 @@ def vocalized_similarity(word1, word2):
     #~ """
     #~ return word
 
+#~def tokenize(text = u""):
+    #~"""Tokenize Arabic text into words
+    #~@param text the input text.
+    #~@type text: unicode.
+    #~@return: list of words.
+    #~@rtype: list.
+    #~"""
+    #~if text == u'':
+        #~return []
+    #~else:
+        #~mylist =  TOKEN_PATTERN.split(text)
+        #~if u'' in mylist:
+            #~mylist.remove(u'')
+        #~return mylist
 def tokenize(text = u""):
-    """Tokenize Arabic text into words
-    @param text the input text.
+    """
+    Tokenize text into words
+    @param text: the input text.
     @type text: unicode.
     @return: list of words.
     @rtype: list.
@@ -949,9 +964,14 @@ def tokenize(text = u""):
     if text == u'':
         return []
     else:
-        mylist =  TOKEN_PATTERN.split(text)
-        if u'' in mylist:
-            mylist.remove(u'')
+        mylist = TOKEN_PATTERN.split(text)
+        mylist = [re.sub(r"\s", '', x) for x in mylist if x]
+        # for i in range(len(mylist)):
+        # mylist[i] = re.sub("\s", '', mylist[i])
+        # while u'' in mylist: mylist.remove(u'')
+        # remove empty substring
+        mylist = [x for x in mylist if x]
+        #print u"'".join(mylist).encode('utf8')
         return mylist
 
 if __name__ == "__main__":

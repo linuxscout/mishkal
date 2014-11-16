@@ -22,56 +22,68 @@
 <hr/>
 إصدار تجريبي
 <!-- end menu -->
+
 <div id="mainbox">
 <form name="NewForm" onSubmit="return false">
+
+<a  id="vocalize_group" class="tab"><span>خيارات التشكيل</span></a> | 
+<a  id="convert" class="tab"><span>تحويل</span></a> | 
+<a  id="format" class="tab"><span>تنسيق</span></a> | 
+<a  id="more" class="tab"><span>أدوات</span></a> </br>
+
 <textarea name="InputText" id="InputText" cols=60 rows=7 class='Block'>%(DefaultText)s
+
 
 </textarea>
 <br/>
-<input type="checkbox" value='1' checked id="LastMark" /> تشكيل أواخر الكلمات<BR/>
-<!--<a id="tashkeel"   class="Button" title='تشكيل النص'><span>تشكيل</span></a>-->
 <a id="tashkeel"   class="Button" title='تشكيل النص'><span>تشكيل</span></a>
-<input type="reset" value='امسح'/>
-<a  id="more" class="Button"><span>أدوات أخرى...</span></a>
-
-
-<div id="moresection" class='moresection'>
-
-<a id="spellcheck"   class="Button" title='تحليل النص صرفيا'><span>تدقيق</span></a>
-<a id="stem"   class="Button" title='تحليل النص صرفيا'><span>تحليل</span></a>
+<div id="vocalizesection" class='moresection'>
 <a  id="stripharakat" class="Button"><span>حذف الحركات</span></a>
 <a  id="reducetashkeel" class="Button"><span>اختزال التشكيل</span></a>
-<a  id="comparetashkeel" class="Button"><span>مطابقة التشكيل</span></a>
+<a  id="comparetashkeel" class="Button"><span>مطابقة التشكيل</span></a>    
+<BR/><input type="checkbox" value='1' checked id="LastMark" /> تشكيل أواخر الكلمات
+<BR/><input type="checkbox" value='1' checked id="markColor" /> تلوين الحركات  
+</div>
+
+<div id="moresection" class='moresection'>
+<a id="spellcheck"   class="Button" title='تحليل النص صرفيا'><span>تدقيق</span></a>
+<a id="stem"   class="Button" title='تحليل النص صرفيا'><span>تحليل</span></a>
 <a  id="showCollocations" class="Button"><span>عرض المتلازمات</span></a>
 <a id="tokenize"   class="Button" title='تحويل النص إلى قائمة كلمات'><span>تفريق</span></a>
-
 <a id="affixate" class="Button" title='توليد مختلف أشكال الاسم بإضافة الزوائد كحروف العطف والتعريف والضمائر المتصلة'><span>توليد الكلمات</span></a>
 <a id="normalize" class="Button" title='توحيد أشكال الهمزات والألفات والتاء المربوطة'><span>تنميط النص</span></a>
 <a id="wordtag" class="Button" title='تصنيف الكلمات إلى أسماء وأفعال'><span>تصنيف الكلمات</span></a>
 <a id="language" class="Button" title='تحديد الجمل العربية في النص'><span>تحديد اللغة</span></a>
-
 <a id="named" class="Button" title='استخلاص المسميات'><span>استخلاص المسميات</span></a>
 <a id="numbred" class="Button" title='استخلاص االمعدودات'><span>استخلاص المعدودات</span></a>
-<a  id="number" class="Button" title='تحويل الأعداد إلى كلمات'><span>ترقيم</span></a>
-<a id="inverse"   class="Button" title='ترتيب الكلمات حسب آخر حرفها( القافية)'><span>ترتيب حسب آخر حرف</span></a>
-<a id="poetry"   class="Button" title='تنسيق الشعر العربي العمودي إلى عمودين'><span>ضبط قصيدة عمودية</span></a>
-<a id="unshape" class="Button" title='قلب النص والحروف للاستخدام في البرامج التي لا تدعم العربية'><span>قلب الحروف</span></a>
-<!---->
 <a id="random"   class="Button" title='نص عشوائي'><span>نص عشوائي</span></a>
 <a id="randomMaqola"   class="Button" title='نص عشوائي'><span>مقولة عشوائية</span></a>
-<br/>
+<!---->
+
+</div>
+<div id="convertsection" class='moresection'>
+<a  id="number" class="Button" title='تحويل الأعداد إلى كلمات'><span>ترقيم</span></a>
+<a id="inverse"   class="Button" title='ترتيب الكلمات حسب آخر حرفها( القافية)'><span>ترتيب حسب آخر حرف</span></a>
+<a id="unshape" class="Button" title='قلب النص والحروف للاستخدام في البرامج التي لا تدعم العربية'><span>قلب الحروف</span></a>
+</div>
+<div id="formatsection" class='moresection'>
+<a id="poetry"   class="Button" title='تنسيق الشعر العربي العمودي إلى عمودين'><span>ضبط قصيدة عمودية</span></a>
+</div>
 
 <a id="move" class="Button" title=''><span>نقل النتائج إلى المدخل</span></a>
-</div>
+<input type="reset"  value='امسح'/>
 </form>
 <div id='loading'>
-جاري التحميل
+ التحميل جارٍ
 </div>
 <div id="result" width=600>
 %(ResultText)s
 </div>
+<div id="hint" width=600>
+</div>
 <div id="help">
 <b>مساعدة</b>
+<hr/>
 <ul>
 <li>
 أكتب النص في الخانة، ثم اضغط على زر التشكيل.
@@ -87,7 +99,7 @@
 اضغط على زر أدوات أخرى للحصول على خدمات أخرى.
 </li>
 </ul>
-</p>
+
 </div>
 <div id="contributeSection">
 بعد أن تتحقّق من أنّ النص مشكول تشكيلا صحيحا، أرسله إلينا من أجل تحسين أداء البرنامج.

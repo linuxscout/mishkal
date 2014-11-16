@@ -16,7 +16,8 @@ Used in multiporpus morpholigical treatment
 """
 import re
 import sys, os
-
+if __name__  ==  '__main__':
+  sys.path.append('../')  
 import sqlite3 as sqlite
 FILE_DB_FREQ = u"data/wordfreq.sqlite"
 import pyarabic.araby as araby
@@ -127,7 +128,7 @@ class WordFreqDictionary:
         # eg.
         # entry  = {0:"kataba", 1:"ktb"}
         # output entry  = {'vocalized':'kataba', 'unvocalized':'ktb'}
-        sql  =  u"select * FROM %s WHERE id = '%s'" % (self.table_name, idf)
+        sql  =  u"select * FROM %s WHERE id='%s'" % (self.table_name, idf)
         try:
             self.cursor.execute(sql)
             if self.cursor:
@@ -186,15 +187,15 @@ class WordFreqDictionary:
             # return False
         # if the id exists and the attribute existe return the value,
         # else return False
-        sql  =  u"select * FROM %s WHERE id = '%s'" % (self.table_name, idf)
+        sql  =  u"select * FROM %s WHERE id='%d'" % (self.table_name, idf)
         try:
             self.cursor.execute(sql)
-            #~entry_dict = {}        
-            if self.cursor:
-                for row in self.cursor:
-                    return  row[attribute]
         except sqlite.OperationalError:
-            return False    
+            print "Fatal Error on query: wordfreq dict error 12"
+            return False 
+        if self.cursor:
+            for row in self.cursor:
+                return  row[attribute]
         return False
 
     def lookup(self, text, word_type = ''):
@@ -220,24 +221,26 @@ class WordFreqDictionary:
         # strip all fatha before alef into 
         text = re.sub(araby.FATHA+araby.ALEF, araby.ALEF, text)
         if word_type == 'unknown':
-            sql  =  u"select * FROM %s WHERE unvocalized = '%s'" % (
+            sql  =  u"select * FROM %s WHERE unvocalized='%s'" % (
             self.table_name, text)
         else:
-            sql  =  u"select * FROM %s WHERE vocalized = '%s'" % (
+            sql  =  u"select * FROM %s WHERE vocalized='%s'" % (
             self.table_name, text)            
             if word_type == 'verb':
-                sql += " AND word_type = 'verb' "
+                sql += " AND word_type='verb' "
             elif word_type == 'noun':
-                sql += " AND word_type! = 'verb' "
+                sql += " AND word_type!='verb' "
         try:
             self.cursor.execute(sql)
-            if self.cursor:
-                # return self.curser.fetchall()
-                for row in self.cursor:
-                    idlist.append(row)
-            return idlist
         except sqlite.OperationalError:
+            print "Fatal Error can't execute query: file: wordfrequencydictionary"
             return []
+        if self.cursor:
+            # return self.curser.fetchall()
+            for row in self.cursor:
+                idlist.append(row)
+        return idlist
+
     def get_freq(self, text, word_type = ''):
         """
         return the word frequency from the in the dictionary
@@ -252,8 +255,12 @@ class WordFreqDictionary:
         #if araby.is_haraka(text[-1:]): text = text[:-1]
         idlist = self.lookup(text, word_type)
         # if there are many take the first
+        #~print text.encode('utf8'), word_type, len (idlist)
         if idlist:
-            return self.get_attrib_by_id(idlist[0], u'freq')
+            #~freq = self.get_attrib_by_id(idlist[0], u'freq')
+            freq = idlist[0]['freq']
+            #~print text.encode('utf8'), word_type, freq
+            return freq 
         else: 
             return 0
 def mainly():
@@ -278,11 +285,11 @@ def mainly():
         print "jjjjjjjj"
         print "word freq", mydict.get_freq(word)
         idlist = mydict.lookup(word)
-        print idlist
+        #~print "id list", idlist
         for idf in idlist:
-            print mydict.get_attrib_by_id(idf, u'freq')#.encode('utf8')
-            myentry =  mydict.get_entry_by_id(idf)
-            print repr(myentry)    
+            print 'frequency', idf['freq']
+            print idf
+   
 #Class test
 if __name__  ==  '__main__':
     mainly()

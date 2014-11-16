@@ -31,22 +31,22 @@ class NounStemmer:
         self.comp_stemmer = tashaphyne.stemming.ArabicLightStemmer()
         # configure the stemmer object
         self.comp_stemmer.set_infix_letters(snconst.COMP_INFIX_LETTERS)
-        self.comp_stemmer.set_prefix_letters(snconst.COMP_PREFIX_LETTERS)
-        self.comp_stemmer.set_suffix_letters(snconst.COMP_SUFFIX_LETTERS)
-        self.comp_stemmer.set_max_prefix_length(snconst.COMP_MAX_PREFIX)
-        self.comp_stemmer.set_max_suffix_length(snconst.COMP_MAX_SUFFIX)
-        self.comp_stemmer.set_min_stem_length(snconst.COMP_MIN_STEM)
+        #~self.comp_stemmer.set_prefix_letters(snconst.COMP_PREFIX_LETTERS)
+        #~self.comp_stemmer.set_suffix_letters(snconst.COMP_SUFFIX_LETTERS)
+        #~self.comp_stemmer.set_max_prefix_length(snconst.COMP_MAX_PREFIX)
+        #~self.comp_stemmer.set_max_suffix_length(snconst.COMP_MAX_SUFFIX)
+        #~self.comp_stemmer.set_min_stem_length(snconst.COMP_MIN_STEM)
         self.comp_stemmer.set_prefix_list(snconst.COMP_PREFIX_LIST)
         self.comp_stemmer.set_suffix_list(snconst.COMP_SUFFIX_LIST)
         # create a stemmer object for stemming conjugated verb
         self.conj_stemmer = tashaphyne.stemming.ArabicLightStemmer()
         # configure the stemmer object
-        self.conj_stemmer.set_infix_letters(snconst.CONJ_INFIX_LETTERS)
-        self.conj_stemmer.set_prefix_letters(snconst.CONJ_PREFIX_LETTERS)
-        self.conj_stemmer.set_suffix_letters(snconst.CONJ_SUFFIX_LETTERS)
-        self.conj_stemmer.set_max_prefix_length(snconst.CONJ_MAX_PREFIX)
-        self.conj_stemmer.set_max_suffix_length(snconst.CONJ_MAX_SUFFIX)
-        self.conj_stemmer.set_min_stem_length(snconst.CONJ_MIN_STEM)
+        #~self.conj_stemmer.set_infix_letters(snconst.CONJ_INFIX_LETTERS)
+        #~self.conj_stemmer.set_prefix_letters(snconst.CONJ_PREFIX_LETTERS)
+        #~self.conj_stemmer.set_suffix_letters(snconst.CONJ_SUFFIX_LETTERS)
+        #~self.conj_stemmer.set_max_prefix_length(snconst.CONJ_MAX_PREFIX)
+        #~self.conj_stemmer.set_max_suffix_length(snconst.CONJ_MAX_SUFFIX)
+        #~self.conj_stemmer.set_min_stem_length(snconst.CONJ_MIN_STEM)
         self.conj_stemmer.set_prefix_list(snconst.CONJ_PREFIX_LIST)
         self.conj_stemmer.set_suffix_list(snconst.CONJ_SUFFIX_LIST)
 
@@ -167,24 +167,19 @@ class NounStemmer:
                 # tags given by affixes
                 # دراسة توافق الزوائد مع خصائص الاسم،
                 # مثلا هل يقبل الاسم التأنيث.
-    
-                if validate_tags(noun_tuple, affix_tags, procletic, 
-                encletic_nm, suffix_conj_nm):
+                if validate_tags(noun_tuple, affix_tags, procletic, encletic_nm, suffix_conj_nm):
                     ## get all vocalized form of suffixes
-                    for vocalized_encletic in \
-                    snconst.COMP_SUFFIX_LIST_TAGS[encletic_nm]['vocalized']:
-                        for vocalized_suffix in \
-                    snconst.CONJ_SUFFIX_LIST_TAGS[suffix_conj_nm]['vocalized']:
+                    for vocalized_encletic in snconst.COMP_SUFFIX_LIST_TAGS[encletic_nm]['vocalized']:
+                        for vocalized_suffix in snconst.CONJ_SUFFIX_LIST_TAGS[suffix_conj_nm]['vocalized']:
                          ## verify compatibility between procletics and affix
-                            if (self.is_compatible_proaffix_affix(noun_tuple, 
-                            procletic, vocalized_encletic, vocalized_suffix)):
-                                vocalized, semi_vocalized = vocalize(
-                                infnoun,procletic,  vocalized_suffix, 
-                                vocalized_encletic)
-                                vocalized_affix_tags = \
-                     snconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']\
-                    +snconst.COMP_SUFFIX_LIST_TAGS[vocalized_encletic]['tags']\
-                    +snconst.CONJ_SUFFIX_LIST_TAGS[vocalized_suffix]['tags']
+                            if u'جمع مذكر سالم' in snconst.CONJ_SUFFIX_LIST_TAGS[vocalized_suffix]['tags']\
+                              and not noun_tuple['masculin_plural']:
+                                continue;
+                            if (self.is_compatible_proaffix_affix(noun_tuple, procletic, vocalized_encletic, vocalized_suffix)):
+                                vocalized, semi_vocalized = vocalize(infnoun,procletic,  vocalized_suffix, vocalized_encletic)
+                                vocalized_affix_tags = snconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']\
+                                  +snconst.COMP_SUFFIX_LIST_TAGS[vocalized_encletic]['tags']\
+                                  +snconst.CONJ_SUFFIX_LIST_TAGS[vocalized_suffix]['tags']
                                 #add some tags from dictionary entry as 
                                 #mamnou3 min sarf and broken plural
                                 original_tags = []
@@ -237,7 +232,7 @@ class NounStemmer:
         @type suffix: unicode.
         @return: compatible.
         @rtype: True/False.
-        """    
+        """ 
         #if not procletic and not encletic:  return True
         #use cache for affix verification
         affix = u'-'.join([procletic, encletic, suffix, str(
@@ -277,6 +272,7 @@ class NounStemmer:
             self.cache_affixes_verification[affix] = False    
         else:
             self.cache_affixes_verification[affix] = True
+
         return self.cache_affixes_verification[affix]
 
 
@@ -515,6 +511,7 @@ def validate_tags(noun_tuple, affix_tags, procletic, encletic_nm ,
     procletic = araby.strip_tashkeel(procletic)
     encletic = encletic_nm
     suffix = suffix_nm
+
     if u'مؤنث' in affix_tags and not noun_tuple['feminable']:
         return False
     if  u'جمع مؤنث سالم' in affix_tags and \

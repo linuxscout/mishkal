@@ -1,4 +1,5 @@
-﻿#!/usr/bin/python # -*- coding = utf-8 -*- 
+﻿#!/usr/bin/python 
+# -*- coding = utf-8 -*- 
 #---------------------------------------------------------------------
 # Name:        tashkeel 
 # Purpose:     Arabic automatic vocalization. # 
@@ -17,6 +18,7 @@ import pyarabic.araby as araby
 import tashkeel_const
 import qalsadi.analex
 import aranasyn.anasyn 
+import aranasyn.syn_const 
 import asmai.anasem 
 import maskouk.collocations as coll
 import pyarabic.number
@@ -230,7 +232,7 @@ class TashkeelClass:
     
         #split texts into phrases to treat one phrase in time
         texts = self.analyzer.split_into_phrases(inputtext)
-        # texts = [inputtext, ]
+        #~print u" \n".join(texts).encode('utf8')
         vocalized_text = u""
         previous = None
         output_suggest_list = []
@@ -246,7 +248,7 @@ class TashkeelClass:
             pre_node = None
             for word_cases_list in detailled_syntax:
 
-                current_chosen = self._choose_tashkeel(word_cases_list, 
+                current_chosen = self.__choose_tashkeel(word_cases_list, 
                 previous, pre_node, next_node)
                 # ajust tanwin case
                 # if previous and previous.canhave_tanwin() and not 
@@ -256,6 +258,7 @@ class TashkeelClass:
                 # o ajust relation between words
                 # if the actual word is transparent don't change the previous
                 # add this to Sytaxic Analyser
+
                 if not current_chosen.is_transparent():
                     previous = current_chosen
                 _chosen_list.append(current_chosen)
@@ -279,15 +282,23 @@ class TashkeelClass:
                 suggests_list.append(suggest)
         output_suggest_list = []
         #create texts from chosen cases
+        privous_order = -1
         for i in range(len(_chosen_list)):
             word = _chosen_list[i].get_vocalized()
+            inflect = _chosen_list[i].get_tags() 
+            relation = _chosen_list[i].get_previous_relation(previous.get_order())
+            #get the title of relation
+            relation = aranasyn.syn_const.DISPLAY_RELATION.get(relation, "")  
+                       
             # omit the last haraka if the option LastMark is False
             if not self.get_enabled_last_mark():
                 word = araby.strip_lastharaka(word)
+            #~vocalized_text = u"".join([vocalized_text, 
             vocalized_text = u" ".join([vocalized_text, 
             self.display(word, format_display)])
             output_suggest_list.append({'chosen':word, 
-            'suggest':u";".join(suggests_list[i])})
+            'suggest':u";".join(suggests_list[i]), 'inflect':inflect, "link":relation})
+            # save the current chosen as a previous
         
         # correct the resulted text to ajust some case of consonant neighbor
         #معالجة حالات التقاء الساكنين
@@ -300,7 +311,7 @@ class TashkeelClass:
         else:
             return vocalized_text
 
-    def _choose_tashkeel(self, curcaseslist, previous_chosen_case = None,
+    def __choose_tashkeel(self, curcaseslist, previous_chosen_case = None,
      pre_node = None, next_node = None):
         """
         Choose a tashkeel for the current word, according to the previous one.
@@ -319,6 +330,7 @@ class TashkeelClass:
         # if len(curcaseslist)>0:
             # chosen = curcaseslist[0]
         chosen = None
+        rule = 0
         previous = previous_chosen_case
         # test selct by score
         if self.select_by_score_enabled:
@@ -354,6 +366,7 @@ class TashkeelClass:
                 for current in curcaseslist:
                     if current.is_stopword() and current.has_next():
                         chosen = current
+                        rule = 1
                         break 
 
         # choose a case with two semantic  relation previous and next
@@ -363,6 +376,8 @@ class TashkeelClass:
                 if self.anasem.is_related(previous, current) \
                 and current.has_sem_next():
                     chosen = current
+                    rule = 2                        
+
                     break 
             # choose a case with one semantic  relation previous,
             # and the previous has a syntaxic relation
@@ -371,12 +386,14 @@ class TashkeelClass:
                     if self.anasem.is_related(previous, current) and \
                     previous.has_next():
                         chosen = current
+                        rule = 3                        
                         break 
             # choose a case with one semantic  relation previous
             if not chosen:
                 for current in curcaseslist:
                     if self.anasem.is_related(previous, current):
                         chosen = current
+                        rule = 4                        
                         break 
             # choose a case with one semantic  relation  next with a 
             #syntaxic relation between previous and current                    
@@ -385,6 +402,7 @@ class TashkeelClass:
                     if self.anasynt.is_related(previous, current) and \
                     current.has_sem_next():
                         chosen = current
+                        rule = 5
                         break 
             # choose a case with one semantic  relation  next   
             if not chosen:
@@ -392,6 +410,7 @@ class TashkeelClass:
                     if  current.has_sem_next():
                         # print "15", current.get_vocalized().encode('utf8')
                         chosen = current
+                        rule = 6
                         break 
         if  self.get_enabled_syntaxic_analysis():
             # choose a case with two syntaxic  relation previous and next
@@ -400,12 +419,14 @@ class TashkeelClass:
                     if self.anasynt.is_related(previous, current) and \
                     current.has_next() and not current.is_passive():
                         chosen = current
+                        rule = 7
                         break
                 else:
                     for current in curcaseslist:
                         if self.anasynt.is_related(previous, current) and\
                          current.has_next():
                             chosen = current
+                            rule = 8 
                             break
                     else:
                     # choose a case with one syntaxic  relation previous 
@@ -414,18 +435,21 @@ class TashkeelClass:
                             if self.anasynt.is_related(previous, current) \
                             and not current.is_passive():
                                 chosen = current
-                                break
+                                rule = 9                        
+                                break                               
                         else:
             #select passive voice
                             for current in curcaseslist:
                                 if self.anasynt.is_related(previous, current) :
                                     chosen = current
+                                    rule = 10                        
                                     break                         
             # choose a case with one syntaxic  relation next 
             if not chosen:
                 for current in curcaseslist:
                     if current.has_next():
                         chosen = current
+                        rule = 11
                         break 
                 else:
                 #---------------------------
@@ -437,12 +461,16 @@ class TashkeelClass:
                             # print "25"
                             # # if previous: previous.vocalized += "*"
                             chosen = current
+                            rule = 12 
                             break 
                     else:
+                        #ToDo: حالة العطف
+                        
                 # choose a case with mansoub Noun
                         for current in curcaseslist:
                             if current.is_noun() and current.is_mansoub():
                                 chosen = current
+                                rule = 13
                                 break 
                         else:
                         # choose a case marfou3 verb
@@ -450,6 +478,7 @@ class TashkeelClass:
                                 if current.is_verb() and not current.is_passive()\
                                  and current.is_marfou3():
                                     chosen = current
+                                    rule = 14
                                     break 
                             else:
                             # choose a case verb
@@ -458,6 +487,7 @@ class TashkeelClass:
                                     current.is_passive()and (current.is_marfou3()\
                                      or current.is_past()):
                                         chosen = current
+                                        rule = 15
                                         break 
                                 else:
                                 # choose a case marfou3 verb if there 
@@ -465,225 +495,15 @@ class TashkeelClass:
                                     for current in curcaseslist:
                                         if current.is_verb():
                                             chosen = current
+                                            rule = 16
                                             break
         if not chosen and len(curcaseslist)>0:
-            chosen = curcaseslist[0]        
+            chosen = curcaseslist[0]
+            #~rule, "- not chosen", chosen.get_vocalized().encode('utf8')    
+        #~else:
+            #~print rule, "- is chosen", chosen.get_vocalized().encode('utf8')
         return chosen
         
-    #~def choose_tashkeel_old(self, curcaseslist, 
-    #~previous_chosen_case = None, _next_cases_list = None):
-        #~"""
-        #~Choose a tashkeel for the current word, according to the previous one.
-        #~@param curcaseslist: list of steming result of the word.
-        #~@type curcaseslist: list of stemmedSynword
-        #~@param : the chosen previous word stemming.
-        #~@type previous_chosen_case:stemmedSynword
-        #~@return: the chosen stemming of the current word.
-        #~@rtype:stemmedSynword.
-        #~"""
-#~
-        #~# select the first chosen tashkeel
-        #~if not curcaseslist:
-            #~return None
-        #~len_ccs = len(curcaseslist) # Len CCS
-        #~
-        #~# if there are one case only
-        #~if len_ccs == 1:
-            #~chosen = curcaseslist[0]
-            #~return chosen
-        #~
-        #~chosen = None
-        #~previous = previous_chosen_case
-        #~
-        #~# test selct by score
-        #~if self.select_by_score_enabled:
-            #~chosen = self._select_by_score(curcaseslist, previous)
-            #~if chosen:
-                #~return chosen 
-#~
-#~
-        #~# How to choose a vocalized case
-        #~# and lets other methode to choices by semantic and syntaxic
-        #~# choose a case is a stopword and has next relation
-        #~if not chosen:
-            #~for current in curcaseslist:
-                #~if current.is_stopword() and current.has_next():
-                    #~chosen = current
-                    #~break 
-#~
-        #~if not chosen:
-            #~chosen_list = []
-            #~if not previous or previous.is_initial():
-                #~condidate_sem_list = [] # semantic previous
-                #~#condidate_syn_list = [] # syntaxic previous            
-                #~condidate_syn_list = [i for i in range(len_ccs) \
-                  #~if curcaseslist[i].has_previous()]
-                #~print 'initial cases', len(condidate_syn_list)
-            #~else: #if previous:
-                #~condidate_sem_list = previous.get_sem_next()  
-                #~# semantic previous
-                #~condidate_syn_list = previous.get_next()  
-                #~# syntaxic previous            
-#~
-            #~condidate_sem_sem_list = [] #semantic previous semantic Next
-            #~condidate_sem_syn_list = [] #semantic previous syntaxic Next
-            #~condidate_syn_sem_list = [] #syntaxic previous semantic Next 
-            #~condidate_syn_syn_list = [] #syntaxic previous syntaxic Next 
-            #~condidate_next_sem_list = [] # only semantic Next 
-            #~condidate_next_syn_list = [] # only syntaxic Next 
-#~
-            #~# look up for semantic semantic and semantic syntaxic 
-            #~for i in condidate_sem_list:
-                #~# one relation with previous
-                #~if i < len(curcaseslist) and \
-                #~curcaseslist[i].has_next():
-                #~#one relation with a next
-                    #~condidate_sem_syn_list.append(i) 
-                    #~# semantic previous syntaxic Next                
-                    #~if curcaseslist[i].has_sem_next():
-                    #~#one relation with a next
-                        #~condidate_sem_sem_list.append(i)
-                         #~# semantic previous semantic Next
-#~
-            #~#lookup for syntaxic syntaxic and syntaxic semantic
-#~
-            #~if condidate_syn_list and max(condidate_syn_list)>len_ccs:
-                #~print "Warrning, ----------------------------"
-                #~print 'Nexts', condidate_syn_list
-                #~print 'curre', 
-                #~print (hash(previous), previous.getWord().encode('utf8'), 
-                 #~curcaseslist[0].getWord().encode('utf8'))
-                #~for i in range(len_ccs):
-                    #~print i, ':', curcaseslist[i].get_order(), ', ', 
-                #~print 
-#~
-            #~for i in condidate_syn_list:
-                #~#print condidate_syn_list, i, len(curcaseslist), 
-                #~#curcaseslist[i].get_order()
-                #~# one relation with previous
-                #~if i < len(curcaseslist) and \
-                #~curcaseslist[i].has_next():
-                #~#one relation with a next
-                    #~condidate_syn_syn_list.append(i) 
-                    #~# syntaxic previous syntaxic Next
-                    #~if curcaseslist[i].has_sem_next():
-                    #~#one relation with a next
-                        #~condidate_syn_sem_list.append(i) 
-                        #~# syntic previous semantic Next
-#~
-            #~#look up for Cases with only next smeantic or only next syntaxic
-            #~for i in range(len_ccs):
-                #~# one relation with previous
-                #~if curcaseslist[i].has_next():
-                #~#one relation with a next
-                    #~condidate_next_syn_list.append(i) # syntaxic Next 
-                    #~if curcaseslist[i].has_sem_next():
-                    #~#one relation with a next
-                        #~condidate_next_sem_list.append(i) # semantic Next
-#~
-            #~# priority to choose a table of cases
-            #~# previous/next    semantic    syntaxic    Not
-            #~# semantic        1            2            3
-            #~# syntaxic        4            6            7
-            #~# not            5            8            9
-            #~#1
-            #~if condidate_sem_sem_list:
-                #~chosen_list = condidate_sem_sem_list
-            #~#2
-            #~elif condidate_sem_syn_list:
-                #~chosen_list = condidate_sem_syn_list
-            #~#3
-            #~elif condidate_sem_list:
-                #~chosen_list = condidate_sem_list
-            #~#4
-            #~elif condidate_syn_sem_list:
-                #~chosen_list = condidate_syn_sem_list
-            #~#5
-            #~elif condidate_next_sem_list:
-                #~chosen_list = condidate_next_sem_list
-            #~#6
-            #~elif condidate_syn_syn_list:
-                #~chosen_list = condidate_syn_syn_list
-            #~#7
-            #~elif condidate_syn_list:
-                #~chosen_list = condidate_syn_list
-            #~#8
-            #~elif condidate_next_syn_list:
-                #~chosen_list = condidate_next_syn_list
-            #~#9
-            #~else:
-                #~chosen_list = []
-            #~# look for a best case in condidates
-            #~if chosen_list:
-                #~#to do select
-                #~# temporary
-                #~if debug: 
-                    #~print ("chosen", len(chosen_list), 
-                    #~round(float(len(chosen_list))*100/len(curcaseslist)),
-                     #~len(curcaseslist))
-                    #~for i in chosen_list:
-                        #~print ('\t', 
-                        #~curcaseslist[i].get_vocalized().encode('utf8'), 
-                        #~curcaseslist[i].get_freq(), 
-                        #~curcaseslist[i].is_forced_case())
-                #~if chosen_list[0] < len(curcaseslist): #valid cases
-                    #~if len(chosen_list) == 1:
-                        #~chosen = curcaseslist[chosen_list[0]]
-                    #~else:
-                    #~#temporary
-                    #~#To do: use another method to select case
-                    #~# 1- Select high frequency
-                        #~high_score = curcaseslist[chosen_list[0]].get_freq()
-                        #~high_score_index = chosen_list[0]
-                        #~for i in chosen_list:
-                            #~if curcaseslist[i].get_freq()>high_score:
-                                #~high_score = \
-                                #~curcaseslist[chosen_list[0]].get_freq()
-                                #~high_score_index = chosen_list[0]
-                        #~chosen = curcaseslist[high_score_index]
-                #~else: #warning chosen tashkeel out of range
-                    #~print "warning: chosen tashkeel out of range"
-#~
-        #~#---------------------------
-        #~#no relation no nexts
-        #~#----------------------------
-        #~#choose a case of stop word
-        #~# and lets other methode to choices by semantic and syntaxic
-        #~if not previous or previous.is_initial():
-            #~curcaseslist = self._filter_for_initial(curcaseslist)
-        #~# print "before Semantic", len(curcaseslist)
-        #~curcaseslist = self._filter_by_semantic(curcaseslist, previous)
-        #~# filter results accorind to  word frequency
-        #~# print "After Semantic", len(curcaseslist)        
-        #~curcaseslist = self._filter_by_syntaxic(curcaseslist, previous)
-        #~# print "After Syntax", len(curcaseslist)
-        #~curcaseslist = self._frequency_filter(curcaseslist)
-        #~# print "After Frequency", len(curcaseslist)
-        #~if not chosen:
-            #~for current in curcaseslist:
-                #~if current.is_stopword():
-                    #~chosen = current
-                    #~break 
-            #~else:
-            #~# choose a case with marfou3 verb
-                #~for current in curcaseslist:
-                    #~if current.is_noun() and current.is_mansoub():
-                        #~chosen = current
-                        #~break 
-                #~else:
-                    #~for current in curcaseslist:
-                        #~if current.is_verb():
-                            #~if current.isPresent() and not current.is_passive()\
-                           #~and not (current.is_mansoub() or current.is_majzoum()):
-                                #~chosen = current
-                                #~break
-                            #~elif current.is_past() and not current.is_passive():
-                                #~chosen = current
-                                #~break
-        #~if not chosen and len(curcaseslist)>0:
-            #~chosen = curcaseslist[0]
-        #~return chosen
-
     def _select_by_score(self, word_analyze_list, previous):
         """
         Choose the word according a score estimation
@@ -921,7 +741,8 @@ class TashkeelClass:
             #previous = word_stemming_dict
             for item in word_analyze_list:
                 voc = item.get_vocalized()
-                vocalized_text = u"".join([vocalized_text, voc])
+                #~vocalized_text = u"".join([vocalized_text, voc])
+                vocalized_text = u" ".join([vocalized_text, voc])
         return vocalized_text
 
     def pre_tashkeel(self, text):
@@ -941,6 +762,7 @@ class TashkeelClass:
         prevocalized_list = pyarabic.number.pre_tashkeel_number(wordlist)
         #Todo ajust prevocalization of named enteties
         prevocalized_list = pyarabic.named.pretashkeel_named(prevocalized_list)
+        #~return u"".join(prevocalized_list)
         return u" ".join(prevocalized_list)
 
 
@@ -969,6 +791,7 @@ class TashkeelClass:
         # if else, delete the last element, and return the other to the list.
         newlist = self.collo.lookup(wordlist)
         #todo: return a text from the statistical tashkeel
+        #~text = u"".join(newlist)
         text = u" ".join(newlist)
         return text
 

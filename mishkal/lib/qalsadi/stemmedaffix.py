@@ -24,12 +24,13 @@ class StemmedAffix:
     def __init__(self, result_dict = None):
 
         # extracted affix attributes
-        self.procletic  =   u"", # the syntaxic pprefix called procletic
-        self.prefix  =   u"", # the conjugation or inflection prefix
-        self.suffix  =   u"", # the conjugation suffix of the word
-        self.encletic  =   u"", # the syntaxic suffix
-        self.type  =   u"", # the word type used with affix        
-        self.tags  =   u"",
+        self.procletic = u"" # the syntaxic pprefix called procletic
+        self.prefix    = u"" # the conjugation or inflection prefix
+        self.suffix    = u"" # the conjugation suffix of the word
+        self.encletic  = u"" # the syntaxic suffix
+        self.tag_typ   = 0 # the word type used with affix        
+        self.tag_tense = 0      
+        self.tags      = u""
         self.tag_break = False
         # tags of affixes and tags extracted form lexical dictionary
 
@@ -43,86 +44,47 @@ class StemmedAffix:
             self.affix   =  u'-'.join([self.procletic, self.prefix, 
                self.suffix, self.encletic])
             self.tags     =  result_dict.get('tags', u'')
-            self.type     =  result_dict.get('type', u'')
-
+            #word type
+            self.tag_type     =  self.__get_type(result_dict.get('type', u''))
+            if self.is_verb():
+                self.tag_tense  = self.__get_tense(result_dict.get('tense', u''))
+                #~print "tense:",   result_dict.get('tense', u'').encode('utf8')          
+        # grouped attributes
+        self.tag_number = self.__get_number() #number (single, dual, plural)
+        # majrour, majzoum, marfou3, mansoub, mabni
+        self.tag_inflect = self.__get_inflect()  
+        self.tag_sex  = self.__get_sex()
+                                  
         # not noun or stopword 
-        self.tag_stopword     =  False
-        self.tag_noun         =  False        
-        self.tag3rdperson      =  False        
-        self.tag3rdperson      =  False
-        self.tag_majzoum      =  False
-        self.tag_passive         =  False
-        self.tag_past         =  False
-        self.tag_present         =  False
+        self.tag3rdperson     =  False
         self.tag_defined      =  False
-        self.tag_majrour         =  False
-        self.tag_tanwin         =  False
-        self.tag_jar             =  False        
+        self.tag_tanwin       =  False
+        self.tag_jar          =  False  
+        self.tag_istfham      =  False                  
         # calculated  attributes 
-        self.tag_verb         =  self._is_verb()
-        if self.tag_verb:
-            self.tag3rdperson      =  self._is3rdperson()            
-            self.tag_majzoum      =  self._is_majzoum()
-            self.tag_passive         =  self._is_passive()
-            self.tag_past         =  self._is_past()
-            self.tag_present         =  self._is_present()
+        if self.is_verb():
+            self.tag3rdperson =  self.__is3rdperson() 
         else:
-
-            self.tag_noun         =  self._is_noun()
-            if self.tag_noun:
-                self.tag_defined  =  self._is_defined()
-                self.tag_majrour     =  self._is_majrour()
-                self.tag_tanwin     =  self._is_tanwin()                
-                self.tag_jar         =  self._has_jar()
-                
-            else:
-                self.tag_stopword     =  self._is_stopword()
-        self.tag_added          =  self._is_added()
-        self.tag_mansoub         =  self._is_mansoub()
-        self.tag_marfou3         =  self._is_marfou3()
-
-        self.tag_feminin         =  self._is_feminin()        
-        self.tag_plural         =  self._is_plural()
-
-        self.tag_masculin_plural     =  self._is_masculin_plural()
-        self.tag_feminin_plural     =  self._is_feminin_plural()
-        self.tag_dual             =  self._is_dual()
-        self.tag_break = self._is_break()
+            if self.is_noun():
+                self.tag_defined  =  self.__is_defined()
+                self.tag_tanwin   =  self.__is_tanwin()                
+                self.tag_jar      =  self.__has_jar()
+        self.tag_added          =  self.__is_added()
+        #~self.tag_feminin         =  self.__is_feminin()        
+        self.tag_break = self.__is_break()
+        self.tag_3tf = self.__is_3tf()
+        self.tag_istfham = self.__has_istfham()
 
     #  tags extracted from word dictionary 
     #--------------------------
-    def _is_noun(self):
-        """
-        Return True if the word is a noun.
-        @return: is a noun.
-        @rtype: True/False
-        """            
-        return u'Noun' in self.get_type()
 
-    def _is_stopword(self):
-        """
-        Return True if the word is a stop word.
-        @return: is a noun.
-        @rtype: True/False
-        """            
-        return u'STOPWORD' in self.get_type()
-
-    def _is_verb(self):
-        """
-        Return True if the word is a verb.
-        @return: is a verb.
-        @rtype: True/False
-        """            
-        return  u'Verb' in self.get_type()
-
-
-    def _is_majrour(self):
-        """
-        Return True if the word has the state majrour.
-        @return: has the state majrour.
-        @rtype: True/False
-        """                
-        return  u'مجرور' in self.get_tags()
+    #~def __is_majrour(self):
+        #~"""
+        #~Return True if the word has the state majrour.
+        #~@return: has the state majrour.
+        #~@rtype: True/False
+        #~"""                
+        #~return  u'مجرور' in self.get_tags()
 
 
     #  tags extracted from affixes 
@@ -133,15 +95,8 @@ class StemmedAffix:
         @return: the given type.
         @rtype: unicode string
         """
-        return self.type
+        return self.tag_type
         
-    def set_type(self, newtype):
-        """
-        Set the type word
-        @param newtype: the new given type.
-        @type newtype: unicode string
-        """
-        self.type  =  newtype    
     def get_procletic(self, ):
         """
         Get the procletic 
@@ -149,6 +104,7 @@ class StemmedAffix:
         @rtype: unicode string
         """
         return self.procletic
+
     def set_procletic(self, newprocletic):
         """
         Set the procletic 
@@ -156,6 +112,7 @@ class StemmedAffix:
         @type newprocletic: unicode string
         """
         self.procletic  =  newprocletic
+
     def has_procletic(self, ):
         """
         return True if has procletic 
@@ -163,6 +120,7 @@ class StemmedAffix:
         @rtype: Boolean
         """
         return self.procletic != u''    
+
     def get_prefix(self, ):
         """
         Get the prefix 
@@ -170,6 +128,7 @@ class StemmedAffix:
         @rtype: unicode string
         """
         return self.prefix
+
     def set_prefix(self, newprefix):
         """
         Set the prefix 
@@ -177,7 +136,6 @@ class StemmedAffix:
         @type newprefix: unicode string
         """
         self.prefix  =  newprefix
-
 
     def get_suffix(self, ):
         """
@@ -215,35 +173,177 @@ class StemmedAffix:
         @rtype: Boolean
         """
         return self.encletic != u''
-
-    def _is_majzoum(self):
+    def __get_inflect(self,):
         """
-        Return True if the word has the state majrour.
-        @return: has the state majrour.
-        @rtype: True/False
-        """        
-        return  u'مجزوم'in self.get_tags()
-
-    def _is_mansoub(self):
+        Return int code of iflection state.
+        the inflected cases are coded in binary like
+        not defined        : 0  00000
+        Invariable (mabni) : 1  00001
+        marfou3            : 2  00010
+        mansoub            : 4  00100
+        majrour            : 8  01000
+        majzoum            : 16 10000
+        this codification allow to have two inflection for the same case, 
+        like feminin plural which ahve the same mark for Nasb and jar
+        هذا الترمزي يسمح بتركيب حالتين إعرابيتين معا،
+ مثل إعراب جمع المؤنث السالم بالكسرة في 
+        النصب والجر
+        @return: inflection state numeric code
+        @rtype: int 
         """
-        Return True if the word has the state mansoub.
-        @return: has the state mansoub.
-        @rtype: True/False
-        """            
-        return u'منصوب'in self.get_tags()
-
-    def _is_marfou3(self):
+        # غير محدد
+        self.tag_inflect = 0
+        # invariable 
+        # if verb    
+        if u'الماضي' in self.get_tags():
+            self.tag_inflect += 1
+        elif u'الأمر' in self.get_tags():
+            self.tag_inflect += 1 
+        elif u'مؤكد' in self.get_tags():
+            self.tag_inflect += 1 
+        # invariable noun
+        elif u'مبني' in self.get_tags() and not u"مجهول" in self.get_tags():
+            self.tag_inflect += 1 
+        # marfou3
+        if u'مرفوع' in self.get_tags():
+            self.tag_inflect += 2
+        # if is a imperfect and not mansoub or majzoum =>marfou3
+        #ToDo:
+        # use tense class instead of tag search
+        elif u'مضارع' in self.get_tags() and not u'منصوب'in self.get_tags()\
+           and not u'مجزوم'in self.get_tags():
+            self.tag_inflect += 2
+        # mansoub
+        # noun and verb 
+        if u'منصوب'in self.get_tags():
+            self.tag_inflect += 4
+        # majrour
+        # noun 
+        if u'مجرور'in self.get_tags():
+            self.tag_inflect += 8            
+        # a Verb, verb can't be majrour
+        elif u'مجزوم'in self.get_tags():
+            self.tag_inflect += 16
+        return self.tag_inflect
+        
+    def __get_number(self,):
         """
-        Return True if the word has the state marfou3.
-        @return: has the state marfou3.
-        @rtype: True/False
-        """        
-        if u'مرفوع'in self.get_tags():
-            return True
-        return u'مضارع' in self.get_tags() and not self._is_mansoub() \
-        and not self._is_majzoum()
+        Return the int code of the number state.
+        the number cases are coded in binary like
+        not defined        : 0  00000
+        single  : 1  00001
+        dual    : 2  00010
+        plural  : 4  00100
+        masculin plural: 8  01000
+        feminin plural : 16 10000
+        this codification allow to have two marks for the same case, 
+        like irregular plural and single can have the same mark
+        هذا الترميز يسمح بترميز المفرد وجمع التكسير معا
+        @return: get the number state .
+        @rtype: int 
+        """
+        # غير محدد
+        self.tag_number = 0
+        if u'مفرد' in self.get_tags() :
+            self.tag_number += 1
+        if u'مثنى' in self.get_tags() :
+            self.tag_number += 2
+        if u'جمع' in self.get_tags() :
+            self.tag_number += 4
+            if u'جمع مذكر سالم' in self.get_tags():
+                self.tag_number += 8
+            if u'جمع مؤنث سالم' in self.get_tags():
+                self.tag_number += 16 
+        # here the single is not defaut value
+        # because it can be used as irregular plural affix
+        return self.tag_number
 
-    def _is_defined(self):
+    def __get_type(self,input_type):
+        """
+        Return the numeric code of word type.
+        the number cases are coded in binary like
+        not defined        : 0  00000
+        stopword  : 1  00001
+        verb    : 2  00010
+        noun  : 4  00100
+        this codification allow to have two types for the same case, 
+        like a stop word can be a noun, the correspendant code is 101
+        هذا الترميز يسمح بترميز الحروف والأسماء، 
+        بعض الأدوات هي أسماء
+        @return: numeric code of type .
+        @rtype: int
+        """
+        # غير محدد
+        self.tag_type = 0
+        if not input_type :
+            return 0
+        if u'STOPWORD' in input_type :
+            self.tag_type += 1
+        if u'Verb' in input_type :
+            self.tag_type += 2
+        if u'Noun' in input_type :
+            self.tag_type += 4
+        return self.tag_type
+
+    def __get_tense(self, input_tense):
+        """
+        Return the numeric code of tense.
+        the number cases are coded in binary like
+        not defined        : 0  00000
+        past        : 1  00001
+        imperfect   : 2  00010    present and future
+        imperative  : 4  00100
+        passive     : 8  01000
+        confirmed   : 16 10000
+        this codification allow to have many tense attributes for the same case, 
+        like a imperfect passive and confirmed, the correspendant 
+        code is 11010 => 26
+        @param input_tense : given tense
+        @type input_tense: unicode
+        @return: tense numeric code .
+        @rtype: int
+        """
+        # غير محدد
+        self.tag_tense = 0
+        if not input_tense:
+            return 0
+        if  u'ماضي'in input_tense:
+            self.tag_tense = 1
+        elif u'مضارع' in input_tense:
+            self.tag_tense = 2
+        elif u'أمر' in input_tense:
+            self.tag_tense = 4
+        # passive
+        if  u'مجهول'in input_tense:
+            self.tag_tense += 8
+        if  u'مؤكد'in input_tense:
+            self.tag_tense += 16
+        return self.tag_tense
+
+    def __get_sex(self,):
+        """
+        Return the int code of the sex state.
+        the number cases are coded in binary like
+        not defined        : 0  00000
+        masculin  : 1  00001
+        feminin    : 2  00010
+        this codification allow to have case in the same word
+        @return: get the numeric sex state .
+        @rtype: int 
+        """
+        # غير محدد
+        self.tag_sex = 0
+        if u'مذكر' in self.get_tags() :
+            self.tag_sex += 1
+        if u'مؤنث' in self.get_tags() :
+            self.tag_sex += 2
+        elif u'جمع مؤنث سالم' in self.get_tags():
+            self.tag_sex += 2            
+        return self.tag_sex
+
+
+        
+    def __is_defined(self):
         """
         Return True if the word has the state definde.
         @return: has the state defined.
@@ -251,84 +351,39 @@ class StemmedAffix:
         """        
         return  u'تعريف'in self.get_tags()
 
-
-    def _is_past(self):
-        """
-        Return True if the word has the tense past.
-        @return: has the  tense past.
-        @rtype: True/False
-        """        
-        return  u'ماضي'in self.get_tags()
-
-
-    def _is_passive(self):
-        """
-        Return True if the word has the tense passive.
-        @return: has the  tense passive.
-        @rtype: True/False
-        """    
-        return  u'مجهول'in self.get_tags()
-
-    def _is_present(self):
-        """
-        Return True if the word has the tense present.
-        @return: has the  tense present.
-        @rtype: True/False
-        """    
-        return u'مضارع' in self.get_tags()
-
-
-    def _is3rdperson(self):
+    def __is3rdperson(self):
         """
         Return True if the word has the 3rd person.
         @return: has the 3rd persontense.
         @rtype: True/False
         """    
-        return (u':هي:' in self.get_tags() or u':هو:' in self.get_tags()) \
-        and not u'مفعول به' in self.get_tags()
+        return (u':هي:' in self.get_tags() or u':هو:' in self.get_tags()) 
+        #~and not u'مفعول به' in self.get_tags()
 
-
-
-    def _is_tanwin(self):
+    def __is_tanwin(self):
         """
         Return True if the word has tanwin.
         @return: has tanwin.
         @rtype: True/False
         """        
         return  u'تنوين'in self.get_tags()
-    def _is_masculin_plural(self):
-        """
-        Return True if the word is  Masculin plural.
-        @return: is masculin plural.
-        @rtype: True/False
-        """
-        return  u'جمع مذكر سالم' in self.get_tags()
-            
-    def _is_feminin_plural(self):
-        """
-        Return True if the word is  Feminin plural.
-        @return: is Feminin plural.
-        @rtype: True/False
-        """
-        return u'جمع مؤنث سالم' in self.get_tags()
 
-    def _is_dual(self):
-        """
-        Return True if the word is  dual.
-        @return: is  dual.
-        @rtype: True/False
-        """
-        return u'مثنى' in self.get_tags()
-
-    def _has_jar(self):
+    def __has_jar(self):
         """
         Return True if the word has a jar factor attached.
         @return: has jar.
         @rtype: True/False
         """        
         return  u'جر:'in self.get_tags()
+    def __has_istfham(self):
+        """
+        Return True if the word has a istfham factor attached.
+        @return: has jar.
+        @rtype: True/False
+        """        
+        return  u'استفهام:'in self.get_tags()        
 
-    def _is_break(self):
+    def __is_break(self):
         """
         Return True if the word has break.
 
@@ -349,7 +404,7 @@ class StemmedAffix:
 
     # Mixed affix and dictionary attrrubutes
     #---------------------------------------
-    def _is_added(self):
+    def __is_added(self):
         """
         Return True if the word has the state added مضاف.
         @return: has the state added.
@@ -357,37 +412,53 @@ class StemmedAffix:
         """        
         return  u'مضاف' in self.get_tags() or u'اسم إضافة' in self.get_tags()
 
-    def _is_masculin(self):
-        """
-        Return True if the word is masculin.
-        @return: is masculin.
-        @rtype: True/False
-        """
-        return  not self._is_feminin()
-
-    def _is_feminin(self):
-        """
-        Return True if the word is Feminin.
-        @return: is Feminin.
-        @rtype: True/False
-        """
+    #~def __is_masculin(self):
+        #~"""
+        #~Return True if the word is masculin.
+        #~@return: is masculin.
+        #~@rtype: True/False
+        #~"""
+        #~return bool(self.tag_sex % 2)
+#~
+    #~def __is_feminin(self):
+        #~"""
+        #~Return True if the word is Feminin.
+        #~@return: is Feminin.
+        #~@rtype: True/False
+        #~"""
         #يتحدد المؤنث 
         # بزيادة التاء المربوطة
         # جمع مؤنث سالم
         # ما كات اصله تاء مربوطة
         # للعمل TODO
         # دالة حاصة للكلمات المؤنثة
-        if u'مؤنث' in self.get_tags():
-            return True
-        return  u'جمع مؤنث سالم' in self.get_tags()
+        #~if u'مؤنث' in self.get_tags():
+            #~return True
+        #~return  u'جمع مؤنث سالم' in self.get_tags()
+        #~return bool(self.tag_sex /2 % 2)
 
-    def _is_plural(self):
+    def __is_3tf(self):
         """
         Return True if the word is a plural.
         @return: is plural.
         @rtype: True/False
         """
-        return  u'جمع' in self.get_tags()
+        return  u'عطف' in self.get_tags()
+    def is_3tf(self):
+        """
+        Return True if the word is a plural.
+        @return: is plural.
+        @rtype: True/False
+        """
+        return  self.tag_3tf        
+
+    #~def __is_plural(self):
+        #~"""
+        #~Return True if the word is a plural.
+        #~@return: is plural.
+        #~@rtype: True/False
+        #~"""
+        #~return  u'جمع' in self.get_tags()
 
 
     def get_tags(self, ):
@@ -409,6 +480,20 @@ class StemmedAffix:
     ######################################################################
     #{ Tags  Functions
     ######################################################################
+    def is_stopword(self):
+        """
+        Return True if the word is a stop word.
+        @return: is a noun.
+        @rtype: True/False
+        """            
+        return bool(self.tag_type % 2)
+    def is_verb(self):
+        """
+        Return True if the word is a verb.
+        @return: is a verb.
+        @rtype: True/False
+        """            
+        return bool(self.tag_type /2 % 2)
 
     def is_noun(self):
         """
@@ -416,48 +501,15 @@ class StemmedAffix:
         @return: is a noun.
         @rtype: True/False
         """            
-        return self.tag_noun
-
-    def is_stopword(self):
+        return bool(self.tag_type /4 % 2)
+        
+    def is_invariable(self):
         """
-        Return True if the word is a stop word.
-        @return: is a noun.
-        @rtype: True/False
-        """            
-        return self.tag_stopword
-    def is_verb(self):
-        """
-        Return True if the word is a verb.
-        @return: is a verb.
-        @rtype: True/False
-        """            
-        return self.tag_verb
-
-    def is_majrour(self):
-        """
-        Return True if the word has the state majrour.
-        @return: has the state majrour.
-        @rtype: True/False
-        """                
-        return self.tag_majrour
-
-
-    def is_majzoum(self):
-        """
-        Return True if the word has the state majrour.
-        @return: has the state majrour.
+        Return True if the word has the state invariable (مبني).
+        @return: has the state invariable.
         @rtype: True/False
         """        
-        return self.tag_majzoum
-
-
-    def is_mansoub(self):
-        """
-        Return True if the word has the state mansoub.
-        @return: has the state mansoub.
-        @rtype: True/False
-        """            
-        return self.tag_mansoub
+        return bool(self.tag_inflect % 2)
 
     def is_marfou3(self):
         """
@@ -465,8 +517,31 @@ class StemmedAffix:
         @return: has the state marfou3.
         @rtype: True/False
         """        
-        return self.tag_marfou3
+        return bool(self.tag_inflect / 2 % 2)
 
+    def is_mansoub(self):
+        """
+        Return True if the word has the state mansoub.
+        @return: has the state mansoub.
+        @rtype: True/False
+        """            
+        return bool(self.tag_inflect / 4 % 2)
+
+    def is_majrour(self):
+        """
+        Return True if the word has the state majrour.
+        @return: has the state majrour.
+        @rtype: True/False
+        """                
+        return bool(self.tag_inflect / 8 % 2)
+
+    def is_majzoum(self):
+        """
+        Return True if the word has the state majrour.
+        @return: has the state majrour.
+        @rtype: True/False
+        """        
+        return bool(self.tag_inflect / 16 % 2)
 
     def is_defined(self):
         """
@@ -483,17 +558,8 @@ class StemmedAffix:
         @return: has the  tense past.
         @rtype: True/False
         """        
-        return self.tag_past
-
-
-    def is_passive(self):
-        """
-        Return True if the word has the tense passive.
-        @return: has the  tense passive.
-        @rtype: True/False
-        """    
-        return self.tag_passive
-
+        return bool(self.tag_tense % 2)
+        #~return   u'ماضي'in self.get_tags()
 
     def is_present(self):
         """
@@ -501,7 +567,18 @@ class StemmedAffix:
         @return: has the  tense present.
         @rtype: True/False
         """    
-        return self.tag_present
+        return bool(self.tag_tense / 2 % 2)
+        #~return  u'مضارع' in self.get_tags()
+
+    def is_passive(self):
+        """
+        Return True if the word has the tense passive.
+        @return: has the  tense passive.
+        @rtype: True/False
+        """    
+        return bool(self.tag_tense / 8 % 2)
+        #~return  u'مجهول'in self.get_tags() 
+
 
     def is3rdperson(self):
         """
@@ -534,6 +611,13 @@ class StemmedAffix:
         @rtype: True/False
         """        
         return self.tag_jar
+    def has_istfham(self):
+        """
+        Return True if the word has istfham.
+        @return: has tanwin.
+        @rtype: True/False
+        """        
+        return self.tag_istfham   
 
     def is_break(self):
         """
@@ -546,23 +630,6 @@ class StemmedAffix:
         # - حرف جر متصل
         # فاصلة أو نقطة
         return self.tag_break
-    def is_masculin_plural(self):
-        """
-        Return True if the word is  Masculin plural.
-        @return: is masculin plural.
-        @rtype: True/False
-        """
-        return self.tag_masculin_plural
-
-            
-    def is_feminin_plural(self):
-        """
-        Return True if the word is  Feminin plural.
-        @return: is Feminin plural.
-        @rtype: True/False
-        """
-        return self.tag_feminin_plural
-
 
     def is_feminin(self):
         """
@@ -570,15 +637,8 @@ class StemmedAffix:
         @return: is Feminin.
         @rtype: True/False
         """
-        return self.tag_feminin        
-    def is_plural(self):
-        """
-        Return True if the word is a plural.
-        @return: is plural.
-        @rtype: True/False
-        """
-        return self.tag_plural
-
+        #~return self.tag_feminin
+        return bool(self.tag_sex /2 % 2)
 
     def is_dual(self):
         """
@@ -586,8 +646,35 @@ class StemmedAffix:
         @return: is  dual.
         @rtype: True/False
         """
-        return self.tag_dual
+        #~return self.tag_dual
+        return bool(self.tag_number / 2 % 2)
 
+    def is_plural(self):
+        """
+        Return True if the word is a plural.
+        @return: is plural.
+        @rtype: True/False
+        """
+        #~return self.tag_plural
+        return bool(self.tag_number / 4 % 2)        
+    
+    def is_masculin_plural(self):
+        """
+        Return True if the word is  Masculin plural.
+        @return: is masculin plural.
+        @rtype: True/False
+        """
+        #~return self.tag_masculin_plural
+        return bool(self.tag_number / 8 % 2)        
+            
+    def is_feminin_plural(self):
+        """
+        Return True if the word is  Feminin plural.
+        @return: is Feminin plural.
+        @rtype: True/False
+        """
+        #~return self.tag_feminin_plural
+        return bool(self.tag_number / 16 % 2)
 
     ######################################################################
     #{ Display Functions

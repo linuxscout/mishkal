@@ -1,7 +1,9 @@
-
+@import url(http://fonts.googleapis.com/earlyaccess/amiri.css);
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
 body { 	
 	direction: rtl;
-	font-family:  'Traditional Arabic', Sans,  "Times New Roman";
+	font-family: 'Droid Arabic Naskh', 'Traditional Arabic', Sans,  "Times New Roman";
 	font-size: 16pt;
 	padding: 1cm;
 	padding-top: 0.25cm;
@@ -252,15 +254,32 @@ background-color:rgb(255,185,185);
 }
 .tashkeel
 {
-   font-family: "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
+   font-family: 'Droid Arabic Naskh', Amiri, "Traditional Arabic",  Sans, 'KacstBook', Arial, Helvetica;
     text-align:right;
     font-size:30px;
+}
+.vocalized
+{/*used for colored marks displaying*/
+    display: inline-block;
+    position: relative;
 
 }
+
+.vocalized-color {
+    color: #ff0000;
+}
+.vocalized-letters {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #000000;
+}
+
 .vocalized:hover, .vo :hover
 {
 background-color:rgb(250,252,218);
   cursor: pointer;
+
 }
 .collocation
 {
@@ -269,21 +288,22 @@ background-color:rgb(255,252,232);
 .txkl /* tashkeel select*/
 {
 border:none;
-   font-family: "Traditional Arabic", Arial, Helvetica, Sans-Serif;
+   font-family:  Amiri, "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
     text-align:right;
     font-size:30px;
+
 	background-color:rgb(226,226,226);
 }
 
 .spellStyle
 {
-   font-family: "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
+   font-family: Amiri, "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
     text-align:right;
     font-size:30px;
 }
 .spelled-incorrect
 {
-   font-family: "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
+   font-family: Amiri, "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
    text-align:right;
    font-size:30px;
   color: red;
@@ -303,20 +323,69 @@ background-color:#FFF8C6;
 {
 border:none;
 display:none;
-   font-family: "Traditional Arabic", Arial, Helvetica, Sans-Serif;
+   font-family:  "Traditional Arabic", Arial, Helvetica, Sans-Serif;
     text-align:right;
     font-size:14px;
 	background-color:#FFF8C6;
 }
-#help
+#help  
 {
  border:none;
- font-family: "Traditional Arabic", Arial, Helvetica, Sans-Serif;
+ font-family: 'Droid Arabic Naskh',"Traditional Arabic", Arial, Helvetica, Sans-Serif;
  text-align:right;
  font-size:14px;
  background-color:#FFF8C6;
+
+}
+#help ul
+{
+ border:none;
+ font-family:  'Droid Arabic Kufi',"Traditional Arabic", Arial, Helvetica, Sans-Serif;
+ text-align:right;
+ font-size:14px;
+ background-color:#FFF8C6;	
+ display: none;
+ position: absolute;
 }
 
-
-
-
+.diff-all /* the word and the last mark*/
+{
+  border:none;
+  font-size:30px;
+  color:red;
+  cursor: pointer;    
+}
+.diff-word /* the word is different*/
+{
+  border:none;
+  font-size:30px;
+  color:brown;
+  cursor: pointer;    
+}
+.diff-mark /* the last mark is different*/
+{
+  border:none;
+  font-size:30px;
+  color:green;
+  cursor: pointer;    
+}
+#hint {
+   font-family: "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
+    text-align:right;
+    font-size:30px;
+    background-color:#ccF8C6;    
+    }
+    
+.tab{
+   font-family:  "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
+    text-align:right;
+    font-size:20px;
+    background-color:#ccF8C6;    
+    }
+.tab-visited{
+   font-family:  "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
+    text-align:right;
+    font-size:20px;
+    background-color:#00F8C6;    
+    }
+    

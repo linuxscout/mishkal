@@ -572,15 +572,19 @@ class Ui_MainWindow(object):
     def convert_text(self,text, partialVocalization=False, lastMarkTashkeel=False):
         action="Tashkeel2";
         options={'lastmark':lastMarkTashkeel,}
-        vocalizedTextDict=core.adaat.DoAction(text,action,options);
-        vocalizedText=u"";
+        vocalizedTextDict = core.adaat.DoAction(text,action,options);
+        vocalizedText = u"";
         for itemD in vocalizedTextDict:
             if itemD.has_key('chosen'):
-                vocalizedText+=" "+itemD['chosen'];
+                #~vocalizedText+=" "+itemD['chosen'];
+                if itemD['chosen'][0] in u"-[\]{}()*+?.,،:\^$|#\s\n،":
+                    vocalizedText += ""+itemD['chosen'];
+                else:
+                    vocalizedText += " "+itemD['chosen'];
                 suggestList=itemD['suggest'].split(u";");
                 self.ResultVocalized.dict.add(itemD['chosen'],suggestList)
         if partialVocalization:
-            vocalizedText=araby.reduceTashkeel(vocalizedText);
+            vocalizedText = araby.reduceTashkeel(vocalizedText);
         return vocalizedText;        
 
     def singleUpdate(self):

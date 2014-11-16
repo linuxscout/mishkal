@@ -62,6 +62,7 @@ class SpellTextEdit(QPlainTextEdit):
         self.dict = myspeller()
         # self.highlighter = Highlighter(self.document())
         # self.highlighter.setDict(self.dict)
+        self.pretxt=''
  
     def mousePressEvent(self, event):
         if event.button() == Qt.RightButton:
@@ -82,7 +83,17 @@ class SpellTextEdit(QPlainTextEdit):
         # Check if the selected word is misspelled and offer spelling
         # suggestions if it is.
         if self.textCursor().hasSelection():
-            text = unicode(self.textCursor().selectedText())
+            #~text = (unicode(self.textCursor().selectedText()))
+            #this is a workaround for QT bug when double click selects Arabic punctuation marks
+            # plus the word in the text editor see https://bugreports.qt-project.org/browse/QTBUG-42397
+            orginaltext = unicode(self.textCursor().selectedText())
+            arabicmarks = [u'؟',u'،',u'؛',u'“',u'”',u'‘',u'’']
+            holder = orginaltext[-1]
+            if holder in arabicmarks:
+                self.pretxt = holder
+            else:
+                self.pretxt=''
+            text = orginaltext.strip(u'؟،؛“”‘’')            
             if not self.dict.check(text):
                 spell_menu = QMenu(u'اقتراحات التشكيل')
                 spell_menu.setLayoutDirection(RightToLeft)
@@ -107,37 +118,10 @@ class SpellTextEdit(QPlainTextEdit):
         cursor.beginEditBlock()
  
         cursor.removeSelectedText()
-        cursor.insertText(word)
+        cursor.insertText(word + self.pretxt)
  
         cursor.endEditBlock()
  
- 
-# class Highlighter(QSyntaxHighlighter):
- 
-    # WORDS = u'(?iu)[\w\']+'
- 
-    # def __init__(self, *args):
-        # QSyntaxHighlighter.__init__(self, *args)
- 
-        # self.dict = None
- 
-    # def setDict(self, dict):
-        # self.dict = dict
- 
-    # def highlightBlock(self, text):
-        # if not self.dict:
-            # return
- 
-        # text = unicode(text)
- 
-        # format = QTextCharFormat()
-        # format.setUnderlineColor(Qt.red)
-        # format.setUnderlineStyle(QTextCharFormat.SpellCheckUnderline)
- 
-        # for word_object in re.finditer(self.WORDS, text):
-            # if not self.dict.check(word_object.group()):
-                # self.setFormat(word_object.start(),
-                    # word_object.end() - word_object.start(), format)
  
  
 class SpellAction(QAction):

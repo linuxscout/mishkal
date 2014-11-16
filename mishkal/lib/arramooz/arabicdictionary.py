@@ -104,7 +104,7 @@ class ArabicDictionary:
         # eg.
         # entry  = {0:"kataba", 1:"ktb"}
         # output entry  = {'vocalized':'kataba', 'unvocalized':'ktb'}
-        sql = u"select * FROM %s WHERE id = '%s'" % (self.table_name, idf)
+        sql = u"select * FROM %s WHERE id='%s'" % (self.table_name, idf)
         try:
             self.cursor.execute(sql)
             if self.cursor:
@@ -161,7 +161,7 @@ class ArabicDictionary:
             # return False
         # if the id exists and the attribute existe return the value, 
         #else return False
-        sql = u"select * FROM %s WHERE id = '%s'" % (self.table_name, idf)
+        sql = u"select * FROM %s WHERE id='%s'" % (self.table_name, idf)
         try:
             self.cursor.execute(sql)
             #~entry_dict = {}
@@ -184,7 +184,7 @@ class ArabicDictionary:
         normword = araby.normalize_hamza(normalized)
         #print "###", normword.encode('utf8')
 
-        sql = u"select * FROM %s WHERE normalized = '%s'" % (self.table_name,
+        sql = u"select * FROM %s WHERE normalized='%s'" % (self.table_name,
          normword)
         try:
             self.cursor.execute(sql)
@@ -206,7 +206,7 @@ class ArabicDictionary:
         @rtype: Boolean.
         """
         stamp = self.word_stamp(word)
-        sql = u"select id FROM %s WHERE stamped = '%s'" % (self.table_name,
+        sql = u"select id FROM %s WHERE stamped='%s'" % (self.table_name,
            stamp)
         try:
             self.cursor.execute(sql)
@@ -227,7 +227,7 @@ class ArabicDictionary:
         """
         idlist = []
         stamp = self.word_stamp(word)
-        sql = u"select * FROM %s WHERE stamped = '%s'" % (self.table_name, 
+        sql = u"select * FROM %s WHERE stamped='%s'" % (self.table_name, 
         stamp)
         try:
             self.cursor.execute(sql)

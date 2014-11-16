@@ -24,6 +24,7 @@ def usage():
     print "\t[-f | --file = filename]input file to %s" % scriptname
     print "\t[-h | --help]     outputs this usage message"
     print "\t[-v | --version]  program version"
+    print "\t[-p | --progress]  display progress status"
     print "\n\t* Tashkeel Actions\n\t-------------------"
     print "\t[-r | --reduced]  Reduced Tashkeel."    
     print "\t[-s | --strip]    Strip tashkeel (remove harakat)."
@@ -47,15 +48,16 @@ def grabargs():
     disableSemantic = False
     disableStatistic = False
     strip_tashkeel = False
-    reducedTashkeel = False    
+    reducedTashkeel = False  
+    progress = False  
     if not sys.argv[1:]:
         usage()
         sys.exit(0)
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hVtcixsmrv:f:l:", 
+        opts, args = getopt.getopt(sys.argv[1:], "hVtcpixsmrv:f:l:", 
                                ["help", "version", "stat", "compare", 
-                               "reduced", "strip", "syntax", "semantic", 
-                               "ignore", "limit = ", "file = "], )
+                               "reduced", "strip", "syntax", "progress", "semantic", 
+                               "ignore", "limit=", "file="], )
     except getopt.GetoptError:
         usage()
         sys.exit(0)
@@ -80,6 +82,8 @@ def grabargs():
             compare = True
         if o in ("-t", "--stat"):
             disableStatistic = True
+        if o in ("-p", "--progress"):
+            progress = True            
         if o in ("-l", "--limit"):
             try: limit = int(val)
             except: limit = 0
@@ -93,13 +97,13 @@ def grabargs():
 
     #if text: print text.encode('utf8')
     return (fname, text, strip_tashkeel, reducedTashkeel, disableSyntax, 
-    disableSemantic, disableStatistic, ignore, limit , compare)
+    disableSemantic, disableStatistic, ignore, limit , compare, progress)
 
 import tashkeel.tashkeel as ArabicVocalizer
 
 def test():
-    filename, text, strip_tashkeel, reducedTashkeel, disableSyntax, 
-    disableSemantic, disableStat, ignore, limit, compare = grabargs()
+    filename, text, strip_tashkeel, reducedTashkeel, disableSyntax, \
+    disableSemantic, disableStat, ignore, limit, compare, progress = grabargs()
     #filename = "samples/randomtext.txt"    
     if not text and not filename:
         usage()
@@ -146,11 +150,17 @@ def test():
     totLetters = 0
     LettersError = 0
     WLMIncorrect = 0
+    percent = 0
     if compare:
         #dispaly stats for the current line
         print "id\tfully Correct\tStrip Correct\tfully WER\tStrip WER\tLER\tTotal\tline Fully correct\tline Strip correct"
         
     while line and (nolimit or counter <= limit):
+        if progress and not nolimit:
+            #~percent = (counter * 100/ limit ) if (counter / limit * 100 >percent) else percent
+            sys.stderr.write("\r[%d%%]%d/%d lines" %(counter * 100/ limit, counter, limit))
+            #~sys.stderr.write("treatment of "+line.encode('utf8'))
+            sys.stderr.flush()
         if not line.startswith('#'):
             # lineIncorrect = 0
             lineCorrect = 0

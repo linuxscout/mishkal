@@ -40,7 +40,7 @@ class StopWordsDictionary:
         add also, support to extract attributtes from entries
     """
 
-    def __init__(self, table_name, attrib_index, key_attribute = 'unvocalized'):
+    def __init__(self, table_name, key_attribute = 'unvocalized'):
         """
         initialisation of dictionary from a data dictionary, 
         create indexes to speed up the access.
@@ -49,17 +49,12 @@ class StopWordsDictionary:
         # load data from the brut dictionary into a 
         # new dictionary with numeric ids
         self.dictionary = {}
-        self.attrib_index = attrib_index
+        #~self.attrib_index = attrib_index
         self.key_attribute =  key_attribute
-        self.attrib_num_index = {}
-        # create the attribute num index
-        # attrib_index:         attrib_num_index
-        # vocalized: 0        0: vocalized
-        #unvocalized: 1        1: unvocalized
-        #
-        for k in self.attrib_index.keys():
-            val = self.attrib_index[k]
-            self.attrib_num_index[val] = k
+        #~self.attrib_num_index = {}
+        #~for k in self.attrib_index.keys():
+            #~val = self.attrib_index[k]
+            #~self.attrib_num_index[val] = k
         self.table_name = table_name
         # get the database path
         if hasattr(sys, 'frozen'): # only when running in py2exe this exists
@@ -207,17 +202,20 @@ class StopWordsDictionary:
         @rtype: list.
         """
         idlist = []
-        sql  =  u"select * FROM %s WHERE unvocalized = '%s'" % (
+        sql  =  u"select * FROM %s WHERE word = '%s'" % (
           self.table_name, text)
         try:
             self.cursor.execute(sql)
-            if self.cursor: 
-                # return self.curser.fetchall()
-                for row in self.cursor:
-                    idlist.append(row)
-            return idlist
         except sqlite.OperationalError:
+            print "Fatal error in query: stopwords"
             return []
+            
+        if self.cursor: 
+            # return self.curser.fetchall()
+            for row in self.cursor:
+                idlist.append(row)
+        return idlist
+
     def is_stopword(self, text):
         """
         return the word frequency from the in the dictionary

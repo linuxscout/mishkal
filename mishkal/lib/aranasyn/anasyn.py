@@ -160,7 +160,7 @@ class SyntaxAnalyzer:
                 # previous index is mantained.
                 ignore = False
         return stemmedsynwordlistlist
-        #~ return stemmedsynwordlistlist
+
 
 
     def bigram_analyze(self, previous, current, previous_position = 0, 
@@ -199,7 +199,7 @@ class SyntaxAnalyzer:
                 #that the previous is initiatl state
                 # the current word is prefered, we add previous
                 # pointer to 0 position.
-                current.add_previous(aranasyn.syn_const.PrimateRelation)
+                current.add_previous(previous_position, aranasyn.syn_const.PrimateRelation)
 
             return (previous, current)
 
@@ -222,8 +222,24 @@ class SyntaxAnalyzer:
 
             if previous.is_tanwin():
             # add a relation to previous
-                previous.add_next(aranasyn.syn_const.TanwinRelation)
+                previous.add_next(current_position, aranasyn.syn_const.TanwinRelation)
             return (previous, current)
+        # جملة مقول القول
+        elif current.is_pounct() and previous.is_verb() and previous.get_original() == u"قالَ":
+            #if the current is pounctuation and the previous is a speach verb, 
+            previous.add_next(current_position, aranasyn.syn_const.VerbObjectRelation)
+            return (previous, current)            
+
+        elif current.is_break() and current.is_noun()  and previous.is_noun() \
+         and (current.has_procletic() and current.has_jonction() and not current.has_jar()): 
+            # jonction 
+            if (current.is_majrour() and previous.is_majrour()) \
+            or (current.is_mansoub() and previous.is_mansoub()) \
+            or (current.is_marfou3()and previous.is_marfou3()):
+                previous.add_next( current_position, aranasyn.syn_const.JonctionRelation)
+                current.add_previous(previous_position, aranasyn.syn_const.JonctionRelation)                
+            return (previous, current)
+
         elif current.is_pounct() or current.is_stopword() or \
         (current.has_procletic()  and not current.is_defined()):
             #if the word is pounctuation and it's transparent, 
@@ -234,7 +250,7 @@ class SyntaxAnalyzer:
             # the previous will have twnin
 
             if current.is_break() and previous.is_tanwin():
-                previous.add_next(aranasyn.syn_const.TanwinRelation)
+                previous.add_next(current_position, aranasyn.syn_const.TanwinRelation)
             return (previous, current)
 
         #the stop word is factors, others no, 
@@ -259,27 +275,52 @@ class SyntaxAnalyzer:
                     weight = aranasyn.syn_const.KanaRafe3Marfou3Relation
                 elif previous.is_rafe3() and current.is_marfou3():
                     weight = aranasyn.syn_const.Rafe3Marfou3Relation
+            # pronoun verb
+            elif current.is_verb() and previous.is_pronoun():
+                # تطابق الضمير مع الضمير المسند إليه
+                if previous.is_jazem()  and  current.is_majzoum():
+                    weight = aranasyn.syn_const.SubjectVerbRelation
+
             #verb
             elif current.is_verb() and previous.is_verbal_factor():
                 if previous.is_jazem()  and  current.is_majzoum():
-                    weight = aranasyn.syn_const.JazemMajzoumRelation
+                    #حالة خاصة لا الناهية تنهى عن الأفعال
+                    # المسندة للضمير المخاطب فقط
+                    if previous.get_unvoriginal() == u'لا':
+                        if current.has_imperative_pronoun():
+                           weight = aranasyn.syn_const.JazemMajzoumRelation 
+                    else:
+                        weight = aranasyn.syn_const.JazemMajzoumRelation
                 elif previous.is_verb_naseb() and  current.is_mansoub():
                     weight = aranasyn.syn_const.NasebMansoubRelation
                 elif previous.is_verb_rafe3() and current.is_marfou3():
-                    weight = aranasyn.syn_const.Rafe3Marfou3Relation
+                    #حالة لا النافية 
+                    # المسندة لغير الضمائر المخاطبة
+                    if previous.get_unvoriginal() == u'لا':
+                        if not current.has_imperative_pronoun():
+                           weight = aranasyn.syn_const.Rafe3Marfou3Relation
+                    else:
+                        weight = aranasyn.syn_const.Rafe3Marfou3Relation
+                elif previous.is_condition_factor():
+                    weight = aranasyn.syn_const.ConditionVerbRelation
         else: # previous is not a stopword
             if current.is_verb():
                 # الجارية فعل والسابق مبتدأ
                 if previous.is_noun():
                     if current.is_marfou3():
                     # Todo treat the actual word
-                        weight = aranasyn.syn_const.Rafe3Marfou3Relation
-
+                        if current.is_defined():
+                            #إذا كان المبتدأ معرفا 
+                            weight = aranasyn.syn_const.Rafe3Marfou3Relation
+                        elif current.is_defined() and current.is_tanwin:
+                            #إذا كان المبتدأ نكرة ينبغي أن ينوّن
+                            weight = aranasyn.syn_const.Rafe3Marfou3Relation                            
+                        
             if current.is_noun() or current.is_addition():
                 # المضاف والمضاف إليه
                 # إضافة لفظية
                 # مثل لاعبو الفريق
-                if current.is_majrour():
+                if current.is_majrour() or current.is_stopword():
                     if previous.is_added():
                         weight = aranasyn.syn_const.JarMajrourRelation
                     elif previous.is_noun() and not previous.is_defined() \
@@ -303,11 +344,17 @@ class SyntaxAnalyzer:
                     if previous.is3rdperson():
                         # Todo treat the actual word
                         # الفعل والفاعل أو نائبه
+                        
                         if current.is_marfou3():
                             weight = aranasyn.syn_const.VerbSubjectRelation
                     # الفعل والمفعول به
-                    if current.is_mansoub():
+                    if current.is_mansoub()  and not previous.has_encletic():
                         weight = aranasyn.syn_const.VerbObjectRelation
+                    # فعل متعدي بحرف
+                    #ToDo:
+                    if previous.is_transitive() and curret.is_stopword():
+                        weight = aranasyn.syn_const.VerbObjectRelation                        
+                        
         if weight :
             # add to the previous a pointer to the next word order.
             previous.add_next(current_position, weight)

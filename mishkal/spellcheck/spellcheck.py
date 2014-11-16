@@ -57,7 +57,7 @@ class SpellcheckClass:
 		# default value is True, can be disabled for debuging porpus		
 		self.enabledSemanticAnalysis= True;
 		# lexical analyzer
-		self.analyzer=qalsadi.analex.analex()
+		self.analyzer=qalsadi.analex.Analex()
 		# syntaxic analyzer
 		# self.anasynt=aranasyn.anasyn.SyntaxAnalyzer();
 		# semantic analyzer
@@ -219,16 +219,17 @@ class SpellcheckClass:
 				ChosenList.append(currentChosen);
 				# create a suggest list
 				suggest=[];
-				if len(wordCasesList)==1 and wordCasesList[0].isUnknown():
-					if wordCasesList[0].isUnknown():
-						suggest = self.generateSuggest(currentChosen.getWord())
+				if len(wordCasesList)==1 and wordCasesList[0].is_unknown():
+					if wordCasesList[0].is_unknown():
+						suggest = self.generateSuggest(currentChosen.get_word())
 				suggest.sort();
 				suggestsList.append(suggest);
 		outputSuggestList=[]
 		#create texts from chosen cases
 		for i in range(len(ChosenList)):
-			word = ChosenList[i].getWord();
+			word = ChosenList[i].get_word();
 			vocalized_text=u" ".join([vocalized_text,self.display(word,format)]);
+			#~vocalized_text=u"".join([vocalized_text,self.display(word,format)]);
 			outputSuggestList.append({'chosen':word,'suggest':u";".join(suggestsList[i])});
 		if suggestion:
 			return outputSuggestList;
@@ -290,7 +291,7 @@ class SpellcheckClass:
 		@return: generated suggestion.
 		rtype: list of words.
 		"""
-		wordlist=[word, araby.stripTashkeel(word)];
+		wordlist=[word, araby.strip_tashkeel(word)];
 		codidates=self.edits1(word)
 		for condidate in codidates:
 			if True :#self.accepted(condidate):
@@ -320,7 +321,7 @@ class SpellcheckClass:
 				return True;
 			#one only case
 			else :
-				return not result[0].isUnknown();
+				return not result[0].is_unknown();
 		return False;
 
 
