@@ -2147,3 +2147,124 @@ INFO:MyTestWebApp:2014-11-16 11:28	Tashkeel2	في الدار كلب.
 
 
 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-16 01:15	Tashkeel2	في الدار كلب.
+
+إلى الدار،
+
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-16 01:15	LightStemmer	في الدار كلب.
+إلى الدار،
+
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-16 01:15	LightStemmer	في الدار كلب.
+إلى الدار،
+
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-16 01:15	Tashkeel2	في الدار كلب.
+
+إلى الدار،
+
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-16 01:48	Tashkeel2	في الدار كلب.
+
+إلى الدار،
+
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-16 01:49	Tashkeel2	 غَدَا الذِّكْرَى الاولى لِاِسْتِشْهَادِ اخى وصديقى مُحَمَّدَ شُحَّاتِهُ اول شَهِيدَ فى مَيْدَانَ رابعَةِ الْعدويَةِ يَوْمُ 3 / 7 وَبَعْدَ خُطَّابَ الْاِنْقِلابِ بِدَقائِقِ بَسيطَةٍ اُسْتُشْهِدَ مُحَمَّدَ امام خَيْمَةَ الصّالِحِيَّةِ الْجَدِيدَةِ
+
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-16 01:51	CompareTashkeel	. اِرْحَمْ إِخْوَانَنَا النَّازِحِينَ الْمُشَرَّدِينَ فِي سُورِيَّا وَالْعِرَاقِ وَالسُّودانَ. وَأَدُمُّ عَلَينَا نعمةَ الْأمَانِ
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-16 02:08	Tashkeel2	عباس يحذر إسرائيل من حرب دينية
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-16 03:30	Tashkeel2	هذه طائفة من الحكايات التي ابتدعتها مخيلة واحد من أثرى شعوب الأرض تجربة وأكثرها معاناة, أعني الأفرو أمريكيين, أو الأفارقة الأمريكيين الذين اختطفهم مستعمرو العالم الجديد وأخذوهم عبيدا إلى تلك البقعة من الأرض التي نعرفها اليوم باسم أمريكا.
+ هؤلاء الأفارقة الذين لم يتركوا في قارتهم الأم شيئا إلا وحملوه خبيئة في أرواحهم..
+ الموسيقى والإيقاع, الأوثان والأديان, الأساطير وحكايا الجدات, ومن هذا المزيج النادر صيغت حكايات وصممت رقصات وتطورت موسيقى وكان إسهام للإنسانية إليكم بعضا منه.
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-16 03:58	Tashkeel2	خلف الستار
+
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ButtonAnchor.png]
+INFO:MyTestWebApp:got uri=[/_files/images/Button.png]
+INFO:MyTestWebApp:got uri=[/_files/loading.gif]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-17 09:19	LightStemmer	الشهور
+
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-17 10:17	Tashkeel2	لم أتمكن
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-17 10:18	Tashkeel2	 لَمْ أَتَمَّكُنَّ  من 
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-17 10:19	LightStemmer	 لَمْ أَتَمَّكُنَّ  من 
+
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-17 10:22	StripHarakat	جَاءَتْهُ أُمِّي مَرَّةَ ثَانِيَةٌ 
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-17 10:22	LightStemmer	جَاءَتْهُ أُمِّي مَرَّةَ ثَانِيَةٌ 
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-17 10:23	StripHarakat	جَاءَتْهُ أُمِّي مَرَّةَ ثَانِيَةٌ 
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-17 10:23	LightStemmer	جاءته أمي مرة ثانية 
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-17 10:27	Tashkeel2	كنا نغمض
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2014-11-17 10:27	Tashkeel2	كنا نغمض أعيننا
+
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]

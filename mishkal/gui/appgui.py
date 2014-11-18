@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
         #add a speller or tashkeel
-        self.dict=myspeller();
+        self.dict = myspeller();
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
         self.MainWindow=MainWindow;
@@ -580,7 +580,18 @@ class Ui_MainWindow(object):
                 if itemD['chosen'][0] in u"-[\]{}()*+?.,،:\^$|#\s\n،":
                     vocalizedText += ""+itemD['chosen'];
                 else:
-                    vocalizedText += " "+itemD['chosen'];
+                    # if the word is recognized
+                    if araby.is_vocalized(itemD['chosen']):
+                        vocalizedText += " "+ itemD['chosen'];
+                    else: #unrecognized word
+                        #get suggestions from customized dictionary
+                        custom_suggest = self.dict.custom_dict.lookup(itemD['chosen'])
+                        if len(custom_suggest)>=1 :
+                            vocalizedText += " "+ custom_suggest[0];
+                        else:
+                            vocalizedText += " "+ itemD['chosen'];
+                            
+                        
                 suggestList=itemD['suggest'].split(u";");
                 self.ResultVocalized.dict.add(itemD['chosen'],suggestList)
         if partialVocalization:
@@ -951,7 +962,7 @@ body {
 
             result=self.convert_text(word, reducedTashkeel, lastMarkTashkeel)
 
-            self.result["HTML"]=result;
+            self.result["HTML"] = result;
 
 
     def display_resultActions(self,action="DoNothing"):
@@ -963,15 +974,44 @@ body {
             result=core.adaat.DoAction(unicode(text),action);
             self.ResultVocalized.setPlainText(result)
 
-    def display_resultRemove(self):
+    def display_resultRemove2(self):
 
         word = self.ResultVocalized.toPlainText();
         if not word.isEmpty():
-
             word=unicode(word);
             word = word.strip(' ');
             self.result["HTML"]=araby.strip_tashkeel(word);
             self.display_result_in_tab()
+    def display_resultRemove(self):
+        
+        cursor = self.ResultVocalized.textCursor()
+        #~cursor.select(QTextCursor.WordUnderCursor)
+        self.ResultVocalized.setTextCursor(cursor)
+        # Check if the selected word is misspelled and offer spelling
+        if self.ResultVocalized.textCursor().hasSelection():
+             
+            originaltext = unicode(self.ResultVocalized.textCursor().selectedText())
+            #~self.pretxt = originaltext[-1]
+            #~self.pretxt = originaltext[0]
+            self.correctWord(araby.strip_tashkeel(originaltext))
+        else:
+            word = self.ResultVocalized.toPlainText();
+            if not word.isEmpty():
+                word=unicode(word);
+                word = word.strip(' ');
+                self.result["HTML"]=araby.strip_tashkeel(word);
+                self.display_result_in_tab()
+    def correctWord(self, word):
+        '''
+        Replaces the selected text with word.
+        '''
+        cursor = self.ResultVocalized.textCursor()
+        cursor.beginEditBlock()
+ 
+        cursor.removeSelectedText()
+        #~cursor.insertText(word + self.pretxt)
+        cursor.insertText(word)
+        cursor.endEditBlock()        
 
 
     def display_result_in_tab(self):

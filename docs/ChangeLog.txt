@@ -1,3 +1,6 @@
+2014-11-17:
+    - add "custom dictionary" for unrecognized words
+    - add removre Tahskeel for selected text
 2014-11-08:
     - Ajust pounctuation keep in Gui
 2014-07-08:
