@@ -6,6 +6,16 @@
          url('fonts/amiri-regular.woff') format('woff'),
          url('fonts/amiri-regular.ttf')  format('truetype');
 }
+
+@font-face {
+    font-family: AmiriTashkeel;
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/amiri-quran-colored.eot?') format('eot'),
+         url('fonts/amiri-quran-colored.woff') format('woff'),
+         url('fonts/amiri-quran-colored.ttf')  format('truetype');
+}
+
 body
 {
 direction:rtl;

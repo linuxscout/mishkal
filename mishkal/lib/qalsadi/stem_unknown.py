@@ -393,7 +393,8 @@ def get_word_variant(word, suffix):
             word_stem  = word_stem[:-1] + araby.WAW_HAMZA 
         elif suffix.startswith(araby.KASRA):
             word_stem  = word_stem[:-1] + araby.YEH_HAMZA 
-            
+        elif (word_stem.endswith(araby.YEH + araby.HAMZA) or word_stem.endswith(araby.YEH + araby.SUKUN + araby.HAMZA))and suffix.startswith(araby.FATHATAN):
+            word_stem = word_stem[:-1] + araby.YEH_HAMZA              
     return word_stem 
         
 def get_stem_variants(stem, prefix, suffix):

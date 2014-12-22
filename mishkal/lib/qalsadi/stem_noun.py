@@ -324,6 +324,9 @@ def get_stem_variants(stem, suffix_nm):
     if stem.endswith(araby.YEH):
         possible_noun = stem[:-1]+araby.ALEF_MAKSURA
         possible_noun_list.add(possible_noun)
+    if stem.endswith(araby.HAMZA):
+        possible_noun = stem[:-1]+araby.YEH_HAMZA
+        possible_noun_list.add(possible_noun)        
     #to be validated
     validated_list = possible_noun_list
     return validated_list
@@ -348,9 +351,11 @@ def get_suffix_variants(word, suffix, enclitic):
     #if the word ends by a haraka
     if suffix.find(araby.TEH_MARBUTA) >= 0 and len (enclitic_nm)>0:
         newsuffix = re.sub(araby.TEH_MARBUTA, araby.TEH, suffix)
-    elif     not enclitic_nm and word[-1:] in (araby.ALEF_MAKSURA, 
-    araby.YEH, araby.ALEF) and araby.is_haraka(suffix):
-        newsuffix = u""
+    #~elif     not enclitic_nm and word[-1:] in (araby.ALEF_MAKSURA, 
+    #~araby.YEH, araby.ALEF) and araby.is_haraka(suffix):
+        #~newsuffix = u""
+    elif     not enclitic_nm and word[-1:] in (araby.YEH, araby.ALEF) and araby.is_haraka(suffix):
+        newsuffix = u""        
     #gererate the suffix without I'rab short mark
     # here we lookup with given suffix because the new suffix is 
     # changed and can be not found in table
@@ -408,7 +413,8 @@ def get_word_variant(word, suffix):
             word_stem = word_stem[:-1] + araby.WAW_HAMZA
         elif suffix.startswith(araby.KASRA):
             word_stem = word_stem[:-1] + araby.YEH_HAMZA
-            
+        elif (word_stem.endswith(araby.YEH + araby.HAMZA) or word_stem.endswith(araby.YEH + araby.SUKUN + araby.HAMZA))and suffix.startswith(araby.FATHATAN):
+            word_stem = word_stem[:-1] + araby.YEH_HAMZA            
     return word_stem
         
 def vocalize( noun, proclitic,  suffix, enclitic):
@@ -470,9 +476,25 @@ def vocalize( noun, proclitic,  suffix, enclitic):
     # if the suffix is a short haraka 
     word_non_irab_mark = ''.join([ proclitic_voc,  noun, 
     suffix_non_irab_mark,   enclitic_voc])             
-        
+    
+    #completate the dictionary word vocalization
+    # this allow to avoid some missed harakat before ALEF
+    # in the dictionary form of word, all alefat are preceded by Fatha
+    #~noun = araby.complet
+    noun = noun.replace(araby.ALEF, araby.FATHA + araby.ALEF)
+    noun = noun.replace(araby.ALEF_MAKSURA, araby.FATHA + araby.ALEF_MAKSURA)
+    noun = re.sub(ur"(%s)+"%araby.FATHA , araby.FATHA, noun)
+    
     word_vocalized = ''.join([ proclitic_voc, noun, suffix_voc, 
        enclitic_voc])
+    #~word_vocalized = araby.ajust_vocalization(word_vocalized)
+    word_vocalized = re.sub(ur"(%s)+"%araby.FATHA , araby.FATHA, word_vocalized)
+    word_vocalized = re.sub(ur"(%s%s%s)+"%(araby.FATHA, araby.ALEF_MAKSURA, araby.KASRATAN)
+     , araby.FATHATAN + araby.ALEF_MAKSURA, word_vocalized)    
+    word_vocalized = re.sub(ur"%s%s%s"%(araby.FATHA, araby.ALEF_MAKSURA, araby.KASRA)
+     , araby.FATHA + araby.ALEF_MAKSURA, word_vocalized) 
+    word_vocalized = re.sub(ur"%s[%s|%s|%s]"%(araby.ALEF_MAKSURA, araby.DAMMA, araby.FATHA, araby.KASRA)
+     , araby.ALEF_MAKSURA, word_vocalized)      
     return word_vocalized, word_non_irab_mark 
 
 def verify_affix(word, list_seg, affix_list):

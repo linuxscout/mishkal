@@ -1,3 +1,6 @@
+2014-12-14:
+    - pyarabic.araby: vocalized_similaraity : fix errors on shadda
+    - Qalsadi: stem_noun and stem_unknwon: correct words ended by hamza when they join with Tanween mansoub
 2014-11-17:
     - add "custom dictionary" for unrecognized words
     - add removre Tahskeel for selected text

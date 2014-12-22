@@ -556,15 +556,21 @@ tags of affixes and tags extracted form lexical dictionary
             'type':'NUMBER', 
             'freq':0, 
             'syntax':'',          
-            }))    
-        if word in stem_pounct_const.POUNCTUATION:
+            }))  
+        # test if all chars in word are punctuation 
+        for char in word:
+            # if one char is not a pounct, break
+            if not char  in stem_pounct_const.POUNCTUATION:
+                break;
+        else: 
+            # if all chars are pounct, the word take tags of the first char
             detailed_result.append(wordcase.WordCase({
             'word':word, 
             'affix': ('', '', '', ''), 
             'stem':'', 
             'original':word, 
             'vocalized':word, 
-            'tags':stem_pounct_const.POUNCTUATION[word]['tags'], 
+            'tags':stem_pounct_const.POUNCTUATION[word[0]]['tags'], 
             'type':'POUNCT', 
             'freq':0, 
             'syntax':'',          

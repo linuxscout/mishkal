@@ -9,6 +9,9 @@ sys.path.append('/opt/mishkal/lib')
 # join the actual dirctory to lib path
 sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'mishkal/lib/'))
 sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'mishkal'))
+sys.path.append('mishkal/');
+sys.path.append('mishkal/lib/');
+sys.path.append('lib/web');
 
                 
 scriptname = os.path.splitext(os.path.basename(sys.argv[0]))[0]

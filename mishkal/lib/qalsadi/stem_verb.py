@@ -134,6 +134,7 @@ class VerbStemmer:
                     # verify length pof stem
                     list_seg_conj2 = [] 
                     for seg_conj in list_seg_conj:
+                        #~print "yes22"
                         if (seg_conj[1] - seg_conj[0]) <= 6 :
                             prefix_conj   =  verb2[:seg_conj[0]] 
                             stem_conj     =  verb2[seg_conj[0]:seg_conj[1]]
@@ -144,6 +145,7 @@ class VerbStemmer:
                         # verify compatibility between procletics and afix
                             if (is_compatible_proaffix_affix(procletic, 
                             encletic, affix_conj)):
+                                #~print "Yes"
                                 # verify the existing of a verb stamp in 
                                 #the dictionary
                                 if self.verb_dictionary.exists_as_stamp(
@@ -350,7 +352,8 @@ def is_compatible_proaffix_affix(procletic, encletic, affix):
     @type affix: unicode.
     @return: compatible.
     @rtype: True/False.
-    """    
+    """  
+    #~print "in is_compatible_proaffix_affix"  
     if not procletic and not encletic:
         return True 
     else:
@@ -369,7 +372,7 @@ def is_compatible_proaffix_affix(procletic, encletic, affix):
                         break 
                 else:
                     procletic_compatible = False 
-
+        #~print "Yes2"
         if procletic_compatible:
             if not encletic :
                 return True 
@@ -392,6 +395,8 @@ def is_compatible_proaffix_tense(procletic, encletic, tense, pronoun,
     """
     test if the given tenses are compatible with procletics
     """
+    #~print "\t\t", u" \t ".join([procletic, encletic, tense, pronoun, 
+   #~str(transitive)]).encode('utf8');
     # إذا كان الزمن مجهولا لا يرتبط مع الفعل اللازم
     if not transitive and tense in svconst.qutrubVerbConst.TablePassiveTense:
         return False 

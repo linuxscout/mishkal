@@ -560,7 +560,8 @@ return  x= input.replace("لَا", "لاَ");
 		//~text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"'>"+item.chosen+"</span>";
 		//text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"' suggest='"+item.suggest.replace(/;/g,'، ') + "' link='"+item.link+"'>"+item.chosen+"</span>";
 
-		text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"' suggest='"+item.suggest.replace(/;/g,'، ') + "' link='"+item.link+"'><span class='vocalized-color'>"+ajust_ligature(item.chosen)+"</span><span class='vocalized-letters'>"+strip_tashkeel(item.chosen)+"</span></span>";
+		//text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"' suggest='"+item.suggest.replace(/;/g,'، ') + "' link='"+item.link+"'><span class='vocalized-color'>"+ajust_ligature(item.chosen)+"</span><span class='vocalized-letters'>"+strip_tashkeel(item.chosen)+"</span></span>";
+        text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"' suggest='"+item.suggest.replace(/;/g,'، ') + "' rule='"+item.rule +"' link='"+item.link+"'>"+ item.chosen+"</span>";
 		//text+=" <span>"+item.chosen+"</span>";
 		$('#result').data(currentId.toString(), item.suggest);
         
@@ -607,7 +608,8 @@ return  x= input.replace("لَا", "لاَ");
 		{
 		if (list[i]!="")
 			{
-			if (myword.children('.vocalized-color').text()!=list[i])
+			//if (myword.children('.vocalized-color').text()!=list[i])
+			if (myword.text()!=list[i])
 			text+="<option>"+list[i]+"</option>";
 			else text+="<option selected="+list[i]+">"+list[i]+"</option>";
 			cpt+=1;
@@ -619,11 +621,14 @@ return  x= input.replace("لَا", "لاَ");
 	// disable others suggestion lists	
 	 //$(".txkl").change();
 	 if (cpt>1)  {
-				myword.children('.vocalized-color').replaceWith(text);
+				//myword.children('.vocalized-color').replaceWith(text);
+				myword.replaceWith(text);
 				}
 	else { 
-		text="<input type='text' class='txkl'  size='10' id='"+myword.attr('id')+"' value='"+myword.children('.vocalized-color').text()+"'/>";
-		myword.children('.vocalized-color').replaceWith(text);
+		//text="<input type='text' class='txkl'  size='10' id='"+myword.attr('id')+"' value='"+myword.children('.vocalized-color').text()+"'/>";
+		text="<input type='text' class='txkl'  size='10' id='"+myword.attr('id')+"' value='"+myword.text()+"'/>";
+	//	myword.children('.vocalized-color').replaceWith(text);
+		myword.replaceWith(text);
 
 		}	
    		
@@ -635,7 +640,9 @@ return  x= input.replace("لَا", "لاَ");
    $('.txkl').live('change',function() {
 	if ($(this).val()!="تعديــل...")
 	{
-	var text="<span class='vocalized-color' id='"+$(this).attr('id')+"'>"+$(this).val()+"</span>";
+	//var text="<span class='vocalized-color' id='"+$(this).attr('id')+"'>"+$(this).val()+"</span>";
+	var text="<span class='vocalized' id='"+$(this).attr('id')+"'>"+$(this).val()+"</span>";
+
 	 $(this).replaceWith(text);	 
 	 }
 	 else // case of editing other choice
@@ -771,7 +778,9 @@ return  x= input.replace("لَا", "لاَ");
 		{
 		if (list[i]!="")
 			{
-			if (myword.children('.vocalized-color').text()!=list[i])
+			//if (myword.children('.vocalized-color').text()!=list[i])
+			if (myword.text()!=list[i])
+
 			text+="<option>"+list[i]+"</option>";
 			else text+="<option selected="+list[i]+">"+list[i]+"</option>";
 			cpt+=1;
@@ -783,7 +792,8 @@ return  x= input.replace("لَا", "لاَ");
 	// disable others suggestion lists	
 	 //$(".txkl").change();
 	 if (cpt>1)  {
-				myword.children('.vocalized-color').replaceWith(text);
+				//myword.children('.vocalized-color').replaceWith(text);
+				myword.replaceWith(text);
 				}
 	else { 
 		text="<input type='text' class='txkl'  size='10' id='"+myword.attr('id')+"' value='"+myword.text()+"'/>";
@@ -797,7 +807,7 @@ return  x= input.replace("لَا", "لاَ");
 
 // change diff 
 $('#diff').live("hover", function() {
-  $('#hint').html($(this).text() +" : " + $(this).attr('original') + "</br>" + $(this).attr('inflect') +"</br>"+ $(this).attr('link'));
+  $('#hint').html($(this).text() +" : " + $(this).attr('original') + "</br>" + $(this).attr('inflect') + "</br>rule:" + $(this).attr('rule')+"</br>" + $(this).attr('link'));
  });
  
 // change diff 
@@ -808,7 +818,8 @@ $('#diff').live("mouseleave", function() {
 
 // display infos on vocalized  
 $('.vocalized').live("hover", function() {
-  $('#hint').html($(this).children(".vocalized-color").text() +" : " + $(this).attr('inflect') +"</br>"+ $(this).attr('suggest') +"</br>" + $(this).attr('link'));
+  //$('#hint').html($(this).children(".vocalized-color").text() +" : " + $(this).attr('inflect') +"</br>"+ $(this).attr('suggest') +"</br>" + $(this).attr('link'));
+$('#hint').html($(this).text() +" : " + $(this).attr('inflect') +"</br>"+ $(this).attr('suggest') +"</br>rule:" + $(this).attr('rule')+"</br>"  + $(this).attr('link'));
  });
  
 // change diff 

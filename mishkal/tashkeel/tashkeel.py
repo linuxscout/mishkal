@@ -278,6 +278,7 @@ class TashkeelClass:
                         # vocTnwn = item.get_vocalized()
                         # if vocTnwn! = voc:
                             # suggest.append(vocTnwn)
+                suggest = list(set(suggest))
                 suggest.sort()
                 suggests_list.append(suggest)
         output_suggest_list = []
@@ -289,6 +290,8 @@ class TashkeelClass:
             relation = _chosen_list[i].get_previous_relation(previous.get_order())
             #get the title of relation
             relation = aranasyn.syn_const.DISPLAY_RELATION.get(relation, "")  
+            #get the rule number
+            selection_rule = _chosen_list[i].get_rule()  
                        
             # omit the last haraka if the option LastMark is False
             if not self.get_enabled_last_mark():
@@ -297,7 +300,7 @@ class TashkeelClass:
             vocalized_text = u" ".join([vocalized_text, 
             self.display(word, format_display)])
             output_suggest_list.append({'chosen':word, 
-            'suggest':u";".join(suggests_list[i]), 'inflect':inflect, "link":relation})
+            'suggest':u";".join(suggests_list[i]), 'inflect':inflect, "link":relation, 'rule':selection_rule})
             # save the current chosen as a previous
         
         # correct the resulted text to ajust some case of consonant neighbor
@@ -354,7 +357,7 @@ class TashkeelClass:
             curcaseslist = self._filter_by_syntaxic(curcaseslist,
              previous)
             # print "After Syntax", len(curcaseslist)
-            curcaseslist = self._frequency_filter(curcaseslist)
+            #~curcaseslist = self._frequency_filter(curcaseslist)
         # print "After Frequency", len(curcaseslist)
         #todo select the evident case if exists.
         #~forced = False
@@ -416,6 +419,9 @@ class TashkeelClass:
             # choose a case with two syntaxic  relation previous and next
             if not chosen :
                 for current in curcaseslist:
+                    #~if previous:
+                        #~print previous.get_vocalized(),  current.get_vocalized()
+                    #~print "7", self.anasynt.is_related(previous, current)
                     if self.anasynt.is_related(previous, current) and \
                     current.has_next() and not current.is_passive():
                         chosen = current
@@ -502,6 +508,9 @@ class TashkeelClass:
             #~rule, "- not chosen", chosen.get_vocalized().encode('utf8')    
         #~else:
             #~print rule, "- is chosen", chosen.get_vocalized().encode('utf8')
+        #~print rule, "- is chosen", chosen.get_vocalized().encode('utf8')
+        # set the selection rule to dispaly how tahskeel is selected
+        chosen.set_rule(rule)
         return chosen
         
     def _select_by_score(self, word_analyze_list, previous):

@@ -607,7 +607,7 @@ class WordTagger():
         @return: is the word a stop word
         @rtype: Boolean
         """
-        return  stopwords.STOPWORDS.has_key(word)
+        return  stopwords.STOPWORDS.has_key(word) or stopwords.STOPWORDS.has_key(araby.strip_tashkeel(word))
         #if word in STOPWORDS.keys():
         #    return True
         #else:
@@ -628,8 +628,10 @@ class WordTagger():
         else:
             list_result = []
             previous = u""
+            second_previous = u"" # the second previous
             #~ previous_tag  = ""
             for word in word_list:
+                word_nm = araby.strip_tashkeel(word)
                 tag = ''
                 if self.cache.has_key(word):
                     tag = self.cache.get(word, '')
@@ -650,10 +652,13 @@ class WordTagger():
                 # for example  
                 # في ضرب : is a noun
                 # قد ضرب : is a verb
-                if tag in ("", "nv"):
-                    tag = self.context_analyse(previous, word)+"1"
+                if tag in ("", "vn", "nv"):
+                    tag = self.context_analyse(previous, word)+"3"
+                    if tag in ("", "1", "vn1", "nv1"):
+                        tag = self.context_analyse(u" ".join([second_previous, previous]), word)+"2"                    
                 list_result.append(tag)
-                previous = word
+                second_previous = previous
+                previous = word_nm
                 #~ previous_tag  = tag
             return list_result
 def main():

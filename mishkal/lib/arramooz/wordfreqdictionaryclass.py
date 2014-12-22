@@ -279,7 +279,7 @@ def mainly():
     }
     #from   dictionaries.verb_dictionary  import *
     mydict = WordFreqDictionary('wordfreq', WORDFREQ_DICTIONARY_INDEX)
-    wordlist = [u"صلاة", u'كرة', u"قَطَرً"]
+    wordlist = [u"صلاة", u'كرة', u"قَطَرً", u"أَرْض"]
     
     for word in wordlist:
         print "jjjjjjjj"

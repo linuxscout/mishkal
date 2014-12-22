@@ -10,7 +10,12 @@ Arabic module
 @version: 0.1
 """
 import re
-import pyarabic.stack
+
+if __name__ == "__main__":
+    import stack
+else:
+    import pyarabic.stack as stack
+
 COMMA            = u'\u060C'
 SEMICOLON        = u'\u061B'
 QUESTION         = u'\u061F'
@@ -702,11 +707,11 @@ def separate(word,  extract_shadda = False):
     if a letter hasn't a haraka,  the not definited haraka is attributed.
     return ( letters, vowels)
     """
-    stack1 = pyarabic.stack.Stack(word)
+    stack1 = stack.Stack(word)
     # the word is inversed in the stack 
     stack1.items.reverse()
-    letters = pyarabic.stack.Stack()
-    marks = pyarabic.stack.Stack()    
+    letters = stack.Stack()
+    marks = stack.Stack()    
     vowels = HARAKAT
     last1 = stack1.pop()
     # if the last element must be a letter, 
@@ -754,12 +759,12 @@ def joint(letters,  marks):
     # The length ot letters and marks must be equal 
     if len(letters) !=  len(marks):
         return ""
-    stack_letter = pyarabic.stack.Stack(letters)
+    stack_letter = stack.Stack(letters)
     stack_letter.items.reverse()
-    stack_mark = pyarabic.stack.Stack(marks)
+    stack_mark = stack.Stack(marks)
     stack_mark.items.reverse()
 
-    word_stack = pyarabic.stack.Stack()
+    word_stack = stack.Stack()
     last_letter = stack_letter.pop()
     last_mark = stack_mark.pop()
     vowels = HARAKAT
@@ -804,9 +809,9 @@ def waznlike(word1, wazn):
     this are as generic letters.
     The two words can be full vocalized,  or partial vocalized
     """
-    stack1 = pyarabic.stack.Stack(word1)
-    stack2 = pyarabic.stack.Stack(wazn)
-    root = pyarabic.stack.Stack()    
+    stack1 = stack.Stack(word1)
+    stack2 = stack.Stack(wazn)
+    root = stack.Stack()    
     last1 = stack1.pop()
     last2 = stack2.pop()
     vowels = HARAKAT
@@ -847,8 +852,8 @@ def shaddalike(partial, fully):
  # المدخل والمخرج بهما شدة، نتأكد من موقعهما
     partial = strip_harakat(partial)
     fully = strip_harakat(fully)
-    pstack = pyarabic.stack.Stack(partial)
-    vstack = pyarabic.stack.Stack(fully)
+    pstack = stack.Stack(partial)
+    vstack = stack.Stack(fully)
     plast = pstack.pop()
     vlast = vstack.pop()
     # if debug: print "+0",  Pstack,  Vstack
@@ -901,8 +906,8 @@ def vocalized_similarity(word1, word2):
     if the two words has the same letters and the same harakats,  this fuction return True.
     The two words can be full vocalized,  or partial vocalized
     """
-    stack1 = pyarabic.stack.Stack(word1)
-    stack2 = pyarabic.stack.Stack(word2)
+    stack1 = stack.Stack(word1)
+    stack2 = stack.Stack(word2)
     last1 = stack1.pop()
     last2 = stack2.pop()
     err_count = 0
@@ -924,7 +929,7 @@ def vocalized_similarity(word1, word2):
             else:
                 last1 = stack1.pop()
                 last2 = stack2.pop()
-            err_count += 1
+                err_count += 1
     if err_count > 0 :
         return -err_count
     else: return True
@@ -975,11 +980,13 @@ def tokenize(text = u""):
         return mylist
 
 if __name__ == "__main__":
-    WORDS = [u'الْدَرَاجَةُ', u'الدّرّاجة',
-     u'سّلّامْ', ]
-    for wrd in WORDS:
-        l, m, s = separate(wrd, True)
-        l = joint(l, s)
-        print u'\t'.join([wrd,  l, m, s]).encode('utf8')      
-        newword =  joint(l, m)
-        assert (newword != wrd)
+    #~WORDS = [u'الْدَرَاجَةُ', u'الدّرّاجة',
+     #~u'سّلّامْ', ]
+    #~for wrd in WORDS:
+        #~l, m, s = separate(wrd, True)
+        #~l = joint(l, s)
+        #~print u'\t'.join([wrd,  l, m, s]).encode('utf8')      
+        #~newword =  joint(l, m)
+        #~assert (newword != wrd)
+    print "like: ", vocalizedlike(u'مُتَوَهِّمًا', u'متوهمًا')
+    print "sim: ", vocalized_similarity(u'مُتَوَهِّمًا', u'متوهمًا')

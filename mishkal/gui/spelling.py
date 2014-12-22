@@ -160,7 +160,7 @@ class SpellTextEdit(QPlainTextEdit):
                 #~pass;
                 # if the word hs no suggestions
                 # we lookup for customized vocalization
-                suggests = self.dict.custom_dict.lookup(word)
+                suggests = self.dict.custom_dict.lookup(text)
                 for word in suggests:
                     action = SpellAction(word, spell_menu)
                     action.correct.connect(self.correctWord)

@@ -305,9 +305,11 @@ def wordtag(text):
         return []
     else:
         list_result = []
+        second_previous =""
         previous = u""
         #~previous_tag  =  ""        
         for word in word_list:
+            word_nm = araby.strip_tashkeel(word)
             tag = ''
             if tagger.is_stopword(word):
                 tag = 't'
@@ -318,8 +320,11 @@ def wordtag(text):
                     tag += 'v'
                 if tag in ("", "nv"):
                     tag = tagger.context_analyse(previous, word)+"1"
+                    if tag in ("", "nv1", "vn1"):
+                        tag = tagger.context_analyse(u" ".join([second_previous, previous]), word)+"2"                    
             list_result.append({'word':word, 'tag': tag})
-            previous = word
+            second_previous = previous
+            previous = word_nm
             #~previous_tag  =  tag
         return list_result
 
@@ -579,10 +584,10 @@ def compare_tashkeel(text):
     """
     import tashkeel.tashkeel as ArabicVocalizer
     # the entred text is vocalized correctly
-    correct_text = text
+    correct_text = text.strip()
     text = araby.strip_tashkeel(text)
     vocalizer = ArabicVocalizer.TashkeelClass()
-    #~vocalized_text = vocalizer.tashkeel(text)
+    vocalized_text = vocalizer.tashkeel(text)
     vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(text)
        
     
@@ -596,15 +601,17 @@ def compare_tashkeel(text):
     
     #stemmer=tashaphyne.stemming.ArabicLightStemmer()
     list1 = vocalizer.analyzer.tokenize(text1)
-    #~list2 = vocalizer.analyzer.tokenize(text2)
+    list2 = vocalizer.analyzer.tokenize(vocalized_text)
+    print u";".join(list2).encode('utf8')
     list2 = vocalized_dict
     print u":".join(list1).encode('utf8')
+    #~print u":".join(list2).encode('utf8')
     #~print u":".join(list2).encode('utf8')
     correct = 0
     incorrect = 0
     total = len(list1)
-    if len(list1)!=len(list2):
-        print "lists haven't the same length"
+    if len(list1) < len(list2):
+        print "lists haven't the same length", len(list1), len(list2)
     else:
         for i in range(total):
             wo1 = list1[i]

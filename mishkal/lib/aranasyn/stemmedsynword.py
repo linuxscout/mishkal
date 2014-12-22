@@ -15,13 +15,19 @@
 stemmedWord represents the data resulted from the morpholocigal analysis
 """
 import sys
+sys.path.append('../')
+sys.path.append('mishkal/lib')
 sys.path.append('../lib')
-import qalsadi.stemmedword as stemmedword
-
-import aranasyn.syn_const as syn_const
-import pyarabic.araby as araby
+#~print sys.path
 import math
-class StemmedSynWord (stemmedword.StemmedWord):
+import pyarabic.araby as araby
+import aranasyn.syn_const as syn_const
+import qalsadi
+try:
+    from  qalsadi import stemmedword #as stemmedword
+except:
+    pass;
+class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
     """
     stemmedWord represents the data resulted from the morpholocigal analysis
     """
@@ -63,7 +69,8 @@ class StemmedSynWord (stemmedword.StemmedWord):
         self.sem_next =  {}
         self.sem_previous =  {}
         self.score =  0
- 
+        self.rule = 0  # rule used to select the current case in vocalization
+        # used to debug purpus
 
     def __del__(self, ):
         """ desctructor """
@@ -234,12 +241,23 @@ class StemmedSynWord (stemmedword.StemmedWord):
         #self.syntax =  ':'.join([self.syntax, 'P%d[%d]'%(previous, weight)])
         self.previous[previous] = weight
 
+    def get_rule(self):
+        """
+        get the selection rule.
+        """
+        return self.rule
+        
+    def set_rule(self, rule):
+        """
+        set the selection rule
+        """
+        self.rule = rule
+
     def get_previous(self):
         """
         get all privous word list of relations.
         """
         return self.previous.keys()
-
     def get_previous_relation(self, previous_order):
         """
         get the previous relation between the current case and the previous given by order

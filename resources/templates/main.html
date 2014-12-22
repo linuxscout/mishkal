@@ -20,7 +20,7 @@
     <a href="contact">اتصل بنا</a>&nbsp;&nbsp;
 </div>
 <hr/>
-إصدار تجريبي
+<small>إصدار تجريبي</small>
 <!-- end menu -->
 
 <div id="mainbox">
@@ -31,7 +31,7 @@
 <a  id="format" class="tab"><span>تنسيق</span></a> | 
 <a  id="more" class="tab"><span>أدوات</span></a> </br>
 
-<textarea name="InputText" id="InputText" cols=60 rows=7 class='Block'>%(DefaultText)s
+<textarea name="InputText" id="InputText" cols=80 rows=3 class='Block'>%(DefaultText)s
 
 
 </textarea>
@@ -42,7 +42,8 @@
 <a  id="reducetashkeel" class="Button"><span>اختزال التشكيل</span></a>
 <a  id="comparetashkeel" class="Button"><span>مطابقة التشكيل</span></a>    
 <BR/><input type="checkbox" value='1' checked id="LastMark" /> تشكيل أواخر الكلمات
-<BR/><input type="checkbox" value='1' checked id="markColor" /> تلوين الحركات  
+<input type="checkbox" value='1' checked id="markColor" /> تلوين الحركات
+<small> (متاح فقط على فيرفُكس الأحدث من الإصدار 32)</small>
 </div>
 
 <div id="moresection" class='moresection'>
@@ -56,8 +57,6 @@
 <a id="language" class="Button" title='تحديد الجمل العربية في النص'><span>تحديد اللغة</span></a>
 <a id="named" class="Button" title='استخلاص المسميات'><span>استخلاص المسميات</span></a>
 <a id="numbred" class="Button" title='استخلاص االمعدودات'><span>استخلاص المعدودات</span></a>
-<a id="random"   class="Button" title='نص عشوائي'><span>نص عشوائي</span></a>
-<a id="randomMaqola"   class="Button" title='نص عشوائي'><span>مقولة عشوائية</span></a>
 <!---->
 
 </div>
@@ -71,15 +70,17 @@
 </div>
 
 <a id="move" class="Button" title=''><span>نقل النتائج إلى المدخل</span></a>
+<a id="random"   class="Button" title='نص عشوائي'><span>نص عشوائي</span></a>
+<a id="randomMaqola"   class="Button" title='نص عشوائي'><span>مقولة عشوائية</span></a>
 <input type="reset"  value='امسح'/>
 </form>
 <div id='loading'>
  التحميل جارٍ
 </div>
-<div id="result" width=600>
+<div id="result">
 %(ResultText)s
 </div>
-<div id="hint" width=600>
+<div id="hint">
 </div>
 <div id="help">
 <b>مساعدة</b>

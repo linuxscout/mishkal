@@ -16,6 +16,7 @@ Syntaxic Analysis
 if __name__ == "__main__":
     import sys
     sys.path.append('../lib')
+
 import aranasyn.syn_const
 #~ import qalsadi.stemmedword as stemmedword
 import aranasyn.synnode

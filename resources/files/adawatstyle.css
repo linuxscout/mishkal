@@ -1,14 +1,32 @@
 @import url(http://fonts.googleapis.com/earlyaccess/amiri.css);
 @import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
 @import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+@font-face {
+    font-family: AmiriWeb;
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/amiri-regular.eot?') format('eot'),
+         url('fonts/amiri-regular.woff') format('woff'),
+         url('fonts/amiri-regular.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: AmiriTashkeel;
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/amiri-quran-colored.eot?') format('eot'),
+         url('fonts/amiri-quran-colored.woff') format('woff'),
+         url('fonts/amiri-quran-colored.ttf')  format('truetype');
+}
 body { 	
 	direction: rtl;
 	font-family: 'Droid Arabic Naskh', 'Traditional Arabic', Sans,  "Times New Roman";
-	font-size: 16pt;
+	font-size: 14pt;
 	padding: 1cm;
 	padding-top: 0.25cm;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: 2%;
+	margin-right: 2%;
 }
 
 h1 {
@@ -192,8 +210,8 @@ text-decoration: underline;
 text-decoration: none;
 }
 
-#mainbox {padding:24px;}
-#resultsbox {padding:24px}
+#mainbox {padding:2px;}
+#resultsbox {padding:2px}
 table,th,td {border:none;border-collapse:collapse;}
 table {
 	margin-left:auto; margin-right:auto;
@@ -236,6 +254,10 @@ background-color:rgb(194,247,185);
 {
 background-color:rgb(145,240,128);
 }
+.v2, .verbBicontext
+{
+background-color:rgb(145,240,120);
+}
 .n, .noun 
 {
 background-color:rgb(234,220,94);
@@ -243,6 +265,10 @@ background-color:rgb(234,220,94);
 .n1, .nouncontext
 {
 background-color:#ffff6c;
+}
+.n2, .nounBicontext
+{
+background-color:#ffff60;
 }
 .nv, .vn, .vn1 , .latin
 {
@@ -254,7 +280,7 @@ background-color:rgb(255,185,185);
 }
 .tashkeel
 {
-   font-family: 'Droid Arabic Naskh', Amiri, "Traditional Arabic",  Sans, 'KacstBook', Arial, Helvetica;
+   font-family: AmiriTashkeel, 'Droid Arabic Naskh', Amiri, "Traditional Arabic",  Sans, 'KacstBook', Arial, Helvetica;
     text-align:right;
     font-size:30px;
 }
@@ -266,7 +292,7 @@ background-color:rgb(255,185,185);
 }
 
 .vocalized-color {
-    color: #ff0000;
+    color: #000000;
 }
 .vocalized-letters {
     position: absolute;
