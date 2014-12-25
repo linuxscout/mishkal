@@ -602,15 +602,15 @@ def compare_tashkeel(text):
     #stemmer=tashaphyne.stemming.ArabicLightStemmer()
     list1 = vocalizer.analyzer.tokenize(text1)
     list2 = vocalizer.analyzer.tokenize(vocalized_text)
-    print u";".join(list2).encode('utf8')
+    print u"\t".join(list2).encode('utf8')
     list2 = vocalized_dict
-    print u":".join(list1).encode('utf8')
+    print u"\t".join(list1).encode('utf8')
     #~print u":".join(list2).encode('utf8')
     #~print u":".join(list2).encode('utf8')
     correct = 0
     incorrect = 0
     total = len(list1)
-    if len(list1) < len(list2):
+    if len(list1) > len(list2):
         print "lists haven't the same length", len(list1), len(list2)
     else:
         for i in range(total):

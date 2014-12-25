@@ -69,6 +69,8 @@ class TashkeelClass:
 
         # lexical analyzer
         self.analyzer = qalsadi.analex.Analex()
+        #~self.analyzer.disable_allow_cache_use()
+        self.analyzer.enable_allow_cache_use()
 
         # syntaxic analyzer
         self.anasynt = aranasyn.anasyn.SyntaxAnalyzer()
@@ -246,10 +248,18 @@ class TashkeelClass:
             previous = None
             next_node = None
             pre_node = None
-            for word_cases_list in detailled_syntax:
-
-                current_chosen = self.__choose_tashkeel(word_cases_list, 
+            previous_index = False
+            previous_case_index = False
+            for current_index in range(len(detailled_syntax)):
+                word_cases_list = detailled_syntax[current_index]
+                if previous_index  and previous_case_index:
+                    previous = detailled_syntax[previous_index][previous_case_index]
+                #~current_chosen = self.__choose_tashkeel(word_cases_list, 
+                #~current_chosen_case_index = self.__choose_tashkeel(word_cases_list, 
+                #~previous, pre_node, next_node)
+                current_chosen_case_index = self.__choose_tashkeel_algo2(word_cases_list, 
                 previous, pre_node, next_node)
+                #~print current_chosen_case_index, len(detailled_syntax[current_index]), current_index
                 # ajust tanwin case
                 # if previous and previous.canhave_tanwin() and not 
                 # self.anasynt.is_related(previous, current_chosen):
@@ -258,17 +268,19 @@ class TashkeelClass:
                 # o ajust relation between words
                 # if the actual word is transparent don't change the previous
                 # add this to Sytaxic Analyser
-
+                current_chosen = detailled_syntax[current_index][current_chosen_case_index]
                 if not current_chosen.is_transparent():
+                    previous_index = current_index 
+                    previous_case_index = current_chosen_case_index 
                     previous = current_chosen
                 _chosen_list.append(current_chosen)
 
                 # create a suggest list
-                suggest = []
-                for item in word_cases_list:
-                    # ITEM IS A stemmedSynWord instance
-                    voc = item.get_vocalized()
-                    suggest.append(voc)
+                suggest = [item.get_vocalized() for item in word_cases_list]
+                #~for item in word_cases_list:
+                    #~# ITEM IS A stemmedSynWord instance
+                    #~voc = item.get_vocalized()
+                    #~suggest.append(voc)
                     # if item.canhave_tanwin():
                         # # يمكن لهذا أن يولد صيغا جديدة بها تنوي
                         # # في بعض الحالات قد لا يكون شيئا جديدا 
@@ -284,10 +296,14 @@ class TashkeelClass:
         output_suggest_list = []
         #create texts from chosen cases
         privous_order = -1
+        previous = -1
         for i in range(len(_chosen_list)):
             word = _chosen_list[i].get_vocalized()
-            inflect = _chosen_list[i].get_tags() 
-            relation = _chosen_list[i].get_previous_relation(previous.get_order())
+            inflect = u":".join([_chosen_list[i].get_type() , _chosen_list[i].get_tags()] ) 
+            if previous >= 0:
+                relation = _chosen_list[i].get_previous_relation(_chosen_list[previous].get_order())
+            else: 
+                relation = 0
             #get the title of relation
             relation = aranasyn.syn_const.DISPLAY_RELATION.get(relation, "")  
             #get the rule number
@@ -302,7 +318,7 @@ class TashkeelClass:
             output_suggest_list.append({'chosen':word, 
             'suggest':u";".join(suggests_list[i]), 'inflect':inflect, "link":relation, 'rule':selection_rule})
             # save the current chosen as a previous
-        
+            previous = i
         # correct the resulted text to ajust some case of consonant neighbor
         #معالجة حالات التقاء الساكنين
         if self.get_enabled_ajust_vocalization():
@@ -314,7 +330,7 @@ class TashkeelClass:
         else:
             return vocalized_text
 
-    def __choose_tashkeel(self, curcaseslist, previous_chosen_case = None,
+    def __choose_tashkeel2(self, curcaseslist, previous_chosen_case = None,
      pre_node = None, next_node = None):
         """
         Choose a tashkeel for the current word, according to the previous one.
@@ -505,10 +521,6 @@ class TashkeelClass:
                                             break
         if not chosen and len(curcaseslist)>0:
             chosen = curcaseslist[0]
-            #~rule, "- not chosen", chosen.get_vocalized().encode('utf8')    
-        #~else:
-            #~print rule, "- is chosen", chosen.get_vocalized().encode('utf8')
-        #~print rule, "- is chosen", chosen.get_vocalized().encode('utf8')
         # set the selection rule to dispaly how tahskeel is selected
         chosen.set_rule(rule)
         return chosen
@@ -604,9 +616,7 @@ class TashkeelClass:
         """    
         temp_list = []
         for current in word_analyze_list:
-            if  self.anasynt.is_related( previous, current):
-                temp_list.append(current)
-            if  current.is_stopword():
+            if  current.is_stopword() or self.anasynt.is_related( previous, current):
                 temp_list.append(current)
             elif current.has_next():
                 temp_list.append(current)
@@ -804,6 +814,354 @@ class TashkeelClass:
         text = u" ".join(newlist)
         return text
 
+    # new version of choose tashkeel 
+    # first we use indexes instead of stemmedsynword object
+    def __choose_tashkeel(self, curcaseslist, previous_chosen_case = None,
+     pre_node = None, next_node = None):
+        """
+        Choose a tashkeel for the current word, according to the previous one.
+        @param : list of steming result of the word.
+        @type curcaseslist: list of stemmedSynword
+        @param : the choosen previous word stemming.
+        @type previous_chosen_case:stemmedSynword
+        @return: the choosen stemming of the current word.
+        @rtype:stemmedSynword.
+        """
+        chosen = None
+        chosen_index = False
+        rule = 0
+        previous = previous_chosen_case
+        # test select by score
+        if self.select_by_score_enabled:
+            chosen = self._select_by_score(curcaseslist, previous)
+            if chosen:
+                return chosen 
+        chosen = False
+        x = len(curcaseslist)
+        # and lets other methode to choices by semantic and syntaxic
+        if not previous or previous.is_initial():
+            curcaseslist = self._filter_for_initial(curcaseslist)
+        #~print "#3\t", len(curcaseslist), x, '#'
+        # print "before Semantic", len(curcaseslist)
+        if  self.get_enabled_syntaxic_analysis() and \
+        self.get_enabled_semantic_analysis():
+            curcaseslist = self._filter_by_semantic(curcaseslist,
+             previous)
+        #~print "#4\t", len(curcaseslist), x, '#'
+        # filter results accorind to  word frequency
+        # print "After Semantic", len(curcaseslist)        
+        if  self.get_enabled_syntaxic_analysis():
+            curcaseslist = self._filter_by_syntaxic(curcaseslist,
+             previous)
+        #~print "#5\t", len(curcaseslist), x, '#'
+        # How to choose a vocalized case
+        # and lets other methode to choices by semantic and syntaxic
+        # choose a case is a stop, word and has next relation
+        # browse the list by indexes
+        cur_indexes_list = range(len(curcaseslist))
+        if   self.get_enabled_syntaxic_analysis():
+            if not chosen_index:
+                for current_index in cur_indexes_list:
+                    current = curcaseslist[current_index]
+                    if current.is_stopword() and current.has_next():
+                        #~chosen = current
+                        chosen_index = current_index
+                        rule = 1
+                        break 
+
+        # choose a case with two semantic  relation previous and next
+        if   self.get_enabled_syntaxic_analysis() and \
+        self.get_enabled_semantic_analysis():
+           if not chosen_index:            
+               for current_index in cur_indexes_list:
+                    current = curcaseslist[current_index]
+                    if self.anasem.is_related(previous, current) \
+                    and current.has_sem_next():
+                        chosen = current
+                        chosen_index = current_index
+                        rule = 2                        
+                        break 
+            # choose a case with one semantic  relation previous,
+            # and the previous has a syntaxic relation
+           if not chosen_index:
+                for current_index in cur_indexes_list:
+                    current = curcaseslist[current_index]
+                    if self.anasem.is_related(previous, current) and \
+                    previous.has_next():
+                        #chosen = current
+                        chosen_index = current_index
+                        rule = 3                        
+                        break 
+            # choose a case with one semantic  relation previous
+           if not chosen_index:
+                for current_index in cur_indexes_list:
+                    current = curcaseslist[current_index]
+                    if self.anasem.is_related(previous, current):
+                        #chosen = current
+                        chosen_index = current_index
+                        rule = 4                        
+                        break 
+            # choose a case with one semantic  relation  next with a 
+            #syntaxic relation between previous and current                    
+           if not chosen_index:
+                for current_index in cur_indexes_list:
+                    current = curcaseslist[current_index]
+                    if self.anasynt.is_related(previous, current) and \
+                    current.has_sem_next():
+                        #chosen = current
+                        chosen_index = current_index
+                        rule = 5
+                        break 
+            # choose a case with one semantic  relation  next   
+           if not chosen_index:
+                for current_index in cur_indexes_list:
+                    current = curcaseslist[current_index]
+                    if  current.has_sem_next():
+                        # print "15", current.get_vocalized().encode('utf8')
+                        #chosen = current
+                        chosen_index = current_index
+                        rule = 6
+                        break
+        #~print "#9\t", len(curcaseslist), x, '#'
+        if  self.get_enabled_syntaxic_analysis():
+            # choose a case with two syntaxic  relation previous and next
+            if not chosen_index :
+                for current_index in cur_indexes_list:
+                    current = curcaseslist[current_index]
+                    #~if previous:
+                        #~print previous.get_vocalized(),  current.get_vocalized()
+                    #~print "7", self.anasynt.is_related(previous, current)
+                    if self.anasynt.is_related(previous, current) and \
+                    current.has_next() and not current.is_passive():
+                        #chosen = current
+                        chosen_index = current_index
+                        rule = 7
+                        break
+                else:
+                    for current_index in cur_indexes_list:
+                        current = curcaseslist[current_index]
+                        if self.anasynt.is_related(previous, current) and\
+                         current.has_next():
+                            #chosen = current
+                            chosen_index = current_index
+                            rule = 8 
+                            break
+                    else:
+                    # choose a case with one syntaxic  relation previous 
+                    #select active voice
+                        for current_index in cur_indexes_list:
+                            current = curcaseslist[current_index]
+                            if self.anasynt.is_related(previous, current) \
+                            and not current.is_passive():
+                                #chosen = current
+                                chosen_index = current_index
+                                rule = 9                        
+                                break                               
+                        else:
+            #select passive voice
+                            for current_index in cur_indexes_list:
+                                current = curcaseslist[current_index]
+                                if self.anasynt.is_related(previous, current) :
+                                    #chosen = current
+                                    chosen_index = current_index
+                                    rule = 10                        
+                                    break                         
+            # choose a case with one syntaxic  relation next 
+            if not chosen_index:
+                for current_index in cur_indexes_list:
+                    current = curcaseslist[current_index]
+                    if current.has_next():
+                        #chosen = current
+                        chosen_index = current_index
+                        rule = 11
+                        break 
+                else:
+                #---------------------------
+                #no relation no nexts
+                #----------------------------
+                # choose a case of stop word
+                    #~print "10""", len(curcaseslist), x, '#'                                
+
+                    for current_index in cur_indexes_list:
+                        current = curcaseslist[current_index]
+                        if current.is_stopword():
+                            # print "25"
+                            # # if previous: previous.vocalized += "*"
+                            #chosen = current
+                            chosen_index = current_index
+                            rule = 12 
+                            break 
+                    else:
+                        #ToDo: حالة العطف
+                        
+                # choose a case with mansoub Noun
+                        for current_index in cur_indexes_list:
+                            current = curcaseslist[current_index]
+                            if current.is_noun() and current.is_mansoub():
+                                #chosen = current
+                                chosen_index = current_index
+                                rule = 13
+                                break 
+                        else:
+                        # choose a case marfou3 verb
+                            for current_index in cur_indexes_list:
+                                current = curcaseslist[current_index]
+                                if current.is_verb() and not current.is_passive()\
+                                 and current.is_marfou3():
+                                    #chosen = current
+                                    chosen_index = current_index
+                                    rule = 14
+                                    break 
+                            else:
+                            # choose a case verb
+                                for current_index in cur_indexes_list:
+                                    current = curcaseslist[current_index]
+                                    if current.is_verb() and not \
+                                    current.is_passive()and (current.is_marfou3()\
+                                     or current.is_past()):
+                                        #chosen = current
+                                        chosen_index = current_index
+                                        rule = 15
+                                        break 
+                                else:
+                                # choose a case marfou3 verb if there 
+                                # are no active voice
+                                    for current_index in cur_indexes_list:
+                                        current = curcaseslist[current_index]
+                                        if current.is_verb():
+                                            #chosen = current
+                                            chosen_index = current_index
+                                            rule = 16
+                                            break
+        if chosen_index:
+           chosen = curcaseslist[chosen_index] 
+        elif not chosen_index and len(curcaseslist)>0:
+            chosen = curcaseslist[0]
+            chosen_index = 0
+        else:
+            chosen_index = 0
+        
+        # set the selection rule to dispaly how tahskeel is selected
+        chosen.set_rule(rule)
+        #~print x, len(curcaseslist)
+        return chosen.get_order() 
+
+
+
+
+    # new version of choose tashkeel 
+    # first we use indexes instead of stemmedsynword object
+    def __choose_tashkeel_algo2(self, curcaseslist, previous_chosen_case = None,
+     pre_node = None, next_node = None):
+        """
+        Choose a tashkeel for the current word, according to the previous one.
+        A new algorithm
+        @param : list of steming result of the word.
+        @type curcaseslist: list of stemmedSynword
+        @param : the choosen previous word stemming.
+        @type previous_chosen_case:stemmedSynword
+        @return: the choosen stemming of the current word.
+        @rtype:stemmedSynword.
+        """
+        
+        chosen = None
+        chosen_index = False
+        rule = 0
+        previous = previous_chosen_case
+        
+        # How to choose a vocalized case
+        # and lets other methode to choices by semantic and syntaxic
+        # choose a case is a stop, word and has next relation
+        # browse the list by indexes
+        cur_indexes_list = range(len(curcaseslist))
+        # get all the indexes in the current cases list
+        tmp_index_list = [] 
+        # select all cases with semantic relations
+        if  self.get_enabled_semantic_analysis():
+            tmp_index_list = [x for x in cur_indexes_list if self.anasem.is_related(previous, curcaseslist[x]) or curcaseslist[x].has_sem_next()]
+            
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            # else 
+            if tmp_index_list:
+                cur_indexes_list = tmp_index_list
+            # if there are many semantic relations or non one, we use frequency to choose the
+            # most frequent word to be selected
+        if len(cur_indexes_list) == 1 : rule = 2
+
+
+        # get all the indexes in the current cases list
+        tmp_index_list = [] 
+        # select all cases with syntaxic relations
+        if  self.get_enabled_syntaxic_analysis():
+            #~tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]) or curcaseslist[x].has_next())]
+            tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]))]
+           
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmp_index_list:
+                cur_indexes_list = tmp_index_list
+        if len(cur_indexes_list) == 1 : rule = 4
+
+        # Default cases selection 
+        # get all the indexes in the current cases list
+        tmp_index_list = [] 
+        # select all cases with syntaxic relations
+        if  self.get_enabled_syntaxic_analysis():
+            tmp_index_list = [x for x in cur_indexes_list if curcaseslist[x].has_next()]
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmp_index_list:
+                cur_indexes_list = tmp_index_list
+        if len(cur_indexes_list) == 1 : rule = 6
+                
+        #select default
+
+ 
+            
+        # select stopword
+        tmp_index_list = [x for x in cur_indexes_list if  curcaseslist[x].is_stopword() ]
+        # if indexes list is empty, the current indexes list is reloaded, and no change
+        if tmp_index_list:
+            cur_indexes_list = tmp_index_list  
+        if len(cur_indexes_list) == 1 : rule = 8
+
+        # select cases with the max frequency
+        # first get max freq
+        maxfreq = 0
+        maxfreq = max([curcaseslist[x].get_freq() for x in cur_indexes_list])
+        tmp_index_list = [x for x in cur_indexes_list if curcaseslist[x].get_freq() == maxfreq]
+        if tmp_index_list:
+            cur_indexes_list = tmp_index_list 
+        if len(cur_indexes_list) == 1 : rule = 10
+        # select mansoub noun
+        tmp_index_list = [x for x in cur_indexes_list if ( curcaseslist[x].is_noun() and  curcaseslist[x].is_mansoub())]
+        # if indexes list is empty, the current indexes list is reloaded, and no change
+        if tmp_index_list:
+            cur_indexes_list = tmp_index_list  
+        if len(cur_indexes_list) == 1 : rule = 12
+        # select active voice
+        tmp_index_list = [x for x in cur_indexes_list if ( curcaseslist[x].is_verb() and not curcaseslist[x].is_passive())]
+        # if indexes list is empty, the current indexes list is reloaded, and no change
+        if tmp_index_list:
+            cur_indexes_list = tmp_index_list                
+        if len(cur_indexes_list) == 1 : rule = 14
+                    
+        # select present marfou3 or past
+        tmp_index_list = [x for x in cur_indexes_list if ( curcaseslist[x].is_verb() and (curcaseslist[x].is_marfou3() or curcaseslist[x].is_past()))]
+        # if indexes list is empty, the current indexes list is reloaded, and no change
+        if tmp_index_list:
+            cur_indexes_list = tmp_index_list               
+                
+        if len(cur_indexes_list) == 1 : rule = 16              
+        # select the first case if there one or many
+        chosen_index =  cur_indexes_list[0]
+        chosen = curcaseslist[chosen_index] 
+        
+        #~print cur_indexes_list
+        #~print chosen_index, chosen.get_order() , cur_indexes_list, chosen.get_vocalized().encode('utf8')
+        # set the selection rule to dispaly how tahskeel is selected
+        chosen.set_rule(rule)
+        return chosen.get_order() 
+            
+ 
 def mainly():
     """
     main test

@@ -1,3 +1,9 @@
+2014-12-25 * Taha Zerrouki:
+    - mishkal/tashkeel/tashkeel.py : test a new algorithm to select taskeel cases
+    - web interface: fix errors on result div display
+    - web interface: add tashkeel selection rule display
+    - mishkal-console.py: fix error on sys.path
+    1
 2014-12-14:
     - pyarabic.araby: vocalized_similaraity : fix errors on shadda
     - Qalsadi: stem_noun and stem_unknwon: correct words ended by hamza when they join with Tanween mansoub

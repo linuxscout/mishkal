@@ -631,8 +631,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @return:  Jar.
         @rtype: True/False
         """    
-        return bool(self.tag_nominal_factor / 8 % 2)
-
+        return bool(self.tag_nominal_factor / 8 % 2) and not self.has_encletic()
     def is_condition_factor(self, ):
         """
         Return True if the word is a  condition factor.

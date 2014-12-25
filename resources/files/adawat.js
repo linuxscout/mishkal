@@ -468,14 +468,14 @@ return  x= input.replace("لَا", "لاَ");
    $('#tashkeel2').click( function() {
 
       $.getJSON(script+"/ajaxGet", {text:ocument.NewForm.InputText.value,action:"Tashkeel"}, function(d){
-      $("#result").html("<p class=\'tashkeel\'>"+d.result+"</p>");
+      $("#result").html("<div class=\'tashkeel\'>"+d.result+"</div>");
 	  $("#contributeSection").show();
 	  $("#help").hide();
       });
    });
     $('#reducetashkeel').click( function() {
       $.getJSON(script+"/ajaxGet", {text:document.NewForm.InputText.value,action:"ReduceTashkeel"}, function(d){
-      $("#result").html("<p class=\'tashkeel\'>"+d.result+"</p>");
+      $("#result").html("<div class=\'tashkeel\'>"+d.result+"</div>");
 	  $("#contributeSection").show();
 	  	  $("#help").hide();
       });
@@ -483,14 +483,14 @@ return  x= input.replace("لَا", "لاَ");
     $('#comparetashkeel').click( function() {
       $.getJSON(script+"/ajaxGet", {text:document.NewForm.InputText.value,action:"CompareTashkeel"}, function(d){
       var table=d.result;
-	  $("#result").html("<p class=\'tashkeel\'>"+table+"</p>");
+	  $("#result").html("<div class=\'tashkeel\'>"+table+"</div>");
       });
    });
 	
     $('#showCollocations').click( function() {
       $.getJSON(script+"/ajaxGet", {text:document.NewForm.InputText.value,action:"showCollocations"}, function(d){
       var table=d.result;
-	  $("#result").html("<p class=\'tashkeel\'>"+table+"</p>");
+	  $("#result").html("<div class=\'tashkeel\'>"+table+"</div>");
       });
    });	
    $('#tashkeel').click( function() {
@@ -554,35 +554,26 @@ return  x= input.replace("لَا", "لاَ");
 		{
 		var pattern=/[-[\]{}()*+?.,،:\\^$|#\s]/;
 		if (!pattern.test(item.chosen)) text+=" ";
-		// item.chosen=item.chosen.replace(SEPARATOR,' '); 
-		// if (item.chosen==SEPARATOR) text+=" ";
-		// else  
-		//~text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"'>"+item.chosen+"</span>";
-		//text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"' suggest='"+item.suggest.replace(/;/g,'، ') + "' link='"+item.link+"'>"+item.chosen+"</span>";
-
-		//text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"' suggest='"+item.suggest.replace(/;/g,'، ') + "' link='"+item.link+"'><span class='vocalized-color'>"+ajust_ligature(item.chosen)+"</span><span class='vocalized-letters'>"+strip_tashkeel(item.chosen)+"</span></span>";
         text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"' suggest='"+item.suggest.replace(/;/g,'، ') + "' rule='"+item.rule +"' link='"+item.link+"'>"+ item.chosen+"</span>";
-		//text+=" <span>"+item.chosen+"</span>";
 		$('#result').data(currentId.toString(), item.suggest);
         
 		}
 		}
 		// display the result
 		$("#loading").data(d.order, text);
-      $("#result").html($("#result").html()+"<p class=\'tashkeel\'>"+text+"</p>");
+      $("#result").html($("#result").html()+"<div class=\'tashkeel\'>"+text+"</div>");
 
 		// dela dot, to count the phrase executed
 			$("#loading").html($("#loading").html().replace('.',''));
 			if ($("#loading").html().indexOf('.')<0)
 			{// if no dot, the work is terminated
 			// redraw the text result with order
-			//$('#result').html('');
 			var ordredtext="";
 			for (var j=0; j<$("#loading").data('length'); j++)
 			{
-			ordredtext+="<br/>"+$("#loading").data(j.toString());
+			ordredtext+=$("#loading").data(j.toString());
 			}
-			$('#result').html("<p class=\'tashkeel\'>"+ordredtext+"</p>");
+			$('#result').html("<div class=\'tashkeel\'>"+ordredtext+"</div>");
 			$("#loading").hide();
 			}
       
@@ -596,19 +587,15 @@ return  x= input.replace("لَا", "لاَ");
   $('.vocalized').live("click", function() {
 
   $(".txkl").change();
-     //$("#vocalized").slideDown("slow");
 	 var myword=$(this);
-      //$.getJSON(script+"/ajaxGet", {text:myword.html(),action:"AssistantTashkeel"}, function(d){
 	var id=myword.attr('id');
 	var list=$("#result").data(id).split(';');
 	var text="<select class='txkl' id='"+id+"'>";
-		//text+="<option selected>"+myword.text()+"</option>";
 	var	cpt=0;
 	 for ( i in list)
 		{
 		if (list[i]!="")
 			{
-			//if (myword.children('.vocalized-color').text()!=list[i])
 			if (myword.text()!=list[i])
 			text+="<option>"+list[i]+"</option>";
 			else text+="<option selected="+list[i]+">"+list[i]+"</option>";
@@ -621,13 +608,10 @@ return  x= input.replace("لَا", "لاَ");
 	// disable others suggestion lists	
 	 //$(".txkl").change();
 	 if (cpt>1)  {
-				//myword.children('.vocalized-color').replaceWith(text);
 				myword.replaceWith(text);
 				}
 	else { 
-		//text="<input type='text' class='txkl'  size='10' id='"+myword.attr('id')+"' value='"+myword.children('.vocalized-color').text()+"'/>";
 		text="<input type='text' class='txkl'  size='10' id='"+myword.attr('id')+"' value='"+myword.text()+"'/>";
-	//	myword.children('.vocalized-color').replaceWith(text);
 		myword.replaceWith(text);
 
 		}	
@@ -648,8 +632,7 @@ return  x= input.replace("لَا", "لاَ");
 	 else // case of editing other choice
 	 {
 		var list=$("#result").data($(this).attr('id')).split(';');
-		
-	 		text="<input type='text' class='txkl'  size='10' id='"+$(this).attr('id')+"' value='"+list[0]+"'/>";
+ 		text="<input type='text' class='txkl'  size='10' id='"+$(this).attr('id')+"' value='"+list[0]+"'/>";
 		$(this).replaceWith(text);	
 	 }
 	 });
@@ -790,9 +773,7 @@ return  x= input.replace("لَا", "لاَ");
 		text+="</select>";
 
 	// disable others suggestion lists	
-	 //$(".txkl").change();
 	 if (cpt>1)  {
-				//myword.children('.vocalized-color').replaceWith(text);
 				myword.replaceWith(text);
 				}
 	else { 
@@ -807,7 +788,7 @@ return  x= input.replace("لَا", "لاَ");
 
 // change diff 
 $('#diff').live("hover", function() {
-  $('#hint').html($(this).text() +" : " + $(this).attr('original') + "</br>" + $(this).attr('inflect') + "</br>rule:" + $(this).attr('rule')+"</br>" + $(this).attr('link'));
+  $('#hint').html($(this).text() +" : " + $(this).attr('original') + "<br/>" + $(this).attr('inflect') + "<br/>ق[" + $(this).attr('rule')+"] " + $(this).attr('link'));
  });
  
 // change diff 
@@ -817,9 +798,10 @@ $('#diff').live("mouseleave", function() {
  
 
 // display infos on vocalized  
-$('.vocalized').live("hover", function() {
-  //$('#hint').html($(this).children(".vocalized-color").text() +" : " + $(this).attr('inflect') +"</br>"+ $(this).attr('suggest') +"</br>" + $(this).attr('link'));
-$('#hint').html($(this).text() +" : " + $(this).attr('inflect') +"</br>"+ $(this).attr('suggest') +"</br>rule:" + $(this).attr('rule')+"</br>"  + $(this).attr('link'));
+$('.vocalized').live("hover", function(e) {
+$('#hint').html($(this).text() +" : " + $(this).attr('inflect') +"<br/>"+ $(this).attr('suggest') +"<br/>ق[" + $(this).attr('rule')+"] "  + $(this).attr('link'));
+ $('#hint').show();
+ //~$('#hint').css('top', e.pageY + 10).css('left', e.pageX - 400);
  });
  
 // change diff 

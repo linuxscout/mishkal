@@ -211,7 +211,14 @@ text-decoration: none;
 }
 
 #mainbox {padding:2px;}
-#resultsbox {padding:2px}
+#resultsbox {
+    padding:2px;
+    position: absolute; bottom: 0; left: 0;
+}
+#result {
+    display: table-cell;
+    vertical-align: bottom;
+}
 table,th,td {border:none;border-collapse:collapse;}
 table {
 	margin-left:auto; margin-right:auto;
@@ -239,6 +246,7 @@ tbody:nth-child(even) td{ background-color:rgb(253,255,221); color:#000000}
 .result
 {
 background-color:#006600;
+position: absolute; bottom: 0; left: 0;
 }
 
 .noun
@@ -399,7 +407,12 @@ display:none;
    font-family: "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
     text-align:right;
     font-size:30px;
-    background-color:#ccF8C6;    
+    background-color:#ccF8C6;     
+/*
+ display: none;
+  position: absolute;
+*/
+    border: 1px solid #1a1a1a;
     }
     
 .tab{

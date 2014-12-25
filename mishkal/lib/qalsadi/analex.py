@@ -97,7 +97,8 @@ class Analex :
         #in mutliple call of analex
         # cache used to avoid duplicata
         #~self.allow_cache_use = True
-        self.allow_cache_use = False
+        self.allow_cache_use = True
+        #~self.allow_cache_use = False
         if self.allow_cache_use:
             self.cache = cache.cache()
 
