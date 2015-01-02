@@ -59,7 +59,10 @@ class WordCase:
             self.type = result_dict.get('type', u'')
             self.original = result_dict.get('original', u'')
             self.tense = result_dict.get('tense', u'')
-            self.pronoun = result_dict.get('pronoun', u'')            
+            self.pronoun = result_dict.get('pronoun', u'') 
+            self.action    = result_dict.get('action', u'')
+            self.object_type    = result_dict.get('object_type', u'')
+            self.need    = result_dict.get('need', u'')                      
 
     ######################################################################
     #{ Attribut Functions

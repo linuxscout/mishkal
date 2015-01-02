@@ -96,11 +96,9 @@ class Analex :
         #added as a global variable to avoid duplucated search 
         #in mutliple call of analex
         # cache used to avoid duplicata
-        #~self.allow_cache_use = True
         self.allow_cache_use = True
         #~self.allow_cache_use = False
-        if self.allow_cache_use:
-            self.cache = cache.cache()
+        self.cache = cache.cache()
 
 
     def __del__(self):
@@ -137,16 +135,13 @@ class Analex :
         if text == u'':
             return []
         else:
+            #split tokens
             mylist = self.token_pat.split(text)
-            #~mylist = [re.sub(r"\s", '', x) for x in mylist if x]
             p = re.compile('\t|\r|\f|\v| ')
+            # don't remove newline \n
             mylist = [p.sub('',x) for x in mylist if x]            
-            # for i in range(len(mylist)):
-                # mylist[i] = re.sub("\s", '', mylist[i])
-            # while u'' in mylist: mylist.remove(u'')
             # remove empty substring
             mylist = [x for x in mylist if x]
-            #print u"'".join(mylist).encode('utf8')
             return mylist
 
 

@@ -146,7 +146,7 @@ return  x= input.replace("لَا", "لاَ");
         var $table = $('<table/>');
         var table = $table.attr( "border", "1" )[0];
         var headers = ["<tr>",
-				"<th>المدخل</th>", "<th>تشكيل</th>",   "<th> دون إعراب تشكيل</th>","<th>الأصل</th>","<th>الزوائد</th>", "<th>الجذع</th>",
+				"<th>المدخل</th>", "<th>تشكيل</th>", "<th>الأصل</th>","<th>الزوائد</th>", "<th>الجذع</th>",
  "<th>الحالة الإعرابية</th>", "<th>النوع</th><th>النحوي</th>",
 				"<th>شيوع</th>",
 				"</tr>"
@@ -185,9 +185,9 @@ return  x= input.replace("لَا", "لاَ");
 		td = document.createElement('td');
 		td.appendChild(document.createTextNode( item['vocalized']) );
 		tr.appendChild(td);
-		td = document.createElement('td');
-		td.appendChild(document.createTextNode( item['semivocalized']) );
-		tr.appendChild(td);		
+		//~td = document.createElement('td');
+		//~td.appendChild(document.createTextNode( item['semivocalized']) );
+		//~tr.appendChild(td);		
 		td = document.createElement('td');
 		td.appendChild(document.createTextNode( item['original']) );
 		tr.appendChild(td);	
@@ -319,9 +319,6 @@ return  x= input.replace("لَا", "لاَ");
 			
 		item=d.result[i];
 		var span = document.createElement('span');
-		//span.appendChild(document.createTextNode(  item.word) );
-		//div.appendChild(span);	
-		//span = document.createElement('span');
 		span.setAttribute('class',item.tag);
 		span.appendChild(document.createTextNode(" "+item.word) );
 		div.appendChild(span);
@@ -337,7 +334,6 @@ return  x= input.replace("لَا", "لاَ");
 		td.appendChild(document.createTextNode(item.tag) );
 		tr.appendChild(td);
 		table.appendChild(tr);
-//		$("#result").append(+"  "++"<br/>" );
 		}
 		$("#result").append($div );
 		$("#result").append($table );

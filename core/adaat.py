@@ -585,9 +585,9 @@ def compare_tashkeel(text):
     import tashkeel.tashkeel as ArabicVocalizer
     # the entred text is vocalized correctly
     correct_text = text.strip()
-    text = araby.strip_tashkeel(text)
+    text = araby.strip_tashkeel(text.strip())
     vocalizer = ArabicVocalizer.TashkeelClass()
-    vocalized_text = vocalizer.tashkeel(text)
+    #~vocalized_text = vocalizer.tashkeel(text)
     vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(text)
        
     
@@ -600,18 +600,23 @@ def compare_tashkeel(text):
     #~text2 = text2.replace("~", "")
     
     #stemmer=tashaphyne.stemming.ArabicLightStemmer()
-    list1 = vocalizer.analyzer.tokenize(text1)
-    list2 = vocalizer.analyzer.tokenize(vocalized_text)
-    print u"\t".join(list2).encode('utf8')
+    texts = vocalizer.analyzer.split_into_phrases(text1)
+    list1 =[]
+    for txt in texts:
+        list1 += vocalizer.analyzer.tokenize(txt)
+    #~list1 = vocalizer.analyzer.tokenize(text1)
+    #~list2 = vocalizer.analyzer.tokenize(vocalized_text)
+    #~print u"\t".join(list2).encode('utf8')
     list2 = vocalized_dict
     print u"\t".join(list1).encode('utf8')
-    #~print u":".join(list2).encode('utf8')
-    #~print u":".join(list2).encode('utf8')
     correct = 0
     incorrect = 0
     total = len(list1)
-    if len(list1) > len(list2):
+    if len(list1)!= len(list2):
         print "lists haven't the same length", len(list1), len(list2)
+        for i in range(min(len(list1), len(list2))):
+            print (u"'%s'\t'%s'"%(list1[i], list2[i].get('chosen',''))).encode("utf8")
+        sys.exit()
     else:
         for i in range(total):
             wo1 = list1[i]
@@ -619,6 +624,8 @@ def compare_tashkeel(text):
             inflect = list2[i]['inflect']
             link = list2[i]['link']
             if araby.vocalizedlike(wo1, wo2):
+                if wo2 == "\n":
+                    wo2 = "<br/>"
                 displayed_html += u" " + wo2
                 correct += 1
             else:
@@ -638,9 +645,9 @@ def compare_tashkeel(text):
                     else:
                         style = 'diff-all'
                 displayed_html += u" <span id='diff'  class='%s' original='%s' inflect='%s' link='%s'>%s</span>" % ( style, wo1, inflect, link, wo2)
-    
-    result = [displayed_html, "correct:%0.2f%%" % round(correct*100.00/total, 
-     2), "incorrect:%0.2f%%"%round(incorrect*100.00/total, 2), total]
+    per_correct = round(correct*100.00/total, 2)
+    per_incorrect = round(incorrect*100.00/total, 2)
+    result = [displayed_html, "correct:%0.2f%%, incorrect:%0.2f%%"%(per_correct, per_incorrect)]
     return result#correct*100/total
 
 def assistanttashkeel(text):

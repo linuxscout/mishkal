@@ -50,18 +50,18 @@ class StopWordStemmer:
         for sw_tuple in sw_idlist:
             # sw_tuple  =  self.sw_dictionary.getEntryById(id)
             detailed_result.append(wordcase.WordCase({
-            'word':        word,
+            'word':   word,
             'affix': (sw_tuple['procletic'],
                                 '',
                                 '',
-                                sw_tuple['encletic']),            
-            'stem':            sw_tuple['stem'],
-            'original':        sw_tuple['original'],
-            'vocalized':    sw_tuple['vocalized'],
-            'tags':            sw_tuple['tags'],
-            'type':            sw_tuple['type'],
+                         sw_tuple['encletic']),            
+            'stem':      sw_tuple['stem'],
+            'original':  sw_tuple['original'],
+            'vocalized': sw_tuple['vocalized'],
+            'tags':      sw_tuple['tags'],
+            'type':      sw_tuple['type'],
             'freq':'freqstopword',
-            'originaltags': "", #sw_tuple['tags'],
+            'originaltags': sw_tuple['tags'],
             'syntax':'',
             }))
         return detailed_result

@@ -59,6 +59,14 @@ class  StemmedWord:
             self.freq     = resultdict.get('freq', u'')
             self.type    = resultdict.get('type', u'')
             self.original    = resultdict.get('original', u'')
+            # tags of stop word 
+            # action: the word role 
+            # object_type: the next word type if is submitted to the action
+            # the type of next word needed by the actual stop word
+            self.action    = resultdict.get('action', u'')
+            #~print "action:", self.action.encode("utf8")
+            self.object_type    = resultdict.get('object_type', u'')
+            self.need    = resultdict.get('need', u'')
 
             self.tag_type     =  self.__get_type(resultdict.get('type', u''))
             #~if self.is_verb():
@@ -90,36 +98,20 @@ class  StemmedWord:
         # init
         self.tag_added          = False
         self.tag_initial      = False
-        #~self.tag_masdar         = False
-        #~self.tag_proper_noun     = False
-        #~self.tag_adj              = False
-        #~self.tag_pounct         = False
         self.tag_transparent     = False
-        #~self.tag_masculin     = False
-        #~self.tag_feminin         = False
-        #~self.tag_plural         = False
-        #~self.tag_broken_plural = False
         self.tag_mamnou3         = False
-        #~self.tag_single         = False
         self.tag_break         = False
         self.tag_transitive     = False
         
         if self.is_noun():
             self.tag_added         = self._is_added()
-            #~self.tag_adj            = self.tag_noun and self._is_adj()
-            #~self.tag_masdar        = self.tag_noun and self._is_masdar()
-            #~self.tag_proper_noun    = self.tag_noun and self._is_proper_noun()
-            #~self.tag_broken_plural =  self._is_broken_plural()            
             self.tag_mamnou3        = self._is_mamnou3()        
         if self.is_stopword():
             self.tag_transparent    = self._is_transparent()
         if self.is_verb():
             self.tag_transtive     = 'y' in self.get_tags() 
-        #~self.tag_pounct        = self._is_pounct()
         self.tag_initial     = self._is_initial()
 
-        #~self.tag_feminin        = self._is_feminin()
-        #~self.tag_plural        = self.tag_broken_plural or self._is_plural()
         #redandente
         self.tag_break        = self._is_break()
         
@@ -194,13 +186,15 @@ class  StemmedWord:
             self.tag_type += 1
         if u'Verb' in input_type :
             self.tag_type += 2
-        if u'Noun' in input_type or u'اسم' in input_type:
+        if u'Noun' in input_type or u'اسم' in input_type or u'مصدر' in input_type:
             self.tag_type += 4
         if u'مصدر' in input_type:
             self.tag_type += 8
-        if u'صفة' in input_type or u'اسم مفعول' in input_type or \
-        u'اسم فاعل' in input_type or u'صيغة مبالغة' in input_type \
-        or u'منسوب' in input_type :
+        # adjective
+        if (u'صفة' in input_type or u'اسم مفعول' in input_type or 
+        u'اسم فاعل' in input_type or u'صيغة مبالغة' in input_type 
+        or  u'فاعل' in input_type  or u'منسوب' in self.get_tags() 
+        or "adj" in input_type):
             self.tag_type += 16
         if u'noun_prop' in input_type:
             self.tag_type += 32                
@@ -238,7 +232,11 @@ class  StemmedWord:
             self.tag_sex += 2
         elif araby.TEH_MARBUTA in self.get_original():
             self.tag_sex += 2
-
+        # جمع التكسير للمصادر والجوامد مؤنث
+        elif u'جمع تكسير' in self.get_tags() and (u"جامد" in self.get_type()
+         or u"مصدر" in self.get_type()):
+            self.tag_sex += 2
+         
         return self.tag_sex
 
 
@@ -482,7 +480,30 @@ class  StemmedWord:
         # return u""
         # return self.affix_tags
 
+    def get_action(self, ):
+        """
+        Get the action form of the input word
+        @return: the given action.
+        @rtype: unicode string
+        """
+        return self.action
 
+    def get_object_type(self, ):
+        """
+        Get the object_type form of the input word
+        @return: the given object_type.
+        @rtype: unicode string
+        """
+        return self.object_type
+
+    def get_need(self, ):
+        """
+        Get the need form of the input word
+        @return: the given need.
+        @rtype: unicode string
+        """
+        return self.need
+                
     def get_freq(self, ):
         """
         Get the freq form of the input word

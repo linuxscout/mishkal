@@ -484,6 +484,8 @@ def vocalize( noun, proclitic,  suffix, enclitic):
     noun = noun.replace(araby.ALEF, araby.FATHA + araby.ALEF)
     noun = noun.replace(araby.ALEF_MAKSURA, araby.FATHA + araby.ALEF_MAKSURA)
     noun = re.sub(ur"(%s)+"%araby.FATHA , araby.FATHA, noun)
+    # remove initial fatha if alef is the first letter
+    noun = re.sub(ur"^(%s)+"%araby.FATHA , "", noun)
     
     word_vocalized = ''.join([ proclitic_voc, noun, suffix_voc, 
        enclitic_voc])

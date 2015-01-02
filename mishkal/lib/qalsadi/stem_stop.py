@@ -170,7 +170,7 @@ class StopWordStemmer:
                             # use action and object_type
                             original_tags = u":".join ( [stop_tuple['word_type'], stop_tuple['word_class'],
                                          stop_tuple['action'],] )
-
+                            #~print "STOP_TUPEL[action]:", stop_tuple['action'].encode("utf8")
                             # generate word case 
                             detailed_result.append(wordcase.WordCase({
                             'word':stop, 
@@ -184,8 +184,9 @@ class StopWordStemmer:
                             'type':      u':'.join( ['STOPWORD', stop_tuple['word_type']]),  
                             'freq':'freqstop', # to note the frequency type 
                             'originaltags': original_tags,
-                            "action": u";".join ( [ stop_tuple['action'], 
-                                stop_tuple['object_type'], stop_tuple['need']] ), 
+                            "action":  stop_tuple['action'],
+                            "object_type": stop_tuple['object_type'],
+                            "need":  stop_tuple['need'], 
                             'syntax':'', 
                             }))
         return detailed_result

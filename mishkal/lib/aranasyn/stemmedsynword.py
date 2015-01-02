@@ -402,40 +402,16 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         # Rafe3    رافع
         # Naseb    ناصب
         # Jazem     جازم
-        if self.get_unvocalized() in syn_const.VERBAL_FACTOR_LIST :
+        if u"فعل" in self.get_object_type() and not self.has_encletic():
             self.tag_verbal_factor = 1
-        # with encletics
-        elif self.has_encletic() and \
-        self.get_unvoriginal() in syn_const.VERBAL_FACTOR_LIST :
-            self.tag_verbal_factor = 1
-        # with encletic and Harakat            
-        elif self.has_encletic() and \
-        self.get_original() in syn_const.VERBAL_FACTOR_LIST:
-            self.tag_verbal_factor = 1
-            
-        #~if self.tag_verbal_factor:
-        #~if self._is_verb_rafe3():
-        if self.get_vocalized() in syn_const.VERB_RAFE3_LIST or \
-        (not self.has_encletic() and \
-        self.get_original() in syn_const.VERB_RAFE3_LIST ): 
-            self.tag_verbal_factor += 2 
-            
-        #~if self._is_verb_naseb() :
-        if self.get_vocalized() in syn_const.VERB_NASEB_LIST \
-         or (not self.has_encletic() and \
-        self.get_original() in syn_const.VERB_NASEB_LIST ):                
-            self.tag_verbal_factor += 4 
-
-        #~if self._is_verb_jazem() :
-        if self.get_vocalized() in syn_const.JAZEM_LIST  \
-         or (not self.has_encletic() and \
-         self.get_original() in syn_const.JAZEM_LIST  ):
-                self.tag_verbal_factor += 16
+            # Naseb
+            if u"رافع" in self.get_action():
+                self.tag_verbal_factor += 2
+            if u"ناصب" in self.get_action():
+                self.tag_verbal_factor += 4
+            if u"جازم" in self.get_action():
+                self.tag_verbal_factor += 16        
                 
-            #~# if factor is different from 1 then is active
-            #~if self.tag_verbal_factor > 1 :
-                #~self.tag_verbal_factor += 32
-                 
         return self.tag_verbal_factor
 
 
@@ -463,52 +439,21 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         # active عامل
         # Rafe3    رافع
         # Naseb    ناصب
-        # Jazem     جازم                       NOMINAL_FACTOR_LIST
-        if self.get_unvocalized() in syn_const.NOMINAL_FACTOR_LIST:
-            self.tag_nominal_factor = 1
-        # with encletics
-        elif self.has_encletic() and \
-        self.get_unvoriginal() in syn_const.NOMINAL_FACTOR_LIST:
-            self.tag_nominal_factor = 1
-        # with encletic and Harakat            
-        elif self.has_encletic() and \
-        self.get_original() in syn_const.NOMINAL_FACTOR_LIST:
-            self.tag_nominal_factor = 1
-            
-        #~if self.tag_nominal_factor:
-        #~if self._is_noun_rafe3():
-        if self.get_unvocalized() in syn_const.RAFE3_LIST or \
-        (not self.has_encletic() and \
-        self.get_unvoriginal() in syn_const.RAFE3_LIST ) or \
-         (not self.has_encletic()) and \
-          u"كان و أخواتها" in self.get_tags():           
-            self.tag_nominal_factor += 2 
-            
-        #~if self._is_noun_naseb() :
-        if self.get_vocalized() in syn_const.NOUN_NASEB_LIST :
-            self.tag_nominal_factor += 4 
-        elif (not self.has_encletic()) and \
-        u"إن و أخواتها" in self.get_tags():
-            self.tag_nominal_factor += 4 
-        elif (not self.has_encletic() and \
-        self.get_original() in syn_const.NOUN_NASEB_LIST ):
-            self.tag_nominal_factor += 4 
+        # Jazem     جازم   
 
-        #~if self._is_noun_jar() :
-        if self.get_unvocalized() in syn_const.JAR_LIST or \
-           self.get_original() in syn_const.JAR_LIST:
-            self.tag_nominal_factor += 8        
-        elif (not self.has_encletic()):
-            if  u"حرف جر" in self.get_tags() or \
-             u"ظرف مكان" in self.get_tags() or \
-              u"اسم إضافة" in self.get_tags():
-                self.tag_nominal_factor += 8        
-
-            # if factor is different from 1 then is active
-            #~if self.tag_nominal_factor > 1 :
-                #~#self.tag_nominal_factor += 1
-                #~self.tag_nominal_factor += 32
-                 
+        if u"اسم" in self.get_object_type():
+            self.tag_nominal_factor = 1
+            # Naseb
+            if u"رافع" in self.get_action():
+                self.tag_nominal_factor += 2
+            if u"ناصب" in self.get_action():
+                self.tag_nominal_factor += 4
+        if u"جار" in self.get_action():
+            self.tag_nominal_factor += 8
+        if u"ضمير" in self.get_tags():
+            #Rafe3
+            self.tag_nominal_factor = 1 + 2
+                         
         return self.tag_nominal_factor
 
         
@@ -568,7 +513,8 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @return: has the 3rd persontense.
         @rtype: True/False
         """
-        return self.get_unvoriginal() in syn_const.PRONOUN_LIST
+        return u"ضمير" in self.get_tags()
+        #~return self.get_unvoriginal() in syn_const.PRONOUN_LIST
 
     def canhave_tanwin(self, ):
         """

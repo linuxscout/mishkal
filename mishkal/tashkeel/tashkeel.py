@@ -69,8 +69,8 @@ class TashkeelClass:
 
         # lexical analyzer
         self.analyzer = qalsadi.analex.Analex()
-        #~self.analyzer.disable_allow_cache_use()
-        self.analyzer.enable_allow_cache_use()
+        self.analyzer.disable_allow_cache_use()
+        #~self.analyzer.enable_allow_cache_use()
 
         # syntaxic analyzer
         self.anasynt = aranasyn.anasyn.SyntaxAnalyzer()
@@ -1076,6 +1076,21 @@ class TashkeelClass:
         cur_indexes_list = range(len(curcaseslist))
         # get all the indexes in the current cases list
         tmp_index_list = [] 
+            #~if  (current.is_stopword() or
+             #~()current.is_marfou3() and not current.is_passive())
+            #~or current.is_past() ):
+
+        if not previous or previous.is_initial():
+            tmp_index_list = [x for x in cur_indexes_list if (curcaseslist[x].is_stopword() or
+                     (curcaseslist[x].is_marfou3() and not curcaseslist[x].is_passive())
+                     or curcaseslist[x].is_past() )
+                            ]
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            # else 
+            if tmp_index_list:
+                cur_indexes_list = tmp_index_list                            
+            
+        # and lets other methode to choices by semantic and syntaxic
         # select all cases with semantic relations
         if  self.get_enabled_semantic_analysis():
             tmp_index_list = [x for x in cur_indexes_list if self.anasem.is_related(previous, curcaseslist[x]) or curcaseslist[x].has_sem_next()]
@@ -1094,11 +1109,18 @@ class TashkeelClass:
         # select all cases with syntaxic relations
         if  self.get_enabled_syntaxic_analysis():
             #~tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]) or curcaseslist[x].has_next())]
-            tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]))]
+            tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]) and curcaseslist[x].has_next())]
            
             # if indexes list is empty, the current indexes list is reloaded, and no change
             if tmp_index_list:
                 cur_indexes_list = tmp_index_list
+        if  self.get_enabled_syntaxic_analysis():
+            #~tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]) or curcaseslist[x].has_next())]
+            tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]) )]
+           
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmp_index_list:
+                cur_indexes_list = tmp_index_list                
         if len(cur_indexes_list) == 1 : rule = 4
 
         # Default cases selection 
