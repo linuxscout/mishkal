@@ -182,7 +182,8 @@ class StemmedAffix:
         marfou3            : 2  00010
         mansoub            : 4  00100
         majrour            : 8  01000
-        majzoum            : 16 10000
+        majzoum            :16  10000
+        mabni              :32 100000 
         this codification allow to have two inflection for the same case, 
         like feminin plural which ahve the same mark for Nasb and jar
         هذا الترمزي يسمح بتركيب حالتين إعرابيتين معا،
@@ -224,6 +225,7 @@ class StemmedAffix:
         # a Verb, verb can't be majrour
         elif u'مجزوم'in self.get_tags():
             self.tag_inflect += 16
+        
         return self.tag_inflect
         
     def __get_number(self,):
@@ -358,7 +360,22 @@ class StemmedAffix:
         @rtype: True/False
         """    
         return (u':هي:' in self.get_tags() or u':هو:' in self.get_tags()) 
-        #~and not u'مفعول به' in self.get_tags()
+
+    def is3rdperson_masculin(self):
+        """
+        Return True if the word has the 3rd person.
+        @return: has the 3rd persontense.
+        @rtype: True/False
+        """    
+        return ( u':هو:' in self.get_tags()) 
+
+    def is3rdperson_fem(self):
+        """
+        Return True if the word has the 3rd person feminin.
+        @return: has the 3rd person feminin.
+        @rtype: True/False
+        """    
+        return (u':هي:' in self.get_tags()) 
 
     def __is_tanwin(self):
         """
@@ -412,30 +429,6 @@ class StemmedAffix:
         """        
         return  u'مضاف' in self.get_tags() or u'اسم إضافة' in self.get_tags()
 
-    #~def __is_masculin(self):
-        #~"""
-        #~Return True if the word is masculin.
-        #~@return: is masculin.
-        #~@rtype: True/False
-        #~"""
-        #~return bool(self.tag_sex % 2)
-#~
-    #~def __is_feminin(self):
-        #~"""
-        #~Return True if the word is Feminin.
-        #~@return: is Feminin.
-        #~@rtype: True/False
-        #~"""
-        #يتحدد المؤنث 
-        # بزيادة التاء المربوطة
-        # جمع مؤنث سالم
-        # ما كات اصله تاء مربوطة
-        # للعمل TODO
-        # دالة حاصة للكلمات المؤنثة
-        #~if u'مؤنث' in self.get_tags():
-            #~return True
-        #~return  u'جمع مؤنث سالم' in self.get_tags()
-        #~return bool(self.tag_sex /2 % 2)
 
     def __is_3tf(self):
         """
@@ -518,6 +511,13 @@ class StemmedAffix:
         @rtype: True/False
         """        
         return bool(self.tag_inflect / 2 % 2)
+    def is_mabni(self):
+        """
+        Return True if the word has the state mabni.
+        @return: has the state mabni.
+        @rtype: True/False
+        """        
+        return self.is_invariable()        
 
     def is_mansoub(self):
         """
@@ -525,7 +525,7 @@ class StemmedAffix:
         @return: has the state mansoub.
         @rtype: True/False
         """            
-        return bool(self.tag_inflect / 4 % 2)
+        return bool(self.tag_inflect / 4 % 2) or self.is_invariable()
 
     def is_majrour(self):
         """
@@ -533,7 +533,7 @@ class StemmedAffix:
         @return: has the state majrour.
         @rtype: True/False
         """                
-        return bool(self.tag_inflect / 8 % 2)
+        return bool(self.tag_inflect / 8 % 2) or self.is_invariable()
 
     def is_majzoum(self):
         """
@@ -541,7 +541,7 @@ class StemmedAffix:
         @return: has the state majrour.
         @rtype: True/False
         """        
-        return bool(self.tag_inflect / 16 % 2)
+        return bool(self.tag_inflect / 16 % 2) or self.is_invariable()
 
     def is_defined(self):
         """

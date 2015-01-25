@@ -114,7 +114,7 @@ TASHKEEL  = (FATHATAN,  DAMMATAN,  KASRATAN,
             FATHA, DAMMA, KASRA, 
             SUKUN, 
             SHADDA)
-HARAKAT  = (  FATHATAN,    DAMMATAN,    KASRATAN, 
+HARAKAT  = ( FATHATAN,    DAMMATAN,    KASRATAN, 
             FATHA,   DAMMA,   KASRA, 
             SUKUN
             )
@@ -255,6 +255,7 @@ ALEFAT_PATTERN  = re.compile(ur"["+u"".join(ALEFAT)+u"]",  re.UNICODE)
 LIGUATURES_PATTERN  = re.compile(ur"["+u"".join(LIGUATURES)+u"]",  re.UNICODE)
 #~ """ all liguatures pattern """
 TOKEN_PATTERN =  re.compile(ur"([\w%s]+)" % u"".join(TASHKEEL), re.UNICODE)
+TOKEN_REPLACE = re.compile('\t|\r|\f|\v| ')
 #~ """ pattern to tokenize a text"""
 ################################################
 #{ is letter functions
@@ -450,7 +451,7 @@ def is_vocalized(word):
     if word.isalpha():
         return False
     for char in word:
-        if is_haraka(char): 
+        if is_tashkeel(char): 
             return True
     else:
         return False
@@ -934,30 +935,6 @@ def vocalized_similarity(word1, word2):
         return -err_count
     else: return True
 
-#~ def evident_tashkeel(word):
-    #~ """
-    #~ Vocalize evident cases of word,  some sequences of 
-    #~ letters have evident vocalization; 
-    #~ like any letter before Teh marbuta is maftouh
-    #~ @param word: word to be vocalized by evident cases. 
-    #~ @type word: 
-    #~ """
-    #~ return word
-
-#~def tokenize(text = u""):
-    #~"""Tokenize Arabic text into words
-    #~@param text the input text.
-    #~@type text: unicode.
-    #~@return: list of words.
-    #~@rtype: list.
-    #~"""
-    #~if text == u'':
-        #~return []
-    #~else:
-        #~mylist =  TOKEN_PATTERN.split(text)
-        #~if u'' in mylist:
-            #~mylist.remove(u'')
-        #~return mylist
 def tokenize(text = u""):
     """
     Tokenize text into words
@@ -969,15 +946,13 @@ def tokenize(text = u""):
     if text == u'':
         return []
     else:
+        #split tokens
         mylist = TOKEN_PATTERN.split(text)
-        mylist = [re.sub(r"\s", '', x) for x in mylist if x]
-        # for i in range(len(mylist)):
-        # mylist[i] = re.sub("\s", '', mylist[i])
-        # while u'' in mylist: mylist.remove(u'')
+        # don't remove newline \n
+        mylist = [TOKEN_REPLACE.sub('',x) for x in mylist if x]            
         # remove empty substring
         mylist = [x for x in mylist if x]
-        #print u"'".join(mylist).encode('utf8')
-        return mylist
+        return mylist        
 
 if __name__ == "__main__":
     #~WORDS = [u'الْدَرَاجَةُ', u'الدّرّاجة',
@@ -988,5 +963,11 @@ if __name__ == "__main__":
         #~print u'\t'.join([wrd,  l, m, s]).encode('utf8')      
         #~newword =  joint(l, m)
         #~assert (newword != wrd)
+        
     print "like: ", vocalizedlike(u'مُتَوَهِّمًا', u'متوهمًا')
+    print "sim: ", vocalized_similarity(u'ثمّ', u'ثُمَّ')
+    print "like: ", vocalizedlike(u'ثمّ', u'ثُمَّ')
+    print "sim: ", vocalized_similarity(u'ثم', u'ثُمَّ')
+    print "like: ", vocalizedlike(u'ثم', u'ثُمَّ')
+    print "sim: ", vocalized_similarity(u'مُتَوَهِّمًا', u'متوهمًا')
     print "sim: ", vocalized_similarity(u'مُتَوَهِّمًا', u'متوهمًا')

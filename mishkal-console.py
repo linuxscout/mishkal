@@ -164,40 +164,49 @@ def test():
             #~sys.stderr.write("treatment of "+line.encode('utf8'))
             sys.stderr.flush()
         if not line.startswith('#'):
-            # lineIncorrect = 0
+            line = line.strip()
             lineCorrect = 0
             lineWLMIncorrect = 0
             if strip_tashkeel:
                 result = araby.strip_tashkeel(line)
             else:    #vocalize line by line
+                if not compare:
+                    result = vocalizer.tashkeel(line)                    
                 if compare:
-                    vocalizedLine = line
-                    line = araby.strip_tashkeel(line)
-                result = vocalizer.tashkeel(line)
-                #compare resultLine and vocalizedLine
-                if compare:
-                    list1 = vocalizer.analyzer.tokenize(vocalizedLine)
-                    list2 = vocalizer.analyzer.tokenize(result)
-                    total += len(list1)
-                    lineTotal = len(list1)
-                    if len(list1) != len(list2):
+                    inputVocalizedLine = line
+                    #~line = araby.strip_tashkeel(line)
+                    vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(inputVocalizedLine)
+
+                    inputlist = vocalizer.analyzer.tokenize(inputVocalizedLine)
+                    #stemmer=tashaphyne.stemming.ArabicLightStemmer()
+                    #~texts = vocalizer.analyzer.split_into_phrases(inputVocalizedLine)
+                    #~inputlist =[]
+                    #~for txt in texts:
+                        #~inputlist += vocalizer.analyzer.text_tokenize(txt)
+                    outputlist = [x.get("chosen",'') for x in vocalized_dict]
+                    result = u" ".join(outputlist)
+                    outputlistsemi = [x.get("semi",'') for x in vocalized_dict]
+                    total += len(inputlist)
+                    lineTotal = len(inputlist)
+                    if len(inputlist) != len(outputlist):
                         print "lists haven't the same length"
+                        print len(inputlist), len(outputlist)
+                        print u"#".join(inputlist).encode('utf8')
+                        print u"#".join(outputlist).encode('utf8')
                     else:
-                        for i in range(len(list1)):
-                            simi = araby.vocalized_similarity(list1[i], 
-                                    list2[i])
+                        for i in range(len(inputlist)):
+                            simi = araby.vocalized_similarity(inputlist[i], 
+                                    outputlist[i])
+                            #~print u"\t".join([inputlist[i], outputlist[i], str(simi)]).encode('utf8')
                             if simi<0:
                                 LettersError += -simi
                                 incorrect    += 1
-                                # lineIncorrect  += 1
                                 # evaluation without last haraka
-                                simi2 = araby.vocalized_similarity(
-                                araby.strip_lastharaka(list1[i]), 
-                                araby.strip_lastharaka(list2[i]))
+                                simi2 = araby.vocalized_similarity(inputlist[i], 
+                                  outputlistsemi[i])
                                 if simi2<0: 
                                     WLMIncorrect     += 1
                                     lineWLMIncorrect += 1                                
-
                             else:
                                 correct += 1
                                 lineCorrect  += 1

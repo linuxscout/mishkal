@@ -14,7 +14,6 @@
     Arabic _collocations Class
 """
 import maskouk.collocationdictionary as collocationdictionary
-#import collocationdictionary as collo_dict
 import maskouk.collocation_const as cconst
 import pyarabic.araby as araby
 import re

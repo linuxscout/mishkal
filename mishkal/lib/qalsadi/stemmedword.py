@@ -28,6 +28,9 @@ class  StemmedWord:
         self.vocalized =  u"", 
         #~"""vocalized form of the input word """
         self.unvocalized = u""
+
+        #~"""semivocalized form of the input word without inflection mark"""
+        self.semivocalized = u""
      
         self.tags =  u"", 
         #~"""tags of affixes and tags extracted form lexical dictionary"""
@@ -193,8 +196,9 @@ class  StemmedWord:
         # adjective
         if (u'صفة' in input_type or u'اسم مفعول' in input_type or 
         u'اسم فاعل' in input_type or u'صيغة مبالغة' in input_type 
-        or  u'فاعل' in input_type  or u'منسوب' in self.get_tags() 
-        or "adj" in input_type):
+            or  u'فاعل' in input_type  or u'منسوب' in self.get_tags()  
+            or u'منسوب' in input_type
+            or "adj" in input_type):
             self.tag_type += 16
         if u'noun_prop' in input_type:
             self.tag_type += 32                
@@ -254,7 +258,7 @@ class  StemmedWord:
         # which havent any gramatical effect.
         # Todo 
         # حالة بذلك الرجل
-        return  u'شفاف' in self.get_tags() or u'إشارة'in self.get_tags()
+        return  (u'شفاف' in self.get_tags() or u'إشارة'in self.get_tags()  ) and self.has_jar()
 
 
     def _is_mamnou3(self):
@@ -397,7 +401,7 @@ class  StemmedWord:
             # return True
         # el
         # if self.has_procletic() and self.has_jar():
-        return self.is_stopword() \
+        return (self.is_stopword() and not self.is_noun())\
             or ( self.affix_key in GLOBAL_AFFIXES and \
             GLOBAL_AFFIXES[self.affix_key].is_break()) \
             or (self.is_pounct() and 'break' in self.get_tags())\
@@ -438,6 +442,14 @@ class  StemmedWord:
         """
         self.vocalized = newvocalized
         self.unvocalized = araby.strip_tashkeel(newvocalized)
+        
+    def get_semivocalized(self, ):
+        """
+        Get the semi vocalized form of the input word
+        @return: the given vocalized.
+        @rtype: unicode string
+        """
+        return self.semivocalized
     def get_stem(self, ):
         """
         Get the stem form of the input word
@@ -706,7 +718,15 @@ class  StemmedWord:
             return GLOBAL_AFFIXES[self.affix_key].is_marfou3()
         return False
 
-
+    def is_mabni(self):
+        """
+        Return True if the word has the state mabni.
+        @return: has the state mabni.
+        @rtype: True/False
+        """
+        if GLOBAL_AFFIXES.has_key(self.affix_key):
+            return GLOBAL_AFFIXES[self.affix_key].is_mabni()
+        return False
 
     def is_defined(self):
         """
@@ -761,7 +781,24 @@ class  StemmedWord:
         if GLOBAL_AFFIXES.has_key(self.affix_key):
             return GLOBAL_AFFIXES[self.affix_key].is3rdperson()
         return False        
-
+    def is3rdperson_feminin(self):
+        """
+        Return True if the word has the 3rd person.
+        @return: has the 3rd persontense.
+        @rtype: True/False
+        """
+        if GLOBAL_AFFIXES.has_key(self.affix_key):
+            return GLOBAL_AFFIXES[self.affix_key].is3rdperson_fem()
+        return False 
+    def is3rdperson_masculin(self):
+        """
+        Return True if the word has the 3rd person.
+        @return: has the 3rd persontense.
+        @rtype: True/False
+        """
+        if GLOBAL_AFFIXES.has_key(self.affix_key):
+            return GLOBAL_AFFIXES[self.affix_key].is3rdperson_masculin()
+        return False         
     def has_imperative_pronoun(self):
         """
         Return True if the word has the 3rd person.

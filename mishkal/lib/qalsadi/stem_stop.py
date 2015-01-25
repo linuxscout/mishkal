@@ -166,12 +166,14 @@ class StopWordStemmer:
                             vocalized, semi_vocalized = vocalize(original, procletic,  vocalized_suffix, vocalized_encletic)
                             vocalized = ajust_vocalization(vocalized)
                             #ToDo:
+                            # if the stop word is inflected or not 
+                            is_inflected = u"مبني" if stop_tuple['is_inflected'] == 0 else u"معرب"
                             #add some tags from dictionary entry as 
                             # use action and object_type
-                            original_tags = u":".join ( [stop_tuple['word_type'], stop_tuple['word_class'],
+                            original_tags = u":".join ( [stop_tuple['word_type'], stop_tuple['word_class'],is_inflected, 
                                          stop_tuple['action'],] )
                             #~print "STOP_TUPEL[action]:", stop_tuple['action'].encode("utf8")
-                            # generate word case 
+                            # generate word case
                             detailed_result.append(wordcase.WordCase({
                             'word':stop, 
                             'affix': (procletic, '', vocalized_suffix, 

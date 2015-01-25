@@ -18,7 +18,8 @@ morpholocigal analysis
 if __name__ == "__main__":
     import sys
     sys.path.append('../lib')
-
+def ispunct(word):
+    return word in u'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~،؟'
 #~import aranasyn.syn_const as syn_const
 #~import aranasyn.stemmedsynword
 class SynNode:
@@ -33,23 +34,33 @@ class SynNode:
         self.case_count = len(case_list)
         #~""" the number of syntaxtical cases """
 
-        self.verb_count = 0
-        #~""" the number of syntaxtical verb cases """
-
-        self.noun_count = 0
-        #~""" the number of syntaxtical noun cases """
-
-        self.stopword_count = 0
-        #~""" the number of syntaxtical stopword cases """
-        
         self.word = ''
         #~""" The unstemmed word """
+        self.previous_nodes = {}
+        # the  syntaxical previous nodes 
+        self.next_nodes = {}
+        # the  syntaxical next nodes         
         self.originals = {}
+        #~ Orginals word from dictionary
+        # will be used to extarct semantic relations
+        self.guessed_type_tag =""
+        # guessed word type tag given by the word tagger
+        self.break_end = False
+        # the break position at he end or at the begining
+        # the pounctuation is an end break 
+        # a stop word is a start break
+        
         self.word_type = {'verb':[], 
                         'noun':[], 
                         'pounct':[], 
                         'stopword':[], 
                         }
+        self.count = {'verb':[], 
+                        'noun':[], 
+                        'pounct':[], 
+                        'stopword':[], 
+                        }                        
+        # word type count after analysis
         self.breaks = []
         self.non_breaks = []
         self.syntax_mark = {'mansoub':[], 
@@ -59,12 +70,21 @@ class SynNode:
                         'tanwin_mansoub':[], 
                         'tanwin_marfou3':[], 
                         'tanwin_majrour':[],                     
-                    
                         }
+        self.syn_previous = {} # generate dict for whole list of cases
+        # the syntaxic previous of cases after syntax analysis        
+        self.syn_nexts = {} # generate dict for whole list of cases
+        # the syntaxic nexts of cases after syntax analysis
+        self.sem_previous = {} # generate dict for whole list of cases
+        # the semantic previous of cases after semantic analysis        
+        self.sem_nexts = {} # generate dict for whole list of cases
+        # the semantic nexts of cases after semantic analysis
+                                
         #~""" The list of original words"""
         if case_list:
             self.word = case_list[0].get_word()
         for case in case_list:
+            #extract originals lists
             if self.originals.has_key(case.get_original()):
                 self.originals[case.get_original()].append(case.get_order())
             else:
@@ -83,6 +103,8 @@ class SynNode:
                 self.breaks.append(case.get_order())
             else:
                 self.non_breaks.append(case.get_order())
+            if ispunct(self.word[0]):
+                self.break_end = True
             #indexing by syntax mark and tanwin
             if case.is_tanwin():
                 if case.is_mansoub():
@@ -101,12 +123,17 @@ class SynNode:
                 elif case.is_majzoum():                
                     self.syntax_mark['majzoum'].append(case.get_order())
             
-                
-                
-        self.verb_count     = len(self.word_type['verb'])
-        self.noun_count     = len(self.word_type['noun'])
-        self.stopword_count = len(self.word_type['stopword'])                
-        self.pounct_count = len(self.word_type['pounct'])            
+            
+        self.count = {"verb":len(self.word_type['verb']), 
+                    #~""" the number of syntaxtical verb cases """
+                    "noun": len(self.word_type['noun']), 
+                    #~""" the number of syntaxtical noun cases """
+                    "stopword" : len(self.word_type['stopword']), 
+                    #~""" the number of syntaxtical stopword cases """
+                    "pounct": len(self.word_type['pounct'])  
+        }
+
+        # the sematic nexts of cases        
         
     ######################################################################
     #{ Attributes Functions
@@ -126,20 +153,37 @@ class SynNode:
         @tyep count: integer
         """
         return self.case_count
+
+    def set_guessed_type_tag(self, tag):
+        """
+        Set the guessed type tag.
+        @param tag: guessed type tag
+        @type tag: unicode
+        """
+        self.guessed_type_tag = tag
+        
+    def get_case_count(self):
+        """
+        get the guessed type tag.
+        @return: guessed type tag
+        @rtype tag: unicode        
+        """
+        return self.guessed_type_tag
+
     def set_verb_count(self, count):
         """
         Set the verb count.
         @param count: the number of stemmed word cases as  verbs
         @tyep count: integer
         """
-        self.verb_count = count
+        self.count["verb"] = count
     def get_verb_count(self):
         """
         get the verb count.
         @return: the number of stemmed word cases as verbs
         @tyep count: integer
         """
-        return self.verb_count
+        return self.count["verb"]
         
     def set_noun_count(self, count):
         """
@@ -147,28 +191,28 @@ class SynNode:
         @param count: the number of stemmed word cases as  nouns
         @tyep count: integer
         """
-        self.noun_count = count
+        self.count["noun"] = count
     def get_noun_count(self):
         """
         get the noun count.
         @return: the number of stemmed word cases as nouns
         @tyep count: integer
         """
-        return self.noun_count
+        return self.count["noun"]
     def set_stopword_count(self, count):
         """
         Set the stopword count.
         @param count: the number of stemmed word cases as  stopwords
         @tyep count: integer
         """
-        self.stopword_count = count
+        self.count["stopword"] = count
     def get_stopword_count(self):
         """
         get the stopword count.
         @return: the number of stemmed word cases as stopwords
         @tyep count: integer
         """
-        return self.stopword_count
+        return self.count["stopword"]
     def get_word(self, ):
         """
         Get the input word given by user
@@ -208,14 +252,14 @@ class SynNode:
         @return:True if the node has verb in one case at least.
         @rtype:boolean
         """
-        return self.verb_count > 0
+        return self.count["verb"] > 0
     def has_noun(self, ):
         """
         Return if all cases are nouns.
         @return:True if the node has noun in one case at least.
         @rtype:boolean
         """
-        return self.noun_count > 0
+        return self.count["noun"] > 0
 
     def has_stopword(self, ):
         """
@@ -223,30 +267,30 @@ class SynNode:
         @return:True if the node has stopword in one case at least.
         @rtype:boolean
         """
-        return self.stopword_count > 0
+        return self.count["stopword"] > 0
     def has_pount(self, ):
         """
         Return if all cases are pounctuations
         @return:True if the node has pounctation in one case at least.
         @rtype:boolean
         """
-        return self.pounct_count > 0        
+        return self.count["pounct"] > 0        
     def is_verb(self, ):
         """
         Return if all cases are verbs.
         @return:True if the node is verb in alll cases.
         @rtype:boolean
         """
-        return self.pounct_count == 0 and self.stopword_count == 0 and \
-        self.verb_count and self.noun_count == 0
+        return self.count["pounct"] == 0 and self.count["stopword"] == 0 and \
+        self.count["verb"] and self.count["noun"] == 0
     def is_noun(self, ):
         """
         Return if all cases are nouns.
         @return:True if the node is noun in alll cases.
         @rtype:boolean
         """
-        return self.pounct_count == 0 and self.stopword_count == 0 and \
-        self.verb_count == 0 and self.noun_count
+        return self.count["pounct"] == 0 and self.count["stopword"] == 0 and \
+        self.count["verb"] == 0 and self.count["noun"]
         
 
     def is_stopword(self, ):
@@ -255,16 +299,16 @@ class SynNode:
         @return:True if the node is stopword in alll cases.
         @rtype:boolean
         """
-        return self.pounct_count == 0 and self.stopword_count and \
-        self.verb_count == 0 and self.noun_count == 0
+        return self.count["pounct"] == 0 and self.count["stopword"] and \
+        self.count["verb"] == 0 and self.count["noun"] == 0
     def is_pount(self, ):
         """
         Return if all cases are pounctuations
         @return:True if the node is pounctation in alll cases.
         @rtype:boolean
         """
-        return self.pounct_count and self.stopword_count == 0 and \
-        self.verb_count == 0 and self.noun_count == 0
+        return self.count["pounct"] and self.count["stopword"] == 0 and \
+        self.count["verb"] == 0 and self.count["noun"] == 0
     def is_most_verb(self, ):
         """
         Return True if most  cases are verbs.
@@ -272,16 +316,16 @@ class SynNode:
         @rtype:boolean
         """
         
-        return self.verb_count > self.noun_count and \
-        self.verb_count > self.stopword_count
+        return self.count["verb"] > self.count["noun"] and \
+        self.count["verb"] > self.count["stopword"]
     def is_most_noun(self, ):
         """
         Return True if most  cases are nouns.
         @return:True if the node is noun in most cases.
         @rtype:boolean
         """
-        return self.noun_count > self.verb_count  and \
-        self.noun_count > self.stopword_count
+        return self.count["noun"] > self.count["verb"]  and \
+        self.count["noun"] > self.count["stopword"]
 
     def is_most_stopword(self, ):
         """
@@ -289,8 +333,8 @@ class SynNode:
         @return:True if the node is stopword in most cases.
         @rtype:boolean
         """
-        return self.stopword_count > self.verb_count  and \
-        self.stopword_count > self.noun_count
+        return self.count["stopword"] > self.count["verb"]  and \
+        self.count["stopword"] > self.count["noun"]
 
     def get_word_type(self, ):
         """
@@ -321,6 +365,9 @@ class SynNode:
         @return:the word type or mosttype.
         @rtype:string
         """
+        #~if len(self.breaks) == 0 and len(self.non_breaks) == 0 :
+            #~return 'ambiguous'
+        #~elif 
         if len(self.breaks) > 0 and len(self.non_breaks) == 0 :
             return 'break'
         elif len(self.non_breaks) > 0 and len(self.breaks) == 0:
@@ -331,14 +378,16 @@ class SynNode:
             return 'most_break'
         else:
             return 'ambiguous'
+    def is_break_end(self,):
+        return self.break_end
+    def is_break(self,):
+        return self.get_break_type() in ("break", "mostBreak")
     def __repr__(self):
         text = u"\n'%s':%s, [%s-%s]{V:%d, N:%d, S:%d} " % (
         self.__dict__['word'], u', '.join(self.originals), 
-        self.get_word_type(), self.get_break_type(), self.verb_count, 
-        self.noun_count, self.stopword_count)
+        self.get_word_type(), self.get_break_type(), self.count["verb"], 
+        self.count["noun"], self.count["stopword"])
         text += repr(self.syntax_mark)
-        # for k in self.__dict__.keys():
-            # text += u"\t'%s':\t%s, \n "%(k, self.__dict__[k])
         return text.encode('utf8') 
 
 if __name__ == "__main__":

@@ -96,9 +96,9 @@ class Analex :
         #added as a global variable to avoid duplucated search 
         #in mutliple call of analex
         # cache used to avoid duplicata
-        self.allow_cache_use = True
-        #~self.allow_cache_use = False
-        self.cache = cache.cache()
+        #~self.allow_cache_use = True
+        self.allow_cache_use = False
+        #~self.cache = cache.cache()
 
 
     def __del__(self):
@@ -132,18 +132,7 @@ class Analex :
         @return: list of words.
         @rtype: list.
         """
-        if text == u'':
-            return []
-        else:
-            #split tokens
-            mylist = self.token_pat.split(text)
-            p = re.compile('\t|\r|\f|\v| ')
-            # don't remove newline \n
-            mylist = [p.sub('',x) for x in mylist if x]            
-            # remove empty substring
-            mylist = [x for x in mylist if x]
-            return mylist
-
+        return araby.tokenize(text)
 
     def split_into_phrases(self, text):
         """
@@ -381,6 +370,7 @@ tags of affixes and tags extracted form lexical dictionary
         word = araby.strip_tatweel(word)
         word_vocalised = word
         word_nm = araby.strip_tashkeel(word)
+        #~print (u"0.1%s-%s"%(word, word_nm)).encode('utf8')
         #~ resulted_text = u""
         resulted_data = []
         # if word is a pounctuation
@@ -393,15 +383,18 @@ tags of affixes and tags extracted form lexical dictionary
 
         #if word is verb
         # مشكلة بعض الكلمات المستبعدة تعتبر أفعلا أو اسماء
-        if  self.tagger.has_verb_tag(guessedtag) or \
-        self.tagger.is_stopword_tag(guessedtag):
-            resulted_data += self.check_word_as_verb(word_nm)
+        #~if  self.tagger.has_verb_tag(guessedtag) or \
+        #~self.tagger.is_stopword_tag(guessedtag):
+            #~resulted_data += self.check_word_as_verb(word_nm)
+        resulted_data += self.check_word_as_verb(word_nm)
             #print "is verb", rabti, len(resulted_data)
         #if word is noun
-        if self.tagger.has_noun_tag(guessedtag) or \
-        self.tagger.is_stopword_tag(guessedtag):            
-            resulted_data += self.check_word_as_noun(word_nm)
+        #~if self.tagger.has_noun_tag(guessedtag) or \
+        #~self.tagger.is_stopword_tag(guessedtag):            
+            #~resulted_data += self.check_word_as_noun(word_nm)
+        resulted_data += self.check_word_as_noun(word_nm)
         if len(resulted_data) == 0:
+            #~print (u"1%s-%s"%(word, word_nm)).encode('utf8')
             #check the word as unkonwn
             resulted_data += self.check_word_as_unknown(word_nm)
             #check if the word is nomralized and solution are equivalent
@@ -540,6 +533,8 @@ tags of affixes and tags extracted form lexical dictionary
         @rtype: list.        
         """        
         detailed_result = []
+        if not word: 
+            return detailed_result
         # ToDo : fix it to isdigit, by moatz saad
         if word.isnumeric():
             detailed_result.append(wordcase.WordCase({
@@ -671,6 +666,7 @@ def check_partial_vocalized(word_vocalised, resulted_data):
     @rtype: list.        
     """
     #print word_vocalised.encode('utf8')
+    return resulted_data    
     filtred_data = []
     if not araby.is_vocalized(word_vocalised):
         return resulted_data
@@ -692,11 +688,14 @@ def mainly():
     analyzer.disable_allow_cache_use()
     # text = u"""تجف أرض السلام بالسلام الكبير.    مشى على كتاب السلام.
     # جاء الولد السمين من قاعة القسم الممتلئ"""
-    for i in range(2):
-        text = u"يعبد الله تطلع الشمس"
+    for i in range(1):
+        #~text = u"يعبد الله تطلع الشمس"
+        text = u"قصة قصّة"
         voc = analyzer.check_text(text)
-        # voc = analyzer.check_text(text)        
-        print voc, i#.encode('utf8')
+        for vlist in voc:
+            for v in vlist:
+                print (u"\t".join([v.get_word(), v.get_type()])).encode('utf8')
+        #~print voc, i#.encode('utf8')
     
 if __name__ == "__main__":
     mainly()

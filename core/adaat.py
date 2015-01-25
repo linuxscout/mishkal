@@ -563,7 +563,7 @@ def tashkeel2(text, lastmark):
     vocalizer = ArabicVocalizer.TashkeelClass()
     #print (u"lastMark %s"%lastmark).encode('utf8')
     if lastmark == "0" or not lastmark:
-        vocalizer.disableLastMark()    
+        vocalizer.disable_last_mark()    
     vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(text)
     #print vocalized_dict
     return vocalized_dict
@@ -589,24 +589,17 @@ def compare_tashkeel(text):
     vocalizer = ArabicVocalizer.TashkeelClass()
     #~vocalized_text = vocalizer.tashkeel(text)
     vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(text)
-       
     
     # compare voalized text with a correct text
     text1 = correct_text
     #~text2 = vocalized_text
     displayed_html = u""
-    # remove collocations symboles
-    #~text2 = text2.replace("'", "")
-    #~text2 = text2.replace("~", "")
     
     #stemmer=tashaphyne.stemming.ArabicLightStemmer()
     texts = vocalizer.analyzer.split_into_phrases(text1)
     list1 =[]
     for txt in texts:
         list1 += vocalizer.analyzer.tokenize(txt)
-    #~list1 = vocalizer.analyzer.tokenize(text1)
-    #~list2 = vocalizer.analyzer.tokenize(vocalized_text)
-    #~print u"\t".join(list2).encode('utf8')
     list2 = vocalized_dict
     print u"\t".join(list1).encode('utf8')
     correct = 0
@@ -620,9 +613,12 @@ def compare_tashkeel(text):
     else:
         for i in range(total):
             wo1 = list1[i]
+            wo1_strip = wo1            
             wo2 = list2[i]['chosen']
+            wo2_strip = list2[i]['semi']  # words without inflection mark
             inflect = list2[i]['inflect']
             link = list2[i]['link']
+            #~if araby.is_vocalized(wo2) and araby.vocalizedlike(wo1, wo2):
             if araby.vocalizedlike(wo1, wo2):
                 if wo2 == "\n":
                     wo2 = "<br/>"
@@ -631,8 +627,8 @@ def compare_tashkeel(text):
             else:
                 incorrect += 1
                 # green for last mark difference
-                wo1_strip = araby.strip_lastharaka(wo1)
-                wo2_strip = araby.strip_lastharaka(wo2)                
+                wo1_strip = wo1
+                #~wo2_strip = araby.strip_lastharaka(wo2)
                 if araby.vocalizedlike(wo1_strip, wo2_strip):
                     style = 'diff-mark'
                 else:

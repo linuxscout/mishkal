@@ -147,7 +147,7 @@ return  x= input.replace("لَا", "لاَ");
         var table = $table.attr( "border", "1" )[0];
         var headers = ["<tr>",
 				"<th>المدخل</th>", "<th>تشكيل</th>", "<th>الأصل</th>","<th>الزوائد</th>", "<th>الجذع</th>",
- "<th>الحالة الإعرابية</th>", "<th>النوع</th><th>النحوي</th>",
+ "<th style='white-space:nowrap;'>الحالة الإعرابية</th>", "<th>النوع</th><th>النحوي</th>",
 				"<th>شيوع</th>",
 				"</tr>"
 				].join('');
@@ -531,7 +531,6 @@ return  x= input.replace("لَا", "لاَ");
 		{
 		item=d.result[i];
 		var currentId=id*100+i;
-		//text+=currentId.toString();
 		if (item.chosen.indexOf("~~")>=0) 
 		{// handle collocations
 		openColocation=0;
@@ -550,7 +549,9 @@ return  x= input.replace("لَا", "لاَ");
 		{
 		var pattern=/[-[\]{}()*+?.,،:\\^$|#\s]/;
 		if (!pattern.test(item.chosen)) text+=" ";
-        text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"' suggest='"+item.suggest.replace(/;/g,'، ') + "' rule='"+item.rule +"' link='"+item.link+"'>"+ item.chosen+"</span>";
+        var word_to_display = item.chosen;
+        if (document.NewForm.LastMark.checked == 0) word_to_display = item.semi;
+        text+="<span class='vocalized' id='"+currentId+"' inflect='"+item.inflect+"' suggest='"+item.suggest.replace(/;/g,'، ') + "' rule='"+item.rule +"' link='"+item.link+"'>"+ word_to_display+"</span>";
 		$('#result').data(currentId.toString(), item.suggest);
         
 		}

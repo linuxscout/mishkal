@@ -12,8 +12,8 @@ import pyarabic.araby as araby
 					
 scriptname = os.path.splitext(os.path.basename(sys.argv[0]))[0]
 scriptversion = '0.1'
-AuthorName="Taha Zerrouki"
-Token_pattern=re.compile(u"([\w]+)",re.UNICODE);
+AuthorName = "Taha Zerrouki"
+Token_pattern = re.compile(u"([\w]+)",re.UNICODE);
 def phraseSplit(text):
 	"""
 	Split Text into clauses
@@ -44,13 +44,13 @@ def usage():
 def grabargs():
 #  "Grab command-line arguments"
 	fname = ''
-	suggestion=False;
-	ignore= False;
-	limit=False; 
+	suggestion = False;
+	ignore = False;
+	limit = False; 
 	compare = False;
 	disableSyntax = False;
 	disableSemantic = False;
-	disableStatistic=  False;
+	disableStatistic =  False;
 	if not sys.argv[1:]:
 		usage()
 		sys.exit(0)
@@ -78,8 +78,6 @@ def grabargs():
 			compare = True;
 		if o in ("-t", "--stat"):
 			disableStatistic = True;
-			
-			
 		if o in ("-l", "--limit"):
 			try: limit = int(val);
 			except: limit=0;
@@ -87,7 +85,6 @@ def grabargs():
 			suggestion = True			
 		if o in ("-f", "--file"):
 			fname = val
-
 	return (fname, disableSyntax, disableSemantic, disableStatistic, ignore, limit ,compare)
 
 import tashkeel
@@ -107,7 +104,7 @@ if __name__ == '__main__':
 	total=0;
 	line=(myfile.readline()).decode('utf8');
 	while line and (nolimit or counter<=limit):
-		phrases=phraseSplit(text);
+		phrases = phraseSplit(text);
 		print u"\n".join([str(counter),ph]).encode('utf8');
 		for ph in phrases:
 			print u"\n".join([str(counter),ph]).encode('utf8');

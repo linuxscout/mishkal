@@ -48,8 +48,7 @@ class SyntaxAnalyzer:
             tmplist = [stemmedsynword.StemmedSynWord(
             stemming_list[order], order) for order in range(len(stemming_list))]
             if not tmplist:
-                tmplist = [stemmedsynword.StemmedSynWord(
-                  stemming_list[0]),]
+                tmplist = [stemmedsynword.StemmedSynWord(stemming_list[0]),]
             stemmedsynwordlistlist.append(tmplist)
             #create the synode object from tmplist
             synnode_list.append(aranasyn.synnode.SynNode(tmplist))
@@ -123,10 +122,20 @@ class SyntaxAnalyzer:
         ignore = False
         #~counter = 0
         previous_index = 0
+        pre_node = None
+        previous_index = False        
         # study the relations between words stemmings
         for current_index in  range(len(stemmedsynwordlistlist)):
             #index used to handle stmd position
             stmword_case_position = 0
+            if current_index - 1 >=0 :
+                pre_node = synnode_list[current_index-1]
+            else:
+                pre_node =None
+            if current_index + 1 < len(stemmedsynwordlistlist) : 
+                next_node = synnode_list[current_index+1]
+            else:
+                next_node = None            
             for stmword in stemmedsynwordlistlist[current_index]:
                 if  current_index == 0:  # the initial case
                     # the initial case
@@ -136,8 +145,7 @@ class SyntaxAnalyzer:
                     previous_case_position = 0 
                     for previous in stemmedsynwordlistlist[previous_index]:
                         #~counter += 1
-                        previous, stmword = self.bigram_analyze(previous, 
-                        stmword, previous_case_position, stmword_case_position)
+                        previous, stmword = self.bigram_analyze(previous, stmword, previous_case_position, stmword_case_position, pre_node, next_node)
                         previous_case_position += 1 
 
 
@@ -165,7 +173,7 @@ class SyntaxAnalyzer:
 
 
     def bigram_analyze(self, previous, current, previous_position = 0, 
-            current_position = 0):
+            current_position = 0, pre_node = None, next_node = None):
         """
         Syntaxic analysis of stemming results, two words.
         the positions are use to join related cases.
@@ -243,16 +251,12 @@ class SyntaxAnalyzer:
 
         elif current.is_pounct() or current.is_stopword() or \
         (current.has_procletic()  and not current.is_defined()):
-            #if the word is pounctuation and it's transparent, 
-            # the effect of previous factor will be kept
-            #then we ignore this word in the next step,
-            #the variable 'previous' will not take the actual word.
             # if the pounct is a break, the tanwin is prefered
             # the previous will have twnin
 
             if current.is_break() and previous.is_tanwin():
                 previous.add_next(current_position, aranasyn.syn_const.TanwinRelation)
-            return (previous, current)
+                return (previous, current)
 
         #the stop word is factors, others no, 
         # if the previous is not stop word return.
@@ -279,49 +283,44 @@ class SyntaxAnalyzer:
             # pronoun verb
             elif current.is_verb() and previous.is_pronoun():
                 # تطابق الضمير مع الضمير المسند إليه
-                if previous.is_jazem()  and  current.is_majzoum():
-                    weight = aranasyn.syn_const.SubjectVerbRelation
+                weight = aranasyn.syn_const.SubjectVerbRelation
 
             #verb
             elif current.is_verb() and previous.is_verbal_factor():
-                if previous.is_jazem()  and  current.is_majzoum():
-                    #حالة خاصة لا الناهية تنهى عن الأفعال
-                    # المسندة للضمير المخاطب فقط
-                    if previous.get_unvoriginal() == u'لا':
-                        if current.has_imperative_pronoun():
-                           weight = aranasyn.syn_const.JazemMajzoumRelation 
-                    else:
-                        weight = aranasyn.syn_const.JazemMajzoumRelation
-                elif previous.is_verb_naseb() and  current.is_mansoub():
-                    weight = aranasyn.syn_const.NasebMansoubRelation
-                elif previous.is_verb_rafe3() and current.is_marfou3():
-                    #حالة لا النافية 
-                    # المسندة لغير الضمائر المخاطبة
-                    if previous.get_unvoriginal() == u'لا':
-                        if not current.has_imperative_pronoun():
-                           weight = aranasyn.syn_const.Rafe3Marfou3Relation
-                    else:
-                        weight = aranasyn.syn_const.Rafe3Marfou3Relation
+                if current.is_present():
+                    if previous.is_jazem() and current.is_majzoum():
+                        #حالة خاصة لا الناهية تنهى عن الأفعال
+                        # المسندة للضمير المخاطب فقط
+                        if previous.get_unvoriginal() == u'لا':
+                            if current.has_imperative_pronoun():
+                               weight = aranasyn.syn_const.JazemMajzoumRelation 
+                        else:
+                            weight = aranasyn.syn_const.JazemMajzoumRelation
+                    elif previous.is_verb_naseb() and  current.is_mansoub():
+                        weight = aranasyn.syn_const.NasebMansoubRelation
+                    elif previous.is_verb_rafe3() and current.is_marfou3():
+                        #حالة لا النافية 
+                        # المسندة لغير الضمائر المخاطبة
+                        if previous.get_unvoriginal() == u'لا':
+                            if not current.has_imperative_pronoun():
+                               weight = aranasyn.syn_const.Rafe3Marfou3Relation
+                        else:
+                            weight = aranasyn.syn_const.Rafe3Marfou3Relation
                 elif previous.is_condition_factor():
                     weight = aranasyn.syn_const.ConditionVerbRelation
         else: # previous is not a stopword
             if current.is_verb():
                 # الجارية فعل والسابق مبتدأ
-                if previous.is_noun():
+                if previous.is_noun() and previous.is_defined():
                     if current.is_marfou3():
                     # Todo treat the actual word
-                        if current.is_defined():
-                            #إذا كان المبتدأ معرفا 
-                            weight = aranasyn.syn_const.Rafe3Marfou3Relation
-                        elif current.is_defined() and current.is_tanwin:
-                            #إذا كان المبتدأ نكرة ينبغي أن ينوّن
-                            weight = aranasyn.syn_const.Rafe3Marfou3Relation                            
-                        
+                        weight = aranasyn.syn_const.Rafe3Marfou3Relation
             if current.is_noun() or current.is_addition():
                 # المضاف والمضاف إليه
                 # إضافة لفظية
                 # مثل لاعبو الفريق
-                if current.is_majrour() or current.is_stopword():
+                #~if current.is_majrour() or current.is_stopword():
+                if current.is_majrour():
                     if previous.is_added():
                         weight = aranasyn.syn_const.JarMajrourRelation
                     elif previous.is_noun() and not previous.is_defined() \
@@ -333,6 +332,7 @@ class SyntaxAnalyzer:
                 # بالاعتماد على خصائص الاسم الممكن أن يكون صفة
                 if previous.is_noun():
                     # Todo treat the actual word
+                    #~print u" ".join([previous.get_word(), current.get_word(), str(current.is_adj()), str(self.are_compatible(previous, current))])
                     if self.are_compatible(previous, current):
                         if current.is_adj():
                             weight = \
@@ -346,14 +346,16 @@ class SyntaxAnalyzer:
                         # Todo treat the actual word
                         # الفعل والفاعل أو نائبه
                         
-                        if current.is_marfou3():
-                            weight = aranasyn.syn_const.VerbSubjectRelation
+                        if current.is_marfou3() :
+                            if ((current.is_feminin() and previous.is3rdperson_feminin())
+                               or (not current.is_feminin() and previous.is3rdperson_masculin())):
+                                weight = aranasyn.syn_const.VerbSubjectRelation
                     # الفعل والمفعول به
-                    if current.is_mansoub()  and not previous.has_encletic():
+                    if current.is_mansoub()  and not previous.has_encletic() and previous.is_transitive() :
                         weight = aranasyn.syn_const.VerbObjectRelation
                     # فعل متعدي بحرف
                     #ToDo:
-                    if previous.is_transitive() and curret.is_stopword():
+                    if previous.is_transitive() and current.is_stopword():
                         weight = aranasyn.syn_const.VerbObjectRelation                        
                         
         if weight :
@@ -418,6 +420,7 @@ class SyntaxAnalyzer:
             compatible = True
         else:
             return False
+
         # الكلمة الثانية  غير مسبوقة بسابقة غير التعريف
         # هذا التحقق جاء بعد التحقق من التعريف أو التنكير
         if not current.has_procletic() or current.get_procletic() in (u"ال",
@@ -437,11 +440,11 @@ class SyntaxAnalyzer:
         #مؤنث ومؤنث
         # جمع التكسير مؤنث
         if (current.is_feminin() and previous.is_feminin()) \
-           or (current.is_masculin() and previous.is_masculin())  \
-           or (previous.is_broken_plural() and current.is_feminin()):
+           or (current.is_masculin() and previous.is_masculin()) : # \
+           #~or (previous.is_broken_plural() and current.is_feminin()
             compatible = True
-        else: return False
-
+        #~else: return False
+        #ToDo: fix feminin and masculin cases
         return compatible
 
 

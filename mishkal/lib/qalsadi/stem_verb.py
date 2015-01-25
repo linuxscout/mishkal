@@ -34,12 +34,6 @@ class VerbStemmer:
         self.comp_stemmer = tashaphyne.stemming.ArabicLightStemmer() 
 
         # configure the stemmer object
-        #~self.comp_stemmer.set_infix_letters(svconst.COMP_INFIX_LETTERS) 
-        #~self.comp_stemmer.set_prefix_letters(svconst.COMP_PREFIX_LETTERS) 
-        #~self.comp_stemmer.set_suffix_letters(svconst.COMP_SUFFIX_LETTERS) 
-        #~self.comp_stemmer.set_max_prefix_length(svconst.COMP_MAX_PREFIX) 
-        #~self.comp_stemmer.set_max_suffix_length(svconst.COMP_MAX_SUFFIX) 
-        #~self.comp_stemmer.set_min_stem_length(svconst.COMP_MIN_STEM) 
         self.comp_stemmer.set_prefix_list(svconst.COMP_PREFIX_LIST) 
         self.comp_stemmer.set_suffix_list(svconst.COMP_SUFFIX_LIST) 
 
@@ -48,12 +42,6 @@ class VerbStemmer:
         self.conj_stemmer = tashaphyne.stemming.ArabicLightStemmer() 
 
         # configure the stemmer object
-        #~self.conj_stemmer.set_infix_letters(svconst.CONJ_INFIX_LETTERS) 
-        #~self.conj_stemmer.set_prefix_letters(svconst.CONJ_PREFIX_LETTERS) 
-        #~self.conj_stemmer.set_suffix_letters(svconst.CONJ_SUFFIX_LETTERS) 
-        #~self.conj_stemmer.set_max_prefix_length(svconst.CONJ_MAX_PREFIX) 
-        #~self.conj_stemmer.set_max_suffix_length(svconst.CONJ_MAX_SUFFIX) 
-        #~self.conj_stemmer.set_min_stem_length(svconst.CONJ_MIN_STEM) 
         self.conj_stemmer.set_prefix_list(svconst.CONJ_PREFIX_LIST) 
         self.conj_stemmer.set_suffix_list(svconst.CONJ_SUFFIX_LIST) 
         # enable the last mark (Harakat Al-I3rab) 
@@ -84,15 +72,14 @@ class VerbStemmer:
         #~display_conj_result = False 
         detailed_result  =  [] 
         verb             =  verb.strip() 
-        verb_list         =  [verb] 
+        verb_list         =  [verb,] 
         if verb.startswith(araby.ALEF_MADDA):
             verb_list.append(araby.ALEF_HAMZA_ABOVE + araby.ALEF_HAMZA_ABOVE \
             +verb[1:])
             verb_list.append(araby.HAMZA+araby.ALEF+verb[1:])
-
         for verb in verb_list:
 
-            list_seg_comp = self.comp_stemmer.segment(verb) 
+            list_seg_comp = self.comp_stemmer.segment(verb)
             for seg in list_seg_comp:
                 procletic = verb[:seg[0]] 
                 stem = verb[seg[0]:seg[1]]
@@ -120,7 +107,6 @@ class VerbStemmer:
                     list_stem.append(araby.ALEF_HAMZA_ABOVE + \
                     araby.ALEF_HAMZA_ABOVE+verb[1:])
                     list_stem.append(araby.HAMZA+ araby.ALEF+verb[1:])
-
         # stem reduced verb : level two
                 result = [] 
                 for verb2 in list_stem:
@@ -141,11 +127,9 @@ class VerbStemmer:
                             suffix_conj   =  verb2[seg_conj[1]:]
                             affix_conj    =  prefix_conj+'-'+suffix_conj 
 
-
                         # verify compatibility between procletics and afix
                             if (is_compatible_proaffix_affix(procletic, 
                             encletic, affix_conj)):
-                                #~print "Yes"
                                 # verify the existing of a verb stamp in 
                                 #the dictionary
                                 if self.verb_dictionary.exists_as_stamp(
@@ -206,6 +190,8 @@ class VerbStemmer:
                                 list_correct_conj += onelist_correct_conj 
                     for conj in list_correct_conj:
                         result.append(conj['verb'])
+                        vocalized, semivocalized = vocalize(conj['vocalized'], procletic,
+                         encletic)
                         #~print "stemverb: tense", conj['tense'].encode('utf8')
                         detailed_result.append(wordcase.WordCase({
                         'word':verb, 
@@ -217,8 +203,8 @@ class VerbStemmer:
                         #~ 'suffix':suffix_conj, 
                         'stem':stem_conj, 
                         'original':conj['verb'], 
-                        'vocalized':vocalize(conj['vocalized'], procletic,
-                         encletic), 
+                        'vocalized':vocalized,
+                        'semivocalized':semivocalized,
                         'tags':u':'.join((conj['tense'], conj['pronoun'])+\
                         svconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']+\
                         svconst.COMP_SUFFIX_LIST_TAGS[encletic]['tags']), 
@@ -372,7 +358,6 @@ def is_compatible_proaffix_affix(procletic, encletic, affix):
                         break 
                 else:
                     procletic_compatible = False 
-        #~print "Yes2"
         if procletic_compatible:
             if not encletic :
                 return True 
@@ -428,8 +413,8 @@ def verify_affix(word, list_seg, affix_list):
     """ 
     return [s for s in list_seg if '-'.join([word[:s[0]], 
        word[s[1]:]]) in affix_list]    
-    #~return filter (lambda s: '-'.join([word[:s[0]], 
-    #~word[s[1]:]]) in affix_list, list_seg)
+
+
 def get_enclitic_variant(word, enclitic):
 
     """
@@ -459,8 +444,8 @@ def vocalize(verb, proclitic, enclitic):
     @type proclitic: unicode.
     @param enclitic: first level suffix.
     @type enclitic: unicode.        
-    @return: vocalized word.
-    @rtype: unicode.
+    @return: (vocalized word, semivocalized).
+    @rtype: (unicode, unicode).
     """    
     enclitic_voc   =  svconst.COMP_SUFFIX_LIST_TAGS[enclitic]["vocalized"][0] 
     enclitic_voc   =  get_enclitic_variant(verb, enclitic_voc)
@@ -471,7 +456,10 @@ def vocalize(verb, proclitic, enclitic):
         verb  =  verb[:-1] 
     if enclitic and verb.endswith(araby.ALEF_MAKSURA):
         verb  =  verb[:-1]+araby.ALEF 
-    return ''.join([ proclitic_voc, verb , enclitic_voc]) 
+        
+    vocalized = ''.join([ proclitic_voc, verb , enclitic_voc]) 
+    semivocalized = ''.join([ proclitic_voc, araby.strip_lastharaka(verb) , enclitic_voc]) 
+    return (vocalized, semivocalized)
 
 
 def generate_possible_conjug(infinitive_verb, unstemed_verb , affix, 
@@ -503,6 +491,8 @@ transitive = True):
         for pair in svconst.Table_affix[affix]:
             tense = pair[0]
             pronoun = pair[1]
+            test = is_compatible_proaffix_tense(extern_prefix, extern_suffix, 
+            tense, pronoun, transitive)
             if is_compatible_proaffix_tense(extern_prefix, extern_suffix, 
             tense, pronoun, transitive):
 

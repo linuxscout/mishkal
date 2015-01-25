@@ -43,7 +43,8 @@ class TashkeelClass:
         # set the option to do statistical vocalization based 
         # on collocations
         # default value is True, can be disabled for debuging porpus
-        self.enabled_stat_tashkeel = True    
+        self.enabled_stat_tashkeel = False    
+        #~self.enabled_stat_tashkeel = True   
             
         # set the option to show the collocations marks
         # default value is False, can be enabled for debuging porpus
@@ -233,7 +234,8 @@ class TashkeelClass:
             inputtext = self.stat_tashkeel(inputtext)
     
         #split texts into phrases to treat one phrase in time
-        texts = self.analyzer.split_into_phrases(inputtext)
+        #~texts = self.analyzer.split_into_phrases(inputtext)
+        texts = [inputtext, ]
         #~print u" \n".join(texts).encode('utf8')
         vocalized_text = u""
         previous = None
@@ -252,6 +254,15 @@ class TashkeelClass:
             previous_case_index = False
             for current_index in range(len(detailled_syntax)):
                 word_cases_list = detailled_syntax[current_index]
+                if current_index - 1 >=0 :
+                    pre_node = synodelist[current_index-1]
+                else:
+                    pre_node =None
+                if current_index + 1 < len(detailled_syntax) : 
+                    next_node = synodelist[current_index+1]
+                else:
+                    next_node = None
+                
                 if previous_index  and previous_case_index:
                     previous = detailled_syntax[previous_index][previous_case_index]
                 #~current_chosen = self.__choose_tashkeel(word_cases_list, 
@@ -299,6 +310,8 @@ class TashkeelClass:
         previous = -1
         for i in range(len(_chosen_list)):
             word = _chosen_list[i].get_vocalized()
+            semivocalized = _chosen_list[i].get_semivocalized()
+            #word without inflection mark
             inflect = u":".join([_chosen_list[i].get_type() , _chosen_list[i].get_tags()] ) 
             if previous >= 0:
                 relation = _chosen_list[i].get_previous_relation(_chosen_list[previous].get_order())
@@ -311,11 +324,11 @@ class TashkeelClass:
                        
             # omit the last haraka if the option LastMark is False
             if not self.get_enabled_last_mark():
-                word = araby.strip_lastharaka(word)
-            #~vocalized_text = u"".join([vocalized_text, 
-            vocalized_text = u" ".join([vocalized_text, 
-            self.display(word, format_display)])
-            output_suggest_list.append({'chosen':word, 
+                vocalized_text = u" ".join([vocalized_text, self.display(word, format_display)])
+            else:
+                #semivocalized 
+                vocalized_text = u" ".join([vocalized_text, self.display(semivocalized, format_display)])
+            output_suggest_list.append({'chosen':word, 'semi':semivocalized, 
             'suggest':u";".join(suggests_list[i]), 'inflect':inflect, "link":relation, 'rule':selection_rule})
             # save the current chosen as a previous
             previous = i
@@ -781,8 +794,7 @@ class TashkeelClass:
         prevocalized_list = pyarabic.number.pre_tashkeel_number(wordlist)
         #Todo ajust prevocalization of named enteties
         prevocalized_list = pyarabic.named.pretashkeel_named(prevocalized_list)
-        #~return u"".join(prevocalized_list)
-        return u" ".join(prevocalized_list)
+        return u" ".join(wordlist)
 
 
     def stat_tashkeel(self, text):
@@ -797,12 +809,6 @@ class TashkeelClass:
         
         # get the word list
         wordlist = self.analyzer.tokenize(text)
-        #~vocalized_text = u""
-        #~previous = u""
-        #~list_dict = [] # returned resultat
-        # temporarly used
-        #~suggest = []
-        #~liste = wordlist
         # use a list as a stack, 
         # give two element from the end.
         # test the tow elements if they are collocated, 
@@ -810,9 +816,7 @@ class TashkeelClass:
         # if else, delete the last element, and return the other to the list.
         newlist = self.collo.lookup(wordlist)
         #todo: return a text from the statistical tashkeel
-        #~text = u"".join(newlist)
-        text = u" ".join(newlist)
-        return text
+        return  u" ".join(newlist)
 
     # new version of choose tashkeel 
     # first we use indexes instead of stemmedsynword object
@@ -1046,9 +1050,6 @@ class TashkeelClass:
         #~print x, len(curcaseslist)
         return chosen.get_order() 
 
-
-
-
     # new version of choose tashkeel 
     # first we use indexes instead of stemmedsynword object
     def __choose_tashkeel_algo2(self, curcaseslist, previous_chosen_case = None,
@@ -1059,7 +1060,7 @@ class TashkeelClass:
         @param : list of steming result of the word.
         @type curcaseslist: list of stemmedSynword
         @param : the choosen previous word stemming.
-        @type previous_chosen_case:stemmedSynword
+        @type previous_chosen_case:stemmedSynwordhg 
         @return: the choosen stemming of the current word.
         @rtype:stemmedSynword.
         """
@@ -1083,13 +1084,12 @@ class TashkeelClass:
         if not previous or previous.is_initial():
             tmp_index_list = [x for x in cur_indexes_list if (curcaseslist[x].is_stopword() or
                      (curcaseslist[x].is_marfou3() and not curcaseslist[x].is_passive())
-                     or curcaseslist[x].is_past() )
-                            ]
+                     or curcaseslist[x].is_past() )]
             # if indexes list is empty, the current indexes list is reloaded, and no change
             # else 
             if tmp_index_list:
                 cur_indexes_list = tmp_index_list                            
-            
+        
         # and lets other methode to choices by semantic and syntaxic
         # select all cases with semantic relations
         if  self.get_enabled_semantic_analysis():
@@ -1103,17 +1103,31 @@ class TashkeelClass:
             # most frequent word to be selected
         if len(cur_indexes_list) == 1 : rule = 2
 
+        # select stopword
+        tmp_index_list = [x for x in cur_indexes_list if  curcaseslist[x].is_stopword() and self.anasem.is_related(previous, curcaseslist[x]) and curcaseslist[x].has_next()]
+        # if indexes list is empty, the current indexes list is reloaded, and no change
+        if tmp_index_list:
+            cur_indexes_list = tmp_index_list  
+        if len(cur_indexes_list) == 1 : rule = 18
+
+        # select stopword
+        tmp_index_list = [x for x in cur_indexes_list if  curcaseslist[x].is_stopword() and curcaseslist[x].has_next() ]
+        # if indexes list is empty, the current indexes list is reloaded, and no change
+        if tmp_index_list:
+            cur_indexes_list = tmp_index_list  
+        if len(cur_indexes_list) == 1 : rule = 8
 
         # get all the indexes in the current cases list
         tmp_index_list = [] 
         # select all cases with syntaxic relations
         if  self.get_enabled_syntaxic_analysis():
-            #~tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]) or curcaseslist[x].has_next())]
             tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]) and curcaseslist[x].has_next())]
            
             # if indexes list is empty, the current indexes list is reloaded, and no change
             if tmp_index_list:
                 cur_indexes_list = tmp_index_list
+                
+
         if  self.get_enabled_syntaxic_analysis():
             #~tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]) or curcaseslist[x].has_next())]
             tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]) )]
@@ -1134,8 +1148,19 @@ class TashkeelClass:
                 cur_indexes_list = tmp_index_list
         if len(cur_indexes_list) == 1 : rule = 6
                 
-        #select default
+        # get all the indexes in the current cases list
+        tmp_index_list = [] 
+        # select all cases with tanwin
+        if  next_node:
+            if next_node.is_break():
+                tmp_index_list = [x for x in cur_indexes_list if curcaseslist[x].is_tanwin()]
+                # if indexes list is empty, the current indexes list is reloaded, and no change
+                if tmp_index_list:
+                    cur_indexes_list = tmp_index_list
+        if len(cur_indexes_list) == 1 : rule = 26
 
+        #select default
+        
  
             
         # select stopword

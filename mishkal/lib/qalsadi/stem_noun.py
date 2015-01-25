@@ -31,22 +31,11 @@ class NounStemmer:
         self.comp_stemmer = tashaphyne.stemming.ArabicLightStemmer()
         # configure the stemmer object
         self.comp_stemmer.set_infix_letters(snconst.COMP_INFIX_LETTERS)
-        #~self.comp_stemmer.set_prefix_letters(snconst.COMP_PREFIX_LETTERS)
-        #~self.comp_stemmer.set_suffix_letters(snconst.COMP_SUFFIX_LETTERS)
-        #~self.comp_stemmer.set_max_prefix_length(snconst.COMP_MAX_PREFIX)
-        #~self.comp_stemmer.set_max_suffix_length(snconst.COMP_MAX_SUFFIX)
-        #~self.comp_stemmer.set_min_stem_length(snconst.COMP_MIN_STEM)
         self.comp_stemmer.set_prefix_list(snconst.COMP_PREFIX_LIST)
         self.comp_stemmer.set_suffix_list(snconst.COMP_SUFFIX_LIST)
         # create a stemmer object for stemming conjugated verb
         self.conj_stemmer = tashaphyne.stemming.ArabicLightStemmer()
         # configure the stemmer object
-        #~self.conj_stemmer.set_infix_letters(snconst.CONJ_INFIX_LETTERS)
-        #~self.conj_stemmer.set_prefix_letters(snconst.CONJ_PREFIX_LETTERS)
-        #~self.conj_stemmer.set_suffix_letters(snconst.CONJ_SUFFIX_LETTERS)
-        #~self.conj_stemmer.set_max_prefix_length(snconst.CONJ_MAX_PREFIX)
-        #~self.conj_stemmer.set_max_suffix_length(snconst.CONJ_MAX_SUFFIX)
-        #~self.conj_stemmer.set_min_stem_length(snconst.CONJ_MIN_STEM)
         self.conj_stemmer.set_prefix_list(snconst.CONJ_PREFIX_LIST)
         self.conj_stemmer.set_suffix_list(snconst.CONJ_SUFFIX_LIST)
 
@@ -157,7 +146,6 @@ class NounStemmer:
                     infnoun_foundlist = self.cache_dict_search[infnoun]        
                 infnoun_form_list.extend(infnoun_foundlist)
             for noun_tuple in infnoun_form_list:
-                # noun_tuple = self.noun_dictionary.getEntryById(id)
                 infnoun = noun_tuple['vocalized']
                 # affixes tags contains prefixes and suffixes tags
                 affix_tags = snconst.COMP_PREFIX_LIST_TAGS[procletic]['tags'] \
@@ -236,7 +224,8 @@ class NounStemmer:
         #if not procletic and not encletic:  return True
         #use cache for affix verification
         affix = u'-'.join([procletic, encletic, suffix, str(
-        bool(noun_tuple['mamnou3_sarf']))])
+           bool(noun_tuple['mamnou3_sarf']))])
+        #~print affix.encode("utf8")
         if affix in self.cache_affixes_verification:
             return self.cache_affixes_verification[affix]
             
@@ -247,7 +236,7 @@ class NounStemmer:
         suffix_tags = snconst.CONJ_SUFFIX_LIST_TAGS[suffix]['tags']        
 
         if u"تعريف" in procletic_tags and u"مضاف" in suffix_tags and \
-        not u'منسوب' in suffix_tags:
+        not u'مضاف' in encletic_tags:
             self.cache_affixes_verification[affix] = False
         elif u"تعريف" in procletic_tags and u"تنوين" in suffix_tags:
             self.cache_affixes_verification[affix] = False
@@ -256,6 +245,7 @@ class NounStemmer:
             self.cache_affixes_verification[affix] = False
     # الجر  في حالات الاسم المعرفة بال أو الإضافة إلى ضمير أو مضاف إليه
     # مما يعني لا يمكن تطبيقها هنا
+    # بل في حالة التحليل النحوي
         elif u"مضاف" in encletic_tags and u"تنوين" in suffix_tags:
             self.cache_affixes_verification[affix] = False
         elif u"مضاف" in encletic_tags and u"لايضاف" in suffix_tags:
@@ -471,11 +461,7 @@ def vocalize( noun, proclitic,  suffix, enclitic):
     #The enclitic  is convert to HEH+ KAsra.
     #~enclitic_voc = self.getEncliticVariant(noun, suffix_voc, enclitic_voc)
 
-    # generate the non vacalized end word: the vocalized word 
-    # without the I3rab Mark
-    # if the suffix is a short haraka 
-    word_non_irab_mark = ''.join([ proclitic_voc,  noun, 
-    suffix_non_irab_mark,   enclitic_voc])             
+            
     
     #completate the dictionary word vocalization
     # this allow to avoid some missed harakat before ALEF
@@ -486,6 +472,22 @@ def vocalize( noun, proclitic,  suffix, enclitic):
     noun = re.sub(ur"(%s)+"%araby.FATHA , araby.FATHA, noun)
     # remove initial fatha if alef is the first letter
     noun = re.sub(ur"^(%s)+"%araby.FATHA , "", noun)
+    
+    # generate the non vacalized end word: the vocalized word 
+    # without the I3rab Mark
+    # if the suffix is a short haraka 
+    word_non_irab_mark = ''.join([ proclitic_voc,  noun, 
+    suffix_non_irab_mark,   enclitic_voc]) 
+    # ajust the semivocalized form
+    word_non_irab_mark  = re.sub(ur"(%s)+"%araby.FATHA , araby.FATHA, word_non_irab_mark )
+    word_non_irab_mark  = re.sub(ur"(%s%s%s)+"%(araby.FATHA, araby.ALEF_MAKSURA, araby.KASRATAN)
+ , araby.FATHATAN + araby.ALEF_MAKSURA, word_non_irab_mark )    
+    word_non_irab_mark  = re.sub(ur"%s%s%s"%(araby.FATHA, araby.ALEF_MAKSURA, araby.KASRA)
+ , araby.FATHA + araby.ALEF_MAKSURA, word_non_irab_mark ) 
+    word_non_irab_mark  = re.sub(ur"%s[%s|%s|%s]"%(araby.ALEF_MAKSURA, araby.DAMMA, araby.FATHA, araby.KASRA)
+ , araby.ALEF_MAKSURA, word_non_irab_mark ) 
+    
+    #generate vocalized form
     
     word_vocalized = ''.join([ proclitic_voc, noun, suffix_voc, 
        enclitic_voc])
@@ -512,8 +514,6 @@ def verify_affix(word, list_seg, affix_list):
     """
     return [s for s in list_seg if '-'.join([word[:s[0]], 
        word[s[1]:]]) in affix_list]
-    #~return filter (lambda s: '-'.join([word[:s[0]], 
-        #~word[s[1]:]]) in affix_list, list_seg)
 
 def validate_tags(noun_tuple, affix_tags, procletic, encletic_nm ,
  suffix_nm):
@@ -529,13 +529,12 @@ def validate_tags(noun_tuple, affix_tags, procletic, encletic_nm ,
     @type encletic_nm: unicode.
     @param suffix_nm: first level suffix vocalized.
     @type suffix_nm: unicode.        
-    @return: if the tags are compaatible.
+    @return: if the tags are compatible.
     @rtype: Boolean.
     """
     procletic = araby.strip_tashkeel(procletic)
     encletic = encletic_nm
     suffix = suffix_nm
-
     if u'مؤنث' in affix_tags and not noun_tuple['feminable']:
         return False
     if  u'جمع مؤنث سالم' in affix_tags and \
@@ -548,8 +547,10 @@ def validate_tags(noun_tuple, affix_tags, procletic, encletic_nm ,
         return False
     if  u'تنوين' in affix_tags and  noun_tuple['mamnou3_sarf']:
         return False
-    if  u'منسوب' in affix_tags and not noun_tuple['relative']:
+    if  u'مجرور' in affix_tags and  noun_tuple['mamnou3_sarf']:
         return False
+    #~if  u'منسوب' in affix_tags and (not noun_tuple['relative'] and not u'مصدر' in noun_tuple['word_type']):
+        #~return False
     #تدقيق الغضافة إلى الضمائر المتصلة
     if encletic == u"هم" and noun_tuple['hm_suffix'] == 'N':
         return False

@@ -30,6 +30,8 @@ class WordCase:
         #~"""input word"""
         self.vocalized =  u"", 
         #~"""vocalized form of the input word """
+        self.semivocalized =  u"", 
+        #~"""vocalized form without inflection mark """        
         self.tags =  u"", 
         #~"""tags of affixes and tags extracted form lexical dictionary"""
         self.affix_key = u'-'
@@ -109,6 +111,14 @@ class WordCase:
         @rtype: unicode string
         """
         return self.vocalized
+
+    def get_semivocalized(self, ):
+        """
+        Get the semi vocalized form of the input word with out inflection mark
+        @return: the given vocalized.
+        @rtype: unicode string
+        """
+        return self.semivocalized        
 
     def is_unknown(self, ):
         """

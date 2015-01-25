@@ -1,25 +1,68 @@
 ﻿#!/usr/bin/python
 #-*- coding: UTF-8 -*-
+import getopt
+import os, os.path
 import sys
-sys.path.append('/opt/mishkal/lib');
-sys.path.append('mishkal/');
-sys.path.append('mishkal/lib/');
+import re
+from glob import glob
+
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'mishkal/lib/'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'mishkal'))
 from itertools import tee, islice, chain, izip
 
 def previous_and_next(some_iterable):
+    """
+    Get all trigrams of given iterable
+    @param some_iterable: iterable
+    @type: iterable
+    @return: list of trigrams
+    @rtype;list
+    """
     prevs, items, nexts =  tee(some_iterable, 3)
     prevs =  chain([None], prevs)
     nexts =  chain(islice(nexts, 1, None), [None])
     return izip(prevs, items, nexts)
-import re
+def display_trigram_cases(detailled_syntax):
+    """
+    Display tri grams of detailled syntaxical resulted from syntaxic analysis
+    @param detailled_syntax: given sysntaix analysis result
+    @type detailled_syntax: list of list of stemmedsynword
+    @return : none
+    @rtype: none
+    """
+    # print tri-grams of current cases
+    for previous, currents, nxt in previous_and_next(detailled_syntax):
+        for wordcase in currents:
+            #print current word and next words numbers 
+            print wordcase.get_word().encode('utf8'), wordcase.get_next();
+            # get all next word cases of the current word
+            nextWordCasePositions =  wordcase.get_next();
+            # get all previous word cases of the current word                    
+            previousWordCasePositions =  wordcase.get_previous();
+
+            if previous and previousWordCasePositions:    
+                for p in previousWordCasePositions:
+                    if p <len(previous):
+                        if nxt and  nextWordCasePositions:
+                            for n in nextWordCasePositions:
+                                if n<len(nxt):
+                                    print u' '.join([ previous[p].get_vocalized(), wordcase.get_vocalized(), nxt[n].get_vocalized(), ]).encode('utf8')
+                                else:
+                                    print u' '.join([ previous[p].get_vocalized(), wordcase.get_vocalized()]).encode('utf8')
+                        else:
+                            print u' '.join([ previous[p].get_vocalized(), wordcase.get_vocalized()]).encode('utf8')
+            else:
+                if nxt and  nextWordCasePositions:
+                    for n in nextWordCasePositions:
+                        if n<len(nxt):
+                            print u' '.join([ wordcase.get_vocalized(), nxt[n].get_vocalized(), ]).encode('utf8')
+                        else:
+                            print u' '.join([ wordcase.get_vocalized(), ]).encode('utf8')
+                else:
+                    print u' '.join([ wordcase.get_vocalized(), ]).encode('utf8')
+
 import string
 import datetime
-import getopt
-import os
-# join the actual dirctory to lib path
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'lib'));
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'mishkal/lib/'));
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'mishkal/'));
 import pyarabic.araby as araby
 import qalsadi.analex
 import aranasyn.anasyn
@@ -148,37 +191,25 @@ if __name__ ==  '__main__':
             #syntaxical analysis of text
             detailled_syntax, synnodeList =  anasynt.analyze(detailled_stem);
             # print detailled_syntax;
+            syno_tags = u" ‫"
             for synnode in synnodeList:
                 if synnode.get_break_type() in ("break", "mostBreak"):
-                    print "break";
-                print synnode.get_word().encode('utf8'),                 
-            for previous, currents, nxt in previous_and_next(detailled_syntax):
-                for wordcase in currents:
-                    print wordcase.get_word().encode('utf8'), wordcase.get_next();
-                    nextWordCasePositions =  wordcase.get_next();
-                    previousWordCasePositions =  wordcase.get_previous();
-
-                    if previous and previousWordCasePositions:    
-                        for p in previousWordCasePositions:
-                            if p <len(previous):
-                                if nxt and  nextWordCasePositions:
-                                    for n in nextWordCasePositions:
-                                        if n<len(nxt):
-                                            print u' '.join([ previous[p].get_vocalized(), wordcase.get_vocalized(), nxt[n].get_vocalized(), ]).encode('utf8')
-                                        else:
-                                            print u' '.join([ previous[p].get_vocalized(), wordcase.get_vocalized()]).encode('utf8')
-                                else:
-                                    print u' '.join([ previous[p].get_vocalized(), wordcase.get_vocalized()]).encode('utf8')
+                    if synnode.is_break_end():
+                       print synnode.get_word().encode('utf8');
+                       print syno_tags.encode('utf8')
+                       syno_tags = ""
                     else:
-                        if nxt and  nextWordCasePositions:
-                            for n in nextWordCasePositions:
-                                if n<len(nxt):
-                                    print u' '.join([ wordcase.get_vocalized(), nxt[n].get_vocalized(), ]).encode('utf8')
-                                else:
-                                    print u' '.join([ wordcase.get_vocalized(), ]).encode('utf8')
-                        else:
-                            print u' '.join([ wordcase.get_vocalized(), ]).encode('utf8')
-
+                       print "break";
+                       print syno_tags.encode('utf8')
+                       syno_tags = u" ‫"
+                       print synnode.get_word().encode('utf8'),                        
+                else:
+                    print synnode.get_word().encode('utf8'),
+                syno_tags += " '%s'"%synnode.get_word_type()
+                #~print (u"%s[%s]"%(synnode.get_word(),synnode.get_word_type() )).encode('utf8'),
+            
+            # display all tri-grams of the current cases in middle
+            #display_trigram_cases(detailled_syntax)
         counter += 1;
         #get the next line
         if not text:

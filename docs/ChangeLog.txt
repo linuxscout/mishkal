@@ -1,3 +1,20 @@
+2015-01-25: *Taha Zerrouki
+    - pyarabic.araby.py: fix strip_tashkeel bug when a word contain shadda only
+    - core/adaat.py: ajust compare vocalization by adding iflection mark remove which is not the last mark always
+    - mishkal-console.py : fix compare vocalization problems by adding iflection mark remove
+    - plan to ajust collocations search 
+    - asmaii/synode.py: add more attibutes for handle syntaxic nodes
+    - asmaii/anasyn.py: add synode to syntaxical analysis
+    - qalsadi/analex.py: disable initial word tags because of errors     
+    - qalsadi/analex.py: use of araby.tokenize() function instead of specific function
+    - qalsadi/stem_noun.py: fix semivocalized form from vocalize() function     
+    - qalsadi/stem_verb.py: add semivocalized output to from vocalize() function 
+    - qalsadi/stem_punct_const.py: add arabic comma     
+    - qalsadi/stem_stop.py: add unvariable state (مبني)   
+    - qalsadi/wordcase.py: add semivocalized output
+    - resources/files/adawaty.js: add semivocalized to do result to display words without inflected mark
+2015-01-17: *Taha Zerrouki:
+	- qalsadi: fix relative case of words like إعلاميّ
 2014-12-25 * Taha Zerrouki:
     - mishkal/tashkeel/tashkeel.py : test a new algorithm to select taskeel cases
     - web interface: fix errors on result div display
