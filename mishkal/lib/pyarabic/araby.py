@@ -907,6 +907,7 @@ def vocalized_similarity(word1, word2):
     if the two words has the same letters and the same harakats,  this fuction return True.
     The two words can be full vocalized,  or partial vocalized
     """
+    
     stack1 = stack.Stack(word1)
     stack2 = stack.Stack(word2)
     last1 = stack1.pop()

@@ -13,7 +13,6 @@
 
 """
 The original web interface is from webQamoos,
-
 Copyright © 2009, Muayyad Alsadi <alsadi@ojuba.org>
     Released under terms of Waqf Public License.
     This program is free software; you can redistribute it and/or modify
@@ -26,7 +25,6 @@ Copyright © 2009, Muayyad Alsadi <alsadi@ojuba.org>
 
     The Latest version of the license can be found on
     "http://waqf.ojuba.org/license"
-
 """
 import sys
 
@@ -47,26 +45,15 @@ import core.adaat
 import datetime
 
 header=u"""
-<div style='text-align:left;vertical-align:middle; display:table-cell;'>
 
-     <a href="/mishkal/index">الرئيسية</a>&nbsp;&nbsp;
-    <a href="/mishkal/doc">توثيق</a>&nbsp;&nbsp;
-      <a href="/mishkal/link">روابط</a>&nbsp;&nbsp;
-<a href="/mishkal/download">تحميل</a>&nbsp;&nbsp;
-	<a href="/mishkal/projects">مشاريع</a>&nbsp;&nbsp;
-      <a href="/mishkal/contact">اتصل بنا</a>&nbsp;&nbsp;
-</div>
-<hr/>
 """
 
 
 footer=u"""
-<hr class="footer"/>
-  <div id="footer">
-    <a href="/mishkal/contact">للاتصال</a>&nbsp;
-    &nbsp;بدعم من &nbsp;&nbsp; <a href="http://www.arabeyes.org">arabeyes.org</a>
-	<a href="http://blog.tahadz.com">مدونتي</a>
-	</div>
+  <footer>
+    <a href="/mishkal/contact">للاتصال<span class="glyphicon glyphicon-envelope"></span></a>
+	 </span><a href="http://blog.tahadz.com">مدونتي<span class="glyphicon glyphicon-globe"></a>
+</footer>
 
 """
 
@@ -90,6 +77,7 @@ class webApp(baseWebApp):
 
 	def _root(self, rq, *args):
 		raise redirectException(rq.script+'/main')
+		#~raise redirectException(rq.script+'/temp')
 
 	@expose(percentTemplate,["main.html"])
 	def main(self, rq, *args):
@@ -123,7 +111,7 @@ class webApp(baseWebApp):
 		this is an example of using ajax/json
 		to test it visit http://localhost:8080/ajaxGet"
 		"""
-		text=rq.q.getfirst('text','ZerroukiTAha').decode('utf-8')
+		text=rq.q.getfirst('text','Zerrouki Taha').decode('utf-8')
 		action=rq.q.getfirst('action','DoNothing').decode('utf-8')
 		order=rq.q.getfirst('order','0').decode('utf-8')
 		options={};
@@ -188,7 +176,13 @@ class webApp(baseWebApp):
 		'header':header,
 		"footer":footer,
 		}
-
+	#~@expose(percentTemplate,["temp.html"])
+	#~def temp(self, rq, *args):
+		#~return {
+		#~'script':rq.script,
+		#~'header':header,
+		#~"footer":footer,
+		#~}
 	def writelog(self,text,action):
 		"""
 		@param text: an object to be logged

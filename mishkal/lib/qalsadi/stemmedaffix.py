@@ -172,7 +172,7 @@ class StemmedAffix:
         @return: True if encletic not empty.
         @rtype: Boolean
         """
-        return self.encletic != u''
+        return self.encletic != u'' or self.prefix.startswith(u'ل')
     def __get_inflect(self,):
         """
         Return int code of iflection state.
@@ -391,7 +391,8 @@ class StemmedAffix:
         @return: has jar.
         @rtype: True/False
         """        
-        return  u'جر:'in self.get_tags()
+        return  u'جر:'in self.get_tags() or self.procletic.startswith(araby.LAM)
+
     def __has_istfham(self):
         """
         Return True if the word has a istfham factor attached.

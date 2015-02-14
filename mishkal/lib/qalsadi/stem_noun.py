@@ -176,24 +176,18 @@ class NounStemmer:
                                     original_tags.append(u"ممنوع من الصرف")
                                 if noun_tuple['number'] == u"جمع تكسير":
                                     original_tags.append(u"جمع تكسير")
-                                    # affix_tags+ = (, )
+
+                        
                                 detailed_result.append(wordcase.WordCase({
                                 'word':noun, 
                                 'affix': (procletic,  '', vocalized_suffix, 
                                 vocalized_encletic),
-                                #~ 'procletic': , 
-                                #~ 'encletic':  , 
-                                #~ 'prefix':    '', 
-                                #~ 'suffix':    vocalized_suffix, 
                                 'stem':      stem_conj, 
                                 'original':  infnoun, #original, 
                                 'vocalized': vocalized, 
                                 'semivocalized':semi_vocalized,
-                                'tags':      u':'.join(vocalized_affix_tags), 
-                                'type':      u':'.join(['Noun', 
-                                       noun_tuple['wordtype']]), #'Noun', 
-                                #~ 'root':      '', 
-                                #~ 'template':  '', 
+                                'tags':  u':'.join(vocalized_affix_tags), 
+                                'type':  u':'.join(['Noun', noun_tuple['wordtype']]),  
                                 'freq':'freqnoun', # to note the frequency type 
                                 'originaltags':u':'.join(original_tags), 
                                 'syntax':'', 
@@ -468,6 +462,8 @@ def vocalize( noun, proclitic,  suffix, enclitic):
     # in the dictionary form of word, all alefat are preceded by Fatha
     #~noun = araby.complet
     noun = noun.replace(araby.ALEF, araby.FATHA + araby.ALEF)
+    #~noun = noun.replace(araby.ALEF + araby.KASRA ,  araby.ALEF)
+    #~noun = noun.replace(araby.ALEF + araby.FATHA ,  araby.ALEF)
     noun = noun.replace(araby.ALEF_MAKSURA, araby.FATHA + araby.ALEF_MAKSURA)
     noun = re.sub(ur"(%s)+"%araby.FATHA , araby.FATHA, noun)
     # remove initial fatha if alef is the first letter

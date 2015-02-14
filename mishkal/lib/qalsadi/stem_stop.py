@@ -472,9 +472,9 @@ def validate_tags(stop_tuple, affix_tags, procletic, encletic_nm ,
         return False 
     if u"متحرك" in affix_tags  and  not stop_tuple['is_inflected']:
         return False  
-    if u"إضافة" in affix_tags and not stop_tuple['pronoun']:
+    if u"مضاف" in affix_tags and not stop_tuple['pronoun']:
         return False 
-    if u"إضافة" in affix_tags and not stop_tuple['defined']:
+    if u"مضاف" in affix_tags and stop_tuple['defined']:
         return False 
         #~interrog
     if u"استفهام" in affix_tags and not stop_tuple['interrog']:
@@ -514,7 +514,6 @@ def ajust_vocalization( vocalized):
     @return: ajusted vocalized word.
     @rtype: unicode.
     """
-    ajusted = vocalized
     ajusted = ssconst.AJUSTMENT.get(vocalized, vocalized)
     
     return ajusted

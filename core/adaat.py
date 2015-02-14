@@ -596,7 +596,8 @@ def compare_tashkeel(text):
     displayed_html = u""
     
     #stemmer=tashaphyne.stemming.ArabicLightStemmer()
-    texts = vocalizer.analyzer.split_into_phrases(text1)
+    #~texts = vocalizer.analyzer.split_into_phrases(text1)
+    texts = [text1, ]
     list1 =[]
     for txt in texts:
         list1 += vocalizer.analyzer.tokenize(txt)
@@ -618,11 +619,15 @@ def compare_tashkeel(text):
             wo2_strip = list2[i]['semi']  # words without inflection mark
             inflect = list2[i]['inflect']
             link = list2[i]['link']
+            rule = list2[i]['rule']
+            style = "diff"
             #~if araby.is_vocalized(wo2) and araby.vocalizedlike(wo1, wo2):
             if araby.vocalizedlike(wo1, wo2):
                 if wo2 == "\n":
                     wo2 = "<br/>"
-                displayed_html += u" " + wo2
+                #~displayed_html += u" " + wo2
+                displayed_html += u" <span id='diff'  class='%s' original='%s' inflect='%s' link='%s' rule='%s'>%s</span>" % ( style, wo1, inflect, link, str(rule), wo2)
+
                 correct += 1
             else:
                 incorrect += 1
@@ -640,7 +645,7 @@ def compare_tashkeel(text):
                         style = "diff-word"
                     else:
                         style = 'diff-all'
-                displayed_html += u" <span id='diff'  class='%s' original='%s' inflect='%s' link='%s'>%s</span>" % ( style, wo1, inflect, link, wo2)
+                displayed_html += u" <span id='diff'  class='%s' original='%s' inflect='%s' link='%s' rule='%s'>%s</span>" % ( style, wo1, inflect, link, str(rule), wo2)
     per_correct = round(correct*100.00/total, 2)
     per_incorrect = round(incorrect*100.00/total, 2)
     result = [displayed_html, "correct:%0.2f%%, incorrect:%0.2f%%"%(per_correct, per_incorrect)]

@@ -1069,6 +1069,7 @@ class TashkeelClass:
         chosen_index = False
         rule = 0
         previous = previous_chosen_case
+        pre_relation = 0
         
         # How to choose a vocalized case
         # and lets other methode to choices by semantic and syntaxic
@@ -1197,13 +1198,21 @@ class TashkeelClass:
         if tmp_index_list:
             cur_indexes_list = tmp_index_list               
                 
-        if len(cur_indexes_list) == 1 : rule = 16              
+        if len(cur_indexes_list) == 1 : rule = 16  
+        
+        # select 3rd person
+        tmp_index_list = [x for x in cur_indexes_list if ( curcaseslist[x].is_verb() and curcaseslist[x].is3rdperson())]
+        # if indexes list is empty, the current indexes list is reloaded, and no change
+        if tmp_index_list:
+            cur_indexes_list = tmp_index_list               
+                
+        if len(cur_indexes_list) == 1 : rule = 18 
+                    
         # select the first case if there one or many
         chosen_index =  cur_indexes_list[0]
-        chosen = curcaseslist[chosen_index] 
+        chosen = curcaseslist[chosen_index]
+         
         
-        #~print cur_indexes_list
-        #~print chosen_index, chosen.get_order() , cur_indexes_list, chosen.get_vocalized().encode('utf8')
         # set the selection rule to dispaly how tahskeel is selected
         chosen.set_rule(rule)
         return chosen.get_order() 

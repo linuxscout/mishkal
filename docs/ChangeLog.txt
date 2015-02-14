@@ -10,9 +10,11 @@
     - qalsadi/stem_noun.py: fix semivocalized form from vocalize() function     
     - qalsadi/stem_verb.py: add semivocalized output to from vocalize() function 
     - qalsadi/stem_punct_const.py: add arabic comma     
-    - qalsadi/stem_stop.py: add unvariable state (مبني)   
+    - qalsadi/stem_stop.py: add unvariable state (مبني) 
+    - qalsadi/stem_stop.py: correct stopword إن +ه analysis
     - qalsadi/wordcase.py: add semivocalized output
     - resources/files/adawaty.js: add semivocalized to do result to display words without inflected mark
+    -     
 2015-01-17: *Taha Zerrouki:
 	- qalsadi: fix relative case of words like إعلاميّ
 2014-12-25 * Taha Zerrouki:
