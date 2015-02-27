@@ -41,25 +41,28 @@ def usage():
 
 def grabargs():
 #  "Grab command-line arguments"
-    fname = ''
-    suggestion = False
-    ignore = False
-    limit = False 
-    compare = False
-    disableSyntax = False
-    disableSemantic = False
-    disableStatistic = False
-    strip_tashkeel = False
-    reducedTashkeel = False  
-    progress = False  
+    options ={ "fname": '', 
+    "suggestion" : False, 
+    "ignore" : False,
+    "limit" : False, 
+    "compare" : False,
+    "disableSyntax" : False,
+    "disableSemantic" : False,
+    "disableStatistic" : False,
+    "strip_tashkeel" : False,
+    "reducedTashkeel" : False,  
+    "progress" : False,  
+    "nocache" : False,
+    "text" : "",
+    }
     if not sys.argv[1:]:
         usage()
         sys.exit(0)
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hVtcpixsmrv:f:l:", 
+        opts, args = getopt.getopt(sys.argv[1:], "hVtcpixsmnrv:f:l:", 
                                ["help", "version", "stat", "compare", 
                                "reduced", "strip", "syntax", "progress", "semantic", 
-                               "ignore", "limit=", "file="], )
+                               "ignore", "nocache", "limit=", "file="], )
     except getopt.GetoptError:
         usage()
         sys.exit(0)
@@ -71,41 +74,55 @@ def grabargs():
             print scriptversion
             sys.exit(0)
         if o in ("-x", "--syntax"):
-            disableSyntax = True
+            options["disableSyntax"] = True
         if o in ("-s", "--strip"):
-            strip_tashkeel = True
+            options["strip_tashkeel"] = True
         if o in ("-r", "--reduced"):
-            reducedTashkeel = True
+            options["reducedTashkeel"] = True
         if o in ("-m", "--semantic"):
-            disableSemantic = True
+            options["disableSemantic"] = True
         if o in ("-i", "--ignore"):
-            ignore = True
+            options["ignore"] = True
+        if o in ("-n", "--nocache"):
+            options["nocache"] = True
         if o in ("-c", "--compare"):
-            compare = True
+            options["compare"] = True
         if o in ("-t", "--stat"):
-            disableStatistic = True
+            options["disableStatistic"] = True
         if o in ("-p", "--progress"):
-            progress = True            
+            options["progress"] = True            
         if o in ("-l", "--limit"):
-            try: limit = int(val)
-            except: limit = 0
+            try: options["limit"] = int(val)
+            except: options["limit"] = 0
 
         if o in ("-f", "--file"):
-            fname = val
+            options["fname"] = val
     utfargs = []
     for a in args:
         utfargs.append( a.decode('utf8'))
-    text = u' '.join(utfargs)
+    options["text"] = u' '.join(utfargs)
 
     #if text: print text.encode('utf8')
-    return (fname, text, strip_tashkeel, reducedTashkeel, disableSyntax, 
-    disableSemantic, disableStatistic, ignore, limit , compare, progress)
+    return (options)
 
 import tashkeel.tashkeel as ArabicVocalizer
 
 def test():
-    filename, text, strip_tashkeel, reducedTashkeel, disableSyntax, \
-    disableSemantic, disableStat, ignore, limit, compare, progress = grabargs()
+    options = grabargs()
+
+    filename = options['fname']
+    text     = options['text']
+    strip_tashkeel  = options['strip_tashkeel']
+    nocache         = options['nocache']
+    reducedTashkeel = options['reducedTashkeel']
+    disableSyntax   = options['disableSyntax']
+    disableSemantic = options['disableSemantic']
+    disableStat     = options['disableStatistic']
+    ignore = options['ignore']
+    limit  = options['limit']
+    compare = options['compare']
+    progress = options['progress']
+        
     #filename = "samples/randomtext.txt"    
     if not text and not filename:
         usage()
@@ -128,6 +145,9 @@ def test():
         limit = 100000000
     if not strip_tashkeel: 
         vocalizer = ArabicVocalizer.TashkeelClass()
+        if nocache : 
+            vocalizer.disable_cache()
+            print "nocache"
         if ignore : 
             vocalizer.disable_last_mark()
         if disableSemantic:

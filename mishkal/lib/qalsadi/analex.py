@@ -96,9 +96,9 @@ class Analex :
         #added as a global variable to avoid duplucated search 
         #in mutliple call of analex
         # cache used to avoid duplicata
-        #~self.allow_cache_use = True
-        self.allow_cache_use = False
-        #~self.cache = cache.cache()
+        self.allow_cache_use = True
+        #self.allow_cache_use = False
+        self.cache = cache.cache()
 
 
     def __del__(self):

@@ -70,8 +70,8 @@ class TashkeelClass:
 
         # lexical analyzer
         self.analyzer = qalsadi.analex.Analex()
-        self.analyzer.disable_allow_cache_use()
-        #~self.analyzer.enable_allow_cache_use()
+        #self.analyzer.disable_allow_cache_use()
+        self.analyzer.enable_allow_cache_use()
 
         # syntaxic analyzer
         self.anasynt = aranasyn.anasyn.SyntaxAnalyzer()
@@ -103,6 +103,13 @@ class TashkeelClass:
         disable the stat tasheel option.
         """
         self.enabled_stat_tashkeel = False
+
+    def disable_cache(self):
+        """
+        disable the morphological use of cache.
+        """
+        self.analyzer.disable_allow_cache_use()
+
     def get_enabled_stat_tashkeel(self):
         """
         return the  the stat tasheel option value.
