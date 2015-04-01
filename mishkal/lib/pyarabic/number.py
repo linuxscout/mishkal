@@ -105,6 +105,11 @@
  * @license   LGPL <http://www.gnu.org/licenses/lgpl.txt>
  * @link      http://www.ar-php.org
  """
+
+if __name__  ==  '__main__':
+    import sys
+    sys.path.append('../')
+    import pyarabic.arabrepr as arabrepr
 import math
 import pyarabic.araby as araby
 import pyarabic.number_const as nbconst
@@ -217,7 +222,7 @@ class ArNumbers:
         string = u''
         number = number#trunc(int(number)) #(int)number)
         try:
-            number = int(number)
+            number_value = int(number)
         except  ValueError:
             number = "0"
         if (int(number) > 0):
@@ -512,6 +517,7 @@ def get_previous_tag(word):
         return u'مرفوع'
     else:
         return u''
+
 def extract_number_phrases(text):
     """
     Extract number words in a text.
@@ -576,6 +582,7 @@ def detect_number_phrases_position(wordlist):
     phrases = []
     startnumber = -1
     endnumber = False
+    taglist = []
     for i in range(len(wordlist)):
         word = wordlist[i]
         if i+1 < len(wordlist):
@@ -604,8 +611,55 @@ def detect_number_phrases_position(wordlist):
     # add the final phrases 
     if startnumber >= 0: #There are a previous number phrase.
         phrases.append((startnumber, endnumber))
+
     return phrases
 
+
+
+def detect_numbers(wordlist):
+    """
+    Detect number words in a text and return a taglist as BIO.
+    @param wordlist: wordlist
+    @type wordlist: unicode list
+    @return : list of tags BIO
+    @rtype: list of unicode
+    >>> detect_numbers(u"وجدت خمسمئة وثلاثة وعشرين دينارا فاشتريت ثلاثة عشر دفترا")
+    ['O', 'B', 'I', 'I', 'O', 'O', 'B', 'I', 'O']
+    """
+    phrases = []
+    starts = False
+    taglist = []
+       
+    for i in range(len(wordlist)):
+        word = wordlist[i]
+        if i+1 < len(wordlist):
+            nextword = araby.strip_tashkeel(wordlist[i+1])
+        else: 
+            nextword = None
+        #save the original word with possible harakat if exist
+        word_nm = araby.strip_tashkeel(word)
+        key = word_nm
+        # the first word can have prefixes 
+        if word_nm and not starts and word_nm != u'واحد' \
+            and word_nm[0] in (u'و', u'ف', u'ل', u'ب', u'ك'):
+            key = word_nm[1:]
+        elif word_nm != u'واحد' and word_nm.startswith(u'و'):
+            key = word_nm[1:]
+        if nbconst.NumberWords.has_key(key):
+            if not key in (u'أحد', u'إحدى', u'اثنا', u'اثني',  u'اثنتي', \
+             u'اثنتا')  or nextword in (u'عشر',  u'عشرة'):
+                if not starts:
+                    taglist.append("DB")
+                    starts = True
+                else:
+                    taglist.append("DI")
+            else:
+                starts = False
+                taglist.append("DO")       
+        else:
+            starts = False
+            taglist.append("DO")
+    return taglist
 def detect_number_words(text):
     """
     Detect number words in a text.
@@ -639,8 +693,38 @@ def detect_number_words(text):
                 print u'\t'.join([str(sim), numberedwords, vocalized, \
                  str(numeric), u' '.join([previous, phrase, nextword]), \
                   nextword, voc_unit, str(sim_unit)]).encode('utf8')
-
 def pre_tashkeel_number(wordlist):
+    """
+    Detect number words in a text.
+    @param wordlist: input text
+    @type wordlist: unicode
+    @return : wordlist with vocalized number clause
+    @rtype: list
+    >>> preTashkeelNumber(u"وجدت خمسمئة وثلاثة وعشرين دينارا")
+    وجدت خمسمئة وثلاثة وعشرين دينارا
+
+    """
+    taglist = detect_numbers(wordlist)
+    previous = ""
+    vocalized_list = []
+    chunk = []
+    previous_tag = ""
+    for word, tag in zip(wordlist, taglist):
+        if tag in ("DB", "DI"):
+            chunk.append(word)
+        else:
+            if chunk:
+              #get the tag of previous word
+              previous_tag = get_previous_tag(previous)
+              vocalized = vocalize_number( chunk, previous_tag)
+              vocalized_list.extend(vocalized)
+              chunk = []
+            vocalized_list.append(word)
+            previous = word
+        
+    return vocalized_list
+
+def pre_tashkeel_number2(wordlist):
     """
     Detect number words in a text.
     @param wordlist: input text
@@ -678,7 +762,8 @@ if __name__  ==  '__main__':
         u"خمسمئة وثلاث وعشرون دينارا",
     u"وجدت خمسمئة وثلاثة وعشرين دينارا فاشتريت ثلاثة عشر دفترا",
     u"لم أجد شيئا",
-    u'من ثلائمئة وخمسين بلدا ',
+u"وجدت خمسمئة وثلاثة وعشرين دينارا فاشتريت ثلاثة عشر دفترا",
+    u'من ثلاثمئة وخمسين بلدا ',
         u'من ثلاثمئة وخمسين بلدا ',
     u'من أربعمئة وخمسين بلدا ',
     ]
@@ -686,5 +771,12 @@ if __name__  ==  '__main__':
         positions_phrases =  detect_number_phrases_position(araby.tokenize(txt))
         print positions_phrases
         nb_phrases = extract_number_phrases(txt)
+        wordlist = araby.tokenize(txt)
+        taglist = detect_numbers(wordlist)
+        arepr = arabrepr.ArabicRepr()
+        print taglist
+        print u" ".join(wordlist).encode('utf8')
+        print arepr.repr(zip(taglist, wordlist)).encode('utf8')
+        print "tashkeel",u" ".join(pre_tashkeel_number(wordlist)).encode('utf8')
         print txt.encode('utf8')
         print u'\t'.join(nb_phrases).encode('utf8')

@@ -147,12 +147,26 @@ def grabargs():
     text =  u' '.join(utfargs);
 
     #if text: print text.encode('utf8');
-    return (fname, text, stripTashkeel, reducedTashkeel, disableSyntax, disableSemantic, disableStatistic, ignore, limit , compare)
+    options ={"filename":fname,
+			 "text":text,
+			"stripTashkeel": stripTashkeel,
+			"reducedTashkeel": reducedTashkeel,
+			"disableSyntax": disableSyntax,
+			"disableSemantic": disableSemantic,
+			"disableStatistic":disableStatistic, 
+			"ignore":ignore,
+			"limit":limit ,
+			"compare": compare,
+	}
+    return options
 
 import tashkeel
 if __name__ ==  '__main__':
-    filename, text, stripTashkeel, reducedTashkeel, disableSyntax, disableSemantic, disableStat, ignore, limit, compare = grabargs()
-    #filename = "samples/randomtext.txt"    
+    options = grabargs()
+    #filename = "samples/randomtext.txt"
+    text = options['text']
+    filename = options['filename']
+    limit =   options['limit']  
     if not text and not filename:
         usage()
         sys.exit(0)        
@@ -205,7 +219,7 @@ if __name__ ==  '__main__':
                        print synnode.get_word().encode('utf8'),                        
                 else:
                     print synnode.get_word().encode('utf8'),
-                syno_tags += " '%s'"%synnode.get_word_type()
+                syno_tags += " '%s[%s]'"%(synnode.get_word_type(), synnode.get_guessed_type_tag())
                 #~print (u"%s[%s]"%(synnode.get_word(),synnode.get_word_type() )).encode('utf8'),
             
             # display all tri-grams of the current cases in middle

@@ -26,26 +26,26 @@ class WordTagger():
         self.word = u""
         self.verbstemmer = tashaphyne.ArabicLightStemmer()
         # prepare the verb stemmer
-        verb_prefix = u"أسفلونيتا"
-        verb_infix = u"اتويدط"
-        verb_suffix = u"امتةكنهوي"
-        verb_max_prefix = 4
-        verb_max_suffix = 6
-        self.verbstemmer.set_max_prefix_length(verb_max_prefix)
-        self.verbstemmer.set_max_suffix_length(verb_max_suffix)
-        self.verbstemmer.set_prefix_letters(verb_prefix)
-        self.verbstemmer.set_suffix_letters(verb_suffix)
+        #verb_prefix = u"أسفلونيتا"
+        #verb_infix = u"اتويدط"
+        #verb_suffix = u"امتةكنهوي"
+        #verb_max_prefix = 4
+        #verb_max_suffix = 6
+        #self.verbstemmer.set_max_prefix_length(verb_max_prefix)
+        #self.verbstemmer.set_max_suffix_length(verb_max_suffix)
+        #self.verbstemmer.set_prefix_letters(verb_prefix)
+        #self.verbstemmer.set_suffix_letters(verb_suffix)
         self.verbstemmer.set_prefix_list(affix_const.VERBAL_PREFIX_LIST)
-        self.verbstemmer.infix_letters = verb_infix
+        #self.verbstemmer.infix_letters = verb_infix
         # prepare the noun stemmer
         self.nounstemmer = tashaphyne.ArabicLightStemmer()
-        noun_prefix = u"مأسفلونيتاكب"
-        noun_infix = u"اتويدط"
-        noun_suffix = u"امتةكنهوي"
-        self.nounstemmer.set_prefix_letters(noun_prefix)
-        self.nounstemmer.set_suffix_letters(noun_suffix)
+        #noun_prefix = u"مأسفلونيتاكب"
+        #noun_infix = u"اتويدط"
+        #noun_suffix = u"امتةكنهوي"
+        #self.nounstemmer.set_prefix_letters(noun_prefix)
+        #self.nounstemmer.set_suffix_letters(noun_suffix)
         self.nounstemmer.set_prefix_list(affix_const.NOMINAL_PREFIXES_LIST)
-        self.nounstemmer.infix_letters = noun_infix
+        #self.nounstemmer.infix_letters = noun_infix
         self.cache = {} # a cache to speed up the tagging process
         
         # prepare verb pattern
@@ -612,7 +612,45 @@ class WordTagger():
         #    return True
         #else:
         #    return False
-        
+    def one_word_tagging(self, word, previous = u"", second_previous = u""):
+        """
+        Guess word classification, into verb, noun, stopwords.
+        return a guessed tag
+        @param word: the given word.
+        @type word: unicode.
+        @return: a tag : 't': tool, 'v': verb, 
+        'n' :noun, 'nv' or 'vn' unidentifed.
+        @rtype: unicode 
+        """
+        if not word:
+            return ""
+        else:
+            word_nm = araby.strip_tashkeel(word)
+            tag = ''
+            if self.cache.has_key(word):
+                tag = self.cache.get(word, '')
+            else:
+                if self.is_stopword(word):
+                    tag = 't'
+                else:
+                    if self.is_noun(word):
+                        tag += 'n'
+                    if self.is_verb(word):
+                        tag += 'v'
+                # add the found tag to Cache.
+                self.cache[word] = tag
+            # if the tagging give an ambigous tag, 
+            # we can do an contextual analysis
+            # the contextual tag is not saved in Cache, 
+            # because it can be ambigous.
+            # for example  
+            # في ضرب : is a noun
+            # قد ضرب : is a verb
+            if tag in ("", "vn", "nv"):
+                tag = self.context_analyse(previous, word)+"2"
+                if tag in ("", "1", "vn1", "nv1"):
+                    tag = self.context_analyse(u" ".join([second_previous, previous]), word)+"3"                    
+        return tag       
     def word_tagging(self, word_list):
         """
         Guess word classification, into verb, noun, stopwords.

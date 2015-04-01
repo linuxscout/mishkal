@@ -1,3 +1,14 @@
+2015-03-23: * Taha Zerrouki
+    - tashkeel/tashkeel.py: Improve choose_tashkeel function and display rules
+    - arasyn/anasyn.py: ompatible_subject_verb(): Add subject/verb compatible verification  
+    - stopwords: add إلا 
+2015-03-07: * Taha Zerrouki
+    - Fix named enteties and numbers extraction
+    - fix cache use when the word is partial vocalized
+2015-03-05: *Taha Zerrouki
+    - fix collocations over consuming of memory and time
+    - add word1, word2 fields in collocations database, make an index to speed up collocations research
+    - improve web interface collocation detection
 2015-01-25: *Taha Zerrouki
     - pyarabic.araby.py: fix strip_tashkeel bug when a word contain shadda only
     - core/adaat.py: ajust compare vocalization by adding iflection mark remove which is not the last mark always
@@ -182,6 +193,7 @@
 	* Fix a bug in syntax analyzer, which avoid stopwords to change the next word state
 15-12-2011:Taha
 	* Add vocalized collocations
+
 24-11-2011:Taha
 	* first alpha release on the web
 	* The script use cgi to run web frame work.

@@ -103,7 +103,7 @@ class SynNode:
                 self.breaks.append(case.get_order())
             else:
                 self.non_breaks.append(case.get_order())
-            if ispunct(self.word[0]):
+            if self.word and ispunct(self.word[0]):
                 self.break_end = True
             #indexing by syntax mark and tanwin
             if case.is_tanwin():
@@ -161,6 +161,14 @@ class SynNode:
         @type tag: unicode
         """
         self.guessed_type_tag = tag
+
+    def get_guessed_type_tag(self):
+        """
+        get the guessed type tag.
+        @return: guessed type tag
+        @rtype: unicode
+        """
+        return self.guessed_type_tag
         
     def get_case_count(self):
         """
@@ -301,7 +309,7 @@ class SynNode:
         """
         return self.count["pounct"] == 0 and self.count["stopword"] and \
         self.count["verb"] == 0 and self.count["noun"] == 0
-    def is_pount(self, ):
+    def is_pounct(self, ):
         """
         Return if all cases are pounctuations
         @return:True if the node is pounctation in alll cases.
@@ -348,7 +356,7 @@ class SynNode:
             return 'verb'
         elif self.is_stopword():
             return 'stopword'
-        elif self.is_pount():
+        elif self.is_pounct():
             return 'pounct'            
         elif self.is_most_noun():
             return 'mostnoun'

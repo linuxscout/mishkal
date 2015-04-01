@@ -16,10 +16,9 @@
 import sys
 sys.path.append('../')
 sys.path.append('../lib')
-import  asmai.sem_const as sem_const
+#import  asmai.sem_const_light as sem_const
+import  asmai.sem_const_heavy as sem_const
 import  aranasyn.anasyn
-#~import  qalsadi.stemmedword as stemmedword
-#~import  aranasyn.stemmedsynword as stemmedsynword
 debug  =  False
 #debug  =  True
 class SemanticAnalyzer:
@@ -43,49 +42,6 @@ class SemanticAnalyzer:
         @rtype: list of list of stemmedsynword
         """
         return self.context_analyze(detailed_stemming_dict)
-
-
-    def calculate_scores(self, stemmed_synwordlistlist):
-        """
-        Calculate scores for every case, in order to allow the scoring 
-        tashkeel choose.
-        @param stemmed_synwordlistlist: detailed stemming, syntaxic and 
-        semantic details.
-        @type stemmed_synwordlistlist: list of list of stemmedsynword class
-        @return: detailed semantic result with semantic tags.
-        @rtype: list of list of stemmedsynword class
-        """    
-        initial_score  = 100
-        #~final_score    = 100
-        #initial  =  aranasyn.anasyn .stemmedsynword.stemmedSynWord()
-        #initial.set_score(initial_score)
-        #~counter  =  0
-        previous_index = 0
-        # study the relations between words stemmings
-        # first level
-        for current_index in range(len(stemmed_synwordlistlist)):
-            #index used to handle stmd position
-            #~current_case_position = 0
-            #second level
-            for current in stemmed_synwordlistlist[current_index]:
-                # initialize the current score to 0
-                current.score = 0
-                if  current_index == 0:  # the initial case
-                    """ the initial case"""
-                    #~counter +=  1
-                    if 0 in current.previous:
-                        current.previous[0] =  initial_score
-                        current.score = initial_score
-                else:
-                    previous_case_position  = 0  
-                    for previous in stemmed_synwordlistlist[previous_index]:
-                        #~counter +=  1
-                        current.recalculate_score(previous_case_position,
-                         previous.get_score())
-                        previous_case_position  += 1  
-                current.add_syntax(u'Scr:%d'%current.get_score())
-                #~current_case_position  += 1
-        return stemmed_synwordlistlist
 
 
     def context_analyze(self, stemmed_synwordlistlist):

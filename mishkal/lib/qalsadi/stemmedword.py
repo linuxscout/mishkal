@@ -70,22 +70,14 @@ class  StemmedWord:
             #~print "action:", self.action.encode("utf8")
             self.object_type    = resultdict.get('object_type', u'')
             self.need    = resultdict.get('need', u'')
+            self.tag_tense     = resultdict.get('tense', u'')
+            self.tag_pronoun   = resultdict.get('pronoun', u'')
 
             self.tag_type     =  self.__get_type(resultdict.get('type', u''))
-            #~if self.is_verb():
-                #~self.tag_tense  = self.__get_tense(resultdict.get('tense', u''))
+
         # grouped attributes
         self.tag_number = self.__get_number() #number (single, dual, plural)
         self.tag_sex  = self.__get_sex()
-
-        # calculated  attributes 
-        #~self.tag_stopword    = self._is_stopword()
-        #~self.tag_verb        = False
-        #~self.tag_noun        = False        
-        #~if not self.tag_stopword:
-            #~self.tag_verb    = self._is_verb()
-        #~if not self.tag_verb:
-              #~self.tag_noun    = self._is_noun()
 
         self.affix_key = self.affix
         if self.is_verb() :
@@ -204,7 +196,8 @@ class  StemmedWord:
             self.tag_type += 32                
         if u'POUNCT' in input_type:
             self.tag_type += 64
-
+        if u'NUMBER' in input_type:
+            self.tag_type += 128
         return self.tag_type
 
     def __get_sex(self,):
@@ -397,16 +390,18 @@ class  StemmedWord:
         # الحالات التي تقطع
         # - حرف جر متصل
         # فاصلة أو نقطة
-        # if self.isDirectJar():
-            # return True
-        # el
-        # if self.has_procletic() and self.has_jar():
-        return (self.is_stopword() and not self.is_noun())\
-            or ( self.affix_key in GLOBAL_AFFIXES and \
-            GLOBAL_AFFIXES[self.affix_key].is_break()) \
-            or (self.is_pounct() and 'break' in self.get_tags())\
-            or (self.has_procletic() and self.has_jar()) \
-             or (self.has_procletic() and self.has_istfham())
+        result = False
+        if self.is_pounct() and 'break' in self.get_tags():
+            result = True
+        elif self.is_stopword() and not self.is_noun() and not self.is_transparent():
+            result = True
+        elif self.affix_key in GLOBAL_AFFIXES and GLOBAL_AFFIXES[self.affix_key].is_break():
+            result = True        
+        elif self.has_procletic():
+            if self.has_jar() or self.has_istfham():
+                result = True
+        return result
+
 
     ######################################################################
     #{ Attribut Functions
@@ -557,6 +552,27 @@ class  StemmedWord:
         """
         return self.original
         
+    def get_tense(self, ):
+        """
+        Get the tense of the input verb
+        @return: the given original.
+        @rtype: unicode string
+        """
+        return self.tag_tense
+    def get_pronoun(self, ):
+        """
+        Get the tense of the input verb
+        @return: the given original.
+        @rtype: unicode string
+        """
+        return self.tag_pronoun
+    def get_attached_pronoun(self, ):
+        """
+        Get the tense of the input verb
+        @return: the given original.
+        @rtype: unicode string
+        """
+        return self.tag_pronoun        
     # def getUnv_original(self, ):
         # """
         # Get the unvocalized  original form of the input word
@@ -655,6 +671,13 @@ class  StemmedWord:
         """            
         return bool(self.tag_type /64 % 2)
 
+    def is_number(self):
+        """
+        Return True if the word is a number.
+        @return: is a verb.
+        @rtype: True/False
+        """            
+        return bool(self.tag_type /128 % 2)
 
     def is_transparent(self):
         """
@@ -780,7 +803,17 @@ class  StemmedWord:
         """
         if GLOBAL_AFFIXES.has_key(self.affix_key):
             return GLOBAL_AFFIXES[self.affix_key].is3rdperson()
-        return False        
+        return False 
+        
+    def is1stperson(self):
+        """
+        Return True if the word has the 1st person.
+        @return: has the  1st persontense.
+        @rtype: True/False
+        """
+        if GLOBAL_AFFIXES.has_key(self.affix_key):
+            return GLOBAL_AFFIXES[self.affix_key].is1stperson()
+        return False     
     def is3rdperson_feminin(self):
         """
         Return True if the word has the 3rd person.

@@ -14,7 +14,7 @@
 Adaat, arabic tools interface
 """
 import sys
-sys.path.append('/home/zerrouki/projects/mishkal-2014-06-17/mishkal/lib/')
+sys.path.append('mishkal/lib/')
 import random
 import pyarabic.araby  as araby # arabic words general functions
 import pyarabic.number
@@ -79,12 +79,16 @@ def DoAction(text, action, options = {}):
         return segment_language(text)
     elif action == "RandomText":
         return random_text()
-    elif action == "show_collocations":
+    elif action == "showCollocations":
         return show_collocations(text)
+    elif action == "extractEnteties":
+        return extract_enteties(text)
     elif action == "extractNamed":
         return extractNamed(text)
+    elif action == "chunk":
+        return chunksplit(text)
     elif action == "extractNumbered":
-        return extractNumbered(text)        
+        return extractNumbered(text)       
     else:
 
         return text
@@ -232,16 +236,11 @@ def full_stemmer(text, lastmark):
     analyzer.set_debug(debug)
     analyzer.set_limit(limit)
     mode = 'all'
-    if mode == 'verb':
-        result = analyzer.check_text_as_verbs(text)
-    elif mode == 'noun':
-        result = analyzer.check_text_as_nouns(text)
-    else:
-        result = analyzer.check_text(text)
-        #~result, synodelist = anasynt.analyze(result)
-        result, __ = anasynt.analyze(result)
-        result = anasem.analyze(result)            
-        # the result contains objets
+    result = analyzer.check_text(text)
+    #~result, synodelist = anasynt.analyze(result)
+    result, __ = anasynt.analyze(result)
+    result = anasem.analyze(result)            
+    # the result contains objets
     return anasynt.decode(result)
 
 
@@ -461,7 +460,7 @@ def tashkeel_text(text, lastmark=True):
     vocalizer = ArabicVocalizer.TashkeelClass()
     print "lastMark", lastmark
     if lastmark == "0":
-        vocalizer.disableLastMark()
+        vocalizer.disable_last_mark()
     vocalized_text = vocalizer.tashkeel(text)
     return vocalized_text
 def reduced_tashkeel_text(text):
@@ -473,6 +472,7 @@ def reduced_tashkeel_text(text):
     @rtype: unicode
     """
     return araby.reduce_tashkeel(text)
+
 def show_collocations(text):
     """
     Show collocations found in the text.
@@ -482,11 +482,31 @@ def show_collocations(text):
     @return : the text have collocations quoted
     @rtype: unicode
     """
-    import tashkeel.tashkeel as ArabicVocalizer    
+    """import tashkeel.tashkeel as ArabicVocalizer    
     vocalizer = ArabicVocalizer.TashkeelClass()
     vocalized_text = vocalizer.stat_tashkeel(text)
     return vocalized_text
-
+    """
+    import maskouk.collocations as colloc 
+    coll = colloc.CollocationClass(True)
+    text = coll.lookup4long_collocations(text)
+    wordlist = araby.tokenize(text)
+    vocalized_list, taglist = coll.lookup(wordlist)
+    #return u" ".join(zip(vocalized_list,taglist))
+    text_output = u""
+    opened = False
+    for word, tag in zip(vocalized_list,taglist):
+        if tag in ( "CB", "CI"):
+            if not opened:
+                text_output += "<mark class='coll'>"
+                opened = True   
+            text_output += word + " "
+        else:
+            if opened:
+                text_output += "</mark>"
+                opened = False
+            text_output += word + " "
+    return text_output
 def extractNamed(text):
     """
     Extract Named Enteties in the text.
@@ -497,31 +517,121 @@ def extractNamed(text):
     >>> extractNamed(u"قال خالد بن رافع  حدثني أحمد بن عنبر عن خاله")
     ("خالد بن رافع"، "أحمد بن عنبر ")
     """
-    import pyarabic.named as named
-    phrases = []
-
+    import pyarabic.named
     wordlist = araby.tokenize(text)
-    wordlist = named.pretashkeel_named(wordlist)
-    #~print text.encode('utf8')
-    positions = named.detect_named_position(wordlist)
+    taglist = pyarabic.named.detect_named(wordlist)
 
-    previous_pos = 0 # to keep the previous pos in the list
-    for pos in positions:
-        if len(pos) >= 2:
-            if pos[0] <= len(wordlist) and pos[1] <= len(wordlist):
-                phrases.append((u' '.join(wordlist[previous_pos:pos[0]]), ''))
-                phrases.append((u' '.join(wordlist[pos[0]: pos[1]+1]), 'named'))
-            previous_pos = pos[1]+1
-    #add the last part of the wordlist
-    phrases.append((u' '.join(wordlist[previous_pos:]), ''))
-    # return phrases
-    new_text = ""
-    for tupl in phrases:
-        if tupl[1] == 'named':
-            new_text += " <span class='named'>%s</span> " % tupl[0]
+    text_output = ""
+    opened = False
+    for word, tag in zip(wordlist, taglist):
+        if tag in ("named", 'NI','NB'):
+            if not opened:
+                text_output += "<mark class='named'>"
+                opened = True   
+            text_output += word + " "
         else:
-            new_text += tupl[0]
-    return new_text#u"<br>".join(phrases)
+            if opened:
+                text_output += "</mark>"
+                opened = False
+            text_output += word + " "
+    return text_output
+
+
+def extract_enteties(text):
+    """
+    Extract enteties as numbers, named enteties, collocations.
+    @param text: a given text.
+    @type text: unicode.
+    @return : the text have enteties phrases quoted
+    @rtype: unicode
+    """
+    import pyarabic.number
+    import pyarabic.named
+    import maskouk.collocations as colloc 
+    coll = colloc.CollocationClass(True)
+    wordlist = araby.tokenize(text)
+    taglist_nb = pyarabic.number.detect_numbers(wordlist)
+    voclist_nb = pyarabic.number.pre_tashkeel_number(wordlist)
+    taglist_nmd = pyarabic.named.detect_named(wordlist)
+    voclist_nmd = pyarabic.named.pretashkeel_named(wordlist)
+    voclist_coll, taglist_coll = coll.lookup(wordlist)
+    # return phrases
+    text_output = []
+    opened = False
+    for word, tagnb, vocnb, tagnmd, vocnmd, tagcol, voccol in zip(wordlist, taglist_nb,voclist_nb, taglist_nmd, voclist_nmd, taglist_coll, voclist_coll):
+        if tagnb == 'DB':
+            if opened:
+                text_output.append("</mark>")
+            text_output.extend(["<mark class='number'>",vocnb] )
+            opened = True                  
+        elif tagnmd == 'NB':
+            if opened:
+                text_output.append("</mark>")
+            text_output.extend(["<mark class='named'>",vocnmd] )
+            opened = True  
+        elif tagcol =='CB':
+            if opened:
+                text_output.append("</mark>")
+            text_output.extend(["<mark class='coll'>",voccol] )
+            opened = True 
+        elif tagnmd == "NI":
+            text_output.append(vocnmd) 
+        elif tagnb == "DI":
+            text_output.append(vocnb) 
+        elif tagcol == "CI":
+            text_output.append(voccol) 
+        else:
+            if opened:
+                 text_output.append("</mark>") 
+                 opened = False
+            text_output.append(word)
+    if opened:
+        text_output.append("</mark>")  
+    return u" ".join(text_output)
+
+
+def extract_enteties2(text):
+    """
+    Extract enteties as numbers, named enteties, collocations.
+    @param text: a given text.
+    @type text: unicode.
+    @return : the text have enteties phrases quoted
+    @rtype: unicode
+    """
+    import pyarabic.number
+    import pyarabic.named
+    import maskouk.collocations as colloc 
+    coll = colloc.CollocationClass(True)
+    wordlist = araby.tokenize(text)
+    taglist_nb = pyarabic.number.detect_numbers(wordlist)
+    taglist_nmd = pyarabic.named.detect_named(wordlist)
+    vocalized_list, taglist_coll = coll.lookup(wordlist)
+    # return phrases
+    text_output = ""
+    opened = False
+    for word, voc, tagnb, tagnmd, tagcol in zip(wordlist,vocalized_list, taglist_nb, taglist_nmd, taglist_coll):
+        if tagnb in ('DI','DB'):
+            if not opened:
+                text_output += "<mark class='number'>"
+                opened = True   
+            text_output += word + " "
+        elif tagnmd in ('NI','NB'):
+            if not opened:
+                text_output += "<mark class='named'>"
+                opened = True   
+            text_output += word + " "
+        elif tagcol in ('CI','CB'):
+            if not opened:
+                text_output += "<mark class='coll'>"
+                opened = True   
+            text_output += voc + " "           
+        else:
+            if opened:
+                text_output += "</mark>"
+                opened = False
+            text_output += word + " "
+    return text_output
+   
 
 def extractNumbered(text):
     """
@@ -534,26 +644,23 @@ def extractNumbered(text):
     وجدت خمسمئة وثلاثة وعشرين دينارا ")
     """
     import pyarabic.number
-    phrases = []
     wordlist = araby.tokenize(text)
-    positions = pyarabic.number.detect_number_phrases_position(wordlist)
-    previous_pos = 0 # to keep the previous pos in the list
-    for pos in positions:
-        if len(pos) >= 2:
-            if pos[0] <= len(wordlist) and pos[1] <= len(wordlist):
-                phrases.append((u' '.join(wordlist[previous_pos:pos[0]]), ''))
-                phrases.append((u' '.join(wordlist[pos[0]: pos[1]+1]), 'named'))
-            previous_pos = pos[1]+1
-    #add the last part of the wordlist
-    phrases.append((u' '.join(wordlist[previous_pos:]), ''))
+    taglist = pyarabic.number.detect_numbers(wordlist)
     # return phrases
-    new_text = ""
-    for tupl in phrases:
-        if tupl[1] == 'named':
-            new_text += " <span class='named'>%s</span> " % tupl[0]
+    text_output = ""
+    opened = False
+    for word, tag in zip(wordlist, taglist):
+        if tag in ("named", 'DI','DB'):
+            if not opened:
+                text_output += "<mark class='number'>"
+                opened = True   
+            text_output += word + " "
         else:
-            new_text += tupl[0]
-    return new_text
+            if opened:
+                text_output += "</mark>"
+                opened = False
+            text_output += word + " "
+    return text_output
     
 def tashkeel2(text, lastmark):
     """
@@ -666,3 +773,46 @@ def random_text():
     import randtext
     
     return random.choice(randtext.textlist)
+def chunksplit(text):
+    """
+    split text into chunks
+    """
+    import qalsadi.analex
+    import aranasyn.anasyn
+    # lexical analyzer
+    morphanalyzer = qalsadi.analex.Analex()
+    # syntaxic analyzer
+    anasynt = aranasyn.anasyn.SyntaxAnalyzer();    
+    #~ line =  araby.strip_tashkeel(line);
+    #morpholigical analysis of text
+    detailled_stem =  morphanalyzer.check_text(text);
+    #syntaxical analysis of text
+    detailled_syntax, synnodeList =  anasynt.analyze(detailled_stem);
+    # print detailled_syntax;
+    syno_tags = u" ‫"
+    chunklist =[]
+    achunk = []
+    for synnode in synnodeList:
+        if synnode.get_break_type() in ("break", "mostBreak"):
+            if synnode.is_break_end():
+                achunk.append(synnode.get_word())
+                chunklist.append(u" ".join(achunk))
+                achunk = []
+               #~ print synnode.get_word().encode('utf8');
+               #~ print syno_tags.encode('utf8')
+                syno_tags = ""
+            else:
+                chunklist.append(u" ".join(achunk))
+                achunk = []
+                achunk.append(synnode.get_word())               
+               #~ print "break";
+               #~ print syno_tags.encode('utf8')
+                syno_tags = u" ‫"
+               #~ print synnode.get_word().encode('utf8'),                        
+        else:
+            achunk.append(synnode.get_word())
+    if achunk:
+        chunklist.append(u" ".join(achunk))
+            #print synnode.get_word().encode('utf8'),
+        #syno_tags += " '%s[%s]'"%(synnode.get_word_type(), synnode.get_guessed_type_tag())
+    return chunklist

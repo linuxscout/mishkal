@@ -96,8 +96,8 @@ class Analex :
         #added as a global variable to avoid duplucated search 
         #in mutliple call of analex
         # cache used to avoid duplicata
-        self.allow_cache_use = True
-        #self.allow_cache_use = False
+        #self.allow_cache_use = True
+        self.allow_cache_use = False
         self.cache = cache.cache()
 
 
@@ -175,6 +175,7 @@ class Analex :
         """    
         #~text = self.text_treat(text)
         list_word = self.tokenize(text)
+        #print "text_tokenize", u" ".join(list_word).encode('utf8')
         return list_word
 
     def set_debug(self, debug):
@@ -295,7 +296,9 @@ tags of affixes and tags extracted form lexical dictionary
         @return: list of dictionaries of analyzed words with tags.
         @rtype: list.
         """
+        #print "ok", text.encode('utf8')
         list_word = self.text_tokenize(text)
+        #print "ok", u"\t".join(list_word).encode('utf8')
         if self.allow_tag_guessing :
             list_guessed_tag = self.tagger.word_tagging(list_word)
             # avoid errors
@@ -317,20 +320,26 @@ tags of affixes and tags extracted form lexical dictionary
 
         #~ resulted_text = u""
         resulted_data = []
+        
         #checkedWords = {} #global
         if mode == 'all':
+
             for i in range(len(list_word[:self.limit])):
                 word = list_word[i]
-                self.count_word()
-                if self.allow_cache_use and self.cache.isAlreadyChecked(word):
+                self.count_word()  # a ghost function to count words check function calls
+                guessedtag = list_guessed_tag[i]
+                one_data_list = self.check_word(word, guessedtag)
+                stemmed_one_data_list = [ stemmedword.StemmedWord(w) for w in one_data_list ]
+                resulted_data.append(stemmed_one_data_list)
+                """if self.allow_cache_use and self.cache.isAlreadyChecked(word):
                     #~ print (u"'%s'"%word).encode('utf8'), 'found'
                     one_data_list = self.cache.getChecked(word)
                     stemmed_one_data_list = \
                     [ stemmedword.StemmedWord(w) for w in one_data_list ]
                     resulted_data.append(stemmed_one_data_list)
                 else:
-                    guessedtag = list_guessed_tag[i]    
-                    #~ print (u"'%s'"%word).encode('utf8'), ' not'            
+                    guesedtag = list_guessed_tag[i]    
+                    print "word  check",(u"'%s'"%word).encode('utf8'), ' not'            
                     one_data_list = self.check_word(word, guessedtag)
                     stemmed_one_data_list = \
                     [stemmedword.StemmedWord(w) for w in one_data_list ]
@@ -338,9 +347,9 @@ tags of affixes and tags extracted form lexical dictionary
 
                     one_data_list_to_serialize = [w.__dict__ \
                     for w in one_data_list]
-                    if self.allow_cache_use:
+                    sif self.allow_cache_use:
                         self.cache.addChecked(word, one_data_list_to_serialize)
-
+"""
         elif mode == 'nouns':
         
             for word in list_word[:self.limit] :
@@ -366,48 +375,58 @@ tags of affixes and tags extracted form lexical dictionary
         @type word: unicode.
         @return: list of dictionaries of analyzed words with tags.
         @rtype: list.
-        """    
+        """
+        
         word = araby.strip_tatweel(word)
         word_vocalised = word
         word_nm = araby.strip_tashkeel(word)
-        #~print (u"0.1%s-%s"%(word, word_nm)).encode('utf8')
-        #~ resulted_text = u""
-        resulted_data = []
-        # if word is a pounctuation
-        resulted_data += self.check_word_as_pounct(word_nm)
-        # Done: if the word is a stop word we have  some problems, 
-        # the stop word can also be another normal word (verb or noun), 
-        # we must consider it in future works
-        # if word is stopword allow stop words analysis
-        resulted_data += self.check_word_as_stopword(word_nm)
+        # get analysed details from cache if used
+        if self.allow_cache_use and self.cache.isAlreadyChecked(word_nm):
+            #~ print (u"'%s'"%word).encode('utf8'), 'found'
+            resulted_data = self.cache.getChecked(word_nm)
+        else:
+            resulted_data = []
+            # if word is a pounctuation
+            resulted_data += self.check_word_as_pounct(word_nm)
+            # Done: if the word is a stop word we have  some problems, 
+            # the stop word can also be another normal word (verb or noun), 
+            # we must consider it in future works
+            # if word is stopword allow stop words analysis
+            resulted_data += self.check_word_as_stopword(word_nm)
 
-        #if word is verb
-        # مشكلة بعض الكلمات المستبعدة تعتبر أفعلا أو اسماء
-        #~if  self.tagger.has_verb_tag(guessedtag) or \
-        #~self.tagger.is_stopword_tag(guessedtag):
-            #~resulted_data += self.check_word_as_verb(word_nm)
-        resulted_data += self.check_word_as_verb(word_nm)
-            #print "is verb", rabti, len(resulted_data)
-        #if word is noun
-        #~if self.tagger.has_noun_tag(guessedtag) or \
-        #~self.tagger.is_stopword_tag(guessedtag):            
-            #~resulted_data += self.check_word_as_noun(word_nm)
-        resulted_data += self.check_word_as_noun(word_nm)
-        if len(resulted_data) == 0:
-            #~print (u"1%s-%s"%(word, word_nm)).encode('utf8')
-            #check the word as unkonwn
-            resulted_data += self.check_word_as_unknown(word_nm)
-            #check if the word is nomralized and solution are equivalent
-        resulted_data = check_normalized(word_vocalised, resulted_data)
-        #check if the word is shadda like
-        resulted_data = check_shadda(word_vocalised, resulted_data)
+            #if word is verb
+            # مشكلة بعض الكلمات المستبعدة تعتبر أفعلا أو اسماء
+            #~if  self.tagger.has_verb_tag(guessedtag) or \
+            #~self.tagger.is_stopword_tag(guessedtag):
+                #~resulted_data += self.check_word_as_verb(word_nm)
+            resulted_data += self.check_word_as_verb(word_nm)
+                #print "is verb", rabti, len(resulted_data)
+            #if word is noun
+            #~if self.tagger.has_noun_tag(guessedtag) or \
+            #~self.tagger.is_stopword_tag(guessedtag):            
+                #~resulted_data += self.check_word_as_noun(word_nm)
+            resulted_data += self.check_word_as_noun(word_nm)
+            if len(resulted_data) == 0:
+                #~print (u"1%s-%s"%(word, word_nm)).encode('utf8')
+                #check the word as unkonwn
+                resulted_data += self.check_word_as_unknown(word_nm)
+                #check if the word is nomralized and solution are equivalent
+            resulted_data = check_normalized(word_vocalised, resulted_data)
+            #check if the word is shadda like
+            resulted_data = check_shadda(word_vocalised, resulted_data)
 
-        #check if the word is vocalized like results            
+
+            # add word frequency information in tags
+            resulted_data = self.add_word_frequency(resulted_data)
+
+            # add the stemmed words details into Cache
+            data_list_to_serialize = [w.__dict__ for w in resulted_data]
+            if self.allow_cache_use:
+                self.cache.addChecked(word_nm, data_list_to_serialize)
+
+        #check if the word is vocalized like results 
         if self.partial_vocalization_support:
-            resulted_data = check_partial_vocalized(word_vocalised, 
-            resulted_data)
-        # add word frequency information in tags
-        resulted_data = self.add_word_frequency(resulted_data)
+            resulted_data = check_partial_vocalized(word_vocalised, resulted_data)
 
         if len(resulted_data) == 0:
             resulted_data.append(wordcase.WordCase({
@@ -561,6 +580,7 @@ tags of affixes and tags extracted form lexical dictionary
             'stem':'', 
             'original':word, 
             'vocalized':word, 
+
             'tags':stem_pounct_const.POUNCTUATION[word[0]]['tags'], 
             'type':'POUNCT', 
             'freq':0, 
@@ -665,8 +685,8 @@ def check_partial_vocalized(word_vocalised, resulted_data):
     @return: list of dictionaries of analyzed words with tags.
     @rtype: list.        
     """
-    #print word_vocalised.encode('utf8')
-    return resulted_data    
+    #print "check partial vocalization",word_vocalised.encode('utf8'),araby.is_vocalized(word_vocalised)
+    #return resulted_data    
     filtred_data = []
     if not araby.is_vocalized(word_vocalised):
         return resulted_data
@@ -678,7 +698,7 @@ def check_partial_vocalized(word_vocalised, resulted_data):
               item['vocalized']):
                 item['tags'] += ':'+analex_const.partialVocalizedTag
                 filtred_data.append(item)
-        return  filtred_data
+    return  filtred_data
 
 
 def mainly():

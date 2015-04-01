@@ -57,6 +57,7 @@ class StemmedAffix:
                                   
         # not noun or stopword 
         self.tag3rdperson     =  False
+        self.tag1stperson     =  False
         self.tag_defined      =  False
         self.tag_tanwin       =  False
         self.tag_jar          =  False  
@@ -64,6 +65,7 @@ class StemmedAffix:
         # calculated  attributes 
         if self.is_verb():
             self.tag3rdperson =  self.__is3rdperson() 
+            self.tag1stperson =  self.__is1stperson() 
         else:
             if self.is_noun():
                 self.tag_defined  =  self.__is_defined()
@@ -359,7 +361,15 @@ class StemmedAffix:
         @return: has the 3rd persontense.
         @rtype: True/False
         """    
-        return (u':هي:' in self.get_tags() or u':هو:' in self.get_tags()) 
+        return (u':هي:' in self.get_tags() or u':هو:' in self.get_tags())
+         
+    def __is1stperson(self):
+        """
+        Return True if the word has the 1st person.
+        @return: has the 1st persontense.
+        @rtype: True/False
+        """    
+        return u':أنا:' in self.get_tags() 
 
     def is3rdperson_masculin(self):
         """
@@ -399,7 +409,7 @@ class StemmedAffix:
         @return: has jar.
         @rtype: True/False
         """        
-        return  u'استفهام:'in self.get_tags()        
+        return  u'استفهام' in self.get_tags()        
 
     def __is_break(self):
         """
@@ -417,6 +427,8 @@ class StemmedAffix:
             return True
         elif u'عطف' in self.get_tags() or araby.WAW in self.get_procletic() \
         or araby.FEH in self.get_procletic():
+            return True
+        elif self.__has_istfham():
             return True
         return False
 
@@ -588,6 +600,14 @@ class StemmedAffix:
         @rtype: True/False
         """    
         return self.tag3rdperson
+
+    def is1stperson(self):
+        """
+        Return True if the word has the 1st person.
+        @return: has the 1st persontense.
+        @rtype: True/False
+        """    
+        return self.tag1stperson        
 
     def is_added(self):
         """

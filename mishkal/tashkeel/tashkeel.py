@@ -23,6 +23,9 @@ import asmai.anasem
 import maskouk.collocations as coll
 import pyarabic.number
 import pyarabic.named
+import unknown_tashkeel
+from operator import and_
+
 # to debug program
 debug = True
 class TashkeelClass:
@@ -43,8 +46,8 @@ class TashkeelClass:
         # set the option to do statistical vocalization based 
         # on collocations
         # default value is True, can be disabled for debuging porpus
-        self.enabled_stat_tashkeel = False    
-        #~self.enabled_stat_tashkeel = True   
+        #self.enabled_stat_tashkeel = False    
+        self.enabled_stat_tashkeel = True   
             
         # set the option to show the collocations marks
         # default value is False, can be enabled for debuging porpus
@@ -83,6 +86,9 @@ class TashkeelClass:
         self.analyzer.set_limit(self.limit)
         #collocations dictionary for statistical tashkeel
         self.collo = coll.CollocationClass(self.enabled_show_collocation_mark)
+        
+        # unknown vocalizer for unrecognized words
+        self.unknown_vocalizer = unknown_tashkeel.UnknownTashkeel()
 
     
     def set_limit(self, limit):
@@ -234,12 +240,12 @@ class TashkeelClass:
         rtype: dict of dict or text.
         """
         inputtext = self.pre_tashkeel(inputtext)
-        # print "PreTashkeel", inputtext.encode('utf8')
+        #print "PreTashkeel", inputtext.encode('utf8')
         # The statistical tashkeel must return a text.
         #comment this after tests
         if self.get_enabled_stat_tashkeel():
             inputtext = self.stat_tashkeel(inputtext)
-    
+        #print "statTashkeel", inputtext.encode('utf8')
         #split texts into phrases to treat one phrase in time
         #~texts = self.analyzer.split_into_phrases(inputtext)
         texts = [inputtext, ]
@@ -250,10 +256,8 @@ class TashkeelClass:
         _chosen_list = []    
         suggests_list = []    
         for text in texts:
-            
             #morpholigical analysis of text
             detailled_syntax, synodelist = self.full_stemmer(text)
-
             previous = None
             next_node = None
             pre_node = None
@@ -273,8 +277,8 @@ class TashkeelClass:
                 if previous_index  and previous_case_index:
                     previous = detailled_syntax[previous_index][previous_case_index]
                 #~current_chosen = self.__choose_tashkeel(word_cases_list, 
-                #~current_chosen_case_index = self.__choose_tashkeel(word_cases_list, 
-                #~previous, pre_node, next_node)
+                #current_chosen_case_index = self.__choose_tashkeel(word_cases_list, 
+                #previous, pre_node, next_node)
                 current_chosen_case_index = self.__choose_tashkeel_algo2(word_cases_list, 
                 previous, pre_node, next_node)
                 #~print current_chosen_case_index, len(detailled_syntax[current_index]), current_index
@@ -799,9 +803,13 @@ class TashkeelClass:
             tashkeel_const.CorrectedTashkeel[abr], text)
         wordlist = self.analyzer.tokenize(text)
         prevocalized_list = pyarabic.number.pre_tashkeel_number(wordlist)
+        #prevocalized_list = wordlist
         #Todo ajust prevocalization of named enteties
-        prevocalized_list = pyarabic.named.pretashkeel_named(prevocalized_list)
-        return u" ".join(wordlist)
+        #if len(prevocalized_list) != len(wordlist):
+            #print "nb", u"+".join(prevocalized_list)
+        #prevocalized_list = pyarabic.named.pretashkeel_named(prevocalized_list)
+        #print "nmd", u"@".join(prevocalized_list)
+        return u" ".join(prevocalized_list)
 
 
     def stat_tashkeel(self, text):
@@ -813,7 +821,7 @@ class TashkeelClass:
         rtype: unicode.
         """
         text = self.collo.lookup4long_collocations(text)
-        
+
         # get the word list
         wordlist = self.analyzer.tokenize(text)
         # use a list as a stack, 
@@ -821,7 +829,7 @@ class TashkeelClass:
         # test the tow elements if they are collocated, 
         # if collocated return the vocalized text
         # if else, delete the last element, and return the other to the list.
-        newlist = self.collo.lookup(wordlist)
+        newlist, taglist = self.collo.lookup(wordlist)
         #todo: return a text from the statistical tashkeel
         return  u" ".join(newlist)
 
@@ -1059,13 +1067,13 @@ class TashkeelClass:
 
     # new version of choose tashkeel 
     # first we use indexes instead of stemmedsynword object
-    def __choose_tashkeel_algo2(self, curcaseslist, previous_chosen_case = None,
+    def __choose_tashkeel_algo2(self, caselist, previous_chosen_case = None,
      pre_node = None, next_node = None):
         """
         Choose a tashkeel for the current word, according to the previous one.
         A new algorithm
         @param : list of steming result of the word.
-        @type curcaseslist: list of stemmedSynword
+        @type caselist: list of stemmedSynword
         @param : the choosen previous word stemming.
         @type previous_chosen_case:stemmedSynwordhg 
         @return: the choosen stemming of the current word.
@@ -1077,147 +1085,194 @@ class TashkeelClass:
         rule = 0
         previous = previous_chosen_case
         pre_relation = 0
-        
+        debug = False
+        #~ debug = True
         # How to choose a vocalized case
         # and lets other methode to choices by semantic and syntaxic
         # choose a case is a stop, word and has next relation
         # browse the list by indexes
-        cur_indexes_list = range(len(curcaseslist))
+        indxlist = range(len(caselist))
         # get all the indexes in the current cases list
-        tmp_index_list = [] 
-            #~if  (current.is_stopword() or
-             #~()current.is_marfou3() and not current.is_passive())
-            #~or current.is_past() ):
-
-        if not previous or previous.is_initial():
-            tmp_index_list = [x for x in cur_indexes_list if (curcaseslist[x].is_stopword() or
-                     (curcaseslist[x].is_marfou3() and not curcaseslist[x].is_passive())
-                     or curcaseslist[x].is_past() )]
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            # else 
-            if tmp_index_list:
-                cur_indexes_list = tmp_index_list                            
+        tmplist = []
+        if len(indxlist) == 1 : 
+            if caselist[0].is_unknown():
+                caselist[0].set_vocalized(self.unknown_vocalizer.lookup(caselist[0].get_word()))
+                rule = 102
+            else:
+                rule = 101
         
-        # and lets other methode to choices by semantic and syntaxic
-        # select all cases with semantic relations
-        if  self.get_enabled_semantic_analysis():
-            tmp_index_list = [x for x in cur_indexes_list if self.anasem.is_related(previous, curcaseslist[x]) or curcaseslist[x].has_sem_next()]
-            
+        if not rule:
+            # order indexes list by word frequency
+            indxlist = sorted(indxlist, key=lambda x:caselist[x].get_freq())
+        # initial cases
+        if not rule and (not previous or previous.is_initial()):
+            tmplist = filter(lambda x: (caselist[x].is_stopword() or
+                     (caselist[x].is_marfou3() and not caselist[x].is_passive())
+                     or caselist[x].is_past() ), indxlist)
             # if indexes list is empty, the current indexes list is reloaded, and no change
             # else 
-            if tmp_index_list:
-                cur_indexes_list = tmp_index_list
+            if tmplist:
+                indxlist = tmplist                            
+                if len(indxlist) == 1 : rule = 1
+            if debug: print 1,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+            # and lets other methode to choices by semantic and syntaxic
+            # select all cases with semantic relations
+        if not rule and self.get_enabled_semantic_analysis():            
+            tmplist = filter(lambda x: self.anasem.is_related(previous, caselist[x]) or caselist[x].has_sem_next(), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist
             # if there are many semantic relations or non one, we use frequency to choose the
             # most frequent word to be selected
-        if len(cur_indexes_list) == 1 : rule = 2
+                if len(indxlist) == 1 : rule = 2
+            if debug: print 2,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
-        # select stopword
-        tmp_index_list = [x for x in cur_indexes_list if  curcaseslist[x].is_stopword() and self.anasem.is_related(previous, curcaseslist[x]) and curcaseslist[x].has_next()]
-        # if indexes list is empty, the current indexes list is reloaded, and no change
-        if tmp_index_list:
-            cur_indexes_list = tmp_index_list  
-        if len(cur_indexes_list) == 1 : rule = 18
+            # select stopword
+        if not rule:
+            tmplist = filter(lambda x:  caselist[x].is_stopword(), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist  
+                if len(indxlist) == 1 : rule = 3
+            if debug: print 3,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
-        # select stopword
-        tmp_index_list = [x for x in cur_indexes_list if  curcaseslist[x].is_stopword() and curcaseslist[x].has_next() ]
-        # if indexes list is empty, the current indexes list is reloaded, and no change
-        if tmp_index_list:
-            cur_indexes_list = tmp_index_list  
-        if len(cur_indexes_list) == 1 : rule = 8
+            # syntaxic
+            # select stopword
+        if not rule:           
+            tmplist = filter(lambda x:  caselist[x].is_stopword() and caselist[x].has_next() , indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist  
+                if len(indxlist) == 1 : rule = 10
+            if debug: print 10,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
-        # get all the indexes in the current cases list
-        tmp_index_list = [] 
-        # select all cases with syntaxic relations
-        if  self.get_enabled_syntaxic_analysis():
-            tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]) and curcaseslist[x].has_next())]
+            # get all the indexes in the current cases list
+        if not rule and self.get_enabled_syntaxic_analysis():
+            # select all cases with syntaxic relations
+            tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and caselist[x].has_next()), indxlist)
            
             # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmp_index_list:
-                cur_indexes_list = tmp_index_list
-                
-
-        if  self.get_enabled_syntaxic_analysis():
-            #~tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]) or curcaseslist[x].has_next())]
-            tmp_index_list = [x for x in cur_indexes_list if (self.anasynt.is_related(previous, curcaseslist[x]) )]
+            if tmplist:
+                indxlist = tmplist
+                if len(indxlist) == 1 : rule = 11
+            if debug: print 11,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+                    
+        if not rule and  self.get_enabled_syntaxic_analysis():
+            tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x])), indxlist)
            
             # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmp_index_list:
-                cur_indexes_list = tmp_index_list                
-        if len(cur_indexes_list) == 1 : rule = 4
+            if tmplist:
+                indxlist = tmplist                
+                if len(indxlist) == 1 : rule = 12
+            if debug: print 12,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
-        # Default cases selection 
-        # get all the indexes in the current cases list
-        tmp_index_list = [] 
-        # select all cases with syntaxic relations
-        if  self.get_enabled_syntaxic_analysis():
-            tmp_index_list = [x for x in cur_indexes_list if curcaseslist[x].has_next()]
+            # Default cases selection 
+            # get all the indexes in the current cases list
+        if not rule and self.get_enabled_syntaxic_analysis():
+            # select all cases with syntaxic relations
+            tmplist = filter(lambda x: caselist[x].has_next(), indxlist)
             # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmp_index_list:
-                cur_indexes_list = tmp_index_list
-        if len(cur_indexes_list) == 1 : rule = 6
-                
-        # get all the indexes in the current cases list
-        tmp_index_list = [] 
-        # select all cases with tanwin
-        if  next_node:
-            if next_node.is_break():
-                tmp_index_list = [x for x in cur_indexes_list if curcaseslist[x].is_tanwin()]
+            if tmplist:
+                indxlist = tmplist
+                if len(indxlist) == 1 : rule = 13
+            if debug: print 13,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+                    
+            # get all the indexes in the current cases list
+        if not rule:
+            # select all cases with tanwin
+            if (next_node and next_node.is_break()) or not next_node:
+                tmplist = filter(lambda x: caselist[x].is_tanwin() or not caselist[x].is_noun() , indxlist)
                 # if indexes list is empty, the current indexes list is reloaded, and no change
-                if tmp_index_list:
-                    cur_indexes_list = tmp_index_list
-        if len(cur_indexes_list) == 1 : rule = 26
+                if tmplist:
+                    indxlist = tmplist
+            # print "len list tawin", len(tmplist)
+                    if len(indxlist) == 1 : rule = 14
+            if debug: print 14,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
-        #select default
-        
- 
-            
-        # select stopword
-        tmp_index_list = [x for x in cur_indexes_list if  curcaseslist[x].is_stopword() ]
-        # if indexes list is empty, the current indexes list is reloaded, and no change
-        if tmp_index_list:
-            cur_indexes_list = tmp_index_list  
-        if len(cur_indexes_list) == 1 : rule = 8
+            #select default
 
-        # select cases with the max frequency
-        # first get max freq
-        maxfreq = 0
-        maxfreq = max([curcaseslist[x].get_freq() for x in cur_indexes_list])
-        tmp_index_list = [x for x in cur_indexes_list if curcaseslist[x].get_freq() == maxfreq]
-        if tmp_index_list:
-            cur_indexes_list = tmp_index_list 
-        if len(cur_indexes_list) == 1 : rule = 10
-        # select mansoub noun
-        tmp_index_list = [x for x in cur_indexes_list if ( curcaseslist[x].is_noun() and  curcaseslist[x].is_mansoub())]
-        # if indexes list is empty, the current indexes list is reloaded, and no change
-        if tmp_index_list:
-            cur_indexes_list = tmp_index_list  
-        if len(cur_indexes_list) == 1 : rule = 12
-        # select active voice
-        tmp_index_list = [x for x in cur_indexes_list if ( curcaseslist[x].is_verb() and not curcaseslist[x].is_passive())]
-        # if indexes list is empty, the current indexes list is reloaded, and no change
-        if tmp_index_list:
-            cur_indexes_list = tmp_index_list                
-        if len(cur_indexes_list) == 1 : rule = 14
-                    
-        # select present marfou3 or past
-        tmp_index_list = [x for x in cur_indexes_list if ( curcaseslist[x].is_verb() and (curcaseslist[x].is_marfou3() or curcaseslist[x].is_past()))]
-        # if indexes list is empty, the current indexes list is reloaded, and no change
-        if tmp_index_list:
-            cur_indexes_list = tmp_index_list               
-                
-        if len(cur_indexes_list) == 1 : rule = 16  
-        
-        # select 3rd person
-        tmp_index_list = [x for x in cur_indexes_list if ( curcaseslist[x].is_verb() and curcaseslist[x].is3rdperson())]
-        # if indexes list is empty, the current indexes list is reloaded, and no change
-        if tmp_index_list:
-            cur_indexes_list = tmp_index_list               
-                
-        if len(cur_indexes_list) == 1 : rule = 18 
-                    
+        if not rule:
+            # select cases with the max frequency
+            # first get max freq
+            maxfreq = 0
+            maxfreq = max([caselist[x].get_freq() for x in indxlist])
+            tmplist = filter(lambda x: caselist[x].get_freq() == maxfreq, indxlist)
+            if tmplist:
+                indxlist = tmplist 
+                if len(indxlist) == 1 : rule = 31
+            if debug: print 31,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+
+        #~ conditions = [
+        #~ { "rule":30, "cond":[("is_stopword",True), ],} ,
+        #~ { "rule":32, "cond":[("is_noun",True),  ("is_mansoub",True),],} ,
+        #~ { "rule":33, "cond":[("is_verb",True), ("is_passive",False),],} ,
+        #~ { "rule":34, "cond":[("is_verb",True), ("is_marfou3",True),],} ,
+        #~ { "rule":34, "cond":[("is_verb",True), ("is_past",True),],} ,
+        #~ { "rule":35, "cond":[("is_verb",True), ("is3rdperson",True),],} ,
+        #~ { "rule":36, "cond":[("is_verb",True), ("is1stperson",True),],} ,
+        #~ ]
+        #~ if not rule:            
+            #~ for cond in conditions:
+                #~ tmplist = [] 
+                #~ condlist = cond['cond']             
+                #~ for x in indxlist:
+                    #~ # join all tests
+                    #~ criteria = [getattr(caselist[x], k)() == v  for k, v in condlist] 
+                    #print criteria
+                    #~ if reduce(and_, criteria):
+                        #~ tmplist.append(x)
+                #if debug: print rule,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+                #~ if tmplist:
+                    #~ indxlist = tmplist               
+                    #~ if len(indxlist) == 1 :
+                        #~ rule = cond.get('rule',0)
+                        #~ break
+        if not rule:                
+            # select mansoub noun
+            tmplist = filter(lambda x: ( caselist[x].is_noun() and  caselist[x].is_mansoub()), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist  
+                if len(indxlist) == 1 : rule = 32
+            if debug: print 32,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+        if not rule:                
+            # select active voice
+            tmplist = filter(lambda x: ( caselist[x].is_verb() and not caselist[x].is_passive()), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist                
+                if len(indxlist) == 1 : rule = 33
+            if debug: print 33,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+        if not rule:                        
+            # select present marfou3 or past
+            tmplist = filter(lambda x: ( caselist[x].is_verb() and (caselist[x].is_marfou3() or caselist[x].is_past())), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist               
+                if len(indxlist) == 1 : rule = 34  
+            if debug: print 34,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+        if not rule:            
+            # select 3rd person
+            tmplist = filter(lambda x: ( caselist[x].is_verb() and caselist[x].is3rdperson()), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist               
+                if len(indxlist) == 1 : rule = 35 
+            if debug: print 35,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+        if not rule:            
+            # select 1st person
+            tmplist = filter(lambda x: ( caselist[x].is_verb() and caselist[x].is1stperson()), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist               
+                if len(indxlist) == 1 : rule = 36 
+            if debug: print 35,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+                                        
         # select the first case if there one or many
-        chosen_index =  cur_indexes_list[0]
-        chosen = curcaseslist[chosen_index]
+        chosen_index =  indxlist[0]
+        chosen = caselist[chosen_index]
+        if not rule: rule = 100
+        if debug: print 100,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
          
         
         # set the selection rule to dispaly how tahskeel is selected

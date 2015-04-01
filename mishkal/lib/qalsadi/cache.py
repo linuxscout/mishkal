@@ -53,7 +53,7 @@ class cache :
 		self.cache={'checkedWords':{},
 			    'FreqWords':{'noun':{}, 'verb':{},'stopword':{}},
 			};
-		self.db = Database('/tmp/qalsadiCache')
+		self.db = Database('~/tmp/qalsadiCache')
 		if not self.db.exists():
 			self.db.create();
 			x_ind = WithAIndex(self.db.path, 'a')

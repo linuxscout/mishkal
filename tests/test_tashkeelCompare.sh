@@ -1,8 +1,11 @@
 #~FILE="adab.txt"
 FILE="rndlines.txt"
-python -m cProfile ../mishkal-console.py -p -c -l 500 -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt
+action=`python -m cProfile ../mishkal-console.py -p -c -l 500 -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt`
 DATE=`date +%Y-%m-%d-%H:%M`
-echo "make archive" 
+echo " Test Tashkeel by comparaison "
+echo "${action}"
+${action}
+echo "\nmake archive" 
 cp output/compare/rndlines.11.txt  output/compare/L${DATE}.txt
 echo "save stats"
 date >> output/compare/file.stats  

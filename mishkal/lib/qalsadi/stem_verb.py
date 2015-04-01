@@ -192,15 +192,14 @@ class VerbStemmer:
                         result.append(conj['verb'])
                         vocalized, semivocalized = vocalize(conj['vocalized'], procletic,
                          encletic)
+                        tag_type = 'Verb'
+                        #~ if conj['verb'] ==u"كَادَ":
+                              #~ tag_type = 'Verb:STOPWORD'  
                         #~print "stemverb: tense", conj['tense'].encode('utf8')
                         detailed_result.append(wordcase.WordCase({
                         'word':verb, 
                         'affix': ( procletic, prefix_conj, suffix_conj, 
                         encletic),                      
-                        #~ 'procletic':procletic, 
-                        #~ 'encletic':encletic, 
-                        #~ 'prefix':prefix_conj, 
-                        #~ 'suffix':suffix_conj, 
                         'stem':stem_conj, 
                         'original':conj['verb'], 
                         'vocalized':vocalized,
@@ -208,7 +207,7 @@ class VerbStemmer:
                         'tags':u':'.join((conj['tense'], conj['pronoun'])+\
                         svconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']+\
                         svconst.COMP_SUFFIX_LIST_TAGS[encletic]['tags']), 
-                        'type':'Verb', 
+                        'type':tag_type, 
                         #~ 'root':'', 
                         #~ 'template':'',
                         'tense': conj['tense'], 

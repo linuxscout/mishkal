@@ -194,10 +194,11 @@ def test():
                     result = vocalizer.tashkeel(line)                    
                 if compare:
                     inputVocalizedLine = line
-                    #~line = araby.strip_tashkeel(line)
-                    vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(inputVocalizedLine)
-
                     inputlist = vocalizer.analyzer.tokenize(inputVocalizedLine)
+                    inputUnvocalizedLine = araby.strip_tashkeel(line)
+                    vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(inputUnvocalizedLine)
+
+
                     #stemmer=tashaphyne.stemming.ArabicLightStemmer()
                     #~texts = vocalizer.analyzer.split_into_phrases(inputVocalizedLine)
                     #~inputlist =[]
@@ -214,16 +215,13 @@ def test():
                         print u"#".join(inputlist).encode('utf8')
                         print u"#".join(outputlist).encode('utf8')
                     else:
-                        for i in range(len(inputlist)):
-                            simi = araby.vocalized_similarity(inputlist[i], 
-                                    outputlist[i])
-                            #~print u"\t".join([inputlist[i], outputlist[i], str(simi)]).encode('utf8')
+                        for inword, outword, outsemiword in zip(inputlist, outputlist, outputlistsemi):
+                            simi = araby.vocalized_similarity(inword, outword)
                             if simi<0:
                                 LettersError += -simi
                                 incorrect    += 1
                                 # evaluation without last haraka
-                                simi2 = araby.vocalized_similarity(inputlist[i], 
-                                  outputlistsemi[i])
+                                simi2 = araby.vocalized_similarity(inword, outsemiword)
                                 if simi2<0: 
                                     WLMIncorrect     += 1
                                     lineWLMIncorrect += 1                                

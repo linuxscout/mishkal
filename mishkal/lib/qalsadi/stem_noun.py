@@ -30,7 +30,6 @@ class NounStemmer:
         # create a stemmer object for stemming enclitics and procletics
         self.comp_stemmer = tashaphyne.stemming.ArabicLightStemmer()
         # configure the stemmer object
-        self.comp_stemmer.set_infix_letters(snconst.COMP_INFIX_LETTERS)
         self.comp_stemmer.set_prefix_list(snconst.COMP_PREFIX_LIST)
         self.comp_stemmer.set_suffix_list(snconst.COMP_SUFFIX_LIST)
         # create a stemmer object for stemming conjugated verb
@@ -75,8 +74,6 @@ class NounStemmer:
                 procletic = noun[:seg[0]]
                 stem = noun[seg[0]:seg[1]]
                 encletic_nm = noun[seg[1]:]
-
-
                 # ajusting nouns variant
                 list_stem = [stem]
                 if encletic_nm: #  != ""
@@ -84,7 +81,6 @@ class NounStemmer:
                         list_stem.append(stem[:-1]+araby.ALEF_MAKSURA)
                     elif stem.endswith(araby.TEH):
                         list_stem.append(stem[:-1]+araby.TEH_MARBUTA)
-
         # stem reduced noun : level two
                 for stem in list_stem:
                     detailed_result.extend(self.steming_second_level(noun, 
@@ -248,12 +244,12 @@ class NounStemmer:
             self.cache_affixes_verification[affix] = False
 #ستعمل في حالة كسر هاء الضمير في الجر            
 
-        elif  bool(u"لايجر" in encletic_tags) and  bool(u"مجرور" in \
-        suffix_tags) :
-            self.cache_affixes_verification[affix] = False
-        elif  bool(u"مجرور" in encletic_tags) and  not bool(u"مجرور" in \
-        suffix_tags) :
-            self.cache_affixes_verification[affix] = False    
+        #elif  bool(u"لايجر" in encletic_tags) and  bool(u"مجرور" in \
+        #suffix_tags) :
+        #    self.cache_affixes_verification[affix] = False
+        #elif  bool(u"مجرور" in encletic_tags) and  not bool(u"مجرور" in \
+        #suffix_tags) :
+        #    self.cache_affixes_verification[affix] = False    
         else:
             self.cache_affixes_verification[affix] = True
 
@@ -335,10 +331,8 @@ def get_suffix_variants(word, suffix, enclitic):
     #if the word ends by a haraka
     if suffix.find(araby.TEH_MARBUTA) >= 0 and len (enclitic_nm)>0:
         newsuffix = re.sub(araby.TEH_MARBUTA, araby.TEH, suffix)
-    #~elif     not enclitic_nm and word[-1:] in (araby.ALEF_MAKSURA, 
-    #~araby.YEH, araby.ALEF) and araby.is_haraka(suffix):
-        #~newsuffix = u""
-    elif     not enclitic_nm and word[-1:] in (araby.YEH, araby.ALEF) and araby.is_haraka(suffix):
+
+    elif  not enclitic_nm and word[-1:] in (araby.YEH, araby.ALEF) and araby.is_haraka(suffix):
         newsuffix = u""        
     #gererate the suffix without I'rab short mark
     # here we lookup with given suffix because the new suffix is 
@@ -349,22 +343,28 @@ def get_suffix_variants(word, suffix, enclitic):
         suffix_non_irab_mark = newsuffix
     return newsuffix, suffix_non_irab_mark 
 
-#~def getEncliticVariant(self, enclitic):
-    #~"""
-    #~Get the enclitic variant to be joined to the word.
-    #~For example: word = مدرس, suffix = ِة, encletic = هُ. 
-    #The enclitic  is convert to HEH+ KAsra.
-    #~@param word: word found in dictionary.
-    #~@type word: unicode.
-    #~@param suffix: second level suffix vocalized.
-    #~@type suffix: unicode.
-    #~@param enclitic: first level suffix vocalized.
-    #~@type enclitic: unicode.
-    #~@return: variant of enclitic.
-    #~@rtype: unicode.
-    #~"""
-#~
-    #~return enclitic
+def get_enclitic_variant(enclitic_voc, suffix_voc):
+    """
+    Get the enclitix variant to be joined to the word.
+    For example: word = كتاب, suffix = كسرة, encletic = هم. 
+    The enclitic has a second form هِم.
+    @param enclitic_voc: first level suffix vocalized.
+    @type enclitic_voc: unicode.
+    @param suffix_voc: second level suffix vocalized.
+    @type suffix_voc: unicode.
+    @return: variant of enclitic  (vocalized enclitic and vocalized 
+    enclitic without I'rab short mark).
+    @rtype: (unicode, unicode)
+    """
+    #print (u"get enclit2 '%s' %d"%(enclitic_voc, len(enclitic_voc))).encode('utf8')
+    enclitic_voc_non_inflection_mark = enclitic_voc
+    if enclitic_voc.startswith(araby.HEH +  araby.DAMMA) and suffix_voc.endswith(araby.KASRA):
+        enclitic_voc_non_inflection_mark = enclitic_voc.replace(araby.HEH +  araby.DAMMA, araby.HEH)
+        enclitic_voc = enclitic_voc.replace(araby.HEH +  araby.DAMMA, araby.HEH +  araby.KASRA) 
+        #print "ok"
+    return enclitic_voc, enclitic_voc_non_inflection_mark 
+
+
 def get_word_variant(word, suffix):
     """
     Get the word variant to be joined to the suffix.
@@ -416,10 +416,14 @@ def vocalize( noun, proclitic,  suffix, enclitic):
     @return: vocalized word.
     @rtype: unicode.
     """
-    # enclitic and procletric have only an uniq vocalization in arabic
-    enclitic_voc = snconst.COMP_SUFFIX_LIST_TAGS[enclitic]["vocalized"][0]
+    # procletic have only an uniq vocalization in arabic
     proclitic_voc = snconst.COMP_PREFIX_LIST_TAGS[proclitic]["vocalized"][0]
-    suffix_voc = suffix#CONJ_SUFFIX_LIST_TAGS[suffix]["vocalized"][0]
+    # encletic can be variant according to suffix
+    #print (u"vocalize: '%s' '%s'"%(enclitic, noun)).encode('utf8')
+    enclitic_voc = snconst.COMP_SUFFIX_LIST_TAGS[enclitic]["vocalized"][0]
+    enclitic_voc,enclitic_voc_non_inflected  = get_enclitic_variant(enclitic_voc, suffix) 
+
+    suffix_voc = suffix
     #adjust some some harakat
     
     #strip last if tanwin or last harakat
@@ -450,20 +454,14 @@ def vocalize( noun, proclitic,  suffix, enclitic):
     suffix_voc, suffix_non_irab_mark = get_suffix_variants(noun,
      suffix_voc, enclitic)
 
-    #Get the enclitic variant to be joined to the word.
-    #For example: word = مدرس, suffix = ِة, encletic = هُ. 
-    #The enclitic  is convert to HEH+ KAsra.
-    #~enclitic_voc = self.getEncliticVariant(noun, suffix_voc, enclitic_voc)
 
-            
     
     #completate the dictionary word vocalization
     # this allow to avoid some missed harakat before ALEF
     # in the dictionary form of word, all alefat are preceded by Fatha
     #~noun = araby.complet
     noun = noun.replace(araby.ALEF, araby.FATHA + araby.ALEF)
-    #~noun = noun.replace(araby.ALEF + araby.KASRA ,  araby.ALEF)
-    #~noun = noun.replace(araby.ALEF + araby.FATHA ,  araby.ALEF)
+
     noun = noun.replace(araby.ALEF_MAKSURA, araby.FATHA + araby.ALEF_MAKSURA)
     noun = re.sub(ur"(%s)+"%araby.FATHA , araby.FATHA, noun)
     # remove initial fatha if alef is the first letter
@@ -473,7 +471,7 @@ def vocalize( noun, proclitic,  suffix, enclitic):
     # without the I3rab Mark
     # if the suffix is a short haraka 
     word_non_irab_mark = ''.join([ proclitic_voc,  noun, 
-    suffix_non_irab_mark,   enclitic_voc]) 
+    suffix_non_irab_mark,   enclitic_voc_non_inflected]) 
     # ajust the semivocalized form
     word_non_irab_mark  = re.sub(ur"(%s)+"%araby.FATHA , araby.FATHA, word_non_irab_mark )
     word_non_irab_mark  = re.sub(ur"(%s%s%s)+"%(araby.FATHA, araby.ALEF_MAKSURA, araby.KASRATAN)
@@ -489,7 +487,11 @@ def vocalize( noun, proclitic,  suffix, enclitic):
        enclitic_voc])
     #~word_vocalized = araby.ajust_vocalization(word_vocalized)
     word_vocalized = re.sub(ur"(%s)+"%araby.FATHA , araby.FATHA, word_vocalized)
-    word_vocalized = re.sub(ur"(%s%s%s)+"%(araby.FATHA, araby.ALEF_MAKSURA, araby.KASRATAN)
+    word_vocalized = re.sub(ur"%s%s%s"%(araby.FATHA, araby.ALEF_MAKSURA, araby.KASRATAN)
+     , araby.FATHATAN + araby.ALEF_MAKSURA, word_vocalized) 
+    word_vocalized = re.sub(ur"%s%s%s"%(araby.FATHA, araby.ALEF_MAKSURA, araby.DAMMATAN)
+     , araby.FATHATAN + araby.ALEF_MAKSURA, word_vocalized) 
+    word_vocalized = re.sub(ur"%s%s%s"%(araby.FATHA, araby.ALEF_MAKSURA, araby.FATHATAN)
      , araby.FATHATAN + araby.ALEF_MAKSURA, word_vocalized)    
     word_vocalized = re.sub(ur"%s%s%s"%(araby.FATHA, araby.ALEF_MAKSURA, araby.KASRA)
      , araby.FATHA + araby.ALEF_MAKSURA, word_vocalized) 

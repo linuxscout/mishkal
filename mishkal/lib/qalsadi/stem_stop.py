@@ -184,7 +184,7 @@ class StopWordStemmer:
                             'semivocalized':semi_vocalized,
                             'tags':      u':'.join(affix_tags), 
                             'type':      u':'.join( ['STOPWORD', stop_tuple['word_type']]),  
-                            'freq':'freqstop', # to note the frequency type 
+                            'freq':'freqstopword', # to note the frequency type 
                             'originaltags': original_tags,
                             "action":  stop_tuple['action'],
                             "object_type": stop_tuple['object_type'],

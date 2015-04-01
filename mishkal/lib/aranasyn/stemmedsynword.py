@@ -92,13 +92,6 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
             else :
                 return u""
         return self.unvocalized
-    #~def set_unvocalized(self, newunvocalized):
-        #~"""
-        #~Set the unvocalized word
-        #~@param newunvocalized: the new given unvocalized.
-        #~@type newunvocalized: unicode string
-        #~"""
-        #~self.unvocalized =  newunvocalized
         
     def get_unvoriginal(self, ):
         """
@@ -513,7 +506,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @return: has the 3rd persontense.
         @rtype: True/False
         """
-        return u"ضمير" in self.get_tags()
+        return u"ضمير" in self.get_tags() or u'اسم موصول' in self.get_tags() or  u'اسم إشارة' in self.get_tags()
         #~return self.get_unvoriginal() in syn_const.PRONOUN_LIST
 
     def canhave_tanwin(self, ):

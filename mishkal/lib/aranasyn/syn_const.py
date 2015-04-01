@@ -10,6 +10,7 @@
 # Copyright:   (c) Taha Zerrouki 2011
 # Licence:     GPL
 #------------------------------------------------------------------------------
+import libqutrub.verb_const as vconst
 #constants of syntaxic relations
 VerbSubjectRelation = 1; #علاقة فعل وفاعل
 SubjectVerbRelation = 16; # علاثة فاعل وفعل
@@ -27,6 +28,9 @@ KanaRafe3Marfou3Relation = 12; # علاقة رافع  ومرفوع
 TanwinRelation = 11; #علاقة تنوين، للكلمة النكرة بفاصل بعدها
 JonctionRelation = 15 ; # علاقة المعطوف والمعطوف عليه
 ConditionVerbRelation = 17 #علاقة اسم شرط مع فعل
+VerbPassiveSubjectRelation = 18 # علاقة فعل ونائب فاعل
+InnaRafe3Marfou3Relation = 19 #علاقة خبر إنّ مرفوع
+KanaNasebMansoubRelation = 20 #   خبر كان منصوب
 
 #used to display text on relations
 DISPLAY_RELATION={
@@ -46,46 +50,49 @@ KanaRafe3Marfou3Relation : u"12   رافع  ومرفوع",
 TanwinRelation : u"11  تنوين، للكلمة النكرة بفاصل بعدها", 
 JonctionRelation : u"15    المعطوف والمعطوف عليه", 
 ConditionVerbRelation : u"17  اسم شرط مع فعل",
+VerbPassiveSubjectRelation : u"18  علاقة فعل ونائب فاعل",
+InnaRafe3Marfou3Relation :u" 19 #علاقة خبر إنّ مرفوع",
+KanaNasebMansoubRelation : u"20   خبر كان منصوب", 
 }
 #-------------------
 NOMINAL_FACTOR_LIST =set([
-		u"في",
-		u"بأن",
-		u"بين",
-		u"ففي",
-		u"وفي",
-		u"عن",
-		u"إلى",
-		u"على",
-		u"بعض",
-		u"تجاه",
-		u"تلقاء",
-		u"جميع",
-		u"حسب",
-		u"سبحان",
-		u"سوى",
-		u"شبه",
-		u"غير",
-		u"كل",
-		u"لعمر",
-		u"مثل",
-		u"مع",
-		u"معاذ",
-		u"نحو",
-		u"خلف",
-		u"أمام",
-		u"فوق",
-		u"تحت",
-		u"يمين",
-		u"شمال",
-		u"دون",
-		u"من",
-		u"بدون",
-		u"خلال",
-		u"أثناء",
-		#vovalized factor
-		u'أَنِّ',
-		u'إِنَّ',
+        u"في",
+        u"بأن",
+        u"بين",
+        u"ففي",
+        u"وفي",
+        u"عن",
+        u"إلى",
+        u"على",
+        u"بعض",
+        u"تجاه",
+        u"تلقاء",
+        u"جميع",
+        u"حسب",
+        u"سبحان",
+        u"سوى",
+        u"شبه",
+        u"غير",
+        u"كل",
+        u"لعمر",
+        u"مثل",
+        u"مع",
+        u"معاذ",
+        u"نحو",
+        u"خلف",
+        u"أمام",
+        u"فوق",
+        u"تحت",
+        u"يمين",
+        u"شمال",
+        u"دون",
+        u"من",
+        u"بدون",
+        u"خلال",
+        u"أثناء",
+        #vovalized factor
+        u'أَنِّ',
+        u'إِنَّ',
 ]);
 KanaSisters_LIST=set([
 # yahia alhadj
@@ -533,15 +540,15 @@ u'لَعَلَّ',
 
 
 VERBAL_FACTOR_LIST=set([
-		u"قد",
-		u"فقد",
-		u"وقد",
-		u"لن",
-		u"لم",
-		#vovalized factor
-		u'أَنْ',
-		u'إِنْ',
-		
+        u"قد",
+        u"فقد",
+        u"وقد",
+        u"لن",
+        u"لم",
+        #vovalized factor
+        u'أَنْ',
+        u'إِنْ',
+        
 ]);
 
 
@@ -549,93 +556,93 @@ VERBAL_FACTOR_LIST=set([
 
 
 NominalPhrase=[
-	"NN.",
-	"NNN.",
-	"NNNN.",
-	"NSN.",
-	"NNSN.",
-	"NSNN.",
-	"NSNNN.",
-	"NSNSN.",
-	"NSSN.",
-	"NSSNN.",
-	"NV.",
-	"NVN.",
-	"NVNN.",
-	"NNV.",
-	"NNVV.",
-	"NVV.",
-	"NVNV.",
-	"NVSN.",
-	"NVSNV.",
-	"NVSNVN.",
-	"SNV.",
-	"SNVN.",
-	"SNSV.",
-	"SNN.",
-	"SNNN.",
-	"SNNNN.",
-	"SSNN.",
-	"SNSSN.",
-	"SNSN.",
-	"SNSNV.",
-	"SSNNN.",
-	"SSNSNSN.",
-	"SSNSSN.",
-	"SSSNN.",
-	"SSSNSN.",
-	"SSNV.",
-	"SSNSV.",
+    "NN.",
+    "NNN.",
+    "NNNN.",
+    "NSN.",
+    "NNSN.",
+    "NSNN.",
+    "NSNNN.",
+    "NSNSN.",
+    "NSSN.",
+    "NSSNN.",
+    "NV.",
+    "NVN.",
+    "NVNN.",
+    "NNV.",
+    "NNVV.",
+    "NVV.",
+    "NVNV.",
+    "NVSN.",
+    "NVSNV.",
+    "NVSNVN.",
+    "SNV.",
+    "SNVN.",
+    "SNSV.",
+    "SNN.",
+    "SNNN.",
+    "SNNNN.",
+    "SSNN.",
+    "SNSSN.",
+    "SNSN.",
+    "SNSNV.",
+    "SSNNN.",
+    "SSNSNSN.",
+    "SSNSSN.",
+    "SSSNN.",
+    "SSSNSN.",
+    "SSNV.",
+    "SSNSV.",
 ];
 
 
 VerbalPhrase=[
-	"V.",
-	"VN.",
-	"VSN.",
-	"VSSV.",
-	"VNSSV.",
-	"VSNN.",
-	"VSNV.",
-	"VNV.",
-	"VNVN.",
-	"VNVNN.",
-	"VNVSN.",
-	"VNVNNN.",
-	"VNVNNNN.",
-	"VNVNNNNN.",
-	"VNN.",
-	"VNNV.",
-	"VNNVV.",
-	"VNNN.",
-	"VNNNV.",
-	"VNNNSN.",
-	"VNNNN.",
-	"VNNNNN.",
-	"VNNNNNN.",
-	"VNNNNNV.",
-	"VV.",
-	"VVN.",
-	"VVNN.",
-	"VVNNN.",
-	"VVNNNN.",
-	"SV.",
-	"SVNSVNN.",
-	"SVSN.",
-	"SVNSN.",
-	"SVV.",
-	"SVNV.",
-	"SVNVN.",
-	"SVSNV.",
-	"SSSVV.",
-	"SSVNV.",
-	"SSVNVN.",
-	"SSVSNV.",
-	#added 
-	"SVN.",
-	"VNSN.", #added	
-	
-	]
+    "V.",
+    "VN.",
+    "VSN.",
+    "VSSV.",
+    "VNSSV.",
+    "VSNN.",
+    "VSNV.",
+    "VNV.",
+    "VNVN.",
+    "VNVNN.",
+    "VNVSN.",
+    "VNVNNN.",
+    "VNVNNNN.",
+    "VNVNNNNN.",
+    "VNN.",
+    "VNNV.",
+    "VNNVV.",
+    "VNNN.",
+    "VNNNV.",
+    "VNNNSN.",
+    "VNNNN.",
+    "VNNNNN.",
+    "VNNNNNN.",
+    "VNNNNNV.",
+    "VV.",
+    "VVN.",
+    "VVNN.",
+    "VVNNN.",
+    "VVNNNN.",
+    "SV.",
+    "SVNSVNN.",
+    "SVSN.",
+    "SVNSN.",
+    "SVV.",
+    "SVNV.",
+    "SVNVN.",
+    "SVSNV.",
+    "SSSVV.",
+    "SSVNV.",
+    "SSVNVN.",
+    "SSVSNV.",
+    #added 
+    "SVN.",
+    "VNSN.", #added 
+    
+    ]
 GrammarPhrase = VerbalPhrase+NominalPhrase;
 PRONOUN_LIST = (
 u"أنا" ,
@@ -809,54 +816,54 @@ u'لَعَلَّ',
 ]);
 
 DIRECT_VERBAL_FACTOR_LIST=set([
-		u"قد",
-		u"فقد",
-		u"وقد",
-		u"لن",
-		u"لم",
-		#vovalized factor
-		u'أَنْ',
-		u'إِنْ',
+        u"قد",
+        u"فقد",
+        u"وقد",
+        u"لن",
+        u"لم",
+        #vovalized factor
+        u'أَنْ',
+        u'إِنْ',
 ]);
 
 DIRECT_NOMINAl_FACTOR_LIST=set([
-		u"في",
-		u"بأن",
-		u"بين",
-		u"ففي",
-		u"وفي",
-		u"عن",
-		u"إلى",
-		u"على",
-		u"بعض",
-		u"تجاه",
-		u"تلقاء",
-		u"جميع",
-		u"حسب",
-		u"سبحان",
-		u"سوى",
-		u"شبه",
-		u"غير",
-		u"كل",
-		u"لعمر",
-		u"مثل",
-		u"مع",
-		u"معاذ",
-		u"نحو",
-		u"خلف",
-		u"أمام",
-		u"فوق",
-		u"تحت",
-		u"يمين",
-		u"شمال",
-		u"دون",
-		u"من",
-		u"بدون",
-		u"خلال",
-		u"أثناء",
-		#vovalized factor
-		u'أَنِّ',
-		u'إِنَّ',		
+        u"في",
+        u"بأن",
+        u"بين",
+        u"ففي",
+        u"وفي",
+        u"عن",
+        u"إلى",
+        u"على",
+        u"بعض",
+        u"تجاه",
+        u"تلقاء",
+        u"جميع",
+        u"حسب",
+        u"سبحان",
+        u"سوى",
+        u"شبه",
+        u"غير",
+        u"كل",
+        u"لعمر",
+        u"مثل",
+        u"مع",
+        u"معاذ",
+        u"نحو",
+        u"خلف",
+        u"أمام",
+        u"فوق",
+        u"تحت",
+        u"يمين",
+        u"شمال",
+        u"دون",
+        u"من",
+        u"بدون",
+        u"خلال",
+        u"أثناء",
+        #vovalized factor
+        u'أَنِّ',
+        u'إِنَّ',       
 ]);
 
 
@@ -1169,3 +1176,155 @@ u'لما': {u'لما': ['DVN', 'VJ'], u'لَمَّا': ['CF', 'VJ']} ,
 u'بئس': {u'بئس': ['NR', 'DNR']} ,
 u'ليل': {u'ليل': ['DNJ', 'NJ'], u'لَيْلَ': ['NJ']} ,
 }
+TABLE_PRONOUN = {
+vconst.PronounAna : [u"أَنَا", u"نِي"],#u"أنا",
+vconst.PronounNahnu : [u"نَحْنُ", u"نَا"], 
+vconst.PronounAnta : [u"أَنْتَ", u"كَ" ], #u"أنت",
+vconst.PronounAnti :  [u"أَنْتِ",  u"كِ"], # u"أنتِ",
+vconst.PronounAntuma : [u"اََنْتُمَا", u"كُمَا"], #u"أنتما",
+vconst.PronounAntuma_f :[ u"أَنْتُمَا", u"كُمَا"], #  u"أنتما مؤ",
+vconst.PronounAntum : [u"ْأَنْتُم",   u"كُمْ"], #u"أنتم", 
+vconst.PronounAntunna :[ u"أَنْتُنَّ",  u"كُنَّ"], #u"أنتن", 
+vconst.PronounHuwa : [u"َهُو",      u"هُ", u'الَّذِي', u'مَنْ', u'هَذَا',u'ذِهِ',  u'ذَلِكَ', u'ذَلِكُمْ', u'ذَلَكُمَا', u'ذَلِكُنَّ', u'ذَانِكَ', u'ذَا', u'ذَاكَ', ], #u"هو",
+vconst.PronounHya : [u"َهِي",     u"هَا" , u'الَّتِي',  u'مَنْ', u'هَذِهِ', u'هَذِي', u'هَاتِهِ', u'هَاتِي', u'تِلْكَ', u'تِلْكُمْ', u'تِلْكُمَا'
+],  #u"هي",  
+vconst.PronounHuma :[ u"هُمَا",   u"هُمَا" , u'الْلَذَانِ', u'الْلَذَيْنِ', u'مَنْ', u'مَا', u'هَذَانِ', u'هَذَيْنِ', u'ذَانِ'],  #u"هما",
+vconst.PronounHuma_f :[ u"هُمَا", u"هُمَا" , u'الْلَتَانِ', u'الْلَتَيَّا', u'الْلَتَيْنِ', u'مَنْ', u'مَا', u'هَاتَانِ', u'هَاتَيْنِ', u'تَانِ', u'تَانِكَ'],#u"هما مؤ",
+vconst.PronounHum : [u"ْهُم",      u"هُمْ" , u'الَّذِينَ', u'الْأَلَاءُ', u'الْأُلَى', u'مَنْ', u'مَا', u'هَؤُلَاءِ', u'أُولَئِكَ', u'أُولَئِكُمْ', u'أُولَاءِ', u'أُولَالِكَ'], #u"هم",
+vconst.PronounHunna :[ u"َّهُن",    u"هُنَّ", u'الْلَائِي', u'الْلَاتِي', u'الْلَوَاتِي',  u'مَنْ', u'مَا' ], #u"هن",
+}
+
+        
+conditions = [
+{ "rule":VerbObjectRelation,
+     "previous":[ ("is_verb",True), ("get_original",u"قالَ"), ],
+    "current":[("is_pounct",True), ]
+},
+{ "rule":JonctionRelation,
+     "previous":[ ("is_noun",True), ("get_original",u"قالَ"), ("is_majrour",True), ],
+    "current":[("is_noun",True), ("has_procletic",True),("has_jonction",True), ("has_jar",False), ("is_majrour",True),]
+},
+
+{ "rule":JonctionRelation,
+     "previous":[ ("is_noun",True), ("get_original",u"قالَ"), ("is_majrour",True), ],
+    "current":[("is_noun",True), ("has_procletic",True),("has_jonction",True), ("has_jar",False), ("is_majrour",True),]
+},
+{ "rule":JonctionRelation,
+     "previous":[ ("is_noun",True), ("get_original",u"قالَ"), ("is_mansoub",True), ],
+    "current":[("is_noun",True), ("has_procletic",True),("has_jonction",True), ("has_jar",False), ("is_mansoub",True),]
+},
+
+{ "rule":JonctionRelation,
+     "previous":[ ("is_noun",True), ("get_original",u"قالَ"), ("is_marfou3",True), ],
+    "current":[("is_noun",True), ("has_procletic",True),("has_jonction",True), ("has_jar",False), ("is_marfou3",True),]
+},
+
+{ "rule":TanwinRelation,
+     "previous":[ ("is_tanwin",True), ],
+     "current":[ ("is_break",True),]
+},
+{ "rule":JarMajrourRelation,
+     "previous":[ ("is_stopword",True), ("is_jar",True),],
+     "current":[ ("is_noun",True), ("is_break",False), ("is_majrour",True),]
+},
+{ "rule":InnaNasebMansoubRelation,
+     "previous":[ ("is_stopword",True), ("is_naseb",True),],
+     "current":[ ("is_noun",True), ("is_break",False), ("is_mansoub",True),]
+},
+            # خبر إنّ لمبتدإ ضمير متصل
+{ "rule":InnaRafe3Marfou3Relation,
+     "previous":[ ("is_stopword",True), ("is_naseb",True), ("has_encletic",True)],
+     "current":[ ("is_noun",True), ("is_break",False), ("is_marfou3",True),]
+},
+{ "rule":PrimateRelation,
+     "previous":[ ("is_stopword",True), ("is_initial",True),],
+     "current":[ ("is_noun",True), ("is_break",False), ("is_marfou3",True),]
+},
+        # اسم كان وأخواتها
+{ "rule":KanaRafe3Marfou3Relation,
+     "previous":[ ("is_stopword",True), ("is_kana_rafe3",True),],
+     "current":[ ("is_noun",True), ("is_break",False), ("is_marfou3",True),]
+},
+        # رافع ومرفوع   
+{ "rule":Rafe3Marfou3Relation,
+     "previous":[ ("is_stopword",True), ("is_rafe3",True),],
+     "current":[ ("is_noun",True), ("is_break",False), ("is_marfou3",True),]
+},
+        #جازم ومجزوم
+{ "rule":JazemMajzoumRelation,
+  "previous":[("is_stopword",True), ("is_verbal_factor",True), ("is_jazem",True),],
+  "current":[("is_verb",True), ("is_break",False), ("is_majzoum",True), ("is_present",True)]
+},
+
+        ##حالة خاصة لا الناهية تنهى عن الأفعال
+                # المسندة للضمير المخاطب فقط
+{ "rule":JazemMajzoumRelation,
+  "previous":[("is_stopword",True), ("is_verbal_factor",True), ("is_jazem",True), ("get_unvoriginal",u'لا')],
+  "current":[("is_verb",True), ("is_break",False), ("is_majzoum",True), ("is_present",True),
+("has_imperative_pronoun", True)]
+},
+    # ناصب ومنصوب الفعل
+{ "rule":NasebMansoubRelation,
+  "previous":[("is_stopword",True), ("is_verbal_factor",True), ("is_verb_naseb",True),],
+  "current":[("is_verb",True), ("is_break",False), ("is_mansoub",True), ("is_present",True)]
+},
+
+
+    # رافع ومرفوع الفعل
+{ "rule":Rafe3Marfou3Relation,
+  "previous":[("is_stopword",True), ("is_verbal_factor",True), ("is_verb_rafe3",True),],
+  "current":[("is_verb",True), ("is_break",False), ("is_present",True), ("is_marfou3",True)]
+},
+
+
+    # رافع ومرفوع الفعل
+                #حالة لا النافية 
+                # المسندة لغير الضمائر المخاطبة
+{ "rule":Rafe3Marfou3Relation,
+  "previous":[("is_stopword",True), ("is_verbal_factor",True), ("is_verb_rafe3",True), ("get_unvoriginal",u'لا')],
+  "current":[("is_verb",True), ("is_break",False), ("is_present",True), ("is_marfou3",True),("has_imperative_pronoun", False)]
+},
+
+        # الجارية فعل والسابق مبتدأ
+{ "rule":Rafe3Marfou3Relation,
+  "previous":[("is_noun",True), ("is_defined",True),],
+  "current":[("is_verb",True), ("is_break",False), ("is_present",True), ("is_marfou3",True),]
+},
+# المضاف والمضاف إليه
+        # إضافة لفظية
+        # مثل لاعبو الفريق
+{ "rule":JarMajrourRelation,
+  "previous":[("is_added",True), ],
+  "current":[("is_noun",True), ("is_break",False), ("is_majrour",True), ]
+},
+{ "rule":JarMajrourRelation,
+  "previous":[("is_noun",True), ("is_defined",False), ("is_added",False), ("is_tanwin",False),],
+  "current":[("is_noun",True), ("is_break",False), ("is_majrour",True), ]
+},
+
+
+{ "rule":JarMajrourRelation,
+  "previous":[("is_noun",True), ("is_defined",False), ("is_added",False), ("is_tanwin",False),],
+  "current":[("is_addition",True), ("is_break",False), ("is_majrour",True), ]
+},
+
+      # الفعل والفاعل 
+{ "rule":VerbSubjectRelation,
+  "previous":[("is_verb",True), ("is3rdperson",True), ("is_passive",False), ],
+  "current":[("is_noun",True), ("is_break",False), ("is_marfou3",True), ]
+},
+# الفعل و نائب الفاعل
+{ "rule":VerbPassiveSubjectRelation,
+  "previous":[("is_verb",True), ("is3rdperson",True), ("is_passive",True), ],
+  "current":[("is_noun",True), ("is_break",False), ("is_marfou3",True), ]
+},
+
+# الفعل والمفعول به
+{ "rule":VerbObjectRelation,
+  "previous":[("is_verb",True), ("is_passive",False), ("is_transitive", True), ("has_encletic", False) ],
+  "current":[("is_noun",True), ("is_break",False), ("is_mansoub",True), ]
+},
+]
+           
+
+

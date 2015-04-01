@@ -16,17 +16,19 @@ Syntaxic Analysis
 if __name__ == "__main__":
     import sys
     sys.path.append('../lib')
-
-import aranasyn.syn_const
+import pyarabic.araby as araby
+import aranasyn.syn_const 
 #~ import qalsadi.stemmedword as stemmedword
 import aranasyn.synnode
 import aranasyn.stemmedsynword as stemmedsynword
-
+import naftawayh.wordtag as wordtag
+from operator import and_
 class SyntaxAnalyzer:
     """
         Arabic Syntax analyzer
     """
     def __init__(self):
+        self.wordtagger = wordtag.WordTagger()
         pass
     def analyze(self, detailed_stemming_dict):
         """
@@ -56,52 +58,6 @@ class SyntaxAnalyzer:
         stemmedsynwordlistlist, synnode_list)
         return stemmedsynwordlistlist, synnode_list
 
-    def study_syntax(self, stemmedsynwordlistlist):
-        """
-        Analysis of words relations  
-        """
-        # ignore if the current word is transparent
-        ignore = False
-        previous_index = 0
-        #~counter = 0        
-        # study the relations between words stemmings
-        for current_index in  range(len(stemmedsynwordlistlist)):
-            #index used to handle stmd position
-            stmword_case_position = 0
-            for stmword in stemmedsynwordlistlist[current_index]:
-                if  current_index == 0:  # the initial case
-                    # the initial case
-                    #~counter += 1
-                    stmword = self.bigram_analyze(None, stmword )[1]
-                else:
-                    previous_case_position = 0 
-                    for previous in stemmedsynwordlistlist[previous_index]:
-                        #~counter += 1
-                        previous, stmword = self.bigram_analyze(previous,
-                         stmword, previous_case_position, stmword_case_position)
-                        previous_case_position += 1 
-
-                    #if debug: print "stmword.get_syntax",stmword.get_syntax()
-                # if the current word is transparent, ignore it 
-                # and fix the previous index to the previous word.
-                if stmword.is_transparent():
-                    ignore = True
-                else: ignore = False
-                stmword_case_position += 1
-            # if the current word ha sall its cases as transparent
-            # الكلمة الشفافة مثل اسم الإشارة 
-#~تنقل تأثير الكلمة السابقة لها للكلمة اللاحقة لها# م            
-            # مثل رأيت هذا الرجل
-            # if not the word is not transprent, change the previous index.
-            # else: change the ignore state and save the previous index as it.
-            if not ignore:
-                previous_index = current_index
-            else:
-                # previous index is mantained.
-                ignore = False
-        return stemmedsynwordlistlist
-
-
 
     def study_syntax_by_synode(self, stemmedsynwordlistlist, synnode_list):
         """
@@ -128,8 +84,12 @@ class SyntaxAnalyzer:
         for current_index in  range(len(stemmedsynwordlistlist)):
             #index used to handle stmd position
             stmword_case_position = 0
+            current_node = synnode_list[current_index]
             if current_index - 1 >=0 :
                 pre_node = synnode_list[current_index-1]
+              # guess the word type by word tag
+                tag = self.wordtagger.one_word_tagging(current_node.get_word(), pre_node.get_word())
+                current_node.set_guessed_type_tag(tag)
             else:
                 pre_node =None
             if current_index + 1 < len(stemmedsynwordlistlist) : 
@@ -170,8 +130,50 @@ class SyntaxAnalyzer:
                 ignore = False
         return stemmedsynwordlistlist
 
-
-
+    def bigram_analyze2(self, previous, current, previous_position = 0, 
+            current_position = 0, pre_node = None, next_node = None):
+        for cond in aranasyn.syn_const.conditions:
+            precondlist = cond['previous'] 
+            curcondlist = cond['current']
+            precriteria = False 
+            curcriteria = False 
+            # join all tests
+            if previous :
+                # Browse all condition, if one is false, break with false
+                # else all conditions are true,                 
+                for k,v in precondlist:
+                    if getattr(previous, k)() != v:
+                        break
+                else:
+                    precriteria = True 
+            if precriteria and current:  
+                # Browse all condition, if one is false, break with false
+                # else all conditions are true, 
+                for k,v in curcondlist:
+                    if getattr(current, k)() != v:
+                        break
+                else:
+                    curcriteria = True
+            if precriteria and curcriteria:
+                weight = cond.get("rule", 0)
+                break;
+    #~ def bigram_analyze2(self, previous, current, previous_position = 0, 
+            #~ current_position = 0, pre_node = None, next_node = None):
+        #~ for cond in aranasyn.syn_const.conditions:
+            #~ precondlist = cond['previous'] 
+            #~ curcondlist = cond['current']
+            #~ precriteria = False 
+            #~ curcriteria = False 
+            #~ # join all tests
+            #~ if previous :
+                #~ # Browse all condition, if one is false, break with false
+                #~ # else all conditions are true,                 
+                #~ precriteria =reduce( and_,[getattr(previous, k)() == v for k,v in precondlist])
+            #~ if precriteria and current: 
+                #~ curcriteria =reduce( and_,[getattr(current, k)() == v for k,v in curcondlist])
+            #~ if precriteria and curcriteria:
+                #~ weight = cond.get("rule", 0)
+                #~ break;                
     def bigram_analyze(self, previous, current, previous_position = 0, 
             current_position = 0, pre_node = None, next_node = None):
         """
@@ -196,7 +198,11 @@ class SyntaxAnalyzer:
         # the word can be forced before this treatement,
         # the this variable is used to indicate if the word is 
         #forced during the actual process.
+        
+        #~ self.bigram_analyze2( previous, current)
         weight = 0
+       
+
         if not previous or previous.is_initial():
             if current.is_marfou3() or current.is_past() or current.is_stopword():
              # if  current.is_majrour():
@@ -233,8 +239,10 @@ class SyntaxAnalyzer:
             # add a relation to previous
                 previous.add_next(current_position, aranasyn.syn_const.TanwinRelation)
             return (previous, current)
+
+
         # جملة مقول القول
-        elif current.is_pounct() and previous.is_verb() and previous.get_original() == u"قالَ":
+        if current.is_pounct() and previous.is_verb() and previous.get_original() == u"قالَ":
             #if the current is pounctuation and the previous is a speach verb, 
             previous.add_next(current_position, aranasyn.syn_const.VerbObjectRelation)
             return (previous, current)            
@@ -250,17 +258,33 @@ class SyntaxAnalyzer:
             return (previous, current)
 
         elif current.is_pounct() or current.is_stopword() or \
-        (current.has_procletic()  and not current.is_defined()):
+        (current.has_procletic()) :# and not current.is_defined()):
             # if the pounct is a break, the tanwin is prefered
             # the previous will have twnin
 
             if current.is_break() and previous.is_tanwin():
                 previous.add_next(current_position, aranasyn.syn_const.TanwinRelation)
                 return (previous, current)
+        #العدد والمعدود، التمييز
+        # quantity case
+        #the previous is a number, 
+        if previous.is_number():
+            if current.is_noun():
+                try:
+                    # get intger part only
+                    number = int(float(previous.get_word()))
+                except ValueError:
+                    number = 0
+                if number  % 100 in range(3,10) or number % 100 == 0:
+                    if current.is_majrour():
+                        weight = aranasyn.syn_const.JarMajrourRelation
+                elif  number % 100 in range(11,99) or number % 100 == 0:
+                    if current.is_mansoub():
+                        weight = aranasyn.syn_const.NasebMansoubRelation               
 
         #the stop word is factors, others no, 
         # if the previous is not stop word return.
-        if previous.is_stopword():
+        if previous.is_stopword() and not current.is_break():
             if current.is_noun():# and previous.is_nominalFactor():
                 if (previous.is_jar() or previous.is_addition()) and \
                 current.is_majrour():
@@ -270,6 +294,10 @@ class SyntaxAnalyzer:
                 elif previous.is_naseb() and  current.is_mansoub():
                     current.set_inna_noun()
                     weight = aranasyn.syn_const.InnaNasebMansoubRelation
+                    # خبر إنّ لمبتدإ ضمير متصل
+                elif previous.has_encletic() and previous.is_naseb() and current.is_marfou3():
+                    #~ current.set_inna_noun()
+                    weight = aranasyn.syn_const.InnaRafe3Marfou3Relation
 
                 elif previous.is_initial() and  current.is_marfou3():
                     weight = aranasyn.syn_const.PrimateRelation
@@ -281,10 +309,9 @@ class SyntaxAnalyzer:
                 elif previous.is_rafe3() and current.is_marfou3():
                     weight = aranasyn.syn_const.Rafe3Marfou3Relation
             # pronoun verb
-            elif current.is_verb() and previous.is_pronoun():
+            elif current.is_verb() and self.compatible_subject_verb(previous, current):
                 # تطابق الضمير مع الضمير المسند إليه
                 weight = aranasyn.syn_const.SubjectVerbRelation
-
             #verb
             elif current.is_verb() and previous.is_verbal_factor():
                 if current.is_present():
@@ -308,19 +335,20 @@ class SyntaxAnalyzer:
                             weight = aranasyn.syn_const.Rafe3Marfou3Relation
                 elif previous.is_condition_factor():
                     weight = aranasyn.syn_const.ConditionVerbRelation
-        else: # previous is not a stopword
-            if current.is_verb():
+
+        else : # previous is not a stopword
+            if current.is_verb() and not current.is_break():
                 # الجارية فعل والسابق مبتدأ
                 if previous.is_noun() and previous.is_defined():
                     if current.is_marfou3():
                     # Todo treat the actual word
-                        weight = aranasyn.syn_const.Rafe3Marfou3Relation
-            if current.is_noun() or current.is_addition():
+                        weight = aranasyn.syn_const.Rafe3Marfou3Relation 
+            if not current.is_break() and (current.is_noun() or current.is_addition()):
                 # المضاف والمضاف إليه
                 # إضافة لفظية
                 # مثل لاعبو الفريق
                 #~if current.is_majrour() or current.is_stopword():
-                if current.is_majrour():
+                if current.is_majrour() :
                     if previous.is_added():
                         weight = aranasyn.syn_const.JarMajrourRelation
                     elif previous.is_noun() and not previous.is_defined() \
@@ -341,15 +369,21 @@ class SyntaxAnalyzer:
                     elif self.are_nominal_compatible(previous, current):
                         if current.is_adj():
                             weight = aranasyn.syn_const.PrimatePredicateRelation
-                if previous.is_verb():
+                if previous.is_verb() and not current.is_break():
                     if previous.is3rdperson():
                         # Todo treat the actual word
                         # الفعل والفاعل أو نائبه
                         
-                        if current.is_marfou3() :
-                            if ((current.is_feminin() and previous.is3rdperson_feminin())
-                               or (not current.is_feminin() and previous.is3rdperson_masculin())):
+                        if current.is_marfou3()  :
+                            if not previous.is_passive():
+                           # if ((current.is_feminin() and previous.is3rdperson_feminin())
+                           #    or (not current.is_feminin() and previous.is3rdperson_masculin())):
+                           #     weight = aranasyn.syn_const.VerbSubjectRelation
                                 weight = aranasyn.syn_const.VerbSubjectRelation
+                            else:
+                                weight = aranasyn.syn_const.VerbPassiveSubjectRelation
+                                
+
                     # الفعل والمفعول به
                     if current.is_mansoub()  and not previous.has_encletic() and previous.is_transitive() :
                         weight = aranasyn.syn_const.VerbObjectRelation
@@ -546,6 +580,46 @@ class SyntaxAnalyzer:
             else:
                 return False
         return compatible
+
+
+
+
+    def compatible_subject_verb(self, previous, current):
+        """
+        verify the gramatical relation between the two words, 
+        for subject and verb 
+        دراسة الترابط بين الفاعل والفعل، حين يسبق الفاعل الفعل
+        If the current word is related with the previous word, return True.
+        The previous word can contain a pointer to the next word. 
+        the current can have a pointer to the previous if they ara realated
+        @param previous: the previous stemmed word, 
+        choosen by the tashkeel process.
+        @type previous:stemmedSynWord class 
+        @param current: the current stemmed word.
+        @type current:stemmedSynWord class 
+        @return: return if the two words are related syntaxicly.
+        @rtype: boolean
+        """
+        compatible = False
+        if previous.is_stopword():
+            if (previous.is_pronoun() and current.is_verb()):
+                # الضمير مطابق لضمير الفعل
+                if previous.is_pronoun():
+                    expected_pronouns = aranasyn.syn_const.TABLE_PRONOUN.get(current.get_pronoun(), [])
+                    #~ print u"\t".join([previous.get_vocalized(),expected_pronoun]).encode('utf8')
+                    if previous.get_original() in expected_pronouns:
+                        compatible = True
+            #الضمير المتصل مطابق لضمير الفعل
+            #Todo fix is_added function
+            if True or previous.is_added():
+                expected_pronouns = aranasyn.syn_const.TABLE_PRONOUN.get(current.get_pronoun(), [])
+                #~ print "is_added",previous.is_added(),  u"\t".join([previous.get_vocalized(), previous.get_encletic(),u", ".join(expected_pronouns)]).encode('utf8')
+                if previous.get_encletic() in expected_pronouns:
+                    compatible = True                    
+        return compatible
+
+
+
 
     def exclode_cases(self, word_result):
         """

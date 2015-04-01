@@ -157,7 +157,7 @@ class CollocationClass:
             if self.cache_enabled and self.collo_cache.has_key(key): 
                 return key            
             
-            #print key.encode('utf8')
+            #print "ok",key.encode('utf8')
             idlist = self.collo_dict.lookup(key)
             # if the wordlist as key existes in collocation database, 
             # insert its vocalization in a collocation cache dict
@@ -228,7 +228,16 @@ class CollocationClass:
                 # else:
                     # sublist = []
                     # break
-            if sublist:
+            if sublist and self.is_possible_collocation(sublist):
+                #for x in sublist:
+                #    if not araby.is_arabicword(x):
+                #        result = False;
+                #        break;
+                #else:
+                #    if self.is_possible_collocation(sublist):
+                #        result = self.is_collocated(sublist)
+                #    else: 
+                #        result = False
                 result = self.is_collocated(sublist)
                 if result:
                     newlist.append(result)
@@ -265,47 +274,79 @@ class CollocationClass:
         vocalizedword list, 'category': categoryOf_collocation}. else False.
         @rtype: dict of dict /None.
         """
-        #lookup for collocation from max number to min number of 
-        # words in the collocation
-        i = self.maxi
-        collolist = wordlist
-        while i >= self.mini: 
-            collolist =  self.ngramfinder(i, collolist)
-            #print repr(collolist)
-            i -= 1
-        #Get the list of single words and collocations
-        #collolist = self.ngrams(self.min, self.max, wordlist)
-        ##collodict = {}
-        newlist = []
-        #print repr(self.collo_cache)
-        for item in collolist:
-            if self.collo_cache.has_key(item):
-                vocalized = self.collo_cache[item]
-                #lookup for collocations in dictionary
-                # the dictionary conatins the vocalized collocation, 
-                # but it contains also a list of collocations 
-                # non vocalized yet, 
-                # this 'vocalized value is empty, then we use this 
-                # feature to collect the user feed back and correction
-                if vocalized != u"":
-                    # if the vocalization is vocalized, we don't mention it
-                    # newlist.append(u"'"+vocalized+u"'")
-                    if self.get_show_delimiter():
-                        newlist.append(u''.join([self.get_delimiter(), 
-                        item, self.get_delimiter()]))
-                    else:
-                        newlist.append(vocalized)                    
+        # first lookup for all collocations of each word
+        # if we have text like "I am an new world"
+        # we lookup for evrey word, all collocations put it in a cache system
+        previous = False
+        taglist =[]
+        vocalized_list=[]
+        for word in wordlist:
+            if not self.collo_cache.has_key(word):
+                # get all collocations starting with word
+                result = self.is_collocated_word(word)
+                # result is False or a list of collocations
+                self.collo_cache[word] = result #word_collocation(result)
+            if previous:
+                if word in self.collo_cache[previous].keys():
+                    # remove the previous tag
+                    taglist.pop()
+                    taglist.append("CB")  # B means Begin
+                    taglist.append("CI")  # I means Intern
+                    vocalized_tuple = self.collo_cache[previous][word]
+                    vocalized_list.pop()
+                    vocalized_list.extend(vocalized_tuple.split(" "))
                 else:
-                    # ig the collocation isn't vocalized, we delemeit 
-                    #it by ~, to collect corrections.
-                    if self.get_show_delimiter():
-                        newlist.append(u''.join([self.get_unknown_delimiter(), 
-                        item, self.get_unknown_delimiter()]))                
-                    else:
-                        newlist.append(item)                        
+                    taglist.append("CO")
+                    vocalized_list.append(word)
             else:
-                newlist.append(item)
-        return newlist
+                taglist.append("CO")
+                vocalized_list.append(word)
+            previous = word 
+        #return zip(taglist, vocalized_list)
+        #print taglist
+        #print u" ".join(vocalized_list).encode('utf8')
+        return  vocalized_list, taglist
+    def is_collocated_word(self, word):
+        """
+        Return The list of collocations started by given word, else False.
+        @param word: input word.
+        @type word: unicode.
+        @return : dict of collocations and vocalized collocations if exists, the keys are second words in collocations. else False.
+        @rtype: dict/Boolean.
+        """
+        if re.search("[::pounctuation::]", word):
+            return {}
+        result = {}
+        # lookup the word in dict collocations
+        idlist = self.collo_dict.lookup(word, singleword = True)
+        # if the wordlist as key existes in collocation database, 
+        # insert its vocalization in a collocation cache dict
+        if len(idlist) >= 1 :
+            for item in idlist:
+                # the key is the second word in collocation
+                key = item["unvocalized"].split(" ")[1]
+                if item["vocalized"]: # some collocations have not a vocalized case
+                    result[key] = item["vocalized"]
+        else:
+            #before return false we can strip some prefixes from the clause
+            # for example : الحمد لله
+            # is a collocation, , but بالحمد لله is not found
+            if word[0] in (araby.FEH, araby.WAW, araby.BEH, araby.LAM,
+             araby.KAF):
+                first_letter = word[0]
+                new_word = word[1:]
+                #look up for the new key
+                idlist = self.collo_dict.lookup(new_word, singleword = True)
+                # if the wordlist as key existes in collocation data base, 
+                # insert its vocalization in a collocation cache dict
+                if len(idlist) >= 1 :
+                    for item in idlist:
+                        # the key is the second word in collocation
+                        key = item["unvocalized"].split(" ")[1]
+                        result[key] = first_letter + item["vocalized"]
+        return result
+
+
     def is_possible_collocation(self, list2, context = "", lenght = 2):
         """
         Guess if the given list is a possible collocation

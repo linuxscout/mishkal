@@ -1,40 +1,33 @@
-/*
-@import url(http://fonts.googleapis.com/earlyaccess/amiri.css);
-@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
-@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
-*/
+/*@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);*/
 @font-face {
-  font-family:AmiriWeb;
+  font-family:ColoredTashkeelFont;
   font-style:normal;
   font-weight:400;
-  src:url(fonts/amiri-regular.eot?) format("eot"),url(fonts/amiri-regular.woff) format("woff"),url(fonts/amiri-regular.ttf) format("truetype")
-}
-
-@font-face {
-  font-family:AmiriTashkeel;
-  font-style:normal;
-  font-weight:400;
-  src:url(fonts/amiri-quran-colored.eot?) format("eot"),url(fonts/amiri-quran-colored.woff) format("woff"),url(fonts/amiri-quran-colored.ttf) format("truetype")
+  src:url(fonts/DroidNaskh-Regular-Colored.ttf) format("truetype");
 }
 
 body {
   direction:rtl;
-  font-family:'Droid Arabic Naskh','Traditional Arabic',Sans,"Times New Roman";
+  font-family:ColoredTashkeelFont,  'Droid Arabic Naskh', Amiri,'Traditional Arabic',Sans,Arial;
   font-size:14pt;
   padding:1cm;
   padding-top:.25cm;
   margin-left:2%;
   margin-right:2%
 }
-
-
 #statusbox {
   overflow:hidden;
   width:100%;
   height:48px;
   font-size:24px
 }
-
+footer, #contributeSection {
+    /*position : relative;*/
+    height : 20px;
+    margin-bottom : auto;
+    margin-left : auto;
+    margin-right : auto;
+  }
 progress,#loading {
   display:none;
   position:absolute;
@@ -48,31 +41,54 @@ progress,#loading {
   vertical-align:middle;
   opacity:.7
 }
-
 #container {
   background:#fff;
   margin:32px;
   border:3px solid #fff
 }
-
-
+.feedback{
+color:red;
+ margin-bottom:5px; 
+}
 #resultsbox {
   padding:2px;
-  position:absolute;
+  position:relative;
   bottom:0;
   left:0
 }
-
 #result {
-  display:table-cell;
-  vertical-align:bottom
+  display:block;
+  position:relative;
+  height: auto;
+  margin-bottom:20px;
+  border:0.5px solid #cccccc;
+  border-radius:10px;
+  padding:20px;
 }
-
+#small_hint {
+  font-family: ColoredTashkeelFont, 'Droid Arabic Naskh', Amiri,"Traditional Arabic",Sans, Arial
+  text-align:right;
+  font-size:20px;
+  border:0px;
+  padding: 2px;
+  display:none;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px #888888;
+}
+#hint {
+  font-family: ColoredTashkeelFont, 'Droid Arabic Naskh', Amiri,"Traditional Arabic",Sans, Arial
+  text-align:right;
+  font-size:20px;
+  border:0px;
+  padding: 2px;
+  position:fixed;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px #888888;
+}
 table,th,td {
   border:none;
   border-collapse:collapse
 }
-
 table {
   margin-left:auto;
   margin-right:auto;
@@ -80,11 +96,10 @@ table {
   width:80%;
   border:3px solid #ccc
 }
-
 .moresection {
-  display:none
+  display:none;
+  float: left;
 }
-
 th,td {
   padding:3px 24px;
   background-color:#fff;
@@ -92,165 +107,59 @@ th,td {
   border-top:0 none;
   border-bottom:0 none
 }
-
 th {
   font-size:150%;
   color:#008
 }
-
 td {
   text-align:left
 }
-
 td:first-child {
   text-align:right
 }
-
-/*tbody tr:nth-child(odd) td{ background-color:#eee; color:#222}*/
 tbody:nth-child(odd) td {
   background-color:#fff;
   color:#000
 }
-
 tbody:nth-child(even) td {
   background-color:#fdffdd;
   color:#000
 }
-
-.result {
-  background-color:#060;
-  position:absolute;
-  bottom:0;
-  left:0
-}
-
-.noun {
-  background-color:#060
-}
-
-.v,.verb,.arabic {
-  background-color:#c2f7b9
-}
-
-.v1,.verbcontext {
-  background-color:#91f080
-}
-
-.v2,.verbBicontext {
-  background-color:#91f078
-}
-
-.n,.noun {
-  background-color:#eadc5e
-}
-
-.n1,.nouncontext {
-  background-color:#ffff6c
-}
-
-.n2,.nounBicontext {
-  background-color:#ffff60
-}
-
-.nv,.vn,.vn1,.latin {
-  background-color:#fff
-}
-
-.t,.tool {
-  background-color:#ffb9b9
-}
-
+.v,.verb,.arabic{background-color:#c2f7b9}
+.v1,.verbcontext{background-color:#91f080}
+.v2,.verbBicontext {background-color:#91f078}
+.n,.noun {background-color:#eadc5e}
+.n1,.nouncontext{background-color:#ffff6c}
+.n2,.nounBicontext{background-color:#ffff60}
+.nv,.vn,.vn1,.latin {background-color:#fff}
+.t,.tool {background-color:#ffb9b9}
+.diff-all, .named{color:#4BADD1}  /* the word and the last mark*/
+.diff-word, .number{color:#a52a2a}  /* the word is different*/
+.diff-mark, .coll, .collocation{color:#45A8A2;}/* the last mark is different*/
 .tashkeel {
-  font-family:AmiriTashkeel,'Droid Arabic Naskh',Amiri,"Traditional Arabic",Sans,'KacstBook',Arial,Helvetica;
-  text-align:right;
-  font-size:30px
+  font-family:ColoredTashkeelFont,  'Droid Arabic Naskh', Amiri,'Traditional Arabic',Sans,Arial;
+ font-size:30px
 }
-
-.vocalized-header {
-/*used for colored marks displaying*/
-  display:block;
-  position:relative;
-  float:right;
-  font-size:25px;
-  font-family:'Droid Arabic Naskh',AmiriTashkeel,Amiri,"Traditional Arabic",Sans,'KacstBook',Arial,Helvetica
-}
-
-.vocalized-color {
-  color:red
-}
-
-.vocalized-letters {
-  position:absolute;
-  top:0;
-  right:0;
-  color:#0cc
-}
-
-.vocalized:hover,.vo :hover {
-  background-color:#fafcda;
-  cursor:pointer
-}
-
-.collocation {
-  background-color:#fffce8
-}
-
-.txkl /* tashkeel select*/ {
-  border:none;
-  font-family:Amiri,"Traditional Arabic",Sans,'KacsTBook',Arial,Helvetica;
-  text-align:right;
-  font-size:30px;
+.txkl{
   background-color:#e2e2e2
 }
-
-.spellStyle {
-  font-family:Amiri,"Traditional Arabic",Sans,'KacsTBook',Arial,Helvetica;
-  text-align:right;
-  font-size:30px
-}
-
+.spellStyle {font-size:30px}
 .spelled-incorrect {
-  font-family:Amiri,"Traditional Arabic",Sans,'KacsTBook',Arial,Helvetica;
-  text-align:right;
-  font-size:30px;
   color:red;
   cursor:pointer;
   border-bottom:1px dotted red
 }
-
 .spelled-incorrect:hover,.vo :hover {
   background-color:#fafcda
 }
-
-.named /* named enteties*/ {
-  background-color:#FFF8C6
+.poetryJustifyCSS3 td {
+	text-align: justify;
 }
-
-.diff-all /* the word and the last mark*/ {
-  border:none;
-  font-size:30px;
-  color:red;
-  cursor:pointer
+.poetryJustifyCSS3 td::after{
+	content: "";
+	display: inline-block;
+	width: 100%;
 }
+.poetryJustifyCSS3 td:nth-child(2n+1) { padding-left: 1.5em; }
+.poetryJustifyCSS3 td:nth-child(2n+0) { padding-right: 1.5em; }
 
-.diff-word /* the word is different*/ {
-  border:none;
-  font-size:30px;
-  color:#a52a2a;
-  cursor:pointer
-}
-
-.diff-mark /* the last mark is different*/ {
-  border:none;
-  font-size:30px;
-  color:green;
-  cursor:pointer
-}
-
-#hint {
-  font-family:"Traditional Arabic",Sans,'KacsTBook',Arial,Helvetica;
-  text-align:right;
-  font-size:30px;
-/*background-color:#ccF8C6;  */
-  border:1px solid #1a1a1a
-}
