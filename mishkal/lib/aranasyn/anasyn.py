@@ -16,6 +16,7 @@ Syntaxic Analysis
 if __name__ == "__main__":
     import sys
     sys.path.append('../lib')
+    sys.path.append('../')
 import pyarabic.araby as araby
 import aranasyn.syn_const 
 #~ import qalsadi.stemmedword as stemmedword
@@ -353,7 +354,7 @@ class SyntaxAnalyzer:
                         weight = aranasyn.syn_const.JarMajrourRelation
                     elif previous.is_noun() and not previous.is_defined() \
                            and not previous.is_added() and \
-                           not previous.is_tanwin():
+                           not previous.is_tanwin() and not current.is_adj():
                         weight = aranasyn.syn_const.JarMajrourRelation
                 # منعوت والنعت
                 #  تحتاج إلى إعادة نظر
@@ -362,9 +363,8 @@ class SyntaxAnalyzer:
                     # Todo treat the actual word
                     #~print u" ".join([previous.get_word(), current.get_word(), str(current.is_adj()), str(self.are_compatible(previous, current))])
                     if self.are_compatible(previous, current):
-                        if current.is_adj():
-                            weight = \
-                            aranasyn.syn_const.DescribedAdjectiveRelation
+                        if current.is_adj() and (current.is_defined() or current.is_tanwin()):
+                            weight = aranasyn.syn_const.DescribedAdjectiveRelation
                     #مبتدأ وخبر
                     elif self.are_nominal_compatible(previous, current):
                         if current.is_adj():
@@ -384,14 +384,17 @@ class SyntaxAnalyzer:
                                 weight = aranasyn.syn_const.VerbPassiveSubjectRelation
                                 
 
-                    # الفعل والمفعول به
-                    if current.is_mansoub()  and not previous.has_encletic() and previous.is_transitive() :
-                        weight = aranasyn.syn_const.VerbObjectRelation
-                    # فعل متعدي بحرف
-                    #ToDo:
-                    if previous.is_transitive() and current.is_stopword():
-                        weight = aranasyn.syn_const.VerbObjectRelation                        
-                        
+            # الفعل والمفعول به
+            if current.is_noun() and current.is_mansoub()  and not previous.has_encletic() and previous.is_transitive():
+                weight = aranasyn.syn_const.VerbObjectRelation
+                #~ print "key"                       
+                #~ print u"previous: {prev}, current:{curr}".format(prev=previous.get_vocalized(), curr = current.get_vocalized()).encode('utf8')
+                       
+            # فعل متعدي بحرف
+            #ToDo:
+            if previous.is_transitive() and current.is_stopword():
+                weight = aranasyn.syn_const.VerbObjectRelation
+     
         if weight :
             # add to the previous a pointer to the next word order.
             previous.add_next(current_position, weight)
@@ -696,7 +699,7 @@ class SyntaxAnalyzer:
             text += u'\n\t['
             for item in rlist:
                 text += u'\n\t\t{'
-                stmword = item.get_dict()
+                stmword = item.__dict__
                 for key in stmword.keys():
                     text += u"\n\t\tu'%s' = u'%s'," % (key, stmword[key])
                 text += u'\n\t\t}'
@@ -708,17 +711,17 @@ def mainly():
     main test
     """
     # #test syn
-    text = u"أن السلام سيعتبر مفيدا أن يركبوا في السن"
+    text = u"سمع"
     import qalsadi.analex
     result = []
     analyzer = qalsadi.analex.Analex()
     anasynt = SyntaxAnalyzer()
     result = analyzer.check_text(text)
     result = anasynt.analyze(result)
-    # the result contains objets
-    #print repr(result)
-    text2display = anasynt.display(result)
-    print text2display.encode('utf8')
+    # the result contains objects
+    print repr(result)
+    #~ text2display = anasynt.display(result)
+    #~ print text2display.encode('utf8')
 if __name__ == "__main__":
     mainly()
 

@@ -505,7 +505,7 @@ class ArabicLightStemmer:
         Example:
             >>> ArListem = ArabicLightStemmer()
             >>> word = u'أفتضاربانني'
-            >>> stem = ArListem.lightStem(word)
+            >>> stem = ArListem.light_stem(word)
             >>> print ArListem.get_stem()
             ضارب
             >>> print ArListem.get_starstem()
@@ -638,6 +638,7 @@ class ArabicLightStemmer:
         @return: root.
         @rtype: unicode.
         """
+    
         starstem = self.get_starstem(prefix_index, suffix_index)
         stem = self.get_stem(prefix_index, suffix_index)
         root = u""

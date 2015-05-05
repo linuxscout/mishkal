@@ -207,7 +207,8 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         if not nextw:
             return self.next != {}
         else:
-            return self.next.has_key(nextw.get_order())
+            #~ return self.next.has_key(nextw.get_order())
+            return bool(set(self.next.keys()).intersection(nextw))
     def has_previous(self, previous = None):
         """
         get True if current word has previous relations.
@@ -286,14 +287,22 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         """
         return self.sem_next.keys()
 
-
-    def has_sem_next(self):
+    def has_sem_previous(self):
+        """
+        get True if current word has semantic previout relations
+        @return: if the word has previous relations
+        @rtype: boolean
+        """
+        return self.sem_previous != {}
+    def has_sem_next(self, nextw = None):
         """
         get True if current word has semantic next relations
         @return: if the word has next relations
         @rtype: boolean
         """
-        return self.sem_next != {}
+        if not nextw:
+            return self.sem_next != {}
+        return bool(set(self.sem_next.keys()).intersection(nextw))
 
     def add_sem_previous(self, previous, weight = 1):
         """

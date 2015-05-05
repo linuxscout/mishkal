@@ -104,7 +104,7 @@ class  StemmedWord:
         if self.is_stopword():
             self.tag_transparent    = self._is_transparent()
         if self.is_verb():
-            self.tag_transtive     = 'y' in self.get_tags() 
+            self.tag_transitive     ='y' in self.get_tags() 
         self.tag_initial     = self._is_initial()
 
         #redandente
@@ -984,6 +984,13 @@ class  StemmedWord:
         """
         return  self.__dict__
     def __repr__(self):
+        """
+        Display objects result from analysis
+        @return: text
+        @rtype : text
+        """    
+        return self.__str__()
+    def __str__(self):
         """
         Display objects result from analysis
         @return: text

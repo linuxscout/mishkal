@@ -1,3 +1,8 @@
+2015-05-03: *Taha Zerrouki
+    - qalsadi/stem_noun :ajust multiple cases with same suffix الْخِيَارَاتِ الصِّحِّيَّةِ
+    - qalsadi/stem_noun: ajust tanwin on words ended by ALEF + HAMZA سواءً
+    - aranasyn/anasyn.py: fix VerbObjectRelation
+    - qalsadi/stemmedword: fix tag_transitive tag
 2015-03-23: * Taha Zerrouki
     - tashkeel/tashkeel.py: Improve choose_tashkeel function and display rules
     - arasyn/anasyn.py: ompatible_subject_verb(): Add subject/verb compatible verification  

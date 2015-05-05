@@ -650,17 +650,20 @@ $().ready(function() {
   });
   // change diff 
   $('#diff').live("hover", function() {
-    $('#hint').html($(this).text() + " : " + $(this).attr('original') + "<br/>" + $(this).attr(
-      'inflect').replace(/:+/g, ', ') + "<br/>ق[" + $(this).attr('rule') + "] " + $(this).attr('link'));
+    var text = $(this).text() + " : " + $(this).attr('inflect')  + "<br/>ق[" + $(this).attr('rule') + "] " + $(this).attr('link') + "<br/>" + $(this).attr('suggest');
+    if ($('#result').data("count")>20) {$('#hint').html(text);  $('#hint').show(); $('#small_hint').hide();}
+    else  {$('#small_hint').html(text); $('#small_hint').show();$('#hint').hide();}
+
   });
   // change diff 
   $('#diff').live("mouseleave", function() {
-    $('#hint').html("");
+    $('#small_hint').html("");
+    $('#small_hint').hide();
   });
   // display infos on vocalized  
   $('.vocalized').live("hover", function(e) {
     var text = $(this).text() + " : " + $(this).attr('inflect')  + "<br/>ق[" + $(this).attr('rule') + "] " + $(this).attr('link') + "<br/>" + $(this).attr('suggest');
-    if ($('#result').data("count")>30) {$('#hint').html(text);  $('#hint').show(); $('#small_hint').hide();}
+    if ($('#result').data("count")>20) {$('#hint').html(text);  $('#hint').show(); $('#small_hint').hide();}
     else  {$('#small_hint').html(text); $('#small_hint').show();$('#hint').hide();}
 
   });

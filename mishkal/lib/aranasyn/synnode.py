@@ -22,6 +22,7 @@ def ispunct(word):
     return word in u'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~،؟'
 #~import aranasyn.syn_const as syn_const
 #~import aranasyn.stemmedsynword
+import syn_const
 class SynNode:
     """
     synNode represents the regrouped data resulted from the 
@@ -39,11 +40,19 @@ class SynNode:
         self.previous_nodes = {}
         # the  syntaxical previous nodes 
         self.next_nodes = {}
-        # the  syntaxical next nodes         
+        # the  syntaxical next nodes
+        if case_list:        
+            self.vocalizeds = [case.get_vocalized() for case in case_list]
+            self.vocalizeds = list(set(self.vocalizeds))
+            self.vocalizeds.sort()
+        else:
+            self.vocalizeds = []
+        
+        #~ all vocalized forms
         self.originals = {}
         #~ Orginals word from dictionary
         # will be used to extarct semantic relations
-        self.guessed_type_tag =""
+        self.guessed_type_tag = ""
         # guessed word type tag given by the word tagger
         self.break_end = False
         # the break position at he end or at the begining
@@ -79,50 +88,63 @@ class SynNode:
         # the semantic previous of cases after semantic analysis        
         self.sem_nexts = {} # generate dict for whole list of cases
         # the semantic nexts of cases after semantic analysis
+        
+        self.chosen_indexes = range(len(case_list))
+        # used to choose specific cases 
                                 
         #~""" The list of original words"""
         if case_list:
             self.word = case_list[0].get_word()
+        
         for case in case_list:
             #extract originals lists
+            idx = case.get_order()
             if self.originals.has_key(case.get_original()):
-                self.originals[case.get_original()].append(case.get_order())
+                self.originals[case.get_original()].append(idx)
             else:
-                self.originals[case.get_original()] = [case.get_order(), ]
+                self.originals[case.get_original()] = [idx, ]
             #indexing by word type
             if case.is_verb():
-                self.word_type['verb'].append(case.get_order())
-            elif case.is_noun():
-                self.word_type['noun'].append(case.get_order())
-            elif case.is_stopword():
-                self.word_type['stopword'].append(case.get_order())
-            elif case.is_pounct():
-                self.word_type['pounct'].append(case.get_order())
+                self.word_type['verb'].append(idx)
+            if case.is_noun():
+                self.word_type['noun'].append(idx)
+            if case.is_stopword():
+                self.word_type['stopword'].append(idx)
+            if case.is_pounct():
+                self.word_type['pounct'].append(idx)
             #indexing break and non break word cases
             if case.is_break():
-                self.breaks.append(case.get_order())
+                self.breaks.append(idx)
             else:
-                self.non_breaks.append(case.get_order())
+                self.non_breaks.append(idx)
             if self.word and ispunct(self.word[0]):
                 self.break_end = True
             #indexing by syntax mark and tanwin
             if case.is_tanwin():
                 if case.is_mansoub():
-                    self.syntax_mark['tanwin_mansoub'].append(case.get_order())
+                    self.syntax_mark['tanwin_mansoub'].append(idx)
                 elif case.is_marfou3():
-                    self.syntax_mark['tanwin_marfou3'].append(case.get_order())
+                    self.syntax_mark['tanwin_marfou3'].append(idx)
                 elif case.is_majrour():
-                    self.syntax_mark['tanwin_majrour'].append(case.get_order())
+                    self.syntax_mark['tanwin_majrour'].append(idx)
             else:
                 if case.is_mansoub():
-                    self.syntax_mark['mansoub'].append(case.get_order())
+                    self.syntax_mark['mansoub'].append(idx)
                 elif case.is_marfou3():
-                    self.syntax_mark['marfou3'].append(case.get_order())
+                    self.syntax_mark['marfou3'].append(idx)
                 elif case.is_majrour():
-                    self.syntax_mark['majrour'].append(case.get_order())
+                    self.syntax_mark['majrour'].append(idx)
                 elif case.is_majzoum():                
-                    self.syntax_mark['majzoum'].append(case.get_order())
-            
+                    self.syntax_mark['majzoum'].append(idx)
+            # get all syntaxic relations
+            if case.has_previous(): 
+                self.syn_previous[idx] = case.get_previous()
+            if case.has_next():
+                self.syn_nexts[idx] = case.get_next()   
+            if case.has_sem_previous(): 
+                self.sem_previous[idx] = case.get_sem_previous()
+            if case.has_sem_next():
+                self.sem_nexts[idx] = case.get_sem_next()               
             
         self.count = {"verb":len(self.word_type['verb']), 
                     #~""" the number of syntaxtical verb cases """
@@ -242,15 +264,33 @@ class SynNode:
         @rtype: unicode string
         """
         return self.originals.keys()
-
-    def set_original(self, neworiginal):
+    def get_vocalizeds(self, ):
         """
-        Set the original words
-        @param neworiginal: the new given original.
-        @type neworiginal: unicode string list
+        Get the vocalized forms of the input word
+        @return: the given vocalizeds.
+        @rtype: list of unicode string
         """
-        self.originals = neworiginal
+        return self.vocalizeds        
 
+    def get_chosen_indexes(self, ):
+        """
+        Get the chosen_indexes forms of the input word
+        @return: the given chosen_indexes.
+        @rtype: unicode string
+        """
+        return self.chosen_indexes
+    def set_chosen_indexes(self,indexes ):
+        """
+        Get the chosen_indexes forms of the input word
+        @return: the given chosen_indexes.
+        @rtype: unicode string
+        """
+        # verify that all indexes are in range
+        for i in indexes:
+            if i >= self.case_count or i < 0:
+                break;
+        else:
+            self.chosen_indexes = indexes
     ######################################################################
     #{ Tags extraction Functions
     ###################################################################### 
@@ -378,6 +418,9 @@ class SynNode:
         #~elif 
         if len(self.breaks) > 0 and len(self.non_breaks) == 0 :
             return 'break'
+        # إذا كانت الكلمة مستبعدة ولم يكن لها علاقة دلالية بما قبلها
+        elif self.has_stopword() and not self.sem_previous and not self.sem_nexts:
+            return 'break'
         elif len(self.non_breaks) > 0 and len(self.breaks) == 0:
             return 'non_break'
         elif len(self.non_breaks) > len(self.breaks) :
@@ -389,7 +432,27 @@ class SynNode:
     def is_break_end(self,):
         return self.break_end
     def is_break(self,):
+        """
+        The syn node is break, if it hasn't any syntaxique or semantique 
+        relation with the previous word
+        """
+        #~ return not self.syn_previous and not self.sem_previous #or self.get_break_type() == "break"
         return self.get_break_type() in ("break", "mostBreak")
+
+    def is_next_break(self,):
+        """
+        The syn node is next break, if it hasn't any syntaxique or semantique 
+        relation with the next word
+        """
+        if not(self.syn_nexts or self.sem_nexts):
+            return True
+        else:
+        # or only the relation is tanwin
+            for key in self.syn_nexts:
+                if self.syn_nexts[k] != syn_const.TanwinRelation:
+                    return False
+        return False
+                
     def __repr__(self):
         text = u"\n'%s':%s, [%s-%s]{V:%d, N:%d, S:%d} " % (
         self.__dict__['word'], u', '.join(self.originals), 

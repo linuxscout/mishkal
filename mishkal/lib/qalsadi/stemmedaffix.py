@@ -353,7 +353,7 @@ class StemmedAffix:
         @return: has the state defined.
         @rtype: True/False
         """        
-        return  u'تعريف'in self.get_tags()
+        return  u'تعريف'in self.get_tags() or u'مضاف' in self.get_tags() 
 
     def __is3rdperson(self):
         """

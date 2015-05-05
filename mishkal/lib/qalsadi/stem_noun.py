@@ -156,14 +156,14 @@ class NounStemmer:
                     for vocalized_encletic in snconst.COMP_SUFFIX_LIST_TAGS[encletic_nm]['vocalized']:
                         for vocalized_suffix in snconst.CONJ_SUFFIX_LIST_TAGS[suffix_conj_nm]['vocalized']:
                          ## verify compatibility between procletics and affix
+                            if vocalized_suffix == araby.FATHATAN and not (noun.endswith(araby.TEH_MARBUTA) or noun.endswith(araby.ALEF+araby.HAMZA) ):
+                                continue
                             if u'جمع مذكر سالم' in snconst.CONJ_SUFFIX_LIST_TAGS[vocalized_suffix]['tags']\
                               and not noun_tuple['masculin_plural']:
                                 continue;
-                            if (self.is_compatible_proaffix_affix(noun_tuple, procletic, vocalized_encletic, vocalized_suffix)):
+                            if self.is_compatible_proaffix_affix(noun_tuple, procletic, vocalized_encletic, vocalized_suffix):
                                 vocalized, semi_vocalized = vocalize(infnoun,procletic,  vocalized_suffix, vocalized_encletic)
-                                vocalized_affix_tags = snconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']\
-                                  +snconst.COMP_SUFFIX_LIST_TAGS[vocalized_encletic]['tags']\
-                                  +snconst.CONJ_SUFFIX_LIST_TAGS[vocalized_suffix]['tags']
+
                                 #add some tags from dictionary entry as 
                                 #mamnou3 min sarf and broken plural
                                 original_tags = []
@@ -172,22 +172,31 @@ class NounStemmer:
                                     original_tags.append(u"ممنوع من الصرف")
                                 if noun_tuple['number'] == u"جمع تكسير":
                                     original_tags.append(u"جمع تكسير")
-
-                        
-                                detailed_result.append(wordcase.WordCase({
-                                'word':noun, 
-                                'affix': (procletic,  '', vocalized_suffix, 
-                                vocalized_encletic),
-                                'stem':      stem_conj, 
-                                'original':  infnoun, #original, 
-                                'vocalized': vocalized, 
-                                'semivocalized':semi_vocalized,
-                                'tags':  u':'.join(vocalized_affix_tags), 
-                                'type':  u':'.join(['Noun', noun_tuple['wordtype']]),  
-                                'freq':'freqnoun', # to note the frequency type 
-                                'originaltags':u':'.join(original_tags), 
-                                'syntax':'', 
-                                }))
+                                # get affix tags
+                                vocalized_affix_tags = snconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']\
+                                  +snconst.COMP_SUFFIX_LIST_TAGS[vocalized_encletic]['tags']\
+                                  +snconst.CONJ_SUFFIX_LIST_TAGS[vocalized_suffix]['tags'] 
+                                # if there are many cases like feminin plural with mansoub and majrour
+                                if 'cases' in snconst.CONJ_SUFFIX_LIST_TAGS[vocalized_suffix]:
+                                    list_cases = snconst.CONJ_SUFFIX_LIST_TAGS[vocalized_suffix]['cases']
+                                else:
+                                   list_cases = ('',)
+                                for case in list_cases:
+                                    voc_affix_case = vocalized_affix_tags + (case,)
+                                    detailed_result.append(wordcase.WordCase({
+                                    'word':noun, 
+                                    'affix': (procletic,  '', vocalized_suffix, 
+                                    vocalized_encletic),
+                                    'stem':      stem_conj, 
+                                    'original':  infnoun, #original, 
+                                    'vocalized': vocalized, 
+                                    'semivocalized':semi_vocalized,
+                                    'tags':  u':'.join(voc_affix_case), 
+                                    'type':  u':'.join(['Noun', noun_tuple['wordtype']]),  
+                                    'freq':'freqnoun', # to note the frequency type 
+                                    'originaltags':u':'.join(original_tags), 
+                                    'syntax':'', 
+                                    }))
         return detailed_result
 
 
@@ -533,6 +542,7 @@ def validate_tags(noun_tuple, affix_tags, procletic, encletic_nm ,
     procletic = araby.strip_tashkeel(procletic)
     encletic = encletic_nm
     suffix = suffix_nm
+
     if u'مؤنث' in affix_tags and not noun_tuple['feminable']:
         return False
     if  u'جمع مؤنث سالم' in affix_tags and \
