@@ -8109,3 +8109,2084 @@ INFO:paste.httpserver.ThreadPool:Shutting down threadpool
 INFO:paste.httpserver.ThreadPool:All workers stopped
 INFO:paste.httpserver.ThreadPool:Shutting down threadpool
 INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 07:56	Tashkeel2	جئت كي أتعلم.
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 08:12	Tashkeel2		قال أحدهم يوصي ابنه : يا بني ..
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 08:12	Tashkeel2	 إن المكارم لو كانت سهلة يسيرة لسابقكم إليها اللئام ولكنها كريهة مرة لا يصبر عليها إلا من عرف فضلها و رجا ثوابها.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 08:27	Tashkeel2	 قال أحدهم يوصي ابنه: يا بني...
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 08:27	Tashkeel2	 إن المكارم لو كانت سهلة يسيرة لسابقكم إليها اللئام ولكنها كريهة مرة لا يصبر عليها إلا من عرف فضلها و رجا ثوابها.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 08:27	Tashkeel2	 
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 08:36	CompareTashkeel	 قَالَ أحَدُهُمْ يُوصِيَ اِبْنَهُ: يا بُنَّي...
+إِنْ الْمَكَارِمَ لَوْ كَانَتْ سَهِلَةً يَسِيرَةً لِسَابَقَكُمْ إِلَيهَا اللّئَامَ وَلَكِنّهَا كَرِيهَة مَرَّةَ لَا يَصْبُرَ عَلَيهَا إلا مِنْ عُرْف فُضُلهَا و رَجَا ثَوَابُهَا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 08:48	StripHarakat	 قَالَ أحَدُهُمْ يُوصِيَ اِبْنَهُ: يا بُنَّي...
+إِنْ الْمَكَارِمَ لَوْ كَانَتْ سَهِلَةً يَسِيرَةً لِسَابَقَكُمْ إِلَيهَا اللّئَامَ وَلَكِنّهَا كَرِيهَة مَرَّةَ لَا يَصْبُرَ عَلَيهَا إلا مِنْ عُرْف فُضُلهَا و رَجَا ثَوَابُهَا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 08:48	Tashkeel2	 قَالَ أحَدُهُمْ يُوصِيَ اِبْنَهُ: يا بُنَّي...
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 08:48	Tashkeel2	إِنْ الْمَكَارِمَ لَوْ كَانَتْ سَهِلَةً يَسِيرَةً لِسَابَقَكُمْ إِلَيهَا اللّئَامَ وَلَكِنّهَا كَرِيهَة مَرَّةَ لَا يَصْبُرَ عَلَيهَا إلا مِنْ عُرْف فُضُلهَا و رَجَا ثَوَابُهَا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 08:48	StripHarakat	 قَالَ أحَدُهُمْ يُوصِيَ اِبْنَهُ: يا بُنَّي...
+إِنْ الْمَكَارِمَ لَوْ كَانَتْ سَهِلَةً يَسِيرَةً لِسَابَقَكُمْ إِلَيهَا اللّئَامَ وَلَكِنّهَا كَرِيهَة مَرَّةَ لَا يَصْبُرَ عَلَيهَا إلا مِنْ عُرْف فُضُلهَا و رَجَا ثَوَابُهَا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 08:48	Tashkeel2	 قال أحدهم يوصي ابنه: يا بني...
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-15 08:48	Tashkeel2	إن المكارم لو كانت سهلة يسيرة لسابقكم إليها اللئام ولكنها كريهة مرة لا يصبر عليها إلا من عرف فضلها و رجا ثوابها.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/doc]
+INFO:MyTestWebApp:got uri=[/styles.css]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/samples/mixkal.jpg]
+INFO:MyTestWebApp:got uri=[/_files/samples/mishkal_alpha_smpl.png]
+INFO:MyTestWebApp:got uri=[/_files/samples/gotashkeel.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/mishkal/index]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:35	Tashkeel2	والساينتولوجي حسب تعريف الكنيسة تؤمن بأن الإنسان كائن روحي لا يفنى وأن قدراته لا حدود لها ولايطلب من أتباع المذهب أن يؤمنوا بأي شيء على وجه التحديد.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:35	Tashkeel2	 الجدير بالذكر ان هذه الطائفة تحاكم في فرنسا بتهمة النصب والاحتيال من قبل مجموعة تنتمي إليها، من خلال اتباع أساليب أشبه بغسيل الدماغ لأتباعها بهدف بيعهم أجهزة وعلاجات بأثمان باهظة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:57	Tashkeel2	والساينتولوجي حسب تعريف الكنيسة تؤمن بأن الإنسان كائن روحي لا يفنى وأن قدراته لا حدود لها ولا يطلب من أتباع المذهب أن يؤمنوا بأي شيء على وجه التحديد.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:57	Tashkeel2	 الجدير بالذكر ان هذه الطائفة تحاكم في فرنسا بتهمة النصب والاحتيال من قبل مجموعة تنتمي إليها، من خلال اتباع أساليب أشبه بغسيل الدماغ لأتباعها بهدف بيعهم أجهزة وعلاجات بأثمان باهظة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:57	Tashkeel2	والساينتولوجي حسب تعريف الكنيسة تؤمن بأن الإنسان كائن روحي لا يفنى وأن قدراته لا حدود لها ولا يطلب من أتباع المذهب أن يؤمنوا بأي شيء على وجه التحديد.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:57	Tashkeel2	 الجدير بالذكر أن هذه الطائفة تحاكم في فرنسا بتهمة النصب والاحتيال من قبل مجموعة تنتمي إليها، من خلال اتباع أساليب أشبه بغسيل الدماغ لأتباعها بهدف بيعهم أجهزة وعلاجات بأثمان باهظة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:58	Tashkeel2	والساينتولوجي حسب تعريف الكنيسة تؤمن بأن الإنسان كائن روحي لا يفنى وأن قدراته لا حدود لها ولا يطلب من أتباع المذهب أن يؤمنوا بأي شيء على وجه التحديد.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:58	Tashkeel2	 الجدير بالذكر أن هذه الطائفة تحاكم في فرنسا بتهمة النصب والاحتيال من قبل مجموعة تنتمي إليها، من خلال اتباع أساليب أشبه بغسيل الدماغ لأتباعها بهدف بيعهم أجهزة وعلاجات بأثمان باهظة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:58	Tashkeel2	والساينتولوجي حسب تعريف الكنيسة تؤمن بأن الإنسان كائن روحي لا يفنى وأن قدراته لا حدود لها ولا يطلب من أتباع المذهب أن يؤمنوا بأي شيء على وجه التحديد.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:58	Tashkeel2	 الجدير بالذكر أن هذه الطائفة تحاكم في فرنسا بتهمة النصب والاحتيال من قبل مجموعة تنتمي إليها، من خلال اتباع أساليب أشبه بغسيل الدماغ لأتباعها بهدف بيعهم أجهزة وعلاجات بأثمان باهظة.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:58	StripHarakat	والساينتولوجي حسب تعريف الكنيسة تؤمن بأن الإنسان كائن روحي لا يفنى وأن قدراته لا حدود لها ولا يطلب من أتباع المذهب أن يؤمنوا بأي شيء على وجه التحديد. الجدير بالذكر أن هذه الطائفة تحاكم في فرنسا بتهمة النصب والاحتيال من قبل مجموعة تنتمي إليها، من خلال اتباع أساليب أشبه بغسيل الدماغ لأتباعها بهدف بيعهم أجهزة وعلاجات بأثمان باهظة.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:58	Tashkeel2	والساينتولوجي حسب تعريف الكنيسة تؤمن بأن الإنسان كائن روحي لا يفنى وأن قدراته لا حدود لها ولا يطلب من أتباع المذهب أن يؤمنوا بأي شيء على وجه التحديد.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:58	Tashkeel2	 الجدير بالذكر أن هذه الطائفة تحاكم في فرنسا بتهمة النصب والاحتيال من قبل مجموعة تنتمي إليها، من خلال اتباع أساليب أشبه بغسيل الدماغ لأتباعها بهدف بيعهم أجهزة وعلاجات بأثمان باهظة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:59	Tashkeel2	والساينتولوجي حسب تعريف الكنيسة تؤمن بأن الإنسان كائن روحي لا يفنى وأن قدراته لا حدود لها ولا يطلب من أتباع المذهب أن يؤمنوا بأي شيء على وجه التحديد.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 03:59	Tashkeel2	 الجدير بالذكر أن هذه الطائفة تحاكم في فرنسا بتهمة النصب والاحتيال من قبل مجموعة تنتمي إليها، من خلال اتباع أساليب أشبه بغسيل الدماغ لأتباعها بهدف بيعهم أجهزة وعلاجات بأثمان باهظة.
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 04:00	Tashkeel2	لأتباعها
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 04:00	LightStemmer	لأتباعها
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 04:00	Tashkeel2	لأتباع ها
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 04:00	Tashkeel2	لأتباعها أتباعه
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 04:00	LightStemmer	لأتباعها أتباعه أتباع
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 05:20	Tashkeel2	قدرات
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 05:20	Tashkeel2	قدراته
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 05:20	Tashkeel2	قدرات
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 06:18	Tashkeel2	قدرات قدراته
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 06:18	Tashkeel2	قدرات قدراتهما
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 06:18	Tashkeel2	قدرات قدراتهما صفعات
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 06:18	Tashkeel2	قدرات قدراتهما صفعات صفعاتهما 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 08:34	Tashkeel2	قدرات قدراتهما صفعات صفعاتهما  صنائعهما
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 08:34	Tashkeel2	قدرات قدراتهما صفعات صفعتهما  صنائعهما
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 08:34	Tashkeel2	قدرات قدراتهما صفعات صفعاتهما  صنائعهما
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-17 08:34	Tashkeel2	قدرات قدراتهما صفعات صفعاته  صنائعهما
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-18 08:04	Tashkeel2	قدرات قدراتهما صفعات صفعاته  صنائعهما أتباع 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-18 12:08	Tashkeel2	والساينتولوجي حسب تعريف الكنيسة تؤمن بأن الإنسان كائن روحي لا يفنى وأن قدراته لا حدود لها ولا يطلب من أتباع المذهب أن يؤمنوا بأي شيء على وجه التحديد.
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (1 working, 9 idle, 0 starting) ave time 0.00sec, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-18 12:08	Tashkeel2	 الجدير بالذكر أن هذه الطائفة تحاكم في فرنسا بتهمة النصب والاحتيال من قبل مجموعة تنتمي إليها، من خلال اتباع أساليب أشبه بغسيل الدماغ لأتباعها بهدف بيعهم أجهزة وعلاجات بأثمان باهظة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-18 12:08	Tashkeel2	 الجدير بالذكر أن هذه الطائفة تحاكم في فرنسا بتهمة النصب والاحتيال من قبل مجموعة تنتمي إليها، من خلال اتباع أساليب أشبه بغسيل الدماغ لأتباعها بهدف بيعهم أجهزة وعلاجات بأثمان باهظة.
+INFO:MyTestWebApp:2015-04-18 12:08	Tashkeel2	والساينتولوجي حسب تعريف الكنيسة تؤمن بأن الإنسان كائن روحي لا يفنى وأن قدراته لا حدود لها ولا يطلب من أتباع المذهب أن يؤمنوا بأي شيء على وجه التحديد.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-18 04:01	Tashkeel2		سُئِلَ أعرابي، كيفَ عرفتَ الله؟
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-18 04:01	Tashkeel2		فقال : البَعَرَةُ تَدُلُّ على البعير، والأَثَرُ يَدُلُّ على المَسير، فَسماءٌ ذاتُ أبراج، وأرضٌ ذاتُ فِجاج، أفلا تَدلُّ على العَلّي الخَبير!
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-18 04:01	Tashkeel2	 سُئِلَ أعْرَابِيٌّ، كَيْفَ عَرَفْتَ اللَّهَ ؟ فَقَالٌ: الْبَعَرَةُ تَدُلُّ عَلَى الْبَعيرِ، وَالْأثَرُ يَدُلُّ عَلَى الْمَسِيرِ، فَسَمَاءٌ ذَاتُ أَبْرَاجٌ، وَأَرْضٌ ذَاتُ فِجَاجٌ، أَفَلَا تَدِلُّ عَلَى الْعَلِّيِّ الْخَبِيرِ !
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-18 04:25	StripHarakat	 سُئِلَ أعْرَابِيٌّ، كَيْفَ عَرَفْتَ اللَّهَ ؟ فَقَالٌ: الْبَعَرَةُ تَدُلُّ عَلَى الْبَعيرِ، وَالْأثَرُ يَدُلُّ عَلَى الْمَسِيرِ، فَسَمَاءٌ ذَاتُ أَبْرَاجٌ، وَأَرْضٌ ذَاتُ فِجَاجٌ، أَفَلَا تَدِلُّ عَلَى الْعَلِّيِّ الْخَبِيرِ !
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-18 04:25	Tashkeel2	 سئل أعرابي، كيف عرفت الله ؟ فقال: البعرة تدل على البعير، والأثر يدل على المسير، فسماء ذات أبراج، وأرض ذات فجاج، أفلا تدل على العلي الخبير !
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 11:37	SpellCheck	رأيت ميدانا فسيحا .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 11:37	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 11:38	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:1 workers didn't stop properly, and 0 zombies
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 11:46	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 11:49	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:05	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:06	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:07	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:07	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:13	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:17	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:18	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:20	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:21	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:21	SpellCheck	رأيت ميدانjا فسيحا .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:22	SpellCheck	اول عملية اطلاق المقنين في الجزائر عين الدفلي __تحدي المقنين __
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:22	SpellCheck	ان شاء الله تعمم العملية بين اوفياء الحسون وكل واحد يتحدي اثنين من اصدقائو وان شاء الله المبادرة تلقي نجاح ويستفيد منها طبعا عشاق المقنين الزين كما امني ان تلقي العملية اهتمام للجمعيات الخاصة بحماية الحيونات والطيور ووزارة البيئة والسلطات المعنية بحماية البيئة كما اتمني ان يشير الجميع للفيديو ليتنقل بين الجميع وكل من بامكانه القيام بنفس العملية عليه تصوير فيديو بذكر اسمين لم يراى فيهم حبا ووفاء للحسون وان ىشاء الله نصل للهدف المنشود باطلاق 2 مقنين لكل محب
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:22	SpellCheck	لنشارك في اعادته للطبيعة جميعا تحياتي
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:41	SpellCheck	اول عملية اطلاق المقنين في الجزائر عين الدفلي __تحدي المقنين __
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:41	SpellCheck	لنشارك في اعادته للطبيعة جميعا تحياتي
+INFO:MyTestWebApp:2015-04-20 12:41	SpellCheck	ان شاء الله تعمم العملية بين اوفياء الحسون وكل واحد يتحدي اثنين من اصدقائو وان شاء الله المبادرة تلقي نجاح ويستفيد منها طبعا عشاق المقنين الزين كما امني ان تلقي العملية اهتمام للجمعيات الخاصة بحماية الحيونات والطيور ووزارة البيئة والسلطات المعنية بحماية البيئة كما اتمني ان يشير الجميع للفيديو ليتنقل بين الجميع وكل من بامكانه القيام بنفس العملية عليه تصوير فيديو بذكر اسمين لم يراى فيهم حبا ووفاء للحسون وان ىشاء الله نصل للهدف المنشود باطلاق 2 مقنين لكل محب
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:42	SpellCheck	اول عملية اطلاق المقنين في الجزائر عين الدفلي __تحدي المقنين __
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:42	SpellCheck	ان شاء الله تعمم العملية بين اوفياء الحسون وكل واحد يتحدي اثنين من اصدقائو وان شاء الله المبادرة تلقي نجاح ويستفيد منها طبعا عشاق المقنين الزين كما امني ان تلقي العملية اهتمام للجمعيات الخاصة بحماية الحيونات والطيور ووزارة البيئة والسلطات المعنية بحماية البيئة كما اتمني ان يشير الجميع للفيديو ليتنقل بين الجميع وكل من بامكانه القيام بنفس العملية عليه تصوير فيديو بذكر اسمين لم يراى فيهم حبا ووفاء للحسون وان ىشاء الله نصل للهدف المنشود باطلاق 2 مقنين لكل محب
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:42	SpellCheck	لنشارك في اعادته للطبيعة جميعا تحياتي
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:57	SpellCheck	اول عملية اطلاق المقنين في الجزائر عين الدفلي __تحدي المقنين __
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:57	SpellCheck	ان شاء الله تعمم العملية بين اوفياء الحسون وكل واحد يتحدي اثنين من اصدقائو وان شاء الله المبادرة تلقي نجاح ويستفيد منها طبعا عشاق المقنين الزين كما امني ان تلقي العملية اهتمام للجمعيات الخاصة بحماية الحيونات والطيور ووزارة البيئة والسلطات المعنية بحماية البيئة كما اتمني ان يشير الجميع للفيديو ليتنقل بين الجميع وكل من بامكانه القيام بنفس العملية عليه تصوير فيديو بذكر اسمين لم يراى فيهم حبا ووفاء للحسون وان ىشاء الله نصل للهدف المنشود باطلاق 2 مقنين لكل محب
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:57	SpellCheck	لنشارك في اعادته للطبيعة جميعا تحياتي
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 12:59	SpellCheck	لا نعرف بالضبط كيف سيكون تأثير خطاب السيد الحوثي على الشعب اليمني بكل اطيافه، سواء المؤيد لـ”عاصفة الحزم” او المعارض لها، مثلما لا نعرف كيف سيكون الرد السعودي الخليجي على الخطاب نفسه، ولكن ما نعرفه جيدا ان الحرب في اليمن تتسع، وفرص الحلول السياسية تتراجع، ولهذا فان احتمالات استمرار الحرب لاسابيع او لاشهر او حتى لسنوات كبيرة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 01:07	SpellCheck	لا نعرف بالضبط كيف سيكون تأثير خطاب السيد الحوثي على الشعب اليمني بكل اطيافه، سواء المؤيد لـ”عاصفة الحزم” او المعارض لها، مثلما لا نعرف كيف سيكون الرد السعودي الخليجي على الخطاب نفسه، ولكن ما نعرفه جيدا ان الحرب في اليمن تتسع، وفرص الحلول السياسية تتراجع، ولهذا فان احتمالات استمرار الحرب لاسابيع او لاشهر او حتى لسنوات كبيرة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 01:19	SpellCheck	لا نعرف بالضبط كيف سيكون تأثير خطاب السيد الحوثي على الشعب اليمني بكل اطيافه، سواء المؤيد لـ”عاصفة الحزم” او المعارض لها، مثلما لا نعرف كيف سيكون الرد السعودي الخليجي على الخطاب نفسه، ولكن ما نعرفه جيدا ان الحرب في اليمن تتسع، وفرص الحلول السياسية تتراجع، ولهذا فان احتمالات استمرار الحرب لاسابيع او لاشهر او حتى لسنوات كبيرة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 01:19	SpellCheck	لا نعرف بالضبط كيف سيكون تأثير خطاب السيد الحوثي على الشعب اليمني بكل اطيافه، سواء المؤيد لـ”عاصفة الحزم” او المعارض لها، مثلما لا نعرف كيف سيكون الرد السعودي الخليجي على الخطاب نفسه، ولكن ما نعرفه جيدا ان الحرب في اليمن تتسع، وفرص الحلول السياسية تتراجع، ولهذا فان احتمالات استمرار الحرب لاسابيع او لاشهر او حتى لسنوات كبيرة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 01:21	Tashkeel2	لا نعرف بالضّبط كيف سيكون 
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 01:21	SpellCheck	لا نعرف بالضّبط كيف سيكون 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 01:22	SpellCheck	لا نعرف بالضّبُط كيف سيكون 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 01:22	SpellCheck	لا نعرف بالضّبُطـــ كيف سيكون 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 01:22	SpellCheck	لا نعرف بالضّبُطـ كيف سيكون ســــلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 01:24	SpellCheck	تنافسوا في العمل الصــــالح .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 01:24	SpellCheck	تنافسوا في العمل الصــــالح .
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 01:34	SpellCheck	تنافسوا في العمل الصــــالح .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 01:58	Tashkeel2	تنافسوا في العمل الصــــالح .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:04	SpellCheck	تنافسوا في العمل الصــــالح .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:04	Tashkeel2	تنافسوا في العمل الصــــالح .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:04	Tashkeel2	تنافسوا في عمل الصــــالح .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:04	Tashkeel2	تنافسوا في عمل الصــــالح وصالح العمل .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:06	Tashkeel2	جرّب مشاريعنا
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:06	Tashkeel2	جرِّب مشاريعنا
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:06	Tashkeel2	جَرِّب مشاريعنا
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:25	SpellCheck	اعلام
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:26	SpellCheck	شلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:27	SpellCheck	شلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:28	SpellCheck	شلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:31	SpellCheck	شلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:31	SpellCheck	شلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:32	SpellCheck	شلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:33	SpellCheck	شلام
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 02:34	SpellCheck	رسالة مفادها ان ايران لن تتخلى عن حلفائها في اليمن.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 04:33	SpellCheck	رسالة مفادها ان ايران لن تتخلى عن حلفائها في اليمن.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 04:46	Tokenize	رسالة مفادها ان ايران لن تتخلى عن حلفائها في اليمن.
+INFO:MyTestWebApp:got uri=[/mishkal/doc]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/mishkal/doc]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/mishkal/doc]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/mishkal/doc]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/mishkal/download]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/mishkal/projects]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 04:47	Tokenize	 Apr 19, 2015
+خطاب “الحوثي” جاء تعبويا ومتحديا واعلانا لحرب استنزاف طويلة.. فلماذا لجأ الى هذا المنحى؟ وما هي الرسائل التي اراد ايصالها؟ وكيف سيكون الردان اليمني والسعودي الخليجي عليها؟ واين مكامن الضعف والقوة؟
+atwan ok
+
+ 
+
+ 
+
+ 
+عبد الباري عطوان
+من تابع خطاب السيد عبد الملك الحوثي زعيم حركة “انصارالله” الذي القاه مساء الاحد عبر قناة تلفزيون “المسيرة” التابعة للحركة، يدرك جيدا ان الازمة اليمنية ستطول، وان الحرب ستزداد شراسة، وان لا حلا سياسيا في الافق.
+السيد الحوثي الذي ظهر لاول مرة بعد غياب استمر حوالي 24 يوما، وسط تقارير عديدة سربها اعداؤه تؤكد وفاته في غارة جوية لطيران التحالف استهدفت مدينة صعدة مقره الرسمي، لم يطرح اي مباردة سلام، ولم يقدم اي تنازل، ولم يظهر عليه اي خوف من القصف الجوي المكثف لقواته، واهداف اخرى في اليمن، وكان يستعين طوال الوقت بالآيات القرآنية التي تتحدث عن الظلم والعدوان، وتطالب بالصمود، مؤكدا طوال الوقت مقولة “اعتماده على الله واعتمادهم على امريكا”.
+كان خطابا تعبويا بكل ما تعنيه هذه الكلمة من معنى، يتحدث طوال الوقت عن حتمية النصر، والصبر وهزيمة المستسلمين دائما، ومليارات الآخر مقابل فقر الشعب اليمني، وجوعه وحرمانه، ومشاركة الامريكيين في غرف العمليات، وهي كلها محاور اختيرت بعناية لاعطاء مفعولها في اشرس الحروب النفسية التي تسير جنبا الى جنب مع الحروب في ميادين القتال، وهي حتى الآن، اي الاخيرة، ما زالت في اتجاه واحد اي قصف جوي دون امتلاك الجانب الآخر إمكانية الرد.
+***
+كان لافتا ان السيد الحوثي لم يتحدث مطلقا عن الرئيس اليمني عبد ربه منصور هادي، ولا عن نائبه خالد بحاح، واكتفى باشارة غامضة الى مسألة “الشرعية”، عندما قال ان من يملك الشرعية هو من يمتلك الحق، شرعية القرآن الكريم، والتصدي للمعتدين، على حد قوله.
+من الواضح ان الطرف الآخر الذي يقف في الخندق المواجه لـ”عاصفة الحزم” يشن حاليا هجوما اعلاميا شرسا مضادا بعد فترة طويلة من الصمت، ويوظف اجهزة اعلامه لنقل رسائله الى اوسع نطاق ممكن، ويمكن اختصار هذا الهجوم على الوجه التالي:
+
+    اولا: لم يكن من قبيل الصدفة ان يأتي خطاب السيد الحوثي بعد يومين فقط من الخطاب الذي القاه السيد حسن نصر الله امين عام حزب الله في مهرجان شعبي “داعم لليمن”، وشن فيه هجوما شرسا ضد المملكة العربية السعودية، استخدم فيه عبارات قوية، مثل اتهامات بنشر “الفكر التكفيري والارهاب”، وهو ما رد عليه كل من السيد انور قرقاش وزير الدولة للشؤون الخارجية، والفريق ضاحي خلفان نائب قائد شرطة دبي بعبارات اكثر شراسة.
+    ثانيا: اصدار السيد علي خامنئي تعليمات لوزارة الدفاع الايرانية برفع درجة التأهب، والقدرات، والكفاءات العسكرية، ومستوى الجاهزية للجيش والحرس الثوري وجميع الاجهزة ذات الصلة قائلا “ان الشعب الايراني هو امة اثبتت قدرتها على الدفاع عن نفسها اذا ما تعرضت لاي هجوم”.
+    ثالثا: خطاب السيد عبد الملك الحوثي، الذي استغرق اكثر من أربعين دقيقة، وتضمن تحريضا واضحا على المملكة العربية السعودية وحلفائها، والتهديد باستخدام كل الخيارات المتاحة، ومحاولة استخدام خطر تنظيم “القاعدة” كورقة تحذير للغرب، على اعتبار ان هذا التنظيم في رأيه هو المستفيد الاكبر، والمسيطر على الجنوب اليمني، وكأنه يعيد التذكير بخطر “الدولة الاسلامية” في العراق وسورية.
+    رابعا: تحدثت تقارير امريكية عن ارسال طهران اكثر من ثلاثين بارجة حربية الى مضيق باب المندب، وابراز وسائل الاعلام التابعة لها لهذه التقارير لايصال رسالة مفادها ان ايران لن تتخلى عن حلفائها في اليمن.
+
+لا نعرف بالضبط كيف سيكون تأثير خطاب السيد الحوثي على الشعب اليمني بكل اطيافه، سواء المؤيد لـ”عاصفة الحزم” او المعارض لها، مثلما لا نعرف كيف سيكون الرد السعودي الخليجي على الخطاب نفسه، ولكن ما نعرفه جيدا ان الحرب في اليمن تتسع، وفرص الحلول السياسية تتراجع، ولهذا فان احتمالات استمرار الحرب لاسابيع او لاشهر او حتى لسنوات كبيرة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 05:29	Tashkeel2	تقليد
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 05:30	Tashkeel2	ضرب
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 05:31	Tashkeel2	يضرب
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-20 07:41	Tokenize	 Apr 19, 2015
+خطاب “الحوثي” جاء تعبويا ومتحديا واعلانا لحرب استنزاف طويلة.. فلماذا لجأ الى هذا المنحى؟ وما هي الرسائل التي اراد ايصالها؟ وكيف سيكون الردان اليمني والسعودي الخليجي عليها؟ واين مكامن الضعف والقوة؟
+atwan ok
+
+ 
+
+ 
+
+ 
+عبد الباري عطوان
+من تابع خطاب السيد عبد الملك الحوثي زعيم حركة “انصارالله” الذي القاه مساء الاحد عبر قناة تلفزيون “المسيرة” التابعة للحركة، يدرك جيدا ان الازمة اليمنية ستطول، وان الحرب ستزداد شراسة، وان لا حلا سياسيا في الافق.
+السيد الحوثي الذي ظهر لاول مرة بعد غياب استمر حوالي 24 يوما، وسط تقارير عديدة سربها اعداؤه تؤكد وفاته في غارة جوية لطيران التحالف استهدفت مدينة صعدة مقره الرسمي، لم يطرح اي مباردة سلام، ولم يقدم اي تنازل، ولم يظهر عليه اي خوف من القصف الجوي المكثف لقواته، واهداف اخرى في اليمن، وكان يستعين طوال الوقت بالآيات القرآنية التي تتحدث عن الظلم والعدوان، وتطالب بالصمود، مؤكدا طوال الوقت مقولة “اعتماده على الله واعتمادهم على امريكا”.
+كان خطابا تعبويا بكل ما تعنيه هذه الكلمة من معنى، يتحدث طوال الوقت عن حتمية النصر، والصبر وهزيمة المستسلمين دائما، ومليارات الآخر مقابل فقر الشعب اليمني، وجوعه وحرمانه، ومشاركة الامريكيين في غرف العمليات، وهي كلها محاور اختيرت بعناية لاعطاء مفعولها في اشرس الحروب النفسية التي تسير جنبا الى جنب مع الحروب في ميادين القتال، وهي حتى الآن، اي الاخيرة، ما زالت في اتجاه واحد اي قصف جوي دون امتلاك الجانب الآخر إمكانية الرد.
+***
+كان لافتا ان السيد الحوثي لم يتحدث مطلقا عن الرئيس اليمني عبد ربه منصور هادي، ولا عن نائبه خالد بحاح، واكتفى باشارة غامضة الى مسألة “الشرعية”، عندما قال ان من يملك الشرعية هو من يمتلك الحق، شرعية القرآن الكريم، والتصدي للمعتدين، على حد قوله.
+من الواضح ان الطرف الآخر الذي يقف في الخندق المواجه لـ”عاصفة الحزم” يشن حاليا هجوما اعلاميا شرسا مضادا بعد فترة طويلة من الصمت، ويوظف اجهزة اعلامه لنقل رسائله الى اوسع نطاق ممكن، ويمكن اختصار هذا الهجوم على الوجه التالي:
+
+    اولا: لم يكن من قبيل الصدفة ان يأتي خطاب السيد الحوثي بعد يومين فقط من الخطاب الذي القاه السيد حسن نصر الله امين عام حزب الله في مهرجان شعبي “داعم لليمن”، وشن فيه هجوما شرسا ضد المملكة العربية السعودية، استخدم فيه عبارات قوية، مثل اتهامات بنشر “الفكر التكفيري والارهاب”، وهو ما رد عليه كل من السيد انور قرقاش وزير الدولة للشؤون الخارجية، والفريق ضاحي خلفان نائب قائد شرطة دبي بعبارات اكثر شراسة.
+    ثانيا: اصدار السيد علي خامنئي تعليمات لوزارة الدفاع الايرانية برفع درجة التأهب، والقدرات، والكفاءات العسكرية، ومستوى الجاهزية للجيش والحرس الثوري وجميع الاجهزة ذات الصلة قائلا “ان الشعب الايراني هو امة اثبتت قدرتها على الدفاع عن نفسها اذا ما تعرضت لاي هجوم”.
+    ثالثا: خطاب السيد عبد الملك الحوثي، الذي استغرق اكثر من أربعين دقيقة، وتضمن تحريضا واضحا على المملكة العربية السعودية وحلفائها، والتهديد باستخدام كل الخيارات المتاحة، ومحاولة استخدام خطر تنظيم “القاعدة” كورقة تحذير للغرب، على اعتبار ان هذا التنظيم في رأيه هو المستفيد الاكبر، والمسيطر على الجنوب اليمني، وكأنه يعيد التذكير بخطر “الدولة الاسلامية” في العراق وسورية.
+    رابعا: تحدثت تقارير امريكية عن ارسال طهران اكثر من ثلاثين بارجة حربية الى مضيق باب المندب، وابراز وسائل الاعلام التابعة لها لهذه التقارير لايصال رسالة مفادها ان ايران لن تتخلى عن حلفائها في اليمن.
+
+لا نعرف بالضبط كيف سيكون تأثير خطاب السيد الحوثي على الشعب اليمني بكل اطيافه، سواء المؤيد لـ”عاصفة الحزم” او المعارض لها، مثلما لا نعرف كيف سيكون الرد السعودي الخليجي على الخطاب نفسه، ولكن ما نعرفه جيدا ان الحرب في اليمن تتسع، وفرص الحلول السياسية تتراجع، ولهذا فان احتمالات استمرار الحرب لاسابيع او لاشهر او حتى لسنوات كبيرة.
+INFO:MyTestWebApp:got uri=[/mishkal/doc]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-21 08:09	Tashkeel2	ليس الخادم قويا .
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-21 08:15	Tashkeel2	«العَاقِلُ لِسانُه وراءَ قَلبِه ، والأحمقُ قلبُه وراءَ لِسانِه»  
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-21 08:39	Tashkeel2	«العَاقِلُ لِسانُه وراءَ قَلبِه ، والأحمقُ قلبُه وراءَ لِسانِه»  
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-21 08:39	StripHarakat	«العَاقِلُ لِسانُه وراءَ قَلبِه ، والأحمقُ قلبُه وراءَ لِسانِه»  
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-21 08:39	Tashkeel2	«العاقل لسانه وراء قلبه ، والأحمق قلبه وراء لسانه»  
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-21 08:57	Tashkeel2	«العاقل لسانه وراء قلبه ، والأحمق قلبه وراء لسانه»  
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-25 04:56	Tashkeel2	وأبان التحقيق أن الطالب الجامعي في الإلكترونيك، ويبلغ من العمر 24 سنة، لم يكن مقتنعا بالقيام بهاته الأعمال الإرهابية وتهمته المؤكدة أنه كتب في زمن سابق على صفحات الفايس بوك، بأن حلم حياته أن يجاهد في سوريا ضد نظام بشار الأسد.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-25 04:56	Tashkeel2	 وكانت مصالح الأمن الفرنسية، قد أوقفت الطالب الجامعي الذي استفاد من منحة دراسية ومن غرفة جامعية رقم 310 في المقاطعة الباريسية رقم 13 بعد تفوّقه الدراسي في مدينة رامس، بعد تأكد تواصله مع متشددين، كانوا يخططون، حسب مصالح الأمن الفرنسية، للقيام بتفجير عدد من الكنائس.
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-26 08:30	Tashkeel2	وأبان التحقيق أن الطالب الجامعي في الالكترونيك، ويبلغ من العمر 24 سنة، لم يكن مقتنعا بالقيام بهاته الأعمال الإرهابية وتهمته المؤكدة أنه كتب في زمن سابق على صفحات الفايس بوك، بأن حلم حياته أن يجاهد في سوريا ضد نظام بشار الأسد.
+INFO:MyTestWebApp:2015-04-26 08:30	Tashkeel2	 وكانت مصالح الأمن الفرنسية، قد أوقفت الطالب الجامعي الذي استفاد من منحة دراسية ومن غرفة جامعية رقم 310 في المقاطعة الباريسية رقم 13 بعد تفوّقه الدراسي في مدينة رامس، بعد تأكد تواصله مع متشددين، كانوا يخططون، حسب مصالح الأمن الفرنسية، للقيام بتفجير عدد من الكنائس.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 06:05	Tashkeel2	لا تأكل وأنت شبعان .
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 06:43	Tashkeel2	لا تأكل وأنت شبعان .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 06:45	Tashkeel2	لا تأكل وأنت شبعان .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 07:14	Tashkeel2	لا تأكل وأنت شبعان .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 07:24	Tashkeel2	بيت من الشعر
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 07:24	Tashkeel2	في بيت من الشعر
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 07:26	Tashkeel2	في بيت من الشعر
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 07:27	Tashkeel2	في بيت من الشعر
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 07:31	Tashkeel2	سجل 13 نقطة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 07:31	Tashkeel2	سجل 13 نقاطا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 07:31	Tashkeel2	سجل 13 نقطا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 07:31	Tashkeel2	سجل 13 بيتا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 07:32	Tashkeel2	سجل 13 قراءة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 07:32	Tashkeel2	سجل 1000 قراءة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 08:24	Tashkeel2	قرات في كتاب جميل من التراث.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 08:38	Tashkeel2	قرأت في كتاب جميل من التراث.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 08:38	Tashkeel2	قرأت في كتاب جميل من التراث.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 09:34	Tashkeel2	الياسق أو الياسا هو أول نموذج ظهر في العالم الإسلامي ويخرج عن حدود التشريع الإسلامي ، تكلم ابن تيمية في فتواه المشهورة عن التتار ، وهو أكثر من فصّل في الياسق ، وما هو حاله وشأنه وتاريخه .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 09:34	Tashkeel2	 والحافظ ابن كثير ذكر ذلك باقتضاب في تفسير قول الله : ﴿أَفَحُكْمَ الْجَاهِلِيَّةِ يَبْغُونَ وَمَنْ أَحْسَنُ مِنَ اللّهِ حُكْمًا لِّقَوْمٍ يُوقِنُونَ﴾ قال : مثل ما يتحاكم به التتار إلى كتابهم الذي يسمى الياسق .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 09:35	Tashkeel2	قرأت كتابة غريبة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 09:35	Tashkeel2	قرأت 100 كتابة غريبة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 09:35	Tashkeel2	قرأت 15 كتابة غريبة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 09:36	Tashkeel2	قرأت 15 كتابة غريبة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 09:39	Tashkeel2	قرأت 15 كتابة غريبة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 09:41	Tashkeel2	قرأت 15 كتابة غريبة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 09:42	Tashkeel2	قرأت 15 كتابة غريبة و15 كتاب.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:24	Tashkeel2	قرأت 15 كتابة غريبة و15 كتاب.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:25	Tashkeel2	قرأت 15 كتابة غريبة و15 كتاب.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:25	Tashkeel2	قرأت 15 كتابة غريبة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:25	Tashkeel2	 و15 كتاب.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:27	Tashkeel2	قرأت 15 كتابة غريبة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:27	Tashkeel2	 و15 كتاب.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:28	Tashkeel2	قرأت 15 كتابة غريبة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:28	Tashkeel2	 و15 كتاب.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:38	Tashkeel2	قرأت 15 كتابة غريبة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:38	Tashkeel2	 و15 كتاب.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:38	Tashkeel2	قرأت 15 كتابة غريبة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:38	Tashkeel2	 و15 كتابا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:39	Tashkeel2	قرأت 15 كتابة غريبة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:39	Tashkeel2	 و15 كتابا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:39	Tashkeel2	قرأت 15 كتابة غريبة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:39	Tashkeel2	 و15 كتابا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:43	Tashkeel2	قرأت 15 كتابة غريبة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:43	Tashkeel2	 و15 كتابا.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:44	StripHarakat	
+	هو حاتمُ بن عبد الله بن سَعْد بن الحَشْرَج، كان جواداً شجاعاً شاعراً مُظَفّراً، إذا قاتلَ غَلَب، وإذا غَنمَ نَهب، وإذا سُئل وَهب، وإذا أثْرى أنفق.‏
+	ومِن حَديثهِ أنَّ ماويَّةَ امرأةَ حاتم حدَّثت أنَّ الناسَ أصابَتهُم سَنَة، فأذهبت الخُفَّ والظلف (أتت عليهم سنة فيها مجاعة شديدة)، فبتنا ذاتَ لَيلةٍ بأشدِّ الجوع، فأخذَ حاتمُ عُديًّا وأخذْتُ سفَّانة فعلَّلْنَاهما حتى ناما، ثُم أخذ يُعَللني بالحديث لأنام، فرَقَقتُ له لما به مِن الجَهْد، فأمسكتُ عَن كلامِه لينام ويَظنُّ أني نائمة، فقال لي‏:‏ أنِمْتِ‏؟‏ مراراً، فلم أجبه، فَسَكَتْ ونظرَ مِن وراءِ الخِباء فإذا شيءٌ قد أقبل فرفَع رأسَهُ، فإذا امرأةٌ تقول‏:‏ يا أبا سَفَّانة أتيتُكَ مِن عِندِ صِبْية جِياع، فقال‏:‏ أحضريني صبيانَكِ فواللّه لأشْبِعَنَّهم، قالت‏:‏ فقمتُ مُسْرِعة، فقلت‏:‏ بماذا يا حاتم‏؟‏ فوالله ما نامَ صِبْيَانُك مِن الجوعِ إلا بالتعليل، فقام إلى فَرَسه فذبَحه، ثم أجَّجَ نارا، وقال‏ للمرأة:‏ اشْتَوِي وكُلِي وأطْعِمِي ولدك، وقال لي‏:‏ أيْقِظِي صبيتَكَ، فأَيقَظتُهُما ثم قال‏:‏ واللّه إنَّ هذا للؤم أنْ تأكُلُوا وأهلُ الصِّرْمِ ‏(‏الصرم جماعة البيوت أي الحي‏)‏ حالُهم كحالكم، فَجَعَلَ يأتي الصِّرْمِ بيتا بيتا ويقول‏:‏ عليكمُ النار، فاجتمعوا وأكلوا، وتَقَنَّع بكسائه وقَعَد ناحيةً حتى لَم يوجَد مِن الفرس على الأرضِ قليلٌ ولا كثير، ولَم يَذُقْ مِنهُ شيئاً‏.‏
+
+	- من كتاب مجمع الأمثال للميداني (بتصرف)
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:44	Tashkeel2		هو حاتم بن عبد الله بن سعد بن الحشرج، كان جوادا شجاعا شاعرا مظفرا، إذا قاتل غلب، وإذا غنم نهب، وإذا سئل وهب، وإذا أثرى أنفق.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:44	Tashkeel2		ومن حديثه أن ماوية امرأة حاتم حدثت أن الناس أصابتهم سنة، فأذهبت الخف والظلف (أتت عليهم سنة فيها مجاعة شديدة)، فبتنا ذات ليلة بأشد الجوع، فأخذ حاتم عديا وأخذت سفانة فعللناهما حتى ناما، ثم أخذ يعللني بالحديث لأنام، فرققت له لما به من الجهد، فأمسكت عن كلامه لينام ويظن أني نائمة، فقال لي‏:‏ أنمت‏؟‏ مرارا، 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:44	Tashkeel2	‏
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:45	CompareTashkeel	بَعْدَ انْتِظَارٍ طَوِيلٍ، وَرَغْمَ الْأحْدَاثِ الَّتِي مَرَّتْ بِبَلَدِهِم، تَحَقَّقَ حُلْمُ مُسْلِمِي كرُوَاتْيا بِبِنَاءِ مَسْجِدٍ لَهُمْ.
+الآنَ وَقَدْ خَارَتْ قُوَاهُ وَاحْدَوْدَبَ ظَهْرُهُ وَتَثَاقَلَتْ مِشْيَتُهُ، هَا هُوَ إسْمَائِيتْشُ بْنُ حَامِدٍ أَخِيرًا يَرَى بِأُمِّ عَيْنَيْهِ صَرْحًا أضْخَمَ وَأَجْمَلَ مِنْ كُلِّ مَا تَصَوَّرَهُ عِنْدَمَا قَدَّمَ قَبْلَ ثَلَاثِينَ عَامًا هُوَ وَبَعْضُ مُسْلِمِي يُوغُسْلَافْيَا السَّابِقَةِ طَلَبًا لِبِنَاءِ مَسْجِدٍ فِي بَلْدَةِ رِييكَا الْكُرُواتِيَّةِ لِتَأْدِيَةِ ثَانِي أرْكَانِ الْإسْلَامِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:47	Tashkeel2	بَعْدَ انْتِظَارٍ طَوِيلٍ، وَرَغْمَ الْأحْدَاثِ الَّتِي مَرَّتْ بِبَلَدِهِم، تَحَقَّقَ حُلْمُ مُسْلِمِي كرُوَاتْيا بِبِنَاءِ مَسْجِدٍ لَهُمْ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:47	Tashkeel2	الآنَ وَقَدْ خَارَتْ قُوَاهُ وَاحْدَوْدَبَ ظَهْرُهُ وَتَثَاقَلَتْ مِشْيَتُهُ، هَا هُوَ إسْمَائِيتْشُ بْنُ حَامِدٍ أَخِيرًا يَرَى بِأُمِّ عَيْنَيْهِ صَرْحًا أضْخَمَ وَأَجْمَلَ مِنْ كُلِّ مَا تَصَوَّرَهُ عِنْدَمَا قَدَّمَ قَبْلَ ثَلَاثِينَ عَامًا هُوَ وَبَعْضُ مُسْلِمِي يُوغُسْلَافْيَا السَّابِقَةِ طَلَبًا لِبِنَاءِ مَسْجِدٍ فِي بَلْدَةِ رِييكَا الْكُرُواتِيَّةِ لِتَأْدِيَةِ ثَانِي أرْكَانِ الْإسْلَامِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:47	Tashkeel2	بَعْدَ انْتِظَارٍ طَوِيلٍ، وَرَغْمَ الْأحْدَاثِ الَّتِي مَرَّتْ بِبَلَدِهِم، تَحَقَّقَ حُلْمُ مُسْلِمِي كرُوَاتْيا بِبِنَاءِ مَسْجِدٍ لَهُمْ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:47	Tashkeel2	الآنَ وَقَدْ خَارَتْ قُوَاهُ وَاحْدَوْدَبَ ظَهْرُهُ وَتَثَاقَلَتْ مِشْيَتُهُ، هَا هُوَ إسْمَائِيتْشُ بْنُ حَامِدٍ أَخِيرًا يَرَى بِأُمِّ عَيْنَيْهِ صَرْحًا أضْخَمَ وَأَجْمَلَ مِنْ كُلِّ مَا تَصَوَّرَهُ عِنْدَمَا قَدَّمَ قَبْلَ ثَلَاثِينَ عَامًا هُوَ وَبَعْضُ مُسْلِمِي يُوغُسْلَافْيَا السَّابِقَةِ طَلَبًا لِبِنَاءِ مَسْجِدٍ فِي بَلْدَةِ رِييكَا الْكُرُواتِيَّةِ لِتَأْدِيَةِ ثَانِي أرْكَانِ الْإسْلَامِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:47	CompareTashkeel	بَعْدَ انْتِظَارٍ طَوِيلٍ، وَرَغْمَ الْأحْدَاثِ الَّتِي مَرَّتْ بِبَلَدِهِم، تَحَقَّقَ حُلْمُ مُسْلِمِي كرُوَاتْيا بِبِنَاءِ مَسْجِدٍ لَهُمْ.
+الآنَ وَقَدْ خَارَتْ قُوَاهُ وَاحْدَوْدَبَ ظَهْرُهُ وَتَثَاقَلَتْ مِشْيَتُهُ، هَا هُوَ إسْمَائِيتْشُ بْنُ حَامِدٍ أَخِيرًا يَرَى بِأُمِّ عَيْنَيْهِ صَرْحًا أضْخَمَ وَأَجْمَلَ مِنْ كُلِّ مَا تَصَوَّرَهُ عِنْدَمَا قَدَّمَ قَبْلَ ثَلَاثِينَ عَامًا هُوَ وَبَعْضُ مُسْلِمِي يُوغُسْلَافْيَا السَّابِقَةِ طَلَبًا لِبِنَاءِ مَسْجِدٍ فِي بَلْدَةِ رِييكَا الْكُرُواتِيَّةِ لِتَأْدِيَةِ ثَانِي أرْكَانِ الْإسْلَامِ.
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-27 10:48	CompareTashkeel	بَعْدَ انْتِظَارٍ طَوِيلٍ، وَرَغْمَ الْأحْدَاثِ الَّتِي مَرَّتْ بِبَلَدِهِم، تَحَقَّقَ حُلْمُ مُسْلِمِي كرُوَاتْيا بِبِنَاءِ مَسْجِدٍ لَهُمْ.
+الآنَ وَقَدْ خَارَتْ قُوَاهُ وَاحْدَوْدَبَ ظَهْرُهُ وَتَثَاقَلَتْ مِشْيَتُهُ، هَا هُوَ إسْمَائِيتْشُ بْنُ حَامِدٍ أَخِيرًا يَرَى بِأُمِّ عَيْنَيْهِ صَرْحًا أضْخَمَ وَأَجْمَلَ مِنْ كُلِّ مَا تَصَوَّرَهُ عِنْدَمَا قَدَّمَ قَبْلَ ثَلَاثِينَ عَامًا هُوَ وَبَعْضُ مُسْلِمِي يُوغُسْلَافْيَا السَّابِقَةِ طَلَبًا لِبِنَاءِ مَسْجِدٍ فِي بَلْدَةِ رِييكَا الْكُرُواتِيَّةِ لِتَأْدِيَةِ ثَانِي أرْكَانِ الْإسْلَامِ.
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/favicon.ico]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/favicon.ico]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-28 05:52	Tashkeel2	ركب إبراهيم الحصان .
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-28 05:53	Tashkeel2	جزائري سافر عبر الزمن الى العصر العباسي فوجد محلا اسمه
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-28 05:53	Tashkeel2	خمارة ابو نواس 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-28 05:53	Tashkeel2	جزائري سافر عبر الزمن إلى العصر العباسي فوجد محلا اسمه
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-04-28 05:53	Tashkeel2	خمارة ابو نواس 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 10:53	Tashkeel2	يعوم السمك.
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 10:53	Tashkeel2	يعوم السمك.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 10:53	Tashkeel2	 يعوم
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	  ﻳﺎ ﺑﺎﺋﻊَ ﺍﻟﺼَّﺒﺮِ ﻻ‌ ﺗُﺸﻔِﻖْ ﻋﻠﻰ ﺍﻟﺸَّﺎﺭﻱﻓﺪِﺭﻫَﻢُ ﺍﻟﺼَّﺒﺮِ ﻳَﺴﻮَﻯ ﺃﻟﻒَ ﺩﻳﻨﺎﺭِﻻ‌ ﺷﻲﺀَ ﻛﺎﻟﺼَّﺒﺮِ ﻳَﺸﻔﻲ ﺟُﺮﺡَ ﺻﺎﺣِﺒﻪِﻭﻻ‌ ﺣَﻮَﻯ ﻣﺜﻠَﻪُ ﺣﺎﻧﻮﺕُ ﻋَﻄَّﺎﺭِﻫﺬﺍ ﺍﻟﺬﻱ ﺗُﺨﻤِﺪُ ﺍﻷ‌ﺣﺰﺍﻥَ ﺟُﺮﻋﺘُﻪُﻛﺒﺎﺭِﺩِ ﺍﻟﻤﺎﺀِ ﻳُﻄﻔﻲ ﺣِﺪَّﺓَ ﺍﻟﻨَّﺎﺭِﻭﻳَﺤﻔﻆُ ﺍﻟﻘﻠﺐَ ﺑﺎﻕٍ ﻓﻲ ﺳﻼ‌ﻣﺘﻪِﺣﺘﻰ ﻳُﺒَﺪَّﻝَ ﺇﻋﺴﺎﺭٌ ﺑﺈﻳﺴﺎﺭِﺇﻥ ﺍﻟﺴَّﻼ‌ﻣﺔَ ﻛَﻨﺰٌ ﻛﻞُّ ﺧﺮﺩﻟﺔٍﻣﻨﻪُ ﺗﻘُﻮَّﻡُ ﻣِﻦ ﻣﺎﻝٍ ﺑﻘﻨﻄﺎﺭِ  
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	StripHarakat	  ﻳﺎ ﺑﺎﺋﻊَ ﺍﻟﺼَّﺒﺮِ ﻻ‌ ﺗُﺸﻔِﻖْ ﻋﻠﻰ ﺍﻟﺸَّﺎﺭﻱﻓﺪِﺭﻫَﻢُ ﺍﻟﺼَّﺒﺮِ ﻳَﺴﻮَﻯ ﺃﻟﻒَ ﺩﻳﻨﺎﺭِﻻ‌ ﺷﻲﺀَ ﻛﺎﻟﺼَّﺒﺮِ ﻳَﺸﻔﻲ ﺟُﺮﺡَ ﺻﺎﺣِﺒﻪِﻭﻻ‌ ﺣَﻮَﻯ ﻣﺜﻠَﻪُ ﺣﺎﻧﻮﺕُ ﻋَﻄَّﺎﺭِﻫﺬﺍ ﺍﻟﺬﻱ ﺗُﺨﻤِﺪُ ﺍﻷ‌ﺣﺰﺍﻥَ ﺟُﺮﻋﺘُﻪُﻛﺒﺎﺭِﺩِ ﺍﻟﻤﺎﺀِ ﻳُﻄﻔﻲ ﺣِﺪَّﺓَ ﺍﻟﻨَّﺎﺭِﻭﻳَﺤﻔﻆُ ﺍﻟﻘﻠﺐَ ﺑﺎﻕٍ ﻓﻲ ﺳﻼ‌ﻣﺘﻪِﺣﺘﻰ ﻳُﺒَﺪَّﻝَ ﺇﻋﺴﺎﺭٌ ﺑﺈﻳﺴﺎﺭِﺇﻥ ﺍﻟﺴَّﻼ‌ﻣﺔَ ﻛَﻨﺰٌ ﻛﻞُّ ﺧﺮﺩﻟﺔٍﻣﻨﻪُ ﺗﻘُﻮَّﻡُ ﻣِﻦ ﻣﺎﻝٍ ﺑﻘﻨﻄﺎﺭِ  
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	  ﻳﺎ ﺑﺎﺋﻊَ ﺍﻟﺼَّﺒﺮِ ﻻ‌ ﺗُﺸﻔِﻖْ ﻋﻠﻰ ﺍﻟﺸَّﺎﺭﻱﻓﺪِﺭﻫَﻢُ ﺍﻟﺼَّﺒﺮِ ﻳَﺴﻮَﻯ ﺃﻟﻒَ ﺩﻳﻨﺎﺭِ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻭﻻ‌ ﺣَﻮَﻯ ﻣﺜﻠَﻪُ ﺣﺎﻧﻮﺕُ ﻋَﻄَّﺎﺭِ
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻻ‌ ﺷﻲﺀَ ﻛﺎﻟﺼَّﺒﺮِ ﻳَﺸﻔﻲ ﺟُﺮﺡَ ﺻﺎﺣِﺒﻪِ
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻫﺬﺍ ﺍﻟﺬﻱ ﺗُﺨﻤِﺪُ ﺍﻷ‌ﺣﺰﺍﻥَ ﺟُﺮﻋﺘُﻪُ
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻛﺒﺎﺭِﺩِ ﺍﻟﻤﺎﺀِ ﻳُﻄﻔﻲ ﺣِﺪَّﺓَ ﺍﻟﻨَّﺎﺭِ
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻭﻳَﺤﻔﻆُ ﺍﻟﻘﻠﺐَ ﺑﺎﻕٍ ﻓﻲ ﺳﻼ‌ﻣﺘﻪِ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﺣﺘﻰ ﻳُﺒَﺪَّﻝَ ﺇﻋﺴﺎﺭٌ ﺑﺈﻳﺴﺎﺭِ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﺇﻥ ﺍﻟﺴَّﻼ‌ﻣﺔَ ﻛَﻨﺰٌ ﻛﻞُّ ﺧﺮﺩﻟﺔٍ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻣﻨﻪُ ﺗﻘُﻮَّﻡُ ﻣِﻦ ﻣﺎﻝٍ ﺑﻘﻨﻄﺎﺭِ  
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	StripHarakat	  ﻳﺎ ﺑﺎﺋﻊَ ﺍﻟﺼَّﺒﺮِ ﻻ‌ ﺗُﺸﻔِﻖْ ﻋﻠﻰ ﺍﻟﺸَّﺎﺭﻱﻓﺪِﺭﻫَﻢُ ﺍﻟﺼَّﺒﺮِ ﻳَﺴﻮَﻯ ﺃﻟﻒَ ﺩﻳﻨﺎﺭِ
+ﻻ‌ ﺷﻲﺀَ ﻛﺎﻟﺼَّﺒﺮِ ﻳَﺸﻔﻲ ﺟُﺮﺡَ ﺻﺎﺣِﺒﻪِ
+ﻭﻻ‌ ﺣَﻮَﻯ ﻣﺜﻠَﻪُ ﺣﺎﻧﻮﺕُ ﻋَﻄَّﺎﺭِ
+ﻫﺬﺍ ﺍﻟﺬﻱ ﺗُﺨﻤِﺪُ ﺍﻷ‌ﺣﺰﺍﻥَ ﺟُﺮﻋﺘُﻪُ
+ﻛﺒﺎﺭِﺩِ ﺍﻟﻤﺎﺀِ ﻳُﻄﻔﻲ ﺣِﺪَّﺓَ ﺍﻟﻨَّﺎﺭِ
+ﻭﻳَﺤﻔﻆُ ﺍﻟﻘﻠﺐَ ﺑﺎﻕٍ ﻓﻲ ﺳﻼ‌ﻣﺘﻪِ
+ﺣﺘﻰ ﻳُﺒَﺪَّﻝَ ﺇﻋﺴﺎﺭٌ ﺑﺈﻳﺴﺎﺭِ
+ﺇﻥ ﺍﻟﺴَّﻼ‌ﻣﺔَ ﻛَﻨﺰٌ ﻛﻞُّ ﺧﺮﺩﻟﺔٍ
+ﻣﻨﻪُ ﺗﻘُﻮَّﻡُ ﻣِﻦ ﻣﺎﻝٍ ﺑﻘﻨﻄﺎﺭِ  
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	  ﻳﺎ ﺑﺎﺋﻊ ﺍﻟﺼﺒﺮ ﻻ‌ ﺗﺸﻔﻖ ﻋﻠﻰ ﺍﻟﺸﺎﺭﻱﻓﺪﺭﻫﻢ ﺍﻟﺼﺒﺮ ﻳﺴﻮﻯ ﺃﻟﻒ ﺩﻳﻨﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻻ‌ ﺷﻲﺀ ﻛﺎﻟﺼﺒﺮ ﻳﺸﻔﻲ ﺟﺮﺡ ﺻﺎﺣﺒﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻭﻻ‌ ﺣﻮﻯ ﻣﺜﻠﻪ ﺣﺎﻧﻮﺕ ﻋﻄﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻫﺬﺍ ﺍﻟﺬﻱ ﺗﺨﻤﺪ ﺍﻷ‌ﺣﺰﺍﻥ ﺟﺮﻋﺘﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻛﺒﺎﺭﺩ ﺍﻟﻤﺎﺀ ﻳﻄﻔﻲ ﺣﺪﺓ ﺍﻟﻨﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻭﻳﺤﻔﻆ ﺍﻟﻘﻠﺐ ﺑﺎﻕ ﻓﻲ ﺳﻼ‌ﻣﺘﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﺣﺘﻰ ﻳﺒﺪﻝ ﺇﻋﺴﺎﺭ ﺑﺈﻳﺴﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﺇﻥ ﺍﻟﺴﻼ‌ﻣﺔ ﻛﻨﺰ ﻛﻞ ﺧﺮﺩﻟﺔ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻣﻨﻪ ﺗﻘﻮﻡ ﻣﻦ ﻣﺎﻝ ﺑﻘﻨﻄﺎﺭ  
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻫﺬﺍ ﺍﻟﺬﻱ ﺗﺨﻤﺪ ﺍﻷ‌ﺣﺰﺍﻥ ﺟﺮﻋﺘﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻛﺒﺎﺭﺩ ﺍﻟﻤﺎﺀ ﻳﻄﻔﻲ ﺣﺪﺓ ﺍﻟﻨﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻭﻳﺤﻔﻆ ﺍﻟﻘﻠﺐ ﺑﺎﻕ ﻓﻲ ﺳﻼ‌ﻣﺘﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﺣﺘﻰ ﻳﺒﺪﻝ ﺇﻋﺴﺎﺭ ﺑﺈﻳﺴﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﺇﻥ ﺍﻟﺴﻼ‌ﻣﺔ ﻛﻨﺰ ﻛﻞ ﺧﺮﺩﻟﺔ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻣﻨﻪ ﺗﻘﻮﻡ ﻣﻦ ﻣﺎﻝ ﺑﻘﻨﻄﺎﺭ  
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	  ﻳﺎ ﺑﺎﺋﻊ ﺍﻟﺼﺒﺮ ﻻ‌ ﺗﺸﻔﻖ ﻋﻠﻰ ﺍﻟﺸﺎﺭﻱﻓﺪﺭﻫﻢ ﺍﻟﺼﺒﺮ ﻳﺴﻮﻯ ﺃﻟﻒ ﺩﻳﻨﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻻ‌ ﺷﻲﺀ ﻛﺎﻟﺼﺒﺮ ﻳﺸﻔﻲ ﺟﺮﺡ ﺻﺎﺣﺒﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:00	Tashkeel2	ﻭﻻ‌ ﺣﻮﻯ ﻣﺜﻠﻪ ﺣﺎﻧﻮﺕ ﻋﻄﺎﺭ
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	  ﻳﺎ ﺑﺎﺋﻊ ﺍﻟﺼﺒﺮ ﻻ‌ ﺗﺸﻔﻖ ﻋﻠﻰ ﺍﻟﺸﺎﺭﻱﻓﺪﺭﻫﻢ ﺍﻟﺼﺒﺮ ﻳﺴﻮﻯ ﺃﻟﻒ ﺩﻳﻨﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻻ‌ ﺷﻲﺀ ﻛﺎﻟﺼﺒﺮ ﻳﺸﻔﻲ ﺟﺮﺡ ﺻﺎﺣﺒﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻭﻻ‌ ﺣﻮﻯ ﻣﺜﻠﻪ ﺣﺎﻧﻮﺕ ﻋﻄﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻫﺬﺍ ﺍﻟﺬﻱ ﺗﺨﻤﺪ ﺍﻷ‌ﺣﺰﺍﻥ ﺟﺮﻋﺘﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻭﻳﺤﻔﻆ ﺍﻟﻘﻠﺐ ﺑﺎﻕ ﻓﻲ ﺳﻼ‌ﻣﺘﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻛﺒﺎﺭﺩ ﺍﻟﻤﺎﺀ ﻳﻄﻔﻲ ﺣﺪﺓ ﺍﻟﻨﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﺣﺘﻰ ﻳﺒﺪﻝ ﺇﻋﺴﺎﺭ ﺑﺈﻳﺴﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻣﻨﻪ ﺗﻘﻮﻡ ﻣﻦ ﻣﺎﻝ ﺑﻘﻨﻄﺎﺭ  
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﺇﻥ ﺍﻟﺴﻼ‌ﻣﺔ ﻛﻨﺰ ﻛﻞ ﺧﺮﺩﻟﺔ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	  ﻳﺎ ﺑﺎﺋﻊ ﺍﻟﺼﺒﺮ ﻻ‌ ﺗﺸﻔﻖ ﻋﻠﻰ ﺍﻟﺸﺎﺭﻱﻓﺪﺭﻫﻢ ﺍﻟﺼﺒﺮ ﻳﺴﻮﻯ ﺃﻟﻒ ﺩﻳﻨﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻻ‌ ﺷﻲﺀ ﻛﺎﻟﺼﺒﺮ ﻳﺸﻔﻲ ﺟﺮﺡ ﺻﺎﺣﺒﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻫﺬﺍ ﺍﻟﺬﻱ ﺗﺨﻤﺪ ﺍﻷ‌ﺣﺰﺍﻥ ﺟﺮﻋﺘﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻭﻳﺤﻔﻆ ﺍﻟﻘﻠﺐ ﺑﺎﻕ ﻓﻲ ﺳﻼ‌ﻣﺘﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻛﺒﺎﺭﺩ ﺍﻟﻤﺎﺀ ﻳﻄﻔﻲ ﺣﺪﺓ ﺍﻟﻨﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻭﻻ‌ ﺣﻮﻯ ﻣﺜﻠﻪ ﺣﺎﻧﻮﺕ ﻋﻄﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﺣﺘﻰ ﻳﺒﺪﻝ ﺇﻋﺴﺎﺭ ﺑﺈﻳﺴﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﺇﻥ ﺍﻟﺴﻼ‌ﻣﺔ ﻛﻨﺰ ﻛﻞ ﺧﺮﺩﻟﺔ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻣﻨﻪ ﺗﻘﻮﻡ ﻣﻦ ﻣﺎﻝ ﺑﻘﻨﻄﺎﺭ  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	  ﻳﺎ ﺑﺎﺋﻊ ﺍﻟﺼﺒﺮ ﻻ‌ ﺗﺸﻔﻖ ﻋﻠﻰ ﺍﻟﺸﺎﺭﻱﻓﺪﺭﻫﻢ ﺍﻟﺼﺒﺮ ﻳﺴﻮﻯ ﺃﻟﻒ ﺩﻳﻨﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻻ‌ ﺷﻲﺀ ﻛﺎﻟﺼﺒﺮ ﻳﺸﻔﻲ ﺟﺮﺡ ﺻﺎﺣﺒﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻭﻻ‌ ﺣﻮﻯ ﻣﺜﻠﻪ ﺣﺎﻧﻮﺕ ﻋﻄﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻫﺬﺍ ﺍﻟﺬﻱ ﺗﺨﻤﺪ ﺍﻷ‌ﺣﺰﺍﻥ ﺟﺮﻋﺘﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻛﺒﺎﺭﺩ ﺍﻟﻤﺎﺀ ﻳﻄﻔﻲ ﺣﺪﺓ ﺍﻟﻨﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻭﻳﺤﻔﻆ ﺍﻟﻘﻠﺐ ﺑﺎﻕ ﻓﻲ ﺳﻼ‌ﻣﺘﻪ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﺣﺘﻰ ﻳﺒﺪﻝ ﺇﻋﺴﺎﺭ ﺑﺈﻳﺴﺎﺭ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﺇﻥ ﺍﻟﺴﻼ‌ﻣﺔ ﻛﻨﺰ ﻛﻞ ﺧﺮﺩﻟﺔ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:01	Tashkeel2	ﻣﻨﻪ ﺗﻘﻮﻡ ﻣﻦ ﻣﺎﻝ ﺑﻘﻨﻄﺎﺭ  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:02	Tashkeel2		يُروى أن قبيلة مزينة أسرت ثابتاً أبا حسان الأنصاري.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:02	Tashkeel2	 وقالوا: لا نأخذ فِداءَهُ إلا تيساً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:02	Tashkeel2		فَغَضِبَ قَومُهُ وقالوا: لا نَفعلُ هذا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:02	Tashkeel2	 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:02	Tashkeel2		فأرسلَ إليهِم أنْ اعطوهُم ما طلبوا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:02	Tashkeel2		فلما جاؤوا بالتيسِ قال: اعطوهم أخاهم وخذوا أخاكم.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:02	Tashkeel2		فَسُمّوا مزينة التيس، وصار لهم لقباً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:02	Tashkeel2		&#160;
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:02	Tashkeel2		- من مساهمات زوار الموقع.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:03	Tashkeel2		يُروى أن قبيلة مزينة أسرت ثابتاً أبا حسان الأنصاري.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:03	Tashkeel2	 وقالوا: لا نأخذ فِداءَهُ إلا تيساً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:03	Tashkeel2		فأرسلَ إليهِم أنْ اعطوهُم ما طلبوا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:03	Tashkeel2		فلما جاؤوا بالتيسِ قال: اعطوهم أخاهم وخذوا أخاكم.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:03	Tashkeel2	 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:03	Tashkeel2		فَغَضِبَ قَومُهُ وقالوا: لا نَفعلُ هذا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:03	Tashkeel2		فَسُمّوا مزينة التيس، وصار لهم لقباً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:03	Tashkeel2		&#160;
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:03	Tashkeel2		- من مساهمات زوار الموقع.
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		يُروى أن قبيلة مزينة أسرت ثابتاً أبا حسان الأنصاري.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2	 وقالوا: لا نأخذ فِداءَهُ إلا تيساً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		فَغَضِبَ قَومُهُ وقالوا: لا نَفعلُ هذا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		فأرسلَ إليهِم أنْ اعطوهُم ما طلبوا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2	 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		فلما جاؤوا بالتيسِ قال: اعطوهم أخاهم وخذوا أخاكم.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		فَسُمّوا مزينة التيس، وصار لهم لقباً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		&#160;
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		- من مساهمات زوار الموقع.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		فأرسلَ إليهِم أنْ اعطوهُم ما طلبوا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		فلما جاؤوا بالتيسِ قال: اعطوهم أخاهم وخذوا أخاكم.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2	 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		فَسُمّوا مزينة التيس، وصار لهم لقباً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		&#160;
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		- من مساهمات زوار الموقع.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		يُروى أن قبيلة مزينة أسرت ثابتاً أبا حسان الأنصاري.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2	 وقالوا: لا نأخذ فِداءَهُ إلا تيساً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-01 12:04	Tashkeel2		فَغَضِبَ قَومُهُ وقالوا: لا نَفعلُ هذا.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-03 11:40	Tashkeel2	لا تأخذ ما ليس لك .
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-03 11:42	Tashkeel2	الضمير وحده هو الذي يدفع المسؤول لخدمة الناس, فمتى ما أحيل ضميره مبكرا على التقاعد, اصبح مجرد بنك متنقل, يجمع ما يمكن ان يقع تحت يديه.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-03 11:52	Tashkeel2	الضمير وحده هو الذي يدفع المسؤول لخدمة الناس, فمتى ما أحيل ضميره مبكرا على التقاعد, اصبح مجرد بنك متنقل, يجمع ما يمكن أن يقع تحت يديه.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-03 11:53	Tashkeel2	الضمير وحده هو الذي يدفع المسؤول لخدمة الناس, فمتى ما أحيل ضميره مبكرا على التقاعد, اصبح مجرد بنك متنقل, يجمع ما يمكن أن  يقع تحت يديه.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-03 11:54	StripHarakat	
+	وَقَفَ مُعاويةُ بن مروان على باب طَحّان فَرأى حِماراً يُدورُ بالرحى وفي عُنقِه جَلجَل. فقال للطحان: لِمَ جَعلتَ الجَلجلَ في عُنِقِ الحِمار؟ فقال: رُبَّما أدركَتني سآمَةٌ أو نُعاس فإذا لَم أسمع صَوتَ الجَلجل عَلِمتُ أنَّ الحِمارَ واقِفٌ فأَحُثُّهُ لِيستَأنِفَ المسير. فقال مُعاوية: ومَن أدراكَ؟ فَرُبَّما وَقفَ وحَرَّكَ رَأسَهُ بالجلجل هَكذا، وَ حَرَّكَ مُعاويةُ رأسَهُ. فقال الطحان: ومَن أينَ لي بِحمارٍ يَكونُ عَقلُهُ مِثلُ عَقلِ الأمير!
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-03 11:54	Tashkeel2		وقف معاوية بن مروان على باب طحان فرأى حمارا يدور بالرحى وفي عنقه جلجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-03 11:54	Tashkeel2	 فقال للطحان: لم جعلت الجلجل في عنق الحمار؟ فقال: ربما أدركتني سآمة أو نعاس فإذا لم أسمع صوت الجلجل علمت أن الحمار واقف فأحثه ليستأنف المسير.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-03 11:54	Tashkeel2	 فقال الطحان: ومن أين لي بحمار يكون عقله مثل عقل الأمير!
+INFO:MyTestWebApp:2015-05-03 11:54	Tashkeel2	 فقال معاوية: ومن أدراك؟ فربما وقف وحرك رأسه بالجلجل هكذا، و حرك معاوية رأسه.
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:54	Tashkeel2	لم أسمع به.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:55	Tashkeel2	لم أسمع  صوت الفيل
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:55	Tashkeel2	لم أسمع  صوت الفيل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:55	Tashkeel2	لم أسمع بيته
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:55	Tashkeel2	لم أسمع  صوت الفيل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:55	Tashkeel2	لم أسمع قوله
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:56	Tashkeel2	لم أسمع  صوت الفيل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:56	Tashkeel2	لم أسمع قوله.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:56	Tashkeel2	لم أسمع به.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:57	Tashkeel2	لم أسمع  صوت الفيل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:57	Tashkeel2	لم أسمع به.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:57	Tashkeel2	 لم يسمع قوله.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 09:57	Tashkeel2	لم أسمع قوله.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 10:08	LightStemmer	لم أسمع  صوت الفيل.
+لم أسمع قوله.
+لم أسمع به. لم يسمع قوله.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 10:34	Tashkeel2	البستان ثماره يانعة
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 10:34	Tashkeel2	البستان ثماره يانعة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 10:35	Tashkeel2	البستان ثمارُه يانعة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 10:37	CompareTashkeel	وَفِي عَالَمِنَا الْعَرَبِيِّ، يَتَبَوَّأُ الْخِيَارُ مَكَانَةً مَرْمُوقَةً عَلَى الْمَائِدَةِ، فَهُوَ يُؤْكَلُ طَازِجًا أَوْ مُقَطَّعًا، كَمَا يَدْخُلُ فِي تَحْضِيرِ السَّلَطَةِ الْخَضْرَاء.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 10:39	Tashkeel2	وَفِي عَالَمِنَا الْعَرَبِيِّ، يَتَبَوَّأُ الْخِيَارُ مَكَانَةً مَرْمُوقَةً عَلَى الْمَائِدَةِ، فَهُوَ يُؤْكَلُ طَازِجًا أَوْ مُقَطَّعًا، كَمَا يَدْخُلُ فِي تَحْضِيرِ السَّلَطَةِ الْخَضْرَاء.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 10:39	CompareTashkeel	وَفِي عَالَمِنَا الْعَرَبِيِّ، يَتَبَوَّأُ الْخِيَارُ مَكَانَةً مَرْمُوقَةً عَلَى الْمَائِدَةِ، فَهُوَ يُؤْكَلُ طَازِجًا أَوْ مُقَطَّعًا، كَمَا يَدْخُلُ فِي تَحْضِيرِ السَّلَطَةِ الْخَضْرَاء.
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (2 working, 8 idle, 0 starting) ave time 0.00sec, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 10:42	CompareTashkeel	وَفِي عَالَمِنَا الْعَرَبِيِّ، يَتَبَوَّأُ الْخِيَارُ مَكَانَةً مَرْمُوقَةً عَلَى الْمَائِدَةِ، فَهُوَ يُؤْكَلُ طَازِجًا أَوْ مُقَطَّعًا، كَمَا يَدْخُلُ فِي تَحْضِيرِ السَّلَطَةِ الْخَضْرَاء.
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 10:45	CompareTashkeel	وَفِي عَالَمِنَا الْعَرَبِيِّ، يَتَبَوَّأُ الْخِيَارُ مَكَانَةً مَرْمُوقَةً عَلَى الْمَائِدَةِ، فَهُوَ يُؤْكَلُ طَازِجًا أَوْ مُقَطَّعًا، كَمَا يَدْخُلُ فِي تَحْضِيرِ السَّلَطَةِ الْخَضْرَاء.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:04	CompareTashkeel	وَفِي عَالَمِنَا الْعَرَبِيِّ، يَتَبَوَّأُ الْخِيَارُ مَكَانَةً مَرْمُوقَةً عَلَى الْمَائِدَةِ، فَهُوَ يُؤْكَلُ طَازِجًا أَوْ مُقَطَّعًا، كَمَا يَدْخُلُ فِي تَحْضِيرِ السَّلَطَةِ الْخَضْرَاء.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:06	Tashkeel2	رأيت رجلا واقفا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:07	Tashkeel2	رأيت رجلا على حمار.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:09	Tashkeel2	رأيت رقاربا في الطريق
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:09	Tashkeel2	رأيت قاربا في الطريق
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2		عن ابن عباس رضي الله عنهما قال:‏ ‏ حدث في خلافة أبي بكر الصديق، رضي الله عنه، أن أصاب الناس قحط، فلما اشتد بهم الأمر.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	 ذهبوا إلى الخليفة، وقالوا له:‏ ‏ (يا خليفة رسول الله، إن السماء لم تمطر، والأرض لم تنبت وقد توقع الناس الهلاك.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	‏ ‏ فقال لهم:‏ ‏ انصرفوا واصبروا، فإني أرجو ألا تمسوا حتى يفرّج الله عنكم فلما كان آخر النهار، وردت الأنباء بأن عيراً لعثمان بن عفان، قد قدمت من الشام، وتصبح بالمدينة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	 فماذا نصنع؟).
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	 بعنا من هذا الذي وصل إليك، فإنك تعلم حاجة الناس إليه.
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	 فلما جاءت، خرج الناس يتلقونها، فإذا هي ألف بعير موسوقة بـُرّا وزيتاً وزبيباً، فأناخت بباب عثمان، فلما جعل أحمالها في داره، جاءه التجار، فقال لهم: ماذا تريدون؟‏ ‏ فقالوا: إنك لتعلم ما نريد.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	‏ ‏ فقال عثمان: &quot;حبّا وكرامة&quot; كم تربحونني على شرائي؟‏ ‏ قالوا: الدرهم درهمين.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	‏ ‏ قال: أُعطيت زيادة على هذا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	‏ ‏ قالوا: أربعة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	‏ ‏ قال: أعطيت أكثر.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	‏ ‏ قالوا: نربحك خمسة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	‏ ‏ قال: أعطيت أكثر.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	‏ ‏ فقالوا: ما في المدينة تجار غيرنا، وما سبقنا أحد إليك، فمن الذي أعطاك أكثر مما أعطينا؟‏ ‏ قال: إن الله أعطاني بكل درهم عشرة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	 فهل عندكم زيادة؟‏ ‏ قالوا: لا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	‏ ‏ قال: فإني أشهد الله، أني جعلت ما حملت هذه العير صدقة لله على المساكين وفقراء المسلمين، ثم أخذ يُفرق بضاعته، فما بقي من فقراء المدينة أحد إلا أخذ ما يكفيه وأهله.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:10	Tashkeel2	 ‏
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	StripHarakat	
+	عن ابن عباس رضي الله عنهما قال:‏ ‏ حدث في خلافة أبي بكر الصديق، رضي الله عنه، أن أصاب الناس قحط، فلما اشتد بهم الأمر. ذهبوا إلى الخليفة، وقالوا له:‏ ‏ (يا خليفة رسول الله، إن السماء لم تمطر، والأرض لم تنبت وقد توقع الناس الهلاك. فماذا نصنع؟).‏ ‏ فقال لهم:‏ ‏ انصرفوا واصبروا، فإني أرجو ألا تمسوا حتى يفرّج الله عنكم فلما كان آخر النهار، وردت الأنباء بأن عيراً لعثمان بن عفان، قد قدمت من الشام، وتصبح بالمدينة. فلما جاءت، خرج الناس يتلقونها، فإذا هي ألف بعير موسوقة بـُرّا وزيتاً وزبيباً، فأناخت بباب عثمان، فلما جعل أحمالها في داره، جاءه التجار، فقال لهم: ماذا تريدون؟‏ ‏ فقالوا: إنك لتعلم ما نريد. بعنا من هذا الذي وصل إليك، فإنك تعلم حاجة الناس إليه.‏ ‏ فقال عثمان: &quot;حبّا وكرامة&quot; كم تربحونني على شرائي؟‏ ‏ قالوا: الدرهم درهمين.‏ ‏ قال: أُعطيت زيادة على هذا.‏ ‏ قالوا: أربعة.‏ ‏ قال: أعطيت أكثر.‏ ‏ قالوا: نربحك خمسة.‏ ‏ قال: أعطيت أكثر.‏ ‏ فقالوا: ما في المدينة تجار غيرنا، وما سبقنا أحد إليك، فمن الذي أعطاك أكثر مما أعطينا؟‏ ‏ قال: إن الله أعطاني بكل درهم عشرة. فهل عندكم زيادة؟‏ ‏ قالوا: لا.‏ ‏ قال: فإني أشهد الله، أني جعلت ما حملت هذه العير صدقة لله على المساكين وفقراء المسلمين، ثم أخذ يُفرق بضاعته، فما بقي من فقراء المدينة أحد إلا أخذ ما يكفيه وأهله. ‏
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	‏ ‏ فقال لهم:‏ ‏ انصرفوا واصبروا، فإني أرجو ألا تمسوا حتى يفرج الله عنكم فلما كان آخر النهار، وردت الأنباء بأن عيرا لعثمان بن عفان، قد قدمت من الشام، وتصبح بالمدينة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	 فلما جاءت، خرج الناس يتلقونها، فإذا هي ألف بعير موسوقة بـرا وزيتا وزبيبا، فأناخت بباب عثمان، فلما جعل أحمالها في داره، جاءه التجار، فقال لهم: ماذا تريدون؟‏ ‏ فقالوا: إنك لتعلم ما نريد.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	‏ ‏ فقال عثمان: "حبا وكرامة" كم تربحونني على شرائي؟‏ ‏ قالوا: الدرهم درهمين.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	‏ ‏ قال: أعطيت زيادة على هذا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	‏ ‏ فقالوا: ما في المدينة تجار غيرنا، وما سبقنا أحد إليك، فمن الذي أعطاك أكثر مما أعطينا؟‏ ‏ قال: إن الله أعطاني بكل درهم عشرة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	 فهل عندكم زيادة؟‏ ‏ قالوا: لا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	‏ ‏ قال: فإني أشهد الله، أني جعلت ما حملت هذه العير صدقة لله على المساكين وفقراء المسلمين، ثم أخذ يفرق بضاعته، فما بقي من فقراء المدينة أحد إلا أخذ ما يكفيه وأهله.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	 ‏
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2		عن ابن عباس رضي الله عنهما قال:‏ ‏ حدث في خلافة أبي بكر الصديق، رضي الله عنه، أن أصاب الناس قحط، فلما اشتد بهم الأمر.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	 ذهبوا إلى الخليفة، وقالوا له:‏ ‏ (يا خليفة رسول الله، إن السماء لم تمطر، والأرض لم تنبت وقد توقع الناس الهلاك.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	 فماذا نصنع؟).
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	 بعنا من هذا الذي وصل إليك، فإنك تعلم حاجة الناس إليه.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	‏ ‏ قالوا: أربعة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	‏ ‏ قال: أعطيت أكثر.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	‏ ‏ قالوا: نربحك خمسة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:14	Tashkeel2	‏ ‏ قال: أعطيت أكثر.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:21	Tashkeel2	من يعمل 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:21	Tashkeel2	من يعمل  قد ينجح
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 11:26	CompareTashkeel	
+وَمِنَ الْخِيَارَاتِ الصِّحِّيَّةِ فِي رَمَضَانَ سَلَطَةُ الْخِیَارِ بِاللَّبَنِ الَّتِي تُزَوِّدُ الْجِسْمَ بِالْكَالِسْيُوم وَالبرُوتِينِ.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:09	Tashkeel2	وَمِنَ الْخِيَارَاتِ الصِّحِّيَّةِ فِي رَمَضَانَ سَلَطَةُ الْخِیَارِ بِاللَّبَنِ الَّتِي تُزَوِّدُ الْجِسْمَ بِالْكَالِسْيُوم وَالبرُوتِينِ.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:11	Tashkeel2	وَمِنَ الْخِيَارَاتِ الصِّحِّيَّةِ فِي رَمَضَانَ سَلَطَةُ الْخِیَارِ بِاللَّبَنِ الَّتِي تُزَوِّدُ الْجِسْمَ بِالْكَالِسْيُوم وَالبرُوتِينِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:11	CompareTashkeel	
+وَمِنَ الْخِيَارَاتِ الصِّحِّيَّةِ فِي رَمَضَانَ سَلَطَةُ الْخِیَارِ بِاللَّبَنِ الَّتِي تُزَوِّدُ الْجِسْمَ بِالْكَالِسْيُوم وَالبرُوتِينِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:12	LightStemmer	الإسلاميات
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:13	Tashkeel2	الإسلاميات
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:13	LightStemmer	الإسلاميات
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:13	LightStemmer	الإسلاميات
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:16	Tashkeel2	وَمِنَ الْخِيَارَاتِ الصِّحِّيَّةِ فِي رَمَضَانَ سَلَطَةُ الْخِیَارِ بِاللَّبَنِ الَّتِي تُزَوِّدُ الْجِسْمَ بِالْكَالِسْيُوم وَالبرُوتِينِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:16	CompareTashkeel	
+وَمِنَ الْخِيَارَاتِ الصِّحِّيَّةِ فِي رَمَضَانَ سَلَطَةُ الْخِیَارِ بِاللَّبَنِ الَّتِي تُزَوِّدُ الْجِسْمَ بِالْكَالِسْيُوم وَالبرُوتِينِ.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:17	LightStemmer	
+وَمِنَ الْخِيَارَاتِ الصِّحِّيَّةِ فِي رَمَضَانَ سَلَطَةُ الْخِیَارِ بِاللَّبَنِ الَّتِي تُزَوِّدُ الْجِسْمَ بِالْكَالِسْيُوم وَالبرُوتِينِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:17	StripHarakat	
+وَمِنَ الْخِيَارَاتِ الصِّحِّيَّةِ فِي رَمَضَانَ سَلَطَةُ الْخِیَارِ بِاللَّبَنِ الَّتِي تُزَوِّدُ الْجِسْمَ بِالْكَالِسْيُوم وَالبرُوتِينِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:17	LightStemmer	
+ومن الخيارات الصحية في رمضان سلطة الخیار باللبن التي تزود الجسم بالكالسيوم والبروتين.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:17	Tashkeel2	ومن الخيارات الصحية في رمضان سلطة الخیار باللبن التي تزود الجسم بالكالسيوم والبروتين.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:18	Tashkeel2	الخيارات الصحية
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:18	Tashkeel2	من الخيارات الصحية
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:18	LightStemmer	من الخيارات الصحية
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:19	Tashkeel2	من الخيارات الصحية
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:20	Tashkeel2	من الخيارات الصحية
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:22	Tashkeel2	من الخيارات الصحية
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:22	Tashkeel2	ومن الخيارات الصحية في رمضان سلطة الخیار باللبن التي تزود الجسم بالكالسيوم والبروتين.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:39	Tashkeel2	ومن الخيارات الصحية في رمضان سلطة الخیار باللبن التي تزود الجسم بالكالسيوم والبروتين.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:53	Tashkeel2	ومن الخيارات الصحية في رمضان سلطة الخیار باللبن التي تزود الجسم بالكلسيوم والبروتين.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:56	Tashkeel2	من الخيارات الصحية
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:56	Tashkeel2	من الخيارات الصحية
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 12:59	CompareTashkeel	وَرَصَدَ الْبَاحِثُونَ اسْتِخْدَامَ الطَّلَبَةِ لِلْأَجْهِزَةِ فِي مُحَاضَرَاتِ إِدَارَةِ الْأَعْمَالِ وَعُلُومِ الْحَاسُوبِ، لِيَجِدُوا أَنَّ الْكَثِيرِينَ مِنْهُمْ يَسْتَخْدِمُونَ الْأَجْهَزَةَ الْمَحْمُولَة، سَوَاءً تَعَلَّقَ الْأَمْرُ بِهَاتِفٍ ذَكِيٍّ أَوْ حَاسُوبٍ لَوْحِيٍّ أَوْ حَاسُوبٍ مَحْمُولٍ، لِتَصَفًّحِ الْإِنْترْنت أَثْنَاءَ الدَّرْسِ وَمُمَارَسَةِ أَنْشِطَةٍ لَيْسَ لَهَا أَيُّ عَلَاقَةٍ بِمَوْضُوعِ الْمُحَاضَرَةِ أَو الدَّرْسِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:03	CompareTashkeel	تَقْتَرِبُ النِّسَاءُ مِن التَّسَاوي مع الرِّجال في قائِمة 100 شَخْصِيَّةٍ الأكثر تَاْثِيرا في العالَم الَّتي تُصْدِرُها مَجلَّة تايِم، حَيْثُ بَلَغ عَدَدُهُنّ هذا الْعام 41 امْرَأَةً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:03	CompareTashkeel	تَقْتَرِبُ النِّسَاءُ مِن التَّسَاوي مع الرِّجال في قائِمة 100 شَخْصِيَّةٍ الأكثر تَأْثِيرا في العالَم الَّتي تُصْدِرُها مَجلَّة تايِم، حَيْثُ بَلَغ عَدَدُهُنّ هذا الْعام 41 امْرَأَةً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:04	CompareTashkeel	عَاشَ مُحَمَّد قُطب طُفُولَتَهُ وَشَبَابَهُ فِي كَنَفِ أَخِيهِ سَيِّد قُطْب، الَّذِي أَشْرَفَ عَلَى تَعْلِيمِهِ وَتَوْجِيهِهِ وَتَثْقِيفِهِ، وَشَارَكَهُ لَاحقًا مَرَارَةَ السِّجْنِ وَالاِضْطِهَادِ السِّيَاسِيِّ. وَبَعْدَ إِعْدَامِ شَقِيقِهِ سَيِّد عَامَ 1966، هَاجَرَ مُحَمَّد قُطْب أَوَائِل السَّبْعِينِيَّاتِ إِلَى السُّعُودِيَّةِ، فَعَمِلَ مُدَرِّسًا فِي جَامِعَاتِهَا وَأَشْرَفَ عَلَى الْعَدِيدِ مِنَ الرَّسَائِلِ الْجَامِعِيَّةِ الَّتِي رَسَّخَت الْعَلَاقَةَ بَيْنَ مَدْرَسَةِ الشَّيْخ مُحَمَّد بنِ عَبْد الْوَهَّاب وَبَيْنَ الْقَضَايَا الْفِكْرِيَّةِ الْمُعَاصِرَةِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:16	Tashkeel2	لم أسمع صوته
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:24	Tashkeel2	لم أسمع صوته
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:24	Tashkeel2	لم أسمع صوته
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:24	Tashkeel2	لم أسمع صوته
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:24	Tashkeel2	لم أسْمع صوته
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:24	Tashkeel2	لم أسْمع قول
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:24	Tashkeel2	لم أسْمع قول الرجل
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:25	Tashkeel2	لم أسْمع قول الرجل
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:26	Tashkeel2	لم أسمع قول الرجل.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:26	LightStemmer	لم أسمع قول الرجل.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:34	LightStemmer	لم أسْمع قول الرجل.
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:34	Tashkeel2	لم أسْمع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:34	Tashkeel2	أكل الطعام.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:35	LightStemmer	لم أسْمع قول الرجل.
+أكل الطعام.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:39	LightStemmer	لم أسْمع قول الرجل.
+أكل الطعام.
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:40	LightStemmer	لم أسْمَع قول الرجل.
+أكل الطعام.
+
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:41	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:41	Tashkeel2	أكل الطعام.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:42	LightStemmer	لم أسْمَع قول الرجل.
+أكل الطعام.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:43	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:43	Tashkeel2	أكل الطعام.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:47	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:47	Tashkeel2	أكل الطعام.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:48	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:48	Tashkeel2	أكل الطعام.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:49	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:49	Tashkeel2	أكل الطعام.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:49	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:49	Tashkeel2	 لم أسمع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 01:49	Tashkeel2	أكل الطعام.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:18	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:18	Tashkeel2	 لم أسمع قول الرجل.
+INFO:MyTestWebApp:2015-05-04 02:18	Tashkeel2	أكل الطعام.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:18	Tashkeel2	 لم أسمع قول الرجل.
+INFO:MyTestWebApp:2015-05-04 02:18	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:18	Tashkeel2	أكل الطعام.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:19	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:19	Tashkeel2	 لم أسمع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:19	Tashkeel2	أكل الطعام.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:38	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:38	Tashkeel2	 لم أسمع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:38	Tashkeel2	أكل الطعام.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:39	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:39	Tashkeel2	 لم أسمع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:39	Tashkeel2	أكل الطعام.
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:47	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:47	Tashkeel2	 لم أسمع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:47	Tashkeel2	أكل الطعام.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:48	Tashkeel2	لم أسْمَع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:48	Tashkeel2	 لم أسمع قول الرجل.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:48	Tashkeel2	أكل الطعام.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:48	Tashkeel2	 الولد يأكل الطعام.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:52	CompareTashkeel	 احْتَفَلَ الْعَالَمُ يَوْمَ الْخَمِيسِ بِالْيَوْمِ الْعَالَمِيِّ لِلْغِذَاءِ بَيْنَمَا لا تَزَالُ حَالَةُ الْأَمْنِ الْغِذَائِيِّ فِي الصُّومَالِ فِي مُسْتَوًى مُتَدَنٍّ جِدًّا وَفْقَ مُنَظَّمَاتٍ أُمَمِيَّةٍ أَطْلَقَتْ تَحْذِيرَاتِهَا مُؤَخَّرًا مِنْ أنَّ مِلْيُونَ صُومَالِيٍّ سَيُوَاجِهُونَ نَقْصًا حَادًّا فِي الْغِذَاءِ، وَهُوَ مَا يُنْذِرُ بِتَكْرَارِ مَوْجَةِ الْجَفَافِ وَالْمَجَاعَةِ الَّتِي وَقَعَتْ عَامَ 2011 وحَصَدَتْ أَرْوَاحَ نَحْوِ رُبْعِ مِلْيُونِ صُومَالِيٍّ.
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:55	Tashkeel2	 احْتَفَلَ الْعَالَمُ يَوْمَ الْخَمِيسِ بِالْيَوْمِ الْعَالَمِيِّ لِلْغِذَاءِ بَيْنَمَا لا تَزَالُ حَالَةُ الْأَمْنِ الْغِذَائِيِّ فِي الصُّومَالِ فِي مُسْتَوًى مُتَدَنٍّ جِدًّا وَفْقَ مُنَظَّمَاتٍ أُمَمِيَّةٍ أَطْلَقَتْ تَحْذِيرَاتِهَا مُؤَخَّرًا مِنْ أنَّ مِلْيُونَ صُومَالِيٍّ سَيُوَاجِهُونَ نَقْصًا حَادًّا فِي الْغِذَاءِ، وَهُوَ مَا يُنْذِرُ بِتَكْرَارِ مَوْجَةِ الْجَفَافِ وَالْمَجَاعَةِ الَّتِي وَقَعَتْ عَامَ 2011 وحَصَدَتْ أَرْوَاحَ نَحْوِ رُبْعِ مِلْيُونِ صُومَالِيٍّ.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 02:55	CompareTashkeel	 احْتَفَلَ الْعَالَمُ يَوْمَ الْخَمِيسِ بِالْيَوْمِ الْعَالَمِيِّ لِلْغِذَاءِ بَيْنَمَا لا تَزَالُ حَالَةُ الْأَمْنِ الْغِذَائِيِّ فِي الصُّومَالِ فِي مُسْتَوًى مُتَدَنٍّ جِدًّا وَفْقَ مُنَظَّمَاتٍ أُمَمِيَّةٍ أَطْلَقَتْ تَحْذِيرَاتِهَا مُؤَخَّرًا مِنْ أنَّ مِلْيُونَ صُومَالِيٍّ سَيُوَاجِهُونَ نَقْصًا حَادًّا فِي الْغِذَاءِ، وَهُوَ مَا يُنْذِرُ بِتَكْرَارِ مَوْجَةِ الْجَفَافِ وَالْمَجَاعَةِ الَّتِي وَقَعَتْ عَامَ 2011 وحَصَدَتْ أَرْوَاحَ نَحْوِ رُبْعِ مِلْيُونِ صُومَالِيٍّ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 03:02	StripHarakat	أَنَّ طَبَقَةَ الصَّوْتِ الْعَمِيقَةِ هَذِهِ تَصْدِرُ عَادَةً مِنَ الذُّكورِ كَيْ تَعْلَمَ الْإِنَاثَ بِمَكَانِهَا 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 03:02	Tashkeel2	أن طبقة الصوت العميقة هذه تصدر عادة من الذكور كي تعلم الإناث بمكانها 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 03:03	CompareTashkeel	يُسَبِّبُ ضَيَاعُ أَوْ سَرِقَةُ الْهَوَاتِفِ الذَّكِيَّةِ قَلَقًا كَبِيرًا لِلْمُسْتَخْدِمِينَ، نَظَرًا لِكَمِّيَّةِ الْبَيَانَاتِ الشَّخْصِيَّةِ الَّتِي يَتِمُّ تَخْزِينُهَا عَلَيْهَا. وَيُعْتَبَرُ تَفْعِيلُ قُفْلِ الْجِهَازِ بِمَثَابَةِ الْخُطْوَةِ الْأُولَى لِحِمَايَةِ الْبَيَانَاتِ الشَّخْصِيَّةِ، سَوَاءً كَانَ ذَلِكَ بِاسْتِخْدَامِ الرَّقْمِ السِّرِّيِّ أَوِ الْأَنْمَاطِ أَوْ بَصْمَةِ الْأَصَابِعِ أَوْ خَاصِّيَّةِ التَّعَرُّفِ عَلَى وَجْهِ الْمُسْتَخْدِمِ.
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 03:05	CompareTashkeel	يُسَبِّبُ ضَيَاعُ أَوْ سَرِقَةُ الْهَوَاتِفِ الذَّكِيَّةِ قَلَقًا كَبِيرًا لِلْمُسْتَخْدِمِينَ، نَظَرًا لِكَمِّيَّةِ الْبَيَانَاتِ الشَّخْصِيَّةِ الَّتِي يَتِمُّ تَخْزِينُهَا عَلَيْهَا. وَيُعْتَبَرُ تَفْعِيلُ قُفْلِ الْجِهَازِ بِمَثَابَةِ الْخُطْوَةِ الْأُولَى لِحِمَايَةِ الْبَيَانَاتِ الشَّخْصِيَّةِ، سَوَاءً كَانَ ذَلِكَ بِاسْتِخْدَامِ الرَّقْمِ السِّرِّيِّ أَوِ الْأَنْمَاطِ أَوْ بَصْمَةِ الْأَصَابِعِ أَوْ خَاصِّيَّةِ التَّعَرُّفِ عَلَى وَجْهِ الْمُسْتَخْدِمِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 04:01	Tashkeel2	ومن الخيارات الصحية في رمضان سلطة الخیار باللبن التي تزود الجسم بالكلسيوم والبروتين.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 04:07	Tashkeel2	يُسَبِّبُ ضَيَاعُ أَوْ سَرِقَةُ الْهَوَاتِفِ الذَّكِيَّةِ قَلَقًا كَبِيرًا لِلْمُسْتَخْدِمِينَ، نَظَرًا لِكَمِّيَّةِ الْبَيَانَاتِ الشَّخْصِيَّةِ الَّتِي يَتِمُّ تَخْزِينُهَا عَلَيْهَا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 04:07	Tashkeel2	 وَيُعْتَبَرُ تَفْعِيلُ قُفْلِ الْجِهَازِ بِمَثَابَةِ الْخُطْوَةِ الْأُولَى لِحِمَايَةِ الْبَيَانَاتِ الشَّخْصِيَّةِ، سَوَاءً كَانَ ذَلِكَ بِاسْتِخْدَامِ الرَّقْمِ السِّرِّيِّ أَوِ الْأَنْمَاطِ أَوْ بَصْمَةِ الْأَصَابِعِ أَوْ خَاصِّيَّةِ التَّعَرُّفِ عَلَى وَجْهِ الْمُسْتَخْدِمِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 04:07	CompareTashkeel	يُسَبِّبُ ضَيَاعُ أَوْ سَرِقَةُ الْهَوَاتِفِ الذَّكِيَّةِ قَلَقًا كَبِيرًا لِلْمُسْتَخْدِمِينَ، نَظَرًا لِكَمِّيَّةِ الْبَيَانَاتِ الشَّخْصِيَّةِ الَّتِي يَتِمُّ تَخْزِينُهَا عَلَيْهَا. وَيُعْتَبَرُ تَفْعِيلُ قُفْلِ الْجِهَازِ بِمَثَابَةِ الْخُطْوَةِ الْأُولَى لِحِمَايَةِ الْبَيَانَاتِ الشَّخْصِيَّةِ، سَوَاءً كَانَ ذَلِكَ بِاسْتِخْدَامِ الرَّقْمِ السِّرِّيِّ أَوِ الْأَنْمَاطِ أَوْ بَصْمَةِ الْأَصَابِعِ أَوْ خَاصِّيَّةِ التَّعَرُّفِ عَلَى وَجْهِ الْمُسْتَخْدِمِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 04:09	Tashkeel2	ومن الخيارات الصحية في رمضان سلطة الخیار باللبن التي تزود الجسم بالكلسيوم والبروتين.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 04:13	Tashkeel2	ومن الخيارات الصحية في رمضان سلطة الخیار باللبن التي تزود الجسم بالكلسيوم والبروتين.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 04:13	Tashkeel2	يُسَبِّبُ ضَيَاعُ أَوْ سَرِقَةُ الْهَوَاتِفِ الذَّكِيَّةِ قَلَقًا كَبِيرًا لِلْمُسْتَخْدِمِينَ، نَظَرًا لِكَمِّيَّةِ الْبَيَانَاتِ الشَّخْصِيَّةِ الَّتِي يَتِمُّ تَخْزِينُهَا عَلَيْهَا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 04:13	Tashkeel2	 وَيُعْتَبَرُ تَفْعِيلُ قُفْلِ الْجِهَازِ بِمَثَابَةِ الْخُطْوَةِ الْأُولَى لِحِمَايَةِ الْبَيَانَاتِ الشَّخْصِيَّةِ، سَوَاءً كَانَ ذَلِكَ بِاسْتِخْدَامِ الرَّقْمِ السِّرِّيِّ أَوِ الْأَنْمَاطِ أَوْ بَصْمَةِ الْأَصَابِعِ أَوْ خَاصِّيَّةِ التَّعَرُّفِ عَلَى وَجْهِ الْمُسْتَخْدِمِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 04:13	CompareTashkeel	يُسَبِّبُ ضَيَاعُ أَوْ سَرِقَةُ الْهَوَاتِفِ الذَّكِيَّةِ قَلَقًا كَبِيرًا لِلْمُسْتَخْدِمِينَ، نَظَرًا لِكَمِّيَّةِ الْبَيَانَاتِ الشَّخْصِيَّةِ الَّتِي يَتِمُّ تَخْزِينُهَا عَلَيْهَا. وَيُعْتَبَرُ تَفْعِيلُ قُفْلِ الْجِهَازِ بِمَثَابَةِ الْخُطْوَةِ الْأُولَى لِحِمَايَةِ الْبَيَانَاتِ الشَّخْصِيَّةِ، سَوَاءً كَانَ ذَلِكَ بِاسْتِخْدَامِ الرَّقْمِ السِّرِّيِّ أَوِ الْأَنْمَاطِ أَوْ بَصْمَةِ الْأَصَابِعِ أَوْ خَاصِّيَّةِ التَّعَرُّفِ عَلَى وَجْهِ الْمُسْتَخْدِمِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 04:32	CompareTashkeel	أَثْبَتَتْ دِرَاسَةٌ أَلْمَانِيَّةٌ حَدِيثَةٌ دَوْرَ الْغِنَاءِ الْجَمَاعِيِّ فِي تَعْزِيزِ الْجِهَازِ الْمَنَاعِيِّ لِلْجِسْمِ وَتَنْظِيمِ دَقَّاتِ الْقَلْبِ، إِضَافَةً إِلَى خَفْضِ هُرْمُونِ التَّوَتُّرِ، الْكُورْتِيزُول، مِمَّا يَجْعَلُ تَأْثِيرَهُ عَلَى الصِّحَّةِ مُشَابِهًا لِتَأْثِيرِ الْيُوغَا.
+وَتَوَصَّلَ الْبَاحِثُ الْمُوسِيقِيُّ الْألْمَانِيُّ "غونثر كرويتس" إِلَى هَذِهِ النَّتِيجَةِ بَعْدَ إِجْرَائِهِ تَجْرِبَةً عَلَى مَجْمُوعَةِ مُغَنِّينَ فِي جَوْقَةٍ مُوسِيقِيَّةٍ. وَنَصَحَت الدِّرَاسَةُ بِمُمَارَسَةِ الْغِنَاءِ حَتَّى وَإِنْ لَمْ يَكُنْ بِشَكْلٍ مُتْقَنٍ، وَأَكَّدَتْ أَنَّ الْغِنَاءَ ضِمْنَ مَجْمُوعَاتٍ لَهُ فَعَّالِيَّةٌ أَكْثَرُ مِنَ الْغِنَاءِ الْمُنْفَرِدِ.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 04:37	CompareTashkeel	أَثْبَتَتْ دِرَاسَةٌ أَلْمَانِيَّةٌ حَدِيثَةٌ دَوْرَ الْغِنَاءِ الْجَمَاعِيِّ فِي تَعْزِيزِ الْجِهَازِ الْمَنَاعِيِّ لِلْجِسْمِ وَتَنْظِيمِ دَقَّاتِ الْقَلْبِ، إِضَافَةً إِلَى خَفْضِ هُرْمُونِ التَّوَتُّرِ، الْكُورْتِيزُول، مِمَّا يَجْعَلُ تَأْثِيرَهُ عَلَى الصِّحَّةِ مُشَابِهًا لِتَأْثِيرِ الْيُوغَا.
+وَتَوَصَّلَ الْبَاحِثُ الْمُوسِيقِيُّ الْألْمَانِيُّ "غونثر كرويتس" إِلَى هَذِهِ النَّتِيجَةِ بَعْدَ إِجْرَائِهِ تَجْرِبَةً عَلَى مَجْمُوعَةِ مُغَنِّينَ فِي جَوْقَةٍ مُوسِيقِيَّةٍ. وَنَصَحَت الدِّرَاسَةُ بِمُمَارَسَةِ الْغِنَاءِ حَتَّى وَإِنْ لَمْ يَكُنْ بِشَكْلٍ مُتْقَنٍ، وَأَكَّدَتْ أَنَّ الْغِنَاءَ ضِمْنَ مَجْمُوعَاتٍ لَهُ فَعَّالِيَّةٌ أَكْثَرُ مِنَ الْغِنَاءِ الْمُنْفَرِدِ.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:14	CompareTashkeel	أَثْبَتَتْ دِرَاسَةٌ أَلْمَانِيَّةٌ حَدِيثَةٌ دَوْرَ الْغِنَاءِ الْجَمَاعِيِّ فِي تَعْزِيزِ الْجِهَازِ الْمَنَاعِيِّ لِلْجِسْمِ وَتَنْظِيمِ دَقَّاتِ الْقَلْبِ، إِضَافَةً إِلَى خَفْضِ هُرْمُونِ التَّوَتُّرِ، الْكُورْتِيزُول، مِمَّا يَجْعَلُ تَأْثِيرَهُ عَلَى الصِّحَّةِ مُشَابِهًا لِتَأْثِيرِ الْيُوغَا.
+وَتَوَصَّلَ الْبَاحِثُ الْمُوسِيقِيُّ الْألْمَانِيُّ "غونثر كرويتس" إِلَى هَذِهِ النَّتِيجَةِ بَعْدَ إِجْرَائِهِ تَجْرِبَةً عَلَى مَجْمُوعَةِ مُغَنِّينَ فِي جَوْقَةٍ مُوسِيقِيَّةٍ. وَنَصَحَت الدِّرَاسَةُ بِمُمَارَسَةِ الْغِنَاءِ حَتَّى وَإِنْ لَمْ يَكُنْ بِشَكْلٍ مُتْقَنٍ، وَأَكَّدَتْ أَنَّ الْغِنَاءَ ضِمْنَ مَجْمُوعَاتٍ لَهُ فَعَّالِيَّةٌ أَكْثَرُ مِنَ الْغِنَاءِ الْمُنْفَرِدِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:14	Tashkeel2	أَثْبَتَتْ دِرَاسَةٌ أَلْمَانِيَّةٌ حَدِيثَةٌ دَوْرَ الْغِنَاءِ الْجَمَاعِيِّ فِي تَعْزِيزِ الْجِهَازِ الْمَنَاعِيِّ لِلْجِسْمِ وَتَنْظِيمِ دَقَّاتِ الْقَلْبِ، إِضَافَةً إِلَى خَفْضِ هُرْمُونِ التَّوَتُّرِ، الْكُورْتِيزُول، مِمَّا يَجْعَلُ تَأْثِيرَهُ عَلَى الصِّحَّةِ مُشَابِهًا لِتَأْثِيرِ الْيُوغَا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:14	Tashkeel2	وَتَوَصَّلَ الْبَاحِثُ الْمُوسِيقِيُّ الْألْمَانِيُّ "غونثر كرويتس" إِلَى هَذِهِ النَّتِيجَةِ بَعْدَ إِجْرَائِهِ تَجْرِبَةً عَلَى مَجْمُوعَةِ مُغَنِّينَ فِي جَوْقَةٍ مُوسِيقِيَّةٍ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:14	Tashkeel2	 وَنَصَحَت الدِّرَاسَةُ بِمُمَارَسَةِ الْغِنَاءِ حَتَّى وَإِنْ لَمْ يَكُنْ بِشَكْلٍ مُتْقَنٍ، وَأَكَّدَتْ أَنَّ الْغِنَاءَ ضِمْنَ مَجْمُوعَاتٍ لَهُ فَعَّالِيَّةٌ أَكْثَرُ مِنَ الْغِنَاءِ الْمُنْفَرِدِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:14	CompareTashkeel	أَثْبَتَتْ دِرَاسَةٌ أَلْمَانِيَّةٌ حَدِيثَةٌ دَوْرَ الْغِنَاءِ الْجَمَاعِيِّ فِي تَعْزِيزِ الْجِهَازِ الْمَنَاعِيِّ لِلْجِسْمِ وَتَنْظِيمِ دَقَّاتِ الْقَلْبِ، إِضَافَةً إِلَى خَفْضِ هُرْمُونِ التَّوَتُّرِ، الْكُورْتِيزُول، مِمَّا يَجْعَلُ تَأْثِيرَهُ عَلَى الصِّحَّةِ مُشَابِهًا لِتَأْثِيرِ الْيُوغَا.
+وَتَوَصَّلَ الْبَاحِثُ الْمُوسِيقِيُّ الْألْمَانِيُّ "غونثر كرويتس" إِلَى هَذِهِ النَّتِيجَةِ بَعْدَ إِجْرَائِهِ تَجْرِبَةً عَلَى مَجْمُوعَةِ مُغَنِّينَ فِي جَوْقَةٍ مُوسِيقِيَّةٍ. وَنَصَحَت الدِّرَاسَةُ بِمُمَارَسَةِ الْغِنَاءِ حَتَّى وَإِنْ لَمْ يَكُنْ بِشَكْلٍ مُتْقَنٍ، وَأَكَّدَتْ أَنَّ الْغِنَاءَ ضِمْنَ مَجْمُوعَاتٍ لَهُ فَعَّالِيَّةٌ أَكْثَرُ مِنَ الْغِنَاءِ الْمُنْفَرِدِ.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:30	CompareTashkeel	أَثْبَتَتْ دِرَاسَةٌ أَلْمَانِيَّةٌ حَدِيثَةٌ دَوْرَ الْغِنَاءِ الْجَمَاعِيِّ فِي تَعْزِيزِ الْجِهَازِ الْمَنَاعِيِّ لِلْجِسْمِ وَتَنْظِيمِ دَقَّاتِ الْقَلْبِ، إِضَافَةً إِلَى خَفْضِ هُرْمُونِ التَّوَتُّرِ، الْكُورْتِيزُول، مِمَّا يَجْعَلُ تَأْثِيرَهُ عَلَى الصِّحَّةِ مُشَابِهًا لِتَأْثِيرِ الْيُوغَا.
+وَتَوَصَّلَ الْبَاحِثُ الْمُوسِيقِيُّ الْألْمَانِيُّ "غونثر كرويتس" إِلَى هَذِهِ النَّتِيجَةِ بَعْدَ إِجْرَائِهِ تَجْرِبَةً عَلَى مَجْمُوعَةِ مُغَنِّينَ فِي جَوْقَةٍ مُوسِيقِيَّةٍ. وَنَصَحَت الدِّرَاسَةُ بِمُمَارَسَةِ الْغِنَاءِ حَتَّى وَإِنْ لَمْ يَكُنْ بِشَكْلٍ مُتْقَنٍ، وَأَكَّدَتْ أَنَّ الْغِنَاءَ ضِمْنَ مَجْمُوعَاتٍ لَهُ فَعَّالِيَّةٌ أَكْثَرُ مِنَ الْغِنَاءِ الْمُنْفَرِدِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:33	CompareTashkeel	أَثْبَتَتْ دِرَاسَةٌ أَلْمَانِيَّةٌ حَدِيثَةٌ دَوْرَ الْغِنَاءِ الْجَمَاعِيِّ فِي تَعْزِيزِ الْجِهَازِ الْمَنَاعِيِّ لِلْجِسْمِ وَتَنْظِيمِ دَقَّاتِ الْقَلْبِ، إِضَافَةً إِلَى خَفْضِ هُرْمُونِ التَّوَتُّرِ، الْكُورْتِيزُول، مِمَّا يَجْعَلُ تَأْثِيرَهُ عَلَى الصِّحَّةِ مُشَابِهًا لِتَأْثِيرِ الْيُوغَا.
+وَتَوَصَّلَ الْبَاحِثُ الْمُوسِيقِيُّ الْألْمَانِيُّ "غونثر كرويتس" إِلَى هَذِهِ النَّتِيجَةِ بَعْدَ إِجْرَائِهِ تَجْرِبَةً عَلَى مَجْمُوعَةِ مُغَنِّينَ فِي جَوْقَةٍ مُوسِيقِيَّةٍ. وَنَصَحَت الدِّرَاسَةُ بِمُمَارَسَةِ الْغِنَاءِ حَتَّى وَإِنْ لَمْ يَكُنْ بِشَكْلٍ مُتْقَنٍ، وَأَكَّدَتْ أَنَّ الْغِنَاءَ ضِمْنَ مَجْمُوعَاتٍ لَهُ فَعَّالِيَّةٌ أَكْثَرُ مِنَ الْغِنَاءِ الْمُنْفَرِدِ.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:33	CompareTashkeel	أَثْبَتَتْ دِرَاسَةٌ أَلْمَانِيَّةٌ حَدِيثَةٌ دَوْرَ الْغِنَاءِ الْجَمَاعِيِّ فِي تَعْزِيزِ الْجِهَازِ الْمَنَاعِيِّ لِلْجِسْمِ وَتَنْظِيمِ دَقَّاتِ الْقَلْبِ، إِضَافَةً إِلَى خَفْضِ هُرْمُونِ التَّوَتُّرِ، الْكُورْتِيزُول، مِمَّا يَجْعَلُ تَأْثِيرَهُ عَلَى الصِّحَّةِ مُشَابِهًا لِتَأْثِيرِ الْيُوغَا.
+وَتَوَصَّلَ الْبَاحِثُ الْمُوسِيقِيُّ الْألْمَانِيُّ "غونثر كرويتس" إِلَى هَذِهِ النَّتِيجَةِ بَعْدَ إِجْرَائِهِ تَجْرِبَةً عَلَى مَجْمُوعَةِ مُغَنِّينَ فِي جَوْقَةٍ مُوسِيقِيَّةٍ. وَنَصَحَت الدِّرَاسَةُ بِمُمَارَسَةِ الْغِنَاءِ حَتَّى وَإِنْ لَمْ يَكُنْ بِشَكْلٍ مُتْقَنٍ، وَأَكَّدَتْ أَنَّ الْغِنَاءَ ضِمْنَ مَجْمُوعَاتٍ لَهُ فَعَّالِيَّةٌ أَكْثَرُ مِنَ الْغِنَاءِ الْمُنْفَرِدِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:36	CompareTashkeel	وَأَطْيَبُ الْوَرْدِ الطَّائِفِيِّ مَا كَانَ فِي جِبَالِ الْهَدَا وَالشِّفَاءِ، وَأَعْبَقُهَا مَا يُرْوَى مِنْ مِيَاهِ الْمَطَرِ وَلَمْ يُؤْذِهِ قَرٌّ أَوْ حَرٌّ، يَطِيبُ الْمُزَارِعُ مَعَهُ فَيْزَدَادُ طِيبًا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:37	CompareTashkeel	يَسْتَعِيدُ الْفَرَنْسِيُّ بَاترِيك مُوديَانو -الْحَائِزُ عَلَى جَائِزَةِ نُوبَل لِلْآدَاب 2014- فِي رِوَايَتِهِ "عُشْبُ اللَّيَالِي" صُورَةً حَالِكَةً لِبَارِيس أَثْنَاءَ الْحَرْبِ الْعَالَمِيَّةِ الثَّانِيَّةِ وَمَا تَلَاهَا، وَكَيْفَ تَحَوَّلَتْ مِنْ مَدِينَةٍ لِلْأَنْوَارِ إِلَى مَدِينَةٍ لِلْأَشْبَاحِ.
+الرَّاوِي جُون مُثَقَّفٌ بَارِيسِيٌّ مُسِنٌّ، يُحَاوِلُ اسْتِجْمَاعَ ذَاكِرَتِهِ لِتَدْوِينِ بَعْضِ الْمَحَطَّاتِ وَالْمُفَارَقَاتِ الَّتِي مَرَّ بِهَا فِي حَيَاتِهِ، وَيَتَذَكَّرُ أَجْوَاءَ بَارِيس حِينَ خَرَجَتْ مُنْهَكَةً مِنَ الْحَرْبِ، مُحَاوِلًا إِعَادَةَ اكْتِشَافِ الْحَقَائِقِ، لَعَلَّ الزَّمَنَ الْفَاصِلَ بَيْنَ الْمَرْحَلَتَيْنِ يُوضِحُ لَهُ مَا اسْتَعْصَى عَلَى فَهْمِهِ حِينَهَا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:38	StripHarakat	يَسْتَعِيدُ الْفَرَنْسِيُّ بَاترِيك مُوديَانو -الْحَائِزُ عَلَى جَائِزَةِ نُوبَل لِلْآدَاب 2014- فِي رِوَايَتِهِ "عُشْبُ اللَّيَالِي" صُورَةً حَالِكَةً لِبَارِيس أَثْنَاءَ الْحَرْبِ الْعَالَمِيَّةِ الثَّانِيَّةِ وَمَا تَلَاهَا، وَكَيْفَ تَحَوَّلَتْ مِنْ مَدِينَةٍ لِلْأَنْوَارِ إِلَى مَدِينَةٍ لِلْأَشْبَاحِ.
+الرَّاوِي جُون مُثَقَّفٌ بَارِيسِيٌّ مُسِنٌّ، يُحَاوِلُ اسْتِجْمَاعَ ذَاكِرَتِهِ لِتَدْوِينِ بَعْضِ الْمَحَطَّاتِ وَالْمُفَارَقَاتِ الَّتِي مَرَّ بِهَا فِي حَيَاتِهِ، وَيَتَذَكَّرُ أَجْوَاءَ بَارِيس حِينَ خَرَجَتْ مُنْهَكَةً مِنَ الْحَرْبِ، مُحَاوِلًا إِعَادَةَ اكْتِشَافِ الْحَقَائِقِ، لَعَلَّ الزَّمَنَ الْفَاصِلَ بَيْنَ الْمَرْحَلَتَيْنِ يُوضِحُ لَهُ مَا اسْتَعْصَى عَلَى فَهْمِهِ حِينَهَا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:39	Tashkeel2	يستعيد الفرنسي باتريك موديانو -الحائز على جائزة نوبل للآداب 2014- في روايته "عشب الليالي" صورة حالكة لباريس أثناء الحرب العالمية الثانية وما تلاها، وكيف تحولت من مدينة للأنوار إلى مدينة للأشباح.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:39	Tashkeel2	الراوي جون مثقف باريسي مسن، يحاول استجماع ذاكرته لتدوين بعض المحطات والمفارقات التي مر بها في حياته، ويتذكر أجواء باريس حين خرجت منهكة من الحرب، محاولا إعادة اكتشاف الحقائق، لعل الزمن الفاصل بين المرحلتين يوضح له ما استعصى على فهمه حينها.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:43	Tashkeel2	على فهمه
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:43	LightStemmer	على فهمه
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:45	Tashkeel2	على فهمه
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:46	LightStemmer	على فهمه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:48	Tashkeel2	على فهمه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:52	Tashkeel2	على فهمه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:59	Tashkeel2	يستعيد الفرنسي باتريك موديانو -الحائز على جائزة نوبل للآداب 2014- في روايته "عشب الليالي" صورة حالكة لباريس أثناء الحرب العالمية الثانية وما تلاها، وكيف تحولت من مدينة للأنوار إلى مدينة للأشباح.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:59	Tashkeel2	الراوي جون مثقف باريسي مسن، يحاول استجماع ذاكرته لتدوين بعض المحطات والمفارقات التي مر بها في حياته، ويتذكر أجواء باريس حين خرجت منهكة من الحرب، محاولا إعادة اكتشاف الحقائق، لعل الزمن الفاصل بين المرحلتين يوضح له ما استعصى على فهمه حينها.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 05:59	Tashkeel2	على فهمه
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 06:04	Tashkeel2	يستعيد الفرنسي باتريك موديانو -الحائز على جائزة نوبل للآداب 2014- في روايته "عشب الليالي" صورة حالكة لباريس أثناء الحرب العالمية الثانية وما تلاها، وكيف تحولت من مدينة للأنوار إلى مدينة للأشباح.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 06:04	Tashkeel2	الراوي جون مثقف باريسي مسن، يحاول استجماع ذاكرته لتدوين بعض المحطات والمفارقات التي مر بها في حياته، ويتذكر أجواء باريس حين خرجت منهكة من الحرب، محاولا إعادة اكتشاف الحقائق، لعل الزمن الفاصل بين المرحلتين يوضح له ما استعصى على فهمه حينها.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 06:04	CompareTashkeel	يستعيد الفرنسي باتريك موديانو -الحائز على جائزة نوبل للآداب 2014- في روايته "عشب الليالي" صورة حالكة لباريس أثناء الحرب العالمية الثانية وما تلاها، وكيف تحولت من مدينة للأنوار إلى مدينة للأشباح.
+الراوي جون مثقف باريسي مسن، يحاول استجماع ذاكرته لتدوين بعض المحطات والمفارقات التي مر بها في حياته، ويتذكر أجواء باريس حين خرجت منهكة من الحرب، محاولا إعادة اكتشاف الحقائق، لعل الزمن الفاصل بين المرحلتين يوضح له ما استعصى على فهمه حينها.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 06:05	CompareTashkeel	يَسْتَعِيدُ الْفَرَنْسِيُّ بَاترِيك مُوديَانو -الْحَائِزُ عَلَى جَائِزَةِ نُوبَل لِلْآدَاب 2014- فِي رِوَايَتِهِ "عُشْبُ اللَّيَالِي" صُورَةً حَالِكَةً لِبَارِيس أَثْنَاءَ الْحَرْبِ الْعَالَمِيَّةِ الثَّانِيَّةِ وَمَا تَلَاهَا، وَكَيْفَ تَحَوَّلَتْ مِنْ مَدِينَةٍ لِلْأَنْوَارِ إِلَى مَدِينَةٍ لِلْأَشْبَاحِ.
+الرَّاوِي جُون مُثَقَّفٌ بَارِيسِيٌّ مُسِنٌّ، يُحَاوِلُ اسْتِجْمَاعَ ذَاكِرَتِهِ لِتَدْوِينِ بَعْضِ الْمَحَطَّاتِ وَالْمُفَارَقَاتِ الَّتِي مَرَّ بِهَا فِي حَيَاتِهِ، وَيَتَذَكَّرُ أَجْوَاءَ بَارِيس حِينَ خَرَجَتْ مُنْهَكَةً مِنَ الْحَرْبِ، مُحَاوِلًا إِعَادَةَ اكْتِشَافِ الْحَقَائِقِ، لَعَلَّ الزَّمَنَ الْفَاصِلَ بَيْنَ الْمَرْحَلَتَيْنِ يُوضِحُ لَهُ مَا اسْتَعْصَى عَلَى فَهْمِهِ حِينَهَا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 06:08	Tashkeel2	على فهمه
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 06:10	LightStemmer	على فهمه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 06:18	Tashkeel2	على فهمه
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 06:21	CompareTashkeel	يَسْتَعِيدُ الْفَرَنْسِيُّ بَاترِيك مُوديَانو -الْحَائِزُ عَلَى جَائِزَةِ نُوبَل لِلْآدَاب 2014- فِي رِوَايَتِهِ "عُشْبُ اللَّيَالِي" صُورَةً حَالِكَةً لِبَارِيس أَثْنَاءَ الْحَرْبِ الْعَالَمِيَّةِ الثَّانِيَّةِ وَمَا تَلَاهَا، وَكَيْفَ تَحَوَّلَتْ مِنْ مَدِينَةٍ لِلْأَنْوَارِ إِلَى مَدِينَةٍ لِلْأَشْبَاحِ.
+الرَّاوِي جُون مُثَقَّفٌ بَارِيسِيٌّ مُسِنٌّ، يُحَاوِلُ اسْتِجْمَاعَ ذَاكِرَتِهِ لِتَدْوِينِ بَعْضِ الْمَحَطَّاتِ وَالْمُفَارَقَاتِ الَّتِي مَرَّ بِهَا فِي حَيَاتِهِ، وَيَتَذَكَّرُ أَجْوَاءَ بَارِيس حِينَ خَرَجَتْ مُنْهَكَةً مِنَ الْحَرْبِ، مُحَاوِلًا إِعَادَةَ اكْتِشَافِ الْحَقَائِقِ، لَعَلَّ الزَّمَنَ الْفَاصِلَ بَيْنَ الْمَرْحَلَتَيْنِ يُوضِحُ لَهُ مَا اسْتَعْصَى عَلَى فَهْمِهِ حِينَهَا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 06:22	CompareTashkeel	يَقْتَرِبُ عَدَدُ الْبَاعَةِ الْمُتَجَوِّلِينَ فِي مِصْرَ مِنْ سِتَّةِ مَلَايِين، يَتَعَامَلُونَ بِنَحْوِ 40% مِنَ السُّيُولَةِ الْمَالِيَّةِ فِي السُّوقِ الْمِصْرِيَّةِ.
+قَالَتِ النَّاشِطَةُ الْحُقُوقِيَّةُ فِي مَجَالِ الْعُمَّالِ هُدَى مُنْعِم فِي مُؤْتَمَرٍ صَحَفِيٍّ إنَّ الْبَائِعَ الْمُتَجَوِّلَ يُمْكِنُ أنْ يَكُونَ مَصْدَرًا لِلدَّخْلِ الْقَوْمِيِّ إذَا تَمَّ اسْتِغْلَالُهُ بِشَكْلٍ صَحِيحٍ.
+وَأَضَافَتْ أنَّ الْقُدْرَةَ الشِّرَائِيَّةَ لِلْمُوَاطِنِ الْمِصْرِيِّ وَخَاصَّةً بَعْدَ ارْتِفَاعِ الْأَسْعَارِ فِي الآوِنَةِ الْأَخِيرَةِ، أتَاحَتْ لِلْبَائِعِ الْمُتَجَوِّلِ أنْ يَكُونَ جَاذِبًا لِلْمُوَاطِنِ الْأَقَلِّ دَخْلًا.
+وَيَعِيشُ أَكْثَرُ مِنْ 25 مِلْيُونَ مِصْرِيٍّ مِنْ أَصْلِ أكْثَرَ مِنْ 90 مِلْيُونًا تَحْتَ خَطِّ الْفَقْرِ، طِبْقًا لِبَيَانَاتٍ صَادِرَةٍ عَنْ جِهَازِ التَّعْبِئَةِ الْعَامَّةِ وَالإحْصَاءِ الْمِصْرِيِّ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 06:23	CompareTashkeel	يَقْتَرِبُ عَدَدُ الْبَاعَةِ الْمُتَجَوِّلِينَ فِي مِصْرَ مِنْ سِتَّةِ مَلَايِين، يَتَعَامَلُونَ بِنَحْوِ 40% مِنَ السُّيُولَةِ الْمَالِيَّةِ فِي السُّوقِ الْمِصْرِيَّةِ.
+قَالَتِ النَّاشِطَةُ الْحُقُوقِيَّةُ فِي مَجَالِ الْعُمَّالِ هُدَى مُنْعِم فِي مُؤْتَمَرٍ صَحَفِيٍّ إنَّ الْبَائِعَ الْمُتَجَوِّلَ يُمْكِنُ أنْ يَكُونَ مَصْدَرًا لِلدَّخْلِ الْقَوْمِيِّ إذَا تَمَّ اسْتِغْلَالُهُ بِشَكْلٍ صَحِيحٍ.
+وَأَضَافَتْ أنَّ الْقُدْرَةَ الشِّرَائِيَّةَ لِلْمُوَاطِنِ الْمِصْرِيِّ وَخَاصَّةً بَعْدَ ارْتِفَاعِ الْأَسْعَارِ فِي الآوِنَةِ الْأَخِيرَةِ، أتَاحَتْ لِلْبَائِعِ الْمُتَجَوِّلِ أنْ يَكُونَ جَاذِبًا لِلْمُوَاطِنِ الْأَقَلِّ دَخْلًا.
+وَيَعِيشُ أَكْثَرُ مِنْ 25 مِلْيُونَ مِصْرِيٍّ مِنْ أَصْلِ أكْثَرَ مِنْ 90 مِلْيُونًا تَحْتَ خَطِّ الْفَقْرِ، طِبْقًا لِبَيَانَاتٍ صَادِرَةٍ عَنْ جِهَازِ التَّعْبِئَةِ الْعَامَّةِ وَالإحْصَاءِ الْمِصْرِيِّ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 07:05	CompareTashkeel	يُعَرَّفُ التَّصَحُّرُ بِأَنَّهُ تَرَدِّي الْأَرَاضِي وَفِقْدَانُهَا لِلْقُدْرَةِ عَلَى الْإِنْتَاجِ الزِّرَاعِيِّ لأِسْبَابٍ طَبِيعِيَّةٍ أَوْ بَشَرِيَّةٍ، وَهُوَ ظَاهِرَةٌ عَالَمِيَّةٌ طَفَتْ عَلَى السَّطْحِ بِقُوَّةٍ مُنْذُ سِتِّينِيَّاتِ الْقَرْنِ الْمَاضِي، حِينَمَا ضَرَبَتْ مَوْجَاتٌ مِنَ الْجَفَافِ بِقَاعًا شَتَّى عَبْرَ الْعَالَمِ، مُسَبِّبَةً خَسَائِرَ بَشَرِيَّةً وَاقْتِصَادِيَّةً وَبِيئِيَّةً فَادِحَةً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 07:06	Tashkeel2	منذ البارحة
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 07:13	Tashkeel2	يُعَرَّفُ التَّصَحُّرُ بِأَنَّهُ تَرَدِّي الْأَرَاضِي وَفِقْدَانُهَا لِلْقُدْرَةِ عَلَى الْإِنْتَاجِ الزِّرَاعِيِّ لأِسْبَابٍ طَبِيعِيَّةٍ أَوْ بَشَرِيَّةٍ، وَهُوَ ظَاهِرَةٌ عَالَمِيَّةٌ طَفَتْ عَلَى السَّطْحِ بِقُوَّةٍ مُنْذُ سِتِّينِيَّاتِ الْقَرْنِ الْمَاضِي، حِينَمَا ضَرَبَتْ مَوْجَاتٌ مِنَ الْجَفَافِ بِقَاعًا شَتَّى عَبْرَ الْعَالَمِ، مُسَبِّبَةً خَسَائِرَ بَشَرِيَّةً وَاقْتِصَادِيَّةً وَبِيئِيَّةً فَادِحَةً.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 07:13	Tashkeel2	يُعَرَّفُ التَّصَحُّرُ بِأَنَّهُ تَرَدِّي الْأَرَاضِي وَفِقْدَانُهَا لِلْقُدْرَةِ عَلَى الْإِنْتَاجِ الزِّرَاعِيِّ لأِسْبَابٍ طَبِيعِيَّةٍ أَوْ بَشَرِيَّةٍ، وَهُوَ ظَاهِرَةٌ عَالَمِيَّةٌ طَفَتْ عَلَى السَّطْحِ بِقُوَّةٍ مُنْذُ سِتِّينِيَّاتِ الْقَرْنِ الْمَاضِي، حِينَمَا ضَرَبَتْ مَوْجَاتٌ مِنَ الْجَفَافِ بِقَاعًا شَتَّى عَبْرَ الْعَالَمِ، مُسَبِّبَةً خَسَائِرَ بَشَرِيَّةً وَاقْتِصَادِيَّةً وَبِيئِيَّةً فَادِحَةً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 07:14	CompareTashkeel	يُعَرَّفُ التَّصَحُّرُ بِأَنَّهُ تَرَدِّي الْأَرَاضِي وَفِقْدَانُهَا لِلْقُدْرَةِ عَلَى الْإِنْتَاجِ الزِّرَاعِيِّ لأِسْبَابٍ طَبِيعِيَّةٍ أَوْ بَشَرِيَّةٍ، وَهُوَ ظَاهِرَةٌ عَالَمِيَّةٌ طَفَتْ عَلَى السَّطْحِ بِقُوَّةٍ مُنْذُ سِتِّينِيَّاتِ الْقَرْنِ الْمَاضِي، حِينَمَا ضَرَبَتْ مَوْجَاتٌ مِنَ الْجَفَافِ بِقَاعًا شَتَّى عَبْرَ الْعَالَمِ، مُسَبِّبَةً خَسَائِرَ بَشَرِيَّةً وَاقْتِصَادِيَّةً وَبِيئِيَّةً فَادِحَةً.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 07:16	CompareTashkeel	يُعَرَّفُ التَّصَحُّرُ بِأَنَّهُ تَرَدِّي الْأَرَاضِي وَفِقْدَانُهَا لِلْقُدْرَةِ عَلَى الْإِنْتَاجِ الزِّرَاعِيِّ لأِسْبَابٍ طَبِيعِيَّةٍ أَوْ بَشَرِيَّةٍ، وَهُوَ ظَاهِرَةٌ عَالَمِيَّةٌ طَفَتْ عَلَى السَّطْحِ بِقُوَّةٍ مُنْذُ سِتِّينِيَّاتِ الْقَرْنِ الْمَاضِي، حِينَمَا ضَرَبَتْ مَوْجَاتٌ مِنَ الْجَفَافِ بِقَاعًا شَتَّى عَبْرَ الْعَالَمِ، مُسَبِّبَةً خَسَائِرَ بَشَرِيَّةً وَاقْتِصَادِيَّةً وَبِيئِيَّةً فَادِحَةً.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 07:23	CompareTashkeel	وَيُعَانِي الْوَطَنُ الْعَرَبِيُّ بِشِدَّةٍ مِنْ هَذِهِ الظَّاهِرَةِ بِسَبَبِ وُقُوعِهِ ضِمْنَ النِّطَاقِ الصَّحْرَاوِيِّ وَشِبْهِ الصَّحْرَاوِيِّ الْمُمْتَدِّ مِنْ شَمَالِ أَفْرِيقْيَا إِلَى آسْيَا. وَتُشَكِّلُ نِسْبَةُ الْمِسَاحَاتِ الْمُتَصَحِّرَةِ وَالْأَرَاضِي الْقَاحِلَةِ فِي الْمَنْطِقَةِ حوَالَيْ 88% مِنْ إِجْمَالِيِّ الْمِسَاحَةِ الْكُلِّيَّةِ، أَيْ حَوَالَيْ 28% مِنْ إِجْمَالِيِّ الْمَنَاطِقِ الْمُتَصَحِّرَةِ عَلَى مُسْتَوَى الْعَالَمِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 07:38	CompareTashkeel	تَزَامُنًا مَعَ فَصْلِ الصَّيْفِ، مَوْسِمِ الْإِجَازَاتِ وَالِاسْتِمْتَاعِ بِجَمَالِ الطَّبِيعَةِ، أَسَّسَتْ مَكْتَبَةُ إِدْرِيس التَّاشفِينِي مَكْتَبَةً شَاطِئِيَّةً تَحْتَ شِعَارِ "مُتْعَةُ الِاصْطِيَافِ تَكْتَمِلُ بِالْقِرَاءَةِ". وَتَأْتِي هَذِهِ الْمُبَادَرَةُ فِي سِيَاقِ الْعَمَلِ عَلَى جَعْلِ الْقِرَاءَةِ سُلُوكًا يَوْمِيًّا يُصَاحِبُ الْفَرْدَ فِي كُلِّ مَرَاحِلِ حَيَاتِهِ، وَتَرْبِيَّةِ النَّشْءِ عَلَى مَحَبَّةِ الْكِتَابِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 07:39	Tashkeel2	تَزَامُنًا مَعَ فَصْلِ الصَّيْفِ، مَوْسِمِ الْإِجَازَاتِ وَالِاسْتِمْتَاعِ بِجَمَالِ الطَّبِيعَةِ، أَسَّسَتْ مَكْتَبَةُ إِدْرِيس التَّاشفِينِي مَكْتَبَةً شَاطِئِيَّةً تَحْتَ شِعَارِ "مُتْعَةُ الِاصْطِيَافِ تَكْتَمِلُ بِالْقِرَاءَةِ".
+INFO:MyTestWebApp:2015-05-04 07:39	Tashkeel2	 وَتَأْتِي هَذِهِ الْمُبَادَرَةُ فِي سِيَاقِ الْعَمَلِ عَلَى جَعْلِ الْقِرَاءَةِ سُلُوكًا يَوْمِيًّا يُصَاحِبُ الْفَرْدَ فِي كُلِّ مَرَاحِلِ حَيَاتِهِ، وَتَرْبِيَّةِ النَّشْءِ عَلَى مَحَبَّةِ الْكِتَابِ.
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 07:40	Tashkeel2	تَزَامُنًا مَعَ فَصْلِ الصَّيْفِ، مَوْسِمِ الْإِجَازَاتِ وَالِاسْتِمْتَاعِ بِجَمَالِ الطَّبِيعَةِ، أَسَّسَتْ مَكْتَبَةُ إِدْرِيس التَّاشفِينِي مَكْتَبَةً شَاطِئِيَّةً تَحْتَ شِعَارِ "مُتْعَةُ الِاصْطِيَافِ تَكْتَمِلُ بِالْقِرَاءَةِ".
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 07:40	Tashkeel2	 وَتَأْتِي هَذِهِ الْمُبَادَرَةُ فِي سِيَاقِ الْعَمَلِ عَلَى جَعْلِ الْقِرَاءَةِ سُلُوكًا يَوْمِيًّا يُصَاحِبُ الْفَرْدَ فِي كُلِّ مَرَاحِلِ حَيَاتِهِ، وَتَرْبِيَّةِ النَّشْءِ عَلَى مَحَبَّةِ الْكِتَابِ.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-04 07:40	CompareTashkeel	تَزَامُنًا مَعَ فَصْلِ الصَّيْفِ، مَوْسِمِ الْإِجَازَاتِ وَالِاسْتِمْتَاعِ بِجَمَالِ الطَّبِيعَةِ، أَسَّسَتْ مَكْتَبَةُ إِدْرِيس التَّاشفِينِي مَكْتَبَةً شَاطِئِيَّةً تَحْتَ شِعَارِ "مُتْعَةُ الِاصْطِيَافِ تَكْتَمِلُ بِالْقِرَاءَةِ". وَتَأْتِي هَذِهِ الْمُبَادَرَةُ فِي سِيَاقِ الْعَمَلِ عَلَى جَعْلِ الْقِرَاءَةِ سُلُوكًا يَوْمِيًّا يُصَاحِبُ الْفَرْدَ فِي كُلِّ مَرَاحِلِ حَيَاتِهِ، وَتَرْبِيَّةِ النَّشْءِ عَلَى مَحَبَّةِ الْكِتَابِ.
