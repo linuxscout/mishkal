@@ -50,7 +50,22 @@ PronounHuma = u"هما"
 PronounHuma_f = u"هما مؤ"
 PronounHum = u"هم"
 PronounHunna = u"هن"
-
+PRONOUN_FEATURES = {
+ u"أنا" : {'person':u'متكلم', 'gender':u'', 'number': u'مفرد'} 
+, u"أنت" : {'person':u'مخاطب', 'gender':u'مذكر', 'number': u'مفرد'} 
+, u"أنتِ" : {'person':u'مخاطب', 'gender':u'مؤنث', 'number': u'مفرد'} 
+, u"هو" : {'person':u'غائب', 'gender':u'مذكر', 'number': u'مفرد'} 
+, u"هي" : {'person':u'غائب', 'gender':u'مؤنث', 'number': u'مفرد'} 
+, u"أنتما" : {'person':u'مخاطب', 'gender':u'مذكر', 'number': u'مثنى'} 
+, u"أنتما مؤ" : {'person':u'مخاطب', 'gender':u'مؤنث', 'number': u'مثنى'} 
+, u"هما" : {'person':u'غائب', 'gender':u'مذكر', 'number': u'مثنى'}
+, u"هما مؤ" : {'person':u'غائب', 'gender':u'مؤنث', 'number': u'مثنى'} 
+, u"نحن" : {'person':u'متكلم', 'gender':u'', 'number': u'جمع'}
+, u"أنتم" : {'person':u'مخاطب', 'gender':u'مذكر', 'number': u'جمع'}
+, u"أنتن" : {'person':u'مخاطب', 'gender':u'مؤنث', 'number': u'جمع'}
+, u"هم" : {'person':u'غائب', 'gender':u'مذكر', 'number': u'جمع'}
+, u"هن" : {'person':u'غائب', 'gender':u'مؤنث', 'number': u'جمع'}
+}
 
 ImperativePronouns = (u"أنت" , u"أنتِ" , u"أنتما" , u"أنتما مؤ" , u"أنتم" 
              , u"أنتن" )
@@ -69,10 +84,12 @@ TensePassiveFuture = u"المضارع المجهول"
 TensePassiveJussiveFuture = u"المضارع المجهول المجزوم"
 TensePassiveSubjunctiveFuture = u"المضارع المجهول المنصوب"
 TensePassiveConfirmedFuture = u"المضارع المؤكد الثقيل المجهول "
+
+
 TABLE_TENSE = [TensePast, TenseFuture, TenseJussiveFuture, 
         TenseSubjunctiveFuture, TenseConfirmedFuture, TenseImperative, 
         TenseConfirmedImperative, 
-		TensePassivePast, TensePassiveFuture, 
+        TensePassivePast, TensePassiveFuture, 
         TensePassiveJussiveFuture, TensePassiveSubjunctiveFuture,
          TensePassiveConfirmedFuture]
 TableIndicativeTense = [TensePast, TenseFuture, TenseJussiveFuture, 
@@ -81,6 +98,23 @@ TableIndicativeTense = [TensePast, TenseFuture, TenseJussiveFuture,
 TablePassiveTense = [TensePassivePast, TensePassiveFuture, 
         TensePassiveJussiveFuture, TensePassiveSubjunctiveFuture,
         TensePassiveConfirmedFuture]
+
+TENSE_FEATURES = {
+TensePast : { 'tense':u'ماضي', 'voice':u'معلوم', 'mood':u'', 'confirmed':u'', },
+TenseFuture : { 'tense':u'مضارع', 'voice':u'معلوم', 'mood':u'مرفوع', 'confirmed':u'', },
+TenseImperative : { 'tense':u'أمر', 'voice':u'', 'mood':u'', 'confirmed':u'', },
+TenseConfirmedImperative : { 'tense':u'أمر', 'voice':u'', 'mood':u'', 'confirmed':u'مؤكذ', },
+TenseJussiveFuture : { 'tense':u'مضارع', 'voice':u'معلوم', 'mood':u'مجزوم', 'confirmed':u'', },
+TenseSubjunctiveFuture : { 'tense':u'مضارع', 'voice':u'معلوم', 'mood':u'منصوب', 'confirmed':u'', },
+TenseConfirmedFuture : { 'tense':u'مضارع', 'voice':u'معلوم', 'mood':u'', 'confirmed':u'مؤكد', },
+
+
+TensePassivePast :  { 'tense':u'ماضي', 'voice':u'مجهول', 'mood':u'', 'confirmed':u'', },
+TensePassiveFuture : { 'tense':u'مضارع', 'voice':u'مجهول', 'mood':u'مرفوع', 'confirmed':u'', },
+TensePassiveJussiveFuture : { 'tense':u'مضارع', 'voice':u'مجهول', 'mood':u'مجزوم', 'confirmed':u'', },
+TensePassiveSubjunctiveFuture : { 'tense':u'مضارع', 'voice':u'مجهول', 'mood':u'منصوب', 'confirmed':u'', }, 
+TensePassiveConfirmedFuture : { 'tense':u'مضارع', 'voice':u'مجهول', 'mood':u'', 'confirmed':u'مؤكد', },
+}
 
 past = {
  u"أنا" : [u"", u"ْتُ"]
@@ -440,27 +474,27 @@ IRREGULAR_VERB_CONJUG[u"وبه"+FATHA+FATHA] = {
 # الفعل وجع يوجع
 #FATHA FATHA
 IRREGULAR_VERB_CONJUG[u"وجع"+FATHA+FATHA] = {
-	CONJUG_BAB:			(FATHA, FATHA), 
-	TenseFuture:		(u"وجع", FATHA+SUKUN+FATHA+DAMMA), 
-	TensePassiveFuture:	(u"وجع", DAMMA+SUKUN+FATHA+DAMMA), 
-	TenseImperative:	(u"وجع", SUKUN+FATHA+SUKUN), 
+    CONJUG_BAB:         (FATHA, FATHA), 
+    TenseFuture:        (u"وجع", FATHA+SUKUN+FATHA+DAMMA), 
+    TensePassiveFuture: (u"وجع", DAMMA+SUKUN+FATHA+DAMMA), 
+    TenseImperative:    (u"وجع", SUKUN+FATHA+SUKUN), 
 }
 #الفعل وسع يوسع
 #FATHA FATHA
 IRREGULAR_VERB_CONJUG[u"وسع"+FATHA+FATHA] = {
-	CONJUG_BAB:			(FATHA, FATHA), 
-	TenseFuture:		(u"وسع", FATHA+SUKUN+FATHA+DAMMA), 
-	TensePassiveFuture:	(u"وسع", DAMMA+SUKUN+FATHA+DAMMA), 
-	TenseImperative:	(u"وسع", SUKUN+FATHA+SUKUN), 
+    CONJUG_BAB:         (FATHA, FATHA), 
+    TenseFuture:        (u"وسع", FATHA+SUKUN+FATHA+DAMMA), 
+    TensePassiveFuture: (u"وسع", DAMMA+SUKUN+FATHA+DAMMA), 
+    TenseImperative:    (u"وسع", SUKUN+FATHA+SUKUN), 
 }
 
 # الفعل وهل يوهل
 #FATHA FATHA
 IRREGULAR_VERB_CONJUG[u"وهل"+FATHA+FATHA] = {
-	CONJUG_BAB:			(FATHA, FATHA), 
-	TenseFuture:		(u"وهل", FATHA+SUKUN+FATHA+DAMMA), 
-	TensePassiveFuture:	(u"وهل", DAMMA+SUKUN+FATHA+DAMMA), 
-	TenseImperative:	(u"وهل", SUKUN+FATHA+SUKUN), 
+    CONJUG_BAB:         (FATHA, FATHA), 
+    TenseFuture:        (u"وهل", FATHA+SUKUN+FATHA+DAMMA), 
+    TensePassiveFuture: (u"وهل", DAMMA+SUKUN+FATHA+DAMMA), 
+    TenseImperative:    (u"وهل", SUKUN+FATHA+SUKUN), 
 }
 
 
