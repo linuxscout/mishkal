@@ -172,6 +172,8 @@ class NounStemmer:
                                     original_tags.append(u"ممنوع من الصرف")
                                 if noun_tuple['number'] == u"جمع تكسير":
                                     original_tags.append(u"جمع تكسير")
+                                if noun_tuple['feminable']:
+                                    original_tags.append(u"يؤنث")                                    
                                 # get affix tags
                                 vocalized_affix_tags = snconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']\
                                   +snconst.COMP_SUFFIX_LIST_TAGS[vocalized_encletic]['tags']\

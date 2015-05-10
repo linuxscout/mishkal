@@ -48,6 +48,8 @@ class  StemmedWord:
         self.freq =  0, # the word frequency from _word _frequency database 
         self.type =  u"", # the word type
         self.original =  u""            #original word from lexical dictionary
+        self.tag_regular = True         # the stemmed word is regular or irregular سالم أو تكسير
+        # تستعمل في الجمع
         if resultdict:
 
             self.word    = resultdict.get('word', u'')
@@ -70,41 +72,51 @@ class  StemmedWord:
             #~print "action:", self.action.encode("utf8")
             self.object_type    = resultdict.get('object_type', u'')
             self.need    = resultdict.get('need', u'')
-            self.tag_tense     = resultdict.get('tense', u'')
-            self.tag_pronoun   = resultdict.get('pronoun', u'')
-
             self.tag_type     =  self.__get_type(resultdict.get('type', u''))
 
-        # grouped attributes
-        self.tag_number = self.__get_number() #number (single, dual, plural)
-        self.tag_sex  = self.__get_sex()
+
 
         self.affix_key = self.affix
-        if self.is_verb() :
-            # #if the word is verb: we must add the tense and pronoun 
-            # to the affixkay.
-            # #because for verbs, same affixes don't give same tags
-            self.affix_key = u'|'.join([self.affix_key, affix_tags])
-            
-            
-        if not GLOBAL_AFFIXES.has_key(self.affix_key):
-            GLOBAL_AFFIXES[self.affix_key] = stemmedaffix.StemmedAffix(
-             resultdict)
+
         # init
         self.tag_added          = False
         self.tag_initial      = False
         self.tag_transparent     = False
         self.tag_mamnou3         = False
         self.tag_break         = False
-        self.tag_transitive     = False
-        
+        self.tag_voice     = False
+        self.tag_mood     = False
+        self.tag_confirmed     = False
+        self.tag_pronoun   = False
+        self.tag_transitive   = False 
+        self.tag_person   = self.__get_person(resultdict.get('person', None))
+        #~ x = resultdict.get('gender', None)
+        #~ if x : print x.encode('utf8'), self.word.encode('utf8')
+        self.tag_number   = self.__get_number(resultdict.get('number', None))            
+        self.tag_gender   = self.__get_gender(resultdict.get('gender', None) )        
         if self.is_noun():
             self.tag_added         = self._is_added()
-            self.tag_mamnou3        = self._is_mamnou3()        
-        if self.is_stopword():
-            self.tag_transparent    = self._is_transparent()
+            self.tag_mamnou3        = self._is_mamnou3()
+            # grouped attributes
+
         if self.is_verb():
-            self.tag_transitive     ='y' in self.get_tags() 
+            self.tag_tense     = resultdict.get('tense', u'')
+            self.tag_voice     = resultdict.get('voice', u'')
+            self.tag_mood     = resultdict.get('mood', u'')
+            self.tag_confirmed     = resultdict.get('confirmed', u'')
+            self.tag_pronoun   = resultdict.get('pronoun', u'')
+            self.tag_transitive   = resultdict.get('transitive',False)            
+
+            # #if the word is verb: we must add the tense and pronoun 
+            # to the affixkay.
+            # #because for verbs, same affixes don't give same tags
+            self.affix_key = u'|'.join([self.affix_key, affix_tags])
+        if not GLOBAL_AFFIXES.has_key(self.affix_key):
+            GLOBAL_AFFIXES[self.affix_key] = stemmedaffix.StemmedAffix(
+             resultdict)                       
+            #~ self.tag_transitive     ='y' in self.get_tags() 
+        if self.is_stopword():
+            self.tag_transparent    = self._is_transparent()            
         self.tag_initial     = self._is_initial()
 
         #redandente
@@ -121,7 +133,7 @@ class  StemmedWord:
         word = self.get_word()
         return word == u"" or  word[0] in (u'.', u'?', u'', u':')
 
-    def __get_number(self,):
+    def __get_number(self, given_number_tag = ""):
         """
         Return the int code of the number state.
         the number cases are coded in binary like
@@ -139,12 +151,13 @@ class  StemmedWord:
         @rtype: int 
         """
         # غير محدد
+        
         self.tag_number = 0
-        if u'مفرد' in self.get_tags() :
+        if u'مفرد' in self.get_tags() or (given_number_tag and u'مفرد' in given_number_tag):
             self.tag_number += 1 
-        if u'مثنى' in self.get_tags() :
+        if u'مثنى' in self.get_tags() or (given_number_tag and u'مثنى' in given_number_tag):
             self.tag_number += 2
-        if u'جمع' in self.get_tags() :
+        if u'جمع' in self.get_tags() or (given_number_tag and u'جمع' in given_number_tag):
             self.tag_number += 4
             if u'جمع مذكر سالم' in self.get_tags():
                 self.tag_number += 8
@@ -156,7 +169,47 @@ class  StemmedWord:
         if self.tag_number == 0  :
             self.tag_number += 1                    
         return self.tag_number
-        
+
+    def __get_person(self, given_person_tag = ""):
+        """
+        Return the int code of the person state.
+        the person cases are coded in binary like
+        not defined        : 0  00000
+        first  : 1  00001
+        second    : 2  00010
+        third  : 4  00100
+        @return: get the person state .
+        @rtype: int 
+        """
+        self.tag_person = 0
+        #~ print self.get_tags().encode('utf8')
+        if u'متكلم' in self.get_tags() or (given_person_tag and u'متكلم' in given_person_tag):
+            self.tag_person += 1 
+        if u'مخاطب' in self.get_tags() or (given_person_tag and u'مخاطب' in given_person_tag):
+            self.tag_person += 2
+        if u'غائب' in self.get_tags() or (given_person_tag and u'غائب' in given_person_tag):
+            self.tag_person += 4
+        #~ print self.tag_person
+        #tempdislay
+        #~ print self.word.encode('utf8'), self.get_tags().encode('utf8'), self.tag_person
+        #~ if given_person_tag: print "--",given_person_tag.encode('utf8')      
+        return self.tag_person
+            
+    def __get_regular(self,):
+        """
+        Return the int code of the regular state.
+        the regular cases are coded in binary like
+        regular   : 1  
+        irregular  : 0
+        @return: get the regular state .
+        @rtype: int 
+        """
+        # غير محدد
+        self.tag_regular = True
+        if u'جمع تكسير' in self.get_tags():
+            self.tag_regular = False
+                
+        return self.tag_regular
 
     def __get_type(self,input_type):
         """
@@ -198,9 +251,10 @@ class  StemmedWord:
             self.tag_type += 64
         if u'NUMBER' in input_type:
             self.tag_type += 128
+        #~ print self.tag_type
         return self.tag_type
 
-    def __get_sex(self,):
+    def __get_gender(self, input_gender = ""):
         """
         Return the int code of the sex state.
         the number cases are coded in binary like
@@ -212,29 +266,37 @@ class  StemmedWord:
         @rtype: int 
         """
         # غير محدد
-        self.tag_sex = 0
-        if u'مذكر' in self.get_tags() :
-            self.tag_sex += 1
+        self.tag_gender = 0
+        if u'مذكر' in self.get_tags() or (input_gender and u'مذكر' in input_gender):
+            self.tag_gender += 1
+        elif not self._affix_is_feminin(): 
+            if (u'اسم فاعل' in self.get_type() or
+           u'اسم مفعول' in self.get_type() or
+           u'صفة مشبهة' in self.get_type() 
+            ):
+                self.tag_gender += 1 
+            elif u'' in self.get_tags():
+                self.tag_gender += 1                     
         #يتحدد المؤنث 
         # بزيادة التاء المربوطة
         # جمع مؤنث سالم
         # ما كات اصله تاء مربوطة
         # للعمل TODO
         # دالة حاصة للكلمات المؤنثة            
-        if u'مؤنث' in self.get_tags() :
-            self.tag_sex += 2
+        if u'مؤنث' in self.get_tags() or (input_gender and u'مؤنث' in input_gender):
+            self.tag_gender += 2
         elif u'جمع مؤنث سالم' in self.get_tags():
-            self.tag_sex += 2
+            self.tag_gender += 2
         elif self._affix_is_feminin():
-            self.tag_sex += 2
+            self.tag_gender += 2
         elif araby.TEH_MARBUTA in self.get_original():
-            self.tag_sex += 2
+            self.tag_gender += 2
         # جمع التكسير للمصادر والجوامد مؤنث
         elif u'جمع تكسير' in self.get_tags() and (u"جامد" in self.get_type()
          or u"مصدر" in self.get_type()):
-            self.tag_sex += 2
-         
-        return self.tag_sex
+            self.tag_gender += 2
+        #~ print "gender", self.word.encode('utf8'), self.tag_gender
+        return self.tag_gender
 
 
 
@@ -460,7 +522,13 @@ class  StemmedWord:
         @rtype: unicode string
         """
         return self.tags
-        
+    def get_tags_to_display(self, ):
+        """
+        Get the tags form of the input word
+        @return: the given tags.
+        @rtype: unicode string
+        """
+        return self.tags + u"T%dG%dN%d"%(self.tag_type, self.tag_gender,self.tag_number)
     def set_tags(self, newtags):
         """
         Set the tags word
@@ -566,6 +634,7 @@ class  StemmedWord:
         @rtype: unicode string
         """
         return self.tag_pronoun
+
     def get_attached_pronoun(self, ):
         """
         Get the tense of the input verb
@@ -795,15 +864,7 @@ class  StemmedWord:
             return GLOBAL_AFFIXES[self.affix_key].is_present()
         return False
 
-    def is3rdperson(self):
-        """
-        Return True if the word has the 3rd person.
-        @return: has the 3rd persontense.
-        @rtype: True/False
-        """
-        if GLOBAL_AFFIXES.has_key(self.affix_key):
-            return GLOBAL_AFFIXES[self.affix_key].is3rdperson()
-        return False 
+
         
     def is1stperson(self):
         """
@@ -811,36 +872,53 @@ class  StemmedWord:
         @return: has the  1st persontense.
         @rtype: True/False
         """
-        if GLOBAL_AFFIXES.has_key(self.affix_key):
-            return GLOBAL_AFFIXES[self.affix_key].is1stperson()
-        return False     
+        return bool(self.tag_person % 2 )  and  self.is_single()
+        #~ if GLOBAL_AFFIXES.has_key(self.affix_key):
+            #~ return GLOBAL_AFFIXES[self.affix_key].is1stperson()
+        #~ return False     
+    def is3rdperson(self):
+        """
+        Return True if the word has the 3rd person.
+        @return: has the 3rd persontense.
+        @rtype: True/False
+        """
+        #~ print "tag_person", self.tag_person, self.word.encode('utf8')
+        return bool(self.tag_person / 4 % 2)   and  self.is_single()
+        #~ if GLOBAL_AFFIXES.has_key(self.affix_key):
+            #~ return GLOBAL_AFFIXES[self.affix_key].is3rdperson()
+        #~ return False 
     def is3rdperson_feminin(self):
         """
         Return True if the word has the 3rd person.
         @return: has the 3rd persontense.
         @rtype: True/False
         """
-        if GLOBAL_AFFIXES.has_key(self.affix_key):
-            return GLOBAL_AFFIXES[self.affix_key].is3rdperson_fem()
-        return False 
+        return bool(self.tag_person /4 % 2 )    and  self.is_single() and self.is_feminin()
+        
+        #~ if GLOBAL_AFFIXES.has_key(self.affix_key):
+            #~ return GLOBAL_AFFIXES[self.affix_key].is3rdperson_fem()
+        #~ return False 
     def is3rdperson_masculin(self):
         """
         Return True if the word has the 3rd person.
         @return: has the 3rd persontense.
         @rtype: True/False
         """
-        if GLOBAL_AFFIXES.has_key(self.affix_key):
-            return GLOBAL_AFFIXES[self.affix_key].is3rdperson_masculin()
-        return False         
+        return bool(self.tag_person /4 % 2 )  and  self.is_single() and self.is_masculin()
+        #~ 
+        #~ if GLOBAL_AFFIXES.has_key(self.affix_key):
+            #~ return GLOBAL_AFFIXES[self.affix_key].is3rdperson_masculin()
+        #~ return False         
     def has_imperative_pronoun(self):
         """
         Return True if the word has the 3rd person.
         @return: has the 3rd persontense.
         @rtype: True/False
         """
-        return (u':أنت:' in self.get_tags() or u':أنتِ:' in self.get_tags()) \
-        and u'أنتما' in self.get_tags() and  u':أنتما مؤ:' in self.get_tags() \
-        and u':أنتم:' in self.get_tags() and  u':أنتن:' in self.get_tags()
+        return bool(self.tag_person /2 % 2 )
+        #~ return (u':أنت:' in self.get_tags() or u':أنتِ:' in self.get_tags()) \
+        #~ and u'أنتما' in self.get_tags() and  u':أنتما مؤ:' in self.get_tags() \
+        #~ and u':أنتم:' in self.get_tags() and  u':أنتن:' in self.get_tags()
 
     def is_tanwin(self):
         """
@@ -925,7 +1003,7 @@ class  StemmedWord:
         @return: is masculin.
         @rtype: True/False
         """
-        return bool(self.tag_sex % 2)
+        return bool(self.tag_gender % 2)
 
     def is_feminin(self):
         """
@@ -933,7 +1011,7 @@ class  StemmedWord:
         @return: is Feminin.
         @rtype: True/False
         """
-        return bool(self.tag_sex /2  % 2)
+        return bool(self.tag_gender /2  % 2)
 
     def is_plural(self):
         """

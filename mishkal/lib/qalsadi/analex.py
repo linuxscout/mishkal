@@ -407,7 +407,7 @@ tags of affixes and tags extracted form lexical dictionary
                 #~resulted_data += self.check_word_as_noun(word_nm)
             resulted_data += self.check_word_as_noun(word_nm)
             if len(resulted_data) == 0:
-                #~print (u"1%s-%s"%(word, word_nm)).encode('utf8')
+                print (u"1 _unknown %s-%s"%(word, word_nm)).encode('utf8')
                 #check the word as unkonwn
                 resulted_data += self.check_word_as_unknown(word_nm)
                 #check if the word is nomralized and solution are equivalent

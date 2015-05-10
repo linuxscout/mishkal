@@ -28,7 +28,7 @@ class StemmedAffix:
         self.prefix    = u"" # the conjugation or inflection prefix
         self.suffix    = u"" # the conjugation suffix of the word
         self.encletic  = u"" # the syntaxic suffix
-        self.tag_typ   = 0 # the word type used with affix        
+        self.tag_type   = 0 # the word type used with affix        
         self.tag_tense = 0      
         self.tags      = u""
         self.tag_break = False
@@ -79,15 +79,6 @@ class StemmedAffix:
 
     #  tags extracted from word dictionary 
     #--------------------------
-
-    #~def __is_majrour(self):
-        #~"""
-        #~Return True if the word has the state majrour.
-        #~@return: has the state majrour.
-        #~@rtype: True/False
-        #~"""                
-        #~return  u'مجرور' in self.get_tags()
-
 
     #  tags extracted from affixes 
     #--------------------------
@@ -227,7 +218,6 @@ class StemmedAffix:
         # a Verb, verb can't be majrour
         elif u'مجزوم'in self.get_tags():
             self.tag_inflect += 16
-        
         return self.tag_inflect
         
     def __get_number(self,):
@@ -450,6 +440,7 @@ class StemmedAffix:
         @rtype: True/False
         """
         return  u'عطف' in self.get_tags()
+
     def is_3tf(self):
         """
         Return True if the word is a plural.
@@ -546,7 +537,7 @@ class StemmedAffix:
         @return: has the state majrour.
         @rtype: True/False
         """                
-        return bool(self.tag_inflect / 8 % 2) or self.is_invariable()
+        return bool(self.tag_inflect / 8 % 2) #or self.is_invariable()
 
     def is_majzoum(self):
         """

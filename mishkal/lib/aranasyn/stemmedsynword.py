@@ -412,7 +412,9 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
             if u"ناصب" in self.get_action():
                 self.tag_verbal_factor += 4
             if u"جازم" in self.get_action():
-                self.tag_verbal_factor += 16        
+                self.tag_verbal_factor += 16 
+            #~ if u"عاطل" in self.get_action():
+                #~ self.tag_verbal_factor += 32 
                 
         return self.tag_verbal_factor
 
@@ -478,8 +480,8 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
             #~return True            
         elif self.is_pounct() and 'break' in self.get_tags():
             return True
-        elif self.is_stopword():
-            return True
+        #~ elif self.is_stopword():
+            #~ return True
         else:
             return False
 
@@ -547,6 +549,13 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @rtype: True/False
         """
         return bool(self.tag_verbal_factor / 16 % 2)
+    def is_verb_jobless_factor(self):
+        """
+        Return True if the word is a  a jobless of verb.
+        @return:  Njobless.
+        @rtype: True/False
+        """    
+        return bool(self.tag_verbal_factor == 1)
 
     def is_nominal_factor(self):
         """
@@ -556,7 +565,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         """
         #~return bool(self.tag_nominal_factor % 2)   
         return bool(self.tag_nominal_factor)   
-            
+
     def is_rafe3(self):
         """
         Return True if the word is a  Rafe3.

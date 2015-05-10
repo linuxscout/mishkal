@@ -31,7 +31,7 @@ ConditionVerbRelation = 17 #علاقة اسم شرط مع فعل
 VerbPassiveSubjectRelation = 18 # علاقة فعل ونائب فاعل
 InnaRafe3Marfou3Relation = 19 #علاقة خبر إنّ مرفوع
 KanaNasebMansoubRelation = 20 #   خبر كان منصوب
-
+JoblessFactorVerbRelation = 21 # أدوات عاطلة للفعل مثل قد
 #used to display text on relations
 DISPLAY_RELATION={
 VerbSubjectRelation : u"1  فعل وفاعل", 
@@ -53,6 +53,7 @@ ConditionVerbRelation : u"17  اسم شرط مع فعل",
 VerbPassiveSubjectRelation : u"18  علاقة فعل ونائب فاعل",
 InnaRafe3Marfou3Relation :u" 19 #علاقة خبر إنّ مرفوع",
 KanaNasebMansoubRelation : u"20   خبر كان منصوب", 
+JoblessFactorVerbRelation:u"21 أدوات عاطلة للفعل مثل قد",
 }
 #-------------------
 NOMINAL_FACTOR_LIST =set([

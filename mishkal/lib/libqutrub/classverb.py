@@ -1072,3 +1072,21 @@ class VerbClass:
         """
         return self.conj_display.get_conj(tense, pronoun)
 
+    def get_pronoun_features(self, pronoun):
+        """
+        Get the features of  given pronoun.
+        @param pronoun: pronoun of conjuagtion.
+        @type pronoun: unicode
+        @return : dictionary of pronoun attributes.
+        @rtype : dictionary
+        """
+        return vconst.PRONOUN_FEATURES.get(pronoun, None)
+    def get_tense_features(self, tense):
+        """
+        Get the features of  given tense.
+        @param tense: tense of the conjuagtion.
+        @type tense: unicode
+        @return : dictionary of tense attributes.
+        @rtype : dictionary
+        """
+        return vconst.TENSE_FEATURES.get(tense, None)

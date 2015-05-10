@@ -193,6 +193,7 @@ class VerbStemmer:
                         vocalized, semivocalized = vocalize(conj['vocalized'], procletic,
                          encletic)
                         tag_type = 'Verb'
+                        #~ print "****", (conj['pronoun_tags'].get('person','مشكلة')).encode('utf8')
                         #~ if conj['verb'] ==u"كَادَ":
                               #~ tag_type = 'Verb:STOPWORD'  
                         #~print "stemverb: tense", conj['tense'].encode('utf8')
@@ -206,12 +207,20 @@ class VerbStemmer:
                         'semivocalized':semivocalized,
                         'tags':u':'.join((conj['tense'], conj['pronoun'])+\
                         svconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']+\
-                        svconst.COMP_SUFFIX_LIST_TAGS[encletic]['tags']), 
+                        svconst.COMP_SUFFIX_LIST_TAGS[encletic]['tags']),#\
+                        #~ +':'+ u':'.join(conj['pronoun_tags'].values())\
+                         #~ + u':'.join(conj['tense_tags'].values()), 
                         'type':tag_type, 
-                        #~ 'root':'', 
-                        #~ 'template':'',
+                        'number': conj['pronoun_tags'].get('number',''),
+                        'gender': conj['pronoun_tags'].get('gender',''),
+                        'person': conj['pronoun_tags'].get('person',''),
+                        'tense2': conj['tense_tags'].get('tense',''),
+                        'voice': conj['tense_tags'].get('voice',''),
+                        'mood': conj['tense_tags'].get('mood',''),
+                        'confirmed': conj['tense_tags'].get('confirmed',''),
+                        'transitive': bool('y' in original_tags), 
                         'tense': conj['tense'], 
-                        'pronoun': conj['pronoun'], 
+                        'pronoun': conj['pronoun'],
                         'freq':'freqverb', 
                         'originaltags':original_tags, 
                         'syntax':'', 
@@ -501,7 +510,10 @@ transitive = True):
                 conj_nm  =   araby.strip_tashkeel(conj_vocalized) 
                 if conj_nm == unstemed_verb:
                     list_correct_conj.append({'verb':infinitive_verb, 
-                    'tense':tense, 'pronoun':pronoun, 
+                    'tense':tense, 
+                    'pronoun':pronoun, 
+                    'pronoun_tags':vbc.get_pronoun_features(pronoun),
+                    'tense_tags':vbc.get_tense_features(tense),
                     'vocalized':conj_vocalized, 'unvocalized':conj_nm}) 
     return list_correct_conj 
 

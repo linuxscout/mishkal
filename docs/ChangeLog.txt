@@ -1,3 +1,6 @@
+2015-05-09: *Taha Zerrouki
+    - add jobless or inactive verb factor like قد
+    - reduce basewebApp logger text to reduce logout_file size
 2015-05-03: *Taha Zerrouki
     - qalsadi/stem_noun :ajust multiple cases with same suffix الْخِيَارَاتِ الصِّحِّيَّةِ
     - qalsadi/stem_noun: ajust tanwin on words ended by ALEF + HAMZA سواءً

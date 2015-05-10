@@ -174,7 +174,43 @@ class SyntaxAnalyzer:
                 #~ curcriteria =reduce( and_,[getattr(current, k)() == v for k,v in curcondlist])
             #~ if precriteria and curcriteria:
                 #~ weight = cond.get("rule", 0)
-                #~ break;                
+                #~ break;          
+    def is_number_relation(self, previous, current):
+        """
+        Return the weight if the previous and current have number relation
+        """
+        weight = 0
+        if current.is_noun():
+            try:
+                # get intger part only
+                number = int(float(previous.get_word()))
+            except ValueError:
+                number = 0
+            if number  % 100 in range(3,10) or number % 100 == 0:
+                if current.is_majrour():
+                    weight = aranasyn.syn_const.JarMajrourRelation
+            elif  number % 100 in range(11,99) or number % 100 == 0:
+                if current.is_mansoub():
+                    weight = aranasyn.syn_const.NasebMansoubRelation 
+        return weight
+        
+    def is_verb_object_relation(self, previous, current):
+        """
+        Return the weight if the previous and current have verb object relation
+        """
+        return current.is_noun() and current.is_mansoub()  and not previous.has_encletic() and previous.is_transitive()
+
+    def is_jonction_relation(self, previous, current): 
+        if current.is_break() and current.is_noun()  and previous.is_noun() \
+         and (current.has_procletic() and current.has_jonction() and not current.has_jar()): 
+            # jonction 
+            if (current.is_majrour() and previous.is_majrour()) \
+            or (current.is_mansoub() and previous.is_mansoub()) \
+            or (current.is_marfou3()and previous.is_marfou3()):
+                return True
+        else:
+            return False
+
     def bigram_analyze(self, previous, current, previous_position = 0, 
             current_position = 0, pre_node = None, next_node = None):
         """
@@ -248,14 +284,9 @@ class SyntaxAnalyzer:
             previous.add_next(current_position, aranasyn.syn_const.VerbObjectRelation)
             return (previous, current)            
 
-        elif current.is_break() and current.is_noun()  and previous.is_noun() \
-         and (current.has_procletic() and current.has_jonction() and not current.has_jar()): 
-            # jonction 
-            if (current.is_majrour() and previous.is_majrour()) \
-            or (current.is_mansoub() and previous.is_mansoub()) \
-            or (current.is_marfou3()and previous.is_marfou3()):
-                previous.add_next( current_position, aranasyn.syn_const.JonctionRelation)
-                current.add_previous(previous_position, aranasyn.syn_const.JonctionRelation)                
+        elif self.is_jonction_relation(previous, current): 
+            previous.add_next( current_position, aranasyn.syn_const.JonctionRelation)
+            current.add_previous(previous_position, aranasyn.syn_const.JonctionRelation)                
             return (previous, current)
 
         elif current.is_pounct() or current.is_stopword() or \
@@ -270,18 +301,7 @@ class SyntaxAnalyzer:
         # quantity case
         #the previous is a number, 
         if previous.is_number():
-            if current.is_noun():
-                try:
-                    # get intger part only
-                    number = int(float(previous.get_word()))
-                except ValueError:
-                    number = 0
-                if number  % 100 in range(3,10) or number % 100 == 0:
-                    if current.is_majrour():
-                        weight = aranasyn.syn_const.JarMajrourRelation
-                elif  number % 100 in range(11,99) or number % 100 == 0:
-                    if current.is_mansoub():
-                        weight = aranasyn.syn_const.NasebMansoubRelation               
+            weight = self.is_number_relation(previous, current)
 
         #the stop word is factors, others no, 
         # if the previous is not stop word return.
@@ -289,6 +309,7 @@ class SyntaxAnalyzer:
             if current.is_noun():# and previous.is_nominalFactor():
                 if (previous.is_jar() or previous.is_addition()) and \
                 current.is_majrour():
+                    print current.get_vocalized().encode('utf8'), current.get_tags().encode('utf8'),current.get_order(),current.is_majrour()
                     weight = aranasyn.syn_const.JarMajrourRelation
 
                 # اسم إنّ منصوب
@@ -336,6 +357,9 @@ class SyntaxAnalyzer:
                             weight = aranasyn.syn_const.Rafe3Marfou3Relation
                 elif previous.is_condition_factor():
                     weight = aranasyn.syn_const.ConditionVerbRelation
+                elif previous.is_verb_jobless_factor():
+                    #~ print "x"
+                    weight = aranasyn.syn_const.JoblessFactorVerbRelation
 
         else : # previous is not a stopword
             if current.is_verb() and not current.is_break():
@@ -385,10 +409,8 @@ class SyntaxAnalyzer:
                                 
 
             # الفعل والمفعول به
-            if current.is_noun() and current.is_mansoub()  and not previous.has_encletic() and previous.is_transitive():
+            if self.is_verb_object_relation(previous, current):
                 weight = aranasyn.syn_const.VerbObjectRelation
-                #~ print "key"                       
-                #~ print u"previous: {prev}, current:{curr}".format(prev=previous.get_vocalized(), curr = current.get_vocalized()).encode('utf8')
                        
             # فعل متعدي بحرف
             #ToDo:

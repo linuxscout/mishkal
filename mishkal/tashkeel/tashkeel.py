@@ -74,8 +74,8 @@ class TashkeelClass:
 
         # lexical analyzer
         self.analyzer = qalsadi.analex.Analex()
-        #self.analyzer.disable_allow_cache_use()
-        self.analyzer.enable_allow_cache_use()
+        self.analyzer.disable_allow_cache_use()
+        #~ self.analyzer.enable_allow_cache_use()
 
         # syntaxic analyzer
         self.anasynt = aranasyn.anasyn.SyntaxAnalyzer()
@@ -343,7 +343,7 @@ class TashkeelClass:
             word = _chosen_list[i].get_vocalized()
             semivocalized = _chosen_list[i].get_semivocalized()
             #word without inflection mark
-            inflect = u":".join([_chosen_list[i].get_type() , _chosen_list[i].get_tags()] ) 
+            inflect = u":".join([_chosen_list[i].get_type() , _chosen_list[i].get_tags_to_display()] ) 
             if previous >= 0:
                 relation = _chosen_list[i].get_previous_relation(_chosen_list[previous].get_order())
             else: 
@@ -545,8 +545,8 @@ class TashkeelClass:
         rule = 0
         previous = previous_chosen_case
         pre_relation = 0
-        #~ debug = False
-        debug = True
+        debug = False
+        #~ debug = True
         if next_node:
             next_chosen_indexes = next_node.get_chosen_indexes()
         else:
@@ -638,6 +638,7 @@ class TashkeelClass:
 
             # syntaxic
             # select stopword
+
         if not rule:           
             tmplist = filter(lambda x:  caselist[x].is_stopword() and caselist[x].has_next(next_chosen_indexes) , indxlist)
             # if indexes list is empty, the current indexes list is reloaded, and no change

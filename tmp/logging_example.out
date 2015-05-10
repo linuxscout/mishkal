@@ -10190,3 +10190,1522 @@ INFO:MyTestWebApp:2015-05-04 07:40	Tashkeel2	 وَتَأْتِي هَذِهِ ا
 INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
 INFO:MyTestWebApp:got uri=[/ajaxGet]
 INFO:MyTestWebApp:2015-05-04 07:40	CompareTashkeel	تَزَامُنًا مَعَ فَصْلِ الصَّيْفِ، مَوْسِمِ الْإِجَازَاتِ وَالِاسْتِمْتَاعِ بِجَمَالِ الطَّبِيعَةِ، أَسَّسَتْ مَكْتَبَةُ إِدْرِيس التَّاشفِينِي مَكْتَبَةً شَاطِئِيَّةً تَحْتَ شِعَارِ "مُتْعَةُ الِاصْطِيَافِ تَكْتَمِلُ بِالْقِرَاءَةِ". وَتَأْتِي هَذِهِ الْمُبَادَرَةُ فِي سِيَاقِ الْعَمَلِ عَلَى جَعْلِ الْقِرَاءَةِ سُلُوكًا يَوْمِيًّا يُصَاحِبُ الْفَرْدَ فِي كُلِّ مَرَاحِلِ حَيَاتِهِ، وَتَرْبِيَّةِ النَّشْءِ عَلَى مَحَبَّةِ الْكِتَابِ.
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 04:14	Tashkeel2	ركب إبراهيم الحصان .
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 04:14	StripHarakat	  &#160; &#160;ياراحِلاً، وجَميلُ الصَّبرِ يَتبَعُهُ،***هلْ منْ سبيلٍ إلى لقياكَ يتَّفقُ&#160;ما أنصفتكَ جفوني وهيَ دامية ٌ***ولا وَفَى لكَ قَلبي وهوَ يَحتَرقُ  ابن الفارض&#160;
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 04:14	Tashkeel2	     ياراحلا، وجميل الصبر يتبعه،***هل من سبيل إلى لقياك يتفق ما أنصفتك جفوني وهي دامية ***ولا وفى لك قلبي وهو يحترق  ابن الفارض 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:16	Tashkeel2	خرجت كي أتنزه .
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:16	Tashkeel2	مررت على قوارب جميلة جدا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:16	Tashkeel2	مررت على لحظات جميلة جدا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:20	Tashkeel2	مررت على لحظات جميلة جدا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:20	Tashkeel2	 حتى  حاز ثوابها.
+INFO:MyTestWebApp:got uri=[/mishkal/doc]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:22	Tashkeel2	أشتغل في الحديقة.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:22	Tashkeel2	يكثر النخل في البساتين المثمرة .
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:37	Tashkeel2	مَعَ أنَّ الْكَثِيرِينَ مِنَ الْمُتَزَوِّجِينَ يَقُولُونَ إنَّ شُرَكَاءَهُمْ بِالْمَنْزِلِ يُسَبِّبُونَ لَهُمُ الْغَضَبَ وَالْعَصَبِيَّةَ وَ"يَرْفَعُونَ ضَغْطَهُمْ"، فِإنَّ بَاحِثِينَ أمِيرْكِيِّينِ تَوَصَّلُوا إلَى عَكْسِ ذَلِكَ، وَهُوَ أنَّ الْحَيَاةَ الزَّوْجِيَّةَ تُسْهِمُ فِي الْمُحَافَظَةِ عَلَى ضَغْطِ دَمٍ سَلِيمٍ وَعَلَى الْأخَصِّ عِنْدَ الرِّجَالِ.
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:37	CompareTashkeel	مَعَ أنَّ الْكَثِيرِينَ مِنَ الْمُتَزَوِّجِينَ يَقُولُونَ إنَّ شُرَكَاءَهُمْ بِالْمَنْزِلِ يُسَبِّبُونَ لَهُمُ الْغَضَبَ وَالْعَصَبِيَّةَ وَ"يَرْفَعُونَ ضَغْطَهُمْ"، فِإنَّ بَاحِثِينَ أمِيرْكِيِّينِ تَوَصَّلُوا إلَى عَكْسِ ذَلِكَ، وَهُوَ أنَّ الْحَيَاةَ الزَّوْجِيَّةَ تُسْهِمُ فِي الْمُحَافَظَةِ عَلَى ضَغْطِ دَمٍ سَلِيمٍ وَعَلَى الْأخَصِّ عِنْدَ الرِّجَالِ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:48	StripHarakat	تَسْبِيحُ الرُّكُوعِ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:48	Tashkeel2	تَسْبِيحُ الرُّكُوعِ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:48	StripHarakat	تَسْبِيحُ الرُّكُوعِ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:48	Tashkeel2	تسبيح الركوع
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:48	Tashkeel2	تسبيح الركوع ركوع
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:49	Tashkeel2	إذا كان للكلمة أصل واحد 
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:51	StripHarakat	u'تَسْطِيرٌ سُؤَالٌ':Added, #2: 2	تَسْطِيحِ الْجَبْهَةِ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:51	Tashkeel2	تسطير سؤال تسطيح الجبهة
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:56	StripHarakat	وَجَبَ الطَّلَبُ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 08:56	Tashkeel2	وجب الطلب
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:02	Tashkeel2	شنخوا
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:02	Tashkeel2	شنخوا إيطاليا
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:07	Tashkeel2	شنخوا إيطاليا بنغازي
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:07	Tashkeel2	شنخوا ايطاليا بنغازي
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:08	Tashkeel2	شينخوا ايطاليا بنغازي
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:09	Tashkeel2	شينخوا ايطاليا بنغازي جنبلاط
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:11	Tashkeel2	شينخوا إيطاليا بنغازي جنبلاط
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:11	Tashkeel2	شينخوا إيطاليا بنغازي جنبلاط إيطاليا
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:12	Tashkeel2	شينخوا إيطاليا بنغازي جنبلاط إيطاليا
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:14	Tashkeel2	شينخوا إيطاليا بنغازي جنبلاط إيطاليا شواذ
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:15	LightStemmer	شينخوا إيطاليا بنغازي جنبلاط إيطاليا شواذ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:15	Tashkeel2	شينخوا إيطاليا بنغازي جنبلاط إيطاليا شواذ
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 09:15	Tashkeel2	شينخوا إيطاليا بنغازي جنبلاط إيطاليا شواذ مبادئ
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-05 10:43	Tashkeel2	شينخوا إيطاليا بنغازي جنبلاط إيطاليا شواذ مبادئ
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/mishkal/main]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-06 10:53	Tashkeel2	ركب إبراهيم الحصان .
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-07 11:18	Tashkeel2	ركب إبراهيم الحصان .
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-07 08:43	Tashkeel2	وقال الوزير السعودي إن "الهدنة ينبغي أن تشمل كل اراضي اليمن ولمدة 5 أيام.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-07 08:43	Tashkeel2	 وسيتم الاعلان عن موعدها وشروطها قريبا.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-07 08:43	Tashkeel2	"
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-07 08:43	Tashkeel2	وقال كيري إن الولايات المتحدة ما زالت تشعر بالقلق ازاء "تصرفات ايران المزعزعة لاستقرار المنطقة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-07 08:43	Tashkeel2	من جانبه، رحب وزير الخارجية الأمريكي جون كيري الذي كان يحضر مؤتمرا صحفيا مشتركا مع نظيره السعودي بالمقترح، وأضاف أن لا بلاده ولا السعودية تفكران في ارسال قوات برية الى اليمن.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-07 08:43	Tashkeel2	 ولكن الموضوع بأسره يعتمد على موافقة الحوثيين بالالتزام بالهدنة.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-07 08:43	Tashkeel2	"
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-07 08:43	Tashkeel2	وأضاف أنه "قلق جدا جدا" من تصرفات ايران في العراق واليمن وغيرهما.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-07 08:43	Tashkeel2	وحث كيري الحوثيين على القبول بالمقترح السعودي.
+INFO:MyTestWebApp:got uri=[/favicon.ico]
+INFO:MyTestWebApp:got uri=[/favicon.ico]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-07 08:46	Tashkeel2	في غضون ذلك، تجددت عصر الخميس الغارات المكثفة للتحالف الذي تقوده السعودية في محافظة "صعدة"، إذ قصفت الطائرات مناطق في المحافظة تعد معاقل زعيم الحركة الحوثية عبدالملك الحوثي بقصف صاروخي كثيف وذلك بعد وقت قصير من تهديد وزارة الدفاع السعودية بانها ستشن عملية واسعة وغير محدودة تستهدف من وصفهم المتحدث باسم قوات التحالف العميد أحمد العسيري بانهم من خططوا لقصف الاراضي السعودية بقذائف الهاون والكاتيوشا يومي الثلاثاء والأربعاء.
+INFO:MyTestWebApp:got uri=[/main]
+INFO:MyTestWebApp:got uri=[/_files/adawatstyle.css]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/css/bootstrap-arabic.min.css]
+INFO:MyTestWebApp:got uri=[/_files/jquery-1.7.1.min.js]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/js/bootstrap-arabic.min.js]
+INFO:MyTestWebApp:got uri=[/_files/adawat.js]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/logo.png]
+INFO:MyTestWebApp:got uri=[/_files/images/qutrub.jpg]
+INFO:MyTestWebApp:got uri=[/_files/images/adawat.png]
+INFO:MyTestWebApp:got uri=[/_files/images/radif.png]
+INFO:MyTestWebApp:got uri=[/_files/images/ayaspell.png]
+INFO:MyTestWebApp:got uri=[/_files/images/pyarabic.png]
+INFO:MyTestWebApp:got uri=[/_files/xzero-rtl/fonts/glyphicons-halflings-regular.woff]
+INFO:MyTestWebApp:got uri=[/_files/images/tashaphyne.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/_files/favicon1.png]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-08 04:35	CompareTashkeel	 رَوَّى الأصمعي أُنَّ أعْرَابِيَّةٌ وَجَدَّتْ جِرْوُ ذِئْبِ وَلِيدًا ؛ فَحُنَّتْ عَلَيهِ وَأَخَذَتْهُ وَرِعَتُهُ.. وَكَانَتْ تَطْعَمَهُ مِنْ حَلِيب شَاة عِنْدهَا، حَتَّى كِبْر الذِّئْبِ الصَّغِيرِ. وَفِي يَوْمِ عَادَّتْ الْأعْرَابِيَّةُ إِلَى بَيْتِهَا فَوُجِدَتْ الذِّئْبُ قَدْ أَكُلُّ الشَّاةِ. فَأُنْشِدَتْ تَقَوُّلٌ: بَقَرْتِ شويهتي وَفُجِعَتْ قُلَّبِيٌّ... وَأَنْتَ لِشَاتِنَا وَلَدِ رَبِيبِ غُذِيَتْ بَدْرُهَا، وَرَبَّيْتِ فِينَا... فَمِنْ أَنبَاكِ أَنَّ أَبَاكَ ذِيبُ إِذَا كَانَ الطِّبَاعُ طِبَاع سُوءٍ... فَلَا أدَبُ يُفِيدُ وَلَا أَدِيبُ ===================== هَكَذَا اللَّئِيمَ فِي كُلُّ عَصْرٍ. لَا يَحْفَظَ عَهْدًا أَوْ جَمِيلًا أَوْ مَعْرُوفًا.
+INFO:MyTestWebApp:got uri=[/_files/fonts/DroidNaskh-Regular-Colored.ttf]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-08 06:33	Tashkeel2	 وَفِي يَوْمِ عَادَّتْ الْأعْرَابِيَّةُ إِلَى بَيْتِهَا فَوُجِدَتْ الذِّئْبُ قَدْ أَكُلُّ الشَّاةِ.
+INFO:MyTestWebApp:2015-05-08 06:33	Tashkeel2	 رَوَّى الأصمعي أُنَّ أعْرَابِيَّةٌ وَجَدَّتْ جِرْوُ ذِئْبِ وَلِيدًا ؛ فَحُنَّتْ عَلَيهِ وَأَخَذَتْهُ وَرِعَتُهُ..
+INFO:MyTestWebApp:2015-05-08 06:33	Tashkeel2	 وَكَانَتْ تَطْعَمَهُ مِنْ حَلِيب شَاة عِنْدهَا، حَتَّى كِبْر الذِّئْبِ الصَّغِيرِ.
+INFO:MyTestWebApp:2015-05-08 06:33	Tashkeel2	 فَأُنْشِدَتْ تَقَوُّلٌ: بَقَرْتِ شويهتي وَفُجِعَتْ قُلَّبِيٌّ...
+INFO:MyTestWebApp:2015-05-08 06:33	Tashkeel2	 وَأَنْتَ لِشَاتِنَا وَلَدِ رَبِيبِ غُذِيَتْ بَدْرُهَا، وَرَبَّيْتِ فِينَا...
+INFO:MyTestWebApp:2015-05-08 06:33	Tashkeel2	 فَمِنْ أَنبَاكِ أَنَّ أَبَاكَ ذِيبُ إِذَا كَانَ الطِّبَاعُ طِبَاع سُوءٍ...
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-08 06:33	Tashkeel2	 لَا يَحْفَظَ عَهْدًا أَوْ جَمِيلًا أَوْ مَعْرُوفًا.
+INFO:MyTestWebApp:2015-05-08 06:33	Tashkeel2	 فَلَا أدَبُ يُفِيدُ وَلَا أَدِيبُ ===================== هَكَذَا اللَّئِيمَ فِي كُلُّ عَصْرٍ.
+INFO:MyTestWebApp:got uri=[/ajaxGet]
+INFO:MyTestWebApp:2015-05-08 06:33	CompareTashkeel	 رَوَّى الأصمعي أُنَّ أعْرَابِيَّةٌ وَجَدَّتْ جِرْوُ ذِئْبِ وَلِيدًا ؛ فَحُنَّتْ عَلَيهِ وَأَخَذَتْهُ وَرِعَتُهُ.. وَكَانَتْ تَطْعَمَهُ مِنْ حَلِيب شَاة عِنْدهَا، حَتَّى كِبْر الذِّئْبِ الصَّغِيرِ. وَفِي يَوْمِ عَادَّتْ الْأعْرَابِيَّةُ إِلَى بَيْتِهَا فَوُجِدَتْ الذِّئْبُ قَدْ أَكُلُّ الشَّاةِ. فَأُنْشِدَتْ تَقَوُّلٌ: بَقَرْتِ شويهتي وَفُجِعَتْ قُلَّبِيٌّ... وَأَنْتَ لِشَاتِنَا وَلَدِ رَبِيبِ غُذِيَتْ بَدْرُهَا، وَرَبَّيْتِ فِينَا... فَمِنْ أَنبَاكِ أَنَّ أَبَاكَ ذِيبُ إِذَا كَانَ الطِّبَاعُ طِبَاع سُوءٍ... فَلَا أدَبُ يُفِيدُ وَلَا أَدِيبُ ===================== هَكَذَا اللَّئِيمَ فِي كُلُّ عَصْرٍ. لَا يَحْفَظَ عَهْدًا أَوْ جَمِيلًا أَوْ مَعْرُوفًا.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 رَوَّى الأصمعي أُنَّ أعْرَابِيَّةٌ وَجَدَّتْ جِرْوُ ذِئْبِ وَلِيدًا ؛ فَحُنَّتْ عَلَيهِ وَأَخَذَتْهُ وَرِعَتُهُ..
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 وَكَانَتْ تَطْعَمَهُ مِنْ حَلِيب شَاة عِنْدهَا، حَتَّى كِبْر الذِّئْبِ الصَّغِيرِ.
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 وَأَنْتَ لِشَاتِنَا وَلَدِ رَبِيبِ غُذِيَتْ بَدْرُهَا، وَرَبَّيْتِ فِينَا...
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 فَأُنْشِدَتْ تَقَوُّلٌ: بَقَرْتِ شويهتي وَفُجِعَتْ قُلَّبِيٌّ...
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 وَفِي يَوْمِ عَادَّتْ الْأعْرَابِيَّةُ إِلَى بَيْتِهَا فَوُجِدَتْ الذِّئْبُ قَدْ أَكُلُّ الشَّاةِ.
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 فَمِنْ أَنبَاكِ أَنَّ أَبَاكَ ذِيبُ إِذَا كَانَ الطِّبَاعُ طِبَاع سُوءٍ...
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 فَلَا أدَبُ يُفِيدُ وَلَا أَدِيبُ ===================== هَكَذَا اللَّئِيمَ فِي كُلُّ عَصْرٍ.
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 لَا يَحْفَظَ عَهْدًا أَوْ جَمِيلًا أَوْ مَعْرُوفًا.
+INFO:MyTestWebApp:2015-05-09 08:33	StripHarakat	 رَوَّى الأصمعي أُنَّ أعْرَابِيَّةٌ وَجَدَّتْ جِرْوُ ذِئْبِ وَلِيدًا ؛ فَحُنَّتْ عَلَيهِ وَأَخَذَتْهُ وَرِعَتُهُ.. وَكَانَتْ تَطْعَمَهُ مِنْ حَلِيب شَاة عِنْدهَا، حَتَّى كِبْر الذِّئْبِ الصَّغِيرِ. وَفِي يَوْمِ عَادَّتْ الْأعْرَابِيَّةُ إِلَى بَيْتِهَا فَوُجِدَتْ الذِّئْبُ قَدْ أَكُلُّ الشَّاةِ. فَأُنْشِدَتْ تَقَوُّلٌ: بَقَرْتِ شويهتي وَفُجِعَتْ قُلَّبِيٌّ... وَأَنْتَ لِشَاتِنَا وَلَدِ رَبِيبِ غُذِيَتْ بَدْرُهَا، وَرَبَّيْتِ فِينَا... فَمِنْ أَنبَاكِ أَنَّ أَبَاكَ ذِيبُ إِذَا كَانَ الطِّبَاعُ طِبَاع سُوءٍ... فَلَا أدَبُ يُفِيدُ وَلَا أَدِيبُ ===================== هَكَذَا اللَّئِيمَ فِي كُلُّ عَصْرٍ. لَا يَحْفَظَ عَهْدًا أَوْ جَمِيلًا أَوْ مَعْرُوفًا.
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا ؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 فأنشدت تقول: بقرت شويهتي وفجعت قلبي...
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا...
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء...
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 فلا أدب يفيد ولا أديب ===================== هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 08:33	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 12:08	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 12:08	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 12:09	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 12:09	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 12:09	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 12:09	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 12:10	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 12:10	Tashkeel2	 
+INFO:MyTestWebApp:2015-05-09 12:10	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 12:10	Tashkeel2	 قد ضرب الشاة.
+INFO:MyTestWebApp:2015-05-09 12:18	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 12:18	Tashkeel2	 قد ضرب الشاة.
+INFO:MyTestWebApp:2015-05-09 12:24	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 12:24	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:19	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:19	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:19	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:19	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:21	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:21	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:22	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:22	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:23	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:23	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:23	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:23	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:24	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:24	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:25	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:25	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:25	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:25	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:26	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:26	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:26	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:26	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:42	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:42	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:44	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:44	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:45	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:45	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:46	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:46	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:46	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:46	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:47	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:47	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:49	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:49	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:49	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:49	Tashkeel2	 قد ضرب الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 02:49	Tashkeel2	 فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:49	Tashkeel2	 قد ضرب الشاة.
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 فلا أدب يفيد ولا أديب=====================هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 فلا أدب يفيد ولا أديب=====================هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 02:51	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 فلا أدب يفيد ولا أديب=====================هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 فلا أدب يفيد ولا أديب=====================هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:29	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:30	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:30	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:30	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:30	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:30	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:30	Tashkeel2	 فلا أدب يفيد ولا أديب=====================هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:30	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:30	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:31	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:39	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:39	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:39	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:39	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 03:39	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:39	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:39	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:39	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:39	Tashkeel2	 فلا أدب يفيد ولا أديب=====================هكذا اللئيم في كل عصر.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:41	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:41	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:41	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:41	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:41	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:41	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:41	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 03:41	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:41	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:41	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:42	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:43	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:43	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:43	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:43	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:43	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:43	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:43	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:43	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:43	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:43	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:44	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:44	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:44	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:44	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:44	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:44	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:44	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:44	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:44	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:44	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:45	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:45	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:45	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:45	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:45	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:45	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:45	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:45	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:45	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:45	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:50	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:50	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:50	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:50	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:50	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:50	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:50	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:50	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:50	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:50	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:51	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:52	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:56	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 03:59	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 03:59	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 03:59	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 03:59	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 03:59	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 03:59	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 03:59	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 03:59	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 03:59	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 03:59	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 04:02	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 04:06	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 04:06	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 04:06	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 04:06	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 04:06	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 04:06	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 04:06	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 04:06	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 04:06	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 04:06	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 04:11	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 04:11	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 04:11	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 04:11	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 04:11	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 04:11	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 04:11	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 04:11	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 04:11	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 04:11	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 04:14	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 04:14	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 04:14	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 04:14	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 04:14	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 04:14	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 04:14	Tashkeel2	 فلا أدب يفيد ولا أديب
+INFO:MyTestWebApp:2015-05-09 04:14	Tashkeel2	هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 04:14	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 04:14	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 04:16	Tashkeel2	ذهب الولد إلى البيت
+INFO:MyTestWebApp:2015-05-09 04:16	LightStemmer	ذهب الولد إلى البيت
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 04:19	LightStemmer	ذهب الولد إلى البيت
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 04:19	LightStemmer	ذهب الولد إلى البيت
+INFO:MyTestWebApp:2015-05-09 04:20	Tashkeel2	ذهب الولد إلى البيت
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 04:21	Tashkeel2	ذهب الولد إلى البيت
+INFO:MyTestWebApp:2015-05-09 04:21	LightStemmer	ذهب الولد إلى البيت
+INFO:MyTestWebApp:2015-05-09 04:22	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 04:22	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 04:22	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 04:22	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 04:22	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 04:22	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 04:22	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 04:22	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 04:22	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 04:27	Tashkeel2	أبصر الرجل الهلال.
+INFO:MyTestWebApp:2015-05-09 04:28	Tashkeel2	أبصرت المرأة  الرجل الهلال.
+INFO:MyTestWebApp:2015-05-09 04:28	Tashkeel2	أبصرت المرأة  الهلال.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 04:31	Tashkeel2	أبصرت المرأة  الهلال.
+INFO:MyTestWebApp:2015-05-09 04:31	Tashkeel2	أبصرت المدرسة  الهلال.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 04:36	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 04:36	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 04:36	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 04:36	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 04:36	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 04:36	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 04:36	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 04:36	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 04:36	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 04:37	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 04:37	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 04:37	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 04:37	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 04:37	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 04:37	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 04:37	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 04:38	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 04:38	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 04:38	Tashkeel2	أبصرت المدرسة  الهلال.
+INFO:MyTestWebApp:2015-05-09 04:38	LightStemmer	أبصرت المدرسة  الهلال.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 04:39	Tashkeel2	أبصرت المدرسة  الهلال.
+INFO:MyTestWebApp:2015-05-09 04:39	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل،
+INFO:MyTestWebApp:2015-05-09 04:40	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح
+INFO:MyTestWebApp:2015-05-09 04:40	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 04:42	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 04:42	Tashkeel2	 
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 05:29	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:32	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 05:32	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 05:32	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 05:32	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 05:32	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 05:32	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 05:32	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 05:32	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 05:32	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:37	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 05:37	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 05:37	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 05:37	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 05:37	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 05:37	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 05:37	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 05:37	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 05:37	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 05:40	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:42	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 05:42	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:43	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 05:43	Tashkeel2	 
+INFO:MyTestWebApp:2015-05-09 05:43	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 05:43	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 05:43	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 05:43	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 05:43	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 05:43	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 05:43	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 05:44	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:46	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 05:46	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 05:46	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 05:46	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 05:46	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 05:46	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 05:46	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 05:46	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 05:46	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:49	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 05:49	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:50	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 05:50	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:51	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 05:51	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:52	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 05:52	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 05:54	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 05:54	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 06:04	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:04	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 06:07	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:07	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 06:07	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:07	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 06:14	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:14	Tashkeel2	 
+INFO:MyTestWebApp:2015-05-09 06:14	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 06:14	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 06:14	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 06:14	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 06:14	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 06:14	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 06:14	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 06:14	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 06:14	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 06:18	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:18	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 06:19	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:19	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 06:19	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:19	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 06:21	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:21	Tashkeel2	 
+INFO:MyTestWebApp:2015-05-09 06:21	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:21	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 06:21	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:21	Tashkeel2	 
+INFO:MyTestWebApp:2015-05-09 06:24	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 06:24	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 06:24	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 06:24	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 06:24	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 06:24	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 06:24	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 06:24	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 06:24	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 06:40	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 06:40	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 06:40	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 06:40	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 06:40	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 06:40	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 06:40	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 06:40	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 06:40	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 06:44	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:44	Tashkeel2	 
+INFO:MyTestWebApp:2015-05-09 06:44	Tashkeel2	أبصرت المدرس  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:44	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	 
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	أبصرت المدرس  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:45	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 06:50	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:50	Tashkeel2	 
+INFO:MyTestWebApp:2015-05-09 06:50	Tashkeel2	أبصرت المدرس  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:50	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 06:58	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:58	Tashkeel2	 
+INFO:MyTestWebApp:2015-05-09 06:58	Tashkeel2	أبصرت المدرس  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:58	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 06:59	Tashkeel2	أبصرت المدرسة  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:59	Tashkeel2	 
+INFO:MyTestWebApp:2015-05-09 06:59	Tashkeel2	أبصرت المدرس  الهلال لباس الرجل، ضرب التفاح.
+INFO:MyTestWebApp:2015-05-09 06:59	Tashkeel2	 
+INFO:MyTestWebApp:2015-05-09 07:00	Tashkeel2	أبصرت المدرسة.
+INFO:MyTestWebApp:2015-05-09 07:00	Tashkeel2	أبصرت المدرس.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 07:02	Tashkeel2	أبصرت المدرسة.
+INFO:MyTestWebApp:2015-05-09 07:02	Tashkeel2	أبصرت المدرس.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 07:03	Tashkeel2	أبصرت المدرسة.
+INFO:MyTestWebApp:2015-05-09 07:03	Tashkeel2	أبصرت المدرس.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 07:03	Tashkeel2	أبصرت المدرسة.
+INFO:MyTestWebApp:2015-05-09 07:03	Tashkeel2	أبصرت المدرس.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 07:04	Tashkeel2	أبصرت المدرسة.
+INFO:MyTestWebApp:2015-05-09 07:04	Tashkeel2	أبصرت المدرس.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	أبصرت المدرسة.
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	أبصرت المدرس.
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 07:05	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 07:08	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 07:08	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 07:08	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 07:08	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 07:08	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 07:08	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 07:08	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 07:08	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 07:08	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 07:08	Tashkeel2	أبصرت المدرسة.
+INFO:MyTestWebApp:2015-05-09 07:08	Tashkeel2	أبصرت المدرس.
+INFO:MyTestWebApp:2015-05-09 07:09	Tashkeel2	أبصرت المدرسة.
+INFO:MyTestWebApp:2015-05-09 07:09	Tashkeel2	أبصرت المدرس.
+INFO:MyTestWebApp:2015-05-09 07:16	Tashkeel2	في كل البلاد
+INFO:MyTestWebApp:2015-05-09 07:16	LightStemmer	في كل البلاد
+INFO:MyTestWebApp:2015-05-09 07:16	LightStemmer	في كل البلاد، في بعض البلاد
+INFO:MyTestWebApp:2015-05-09 07:17	Tashkeel2	في كل البلاد، في بعض البلاد
+INFO:MyTestWebApp:2015-05-09 07:17	Tashkeel2	في كل البلاد، في بعض الديار
+INFO:MyTestWebApp:2015-05-09 07:17	Tashkeel2	في كل البلاد، في بعض الأشخاص
+INFO:MyTestWebApp:2015-05-09 07:18	LightStemmer	في كل البلاد، في بعض الأشخاص
+INFO:MyTestWebApp:2015-05-09 07:25	Tashkeel2	في كل البلاد، في بعض الأشخاص
+INFO:MyTestWebApp:2015-05-09 07:26	Tashkeel2	في كل التقاليد، في بعض الأشخاص
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 07:33	Tashkeel2	في كل التقاليد، في بعض الأشخاص
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 07:36	Tashkeel2	في كل التقاليد، في بعض الأشخاص
+INFO:MyTestWebApp:2015-05-09 07:36	Tashkeel2	ابصرت المدرس
+INFO:MyTestWebApp:2015-05-09 07:36	Tashkeel2	أكلت الذئب
+INFO:MyTestWebApp:2015-05-09 07:36	Tashkeel2	ابصرت المدرس.
+INFO:MyTestWebApp:2015-05-09 07:36	Tashkeel2	أكلت الذئب.
+INFO:MyTestWebApp:2015-05-09 07:37	Tashkeel2	أبصرت المدرس.
+INFO:MyTestWebApp:2015-05-09 07:37	Tashkeel2	أكلت الذئب.
+INFO:MyTestWebApp:2015-05-09 07:43	Tashkeel2	أبصرت المدرس.
+INFO:MyTestWebApp:2015-05-09 07:43	Tashkeel2	أكلت الذئب.
+INFO:MyTestWebApp:2015-05-09 07:43	Tashkeel2	أبصرت المدرس.
+INFO:MyTestWebApp:2015-05-09 07:43	Tashkeel2	أكلت الذئب.
+INFO:MyTestWebApp:2015-05-09 07:43	Tashkeel2	أبصرت المدرس.
+INFO:MyTestWebApp:2015-05-09 07:43	Tashkeel2	أكلت الذئب.
+INFO:MyTestWebApp:2015-05-09 07:43	Tashkeel2	 الذئبة
+INFO:MyTestWebApp:2015-05-09 07:46	Tashkeel2	أبصرت المدرس.
+INFO:MyTestWebApp:2015-05-09 07:46	Tashkeel2	أكلت الذئب.
+INFO:MyTestWebApp:2015-05-09 07:46	Tashkeel2	 الذئبة
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 10:03	Tashkeel2	أبصرت المدرس.
+INFO:MyTestWebApp:2015-05-09 10:03	Tashkeel2	أكلت الذئب.
+INFO:MyTestWebApp:2015-05-09 10:03	Tashkeel2	 الذئبة
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 10:06	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 10:06	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 10:06	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 10:06	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 10:06	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 10:06	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 10:06	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 10:06	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 10:06	Tashkeel2	  
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 10:09	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 10:09	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 10:09	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 10:09	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 10:09	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 10:09	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 10:09	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 10:09	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 10:09	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 10:12	Tashkeel2	 روى الأصمعي أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 10:12	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 10:12	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 10:12	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 10:12	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 10:12	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 10:12	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 10:12	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 10:12	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 10:15	LightStemmer	مبصر
+INFO:MyTestWebApp:2015-05-09 10:16	LightStemmer	مرمم
+INFO:MyTestWebApp:2015-05-09 10:24	Tashkeel2	في كل مكرمة رداء
+INFO:MyTestWebApp:2015-05-09 10:31	Tashkeel2	 روى الأصمعي،  أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-09 10:31	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-09 10:31	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-09 10:31	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-09 10:31	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-09 10:31	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-09 10:31	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-09 10:31	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-09 10:31	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-09 10:34	LightStemmer	في كل مكرمة رداء
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 10:36	Tashkeel2	في كل مكرمة رداء
+INFO:MyTestWebApp:2015-05-09 10:37	Tashkeel2	في كل مكرمة رداء.
+INFO:MyTestWebApp:2015-05-09 10:37	LightStemmer	في كل مكرمة رداء.
+INFO:MyTestWebApp:2015-05-09 10:39	Tashkeel2	في كل مكرمة رداء.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 10:41	Tashkeel2	في كل مكرمة رداء.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 10:42	Tashkeel2	في كل مكرمة رداء.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 10:42	Tashkeel2	في كل مكرمة رداء.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 10:44	Tashkeel2	في كل مكرمة رداء.
+INFO:MyTestWebApp:2015-05-09 10:44	Tashkeel2	في كل مكرمة رداء.
+INFO:MyTestWebApp:2015-05-09 10:45	LightStemmer	في كل مكرمة رداء.
+INFO:MyTestWebApp:2015-05-09 10:45	Tashkeel2	في بعض الأحيان.
+INFO:MyTestWebApp:2015-05-09 10:45	LightStemmer	في بعض الأحيان.
+INFO:MyTestWebApp:2015-05-09 10:48	Tashkeel2	الكلام في بعض الأحيان.
+INFO:MyTestWebApp:2015-05-09 10:48	LightStemmer	الكلام في بعض الأحيان.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 10:49	Tashkeel2	الكلام في بعض الأحيان.
+INFO:MyTestWebApp:2015-05-09 10:50	Tashkeel2	الكلام في بعض الأحيان.
+INFO:MyTestWebApp:2015-05-09 10:50	LightStemmer	الكلام في بعض الأحيان.
+INFO:MyTestWebApp:2015-05-09 10:56	Tashkeel2	في بعض
+INFO:MyTestWebApp:2015-05-09 10:56	LightStemmer	في بعض
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 10:59	LightStemmer	في بعض
+INFO:MyTestWebApp:2015-05-09 11:00	Tashkeel2	في بعض
+INFO:MyTestWebApp:2015-05-09 11:00	Tashkeel2	في بعض
+INFO:MyTestWebApp:2015-05-09 11:00	LightStemmer	في بعض
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 11:01	LightStemmer	في بعض
+INFO:MyTestWebApp:2015-05-09 11:02	Tashkeel2	في بعض
+INFO:MyTestWebApp:2015-05-09 11:03	Tashkeel2	في بعض
+INFO:MyTestWebApp:2015-05-09 11:03	LightStemmer	في بعض
+INFO:MyTestWebApp:2015-05-09 11:04	Tashkeel2	في بعض
+INFO:MyTestWebApp:2015-05-09 11:06	Tashkeel2	في بعض، في وعلامة
+INFO:MyTestWebApp:2015-05-09 11:07	Tashkeel2	في بعض، في وعلامة
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 11:07	Tashkeel2	في بعض، في وعلامة
+INFO:MyTestWebApp:2015-05-09 11:14	Tashkeel2	في بعض، في وعلامة
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 11:41	Tashkeel2	في بعض، في وعلامة
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 11:42	Tashkeel2	في بعض، في وعلامة
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-09 11:44	Tashkeel2	في بعض، في وعلامة
+INFO:MyTestWebApp:2015-05-09 11:53	Tashkeel2	في بعض، في وعلامة عن كل العالم،ـ إلى جميع أصدقائي
+INFO:MyTestWebApp:2015-05-09 11:54	LightStemmer	في بعض، في وعلامة عن كل العالم،ـ إلى جميع أصدقائي
+INFO:MyTestWebApp:2015-05-09 11:55	Tashkeel2	في بعض، في وعلامة عن كل العالم،ـ إلى جميعها أصدقائي
+INFO:MyTestWebApp:2015-05-09 11:55	Tashkeel2	في بعض، في وعلامة عن كل العالم،ـ إلى جميعه أصدقائي
+INFO:MyTestWebApp:2015-05-09 11:55	Tashkeel2	في بعض، في وعلامة عن كل العالم،ـ إلى جميعنا أصدقائي
+INFO:MyTestWebApp:2015-05-09 11:55	Tashkeel2	في بعض، في وعلامة عن كل العالم،ـ إلى بعضها أصدقائي
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-10 12:01	Tashkeel2	في بعض، في وعلامة عن كل العالم،ـ إلى بعضها أصدقائي
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-10 12:03	Tashkeel2	في بعض، في وعلامة عن كل العالم،ـ إلى بعضها أصدقائي
+INFO:MyTestWebApp:2015-05-10 12:08	Tashkeel2	في بعض، في وعلامة عن كل العالم،ـ إلى بعضها أصدقائي
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-10 12:09	Tashkeel2	في بعض، في وعلامة عن كل العالم،ـ إلى بعضها أصدقائي
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-10 12:10	Tashkeel2	في بعض، في وعلامة عن كل العالم،ـ إلى بعضها أصدقائي
+INFO:MyTestWebApp:2015-05-10 12:10	Tashkeel2	 روى الأصمعي،  أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-10 12:10	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-10 12:10	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-10 12:10	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-10 12:10	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-10 12:10	Tashkeel2	 فمن أنباك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-10 12:10	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-10 12:10	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-10 12:10	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-10 12:11	Tashkeel2	 فمن أنبأك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-10 12:11	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-10 12:11	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-10 12:11	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-10 12:11	Tashkeel2	 روى الأصمعي،  أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-10 12:11	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-10 12:11	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-10 12:11	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-10 12:11	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-10 09:24	Tashkeel2	 روى الأصمعي،  أن أعرابية وجدت جرو ذئب وليدا؛ فحنت عليه وأخذته ورعته..
+INFO:MyTestWebApp:2015-05-10 09:24	Tashkeel2	 وكانت تطعمه من حليب شاة عندها، حتى كبر الذئب الصغير.
+INFO:MyTestWebApp:2015-05-10 09:24	Tashkeel2	 وفي يوم عادت الأعرابية إلى بيتها فوجدت الذئب قد أكل الشاة.
+INFO:MyTestWebApp:2015-05-10 09:24	Tashkeel2	 وأنت لشاتنا ولد ربيب غذيت بدرها، وربيت فينا ...
+INFO:MyTestWebApp:2015-05-10 09:24	Tashkeel2	 فمن أنبأك أن أباك ذيب إذا كان الطباع طباع سوء ...
+INFO:MyTestWebApp:2015-05-10 09:24	Tashkeel2	 فأنشدت تقول:بقرت شويهتي وفجعت قلبي ...
+INFO:MyTestWebApp:2015-05-10 09:24	Tashkeel2	 فلا أدب يفيد ولا أديب=هكذا اللئيم في كل عصر.
+INFO:MyTestWebApp:2015-05-10 09:24	Tashkeel2	 لا يحفظ عهدا أو جميلا أو معروفا.
+INFO:MyTestWebApp:2015-05-10 09:24	Tashkeel2	  
+INFO:MyTestWebApp:2015-05-10 02:59	Tashkeel2	أخوك لن يتعرض للبرد .
+INFO:MyTestWebApp:2015-05-10 03:00	Tashkeel2	في بعض، في وعلامة عن كل العالم،ـ إلى بعضها أصدقائي
+INFO:MyTestWebApp:2015-05-10 03:03	Tashkeel2	في بعض، في وعلامة عن كل العالم،ـ إلى بعضها أصدقائي
+INFO:MyTestWebApp:2015-05-10 03:04	StripHarakat	
+	قال رجاءُ بنُ حَيَوَة: أمَرني عُمرُ بن عبد العزيز أنْ أشتريَ لَه ثوباً بِستّةِ دَراهم، فأتيتُه به فَجَسَّهُ.
+	وقال: هو على ما أحبُّ لولا أنَّ فيه ليناً.
+	قال: فبَكيتُ.
+	قال: فما يُبكيك.
+	قال: أتيتُكَ، وأنت أمير - قبل أن يُصبح الخليفة-، بِثوبٍ بستمائةِ درهم، فَجَسَستَهُ، وقلتَ: هو على ما أحبُّ لولا أن فيه خُشونَة، وأتيتُكَ، وأنتَ أميرُ المؤمنين، بثوبٍ بستةِ دراهم، فجسَستَه، وقلت: هو على ما أحب لولا أن فيه لينا.
+	فقال: يا رجاء، إنَّ لي نفسًا توّاقة، تاقت إلى فاطمةُ بنت عبد الملك فتَزَّوَجتُها، وتاقت إلى الإمارة فَوليتُها، وتاقت إلى الخِلافة فأدركتُها، وقد تاقت الآن إلى الجنة، فأرجو أن أُدركَها، إن شاء الله&#160; عزّ وجَل.
+	&#160;
+
+INFO:MyTestWebApp:2015-05-10 03:04	Tashkeel2		قال رجاء بن حيوة: أمرني عمر بن عبد العزيز أن أشتري له ثوبا بستة دراهم، فأتيته به فجسه.
+INFO:MyTestWebApp:2015-05-10 03:04	Tashkeel2		وقال: هو على ما أحب لولا أن فيه لينا.
+INFO:MyTestWebApp:2015-05-10 03:04	Tashkeel2		قال: فبكيت.
+INFO:MyTestWebApp:2015-05-10 03:04	Tashkeel2		قال: فما يبكيك.
+INFO:MyTestWebApp:2015-05-10 03:04	Tashkeel2		قال: أتيتك، وأنت أمير - قبل أن يصبح الخليفة-، بثوب بستمائة درهم، فجسسته، وقلت: هو على ما أحب لولا أن فيه خشونة، وأتيتك، وأنت أمير المؤمنين، بثوب بستة دراهم، فجسسته، وقلت: هو على ما أحب لولا أن فيه لينا.
+INFO:MyTestWebApp:2015-05-10 03:04	Tashkeel2		فقال: يا رجاء، إن لي نفسا تواقة، تاقت إلى فاطمة بنت عبد الملك فتزوجتها، وتاقت إلى الإمارة فوليتها، وتاقت إلى الخلافة فأدركتها، وقد تاقت الآن إلى الجنة، فأرجو أن أدركها، إن شاء الله  عز وجل.
+INFO:MyTestWebApp:2015-05-10 03:04	Tashkeel2		 
+INFO:MyTestWebApp:2015-05-10 03:39	StripHarakat	
+	قال عبد العزيز بن عمر بن عبد العزيز: قال لي رجاء بن حَيْوَة: ما رأيت أكرم أدباً، ولا أكرم عِشْرَة من أبيك، سَمَرْت عنده ليلة، فبينما نحن كذلك إذ عَشى المصباح ونام الغلام.‏ ‏ فقلت: يا أمير المؤمنين، قد عَشى المصباح ونام الغلام، فلو أذنت لي أصلحتُه!‏ ‏ فقال: إنه ليس من مروءة الرجل أن يَستخدم ضيْفَه.‏ ‏ ثم حط رداءه عن منكبيه، وقام إلى الدَبَّة فصبّ من الزيت في المصباح، وأشخص الفتيلة.‏ ‏ ثم رجع وأخذ رداءه وقال:‏ ‏ قمت وأنا عمر ورجعت وأنا عمر.
+
+INFO:MyTestWebApp:2015-05-10 03:39	Tashkeel2		قال عبد العزيز بن عمر بن عبد العزيز: قال لي رجاء بن حيوة: ما رأيت أكرم أدبا، ولا أكرم عشرة من أبيك، سمرت عنده ليلة، فبينما نحن كذلك إذ عشى المصباح ونام الغلام.
+INFO:MyTestWebApp:2015-05-10 03:39	Tashkeel2	‏ ‏ فقلت: يا أمير المؤمنين، قد عشى المصباح ونام الغلام، فلو أذنت لي أصلحته!‏ ‏ فقال: إنه ليس من مروءة الرجل أن يستخدم ضيفه.
+INFO:MyTestWebApp:2015-05-10 03:39	Tashkeel2	‏ ‏ ثم حط رداءه عن منكبيه، وقام إلى الدبة فصب من الزيت في المصباح، وأشخص الفتيلة.
+INFO:MyTestWebApp:2015-05-10 03:39	Tashkeel2	‏ ‏ ثم رجع وأخذ رداءه وقال:‏ ‏ قمت وأنا عمر ورجعت وأنا عمر.
+INFO:MyTestWebApp:2015-05-10 03:44	LightStemmer	قال
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-10 03:44	Tashkeel2	قال : سلام
+INFO:MyTestWebApp:2015-05-10 03:45	LightStemmer	قال : سلام
+INFO:MyTestWebApp:2015-05-10 03:46	Tashkeel2	أخوك لن يتعرض للبرد .
+INFO:MyTestWebApp:2015-05-10 03:46	Tashkeel2		قال عبد العزيز بن عمر بن عبد العزيز: قال لي رجاء بن حيوة: ما رأيت أكرم أدبا، ولا أكرم عشرة من أبيك، سمرت عنده ليلة، فبينما نحن كذلك إذ عشى المصباح ونام الغلام.
+INFO:MyTestWebApp:2015-05-10 03:46	Tashkeel2	‏ ‏ فقلت: يا أمير المؤمنين، قد عشى المصباح ونام الغلام، فلو أذنت لي أصلحته!‏ ‏ فقال: إنه ليس من مروءة الرجل أن يستخدم ضيفه.
+INFO:MyTestWebApp:2015-05-10 03:46	Tashkeel2	‏ ‏ ثم حط رداءه عن منكبيه، وقام إلى الدبة فصب من الزيت في المصباح، وأشخص الفتيلة.
+INFO:MyTestWebApp:2015-05-10 03:46	Tashkeel2	‏ ‏ ثم رجع وأخذ رداءه وقال:‏ ‏ قمت وأنا عمر ورجعت وأنا عمر.
+INFO:MyTestWebApp:2015-05-10 03:46	extractEnteties	
+	قال عبد العزيز بن عمر بن عبد العزيز: قال لي رجاء بن حيوة: ما رأيت أكرم أدبا، ولا أكرم عشرة من أبيك، سمرت عنده ليلة، فبينما نحن كذلك إذ عشى المصباح ونام الغلام.‏ ‏ فقلت: يا أمير المؤمنين، قد عشى المصباح ونام الغلام، فلو أذنت لي أصلحته!‏ ‏ فقال: إنه ليس من مروءة الرجل أن يستخدم ضيفه.‏ ‏ ثم حط رداءه عن منكبيه، وقام إلى الدبة فصب من الزيت في المصباح، وأشخص الفتيلة.‏ ‏ ثم رجع وأخذ رداءه وقال:‏ ‏ قمت وأنا عمر ورجعت وأنا عمر.
+
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2		قال عبد العزيز بن عمر بن عبد العزيز: قال لي رجاء بن حيوة: ما رأيت أكرم أدبا، ولا أكرم عشرة من أبيك، سمرت عنده ليلة، فبينما نحن كذلك إذ عشى المصباح ونام الغلام.
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	‏ ‏ فقلت: يا أمير المؤمنين، قد عشى المصباح ونام الغلام، فلو أذنت لي أصلحته!‏ ‏ فقال: إنه ليس من مروءة الرجل أن يستخدم ضيفه.
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	‏ ‏ ثم حط رداءه عن منكبيه، وقام إلى الدبة فصب من الزيت في المصباح، وأشخص الفتيلة.
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	‏ ‏ ثم رجع وأخذ رداءه وقال:‏ ‏ قمت وأنا عمر ورجعت وأنا عمر.
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	أما لماذا حتمية هذه التساؤلات وحتمية الإجابة عليها لتكوين فكرة كلية عنها ، ذلك لأن الإنسان مجبر على التعامل معها ، ولا يستطيع مطلقاً أن يعيش بمعزل عنها ، فهو فرد من بني الإنسان تربطه مع غيره من البشر علاقات حتمية لابد من تصريفها ، كما أنه يرى من حوله كائنات حية هو فرد منها ، ولا بد له من التعامل معها ، وتشاركه العيش على هذه الأرض ، في هذا الكون الواسع .
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	 وفي هذه الأرض أشياء وأشياء لابد له من استعمالها ، ففيها قضاء حاجته ، ومنها إشباع جوعته وتحقيق رغبته .
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	 خصوصاً وأن الله سخر له ما في الأرض جميعاً ، وباختصار إن هذا الإنسان صورة عن الكون بما فيه ، فهو يشارك الكون بتركيبه المادي ، ويشارك الكائنات الحية بالروح التي تسري فيه ، وينفرد هو بالطاقة العاقلة المسخرة لغيرها ، والتي هي مناط التكليف .
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	 من هنا كان لابد من تكوين فكرة كلية عن الكون والإنسان والحياة .
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	 فليعرف نفسه أولاً وليعرف الحياة التي تدب به وبغيره .
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	 وليعرف الكون الذي يعيش فيه لعله يستطيع معرفة الحياة الدنيا ، وما يترتب عليه في هذه المرحلة الزمنية التي سيقضيها .
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	 أي يعرف معنى وجوده في الحياة .
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	وبدون الإجابة على هذه التساؤلات وتكوين فكرة كلية عن الوجود ، بغض النظر عن صحة الإجابة أو خطئها ، فإنه يعجز عن تحديد معنى وجوده في الحياة ، فيهيم فيها على وجهه ، همه إشباع أكبر قدر ممكن من المتع الجسدية لا يختلف عن أي حيوان آخر ، إن لم يكن أسوأ حالاً .
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	{لهم قلوب لا يفقهون بها ولهم أعين لا يبصرون بها ولهم آذان لا يسمعون بها ، أولئك كالأنعام بل هم أضل}الأعراف (179) {وقالوا ما هي إلا حياتنا الدنيا نموت ونحيا وما يهلكنا إلا الدهر}الجاثية (24) .
+INFO:MyTestWebApp:2015-05-10 05:12	Tashkeel2	    
+INFO:MyTestWebApp:2015-05-10 05:41	Tashkeel2	قال : سلام
+INFO:MyTestWebApp:2015-05-10 05:42	Tashkeel2	أما لماذا حتمية  التساؤلات وحتمية الإجابة عليها لتكوين فكرة كلية عنها ، ذلك لأن الإنسان مجبر على التعامل معها ، ولا يستطيع مطلقاً أن يعيش بمعزل عنها ، فهو فرد من بني الإنسان تربطه مع غيره من البشر علاقات حتمية لابد من تصريفها ، كما أنه يرى من حوله كائنات حية هو فرد منها ، ولا بد له من التعامل معها ، وتشاركه العيش على هذه الأرض ، في هذا الكون الواسع .
+INFO:MyTestWebApp:2015-05-10 05:42	Tashkeel2	 وفي هذه الأرض أشياء وأشياء لابد له من استعمالها ، ففيها قضاء حاجته ، ومنها إشباع جوعته وتحقيق رغبته .
+INFO:MyTestWebApp:2015-05-10 05:42	Tashkeel2	 خصوصاً وأن الله سخر له ما في الأرض جميعاً ، وباختصار إن هذا الإنسان صورة عن الكون بما فيه ، فهو يشارك الكون بتركيبه المادي ، ويشارك الكائنات الحية بالروح التي تسري فيه ، وينفرد هو بالطاقة العاقلة المسخرة لغيرها ، والتي هي مناط التكليف .
+INFO:MyTestWebApp:2015-05-10 05:42	Tashkeel2	 من هنا كان لابد من تكوين فكرة كلية عن الكون والإنسان والحياة .
+INFO:MyTestWebApp:2015-05-10 05:42	Tashkeel2	 فليعرف نفسه أولاً وليعرف الحياة التي تدب به وبغيره .
+INFO:MyTestWebApp:2015-05-10 05:42	Tashkeel2	 وليعرف الكون الذي يعيش فيه لعله يستطيع معرفة الحياة الدنيا ، وما يترتب عليه في هذه المرحلة الزمنية التي سيقضيها .
+INFO:MyTestWebApp:2015-05-10 05:42	Tashkeel2	 أي يعرف معنى وجوده في الحياة .
+INFO:MyTestWebApp:2015-05-10 05:42	Tashkeel2	وبدون الإجابة على هذه التساؤلات وتكوين فكرة كلية عن الوجود ، بغض النظر عن صحة الإجابة أو خطئها ، فإنه يعجز عن تحديد معنى وجوده في الحياة ، فيهيم فيها على وجهه ، همه إشباع أكبر قدر ممكن من المتع الجسدية لا يختلف عن أي حيوان آخر ، إن لم يكن أسوأ حالاً .
+INFO:MyTestWebApp:2015-05-10 05:42	Tashkeel2	{لهم قلوب لا يفقهون بها ولهم أعين لا يبصرون بها ولهم آذان لا يسمعون بها ، أولئك كالأنعام بل هم أضل}الأعراف (179) {وقالوا ما هي إلا حياتنا الدنيا نموت ونحيا وما يهلكنا إلا الدهر}الجاثية (24) .
+INFO:MyTestWebApp:2015-05-10 05:42	Tashkeel2	    
+INFO:MyTestWebApp:2015-05-10 05:42	extractEnteties	أما لماذا حتمية  التساؤلات وحتمية الإجابة عليها لتكوين فكرة كلية عنها ، ذلك لأن الإنسان مجبر على التعامل معها ، ولا يستطيع مطلقاً أن يعيش بمعزل عنها ، فهو فرد من بني الإنسان تربطه مع غيره من البشر علاقات حتمية لابد من تصريفها ، كما أنه يرى من حوله كائنات حية هو فرد منها ، ولا بد له من التعامل معها ، وتشاركه العيش على هذه الأرض ، في هذا الكون الواسع . وفي هذه الأرض أشياء وأشياء لابد له من استعمالها ، ففيها قضاء حاجته ، ومنها إشباع جوعته وتحقيق رغبته . خصوصاً وأن الله سخر له ما في الأرض جميعاً ، وباختصار إن هذا الإنسان صورة عن الكون بما فيه ، فهو يشارك الكون بتركيبه المادي ، ويشارك الكائنات الحية بالروح التي تسري فيه ، وينفرد هو بالطاقة العاقلة المسخرة لغيرها ، والتي هي مناط التكليف . من هنا كان لابد من تكوين فكرة كلية عن الكون والإنسان والحياة . فليعرف نفسه أولاً وليعرف الحياة التي تدب به وبغيره . وليعرف الكون الذي يعيش فيه لعله يستطيع معرفة الحياة الدنيا ، وما يترتب عليه في هذه المرحلة الزمنية التي سيقضيها . أي يعرف معنى وجوده في الحياة .وبدون الإجابة على هذه التساؤلات وتكوين فكرة كلية عن الوجود ، بغض النظر عن صحة الإجابة أو خطئها ، فإنه يعجز عن تحديد معنى وجوده في الحياة ، فيهيم فيها على وجهه ، همه إشباع أكبر قدر ممكن من المتع الجسدية لا يختلف عن أي حيوان آخر ، إن لم يكن أسوأ حالاً .{لهم قلوب لا يفقهون بها ولهم أعين لا يبصرون بها ولهم آذان لا يسمعون بها ، أولئك كالأنعام بل هم أضل}الأعراف (179) {وقالوا ما هي إلا حياتنا الدنيا نموت ونحيا وما يهلكنا إلا الدهر}الجاثية (24) .    
+INFO:MyTestWebApp:2015-05-10 05:43	Tashkeel2	أما لماذا حتمية  التساؤلات وحتمية الإجابة عليها لتكوين فكرة كلية عنها ، ذلك لأن الإنسان مجبر على التعامل معها ، ولا يستطيع مطلقاً أن يعيش بمعزل عنها ، فهو فرد من بني الإنسان تربطه مع غيره من البشر علاقات حتمية لابد من تصريفها ، كما أنه يرى من حوله كائنات حية هو فرد منها ، 
+INFO:MyTestWebApp:2015-05-10 06:27	LightStemmer	قال : سلام
+INFO:MyTestWebApp:2015-05-10 06:27	SpellCheck	قال : سلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-10 07:22	Tashkeel2	أخوك لن يتعرض للبرد .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-10 07:22	Tashkeel2	أخوك لن يتعرض للبرد .
+INFO:MyTestWebApp:2015-05-10 07:22	Tashkeel2	أخوك لن يتعرض للبرد .
+INFO:MyTestWebApp:2015-05-10 07:22	Tashkeel2	 155 ألف طفل
+INFO:MyTestWebApp:2015-05-10 07:23	Tashkeel2	أخوك لن يتعرض للبرد .
+INFO:MyTestWebApp:2015-05-10 07:23	Tashkeel2	 155 قاعدة,
+INFO:MyTestWebApp:2015-05-10 07:23	Tashkeel2	أخوك لن يتعرض للبرد .
+INFO:MyTestWebApp:2015-05-10 07:23	Tashkeel2	 1500 قاعدة,
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-10 07:37	Tashkeel2	السلام والحرب
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-10 07:38	Tashkeel2	السلام والحرب
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-10 07:38	Tashkeel2	السلام والحرب
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-05-10 07:39	Tashkeel2	السلام والحرب
+INFO:MyTestWebApp:2015-05-10 10:04	Tashkeel2	السلام والحرب
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped

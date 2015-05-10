@@ -65,6 +65,12 @@ class WordCase:
             self.action    = result_dict.get('action', u'')
             self.object_type    = result_dict.get('object_type', u'')
             self.need    = result_dict.get('need', u'')                      
+            self.number    = result_dict.get('number', u'')                      
+            self.gender    = result_dict.get('gender', u'') 
+            self.person    = result_dict.get('person', u'')                      
+            self.voice    = result_dict.get('voice', u'')                      
+            self.mood    = result_dict.get('mood', u'')                      
+
 
     ######################################################################
     #{ Attribut Functions
