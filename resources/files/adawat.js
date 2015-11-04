@@ -39,7 +39,7 @@ $().ready(function() {
   $('#randomMaqola').click(function() {
     $.getJSON("http://maqola.org/site/widget?nolayout", function(d) {
       // $("#InputText").text(d.result+"Taha");
-      if (d) document.NewForm.InputText.value = d.body.replace(/<\/?[^>]+(>|$)/g, "");
+      if (d) document.NewForm.InputText.value = d.body.replace(/<\/?[^>]+(>|$)/g, " ");
       else document.NewForm.InputText.value = "TZA";;
       //"#result").text(d.time);
     });
