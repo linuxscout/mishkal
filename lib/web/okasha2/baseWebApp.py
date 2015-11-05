@@ -16,7 +16,7 @@ Copyright © 2009, Muayyad Alsadi <alsadi@ojuba.org>
     "http://waqf.ojuba.org/license"
 
 """
-
+ALLOW_DEBUG = False
 import sys, os, os.path, time, re
 try: import json
 except ImportError: import simplejson as json
@@ -151,11 +151,11 @@ class OkashaFields(FieldStorage):
     if true they will be overwritten
     if None then number will be aded or incremented after name_pattern[:-suffix_len] if suffix_len==None then rfind('.') will be used
     return number of successfully saved files on success
-      0 	key not found
-      -1 	max_count exceeded
-      -2 	max_size exceeded
-      -3	dir does not exist
-      -4	IOError
+      0     key not found
+      -1    max_count exceeded
+      -2    max_size exceeded
+      -3    dir does not exist
+      -4    IOError
     """
     if not os.path.isdir(d): return -3
     r=0
@@ -193,7 +193,7 @@ class Request:
     except: self.cookies=SimpleCookie('')
 
     if environ.has_key('PATH_INFO'):
-	self.uri=environ['PATH_INFO'] # can be / or /view
+      self.uri=environ['PATH_INFO'] # can be / or /view
     else: self.uri="/";
     if type(self.uri)!=unicode:
       try: self.uri=self.uri.decode('utf8')
@@ -412,8 +412,8 @@ class baseWebApp:
     if rq.uri==None:
       # handle malformed uri
       return self._handleException(rq, webAppBaseException(500))
-    self._logger.info('got uri=[%s]' % rq.uri)
-    self._logger.debug('got env=[%s]' % rq.environ)
+    if ALLOW_DEBUG: self._logger.info('got uri=[%s]' % rq.uri)
+    if ALLOW_DEBUG: self._logger.debug('got env=[%s]' % rq.environ)
     rq.q._ok_max_files_count=self._max_files_count
     # check if we need to serve static content
     for k in self._staticBaseDirKeys:

@@ -1,965 +1,844 @@
-﻿#!/usr/bin/python
-# -*- coding=utf-8 -*-
-#-------------------------------------------------------------------------------
-# Name:        tashkeel
-# Purpose:     Arabic automatic vocalization.
-#
-# Author:      Taha Zerrouki (taha.zerrouki[at]gmail.com)
-#
-# Created:     31-10-2011
-# Copyright:   (c) Taha Zerrouki 2011
-# Licence:     GPL
-#-------------------------------------------------------------------------------
+﻿#!/usr/bin/python 
+# -*- coding = utf-8 -*- 
+#---------------------------------------------------------------------
+# Name:        tashkeel 
+# Purpose:     Arabic automatic vocalization. # 
+# Author:      Taha Zerrouki (taha.zerrouki[at]gmail.com) 
+# Created:     31-10-2011 
+#  Copyright:   (c) Taha Zerrouki 2011 # Licence:     GPL 
+#---------------------------------------------------------------------
+"""
+    Arabic Tashkeel Class
+"""
 import sys
-sys.path.append('../lib');
-sys.path.append('../');
+sys.path.append('../lib')
+sys.path.append('../')
 import re
 import pyarabic.araby as araby
 import tashkeel_const
 import qalsadi.analex
 import aranasyn.anasyn 
+import aranasyn.syn_const 
 import asmai.anasem 
-import collocations.collocations as collocations
+import maskouk.collocations as coll
 import pyarabic.number
 import pyarabic.named
+import unknown_tashkeel
+from operator import and_
+from itertools import izip, count
+
 # to debug program
-debug= True;
+debug = True
 class TashkeelClass:
-	"""
+    """
         Arabic Tashkeel Class
-	"""
+    """
+    def __init__(self):
+        # to display internal messages for debugging
+        #~debug = False
+        # limit of words to vocalize, default value is 1000 words.
+        self.limit = 1000
+        
+        #  set the option value to enable the Last mark on voaclize 
+        # words in output
+        # default value is True, can be disabled for debuging porpus
+        self.enabled_last_mark = True
+        
+        # set the option to do statistical vocalization based 
+        # on collocations
+        # default value is True, can be disabled for debuging porpus
+        #self.enabled_stat_tashkeel = False    
+        self.enabled_stat_tashkeel = True   
+            
+        # set the option to show the collocations marks
+        # default value is False, can be enabled for debuging porpus
+        self.enabled_show_collocation_mark = False
+        
+        # set the option to use scoring teashkeel chosing.
+        self.select_by_score_enabled = False
+        # set the option to do syntaxic Analysis
+        # default value is True, can be disabled for debuging porpus
+        self.enabled_syntaxic_analysis = True
 
-	def __init__(self):
-		# to display internal messages for debugging
-		debug=False;
-		# limit of words to vocalize, default value is 1000 words.
-		self.limit=1000
-		
-		#  set the option value to enable the Last mark on voaclize words in output
-		# default value is True, can be disabled for debuging porpus
-		self.enabledLastMark= True;
-		
-		# set the option to do statistical vocalization based on collocations
-		# default value is True, can be disabled for debuging porpus
-		self.enabledStatTashkeel= True;	
-			
-		# set the option to show the collocations marks
-		# default value is False, can be enabled for debuging porpus
-		self.enabledShowCollocationMark= False;
-		
-		# set the option to use scoring teashkeel chosing.
-		self.selectByScoreEnabled= False;
-		# set the option to do syntaxic Analysis
-		# default value is True, can be disabled for debuging porpus
-		self.enabledSyntaxicAnalysis= True;
+        # set the option to do allow ajusting voaclization result, 
+        # for التقاء الساكنين
+        # default value is True, can be disabled for debuging porpus
+        self.enabled_ajust_vocalization = True        
 
-		# set the option to do allow ajusting voaclization result, for التقاء الساكنين
-		# default value is True, can be disabled for debuging porpus
-		self.enabledAjustVocalization=True;		
+        # set the option to do Semantic Analysis
+        # default value is True, can be disabled for debuging porpus        
+        self.enabled_semantic_analysis = True
 
-		# set the option to do Semantic Analysis
-		# default value is True, can be disabled for debuging porpus		
-		self.enabledSemanticAnalysis= True;
+        # enable the last mark (Harakat Al-I3rab) 
+        self.allow_syntax_last_mark = True 
 
-		# enable the last mark (Harakat Al-I3rab) 
-		self.allowSyntaxLastMark = True; 
+        # lexical analyzer
+        self.analyzer = qalsadi.analex.Analex()
+        self.analyzer.disable_allow_cache_use()
+        #~ self.analyzer.enable_allow_cache_use()
 
-		# lexical analyzer
-		self.analyzer=qalsadi.analex.analex();
+        # syntaxic analyzer
+        self.anasynt = aranasyn.anasyn.SyntaxAnalyzer()
+        # semantic analyzer
+        self.anasem = asmai.anasem.SemanticAnalyzer()        
+        #set the lexical analzer debugging
+        self.analyzer.set_debug(debug)
+        #set the lexical analzer  word limit
+        self.analyzer.set_limit(self.limit)
+        #collocations dictionary for statistical tashkeel
+        self.collo = coll.CollocationClass(self.enabled_show_collocation_mark)
+        
+        # unknown vocalizer for unrecognized words
+        self.unknown_vocalizer = unknown_tashkeel.UnknownTashkeel()
 
-		# syntaxic analyzer
-		self.anasynt=aranasyn.anasyn.SyntaxAnalyzer();
-		# semantic analyzer
-		self.anasem=asmai.anasem.SemanticAnalyzer();		
-		#set the lexical analzer debugging
-		self.analyzer.set_debug(debug);
-		#set the lexical analzer  word limit
-		self.analyzer.set_limit(self.limit);
-		#collocations dictionary for statistical tashkeel
-		self.collo = collocations.CollocationClass(self.enabledShowCollocationMark);
+    
+    def set_limit(self, limit):
+        """
+        set the limit length of words to vocalize
+        """
+        self.limit = limit
+        #set the lexical analzer  wrd limit
+        self.analyzer.set_limit(self.limit)
 
-	
-	def set_limit(self, limit):
-		"""
-		set the limit length of words to vocalize
-		"""
-		self.limit=limit;
-		#set the lexical analzer  wrd limit
-		self.analyzer.set_limit(self.limit);
+    def enable_stat_tashkeel(self):
+        """
+        Enable the stat tasheel option.
+        """
+        self.enabled_stat_tashkeel = True
+    def disable_stat_tashkeel(self):
+        """
+        disable the stat tasheel option.
+        """
+        self.enabled_stat_tashkeel = False
 
-	def enableStatTashkeel(self):
-		"""
-		Enable the stat tasheel option.
-		"""
-		self.enabledStatTashkeel=True;
-	def disableStatTashkeel(self):
-		"""
-		disable the stat tasheel option.
-		"""
-		self.enabledStatTashkeel= False;
-	def getEnabledStatTashkeel(self):
-		"""
-		return the  the stat tasheel option value.
-		@return: True if enabled, false else.
-		@rtype: boolean.
-		"""
-		return self.enabledStatTashkeel;
-	def enableShowCollocationMark(self):
-		"""
-		Enable the show the collocation mark option.
-		"""
-		self.enabledShowCollocationMark=True;
-		self.collo.enableShowDelimiter();
-	def disableShowCollocationMark(self):
-		"""
-		disable the show the collocation mark option.
-		"""
-		self.enabledShowCollocationMark = False;
-		self.collo.disableShowDelimiter();
-	def getEnabledShowCollocationMark(self):
-		"""
-		return the  the show the collocation mark option value.
-		@return: True if enabled, false else.
-		@rtype: boolean.
-		"""
-		return self.enabledShowCollocationMark;
-	def enableLastMark(self):
-		"""
-		Enable the last mark option.
-		"""
-		self.enabledLastMark=True;
-	def disableLastMark(self):
-		"""
-		disable the last mark vocalization  option.
-		"""
-		self.enabledLastMark=False;
-	def getEnabledLastMark(self):
-		"""
-		return the  the last mark vocalization option value.
-		@return: True if enabled, false else.
-		@rtype: boolean.
-		"""
-		return self.enabledLastMark;
-	def enableSyntaxicAnalysis(self):
-		"""
-		Enable the syntaxic analysis option.
-		"""
-		self.enabledSyntaxicAnalysis=True;
-	def disableSyntaxicAnalysis(self):
-		"""
-		disable the syntaxic analysis option.
-		"""
-		self.enabledSyntaxicAnalysis=False;
-	def getEnabledSyntaxicAnalysis(self):
-		"""
-		return the  the syntaxic analysis option value.
-		@return: True if enabled, false else.
-		@rtype: boolean.
-		"""
-		return self.enabledSyntaxicAnalysis;
-	def enableSemanticAnalysis(self):
-		"""
-		Enable the Semantic analysis option.
-		"""
-		self.enabledSemanticAnalysis=True;
-	def disableSemanticAnalysis(self):
-		"""
-		disable the Semantic analysis option.
-		"""
-		self.enabledSemanticAnalysis=False;
-	def getEnabledSemanticAnalysis(self):
-		"""
-		return the  the Semantic analysis option value.
-		@return: True if enabled, false else.
-		@rtype: boolean.
-		"""
-		return self.enabledSemanticAnalysis;
-		
-	def enableAjustVocalization(self):
-		"""
-		Enable the Ajust Vocalization option.
-		"""
-		self.enabledAjustVocalization=True;
-	def disableAjustVocalization(self):
-		"""
-		disable the Ajust Vocalization option.
-		"""
-		self.enabledAjustVocalization=False;
-	def getEnabledAjustVocalization(self):
-		"""
-		return the  the Ajust Vocalization option value.
-		@return: True if enabled, false else.
-		@rtype: boolean.
-		"""
-		return self.enabledAjustVocalization;
+    def disable_cache(self):
+        """
+        disable the morphological use of cache.
+        """
+        self.analyzer.disable_allow_cache_use()
 
-	def fullStemmer(self, text):
-		"""
-		Do the lexical, syntaxic  and semantic analysis of the text.
-		@param text: input text.
-		@type text: unicode.
-		@return: syntaxic and lexical tags.
-		rtype: list of list of stemmedSynWord class.
-		"""
-		result=[];
-		result=self.analyzer.check_text(text);
-		if self.getEnabledSyntaxicAnalysis():
-			result, synodelist = self.anasynt.analyze(result);
-			# in this stpe we can't do semantic analysis without syntaxic analysis
-			# we think it's can be done,
-			# To do: do semantic analysis without syntaxic one
-			if self.getEnabledSemanticAnalysis():
-				result = self.anasem.analyze(result);	
-		return result, synodelist;
+    def get_enabled_stat_tashkeel(self):
+        """
+        return the  the stat tasheel option value.
+        @return: True if enabled, false else.
+        @rtype: boolean.
+        """
+        return self.enabled_stat_tashkeel
+    def enable_show_collocation_mark(self):
+        """
+        Enable the show the collocation mark option.
+        """
+        self.enabled_show_collocation_mark = True
+        self.collo.enable_show_delimiter()
+    def disable_show_collocation_mark(self):
+        """
+        disable the show the collocation mark option.
+        """
+        self.enabled_show_collocation_mark = False
+        self.collo.disable_show_delimiter()
+    def get_show_collocation_mark(self):
+        """
+        return the  the show the collocation mark option value.
+        @return: True if enabled, false else.
+        @rtype: boolean.
+        """
+        return self.enabled_show_collocation_mark
+    def enable_last_mark(self):
+        """
+        Enable the last mark option.
+        """
+        self.enabled_last_mark = True
+    def disable_last_mark(self):
+        """
+        disable the last mark vocalization  option.
+        """
+        self.enabled_last_mark = False
+    def get_enabled_last_mark(self):
+        """
+        return the  the last mark vocalization option value.
+        @return: True if enabled, false else.
+        @rtype: boolean.
+        """
+        return self.enabled_last_mark
+    def enable_syntaxic_analysis(self):
+        """
+        Enable the syntaxic analysis option.
+        """
+        self.enabled_syntaxic_analysis = True
+    def disable_syntaxic_analysis(self):
+        """
+        disable the syntaxic analysis option.
+        """
+        self.enabled_syntaxic_analysis = False
+    def get_enabled_syntaxic_analysis(self):
+        """
+        return the  the syntaxic analysis option value.
+        @return: True if enabled, false else.
+        @rtype: boolean.
+        """
+        return self.enabled_syntaxic_analysis
+    def enable_semantic_analysis(self):
+        """
+        Enable the Semantic analysis option.
+        """
+        self.enabled_semantic_analysis = True
+    def disable_semantic_analysis(self):
+        """
+        disable the Semantic analysis option.
+        """
+        self.enabled_semantic_analysis = False
+    def get_enabled_semantic_analysis(self):
+        """
+        return the  the Semantic analysis option value.
+        @return: True if enabled, false else.
+        @rtype: boolean.
+        """
+        return self.enabled_semantic_analysis
+    def enable_ajust_vocalization(self):
+        """
+        Enable the Ajust Vocalization option.
+        """
+        self.enabled_ajust_vocalization = True
+    def disable_ajust_vocalization(self):
+        """
+        disable the Ajust Vocalization option.
+        """
+        self.enabled_ajust_vocalization = False
+    def get_enabled_ajust_vocalization(self):
+        """
+        return the  the Ajust Vocalization option value.
+        @return: True if enabled, false else.
+        @rtype: boolean.
+        """
+        return self.enabled_ajust_vocalization
 
-	def tashkeel(self,inputtext,suggestion=False, format='text'):
-		"""
-		Vocalize the text and give suggestion to improve tashkeel by user.
-		@param text: input text.
-		@type text: unicode.
-		@return: vocalized text.
-		rtype: dict of dict or text.
-		"""
-		inputtext = self.preTashkeel(inputtext);
-		# print "PreTashkeel", inputtext.encode('utf8');
-		# The statistical tashkeel must return a text.
-		#comment this after tests
-		if self.getEnabledStatTashkeel():
-			inputtext = self.statTashkeel(inputtext);
-	
-		#split texts into phrases to treat one phrase in time
-		texts=self.analyzer.splitIntoPhrases(inputtext);
-		# texts=[inputtext,]
-		vocalized_text=u"";
-		previous=None;
-		outputSuggestList=[]
-		ChosenList=[]	
-		suggestsList=[]	
-		for text in texts:
-			
-			#morpholigical analysis of text
-			detailled_syntax, synodelist = self.fullStemmer(text);
+    def full_stemmer(self, text):
+        """
+        Do the lexical, syntaxic  and semantic analysis of the text.
+        @param text: input text.
+        @type text: unicode.
+        @return: syntaxic and lexical tags.
+        rtype: list of list of stemmedSynWord class.
+        """
+        result = []
+        result = self.analyzer.check_text(text)
+        if self.get_enabled_syntaxic_analysis():
+            result, synodelist = self.anasynt.analyze(result)
+            # in this stpe we can't do semantic analysis without 
+            # syntaxic analysis
+            # we think it's can be done, 
+            # To do: do semantic analysis without syntaxic one
+            if self.get_enabled_semantic_analysis():
+                result = self.anasem.analyze(result)    
+        return result, synodelist
 
-			# calculate scores to enalbe chosing tashkeel by scoring
-			# if self.enabledSyntaxicAnalysis and self.enabledSemanticAnalysis:
-				# detailled_syntax = self.anasem.calculateScores(detailled_syntax);
+    def tashkeel(self, inputtext, suggestion = False, format_display = 'text'):
+        """
+        Vocalize the text and give suggestion to improve tashkeel by user.
+        @param text: input text.
+        @type text: unicode.
+        @return: vocalized text.
+        rtype: dict of dict or text.
+        """
+        inputtext = self.pre_tashkeel(inputtext)
+        #print "PreTashkeel", inputtext.encode('utf8')
+        # The statistical tashkeel must return a text.
+        #comment this after tests
+        if self.get_enabled_stat_tashkeel():
+            inputtext = self.stat_tashkeel(inputtext)
+        #print "statTashkeel", inputtext.encode('utf8')
+        #split texts into phrases to treat one phrase in time
+        #~texts = self.analyzer.split_into_phrases(inputtext)
+        texts = [inputtext, ]
+        #~print u" \n".join(texts).encode('utf8')
+        vocalized_text = u""
+        previous = None
+        output_suggest_list = []
+        _chosen_list = []    
+        suggests_list = []    
+        for text in texts:
+            #morpholigical analysis of text
+            detailled_syntax, synodelist = self.full_stemmer(text)
+            previous = None
+            next_node = None
+            pre_node = None
+            previous_index = False
+            previous_case_index = False
+            # reduce cases
+            for current_index, word_cases_list, current_synode  in izip(count(),detailled_syntax, synodelist):
+                #~ word_cases_list = detailled_syntax[current_index]
+                if current_index - 1 >= 0 :
+                    pre_node = synodelist[current_index-1]
+                else:
+                    pre_node =None
+                if current_index + 1 < len(detailled_syntax) : 
+                    next_node = synodelist[current_index+1]
+                else:
+                    next_node = None
+                
+                if previous_index  and previous_case_index:
+                    previous = detailled_syntax[previous_index][previous_case_index]
+                # reduce cases 
+                self.__reduce_cases(word_cases_list, current_synode,  
+                previous, pre_node, next_node)
 
-			previous = None;
-			nextNode = None;
-			preNode  = None;
-			for wordCasesList in detailled_syntax:
+            # choose tashkeel
+            
+            for current_index, word_cases_list, current_synode  in izip(count(),detailled_syntax, synodelist):
+                #~ word_cases_list = detailled_syntax[current_index]
+                if current_index - 1 >= 0 :
+                    pre_node = synodelist[current_index-1]
+                else:
+                    pre_node =None
+                if current_index + 1 < len(detailled_syntax) : 
+                    next_node = synodelist[current_index+1]
+                else:
+                    next_node = None
+                
+                if previous_index  and previous_case_index:
+                    previous = detailled_syntax[previous_index][previous_case_index]
+                # choose a tashkeel 
+                current_chosen_case_index = self.__choose_tashkeel(word_cases_list, current_synode,  
+                previous, pre_node, next_node)
+                #~print current_chosen_case_index, len(detailled_syntax[current_index]), current_index
+                # ajust tanwin case
+                # if previous and previous.canhave_tanwin() and not 
+                # self.anasynt.is_related(previous, current_chosen):
+                    # vocalized_text += "1"
+                    # _chosen_list[len(_chosen_list)-1].ajust_tanwin() 
+                # o ajust relation between words
+                # if the actual word is transparent don't change the previous
+                # add this to Sytaxic Analyser
+                current_chosen = word_cases_list[current_chosen_case_index]
+                if not current_chosen.is_transparent():
+                    previous_index = current_index 
+                    previous_case_index = current_chosen_case_index 
+                    previous = current_chosen
+                _chosen_list.append(current_chosen)
 
-				#wordCasesList = self.anasynt.exclode_cases(wordCasesList)
-				currentChosen = self.choose_tashkeel(wordCasesList,previous,preNode, nextNode);
-				# ajust tanwin case
-				# if previous and previous.canHaveTanwin() and not self.anasynt.isRelated(previous, currentChosen):
-					# #vocalized_text+="1";
-					# ChosenList[len(ChosenList)-1].ajustTanwin(); 
-				# o ajust relation between words
-				# if the actual word is transparent don't change the previous
-				# add this to Sytaxic Analyser
-				if not currentChosen.isTransparent():
-					previous = currentChosen;
-				ChosenList.append(currentChosen);
+                # create a suggest list
+                #~ suggest = [item.get_vocalized() for item in word_cases_list]
+                suggest = current_synode.get_vocalizeds()
+                #~for item in word_cases_list:
+                    #~# ITEM IS A stemmedSynWord instance
+                    #~voc = item.get_vocalized()
+                    #~suggest.append(voc)
+                    # if item.canhave_tanwin():
+                        # # يمكن لهذا أن يولد صيغا جديدة بها تنوي
+                        # # في بعض الحالات قد لا يكون شيئا جديدا 
+ # # نقارنه مع الكلمة السابقة منوّنة
+# ومن ثمّ نقرر إضافتها أولا
+                        # item.ajust_tanwin()
+                        # vocTnwn = item.get_vocalized()
+                        # if vocTnwn! = voc:
+                            # suggest.append(vocTnwn)
+                #~ suggest = list(set(suggest))
+                #~ suggest.sort()
+                suggests_list.append(suggest)
+        output_suggest_list = []
+        #create texts from chosen cases
+        privous_order = -1
+        previous = -1
+        for i, current_chosen in enumerate(_chosen_list):
+            word = _chosen_list[i].get_vocalized()
+            semivocalized = _chosen_list[i].get_semivocalized()
+            #word without inflection mark
+            inflect = u":".join([_chosen_list[i].get_type() , _chosen_list[i].get_tags_to_display()] ) 
+            if previous >= 0:
+                relation = _chosen_list[i].get_previous_relation(_chosen_list[previous].get_order())
+            else: 
+                relation = 0
+            #get the title of relation
+            relation = aranasyn.syn_const.DISPLAY_RELATION.get(relation, "")  
+            #get the rule number
+            selection_rule = _chosen_list[i].get_rule()  
+                       
+            # omit the last haraka if the option LastMark is False
+            if not self.get_enabled_last_mark():
+                vocalized_text = u" ".join([vocalized_text, self.display(word, format_display)])
+            else:
+                #semivocalized 
+                vocalized_text = u" ".join([vocalized_text, self.display(semivocalized, format_display)])
+            output_suggest_list.append({'chosen':word, 'semi':semivocalized, 
+            'suggest':u";".join(suggests_list[i]), 'inflect':inflect, "link":relation, 'rule':selection_rule})
+            # save the current chosen as a previous
+            previous = i
 
-				# create a suggest list
-				suggest=[];
-				for item in wordCasesList:
-					# ITEM IS A stemmedSynWord instance
-					voc=item.getVocalized();
-					suggest.append(voc);
-					# if item.canHaveTanwin():
-						# # يمكن لهذا أن يولد صيغا جديدة بها تنوي
-						# # في بعض الحالات قد لا يكون شيئا جديدا 
-						# # نقارنه مع الكلمة السابقة منوّنة ومن ثمّ نقرر إضافتها أولا
-						# item.ajustTanwin();
-						# vocTnwn = item.getVocalized()
-						# if vocTnwn!=voc:
-							# suggest.append(vocTnwn);
-				suggest.sort();
-				suggestsList.append(suggest);
-		outputSuggestList=[]
-		#create texts from chosen cases
-		for i in range(len(ChosenList)):
-			word = ChosenList[i].getVocalized();
-			# omit the last haraka if the option LastMark is False
-			if not self.getEnabledLastMark():
-				word = araby.stripLastHaraka(word);
-			vocalized_text=u" ".join([vocalized_text,self.display(word,format)]);
-			outputSuggestList.append({'chosen':word,'suggest':u";".join(suggestsList[i])});
-		
-		# correct the resulted text to ajust some case of consonant neighbor
-		#معالجة حالات التقاء الساكنين
-		if self.getEnabledAjustVocalization():
-			vocalized_text = self.ajustVocalizedResult(vocalized_text);
-		if suggestion:
-			outputSuggestList = self.ajustVocalizedSuggestionResult(outputSuggestList);
-			return outputSuggestList;
-		else:
-			return vocalized_text;
+        # correct the resulted text to ajust some case of consonant neighbor
+        #معالجة حالات التقاء الساكنين
+        if self.get_enabled_ajust_vocalization():
+            vocalized_text = self._ajust_vocalized_result(vocalized_text)
+        if suggestion:
+            output_suggest_list = self.ajust_vocalized_suggestion(output_suggest_list)
+            return output_suggest_list
+        else:
+            return vocalized_text
 
-	def choose_tashkeel(self, currentCasesList, previousChosenCase=None, preNode=None, nextNode=None):
-		"""
-		Choose a tashkeel for the current word, according to the previous one.
-		@param : list of steming result of the word.
-		@type currentCasesList: list of stemmedSynword;
-		@param : the choosen previous word stemming.
-		@type previousChosenCase:stemmedSynword;
-		@return: the choosen stemming of the current word.
-		@rtype:stemmedSynword.
-		"""
-		# toDo
-		#currentCasesList = self.anasynt.isRelated(previousChosenCase,currentCasesList);
+    def tashkeel_ouput_html_suggest(self, text):
+        """
+        Vocalize the text and give suggestion to improve tashkeel by user.
+        @param text: input text.
+        @type text: unicode.
+        @return: vocalized text.
+        rtype: dict of dict.
+        """
+        return self.tashkeel(text, suggestion = True, format_display = "html")
+    def tashkeel_output_text(self, text):
+        """
+        Vocalize the text witthout suggestion
+        @param text: input text.
+        @type text: unicode.
+        @return: vocalized text.
+        rtype: text.
+        """
+        return self.tashkeel(text, suggestion = False, format_display = "text")
+    def _ajust_vocalized_result(self, text):
+        """
+        Ajust the resulted text after vocalization to correct some case 
+        like 'meeting of two queiscents = ألتقاء الساكنين'
+        @param text: vocalized text
+        @type text: unicode
+        @return: ajusted text.
+        @rtype: unicode
+        """
+        # min = > mina
+        text = re.sub(ur'\sمِنْ\s+ا', u' مِنَ ا', text)
+        # man = > mani
+        text = re.sub(ur'\sمَنْ\s+ا', u' مَنِ ا', text)
+        #An = > ani
+        text = re.sub(ur'\sعَنْ\s+ا', u' عَنِ ا', text)
+        #sukun + alef = > kasra +alef
+        text = re.sub(ur'\s%s\s+ا'%araby.SUKUN, u' %s ا' % araby.SUKUN, text)
+        #ajust pounctuation
+        text = re.sub(ur" ([.?!, :)”—]($| ))", ur"\1", text)
+        #binu = > bin 
+        # temporary, to be analysed by syntaxical analyzer
+        text = re.sub(ur'\sبْنُ\s', u' بْن ', text)        
+        # # # اختصارات مثل حدثنا إلى ثنا وه تكثر في كتب التراث
+        # text = re.sub(ur'\seثِنَا\s', u' ثَنَا ', text)        
+        return text
 
-		# select the first chosen tashkeel
-		# if len(currentCasesList)>0:
-			# chosen= currentCasesList[0];
-		chosen    = None;
-		previous =previousChosenCase;
-		# test selct by score
-		if self.selectByScoreEnabled:
-			chosen = self.selectByScore(currentCasesList, previous);
-			if chosen: return chosen 
-		chosen = False;
-		# and lets other methode to choices by semantic and syntaxic
-		if not previous or previous.isInitial():
-			currentCasesList = self.filterForInitial(currentCasesList)
+    def ajust_vocalized_suggestion(self, _suggest_list):
+        """
+        Ajust the resulted text after vocalization to correct some case 
+        like 'meeting of two queiscents = ألتقاء الساكنين'
+        @param text: _suggest_list
+        @type text: list of dict of unicode
+        @return: _suggest_list.
+        @rtype: list of dict of unicode
+        """
+        for i in range(len(_suggest_list)-1):
+            if _suggest_list[i]['chosen'] in (u'مَنْ', u'مِنْ', u'عَنْ'):
+                if i+1 < len(_suggest_list) and \
+                _suggest_list[i+1].has_key('chosen') \
+                and _suggest_list[i+1]['chosen'].startswith(araby.ALEF):
+                    if _suggest_list[i]['chosen'] == u'مِنْ':
+                        _suggest_list[i]['chosen'] = u'مِنَ'
+                    elif _suggest_list[i]['chosen'] == u'عَنْ':
+                        _suggest_list[i]['chosen'] = u'عَنِ'
+                    elif _suggest_list[i]['chosen'] == u'مَنْ':
+                        _suggest_list[i]['chosen'] = u'مَنِ'
+            # if _suggest_list[i]['chosen'] == u'بْنُ':
+                # _suggest_list[i]['chosen'] = u'بْن'
+        return _suggest_list
 
-		# print "before Semantic", len(currentCasesList)
-		if  self.getEnabledSyntaxicAnalysis() and self.getEnabledSemanticAnalysis():
-			currentCasesList = self.filterBySemantic(currentCasesList, previous)
+    def display(self, word, format_display = "text"):
+        """
+        format the vocalized word to be displayed on web interface.
+        @param word: input vocalized word.
+        @type word: unicode.
+        @return: html code.
+        rtype: unicode.
+        """
+        format_display = format_display.lower()
+        if format_display == "html":
+            return u"<span id='vocalized' class='vocalized'>%s</span>" % word
+        elif format_display == 'text':
+            return word
+        else:
+            return word
 
-		# filter results accorind to  word frequency
-		# print "After Semantic", len(currentCasesList)		
-		if  self.getEnabledSyntaxicAnalysis():
-			currentCasesList = self.filterBySyntaxic(currentCasesList, previous)
-			# print "After Syntax", len(currentCasesList)
-			currentCasesList = self.frequencyFilter(currentCasesList);
-		# print "After Frequency", len(currentCasesList)
-		#todo select the evident case if exists.
-		forced=False;
-		# How to choose a vocalized case
-		# and lets other methode to choices by semantic and syntaxic
-		# choose a case is a stop, word and has next relation					
-		if   self.getEnabledSyntaxicAnalysis():
-			if not chosen:
-				for current in currentCasesList:
-					if current.isStopWord() and current.hasNext():
-						chosen=current;
-						break; 
+    def assistanttashkeel(self, text):
+        """
+        Vocalize the text.
+        @param text: input text.
+        @type text: unicode.
+        @return: vocalized text.
+        rtype: unicode.
+        """    
+        detailled_syntax = self.full_stemmer(text)
+        vocalized_text = u""
 
-		# choose a case with two semantic  relation previous and next
-		if   self.getEnabledSyntaxicAnalysis() and self.getEnabledSemanticAnalysis():
-			for current in currentCasesList:
-				if self.anasem.isRelated(previous, current) and current.hasSemNext():
-					chosen=current
-					break; 
-			# choose a case with one semantic  relation previous, and the previous has a syntaxic relation
-			if not chosen:
-				for current in currentCasesList:
-					if self.anasem.isRelated(previous, current) and previous.hasNext():
-						chosen=current
-						break; 
-			# choose a case with one semantic  relation previous
-			if not chosen:
-				for current in currentCasesList:
-					if self.anasem.isRelated(previous, current):
-						chosen=current
-						break; 
-			# choose a case with one semantic  relation  next with a syntaxic relation between previous and current					
-			if not chosen:
-				for current in currentCasesList:
-					if self.anasynt.isRelated(previous, current) and current.hasSemNext():
-						chosen=current;
-						break; 
-			# choose a case with one semantic  relation  next					
-			if not chosen:
-				for current in currentCasesList:
-					if  current.hasSemNext():
-						# print "15", current.getVocalized().encode('utf8');
-						chosen=current;
-						break; 
-		if  self.getEnabledSyntaxicAnalysis():
-			# choose a case with two syntaxic  relation previous and next					
-			if not chosen :
-				for current in currentCasesList:
-					if self.anasynt.isRelated(previous, current) and current.hasNext() and not current.isPassive():
-						chosen=current;
-						break;
-				else:
-					for current in currentCasesList:
-						if self.anasynt.isRelated(previous, current) and current.hasNext():
-							chosen=current;
-							break;
-					else:
-					# choose a case with one syntaxic  relation previous 
-					#select active voice
-						for current in currentCasesList:
-							if self.anasynt.isRelated(previous, current) and not current.isPassive():
-								chosen=current;
-								break;
-						else:
-			#select passive voice
-							for current in currentCasesList:
-								if self.anasynt.isRelated(previous, current) :
-									chosen=current;
-									break; 						
-			# choose a case with one syntaxic  relation next										
-			if not chosen:
-				for current in currentCasesList:
-					if current.hasNext():
-						chosen=current;
-						break; 
-				else:
-				#---------------------------
-				#no relation no nexts
-				#----------------------------
-				# choose a case of stop word
-					for current in currentCasesList:
-						if current.isStopWord():
-							# print "25"
-							# # if previous: previous.vocalized+="*";
-							chosen=current;
-							break; 
-					else:
-				# choose a case with mansoub Noun
-						for current in currentCasesList:
-							if current.isNoun() and current.isMansoub():
-								chosen=current;
-								break; 
-						else:
-						# choose a case marfou3 verb
-							for current in currentCasesList:
-								if current.isVerb() and not current.isPassive() and current.isMarfou3():
-									chosen=current;
-									break; 
-							else:
-							# choose a case verb
-								for current in currentCasesList:
-									if current.isVerb() and not current.isPassive()and (current.isMarfou3() or current.isPast()):
-										chosen=current;
-										break; 
-								else:
-								# choose a case marfou3 verb if there are no active voice
-									for current in currentCasesList:
-										if current.isVerb():
-											chosen=current;
-											break;
-		if not chosen and len(currentCasesList)>0:
-			chosen= currentCasesList[0];		
-		return chosen;
-		
-	def choose_tashkeel222222222222(self, currentCasesList, previousChosenCase=None, NextCasesList=None):
-		"""
-		Choose a tashkeel for the current word, according to the previous one.
-		@param currentCasesList: list of steming result of the word.
-		@type currentCasesList: list of stemmedSynword;
-		@param : the chosen previous word stemming.
-		@type previousChosenCase:stemmedSynword;
-		@return: the chosen stemming of the current word.
-		@rtype:stemmedSynword.
-		"""
+        for word_analyze_list in detailled_syntax:
+            # o ajust relation between words 
+            #previous = word_stemming_dict
+            for item in word_analyze_list:
+                voc = item.get_vocalized()
+                #~vocalized_text = u"".join([vocalized_text, voc])
+                vocalized_text = u" ".join([vocalized_text, voc])
+        return vocalized_text
 
-		# select the first chosen tashkeel
-		if not currentCasesList:
-			return None;
-		lenCCS =len(currentCasesList); # Len CCS
-		
-		# if there are one case only
-		if lenCCS==1:
-			chosen= currentCasesList[0];
-			return chosen;
-		
-		chosen    =None;
-		previous =previousChosenCase;
-		
-		# test selct by score
-		if self.selectByScoreEnabled:
-			chosen = self.selectByScore(currentCasesList, previous);
-			if chosen: return chosen 
-
-		# and lets other methode to choices by semantic and syntaxic
-		# if not previous or previous.isInitial():
-			# currentCasesList = self.filterForInitial(currentCasesList)
-		# print "before Semantic", len(currentCasesList)
-		#currentCasesList = self.filterBySemantic(currentCasesList, previous)
-		# filter results accorind to  word frequency
-		# print "After Semantic", len(currentCasesList)		
-		#currentCasesList = self.filterBySyntaxic(currentCasesList, previous)
-		# print "After Syntax", len(currentCasesList)
-		#currentCasesList = self.frequencyFilter(currentCasesList);
-		# print "After Frequency", len(currentCasesList)
-
-
-		#todo select the evident case if exists.
-		forced  = False;
-
-
-		# How to choose a vocalized case
-		# and lets other methode to choices by semantic and syntaxic
-		# choose a case is a stopword and has next relation
-		if not chosen:
-			for current in currentCasesList:
-				if current.isStopWord() and current.hasNext():
-					chosen=current;
-					break; 
-
-		if not chosen:
-			chosenList=[];
-			if not previous or previous.isInitial():
-				condidateSemList= [] # semantic previous
-				#condidateSynList= [] # syntaxic previous			
-				condidateSynList=[i for i in range(lenCCS) if currentCasesList[i].hasPrevious()]
-				print 'initial cases', len(condidateSynList)
-			else: #if previous:
-				condidateSemList= previous.getSemNext();  # semantic previous
-				condidateSynList= previous.getNext();  # syntaxic previous			
-
-			condidateSemSemList=[]; #semantic previous semantic Next
-			condidateSemSynList=[]; #semantic previous syntaxic Next
-			condidateSynSemList=[]; #syntaxic previous semantic Next 
-			condidateSynSynList=[]; #syntaxic previous syntaxic Next 			
-			condidateNextSemList=[]; # only semantic Next 
-			condidateNextSynList=[]; # only syntaxic Next 
-
-			# look up for semantic semantic and semantic syntaxic 
-			for i in condidateSemList:
-				# one relation with previous
-				if i<len(currentCasesList) and currentCasesList[i].hasNext():
-				#one relation with a next
-					condidateSemSynList.append(i); # semantic previous syntaxic Next				
-					if currentCasesList[i].hasSemNext():
-					#one relation with a next
-						condidateSemSemList.append(i); # semantic previous semantic Next
-
-			#lookup for syntaxic syntaxic and syntaxic semantic
-
-			if condidateSynList and max(condidateSynList)>lenCCS:
-				print "Warrning,----------------------------"
-				print 'Nexts',condidateSynList;
-				print 'curre',
-				print hash(previous),previous.getWord().encode('utf8'),currentCasesList[0].getWord().encode('utf8');
-				for i in range(lenCCS):
-					print i,':',currentCasesList[i].getOrder(),',',
-				print ;
-
-			for i in condidateSynList:
-				#print condidateSynList, i, len(currentCasesList), #currentCasesList[i].getOrder();
-				# one relation with previous
-				if i<len(currentCasesList) and  currentCasesList[i].hasNext():
-				#one relation with a next
-					condidateSynSynList.append(i); # syntaxic previous syntaxic Next
-					if currentCasesList[i].hasSemNext():
-					#one relation with a next
-						condidateSynSemList.append(i); # syntic previous semantic Next
-
-			#look up for Cases with only next smeantic or only next syntaxic
-			for i in range(lenCCS):
-				# one relation with previous
-				if currentCasesList[i].hasNext():
-				#one relation with a next
-					condidateNextSynList.append(i); # syntaxic Next				
-					if currentCasesList[i].hasSemNext():
-					#one relation with a next
-						condidateNextSemList.append(i); # semantic Next
-
-			# priority to choose a table of cases
-			#
-			# previous/next	semantic	syntaxic	Not
-			# semantic		1			2			3
-			# syntaxic		4			6			7
-			# not			5			8			9
-			#1
-			if condidateSemSemList:
-				chosenList= condidateSemSemList;
-			#2
-			elif condidateSemSynList:
-				chosenList= condidateSemSynList;
-			#3
-			elif condidateSemList:
-				chosenList= condidateSemList;
-			#4
-			elif condidateSynSemList:
-				chosenList= condidateSynSemList;
-			#5
-			elif condidateNextSemList:
-				chosenList= condidateNextSemList;
-			#6
-			elif condidateSynSynList:
-				chosenList= condidateSynSynList;
-			#7
-			elif condidateSynList:
-				chosenList= condidateSynList;
-			#8
-			elif condidateNextSynList:
-				chosenList= condidateNextSynList;
-			#9
-			else:
-				chosenList=[];
-			# look for a best case in condidates
-			if chosenList:
-				#to do select
-				# temporary
-				if debug: 
-					print "chosen", len(chosenList), round(float(len(chosenList))*100/len(currentCasesList)), len(currentCasesList)
-					for i in chosenList:
-						print '\t', currentCasesList[i].getVocalized().encode('utf8'), currentCasesList[i].getFreq(),currentCasesList[i].isForcedCase()
-				if chosenList[0]<len(currentCasesList): #valid cases
-					if len(chosenList)==1:
-						chosen = currentCasesList[chosenList[0]]
-					else:
-					#temporary
-					#To do: use another method to select case
-					# 1- Select high frequency
-						highScore =     currentCasesList[chosenList[0]].getFreq();
-						highScoreIndex = chosenList[0]
-						for i in chosenList:
-							if currentCasesList[i].getFreq()>highScore:
-								highScore      = currentCasesList[chosenList[0]].getFreq();
-								highScoreIndex = chosenList[0]
-						chosen = currentCasesList[highScoreIndex]
-				else: #warning chosen tashkeel out of range
-					print "warning: chosen tashkeel out of range";
-
-		#---------------------------
-		#no relation no nexts
-		#----------------------------
-		#choose a case of stop word
-		# and lets other methode to choices by semantic and syntaxic
-		if not previous or previous.isInitial():
-			currentCasesList = self.filterForInitial(currentCasesList)
-		# print "before Semantic", len(currentCasesList)
-		currentCasesList = self.filterBySemantic(currentCasesList, previous)
-		# filter results accorind to  word frequency
-		# print "After Semantic", len(currentCasesList)		
-		currentCasesList = self.filterBySyntaxic(currentCasesList, previous)
-		# print "After Syntax", len(currentCasesList)
-		currentCasesList = self.frequencyFilter(currentCasesList);
-		# print "After Frequency", len(currentCasesList)
-		if not chosen:
-			for current in currentCasesList:
-				if current.isStopWord():
-					chosen=current;
-					break; 
-			else:
-			# choose a case with marfou3 verb
-				for current in currentCasesList:
-					if current.isNoun() and current.isMansoub():
-						chosen=current;
-						break; 
-				else:
-					for current in currentCasesList:
-						if current.isVerb():
-							if current.isPresent()  and not current.isPassive() and not (current.isMansoub() or current.isMajzoum()) :
-								chosen=current;
-								break;
-							elif current.isPast() and not current.isPassive():
-								chosen=current;
-								break;
-		if not chosen and len(currentCasesList)>0:
-			chosen= currentCasesList[0];
-		return chosen;
-	def selectByScore(self,word_analyze_list, previous):
-		"""
-		Choose the word according a score estimation
-		@param word_analyze_list: list of steming result of the word.
-		@type word_analyze_list: list of  stemmedSynWord;
-		@param previous: previous word.
-		@type previous: stemmedSynWord;		
-		@return: filtred list of stemming result.
-		@rtype: list of stemmedSynWord.
-		"""	
-
-		#choose by score
-		chosen = False;
-		highScore = 0;
-		# if previous has next, we choose from nexts only,
-		# else we choose the highscore from the current word case
-		if previous and (previous.hasNext() or previous.hasSemNext()):
-			for current in word_analyze_list:
-				currentScore = current.getScore();
-				# if the current is related to previous
-				# if not self.anasem.isRelated(previous, current)  and not  self.anasynt.isRelated(previous, current):
-					# currentScore = 0;
-				if self.anasem.isRelated(previous, current)  or  self.anasynt.isRelated(previous, current) :
-					if currentScore > highScore:
-						highScore = currentScore;
-						chosen = current;
-		else:
-			for current in word_analyze_list:
-				currentScore = current.getScore();
-				if  currentScore > highScore:
-					highScore = currentScore;
-					chosen = current;
-			
-		return chosen;
-
-		
+    def pre_tashkeel(self, text):
+        """
+        Vocalize the text by evident cases and by detecting numbers clauses
+        @param text: input text.
+        @type text: unicode.
+        @return: statisticlly vocalized text.
+        rtype: unicode.
+        """
+        # get the word list
+        # اختصارات مثل حدثنا إلى ثنا وه تكثر في كتب التراث
+        for abr in tashkeel_const.CorrectedTashkeel.keys():
+            text = re.sub(ur"\s%s\s"%abr, ur" %s " % \
+            tashkeel_const.CorrectedTashkeel[abr], text)
+        wordlist = self.analyzer.tokenize(text)
+        prevocalized_list = pyarabic.number.pre_tashkeel_number(wordlist)
+        #prevocalized_list = wordlist
+        #Todo ajust prevocalization of named enteties
+        #if len(prevocalized_list) != len(wordlist):
+            #print "nb", u"+".join(prevocalized_list)
+        #prevocalized_list = pyarabic.named.pretashkeel_named(prevocalized_list)
+        #print "nmd", u"@".join(prevocalized_list)
+        return u" ".join(prevocalized_list)
 
 
-	def filterBySemantic(self, word_analyze_list, previous):
-		"""
-		filter results according to the word semantic relation
-		@param word_analyze_list: list of steming result of the word.
-		@type word_analyze_list: list of  stemmedSynWord;
-		@param previous: previous word.
-		@type previous: stemmedSynWord;		
-		@return: filtred list of stemming result.
-		@rtype: list of stemmedSynWord.
-		"""	
-		tempList=[]
-		for current in word_analyze_list:
-			if  self.anasem.isRelated(previous, current):
-				tempList.append(current);
-			elif current.hasSemNext() or current.isStopWord():
-				tempList.append(current);
-		if tempList: return tempList;
-		else: return word_analyze_list;
+    def stat_tashkeel(self, text):
+        """
+        Vocalize the text by statistical method according to the collocation dictionary
+        @param text: input text.
+        @type text: unicode.
+        @return: statisticlly vocalized text.
+        rtype: unicode.
+        """
+        text = self.collo.lookup4long_collocations(text)
 
-	def filterForInitial(self, word_analyze_list):
-		"""
-		filter results according to the initial position in the sentence
-		@param word_analyze_list: list of steming result of the word.
-		@type word_analyze_list: list of  stemmedSynWord;
-		@return: filtred list of stemming result.
-		@rtype: list of stemmedSynWord.
-		"""	
-		tempList=[]
-		for current in word_analyze_list:
-			if  current.isStopWord():
-				tempList.append(current);
-			elif current.isMarfou3() and not current.isPassive(): # noun or verb
-				tempList.append(current);
-			elif current.isPast():
-				tempList.append(current);	
-		if tempList: return tempList;
-		else: return word_analyze_list;		
-	def filterBySyntaxic(self, word_analyze_list, previous):
-		"""
-		filter results according to the word syntaxic relation
-		@param word_analyze_list: list of steming result of the word.
-		@type word_analyze_list: list of  stemmedSynWord;
-		@param previous: previous word.
-		@type previous: stemmedSynWord;		
-		@return: filtred list of stemming result.
-		@rtype: list of stemmedSynWord.
-		"""	
-		tempList=[]
-		for current in word_analyze_list:
-			if  self.anasynt.isRelated( previous, current):
-				tempList.append(current);
-			if  current.isStopWord():
-				tempList.append(current);
-			elif current.hasNext():
-				tempList.append(current);
-		if tempList: return tempList;
-		else: return word_analyze_list;
-
-	def frequencyFilter(self, word_analyze_list):
-		"""
-		filter results according to the word frequency
-		@param : list of steming result of the word.
-		@type word_analyze_list: list of dict;
-		@return: filtred list of stemming result.
-		@rtype: list of stemmedSynWord.
-		"""	
-		if word_analyze_list:
-			chosen= word_analyze_list[0];
-		else: return None;
-		# select according to  word frequency
-		freq=0;
-		chosenFreq=0;
-		#first chose the frequncy
-		for item_dict in word_analyze_list:
-			freq=item_dict.getFreq();
-			if freq>=chosenFreq:
-				chosenFreq=freq;
-				
-		newList=[];
-		#sort the stemmed words
-		# endlist is used to add forced case in the end of the list
-		endList=[];
-		for item_dict in word_analyze_list:
-			# select max frequency
-			if item_dict.getFreq()==chosenFreq:
-				newList.append(item_dict);
-			# add the forced cases
-			elif  self.getEnabledSyntaxicAnalysis() and item_dict.isForcedCase() or item_dict.isForcedWordType() or item_dict.isStopWord():
-				endList.append(item_dict);
-		newList+=endList;
-		return newList;
-
-	def tashkeelOuputHtmlSuggest(self,text):
-		"""
-		Vocalize the text and give suggestion to improve tashkeel by user.
-		@param text: input text.
-		@type text: unicode.
-		@return: vocalized text.
-		rtype: dict of dict.
-		"""
-		return self.tashkeel(text,suggestion=True, format="html");
-		
-		
-	def tashkeelOutputText(self,text):
-		"""
-		Vocalize the text witthout suggestion
-		@param text: input text.
-		@type text: unicode.
-		@return: vocalized text.
-		rtype: text.
-		"""
-		return self.tashkeel(text,suggestion=False, format="text");
-
-	def ajustVocalizedResult(self, text):
-		"""
-		Ajust the resulted text after vocalization to correct some case like 'meeting of two queiscents= ألتقاء الساكنين'
-		@param text: vocalized text
-		@type text: unicode
-		@return: ajusted text.
-		@rtype: unicode
-		"""
-		# min => mina
-		text= re.sub(ur'\sمِنْ\s+ا', u' مِنَ ا', text);
-		# man => mani
-		text= re.sub(ur'\sمَنْ\s+ا', u' مَنِ ا', text);
-		#An => ani
-		text= re.sub(ur'\sعَنْ\s+ا', u' عَنِ ا', text);
-		#sukun + alef => kasra +alef
-		text= re.sub(ur'\s%s\s+ا'%araby.SUKUN, u' %s ا'%araby.SUKUN, text);		
-		#ajust pounctuation
-		text= re.sub(ur" ([.?!,:;)”—]($| ))", ur"\1", text);
-		#binu => bin 
-		# temporary, to be analysed by syntaxical analyzer
-		text= re.sub(ur'\sبْنُ\s', u' بْن ', text);		
-		# # # اختصارات مثل حدثنا إلى ثنا وه تكثر في كتب التراث
-		# text= re.sub(ur'\seثِنَا\s', u' ثَنَا ', text);		
-		return text;
-
-	def ajustVocalizedSuggestionResult(self, SuggestList):
-		"""
-		Ajust the resulted text after vocalization to correct some case like 'meeting of two queiscents= ألتقاء الساكنين'
-		@param text: SuggestList
-		@type text: list of dict of unicode
-		@return: SuggestList.
-		@rtype: list of dict of unicode
-		"""
-		for i in range(len(SuggestList)-1):
-			if SuggestList[i]['chosen'] in (u'مَنْ', u'مِنْ', u'عَنْ'):
-				if i+1<len(SuggestList) and SuggestList[i+1].has_key('chosen') and SuggestList[i+1]['chosen'].startswith(araby.ALEF):
-					if SuggestList[i]['chosen']==u'مِنْ':
-						SuggestList[i]['chosen']=u'مِنَ'
-					elif SuggestList[i]['chosen']==u'عَنْ':
-						SuggestList[i]['chosen']=u'عَنِ'
-					elif SuggestList[i]['chosen']==u'مَنْ':
-						SuggestList[i]['chosen']=u'مَنِ'
-			# if SuggestList[i]['chosen'] == u'بْنُ':
-				# SuggestList[i]['chosen'] = u'بْن'
-		return SuggestList;
-		
+        # get the word list
+        wordlist = self.analyzer.tokenize(text)
+        # use a list as a stack, 
+        # give two element from the end.
+        # test the tow elements if they are collocated, 
+        # if collocated return the vocalized text
+        # if else, delete the last element, and return the other to the list.
+        newlist, taglist = self.collo.lookup(wordlist)
+        #todo: return a text from the statistical tashkeel
+        return  u" ".join(newlist)
 
 
+    # new version of choose tashkeel 
+    # first we use indexes instead of stemmedsynword object
+    #~ def __choose_tashkeel_algo2(self, caselist, previous_chosen_case = None,
+    def __choose_tashkeel(self, caselist, current_synode, previous_chosen_case = None,
+     pre_node = None, next_node = None):
+        """
+        Choose a tashkeel for the current word, according to the previous one.
+        A new algorithm
+        @param : list of steming result of the word.
+        @type caselist: list of stemmedSynword
+        @param : the choosen previous word stemming.
+        @type previous_chosen_case:stemmedSynwordhg 
+        @return: the choosen stemming of the current word.
+        @rtype:stemmedSynword.
+        """
+        
+        chosen = None
+        chosen_index = False
+        rule = 0
+        previous = previous_chosen_case
+        pre_relation = 0
+        debug = False
+        #~ debug = True
+        if next_node:
+            next_chosen_indexes = next_node.get_chosen_indexes()
+        else:
+            next_chosen_indexes = None            
+        #~ debug = True
+        # How to choose a vocalized case
+        # and lets other methode to choices by semantic and syntaxic
+        # choose a case is a stop, word and has next relation
+        # browse the list by indexes
+        #~ indxlist = range(len(caselist))
+        # get the chosen indexes from the current synode
+        # which allow to handle previous and nexts and make other analysis
+        indxlist = current_synode.get_chosen_indexes()
+        # get all the indexes in the current cases list
+        tmplist = []
+        if len(indxlist) == 1 : 
+            if caselist[0].is_unknown():
+                caselist[0].set_vocalized(self.unknown_vocalizer.lookup(caselist[0].get_word()))
+                rule = 102
+            else:
+                rule = 101
+        
+        if not rule:
+            # order indexes list by word frequency
+            indxlist = sorted(indxlist, key=lambda x:caselist[x].get_freq())
+        # initial cases
+        if not rule and (not previous or previous.is_initial()):
+            tmplist = filter(lambda x: (caselist[x].is_stopword() or
+                     (caselist[x].is_marfou3() and not caselist[x].is_passive())
+                     or caselist[x].is_past() ), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            # else 
+            if tmplist:
+                indxlist = tmplist                            
+                if len(indxlist) == 1 : rule = 1
+            if debug: print 1,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+            # and lets other methode to choices by semantic and syntaxic
+            # select all cases with semantic relations
+        if not rule and self.get_enabled_semantic_analysis():            
+            tmplist = filter(lambda x: self.anasem.is_related(previous, caselist[x]) or caselist[x].has_sem_next(next_chosen_indexes), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist
+            # if there are many semantic relations or non one, we use frequency to choose the
+            # most frequent word to be selected
+                if len(indxlist) == 1 : rule = 2
+            if debug: print 2,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
 
+            # two semantic relations
+            tmplist = filter(lambda x: self.anasem.is_related(previous, caselist[x]) and caselist[x].has_sem_next(next_chosen_indexes), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist
+            # if there are many semantic relations or non one, we use frequency to choose the
+            # most frequent word to be selected
+                if len(indxlist) == 1 : rule = 4
+            if debug: print 2,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+            
+            # one semantic relations from previous
+            tmplist = filter(lambda x: self.anasem.is_related(previous, caselist[x]) and caselist[x].has_next(next_chosen_indexes), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist
+            # if there are many semantic relations or non one, we use frequency to choose the
+            # most frequent word to be selected
+                if len(indxlist) == 1 : rule = 5
+            if debug: print 2,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
+            
+            # one semantic relations from next
+            tmplist = filter(lambda x: self.anasynt.is_related(previous, caselist[x]) and caselist[x].has_sem_next(next_chosen_indexes), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist
+            # if there are many semantic relations or non one, we use frequency to choose the
+            # most frequent word to be selected
+                if len(indxlist) == 1 : rule = 6
+            if debug: print 2,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
-	def display(self, word, format="text"):
-		"""
-		format the vocalized word to be displayed on web interface.
-		@param word: input vocalized word.
-		@type word: unicode.
-		@return: html code.
-		rtype: unicode.
-		"""
-		format=format.lower();
-		if format=="html":
-			return u"<span id='vocalized' class='vocalized'>%s</span>"%word;
-		elif format=='text':
-			return word;
-		else:
-			return word;
+            # select stopword
+        if not rule:
+            tmplist = filter(lambda x:  caselist[x].is_stopword(), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist  
+                if len(indxlist) == 1 : rule = 3
+            if debug: print 3,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
-	def assistanttashkeel(self,text):
-		"""
-		Vocalize the text.
-		@param text: input text.
-		@type text: unicode.
-		@return: vocalized text.
-		rtype: unicode.
-		"""	
-		detailled_syntax=self.fullStemmer(text);
-		vocalized_text=u"";
-		previous=None;
+            # syntaxic
+            # select stopword
 
-		for word_analyze_list in detailled_syntax:
-			#word_analyze_list=self.anasynt.exclode_cases(word_analyze_list)		
-			#word_stemming_dict=self.choose_tashkeel(word_analyze_list,previous);
-			# o ajust relation between words 
-			#previous=word_stemming_dict;
-			for item in word_analyze_list:
-				voc=item.getVocalized();
-				vocalized_text=u";".join([vocalized_text,voc]);
-		return vocalized_text;
+        if not rule:           
+            tmplist = filter(lambda x:  caselist[x].is_stopword() and caselist[x].has_next(next_chosen_indexes) , indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist  
+                if len(indxlist) == 1 : rule = 10
+            if debug: print 10,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
+            # get all the indexes in the current cases list
+        if not rule and self.get_enabled_syntaxic_analysis():
+            # select all cases with syntaxic relations
+            tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and caselist[x].has_next(next_chosen_indexes)), indxlist)
+           
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist
+                if len(indxlist) == 1 : rule = 11
+            if debug: print 11,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+                    
+        if not rule and  self.get_enabled_syntaxic_analysis():
+            tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x])), indxlist)
+           
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist                
+                if len(indxlist) == 1 : rule = 12
+            if debug: print 12,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
-	def preTashkeel(self,text):
-		"""
-		Vocalize the text by evident cases and by detecting numbers clauses
-		@param text: input text.
-		@type text: unicode.
-		@return: statisticlly vocalized text.
-		rtype: unicode.
-		"""
-		# get the word list
-		# اختصارات مثل حدثنا إلى ثنا وه تكثر في كتب التراث
-		for abr in tashkeel_const.CorrectedTashkeel.keys():
-			text = re.sub(ur"\s%s\s"%abr, ur" %s "%tashkeel_const.CorrectedTashkeel[abr], text);
-		wordlist = self.analyzer.tokenize(text);
-		prevocalizedList = pyarabic.number.preTashkeelNumber(wordlist);
-		#Todo ajust prevocalization of named enteties
-		prevocalizedList = pyarabic.named.preTashkeelNamed(prevocalizedList);		
-		return u" ".join(prevocalizedList);
+            # Default cases selection 
+            # get all the indexes in the current cases list
+        if not rule and self.get_enabled_syntaxic_analysis():
+            # select all cases with syntaxic relations
+            tmplist = filter(lambda x: caselist[x].has_next(next_chosen_indexes), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist
+                if len(indxlist) == 1 : rule = 13
+            if debug: print 13,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+                    
+            # get all the indexes in the current cases list
+        if not rule:
+            # select all cases with tanwin
+            if (next_node and next_node.is_break()) or not next_node:
+                tmplist = filter(lambda x: caselist[x].is_tanwin() or not caselist[x].is_noun() , indxlist)
+                # if indexes list is empty, the current indexes list is reloaded, and no change
+                if tmplist:
+                    indxlist = tmplist
+            # print "len list tawin", len(tmplist)
+                    if len(indxlist) == 1 : rule = 14
+            if debug: print 14,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
+            #select default
 
+        if not rule:
+            # select cases with the max frequency
+            # first get max freq
+            maxfreq = 0
+            maxfreq = max([caselist[x].get_freq() for x in indxlist])
+            tmplist = filter(lambda x: caselist[x].get_freq() == maxfreq, indxlist)
+            if tmplist:
+                indxlist = tmplist 
+                if len(indxlist) == 1 : rule = 31
+            if debug: print 31,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
+        #~ conditions = [
+        #~ { "rule":30, "cond":[("is_stopword",True), ],} ,
+        #~ { "rule":32, "cond":[("is_noun",True),  ("is_mansoub",True),],} ,
+        #~ { "rule":33, "cond":[("is_verb",True), ("is_passive",False),],} ,
+        #~ { "rule":34, "cond":[("is_verb",True), ("is_marfou3",True),],} ,
+        #~ { "rule":34, "cond":[("is_verb",True), ("is_past",True),],} ,
+        #~ { "rule":35, "cond":[("is_verb",True), ("is3rdperson",True),],} ,
+        #~ { "rule":36, "cond":[("is_verb",True), ("is1stperson",True),],} ,
+        #~ ]
+        #~ if not rule:            
+            #~ for cond in conditions:
+                #~ tmplist = [] 
+                #~ condlist = cond['cond']             
+                #~ for x in indxlist:
+                    #~ # join all tests
+                    #~ criteria = [getattr(caselist[x], k)() == v  for k, v in condlist] 
+                    #print criteria
+                    #~ if reduce(and_, criteria):
+                        #~ tmplist.append(x)
+                #if debug: print rule,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+                #~ if tmplist:
+                    #~ indxlist = tmplist               
+                    #~ if len(indxlist) == 1 :
+                        #~ rule = cond.get('rule',0)
+                        #~ break
+        if not rule:                
+            # select mansoub noun
+            tmplist = filter(lambda x: ( caselist[x].is_noun() and  caselist[x].is_mansoub()), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist  
+                if len(indxlist) == 1 : rule = 32
+            if debug: print 32,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+        if not rule:                
+            # select active voice
+            tmplist = filter(lambda x: ( caselist[x].is_verb() and not caselist[x].is_passive()), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist                
+                if len(indxlist) == 1 : rule = 33
+            if debug: print 33,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+        if not rule:                        
+            # select present marfou3 or past
+            tmplist = filter(lambda x: ( caselist[x].is_verb() and (caselist[x].is_marfou3() or caselist[x].is_past())), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist               
+                if len(indxlist) == 1 : rule = 34  
+            if debug: print 34,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+        if not rule:            
+            # select 3rd person
+            tmplist = filter(lambda x: ( caselist[x].is_verb() and caselist[x].is3rdperson()), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist               
+                if len(indxlist) == 1 : rule = 35 
+            if debug: print 35,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+        if not rule:            
+            # select 1st person
+            tmplist = filter(lambda x: ( caselist[x].is_verb() and caselist[x].is1stperson()), indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist               
+                if len(indxlist) == 1 : rule = 36 
+            if debug: print 35,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+                                        
+        # select the first case if there one or many
+        chosen_index =  indxlist[0]
+        chosen = caselist[chosen_index]
+        if not rule: rule = 100
+        if debug: print 100,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+         
+        
+        # set the selection rule to dispaly how tahskeel is selected
+        chosen.set_rule(rule)
+        return chosen.get_order() 
+            
 
-	def statTashkeel(self,text):
-		"""
-		Vocalize the text by statistical method according to the collocation dictionary
-		@param text: input text.
-		@type text: unicode.
-		@return: statisticlly vocalized text.
-		rtype: unicode.
-		"""
-		text = self.collo.lookupForLongCollocations(text);
-		
-		# get the word list
-		wordlist=self.analyzer.tokenize(text);
-		vocalized_text=u"";
-		previous=u"";
-		list_dict=[]; # returned resultat
-		# temporarly used
-		suggest=[];
-		liste=wordlist;
-		# use a list as a stack,
-		# give two element from the end.
-		# test the tow elements if they are collocated,
-		# if collocated return the vocalized text
-		# if else, delete the last element, and return the other to the list.
-		newlist= self.collo.lookup(wordlist);
-		#todo: return a text from the statistical tashkeel
-		text=u" ".join(newlist);
-		return text;
-		# is done temporaly to test statistical tashkeel
-		#for word in newlist:
-		#	vocalized_text=u" ".join([vocalized_text,self.display(word)]);
-		#	list_dict.append({'chosen':word,'suggest':u";".join(suggest)});
-		#return list_dict;
+    # new version of choose tashkeel 
+    # first we use indexes instead of stemmedsynword object
+    #~ def __choose_tashkeel_algo2(self, caselist, previous_chosen_case = None,
+    def __reduce_cases(self, caselist, current_synode, previous_chosen_case = None,
+     pre_node = None, next_node = None):
+        """
+        reduce  possible cases for the current word, according to the previous one and nexts.
+        A new algorithm
+        @param : list of steming result of the word.
+        @type caselist: list of stemmedSynword
+        @param : the choosen previous word stemming.
+        @type previous_chosen_case:stemmedSynwordhg 
+        @return: the choosen stemming of the current word.
+        @rtype:stemmedSynword.
+        """
+        
+        rule = 0
+        debug = False
+        if next_node:
+            next_chosen_indexes = next_node.get_chosen_indexes()
+        else:
+            next_chosen_indexes = None            
+        #~ debug = True
+        # How to choose a vocalized case
+        # and lets other methode to choices by semantic and syntaxic
+        # choose a case is a stop, word and has next relation
+        # browse the list by indexes
+        #~ indxlist = range(len(caselist))
+        # get the chosen indexes from the current synode
+        # which allow to handle previous and nexts and make other analysis
+        indxlist = current_synode.get_chosen_indexes()
+        # get all the indexes in the current cases list
+        tmplist = []
 
-if __name__=="__main__":
-	print "test";		
-	vocalizer=TashkeelClass();
-	# text=u"""تجف أرض السلام بالسلام الكبير.	مشى على كتاب السلام.
-	# جاء الولد السمين من قاعة القسم الممتلئ""";
-	text=u"يعبد الله تطلع الشمس"
-	voc = vocalizer.tashkeel(text);
-	print voc.encode('utf8');
+        # syntaxic
+        # choose all tanwin cases before breaks
+        if not next_node or (next_node and next_node.is_break()):
+            #~ tmplist = filter(lambda x:  (caselist[x].is_tanwin() and caselist[x].has_next(next_chosen_indexes)) or not caselist[x].is_noun()  , indxlist)
+            #~ tmplist = filter(lambda x:  caselist[x].is_tanwin() or caselist[x].is_defined() or not caselist[x].is_noun()  , indxlist)
+            #~ tmplist = filter(lambda x:  not(caselist[x].is_tanwin() and not caselist[x].is_defined())  , indxlist)
+            # if indexes list is empty, the current indexes list is reloaded, and no change
+            if tmplist:
+                indxlist = tmplist  
+
+        # reduce the list of cases
+        current_synode.set_chosen_indexes(indxlist)
+
+ 
+def mainly():
+    """
+    main test
+    """
+    print "test"        
+    vocalizer = TashkeelClass()
+    # text = u"""تجف أرض السلام بالسلام الكبير.    مشى على كتاب السلام.
+    # جاء الولد السمين من قاعة القسم الممتلئ"""
+    text = u"يعبد الله تطلع الشمس"
+    voc = vocalizer.tashkeel(text)
+    print voc.encode('utf8')
+if __name__ == "__main__":
+    mainly()

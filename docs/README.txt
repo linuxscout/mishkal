@@ -1,5 +1,5 @@
 Mishkal : Arabic text vocalization system
-ãÔßÇá áÊÔßíá ÇáäÕæÕ ÇáÚÑÈíÉ
+Ù…Ø´ÙƒØ§Ù„ Ù„ØªØ´ÙƒÙŠÙ„ Ø§Ù„Ù†ØµÙˆØµ Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©
 This program is licensed under the GPL License
 Developpers:
 	Taha Zerrouki: http://tahadz.com
@@ -14,7 +14,8 @@ Download
 http://mishkal.sourceforge.net
 Source
 =============
-http://svn.arabeyes.org 
+http://svn.arabeyes.org
+http://github.com/linuxscout/mishkal
 
 
 Usage
@@ -35,7 +36,7 @@ Run MishkalGui
 * Console (linux/windows)
 -----------------
  Usage: mishkal-console -f filename [OPTIONS]
-        mishkal-console 'ÇáÓáÇã Úáíßã' [OPTIONS]
+        mishkal-console 'Ø§Ù„Ø³Ù„Ø§Ù… Ø¹Ù„ÙŠÙƒÙ…' [OPTIONS]
 
 	[-f | --file= filename]input file to mishkal-console
 	[-i | --ignore]   ignore the last Mark on output words.
@@ -65,7 +66,7 @@ file/directory	category	description
 [setup]
 	exe_setup.py	setup	prepare setup for windows using py2exe
 	setup.py	setup	setup for library and linux package
-[src]
+[mishkal]
 	aranasyn/	src	Arabic syntaxic analyzer
 	asmai/	src	Arabic syntaxic analyzer
 	core/	src	basic tools
@@ -92,7 +93,7 @@ file/directory	category	description
 	cgirunner.py	web	a script for web service using cgi
 	crossdomain.xml	web	Configuration file to allow cross domain json API
 	index.html	web	an index file to avoid directory access
-	mishkal	web	A cgi Script used on web service
+	mishkal.cgi	web	A cgi Script used on web service
 	mishkal-webserver.py	web	lauch mishkal web server
 [apps]
 	mintiq	TTS	a shell script to join mishkla with espeak Text to speech

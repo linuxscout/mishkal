@@ -1,3 +1,103 @@
+2015-05-09: *Taha Zerrouki
+    - add jobless or inactive verb factor like قد
+    - reduce basewebApp logger text to reduce logout_file size
+2015-05-03: *Taha Zerrouki
+    - qalsadi/stem_noun :ajust multiple cases with same suffix الْخِيَارَاتِ الصِّحِّيَّةِ
+    - qalsadi/stem_noun: ajust tanwin on words ended by ALEF + HAMZA سواءً
+    - aranasyn/anasyn.py: fix VerbObjectRelation
+    - qalsadi/stemmedword: fix tag_transitive tag
+2015-03-23: * Taha Zerrouki
+    - tashkeel/tashkeel.py: Improve choose_tashkeel function and display rules
+    - arasyn/anasyn.py: ompatible_subject_verb(): Add subject/verb compatible verification  
+    - stopwords: add إلا 
+2015-03-07: * Taha Zerrouki
+    - Fix named enteties and numbers extraction
+    - fix cache use when the word is partial vocalized
+2015-03-05: *Taha Zerrouki
+    - fix collocations over consuming of memory and time
+    - add word1, word2 fields in collocations database, make an index to speed up collocations research
+    - improve web interface collocation detection
+2015-01-25: *Taha Zerrouki
+    - pyarabic.araby.py: fix strip_tashkeel bug when a word contain shadda only
+    - core/adaat.py: ajust compare vocalization by adding iflection mark remove which is not the last mark always
+    - mishkal-console.py : fix compare vocalization problems by adding iflection mark remove
+    - plan to ajust collocations search 
+    - asmaii/synode.py: add more attibutes for handle syntaxic nodes
+    - asmaii/anasyn.py: add synode to syntaxical analysis
+    - qalsadi/analex.py: disable initial word tags because of errors     
+    - qalsadi/analex.py: use of araby.tokenize() function instead of specific function
+    - qalsadi/stem_noun.py: fix semivocalized form from vocalize() function     
+    - qalsadi/stem_verb.py: add semivocalized output to from vocalize() function 
+    - qalsadi/stem_punct_const.py: add arabic comma     
+    - qalsadi/stem_stop.py: add unvariable state (مبني) 
+    - qalsadi/stem_stop.py: correct stopword إن +ه analysis
+    - qalsadi/wordcase.py: add semivocalized output
+    - resources/files/adawaty.js: add semivocalized to do result to display words without inflected mark
+    -     
+2015-01-17: *Taha Zerrouki:
+	- qalsadi: fix relative case of words like إعلاميّ
+2014-12-25 * Taha Zerrouki:
+    - mishkal/tashkeel/tashkeel.py : test a new algorithm to select taskeel cases
+    - web interface: fix errors on result div display
+    - web interface: add tashkeel selection rule display
+    - mishkal-console.py: fix error on sys.path
+    1
+2014-12-14:
+    - pyarabic.araby: vocalized_similaraity : fix errors on shadda
+    - Qalsadi: stem_noun and stem_unknwon: correct words ended by hamza when they join with Tanween mansoub
+2014-11-17:
+    - add "custom dictionary" for unrecognized words
+    - add removre Tahskeel for selected text
+2014-11-08:
+    - Ajust pounctuation keep in Gui
+2014-07-08:
+    - add progress status on mishkal-console.py
+    - refactor stopwords stemming, to use it for syntaxique analysis
+2014-07-06:
+    - Display informations about vocalized word as hint
+    (we display inflection, suggestions and previous relation)
+2014-07-05:
+
+    - refactor some attributes to have less attributes
+    - use a numeric code for
+        - number: single, dual, plural (feminin, masculin, irregular)
+        - inflaction : majrour, mansoub, marfou3, majrour, mabni
+        - add alternative inflection to stemmedSynWord class : محل من الإعراب
+        - add pronoun and tense fields to stemmed word for verbs.
+- إضافة علاقة التبعية
+- إضافة حقل محل الإعراب للكلمة * تم
+- إضافة البناء للكلمة  *تم
+- إضافة الضمير والزمن إلى الفعل 
+	- الضمير نوعه ونوعه
+	-  الزمن نوعه بناؤه 
+- تقليل الحقول: *تم
+	استخدام ترميز ثنائي من أجل السماح بعدة خيارات
+        not defined        : 0  00000
+        factor             : 1  00001      
+        Rafe3              : 2  00010
+        Naseb              : 4  00100
+        Jar                : 8  01000
+        Jazem              : 16 10000
+        active             : 32 100000
+	- حقل واحد للحالة الإعرابية
+		- مبني مرفوع، منصوب، مجرور، مجزوم
+	- حقل واحد للعدد
+		- مفرد، مثنى، جمع (نوع الجمع: مؤنث سالم، مذكر سالم، تكسير
+	- حقل واحد للجنس: مذكر مؤنث
+	- حقل واحد للقسم: اسم، حرف، فعل
+		- أقسام الاسم: علم، صفة، 
+	- حقل واحد للعامل: عامل/ عاطل، رافع، ناصب، جار، جازم، 
+- عرض معلومات أكثر في الموقع، عرض إعراب الكلمة  * تم 
+        - allow multile Part of speech like stopword and noun
+        السماح بأن تكون الأداة اسمًا
+2014-07-04:
+    - add a hint to display given vocalization and automated vocalization
+    in comparing vocalization
+    - 
+2014-07-01:
+    - add colored mentions to vocalization compare
+2014-06-17:
+    -pylint code
 2014-03-29:
 	- ajust حالة كسر هاء الشمير المتصل بعد الكسرة
 08-01-2014
@@ -101,6 +201,7 @@
 	* Fix a bug in syntax analyzer, which avoid stopwords to change the next word state
 15-12-2011:Taha
 	* Add vocalized collocations
+
 24-11-2011:Taha
 	* first alpha release on the web
 	* The script use cgi to run web frame work.

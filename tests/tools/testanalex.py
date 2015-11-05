@@ -27,24 +27,24 @@ def phraseSplit(text):
 	@rtype: list of unicode
 	"""
 	if text:
-		list_phrase=Clause_pattern.split(text);
+		list_phrase = Clause_pattern.split(text);
 		if list_phrase:
-			j=-1;
-			newlist=[];
+			j =- 1;
+			newlist = [];
 			for ph in list_phrase:
 				if not Clause_pattern.match(ph):
 					#is pounctuation or symboles
 					#print 'not match', ph.encode('utf8');
-					if j<0:
+					if j < 0:
 						# the symbols are in the begining
 						newlist.append(ph);
-						j=0;
+						j = 0;
 					else:
 						# the symbols are after a phrases
-						newlist[j]+=ph;
+						newlist[j] += ph;
 				else:
 					newlist.append(ph);
-					j+=1;
+					j += 1;
 		return newlist;
 	return [];
 def usage():
@@ -66,13 +66,13 @@ def usage():
 def grabargs():
 #  "Grab command-line arguments"
 	fname = ''
-	suggestion=False;
-	ignore= False;
-	limit=False; 
+	suggestion = False;
+	ignore = False;
+	limit = False; 
 	compare = False;
 	disableSyntax = False;
-	disableSemantic = False;
-	disableStatistic=  False;
+	disableSemantic  = False;
+	disableStatistic =  False;
 	if not sys.argv[1:]:
 		usage()
 		sys.exit(0)

@@ -1,6 +1,6 @@
 #!/usr/bin/python
-# -*- coding: UTF-8 -*-
-#-------------------------------------------------------------------------------
+# -*- coding=UTF-8 -*-
+#------------------------------------------------------------------------
 # Name:        adaat
 # Purpose:    interface between library and the web interface for Adawat 
 #
@@ -9,564 +9,810 @@
 # Created:     31-10-2011
 # Copyright:   (c) Taha Zerrouki 2011
 # Licence:     GPL
-#-------------------------------------------------------------------------------
-
-import re
+#-----------------------------------------------------------------------
+"""
+Adaat, arabic tools interface
+"""
+import sys
+sys.path.append('mishkal/lib/')
 import random
 import pyarabic.araby  as araby # arabic words general functions
-# import pyarabic.unshape # unshape arabic lettres
-# import pyarabic.number # convert numbers into arabic words
-# import pyarabic.named as named
-# import tashkeel.tashkeel as ArabicVocalizer
+import pyarabic.number
 
-# GlobalVocalizer=tashkeel.TashkeelClass();
-# aranasyn.anasyn as arasyn
 import tashaphyne
-
-#from core.ar_stopwords import *
-#import core.wordtag 
-
-
-def DoAction(text,action, options={}):
-    if action=="DoNothing":
-        return text;
-    elif action=="TashkeelText":
-        lastmark= options.get('lastmark', "0");
-        return tashkeelText(text, lastmark);
-    elif action=="Tashkeel2":
-        lastmark= options.get('lastmark', "0");	
-        return tashkeel2(text, lastmark);
-    elif action=="SpellCheck":
-        # lastmark= options.get('lastmark', "0");	
-        return spellcheck(text);
-    elif action=="CompareTashkeel":
-        return Comparetashkeel(text);
-    elif action=="ReduceTashkeel":
-        return reducedTashkeelText(text);
-    if action=="Contibute":
-        return text;
-    elif action=="StripHarakat":
-        return araby.stripTashkeel(text);
-    elif action=="CsvToData":
-        return csv_to_python_table(text);
-    elif action=="Romanize":
-        return romanize(text);
-    elif action=="NumberToLetters":
-        return numberToLetters(text);
-    elif action=="LightStemmer":
-        lastmark= options.get('lastmark', "0");
-        return fullStemmer(text,lastmark);
-    elif action=="Tokenize":
-        return token_text(text);
-    elif action=="Poetry":
-        return justify_poetry(text);
-    elif action=="Unshape":
+import re
+#~import pyarabic.number
+def DoAction(text, action, options = {}):
+    """
+    do action by name
+    """
+    if action == "DoNothing":
+        return text
+    elif action == "TashkeelText":
+        lastmark = options.get('lastmark', "0")
+        return tashkeel_text(text, lastmark)
+    elif action == "Tashkeel2":
+        lastmark = options.get('lastmark', "0")    
+        return tashkeel2(text, lastmark)
+    elif action == "SpellCheck":
+        # lastmark= options.get('lastmark', "0")    
+        return spellcheck(text)
+    elif action == "CompareTashkeel":
+        return compare_tashkeel(text)
+    elif action == "ReduceTashkeel":
+        return reduced_tashkeel_text(text)
+    if action == "Contibute":
+        return text
+    elif action == "StripHarakat":
+        return araby.strip_tashkeel(text)
+    elif action == "CsvToData":
+        return csv_to_python_table(text)
+    elif action == "Romanize":
+        return romanize(text)
+    elif action == "NumberToLetters":
+        return number2letters(text)
+    elif action == "LightStemmer":
+        lastmark = options.get('lastmark', "0")
+        return full_stemmer(text, lastmark)
+    elif action == "Tokenize":
+        return token_text(text)
+    elif action == "Poetry":
+        return justify_poetry(text)
+    elif action == "Unshape":
         import pyarabic.unshape
-        return pyarabic.unshape.unshaping_text(text);
-    elif action=="Affixate":
-        return affixate(text);
-    elif action=="Normalize":
-        return normalize(text);
-    elif action=="Wordtag":
-        return wordtag(text);
-    elif action=="Inverse":
-        return inverse(text);
-    elif action=="Itemize":
-        return itemize(text);
-    elif action=="Tabulize":
-        return tabulize(text);
-    elif action=="Tabbing":
-        return tabbing(text);
-    elif action=="Language":
-        return segmentLanguage(text);
-    elif action=="RandomText":
-        return randomText();
-    elif action=="showCollocations":
-        return showCollocations(text);
-    elif action=="extractNamed":
-        return extractNamed(text);
-    elif action=="extractNumbered":
-        return extractNumbered(text);		
+        return pyarabic.unshape.unshaping_text(text)
+    elif action == "Affixate":
+        return affixate(text)
+    elif action == "Normalize":
+        return normalize(text)
+    elif action == "Wordtag":
+        return wordtag(text)
+    elif action == "Inverse":
+        return inverse(text)
+    elif action == "Itemize":
+        return itemize(text)
+    elif action == "Tabulize":
+        return tabulize(text)
+    elif action == "Tabbing":
+        return tabbing(text)
+    elif action == "Language":
+        return segment_language(text)
+    elif action == "RandomText":
+        return random_text()
+    elif action == "showCollocations":
+        return show_collocations(text)
+    elif action == "extractEnteties":
+        return extract_enteties(text)
+    elif action == "extractNamed":
+        return extractNamed(text)
+    elif action == "chunk":
+        return chunksplit(text)
+    elif action == "extractNumbered":
+        return extractNumbered(text)       
     else:
 
-        return text;
+        return text
 
-#----------------------------
-# Convert CSV text to python syntax Array
-# return Text
-#----------------------------
+
 def csv_to_python_table(text):
-    lines=text.splitlines()
-    if u'' in lines: lines.remove(u'');
-    resultText=""
+    """
+    Convert CSV text to python syntax Array
+    return Text
+    """
+    lines = text.splitlines()
+    if u'' in lines:
+        lines.remove(u'')
+    resulttext = ""
 
     if len(lines)>1:
-        tablename=lines[0];
-        if tablename=="":
-            tablename="#Table";
+        tablename = lines[0]
+        if tablename == "":
+            tablename = "#Table"
         else :
-            tablename=tablename.split()[0];
+            tablename = tablename.split()[0]
         # if there only two lines, the array is a list
-        if len(lines)==2:
-            fieldsnames=lines[1].split("\t");
+        if len(lines) == 2:
+            fieldsnames = lines[1].split("\t")
             for i in range(len(fieldsnames)):
-                fieldsnames[i]="'%s'"%fieldsnames[i].strip();
-            resultText+=tablename+"=("+",".join(fieldsnames)+u")\n";
+                fieldsnames[i] = "'%s'" % fieldsnames[i].strip()
+            resulttext += tablename + "=("+", ".join(fieldsnames)+u")\n"
         else:
-            resultText+=tablename+u"={};\n";
-            fieldsnames=lines[1].split("\t");
+            resulttext += tablename+u"={}\n"
+            fieldsnames = lines[1].split("\t")
             for i in range(len(fieldsnames)):
-                fieldsnames[i]=fieldsnames[i].strip();
-                resultText+=tablename+u"['%s']={}\n"%fieldsnames[i];
+                fieldsnames[i] = fieldsnames[i].strip()
+                resulttext += tablename+u"['%s']={}\n" % fieldsnames[i]
 
-            if len(lines)==3:
+            if len(lines) == 3:
                 for line in lines[1:]:
-                    line=line.strip();
-                    fields=line.split("\t")
+                    line = line.strip()
+                    fields = line.split("\t")
                     for i in range(len(fields)):
-                        fields[i]=fields[i].strip();
-            ##            fields[i]=re.sub('\\',''',fields[i])
-                        fields[i]=re.sub("'","\\'",fields[i])
-                        fields[i]=re.sub("\"","\\\"",fields[i])
-                    resultText+=tablename+u"[u'%s']={}\n"%fields[0];
-                    for i in range(0,len(fields)):
-                        if i< len(fieldsnames):
-                            fieldname=fieldsnames[i];
+                        fields[i] = fields[i].strip()
+            ##            fields[i]=re.sub('\\', ''', fields[i])
+                        fields[i] = re.sub("'", "\\'", fields[i])
+                        fields[i] = re.sub("\"", "\\\"", fields[i])
+                    resulttext += tablename+u"[u'%s']={}\n" % fields[0]
+                    for i in range(0, len(fields)):
+                        if i < len(fieldsnames):
+                            fieldname = fieldsnames[i]
                         else:
-                            fieldname=u"Field#%d"%i;
-                            fieldsnames.append(fieldname);
-                            resultText+=tablename+u"[u'%s']={}\n"%fieldname;
+                            fieldname = u"Field#%d" % i
+                            fieldsnames.append(fieldname)
+                            resulttext += tablename+u"[u'%s']={}\n" % fieldname
 
-                        resultText+= tablename+u"[u'%s']=u'%s'"%(fieldname,fields[i])+";\n"
+                        resulttext += tablename+u"[u'%s']=u'%s'" % (fieldname, 
+                          fields[i])+"\n"
 
             else:
                 for line in lines[1:]:
-                    line=line.strip();
-                    fields=line.split("\t")
+                    line = line.strip()
+                    fields = line.split("\t")
                     for i in range(len(fields)):
-                        fields[i]=fields[i].strip();
-            ##            fields[i]=re.sub('\\',''',fields[i])
-                        fields[i]=re.sub("'","\\'",fields[i])
-                        fields[i]=re.sub("\"","\\\"",fields[i])
+                        fields[i] = fields[i].strip()
+            ##            fields[i] = re.sub('\\', ''', fields[i])
+                        fields[i] = re.sub("'", "\\'", fields[i])
+                        fields[i] = re.sub("\"", "\\\"", fields[i])
 
-                    for i in range(1,len(fields)):
-                        if i< len(fieldsnames):
-                            fieldname=fieldsnames[i];
+                    for i in range(1, len(fields)):
+                        if i < len(fieldsnames):
+                            fieldname = fieldsnames[i]
                         else:
-                            fieldname=u"Field#%d"%i;
-                            fieldsnames.append(fieldname);
-                            resultText+=tablename+u"[u'%s']={}\n"%fieldname;
+                            fieldname = u"Field#%d" % i
+                            fieldsnames.append(fieldname)
+                            resulttext += tablename+u"[u'%s']={}\n" % fieldname
 
-                        resultText+= tablename+u"[u'%s'][u'%s']='%s'"%(fieldname,fields[0],fields[i])+";\n"
+                        resulttext += tablename + u"[u'%s'][u'%s']='%s'" % (
+                        fieldname, fields[0], fields[i]) +"\n"
 
-    return resultText
+    return resulttext
 
-#-----------------------------------------
-# Convert Arabic into Latin using a code representaton
-#-----------------------------------------
 
-def romanize(text,code="ISO"):
-	textcoded=u"";
-	if ArabicRomanizationTable.has_key(code):
-		for c in text:
-			if ArabicRomanizationTable[code].has_key(c):
-				print "1";
-				if explicated:
-					textcoded+="("+c+")"
-					print "2"
-				textcoded+=ArabicRomanizationTable[code][c]
-				print "3"
-			else:
-				textcoded+="*"
-	else:
-		textcoded=text;
-		print "4"
-	return textcoded;
+def romanize(text, code = "ISO"):
+    """
+    Convert Arabic into Latin using a code representaton
+    """
+    textcoded = u""
+    if ArabicRomanizationTable.has_key(code):
+        for k in text:
+            if ArabicRomanizationTable[code].has_key(k):
+                print "1"
+                if explicated:
+                    textcoded += "("+k+")"
+                    print "2"
+                textcoded += ArabicRomanizationTable[code][k]
+                print "3"
+            else:
+                textcoded += "*"
+    else:
+        textcoded = text
+        print "4"
+    return textcoded
 
-def numberToLetters(text):
-##    number=int(text);
-    text=text.strip();
-    import pyarabic.number
-    ar=pyarabic.number.ArNumbers();
-    return ar.int2str(text);
+def number2letters(text):
+    """
+    Convert number to text
+    """
+    text = text.strip()
+    ar = pyarabic.number.ArNumbers()
+    return ar.int2str(text)
 
-#---------------------------------
-#
-#LightStemming unsing Tashaphyne
-#--------------------------------
 
-def lightStemmer(text):
-    result=[];
-    als=tashaphyne.ArabicLightStemmer();
-    word_list=als.tokenize(text)
+def light_stemmer(text):
+    """
+    LightStemming unsing Tashaphyne
+    """
+    result = []
+    als = tashaphyne.ArabicLightStemmer()
+    word_list = als.tokenize(text)
     for word in word_list:
-        listseg= als.segment(word);
-##        print word.encode("utf8"),listseg
-        affix_list=als.get_affix_list();
+        #~listseg =  als.segment(word)
+        als.segment(word)
+        affix_list = als.get_affix_list()
         for affix in affix_list:
-            result.append({'word':word,'prefix':affix['prefix'],'stem':affix['stem'],
-                           'suffix':affix['suffix'],'root':affix['root'],'type':'-'}
-                          );
+            result.append({'word':word, 'prefix':affix['prefix'], 
+            'stem':affix['stem'], 'suffix':affix['suffix'], 
+            'root':affix['root'], 'type':'-'}
+                          )
+    return result
 
-    return result;
 
+def full_stemmer(text, lastmark):
+    """
+    morphological analysis
+    """
+    import qalsadi.analex 
+    import asmai.anasem 
+    import aranasyn.anasyn as arasyn    
+    result = []
+    debug = False
+    limit = 100
+    analyzer = qalsadi.analex.Analex()
+    if lastmark == "0" or not lastmark:
+        analyzer.disable_syntax_lastmark()
 
-def fullStemmer(text, lastmark):
-	import qalsadi.analex 
-	import asmai.anasem 
-	import aranasyn.anasyn as arasyn	
-	result=[];
-	debug=False;
-	limit=100
-	analyzer=qalsadi.analex.analex()
-	if lastmark=="0" or not lastmark:
-		analyzer.disableAllowSyntaxLastMark();
-
-	anasynt=arasyn.SyntaxAnalyzer();
-	anasem=asmai.anasem.SemanticAnalyzer();	
-	analyzer.set_debug(debug);
-	analyzer.set_limit(limit);
-	mode='all';
-	if mode=='verb':
-		result=analyzer.check_text_as_verbs(text);
-	elif mode=='noun':
-		result=analyzer.check_text_as_nouns(text);
-	else:
-		result=analyzer.check_text(text);
-		result, synodelist=anasynt.analyze(result);
-		result=anasem.analyze(result);			
-		# the result contains objets
-	return anasynt.decode(result);
+    anasynt = arasyn.SyntaxAnalyzer()
+    anasem = asmai.anasem.SemanticAnalyzer()    
+    analyzer.set_debug(debug)
+    analyzer.set_limit(limit)
+    mode = 'all'
+    result = analyzer.check_text(text)
+    #~result, synodelist = anasynt.analyze(result)
+    result, __ = anasynt.analyze(result)
+    result = anasem.analyze(result)            
+    # the result contains objets
+    return anasynt.decode(result)
 
 
 def token_text(text):
-    tasha=tashaphyne.ArabicLightStemmer();
-    return tasha.tokenize(text);
-##    if u'' in listword:listword.remove(u'');
-##     listword;
+    """
+    tokenize a text into words
+    """
+    tasha = tashaphyne.ArabicLightStemmer()
+    return tasha.tokenize(text)
+##    if u'' in listword:listword.remove(u'')
+##     listword
 
 def normalize(text):
-    tasha=tashaphyne.ArabicLightStemmer();
-    return tasha.normalize(text);
+    """
+    normalize a text
+    """
+    tasha = tashaphyne.ArabicLightStemmer()
+    return tasha.normalize(text)
+    
 def justify_poetry(text):
-    lines=text.splitlines();
-    if u'' in lines: lines.remove(u"")
-    rows=[];
+    """
+    justify a poetry 
+    """
+    lines = text.splitlines()
+    if u'' in lines:
+        lines.remove(u"")
+    rows = []
     for line in lines:
-        partlist=line.strip().split("\t");
-        if u'' in partlist: partlist.remove(u"");
-        if len(partlist)==2:
-            rows.append(partlist);
-    return rows;
+        partlist = line.strip().split("\t")
+        if u'' in partlist:
+            partlist.remove(u"")
+        if len(partlist) == 2:
+            rows.append(partlist)
+    return rows
 
 
 def affixate(text):
-    word_list=token_text(text);
+    """
+    generate all affixed froms from a word
+    """
+    word_list = token_text(text)
     import generate
-    if len(word_list)==0:
-        return u'';
+    if len(word_list) == 0:
+        return u''
     else:
         for word in word_list:
-            list_gen_words=generate.generate(word);
-        return list_gen_words;
+            list_gen_words = generate.generate(word)
+        return list_gen_words
 
 
 
 def wordtag(text):
-    import naftawayh
-    tagger=naftawayh.wordtag.WordTagger();
-    word_list=token_text(text);
+    """
+    word tagginginto noun, verb, tool
+    """
+    import naftawayh.wordtag
+    tagger = naftawayh.wordtag.WordTagger()
+    word_list = token_text(text)
 
-    if len(word_list)==0:
-        return [];
+    if len(word_list) == 0:
+        return []
     else:
-        list_result=[];
-        previous=u"";
-        previous_tag = "";		
+        list_result = []
+        second_previous =""
+        previous = u""
+        #~previous_tag  =  ""        
         for word in word_list:
-            tag='';
-            if tagger.is_stopword(word):tag='t';
+            word_nm = araby.strip_tashkeel(word)
+            tag = ''
+            if tagger.is_stopword(word):
+                tag = 't'
             else:
-                if tagger.is_noun(word):tag+='n';
-                if tagger.is_verb(word):tag+='v';
-                if tag in ("","nv"):
-                    tag=tagger.context_analyse(previous, word, previous_tag)+"1";
-            list_result.append({'word':word,'tag': tag});
-            previous=word;
-            previous_tag = tag;
-        return list_result;
+                if tagger.is_noun(word):
+                    tag += 'n'
+                if tagger.is_verb(word):
+                    tag += 'v'
+                if tag in ("", "nv"):
+                    tag = tagger.context_analyse(previous, word)+"1"
+                    if tag in ("", "nv1", "vn1"):
+                        tag = tagger.context_analyse(u" ".join([second_previous, previous]), word)+"2"                    
+            list_result.append({'word':word, 'tag': tag})
+            second_previous = previous
+            previous = word_nm
+            #~previous_tag  =  tag
+        return list_result
 
 
 def inverse(text):
-    word_list=token_text(text);
+    """
+    inverse a text
+    """
+    word_list = token_text(text)
 
-    if len(word_list)==0:
-        return [];
+    if len(word_list) == 0:
+        return []
     else:
-        list_result=[];
-        inter_list=[];
+        list_result = []
+        inter_list = []
         for word in word_list:
-            inter_list.append(word[::-1]);
-        inter_list.sort();
+            inter_list.append(word[::-1])
+        inter_list.sort()
         for word in inter_list:
-##            result_list.append();
-            list_result.append(word[::-1]);
-        return list_result;
+##            result_list.append()
+            list_result.append(word[::-1])
+        return list_result
 
 
-#----------------------------
-# Convert lines into Latex list
-# return Text
-#----------------------------
 def itemize(text):
-    lines=text.splitlines()
-    if u'' in lines: lines.remove(u'');
-    resultText=""
+    """
+     Convert lines into Latex list
+    return Text
+    """
+    lines = text.splitlines()
+    if u'' in lines:
+        lines.remove(u'')
+    resulttext = ""
 
     if len(lines)>1:
-        resultText=u"\\begin{itemize}\n"
+        resulttext = u"\\begin{itemize}\n"
         for line in lines:
-            resultText+=u'\\item '+line.strip()+u"\n";
-        resultText+=u"\\end{itemize}\n"
-    return resultText
+            resulttext += u'\\item '+line.strip()+u"\n"
+        resulttext += u"\\end{itemize}\n"
+    return resulttext
 
 
-#----------------------------
-# Convert lines into Latex tabular
-# return Text
-#----------------------------
 def tabulize(text):
-    lines=text.splitlines()
-    if u'' in lines: lines.remove(u'');
-    resultText=""
+    """
+    Convert lines into Latex tabular
+    return Text
+    """
+    lines = text.splitlines()
+    if u'' in lines:
+        lines.remove(u'')
+    resulttext = ""
 
     if len(lines)>1:
-        length=len(lines[0].split("\t"));
-        param="|c"*length+"|";
-        resultText=u"\\begin{table}\n \\begin{tabular}{"+param+u"}\n";
+        length = len(lines[0].split("\t"))
+        param = "|c"*length+"|"
+        resulttext = u"\\begin{table}\n \\begin{tabular}{"+param+u"}\n"
         for line in lines:
-            resultText+=u'\\hline '+" & ".join(line.split("\t"))+"\\"*2+"\n";
-        resultText+=u"""\hline\n
+            resulttext += u'\\hline '+" & ".join(line.split("\t")) + "\\"*2+"\n"
+        resulttext += u"""\hline\n
                     \\label{mytab:table}\n
                     \\caption{mytab:table}\n
                     \\end{tabular}\n
                      \\end{table}\n
                     """
-    return resultText
+    return resulttext
 
-#----------------------------
-# Convert lines into Latex tabular
-# return Text
-#----------------------------
 def tabbing(text):
-    lines=text.splitlines()
-    if u'' in lines: lines.remove(u'');
-    resultText=""
+    """
+    Convert lines into Latex tabular
+    return Text
+    """
+    lines = text.splitlines()
+    if u'' in lines:
+        lines.remove(u'')
+    resulttext = ""
 
-    if len(lines)>1:
-        length=len(lines[0].split("\t"));
-        param="|c"*length+"|";
-        resultText=u"\\begin{tabbing}\n"
-        resultText+="\hspace{4cm}\="*length+"\kill\n";
+    if len(lines) > 1:
+        length = len(lines[0].split("\t"))
+        #~param = "|c"*length+"|"
+        resulttext = u"\\begin{tabbing}\n"
+        resulttext += "\hspace{4cm}\="*length+"\kill\n"
         for line in lines:
-            resultText+=" \\> ".join(line.split("\t"))+"\\"*2+"\n";
-        resultText+=u"""\end{tabbing}\n
+            resulttext += " \\> ".join(line.split("\t"))+"\\"*2+"\n"
+        resulttext += u"""\end{tabbing}\n
                     """
-    return resultText
+    return resulttext
 
 
-
-
-def segmentLanguage(text):
-    resultlist=[];
-    if re.search(u"[\u0600-\u06ff]",text[0]):
-        arabic=True;
+def segment_language(text):
+    """
+    Detect language
+    """
+    resultlist = []
+    if re.search(u"[\u0600-\u06ff]", text[0]):
+        arabic = True
     else:
-        arabic=False;
-    actual_text=u"";
-    for  c in text:
-        if re.search(u"[\u0600-\u06ff]",c):
+        arabic = False
+    actual_text = u""
+    for  k in text:
+        if re.search(u"[\u0600-\u06ff]", k):
             if arabic:
-                actual_text+=c;
+                actual_text += k
             else:
-                resultlist.append(('latin',actual_text));
-                arabic=True;
-                actual_text=c;
-        elif re.search(u"[\s\d\?,;:\!\(\)]",c):
-                actual_text+=c;
+                resultlist.append(('latin', actual_text))
+                arabic = True
+                actual_text = k
+        elif re.search(u"[\s\d\?, :\!\(\)]", k):
+            actual_text += k
         else:
             if arabic:
-                i=len(actual_text);
-                temp_text=u"";
-                while not re.search(u"[\u0600-\u06ff]",actual_text[i:i+1]):
-                    i-=1;
-                temp_text=actual_text[i+1:];
-                actual_text=actual_text[:i+1];
-                resultlist.append(('arabic',actual_text));
-                arabic=False;
-                actual_text=temp_text+c;
+                i = len(actual_text)
+                temp_text = u""
+                while not re.search(u"[\u0600-\u06ff]", actual_text[i:i+1]):
+                    i -= 1
+                temp_text = actual_text[i+1:]
+                actual_text = actual_text[:i+1]
+                resultlist.append(('arabic', actual_text))
+                arabic = False
+                actual_text = temp_text+k
             else:
-                actual_text+=c;
+                actual_text += k
     if arabic:
-        resultlist.append(('arabic',actual_text));
+        resultlist.append(('arabic', actual_text))
     else:
-        resultlist.append(('latin',actual_text));
-    return resultlist;
+        resultlist.append(('latin', actual_text))
+    return resultlist
 
 
-def tashkeelText(text, lastmark=True):
-	import tashkeel.tashkeel as ArabicVocalizer
-	vocalizer=ArabicVocalizer.TashkeelClass();
-	print "lastMark", lastmark
-	if lastmark=="0":
-		vocalizer.disableLastMark();
-	vocalized_text=vocalizer.tashkeel(text);
-	return vocalized_text;
-def reducedTashkeelText(text):
-	"""
-	Reduce Harakat and vocalization from a vocalized text.
-	@param text: a given vocalized text.
-	@type text: unicode.
-	@return : reduced text vocalization
-	@rtype: unicode
-	"""
-	return araby.reduceTashkeel(text);
-def showCollocations(text):
-	"""
-	Show collocations found in the text.
-	The collocations is looked up from a data base extracted from a corpus.
-	@param text: a given vocalized text.
-	@type text: unicode.
-	@return : the text have collocations quoted
-	@rtype: unicode
-	"""
-	import tashkeel.tashkeel as ArabicVocalizer	
-	vocalizer=ArabicVocalizer.TashkeelClass();
-	vocalized_text=vocalizer.statTashkeel(text);
-	return vocalized_text;
+def tashkeel_text(text, lastmark=True):
+    """
+    Tashkeel text without suggestions
+    """
+    import tashkeel.tashkeel as ArabicVocalizer
+    vocalizer = ArabicVocalizer.TashkeelClass()
+    print "lastMark", lastmark
+    if lastmark == "0":
+        vocalizer.disable_last_mark()
+    vocalized_text = vocalizer.tashkeel(text)
+    return vocalized_text
+def reduced_tashkeel_text(text):
+    """
+    Reduce Harakat and vocalization from a vocalized text.
+    @param text: a given vocalized text.
+    @type text: unicode.
+    @return : reduced text vocalization
+    @rtype: unicode
+    """
+    return araby.reduce_tashkeel(text)
 
+def show_collocations(text):
+    """
+    Show collocations found in the text.
+    The collocations is looked up from a data base extracted from a corpus.
+    @param text: a given vocalized text.
+    @type text: unicode.
+    @return : the text have collocations quoted
+    @rtype: unicode
+    """
+    """import tashkeel.tashkeel as ArabicVocalizer    
+    vocalizer = ArabicVocalizer.TashkeelClass()
+    vocalized_text = vocalizer.stat_tashkeel(text)
+    return vocalized_text
+    """
+    import maskouk.collocations as colloc 
+    coll = colloc.CollocationClass(True)
+    text = coll.lookup4long_collocations(text)
+    wordlist = araby.tokenize(text)
+    vocalized_list, taglist = coll.lookup(wordlist)
+    #return u" ".join(zip(vocalized_list,taglist))
+    text_output = u""
+    opened = False
+    for word, tag in zip(vocalized_list,taglist):
+        if tag in ( "CB", "CI"):
+            if not opened:
+                text_output += "<mark class='coll'>"
+                opened = True   
+            text_output += word + " "
+        else:
+            if opened:
+                text_output += "</mark>"
+                opened = False
+            text_output += word + " "
+    return text_output
 def extractNamed(text):
-	"""
-	Extract Named Enteties in the text.
-	@param text: a given text.
-	@type text: unicode.
-	@return : the text have Named enteties quoted
-	@rtype: unicode
-	>>> extractNamed(u"قال خالد بن رافع  حدثني أحمد بن عنبر عن خاله");
-	("خالد بن رافع"، "أحمد بن عنبر ")
-	"""
-	import pyarabic.named as named
-	phrases=[];
-	wordlist = araby.tokenize(text);
-	positions= named.detectNamedPosition(wordlist);
-	previousPos=0; # to keep the previous pos in the list
-	for pos in positions:
-		if len(pos)>=2:
-			if pos[0]<=len(wordlist) and pos[1]<=len(wordlist):
-				phrases.append((u' '.join(wordlist[previousPos:pos[0]]),''))
-				phrases.append((u' '.join(wordlist[pos[0]: pos[1]+1]),'named'))
-			previousPos=pos[1]+1
-	#add the last part of the wordlist;
-	phrases.append((u' '.join(wordlist[previousPos:]),''))
-	# return phrases;
-	newText="";
-	for tuple in phrases:
-		if tuple[1]=='named':
-			newText+=" <span class='named'>%s</span> "%tuple[0];
-		else:
-			newText+=tuple[0];
-	return newText;#u"<br>".join(phrases);
+    """
+    Extract Named Enteties in the text.
+    @param text: a given text.
+    @type text: unicode.
+    @return : the text have Named enteties quoted
+    @rtype: unicode
+    >>> extractNamed(u"قال خالد بن رافع  حدثني أحمد بن عنبر عن خاله")
+    ("خالد بن رافع"، "أحمد بن عنبر ")
+    """
+    import pyarabic.named
+    wordlist = araby.tokenize(text)
+    taglist = pyarabic.named.detect_named(wordlist)
+
+    text_output = ""
+    opened = False
+    for word, tag in zip(wordlist, taglist):
+        if tag in ("named", 'NI','NB'):
+            if not opened:
+                text_output += "<mark class='named'>"
+                opened = True   
+            text_output += word + " "
+        else:
+            if opened:
+                text_output += "</mark>"
+                opened = False
+            text_output += word + " "
+    return text_output
+
+
+def extract_enteties(text):
+    """
+    Extract enteties as numbers, named enteties, collocations.
+    @param text: a given text.
+    @type text: unicode.
+    @return : the text have enteties phrases quoted
+    @rtype: unicode
+    """
+    import pyarabic.number
+    import pyarabic.named
+    import maskouk.collocations as colloc 
+    coll = colloc.CollocationClass(True)
+    wordlist = araby.tokenize(text)
+    taglist_nb = pyarabic.number.detect_numbers(wordlist)
+    voclist_nb = pyarabic.number.pre_tashkeel_number(wordlist)
+    taglist_nmd = pyarabic.named.detect_named(wordlist)
+    voclist_nmd = pyarabic.named.pretashkeel_named(wordlist)
+    voclist_coll, taglist_coll = coll.lookup(wordlist)
+    # return phrases
+    text_output = []
+    opened = False
+    for word, tagnb, vocnb, tagnmd, vocnmd, tagcol, voccol in zip(wordlist, taglist_nb,voclist_nb, taglist_nmd, voclist_nmd, taglist_coll, voclist_coll):
+        if tagnb == 'DB':
+            if opened:
+                text_output.append("</mark>")
+            text_output.extend(["<mark class='number'>",vocnb] )
+            opened = True                  
+        elif tagnmd == 'NB':
+            if opened:
+                text_output.append("</mark>")
+            text_output.extend(["<mark class='named'>",vocnmd] )
+            opened = True  
+        elif tagcol =='CB':
+            if opened:
+                text_output.append("</mark>")
+            text_output.extend(["<mark class='coll'>",voccol] )
+            opened = True 
+        elif tagnmd == "NI":
+            text_output.append(vocnmd) 
+        elif tagnb == "DI":
+            text_output.append(vocnb) 
+        elif tagcol == "CI":
+            text_output.append(voccol) 
+        else:
+            if opened:
+                 text_output.append("</mark>") 
+                 opened = False
+            text_output.append(word)
+    if opened:
+        text_output.append("</mark>")  
+    return u" ".join(text_output)
+
+
+def extract_enteties2(text):
+    """
+    Extract enteties as numbers, named enteties, collocations.
+    @param text: a given text.
+    @type text: unicode.
+    @return : the text have enteties phrases quoted
+    @rtype: unicode
+    """
+    import pyarabic.number
+    import pyarabic.named
+    import maskouk.collocations as colloc 
+    coll = colloc.CollocationClass(True)
+    wordlist = araby.tokenize(text)
+    taglist_nb = pyarabic.number.detect_numbers(wordlist)
+    taglist_nmd = pyarabic.named.detect_named(wordlist)
+    vocalized_list, taglist_coll = coll.lookup(wordlist)
+    # return phrases
+    text_output = ""
+    opened = False
+    for word, voc, tagnb, tagnmd, tagcol in zip(wordlist,vocalized_list, taglist_nb, taglist_nmd, taglist_coll):
+        if tagnb in ('DI','DB'):
+            if not opened:
+                text_output += "<mark class='number'>"
+                opened = True   
+            text_output += word + " "
+        elif tagnmd in ('NI','NB'):
+            if not opened:
+                text_output += "<mark class='named'>"
+                opened = True   
+            text_output += word + " "
+        elif tagcol in ('CI','CB'):
+            if not opened:
+                text_output += "<mark class='coll'>"
+                opened = True   
+            text_output += voc + " "           
+        else:
+            if opened:
+                text_output += "</mark>"
+                opened = False
+            text_output += word + " "
+    return text_output
+   
 
 def extractNumbered(text):
-	"""
-	Extract number phrases in the text.
-	@param text: a given text.
-	@type text: unicode.
-	@return : the text have number phrases quoted
-	@rtype: unicode
-	>>> extractNumber(u"وجدت خمسمئة وثلاثة وعشرين دينارا");
-	وجدت خمسمئة وثلاثة وعشرين دينارا ")
-	"""
-	import pyarabic.number
-	phrases=[];
-	wordlist = araby.tokenize(text);
-	positions= pyarabic.number.detectNumberPhrasesPosition(wordlist);
-	previousPos=0; # to keep the previous pos in the list
-	for pos in positions:
-		if len(pos)>=2:
-			if pos[0]<=len(wordlist) and pos[1]<=len(wordlist):
-				phrases.append((u' '.join(wordlist[previousPos:pos[0]]),''))
-				phrases.append((u' '.join(wordlist[pos[0]: pos[1]+1]),'named'))
-			previousPos=pos[1]+1
-	#add the last part of the wordlist;
-	phrases.append((u' '.join(wordlist[previousPos:]),''))
-	# return phrases;
-	newText="";
-	for tuple in phrases:
-		if tuple[1]=='named':
-			newText+=" <span class='named'>%s</span> "%tuple[0];
-		else:
-			newText+=tuple[0];
-	return newText;#u"<br>".join(phrases);
-	
+    """
+    Extract number phrases in the text.
+    @param text: a given text.
+    @type text: unicode.
+    @return : the text have number phrases quoted
+    @rtype: unicode
+    >>> extractNumber(u"وجدت خمسمئة وثلاثة وعشرين دينارا")
+    وجدت خمسمئة وثلاثة وعشرين دينارا ")
+    """
+    import pyarabic.number
+    wordlist = araby.tokenize(text)
+    taglist = pyarabic.number.detect_numbers(wordlist)
+    # return phrases
+    text_output = ""
+    opened = False
+    for word, tag in zip(wordlist, taglist):
+        if tag in ("named", 'DI','DB'):
+            if not opened:
+                text_output += "<mark class='number'>"
+                opened = True   
+            text_output += word + " "
+        else:
+            if opened:
+                text_output += "</mark>"
+                opened = False
+            text_output += word + " "
+    return text_output
+    
 def tashkeel2(text, lastmark):
-	import tashkeel.tashkeel as ArabicVocalizer
-	vocalizer=ArabicVocalizer.TashkeelClass();
-	#print (u"lastMark %s"%lastmark).encode('utf8');
-	if lastmark=="0" or not lastmark:
-		vocalizer.disableLastMark();	
-	vocalized_dict=vocalizer.tashkeelOuputHtmlSuggest(text);
-	#print vocalized_dict
-	return vocalized_dict;
-	
-def spellcheck(text, lastmark=None):
-	import spellcheck.spellcheck as ArabicSpellchecker
-	vocalizer=ArabicSpellchecker.SpellcheckClass();
-	#print (u"lastMark %s"%lastmark).encode('utf8');
-	vocalized_dict=vocalizer.spellcheckOuputHtmlSuggest(text);
-	return vocalized_dict;
+    """
+    Tashkeel text with suggestions
+    """
+    import tashkeel.tashkeel as ArabicVocalizer
+    vocalizer = ArabicVocalizer.TashkeelClass()
+    #print (u"lastMark %s"%lastmark).encode('utf8')
+    if lastmark == "0" or not lastmark:
+        vocalizer.disable_last_mark()    
+    vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(text)
+    #print vocalized_dict
+    return vocalized_dict
+    
+def spellcheck(text):
+    """
+    Spellcheck a text
+    """
+    import spellcheck.spellcheck as ArabicSpellchecker
+    vocalizer = ArabicSpellchecker.SpellcheckClass()
+    #print (u"lastMark %s"%lastmark).encode('utf8')
+    vocalized_dict = vocalizer.spellcheckOuputHtmlSuggest(text)
+    return vocalized_dict
 
-def Comparetashkeel(text):
-	import tashkeel.tashkeel as ArabicVocalizer
-	# the entred text is vocalized correctly
-	correct_text=text;
-	text=araby.stripTashkeel(text);
-	vocalizer=ArabicVocalizer.TashkeelClass();
-	vocalized_text=vocalizer.tashkeel(text);
-	
-	# compare voalized text with a correct text
-	text1=correct_text;
-	text2=vocalized_text;
-	# remove collocations symboles
-	text2=text2.replace("'","");
-	text2=text2.replace("~","");
-	
-	#stemmer=tashaphyne.stemming.ArabicLightStemmer()
-	list1=vocalizer.analyzer.tokenize(text1);
-	list2=vocalizer.analyzer.tokenize(text2);
-	print u":".join(list1).encode('utf8');
-	print u":".join(list2).encode('utf8');
-	correct=0;
-	incorrect=0;
-	total=len(list1);
-	if len(list1)!=len(list2):
-		print "lists haven't the same length";
-	else:
-		for i in range(total):
-			if araby.vocalizedlike(list1[i],list2[i]):
-				correct+=1;
-			else:
-				incorrect+=1;
-	
-	result=[vocalized_text,"correct:%0.2f%%"%round(correct*100.00/total,2),"incorrect:%0.2f%%"%round(incorrect*100.00/total,2),total]
-	return result#correct*100/total;
+def compare_tashkeel(text):
+    """
+    Compare tashkeel between vocalized text and automatic vocalized text
+    """
+    import tashkeel.tashkeel as ArabicVocalizer
+    # the entred text is vocalized correctly
+    correct_text = text.strip()
+    text = araby.strip_tashkeel(text.strip())
+    vocalizer = ArabicVocalizer.TashkeelClass()
+    #~vocalized_text = vocalizer.tashkeel(text)
+    vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(text)
+    
+    # compare voalized text with a correct text
+    text1 = correct_text
+    #~text2 = vocalized_text
+    displayed_html = u""
+    
+    #stemmer=tashaphyne.stemming.ArabicLightStemmer()
+    #~texts = vocalizer.analyzer.split_into_phrases(text1)
+    texts = [text1, ]
+    list1 =[]
+    for txt in texts:
+        list1 += vocalizer.analyzer.tokenize(txt)
+    list2 = vocalized_dict
+    print u"\t".join(list1).encode('utf8')
+    correct = 0
+    incorrect = 0
+    total = len(list1)
+    if len(list1)!= len(list2):
+        print "lists haven't the same length", len(list1), len(list2)
+        for i in range(min(len(list1), len(list2))):
+            print (u"'%s'\t'%s'"%(list1[i], list2[i].get('chosen',''))).encode("utf8")
+        sys.exit()
+    else:
+        for i in range(total):
+            wo1 = list1[i]
+            wo1_strip = wo1            
+            wo2 = list2[i]['chosen']
+            wo2_strip = list2[i]['semi']  # words without inflection mark
+            inflect = list2[i]['inflect']
+            link = list2[i]['link']
+            rule = list2[i]['rule']
+            style = "diff"
+            #~if araby.is_vocalized(wo2) and araby.vocalizedlike(wo1, wo2):
+            if araby.vocalizedlike(wo1, wo2):
+                if wo2 == "\n":
+                    wo2 = "<br/>"
+                #~displayed_html += u" " + wo2
+                displayed_html += u" <span id='diff'  class='%s' original='%s' inflect='%s' link='%s' rule='%s'>%s</span>" % ( style, wo1, inflect, link, str(rule), wo2)
+
+                correct += 1
+            else:
+                incorrect += 1
+                # green for last mark difference
+                wo1_strip = wo1
+                #~wo2_strip = araby.strip_lastharaka(wo2)
+                if araby.vocalizedlike(wo1_strip, wo2_strip):
+                    style = 'diff-mark'
+                else:
+                    # if the last marks are equal
+                    wm1 = wo1[-1:]
+                    wm2 = wo2[-1:]
+                    if (araby.is_haraka(wm1) and araby.is_haraka(wm2) and wm1 == wm2) \
+                    or (bool(araby.is_haraka(wm1)) ^  bool(araby.is_haraka(wm2))):
+                        style = "diff-word"
+                    else:
+                        style = 'diff-all'
+                displayed_html += u" <span id='diff'  class='%s' original='%s' inflect='%s' link='%s' rule='%s'>%s</span>" % ( style, wo1, inflect, link, str(rule), wo2)
+    per_correct = round(correct*100.00/total, 2)
+    per_incorrect = round(incorrect*100.00/total, 2)
+    result = [displayed_html, "correct:%0.2f%%, incorrect:%0.2f%%"%(per_correct, per_incorrect)]
+    return result#correct*100/total
 
 def assistanttashkeel(text):
-	import tashkeel.tashkeel as ArabicVocalizer
-	vocalizer=ArabicVocalizer.TashkeelClass();
-	vocalized_text=vocalizer.assistanttashkeel(text);
-	return vocalized_text;
-def randomText():
-	import randtext
-	
-	return random.choice(randtext.textlist);
+    """
+    get tashkeel with suggestions
+    """
+    import tashkeel.tashkeel as ArabicVocalizer
+    vocalizer = ArabicVocalizer.TashkeelClass()
+    vocalized_text = vocalizer.assistanttashkeel(text)
+    return vocalized_text
+def random_text():
+    """
+    get random text for tests
+    """    
+    import randtext
+    
+    return random.choice(randtext.textlist)
+def chunksplit(text):
+    """
+    split text into chunks
+    """
+    import qalsadi.analex
+    import aranasyn.anasyn
+    # lexical analyzer
+    morphanalyzer = qalsadi.analex.Analex()
+    # syntaxic analyzer
+    anasynt = aranasyn.anasyn.SyntaxAnalyzer();    
+    #~ line =  araby.strip_tashkeel(line);
+    #morpholigical analysis of text
+    detailled_stem =  morphanalyzer.check_text(text);
+    #syntaxical analysis of text
+    detailled_syntax, synnodeList =  anasynt.analyze(detailled_stem);
+    # print detailled_syntax;
+    syno_tags = u" ‫"
+    chunklist =[]
+    achunk = []
+    for synnode in synnodeList:
+        if synnode.get_break_type() in ("break", "mostBreak"):
+            if synnode.is_break_end():
+                achunk.append(synnode.get_word())
+                chunklist.append(u" ".join(achunk))
+                achunk = []
+               #~ print synnode.get_word().encode('utf8');
+               #~ print syno_tags.encode('utf8')
+                syno_tags = ""
+            else:
+                chunklist.append(u" ".join(achunk))
+                achunk = []
+                achunk.append(synnode.get_word())               
+               #~ print "break";
+               #~ print syno_tags.encode('utf8')
+                syno_tags = u" ‫"
+               #~ print synnode.get_word().encode('utf8'),                        
+        else:
+            achunk.append(synnode.get_word())
+    if achunk:
+        chunklist.append(u" ".join(achunk))
+            #print synnode.get_word().encode('utf8'),
+        #syno_tags += " '%s[%s]'"%(synnode.get_word_type(), synnode.get_guessed_type_tag())
+    return chunklist

@@ -1,109 +1,261 @@
-<!DOCTYPE html 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="ar">
+<!DOCTYPE html>
+
+<html lang='ar'>
 <head>
-<title>مشكال النصوص العربية</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="icon" type="image/png" href="%(script)s/_files/favicon.png">
-<link rel="stylesheet" type="text/css" href="%(script)s/_files/adawatstyle.css" />
-<script type="text/javascript" src="%(script)s/_files/jquery-1.7.1.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
+  <title>مشكال النصوص العربية</title>
+  <meta charset="UTF-8">
+  <!--<link href="styles.css" rel="stylesheet">-->
+  <link href="%(script)s/_files/favicon1.png" rel="icon" type="image/png">
+  <link href="%(script)s/_files/adawatstyle.css" rel="stylesheet">
+  <link href="%(script)s/_files/xzero-rtl/css/bootstrap-arabic.min.css" rel="stylesheet">
+  <!--<link rel="stylesheet" href="%(script)s/_files/twbs-rtl/css/bootstrap-arabic.min.css">-->
+
+  <script src="%(script)s/_files/jquery-1.7.1.min.js"></script>
+  <script src="%(script)s/_files/xzero-rtl/js/bootstrap-arabic.min.js"></script><!--<link rel="stylesheet" href="%(script)s/_files/twbs-rtl/css/bootstrap.min.css">-->
+  <meta content="width=device-width, initial-scale=1" name="viewport">
 </head>
+
 <body dir="rtl">
-<img src="%(script)s/_files/logo.png" alt="مشكال: تشكيل النصوص العربية" width=150 style='float:right;'>
-<!-- Menu -->
-<div style='text-align:left;vertical-align:middle; display:table-cell;'>
-    <a href="index">الرئيسية</a>&nbsp;&nbsp;
-    <a href="doc">توثيق</a>&nbsp;&nbsp;
-    <a href="link">روابط</a>&nbsp;&nbsp;
-	<a href="download">تحميل</a>&nbsp;&nbsp;
-	<a href="projects">مشاريع</a>&nbsp;&nbsp;
-    <a href="contact">اتصل بنا</a>&nbsp;&nbsp;
-</div>
-<hr/>
-إصدار تجريبي
-<!-- end menu -->
-<div id="mainbox">
-<form name="NewForm" onSubmit="return false">
-<textarea name="InputText" id="InputText" cols=60 rows=7 class='Block'>%(DefaultText)s
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/mishkal/main"><img alt="مشكال: تشكيل النصوص العربية" height="80px"
+          src="%(script)s/_files/logo.png" style='float:right; margin-top:-20px;'> </a>
+        </div>
 
-</textarea>
-<br/>
-<input type="checkbox" value='1' checked id="LastMark" /> تشكيل أواخر الكلمات<BR/>
-<!--<a id="tashkeel"   class="Button" title='تشكيل النص'><span>تشكيل</span></a>-->
-<a id="tashkeel"   class="Button" title='تشكيل النص'><span>تشكيل</span></a>
-<input type="reset" value='امسح'/>
-<a  id="more" class="Button"><span>أدوات أخرى...</span></a>
+        <div>
+          <ul class="nav navbar-nav pull-right">
+            <li class="active">
+              <a class="active" href="index"><span class="glyphicon glyphicon-home"></span>الرئيسية</a>
+            </li>
+
+            <li>
+              <a href="/mishkal/doc"><span class="glyphicon glyphicon-info-sign"></span>توثيق</a>
+            </li>
+
+            <li>
+              <a href="/mishkal/download"><span class="glyphicon glyphicon-download"></span>تحميل</a>
+            </li>
+
+            <li>
+              <a href="/mishkal/projects"><span class="glyphicon glyphicon-pushpin"></span>مشاريع</a>
+            </li>
+
+            <li>
+              <a href="/mishkal/contact"><span class="glyphicon glyphicon-envelope"></span>اتصل بنا</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="row clearfix">
+      <div class="col-md-9 column">
+        <form id="NewForm" name="NewForm" onsubmit="return false">
 
 
-<div id="moresection" class='moresection'>
-
-<a id="spellcheck"   class="Button" title='تحليل النص صرفيا'><span>تدقيق</span></a>
-<a id="stem"   class="Button" title='تحليل النص صرفيا'><span>تحليل</span></a>
-<a  id="stripharakat" class="Button"><span>حذف الحركات</span></a>
-<a  id="reducetashkeel" class="Button"><span>اختزال التشكيل</span></a>
-<a  id="comparetashkeel" class="Button"><span>مطابقة التشكيل</span></a>
-<a  id="showCollocations" class="Button"><span>عرض المتلازمات</span></a>
-<a id="tokenize"   class="Button" title='تحويل النص إلى قائمة كلمات'><span>تفريق</span></a>
-
-<a id="affixate" class="Button" title='توليد مختلف أشكال الاسم بإضافة الزوائد كحروف العطف والتعريف والضمائر المتصلة'><span>توليد الكلمات</span></a>
-<a id="normalize" class="Button" title='توحيد أشكال الهمزات والألفات والتاء المربوطة'><span>تنميط النص</span></a>
-<a id="wordtag" class="Button" title='تصنيف الكلمات إلى أسماء وأفعال'><span>تصنيف الكلمات</span></a>
-<a id="language" class="Button" title='تحديد الجمل العربية في النص'><span>تحديد اللغة</span></a>
-
-<a id="named" class="Button" title='استخلاص المسميات'><span>استخلاص المسميات</span></a>
-<a id="numbred" class="Button" title='استخلاص االمعدودات'><span>استخلاص المعدودات</span></a>
-<a  id="number" class="Button" title='تحويل الأعداد إلى كلمات'><span>ترقيم</span></a>
-<a id="inverse"   class="Button" title='ترتيب الكلمات حسب آخر حرفها( القافية)'><span>ترتيب حسب آخر حرف</span></a>
-<a id="poetry"   class="Button" title='تنسيق الشعر العربي العمودي إلى عمودين'><span>ضبط قصيدة عمودية</span></a>
-<a id="unshape" class="Button" title='قلب النص والحروف للاستخدام في البرامج التي لا تدعم العربية'><span>قلب الحروف</span></a>
-<!---->
-<a id="random"   class="Button" title='نص عشوائي'><span>نص عشوائي</span></a>
-<a id="randomMaqola"   class="Button" title='نص عشوائي'><span>مقولة عشوائية</span></a>
-<br/>
-
-<a id="move" class="Button" title=''><span>نقل النتائج إلى المدخل</span></a>
-</div>
-</form>
-<div id='loading'>
-جاري التحميل
-</div>
-<div id="result" width=600>
-%(ResultText)s
-</div>
-<div id="help">
-<b>مساعدة</b>
-<ul>
-<li>
-أكتب النص في الخانة، ثم اضغط على زر التشكيل.
+<div class="form-control">
+<ul class="list-inline close pull-right">
+<li><a href="#" id="more" class="pull-right">أدوات<span class="glyphicon glyphicon-wrench"></span></a>
 </li>
 <li>
-انتظر حتى تظهر النتيجة.
+<a href="#" id="vocalize_group" class="pull-right">خيارات<span class="glyphicon glyphicon-cog"></span></a>
+</li>
+<li>
+<button class="close" id="random" title="نص عشوائي"><span aria-hidden="true"><span class="glyphicon glyphicon-random" title="نص عشوائي"></span></span></button>
 </li>
 
+
 <li>
-اضغط على الكلمة للحصول على اقتراحات التشكيل  الأخرى.
-</li>
-<li>
-اضغط على زر أدوات أخرى للحصول على خدمات أخرى.
-</li>
+<button class="close pull-right" id="help" title="مساعدة"  data-toggle="modal" href="#modal-container-187711" id="modal-187711"><span aria-hidden="true"><span class="glyphicon glyphicon-question-sign" title="مساعدة" > </span></span><span class="sr-only">مساعدة</span></button></li>
+<li><button type="reset" class="close pull-right" title="مسح"><span aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></span><span class="sr-only">مسح</span></button></li>
+
 </ul>
-</p>
 </div>
-<div id="contributeSection">
-بعد أن تتحقّق من أنّ النص مشكول تشكيلا صحيحا، أرسله إلينا من أجل تحسين أداء البرنامج.
-مع جزيل شكرنا.
-<a  id="contribute" class="Button"><span>اقترح تشكيلا أفضل</span></a>
+          <textarea id="InputText" class="form-control" name="InputText" cols="90" rows="3">
+%(DefaultText)s</textarea>
+   
+     
+           <div class='form-inline'>
+            <a class="btn btn-success" id="tashkeel" title='تشكيل النص'>تشكيل</a>
+             <input checked class="checkbox" id="LastMark" type="checkbox" value='1'> حركة الإعراب
+
+<button class="close pull-right" id="move" title="نسخ الناتج إلى المدخل"><span aria-hidden="true"><span class="glyphicon glyphicon-arrow-up form-control"></span></span><span class="sr-only">نص عشوائي</span></button>
+            
+          <div class='moresection' id="vocalizesection">
+            <label>تشكيل:</label>
+            <a class="btn btn-primary" id="stripharakat">إزالة</a> 
+            <a class="btn btn-primary" id="reducetashkeel"><span>اختزال</span></a> <a class=
+            "btn btn-primary" id="comparetashkeel"><span>مطابقة</span></a>
+ <a class="btn btn-primary" id="randomMaqola" title='نص عشوائي'><span>مقولة
+              عشوائية</span></a>
+          </div>
+
+          <div class='moresection' id="moresection">
+            <!--<a class="btn btn-primary" id="spellcheck" title='تدقيق النص '>
+            <span>تدقيق</span></a> -->
+
+<div class="btn-group">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">استخلاص <span class="caret"></span></button>
+            <div class="dropdown-menu">
+<!--<div class="form-control form-inline"><label>استخلاص:</label>-->
+<a class="btn btn-primary" id="extractEnteties" title='المكونات'>
+المكونات
+</a>
+ <a class="btn btn-primary" id="wordtag" title='تصنيف الكلمات إلى أسماء وأفعال'>
+تصنيف
+</a>
+
+<a class="btn btn-primary" id="showCollocations"><span>المتلازمات</span></a> 
+<a class="btn btn-primary" id="named" title='استخلاص المسميات'>
+<span>المسميات</span></a>
+<a class="btn btn-primary" id="numbred" title='استخلاص االمعدودات'><span>
+            المعدودات</span></a> 
+
+
+            </div>
+
+           <div class="btn-group">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">تحويل
+             <span class="caret"></span></button>
+
+            <div class="dropdown-menu">
+            <a class="btn btn-primary" id="tokenize" title='تحويل النص إلى قائمة كلمات'><span>تفريق</span></a> 
+
+            <a class="btn btn-primary" id="chunk" title='تقسيم النص إلى جمل'><span>تقسيم</span></a> 
+            <a class="btn btn-primary" id="affixate" title='توليد مختلف أشكال الاسم بإضافة الزوائد كحروف العطف والتعريف والضمائر المتصلة'><span>توليد</span></a>
+            <a class="btn btn-primary" id="normalize" title='توحيد أشكال الهمزات والألفات والتاء المربوطة'><span>تنميط</span></a> 
+            
+            <a class="btn btn-primary" id="language" title='تحديد الجمل العربية في النص'><span>تحديد اللغة</span></a>
+
+            <a class="btn btn-primary" id="number" title=
+            'تحويل الأعداد إلى كلمات'><span>ترقيم</span></a> <a class="btn btn-primary" id=
+            "inverse" title='ترتيب الكلمات حسب آخر حرفها( القافية)'><span>ترتيب حسب آخر
+            حرف</span></a> <a class="btn btn-primary" id="unshape" title=
+            'قلب النص والحروف للاستخدام في البرامج التي لا تدعم العربية'><span>قلب
+            الحروف</span></a>
+          <a class="btn btn-primary" id="poetry" title=
+            'تنسيق الشعر العربي العمودي إلى عمودين'><span>ضبط قصيدة عمودية</span></a>
+        </div>
+            <a class="btn btn-primary" id="stem" title='تحليل النص صرفيا'><span>تحليل</span></a>
+            <a class="btn btn-primary" id="spellcheck" title='تدقيق'><span>تدقيق</span></a> 
 
 </div>
 
-  <div id="footer">
-    <a href="/mishkal/contact">للاتصال</a>&nbsp;
-    &nbsp;بدعم من &nbsp;&nbsp; <a href="http://www.arabeyes.org">arabeyes.org</a>
-	<a href="http://blog.tahadz.com">مدونتي</a>
-	</div>
-<script type="text/javascript">var script="%(script)s";</script>
-<!--<script type="text/javascript" src="%(script)s/_files/qamoos.js"></script>-->
-<script type="text/javascript" src="%(script)s/_files/adawat.js"></script>
+</div>
 
+</div>
+
+ </div>
+
+
+        </form>
+      </div>
+
+
+      <div class="col-md-3 column">
+     <!--<img alt="test" src="%(script)s/_files/images/adawat.png">-->
+       <article>
+    <h3>احصل على مشكال</h3>
+<a class="btn-lg btn-link" href="http://sourceforge.net/projects/mishkal/files/mishkal-Desktop-Win-0.1.4.zip/download">
+تحميل:لوندوز<span class="glyphicon glyphicon-download"></span>
+</a>
+  
+        </article>
+    </div>
+    </div>
+
+    <div class="row clearfix">
+      <div class="col-md-9 column"> 
+
+
+<output id="result" class="form-control">%(ResultText)s</output>
+
+<section class="bg-info" id="small_hint"></section>
+</div>
+
+
+
+      <div class="col-md-3 column">
+<progress id='loading'></progress>
+<section class="bg-info" id="hint"></section>
+ <h3>جرّب مشاريعنا</h3>
+      <a href="http://qutrub.arabeyes.org"><img src="%(script)s/_files/images/qutrub.jpg" alt="قطرب"></a>
+     <a href="http://adawat.sf.net"><img src="%(script)s/_files/images/adawat.png" alt="أدوات"></a>
+     <a href="http://radif.sf.net"> <img src="%(script)s/_files/images/radif.png" alt="الرديف"></a>
+      <a href="http://ayaspell.sf.net"><img src="%(script)s/_files/images/ayaspell.png" alt="التدقيق الإملائي"></a>
+ <a href="http://pypi.python.org/pypi/PyArabic/"><img src="%(script)s/_files/images/pyarabic.png" alt="مكتبة بيثون العربية"></a>
+ <a href="http://pypi.python.org/pypi/Tashaphyne/"><img src="%(script)s/_files/images/tashaphyne.png" alt="التحليل الصرفي"></a>
+
+</div>
+    </div>
+  </div>
+  </div>
+
+
+  
+  <div class="container">
+<div class="row clearfix">
+<div class="col-md-12 column">
+  <section class="bg-danger pull-bottom" id="contributeSection">
+    بعد أن تتحقّق من أنّ النص مشكول تشكيلا صحيحا، أرسله إلينا من أجل تحسين أداء البرنامج. مع جزيل
+    شكرنا. <a class="btn btn-info btn-xs" id="contribute"><span>اقترح تشكيلا أفضل</span></a>
+  </section>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-md-12 column">
+
+  <footer>
+    <a href="/mishkal/contact">للاتصال<span class="glyphicon glyphicon-envelope"></span></a>
+    <a href="http://blog.tahadz.com">مدونتي<span class="glyphicon glyphicon-globe"></span></a>
+  </footer>
+</div>
+</div>
+</div>
+
+
+
+
+  <section id="help">
+    <div class="modal fade" id="modal-container-187711">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" type="button">×</button>
+
+            <h4 class="modal-title" id="myModalLabel">مساعدة <span class=
+            "glyphicon glyphicon-question-sign"></span></h4>
+          </div>
+
+          <div class="modal-body">
+            <ul>
+              <li>أكتب النص في الخانة، ثم اضغط على زر التشكيل.</li>
+
+              <li>انتظر حتى تظهر النتيجة.</li>
+
+              <li>اضغط على الكلمة للحصول على اقتراحات التشكيل الأخرى.</li>
+
+              <li>اضغط على زر أدوات أخرى للحصول على خدمات أخرى.</li>
+            </ul>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" type="button">إغلاق</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<script>
+var script="%(script)s";
+  </script> <script src="%(script)s/_files/adawat.js"></script></span>
 </body>
 </html>
