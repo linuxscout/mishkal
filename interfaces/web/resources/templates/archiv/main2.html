@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang='ar'>
+<head>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+<title>مشكال النصوص العربية</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="%(script)s/_files/favicon.png">
+<link rel="stylesheet"  href="%(script)s/_files/adawatstyle.css" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="%(script)s/_files/jquery-1.7.1.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body dir="rtl">
+<header>
+<img src="%(script)s/_files/logo.png" alt="مشكال: تشكيل النصوص العربية" width=150 style='float:right;'>
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+    
+    <li><a href="index" class="active">الرئيسية</a></li>
+    <li><a href="doc">توثيق</a></li>
+	<li><a href="download">تحميل</a></li>
+	<li><a href="projects">مشاريع</a></li>
+    <li><a href="contact">اتصل بنا</a></li>
+    </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<nav>   
+
+</nav>
+<!--<h1>مشكال النصوص العربية</h1>-->
+<small>إصدار تجريبي</small>
+</header>
+<div id="mainbox">
+<form name="NewForm" onSubmit="return false">
+
+		<article class="tabs">
+			<span id="one" class="anchor"></span>
+			<div class="panel">
+				<a class="tab-link" href="#one" id="vocalize_group">خيارات التشكيل</a>
+				
+			</div>
+
+			<span id="two" class="anchor"></span>
+			<div class="panel">
+				<a class="tab-link" href="#two"  id="convert">تحويل</a>
+			</div>
+
+			<span id="three" class="anchor"></span>
+			<div class="panel">
+				<a class="tab-link" href="#three" id="format">تنسيق</a>
+				
+			</div>
+
+			<span id="four" class="anchor"></span>
+			<div class="panel">
+				<a class="tab-link" href="#four" id="more">أدوات</a>
+				
+			</div>
+
+		</article>
+
+<textarea name="InputText" id="InputText" cols=80 rows=3 class='Block'>%(DefaultText)s
+
+
+</textarea>
+<br/>
+<a id="tashkeel"   class="btn btn-success" title='تشكيل النص'>تشكيل</a>
+<div id="vocalizesection" class='moresection'>
+<a  id="stripharakat" class="btn btn-primary" ><span>حذف الحركات</span></a>
+<a  id="reducetashkeel" class="btn btn-primary"><span>اختزال التشكيل</span></a>
+<a  id="comparetashkeel" class="btn btn-primary"><span>مطابقة التشكيل</span></a> 
+    <div class="checkbox">
+      <label><input type="checkbox" value='1' checked id="LastMark" class="form-control"/> تشكيل أواخر الكلمات</label>
+    </div>   
+<BR/><input type="checkbox" value='1' checked id="LastMark" class="checkbox"/> تشكيل أواخر الكلمات
+<input type="checkbox" value='1' checked id="markColor" class="checkbox"/> تلوين الحركات
+<small> (متاح فقط على فيرفُكس الأحدث من الإصدار 32)</small>
+</div>
+
+<div id="moresection" class='moresection'>
+<a id="spellcheck"   class="btn btn-primary" title='تحليل النص صرفيا'><span>تدقيق</span></a>
+<a id="stem"   class="btn btn-primary" title='تحليل النص صرفيا'><span>تحليل</span></a>
+<a  id="showCollocations" class="btn btn-primary"><span>عرض المتلازمات</span></a>
+<a id="tokenize"   class="btn btn-primary" title='تحويل النص إلى قائمة كلمات'><span>تفريق</span></a>
+<a id="affixate" class="btn btn-primary" title='توليد مختلف أشكال الاسم بإضافة الزوائد كحروف العطف والتعريف والضمائر المتصلة'><span>توليد الكلمات</span></a>
+<a id="normalize" class="btn btn-primary" title='توحيد أشكال الهمزات والألفات والتاء المربوطة'><span>تنميط النص</span></a>
+<a id="wordtag" class="btn btn-primary" title='تصنيف الكلمات إلى أسماء وأفعال'><span>تصنيف الكلمات</span></a>
+<a id="language" class="btn btn-primary" title='تحديد الجمل العربية في النص'><span>تحديد اللغة</span></a>
+<a id="named" class="btn btn-primary" title='استخلاص المسميات'><span>استخلاص المسميات</span></a>
+<a id="numbred" class="btn btn-primary" title='استخلاص االمعدودات'><span>استخلاص المعدودات</span></a>
+<!---->
+
+</div>
+<div id="convertsection" class='moresection'>
+<a  id="number" class="btn btn-primary" title='تحويل الأعداد إلى كلمات'><span>ترقيم</span></a>
+<a id="inverse"   class="btn btn-primary" title='ترتيب الكلمات حسب آخر حرفها( القافية)'><span>ترتيب حسب آخر حرف</span></a>
+<a id="unshape" class="btn btn-primary" title='قلب النص والحروف للاستخدام في البرامج التي لا تدعم العربية'><span>قلب الحروف</span></a>
+</div>
+<div id="formatsection" class='moresection'>
+<a id="poetry"   class="btn btn-primary" title='تنسيق الشعر العربي العمودي إلى عمودين'><span>ضبط قصيدة عمودية</span></a>
+</div>
+
+<a id="move" class="btn btn-primary" title=''><span>نقل النتائج إلى المدخل</span></a>
+<a id="random"   class="btn btn-primary" title='نص عشوائي'><span>نص عشوائي</span></a>
+<a id="randomMaqola"   class="btn btn-primary" title='نص عشوائي'><span>مقولة عشوائية</span></a>
+<input type="reset"  value='امسح'/>
+</form>
+<progress id='loading'>
+</progress>
+<output id="result">
+%(ResultText)s
+</output>
+<section id="hint">
+</section>
+<section id="help">
+<b>مساعدة</b>
+<hr/>
+<ul>
+<li>
+أكتب النص في الخانة، ثم اضغط على زر التشكيل.
+</li>
+<li>
+انتظر حتى تظهر النتيجة.
+</li>
+
+<li>
+اضغط على الكلمة للحصول على اقتراحات التشكيل  الأخرى.
+</li>
+<li>
+اضغط على زر أدوات أخرى للحصول على خدمات أخرى.
+</li>
+</ul>
+
+</section>
+<section id="contributeSection">
+بعد أن تتحقّق من أنّ النص مشكول تشكيلا صحيحا، أرسله إلينا من أجل تحسين أداء البرنامج.
+مع جزيل شكرنا.
+<a  id="contribute" class="btn btn-info btn-xs"><span>اقترح تشكيلا أفضل</span></a>
+
+</section>
+
+<footer>
+    <a href="/mishkal/contact">للاتصال</a>
+	<a href="http://blog.tahadz.com">مدونتي</a>
+</footer>
+<script>var script="%(script)s";</script>
+<script src="%(script)s/_files/adawat.js"></script>
+
+</body>
+</html>

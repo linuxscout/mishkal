@@ -1,0 +1,371 @@
+
+body { 	
+	direction: rtl;
+	font-family:  'Traditional Arabic', Sans,  "Times New Roman";
+	font-size: 16pt;
+	padding: 1cm;
+	padding-top: 0.25cm;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+h1 {
+	color: rgb(255, 255, 255);
+	background-color: rgb(204, 0, 0);
+	width: 839px;
+	height: 1.5em;
+	text-align: right;
+	margin-left: auto;
+	margin-right: 0px;
+}
+
+body { background:#FFFFFF;}
+a img { border: none; }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+#statusbox{
+	overflow:hidden;
+	width:100%;
+	height:48px;
+	font-size:24px;
+}
+#loading, #error{
+	display:none;
+	position:absolute;
+	left:48px;
+	width:10em;
+	height:48px;
+	padding:8px 48px 8px 8px;
+	margin-left:auto; margin-right:auto;
+	text-align:center;
+	vertical-align:middle;
+	opacity: 0.7;
+}
+#loading{
+	background:#eef url('loading.gif') no-repeat right center;
+}
+#error{
+	background:#fdd;
+}
+#container {
+	background:#fff;
+	margin:32px;
+	border:3px solid #fff;
+
+}
+#banner {
+	background:#acf url('h.png') repeat-x top;
+	padding:8px 32px 8px;
+}
+#banner h1, #banner h2{
+	line-height:1em;
+	margin-left:auto; margin-right:auto;
+	text-align: center;
+	padding:0;
+}
+#footer {
+	background:#eee;
+	color:#444;
+	margin-left:auto; margin-right:auto;
+	text-align: center;
+	padding:2px;
+	font-size: 14pt;	
+}
+#footer img {opacity: 0.5;}
+#footer a:hover img {opacity: 1;}
+
+#copyright {
+	color:#aaa;
+	margin-left:auto; margin-right:auto;
+	text-align: center;
+	font-size:12px;
+}
+#copyright a {
+	color:#efa;
+	margin-left:auto; margin-right:auto;
+	text-align: center;
+}
+.Button
+{
+    border:0;
+    margin: 3px 0px;
+    background: transparent url('images/ButtonAnchor.png') no-repeat  right bottom;
+    position:relative;
+    overflow: hidden;
+    height: 27px;
+    padding: 0px 18px 0px 0px;
+    display: inline-block;
+    font-size: 16px;
+	font-weight: bold;
+    vertical-align:middle;
+    zoom: 1;
+}
+
+.Button span
+{
+    border:0;
+    margin:0;
+    background: transparent url('images/Button.png') no-repeat left bottom;
+    display:block;
+    position:relative;
+    color: #666666;
+    padding: 0px 18px 0px 0px;	
+    line-height: 17px;
+    vertical-align:middle;	
+}
+
+.Button span
+{
+    padding: 5px 0px 5px 18px;
+}
+
+.ButtonInput span
+{
+    padding: 0px 0px 0px 18px;
+    height:27px;
+}
+
+
+
+
+.Button, .Button:link, .Button:visited, .Button:hover, .Button:active
+{
+    text-decoration: none !important;
+    outline: none;
+}
+
+.Button:hover
+{
+    background-position: right center;
+}
+
+.Button:hover span
+{
+    background-position: left center;
+    color: #000000;
+}
+
+.Button:active
+{
+    background-position: left bottom;
+}
+
+.Button:active span
+{
+    background-position: right bottom;
+    color: #000000;
+} 
+
+.Block
+{
+   z-index: 0;
+   position: relative;    margin: 5px;
+   color: #000000;
+}
+
+.BlockContent
+{
+   position: relative;
+   z-index: 1;
+   overflow: hidden;
+   padding: 10px 10px 10px 10px;
+}
+
+.Block a
+{
+   color: #605106;
+text-decoration: underline;
+}
+
+.Block a:visited
+{
+   color: #605106;
+text-decoration: underline;
+}
+
+.Block a:hover
+{
+   color: #000000;
+text-decoration: none;
+}
+
+#mainbox {padding:24px;}
+#resultsbox {padding:24px}
+table,th,td {border:none;border-collapse:collapse;}
+table {
+	margin-left:auto; margin-right:auto;
+	text-align: center;
+	width:80%;
+	border:3px solid #ccc;
+}
+.moresection{
+	display:none;
+}
+th,td{
+	padding:3px 24px;
+	background-color:#ffffff;
+	border:3px solid #ccc;
+	border-top: 0 none; border-bottom: 0 none;
+}
+th{ font-size:150%; color:#008;}
+td { text-align: left; }
+td:first-child{ text-align: right; }
+/*tbody tr:nth-child(odd) td{ background-color:#eee; color:#222}*/
+tbody:nth-child(odd) td{ background-color:#ffffff; color:#000000}
+tbody:nth-child(even) td{ background-color:rgb(253,255,221); color:#000000}
+#btn {padding-left:16px; padding-right:16px}
+
+.result
+{
+background-color:#006600;
+}
+
+.noun
+{
+background-color:#006600;
+}
+
+.v ,.verb, .arabic
+{
+background-color:rgb(194,247,185);
+}
+.v1, .verbcontext
+{
+background-color:rgb(145,240,128);
+}
+.n, .noun 
+{
+background-color:rgb(234,220,94);
+}
+.n1, .nouncontext
+{
+background-color:#ffff6c;
+}
+.nv, .vn, .vn1 , .latin
+{
+background-color:#ffffff;
+}
+.t, .tool
+{
+background-color:rgb(255,185,185);
+}
+.tashkeel
+{
+   font-family: "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
+    text-align:right;
+    font-size:30px;
+
+}
+.vocalized:hover, .vo :hover
+{
+background-color:rgb(250,252,218);
+  cursor: pointer;
+}
+.collocation
+{
+background-color:rgb(255,252,232);
+}
+.txkl /* tashkeel select*/
+{
+border:none;
+   font-family: "Traditional Arabic", Arial, Helvetica, Sans-Serif;
+    text-align:right;
+    font-size:30px;
+	background-color:rgb(226,226,226);
+}
+
+.spellStyle
+{
+   font-family: "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
+    text-align:right;
+    font-size:30px;
+}
+.spelled-incorrect
+{
+   font-family: "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
+   text-align:right;
+   font-size:30px;
+  color: red;
+  cursor: pointer;
+  border-bottom: 1px dotted red;
+}
+.spelled-incorrect:hover, .vo :hover
+{
+background-color:rgb(250,252,218);
+}
+.named /* named enteties*/
+{
+background-color:#FFF8C6;
+}
+
+#contributeSection
+{
+border:none;
+display:none;
+   font-family: "Traditional Arabic", Arial, Helvetica, Sans-Serif;
+    text-align:right;
+    font-size:14px;
+	background-color:#FFF8C6;
+}
+#help  
+{
+ border:none;
+ font-family: "Traditional Arabic", Arial, Helvetica, Sans-Serif;
+ text-align:right;
+ font-size:14px;
+ background-color:#FFF8C6;
+ position: absolute;
+}
+#help ul
+{
+ border:none;
+ font-family: "Traditional Arabic", Arial, Helvetica, Sans-Serif;
+ text-align:right;
+ font-size:14px;
+ background-color:#FFF8C6;	
+ display: none;
+ position: absolute;
+}
+
+.diff-all /* the word and the last mark*/
+{
+  border:none;
+  font-size:30px;
+  color:red;
+  cursor: pointer;    
+}
+.diff-word /* the word is different*/
+{
+  border:none;
+  font-size:30px;
+  color:brown;
+  cursor: pointer;    
+}
+.diff-mark /* the last mark is different*/
+{
+  border:none;
+  font-size:30px;
+  color:green;
+  cursor: pointer;    
+}
+#hint {
+   font-family: "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
+    text-align:right;
+    font-size:30px;
+    background-color:#ccF8C6;    
+    }
+    
+.tab{
+   font-family: "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
+    text-align:right;
+    font-size:20px;
+    background-color:#ccF8C6;    
+    }
+.tab-visited{
+   font-family: "Traditional Arabic",  Sans, 'KacsTBook', Arial, Helvetica;
+    text-align:right;
+    font-size:20px;
+    background-color:#00F8C6;    
+    }
+    

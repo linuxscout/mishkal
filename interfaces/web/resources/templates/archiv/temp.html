@@ -1,0 +1,432 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<head>
+<title>Thin Bright UI kits Website Template | Home :: w3layouts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script src="%(script)s/_files/js/jquery.easydropdown.js"></script>
+<script src="%(script)s/_files/js/mediaelement-and-player.min.js"></script>
+<link rel="stylesheet" href="%(script)s/_files/css/mediaelementplayer.min.css" />
+<link rel="stylesheet" href="%(script)s/_files/css/easy-responsive-tabs.css" />
+<script src="%(script)s/_files/js/easyResponsiveTabs.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion           
+            width: 'auto', //auto or any width like 600px
+            fit: true   // 100% fit in a container
+        });
+    });
+</script>
+<script src="js/highcharts.js"></script>
+<script src="js/dx.chartjs.js"></script>
+</head>
+<body>			       
+	  <div class="main">  
+	    <div class="wrap"> 
+	      <div class="main-top"> 
+	    	 <div class="section group">
+				<div class="lsidebar span_1_of_3 main-top-left">
+					<ul>
+						<li class="normal-button"><a href="#">Download</a></li>
+						<li class="hover"><a href="#">Hover</a></li>
+						<li class="active"><a href="#">Active</a></li>
+						<li class="progress-button"><a href="#">Progress</a></li>
+						<li class="success"><a href="#">Success!</a></li>
+						<li class="register"><a href="#">Register</a></li>
+					</ul>
+				</div>
+				<div class="cont span_2_of_3 main-top-right">
+				  <div class="nav">
+					<ul>
+						<li class="active"><a href="#">Past</a></li>
+						<li><a href="#">Present</a></li>
+						<li><a href="#">Feature</a></li>
+						<li class="add"><a href="#"><img src="images/add.png" alt=" /"></a>
+						<ul>
+					      <li><a href="#">Menu Item#1</a></li>
+					      <li><a href="#">Menu Item#2</a></li>
+					      <li><a href="#">Menu Item#3</a></li>
+					      <li><a href="#">Menu Item#4</a></li>
+					      <li><a href="#">Menu Item#5</a></li>
+					      <li><a href="#">Menu Item#6</a></li>
+					     </ul>
+						</li>
+						<div class="clear"></div>
+					</ul>
+				</div>			
+				<div class="search-location">
+				  <div class="search">
+				  	<form>
+				  		<input type="text" placeholder="Search..." />
+				  		<input type="submit" value=""/>
+				  		<div class="clear"></div>
+				  	</form>
+				  </div>
+				  	<div class="location">
+				  	  <div class="dropdown-button">           			
+            			<select class="dropdown" data-settings='{"wrapperClass":"flat"}'>
+		            		<option value="null">Location</option>         
+				            <option value="AX">Åland Islands</option>
+				            <option value="AF">Afghanistan</option>
+				            <option value="AL">Albania</option>
+				            <option value="DZ">Algeria</option>
+				            <option value="AS">American Samoa</option>
+				            <option value="AD">Andorra</option>
+				            <option value="AO">Angola</option>
+				            <option value="AI">Anguilla</option>
+				            <option value="AQ">Antarctica</option>
+					  </select>
+					</div>
+				  </div>
+				  <div class="clear"></div>
+				</div>	
+				<div class="video-billing">
+				 	<div class="video">
+					<video width="100%%" height="250" id="player2" controls="controls">
+						<source src="images/echo-hereweare.mp4" type="video/mp4" title="mp4"></source>
+						<source src="mages/echo-hereweare.webm" type="video/webm" title="webm"></source>
+						<source src="images/echo-hereweare.ogv" type="video/ogg" title="ogg"></source>
+						<p>Your browser leaves much to be desired.</p>
+					</video>
+					<script>
+						$('audio,video').mediaelementplayer({
+							features: ['playpause','progress','volume','postroll']
+						});
+					</script>
+                </div>
+					 <div class="billing">
+					 	<div class="billing-top">
+					 		<h3>Credit Card</h3>
+					 		<ul>
+					 			<li><span>Visa 4256.</span></li>
+					 			<li><a href="#">Replace</a></li>
+					 			<li>or</li>
+					 			<li><a href="#">Delete.</a></li>
+					 		</ul>
+					 		 <div class="clear"></div>
+					 	</div>
+					 	<div class="billing-desc">
+					 		<h3>$65.20</h3>
+					 		<p>Your account balance</p>
+					 	
+					    <div class="billing-buttons">
+					 	 <ul>
+					 	 	<li><a href="#">Withdraw</a></li>
+					 	 	<li class="blue"><a href="#">Deposit</a></li>
+					 	 	<div class="clear"></div>
+					 	 </ul>
+					   </div>
+					 </div>
+					</div>
+				  <div class="clear"></div>
+				</div>
+		     </div>
+ 	       </div>         
+ 	      </div>
+ 	      <div class="section group">
+				<div class="cont span_2_of_3 main-bottom-left">
+				   <div class="charts-elements">
+					<div class="tabs">
+						<!--Horizontal Tab-->
+						<div id="horizontalTab">
+						<div class="resp-tabs-container">
+						<div>
+						<div id="recipes" style="100%%; height:260px; margin: 0 auto"></div>
+						 <script>
+						 $(function () {
+					        $('#recipes').highcharts({
+					            
+					            title: {
+					                text: 'Recipes Published',
+					                style: {
+						                color: '#222222',
+						                fontWeight: '100'
+						               
+						            }
+					            },
+					           
+					           xAxis: {
+						            categories: ['AUG', 'SEP', 'OCT', 'NOV', 'DEC', 'JAN'],
+						        },
+					            
+					            yAxis: {
+						             labels: {
+					                    formatter: function() {
+					                        return this.value +'k'
+					                    }
+					                },
+							         title: {
+						                    enabled: false
+						                }
+					            },
+					             plotOptions: {
+						            series: {
+						            	 cursor: 'pointer',
+						                color: '#222222'
+						            }
+						        },
+					             
+					            legend: {
+						            enabled: false
+						        },
+					            
+					            tooltip: {
+					               shared: true,
+               					   pointFormat: '{point.x} k',
+               					    backgroundColor: '#FFFFFF'
+					            },
+					            
+					            series: [{            
+					                data: [1, 4.5, 4, 6.7, 1],
+					                pointStart: 1
+					            }]
+					        });
+					    });
+
+						 </script>
+						</div>
+						<div>
+							<div id="ideas" style="100%%; height:260px; margin: 0 auto"></div>
+							<script>
+							      $(function () {
+								        $('#ideas').highcharts({
+								            chart: {
+								                type: 'column'
+								            },
+								            title: {
+								                text: 'Ideas in countries'
+								            },
+								            legend: {
+										            enabled: false
+										    },
+								            xAxis: {
+								                categories: [
+								                    'Jan',
+								                    'Feb',
+								                    'Mar',
+								                    'Apr',
+								                    'May',
+								                    'Jun',
+								                    'Jul',
+								                    'Aug',
+								                    'Sep',
+								                    'Oct',
+								                    'Nov',
+								                    'Dec'
+								                ]
+								            },
+								            yAxis: {
+								                min: 0,
+								                title:false
+								            },
+								            tooltip: {
+								                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+								                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+								                    		'<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+								                footerFormat: '</table>',
+								                shared: true,
+								                useHTML: true,
+								                 backgroundColor: '#FFFFFF',
+								                 borderColor: '#000000'
+								            },
+								            plotOptions: {
+								                column: {
+								                    pointPadding: 0.2,
+								                    borderWidth: 0
+								                }
+								            },
+								            series: [{
+								                name: 'Tokyo',
+								                data: [249.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 254.4]
+								    
+								            }, {
+								                name: 'New York',
+								                data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 192.3]
+								    
+								            }, {
+								                name: 'Berlin',
+								                data: [42.4, 33.2, 134.5, 39.7, 52.6, 75.5, 57.4, 260.4, 47.6, 39.1, 46.8, 51.1]
+								    
+								            }]
+								        });
+								    });
+						    </script>
+						</div>
+						<div>
+							<div id="shouts" style="100%%; height:260px; margin: 0 auto"></div>
+							<script>
+							$(function () {
+							    var chart;
+							    
+							    $(document).ready(function () {
+							    	
+							    	// Build the chart
+							        $('#shouts').highcharts({
+							            chart: {
+							                plotBackgroundColor: null,
+							                plotBorderWidth: null,
+							                plotShadow: false
+							            },
+							            title: {
+							                text: 'Browser market shares at a specific website, 2014',
+							                  style: {
+								                color: '#222222',
+								                fontWeight: 'normal',
+								                 fontSize: "15px",
+								            }
+							            },
+							            tooltip: {
+							        	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%%</b>'
+							            },
+							             legend: {
+										           layout: 'vertical',
+										            backgroundColor: '#FFFFFF',
+										            align: 'right',
+										            verticalAlign: 'top',
+										            floating: true,
+										            x: 0,
+										            y:50,
+										             itemMarginTop: 5,
+           											 itemMarginBottom: 5,
+										        itemStyle: {
+									                color: '#000000',
+									                fontWeight: 'normal',
+									                 fontSize: "12px",
+									            },
+									            cursor:'pointer'        
+										    },
+							            plotOptions: {
+							                pie: {
+							                    allowPointSelect: true,
+							                    cursor: 'pointer',
+							                    dataLabels: {
+							                        enabled: false
+							                    },
+							                    showInLegend: true
+							                }
+							            },
+							            series: [{
+							                type: 'pie',
+							                name: 'Browser share',
+							                data: [
+							                    ['Firefox',   45.0],
+							                    ['IE',       26.8],
+							                    {
+							                        name: 'Chrome',
+							                        y: 12.8,
+							                        sliced: true,
+							                        selected: true
+							                    },
+							                    ['Safari',    8.5],
+							                    ['Opera',     6.2],
+							                    ['Others',   0.7]
+							                ]
+							            }]
+							        });
+							    });
+							    
+							});
+							</script>
+						</div>
+						</div>
+						<ul class="resp-tabs-list">
+						<li><i class="recipes"></i><span>Recipes</span></li>
+						<li><i class="ideas"></i><span>Ideas</span></li>
+						<li><i class="shouts"></i><span>Shouts</span></li>
+						<div class="clear"></div>
+						</ul>
+						</div>
+					  </div>
+					  <div class="elements">
+					  	<div class="tootlip">
+					  		<p>Are you sure</p>
+					  		<a href="#">Delete</a>
+					  	</div>
+					  	<div class="form-elements">
+					  		<ul>
+					  			<li>	
+					  				<div class="checkbox-toggle"><label class="toggle"><input type="checkbox" name="checkbox-toggle" checked><i></i></label></div>
+					  				<div class="checkbox-toggle"><label class="toggle"><input type="checkbox" name="checkbox-toggle" ><i></i></label></div>
+								</li>
+							    <li>
+							    	<div class="check_box"><label class="checkbox"><input type="checkbox" name="checkbox" checked="" ><i></i></label></div>
+                              		<div class="check_box"><label class="checkbox"><input type="checkbox" name="checkbox"  ><i></i></label></div>
+							    </li>
+							    <li>
+							    	 <div class="check_box"> <div class="radio"> <label><input type="radio" name="radio" checked=""><i></i></label> </div></div>
+                              		 <div class="check_box"> <div class="radio"> <label><input type="radio" name="radio"><i></i></label> </div></div>
+							    </li>
+					  		</ul>
+					  	</div>
+					  	<div class="progress">
+                              <div class="progress-bar" style="width:76.5%%"> </div>
+                            </div>
+					  </div>
+					  <div class="clear"></div>
+					</div>
+				  	<div class="comment-details">
+ 	          				 <div class="commnet-user">
+ 	          					<img src="images/post-img.png" alt="">
+ 	          				 </div>
+ 	          				 <div class="commnet-desc">
+ 	          				 	<h3>San Francisco for a large family?</h3>
+ 	          				 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiu Ut enim ad minim veniam, quis nostrud exercitation ullamco ex ea com aute irure dolor in.</p>
+ 	          				 	<div>
+ 	          				 	<span class="time">2 minutes ago in Locations</span>
+ 	          				    <ul class="reply-links">
+ 	          				    	<li><a href="#"><span>2 replies</span></a></li>
+ 	          				    	<li><a href="#">Reply</a></li>
+ 	          				    </ul>
+ 	          				  </div>
+ 	          				 </div>
+ 	          				 <div class="clear"></div>
+ 	          	    </div>
+		 		</div>
+		 		<div class="rsidebar span_1_of_3 main-bottom-right">
+					<div class="profile_picture">
+					      <div class="profile-pic"> <img src="images/profile-pic.jpg" alt="" />			         
+					       <div class="profile_picture_name">
+					          <h2>Gob Bluth</h2>
+					          <p>The Alliance of Magicians</p>
+					       </div>
+					       <div class="clear"></div>
+					       </div>
+					       <div class="articles_list">
+				           	  <ul>
+				           	  	<li><a href="#"><i class="views"> </i> <span>4,526</span></a></li>
+				           	  	<li class="active"><a href="#"><i class="contacts"> </i>  <span>4,526</span></a></li>
+				           	  	<li><a href="#"><i class="likes"> </i>  <span>4,526</span></a></li>
+				           	  	<div class="clear"></div>	
+				           	  </ul>
+				           </div>
+					   </div>
+					 <div class="login">
+					 	<form>
+					 	<span> 
+					          <input type="text" placeholder="Email">
+					 	     <input type="password" placeholder="password">
+					 	   </span>
+					 	   <input type="submit" class="my-button" value="Login">
+					 	  </form>
+					 </div>
+				</div>
+ 	         </div>
+          </div>
+          %(header)s
+          %(footer)s
+          
+  	     <div class="copy-right">
+		<p>© 2014 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
+	    </div>   
+  </body>
+</html>
+
