@@ -1,4 +1,4 @@
-﻿#!/usr/bin/python
+#!/usr/bin/python
 # -*- coding=utf-8 -*-
 #-------------------------------------------------------------------------------
 # Name:        spellcheck
@@ -382,4 +382,4 @@ if __name__=="__main__":
     for itemd in voc:
         if itemd.get('suggest','') !='':
             for sug in itemd.get('suggest','').split(';'):
-                print sug.encode('utf8'),'\t', araby.is_arabicword(sug);
+                print sug.encode('utf8'),'\t', araby.is_arabicword(sug)

@@ -26,7 +26,7 @@ class WorkThread(QtCore.QThread):
         thread, to keep the UI responding.  It will take a callable `target'
         and execute it in a separate thread with the given `args'.  Please
         note that a reference to the thread object will be pre-pendend to the
-        arguments list passed to the callable, to allow acces to the methods
+        arguments list passed to th callable, to allow acces to the methods
         provided by this class to modify the progress bar used to show the
         user the progress of the work executed in the thread.
         """
@@ -492,7 +492,7 @@ class Ui_MainWindow(object):
         self.readSettings();
         self.applySettings();
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ar/images/appicon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("ar/images/appicon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.MainWindow.setWindowIcon(icon)
 #create a Progressbar
         self.singleProgress = QtGui.QProgressBar(self.centralwidget)
@@ -576,6 +576,7 @@ class Ui_MainWindow(object):
         vocalizedText = u"";
         for itemD in vocalizedTextDict:
             if itemD.has_key('chosen'):
+
                 #~vocalizedText+=" "+itemD['chosen'];
                 if itemD['chosen'][0] in u"-[\]{}()*+?.,،:\^$|#\s\n،":
                     vocalizedText += ""+itemD['chosen'];

@@ -1,4 +1,4 @@
-﻿#!/usr/bin/python 
+#!/usr/bin/python 
 # -*- coding = utf-8 -*- 
 #---------------------------------------------------------------------
 # Name:        tashkeel 
@@ -842,3 +842,4 @@ def mainly():
     print voc.encode('utf8')
 if __name__ == "__main__":
     mainly()
+
