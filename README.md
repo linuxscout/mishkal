@@ -96,7 +96,7 @@ Files
 
 
 * [interfaces]
-	** [web]
+	* [web]
   	- lib/	lib	Libraries fot web interface
   	- lib/okasha	trivial web framework
   	- lib/paste		web frame work
@@ -109,7 +109,7 @@ Files
   	- index.html	web	an index file to avoid directory access
   	- mishkal	web	A cgi Script used on web service
   	- mishkal-webserver.py	web	lauch mishkal web server
-	** [gui]
+	* [gui]
 	  	- ar/	resources	reources for gui arabic	
 * [data]
   	- data/	data	databases files
