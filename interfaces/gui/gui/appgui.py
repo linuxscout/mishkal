@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'qutrubgui.ui'
 #
 # Created: Mon Sep 28 14:46:07 2009
@@ -17,6 +16,7 @@ from setting import *
 from spelling import *
 #cONSTANT
 myAPPLICATION_NAME=u"مشكال: تشكيل النصوص العربية"
+PWD = os.path.dirname(sys.argv[0])
 
 
 class WorkThread(QtCore.QThread):
@@ -242,7 +242,7 @@ class Ui_MainWindow(object):
         self.AImport.setObjectName("AImport")
 
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ar/images/open.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/open.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.AImport.setIcon(icon)
         # export text 
         self.AExport = QtGui.QAction(MainWindow)
@@ -250,22 +250,22 @@ class Ui_MainWindow(object):
         self.AExit = QtGui.QAction(MainWindow)
         self.AExit.setObjectName("AExit")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ar/images/save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/save.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.AExport.setIcon(icon)
         self.AFont = QtGui.QAction(MainWindow)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ar/images/font.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/font.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.AFont.setIcon(icon)
         self.AFont.setObjectName("AFont")
         self.AZoomIn = QtGui.QAction(MainWindow)
         self.AZoomIn.setObjectName("AZoomin")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ar/images/zoomin.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/zoomin.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.AZoomIn.setIcon(icon)
         self.AZoomOut = QtGui.QAction(MainWindow)
         self.AZoomOut.setObjectName("AZoomOut")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ar/images/zoomout.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/zoomout.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.AZoomOut.setIcon(icon)		
         self.AAbout = QtGui.QAction(MainWindow)
         self.AAbout.setObjectName("AAbout")
@@ -273,7 +273,7 @@ class Ui_MainWindow(object):
         self.AManual.setObjectName("AManual")
         self.ACopy = QtGui.QAction(MainWindow)
         self.ACopy.setObjectName("ACopy")
-        icon.addPixmap(QtGui.QPixmap("ar/images/copy.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/copy.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ACopy.setIcon(icon)
         self.AWhoisqutrub = QtGui.QAction(MainWindow)
         self.AWhoisqutrub.setObjectName("AWhoisqutrub")
@@ -281,7 +281,7 @@ class Ui_MainWindow(object):
         self.ASetting.setObjectName("ASetting")
         self.APrint = QtGui.QAction(MainWindow)
         self.APrint.setObjectName("APrint")
-        icon.addPixmap(QtGui.QPixmap("ar/images/print.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/print.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.APrint.setIcon(icon)
         self.menu.addAction(self.AImport)
         self.menu.addAction(self.AExport)
@@ -364,7 +364,7 @@ class Ui_MainWindow(object):
             TablesInsertActions[i].setText(QtGui.QApplication.translate("MainWindow", label, None, QtGui.QApplication.UnicodeUTF8))
 
             icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap("ar/images/%s.png"%SymboleToInsert[actualSymbol].get('image', 'missedimage')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, "ar/images/%s.png"%SymboleToInsert[actualSymbol].get('image', 'missedimage'))), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             TablesInsertActions[i].setIcon(icon)
             #--------Insert
             self.toolBar.addAction(TablesInsertActions[i])
@@ -416,7 +416,7 @@ class Ui_MainWindow(object):
             TablesTreatActions[i].setText(QtGui.QApplication.translate("MainWindow", name, None, QtGui.QApplication.UnicodeUTF8))
             imagename=TableActions[key]['image'];
             icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap("ar/images/%s.png"%imagename), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, "ar/images%s.png"%imagename)), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             TablesTreatActions[i].setIcon(icon)
             #--------Treat
             action=key;
@@ -492,7 +492,7 @@ class Ui_MainWindow(object):
         self.readSettings();
         self.applySettings();
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ar/images/appicon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, "ar/images/appicon.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.MainWindow.setWindowIcon(icon)
 #create a Progressbar
         self.singleProgress = QtGui.QProgressBar(self.centralwidget)
@@ -796,29 +796,8 @@ body {
         msgBox.setText(text);
         msgBox.setLayoutDirection(RightToLeft);
         msgBox.setStandardButtons(QtGui.QMessageBox.Ok);
-        #msgBox.setIconPixmap(QtGui.QPixmap("ar/images/logo.png"));
         msgBox.setDefaultButton(QtGui.QMessageBox.Ok);
         msgBox.exec_();
-        # Dialog=QtGui.QDialog(self.centralwidget)		
-        # Dialog.setObjectName("Dialog")
-        # Dialog.resize(480, 480)
-        # Dialog.setWindowTitle(u'مشكال')
-        # gridLayout = QtGui.QGridLayout(Dialog)
-        # gridLayout.setObjectName("gridLayout")
-        # textBrowser = QtGui.QTextBrowser(Dialog)
-        # textBrowser.setObjectName("textBrowser")
-        # gridLayout.addWidget(textBrowser, 0, 0, 1, 1)
-        # buttonBox = QtGui.QDialogButtonBox(Dialog)
-        # buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        # buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Ok)
-        # buttonBox.setObjectName("buttonBox")
-        # gridLayout.addWidget(buttonBox, 1, 0, 1, 1)
-        # QtCore.QObject.connect(buttonBox, QtCore.SIGNAL("accepted()"), Dialog.accept)
-        # QtCore.QMetaObject.connectSlotsByName(Dialog)
-        # textBrowser.setText(text)
-        # RightToLeft=1;
-        # Dialog.setLayoutDirection(RightToLeft);
-        # Dialog.show();
 
 
     def manual(self):
@@ -874,7 +853,7 @@ body {
         msgBox.setText(text_about);
         msgBox.setLayoutDirection(RightToLeft);
         msgBox.setStandardButtons(QtGui.QMessageBox.Ok);
-        msgBox.setIconPixmap(QtGui.QPixmap("ar/images/logo.png"));
+        msgBox.setIconPixmap(QtGui.QPixmap(os.path.join(PWD, "ar/images/logo.png")));
         msgBox.setDefaultButton(QtGui.QMessageBox.Ok);
         msgBox.exec_();
     def open_file(self):

@@ -7,10 +7,10 @@ import sys
 import os.path
 import re
 from glob import glob
-
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'mishkal/lib/'))
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'mishkal'))
-
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../support/'))
+#sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal/lib/'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../')) # used for core
 
                 
 scriptname = os.path.splitext(os.path.basename(sys.argv[0]))[0]

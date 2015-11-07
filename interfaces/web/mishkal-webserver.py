@@ -2,13 +2,14 @@
 # -*- coding: UTF-8 -*-
 
 import sys
-import os
 import os.path
 import re
 from glob import glob
-sys.path.append('mishkal/');
-sys.path.append('mishkal/lib/');
-sys.path.append('lib/web');
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../../support/'))
+#sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../../mishkal/lib/'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../../mishkal'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '/lib'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../../'))
 from okasha2.baseWebApp import *
 from okasha2.utils import fromFs, toFs
 

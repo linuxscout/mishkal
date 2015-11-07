@@ -6,8 +6,8 @@ import sys
 import re
 from glob import glob
 
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'mishkal/lib/'))
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'mishkal'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal/lib/'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal'))
 from itertools import tee, islice, chain, izip
 
 def previous_and_next(some_iterable):

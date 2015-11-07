@@ -10,8 +10,9 @@ import os
 
 sys.path.append('/opt/mishkal/lib')
 # join the actual dirctory to lib path
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'mishkal/lib/'))
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'mishkal'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../support/'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../')) # used for core
   
 import core.adaat              
 import pyarabic.arabrepr

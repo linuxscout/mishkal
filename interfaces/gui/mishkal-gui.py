@@ -1,8 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import sys
-sys.path.append('mishkal/');
-sys.path.append('mishkal/lib/');
+import os
+PWD = os.path.join(os.path.dirname(sys.argv[0]))
+sys.path.append(os.path.join(PWD, '../../support/'))
+#sys.path.append(os.path.join(PWD, '../../mishkal/lib/'))
+sys.path.append(os.path.join(PWD, '../../mishkal'))
+sys.path.append(os.path.join(PWD, '../../'))
 from gui.appgui import *
 #from adawaty import *
 
