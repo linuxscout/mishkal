@@ -1,2 +1,2 @@
-find ./ -name "*.pyc" -exec rm {} \;
-find ./ -name "*.class" -exec rm {} \;
+find ../ -name "*.pyc" -exec rm {} \;
+find ../ -name "*.class" -exec rm {} \;

@@ -236,7 +236,7 @@ def get_previous_tag(word):
     else:
         return u''    
 
-<<<<<<< HEAD
+
 def vocalize_named(wordlist, syn_tags = ""):
     """ Vocalize a number words
     @param wordlist: words to vocalize
@@ -267,47 +267,6 @@ def vocalize_named(wordlist, syn_tags = ""):
             elif word_nm in (u'أبا', ):
                 tags += u"منصوب"    
         # select vocalization
-=======
-		elif key in (u'بن',u'أبو',u'أبا', u'أبي', u'عبد' , ):
-			phrase.append(word);
-	
-		elif previous in (u'بن', u'ابن', u'أبو',u'أبا', u'أبي', u'عبد',):
-			phrase.append(word);
-		elif next in (u'بن',  u'عبد' , u'أبو', u'أبي') and word in (u'الدين',):
-			phrase.append(previous);
-			phrase.append(word);
-		elif next in (u'بن', ) :
-			phrase.append(word);
-		else:
-			if len(phrase)>=1:
-				if word.startswith(u'ال') and word.endswith(u'ي'):
-					phrase.append(word);
-				phrases.append(u"".join(phrase));
-			phrase=[];
-		previous = key;
-	# add the final phrases 
-	if phrase: phrases.append(u"".join(phrase));
-	return phrases
-	
-def getPreviousTag(word):
-	"""Get the word tags
-	@param word: given word
-	@type word: unicode
-	@return :word tag
-	@rtype: unicode
-	"""
-	word=araby.stripTashkeel(word);
-	tags=u'';
-	if word in named_const.NOUN_NASEB_LIST:
-		return u'منصوب';
-	elif word in named_const.JAR_LIST:
-		return u'مجرور';
-	elif word in named_const.RAFE3_LIST:
-		return u'مرفوع';
-	else:
-		return u'';
->>>>>>> 70b9ca22acce96adf088ff629ac68e26a632ad47
-
         if word_nm == u'بن':
             bin_count += 1    
             #treat first bin according to tags

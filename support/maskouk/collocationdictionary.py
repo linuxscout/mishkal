@@ -14,7 +14,10 @@
 import re
 #from pysqlite2 import dbapi2 as sqlite
 import sqlite3 as sqlite
-FILE_DB=u"data/collocations.sqlite"
+import sys,os
+
+
+FILE_DB= os.path.join(os.path.dirname(sys.argv[0]), u"data/collocations.sqlite")
 import pyarabic.araby as araby
 class collocationDictionary:
     """
