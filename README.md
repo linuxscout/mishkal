@@ -16,13 +16,12 @@ mishkal
 
 Site:
 ==========
-http://tahadz.com
+http://tahadz.com/mishkal
 Download
 ==========
 http://mishkal.sourceforge.net
 Source
 =============
-http://svn.arabeyes.org
 http://github.com/linuxscout/mishkal
 
 
@@ -30,21 +29,21 @@ Usage
 =====
 ### Windows :
 -----------
- * Run MishkalGui
+ * Run MishkalGui.exe
 
 ### GUI: Linux
 ---------------
-  - mishkal-gui
+  - interfaces/gui/mishkal-gui.py
 
 ### Web server (linux, windows)
 -----------
-  * mishkal-webserver
+  * interfaces/web/mishkal-webserver
   * serving on 0.0.0.0:8080 view at http://127.0.0.1:8080
   * open in your browser the URL: http://127.0.0.1:8080
 
 ### Console (linux/windows)
 
- Usage: mishkal-console -f filename [OPTIONS]
+ Usage: bin/mishkal-console -f filename [OPTIONS]
 
 
         mishkal-console 'السلام عليكم' [OPTIONS]
@@ -67,7 +66,7 @@ Usage
 Files
 =====
 * file/directory	category	description 
-* [program]
+* [bin]
 	- mishkal-console.py	program	Mishkal script used on shell command
 	- mishkal-gui.py	program	launch mishkal GUI interface with QT
 	- mishkal-webserver.py	web	lauch mishkal web server\n
@@ -78,30 +77,30 @@ Files
 	- exe_setup.py	setup	prepare setup for windows using py2exe
   	- setup.py	setup	setup for library and linux package
 * [mishkal]
-  	- lib/aranasyn/		Arabic syntaxic analyzer
-  	- lib/asmai/		Arabic syntaxic analyzer
-  	- gui/		GUI source
   	- tashkeel/		Tashkeel module source
-* core/		basic tools
+* core/		basic API to join most of tools
 
-* [lib]
-  	- web/	lib	Libraries fot web interface
-  	- web/okasha	trivial web framework
-  	- web/paste		web frame work
-  	- web/simplejson	simple json library		
-* [data]
-  	- data/	data	databases files
-* [resouces]
-  	- ar/	resources	reources for gui arabic
-* [log]
-  	- tmp/	log	tomporary fdirectory for web service
-* [tools]
-	- cleanpyc	setup	a shell script to remove .pyc files
-* [test]
-	- output/	test	test output
-	- samples/	test	sample files
-	- tools/	test	script to use mishkal
-* [resources]
+* [support]
+	- aranasyn	: syntaxical analyzer
+	- arramooz	: arabic morphological dictionary
+	- asmai		: semantic analyzer
+	- CodernityDB :  pure python, fast, NoSQL database, used as cache system to minimize load of morphological analyzer 
+	- collocations : collocation library ( deprecated)
+	- libqutrub	: verb conjugation library used by morphological analyzer
+	- maskouk	: collocation library
+	- naftawayh	: word tag library
+	- pyarabic	: basic arabic library
+	- qalsadi	; morphological analyzer
+	- spellcheck : spellchecking 
+	- tashaphyne : light stemmer used by morphological analyzer
+
+
+* [interfaces]
+	** [web]
+  	- lib/	lib	Libraries fot web interface
+  	- lib/okasha	trivial web framework
+  	- lib/paste		web frame work
+  	- lib/simplejson	simple json library	
   	- files/	web	files used for web service
   	- templates/	web	Templates used for web service
   	- adawaty.py	web	a script for web service
@@ -110,6 +109,19 @@ Files
   	- index.html	web	an index file to avoid directory access
   	- mishkal	web	A cgi Script used on web service
   	- mishkal-webserver.py	web	lauch mishkal web server
+	** [gui]
+	  	- ar/	resources	reources for gui arabic	
+* [data]
+  	- data/	data	databases files
+* [log]
+  	- tmp/	log	tomporary fdirectory for web service
+* [tools]
+	- cleanpyc	setup	a shell script to remove .pyc files
+* [test]
+	- output/	test	test output
+	- samples/	test	sample files
+	- tools/	test	script to use mishkal
+
 * [apps]
   	- mintiq	TTS	a shell script to join mishkla with espeak Text to speech
 
