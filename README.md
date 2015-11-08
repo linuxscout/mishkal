@@ -196,5 +196,11 @@ $.getJSON(<span style="background-color: #fff0f0">&quot;http://tahadz.com/mishka
 
 ## Featured Posts
 -  “مشكال” لتشكيل النصوص العربية بإحترافية  [كمال فودة](http://www.prameg2day.com/?p=5194)
--  كيفية تشكيل الحروف والكلمات أو حتى نصوص باللغة العربية في ثواني من خلال متصفحك-  [رضا بوربعة](http://www.th3professional.com/2015/09/blog-post_36.html)
--  
+-  كيفيشكيل الحروف والكلمات أو حتى نصوص باللغة العربية في ثواني من خلال متصفحك-  [رضا بوربعة](http://www.th3professional.com/2015/09/blog-post_36.html)
+-  خدمة عربية جديدة : تشكيل النصوص العربية [Sam Hamou](http://3-arabi.blogspot.com/2015/05/mishkal-arabic-3arabi.html)
+-  إطلاق الإصدار التجريبي برنامج مشكال لتشكيل النصوص العربية
+[Zaid AlSaadi](http://itwadi.com/node/2184)
+- مشكال: الطريق نحو التشكيل [مدونة اليراع](https://tahadz.wordpress.com/2011/07/08/mishkal00/)
+-  مشكال لتشكيل النصوص العربية: إطلاق واجهة سطح المكتب [مدونة اليراع](https://tahadz.wordpress.com/2012/01/07/mishkaldesktop/)
+- تعرّف على مشاريع “تحدّث” .. مشاريعٌ للغةٍ عظيمة [محمد هاني صباغ](http://www.arageek.com/tech/2014/11/28/tahdz-new-services-for-arabic-writing.html)
+
