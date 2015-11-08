@@ -1,6 +1,6 @@
 
 
-mishkal
+Mishkal
 =======
   Mishkal Arabic text vocalization software  مشكال لتشكيل النصوص العربية
 
