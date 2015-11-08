@@ -8,10 +8,9 @@ mishkal
   
   مشكال لتشكيل النصوص العربية
 
-  .. image:: https://img.shields.io/sourceforge/dm/mishkal.svg
-        :target: https://sourceforge.net/projects/mishkal
-  .. image:: https://img.shields.io/sourceforge/dt/mishkal.svg
-        :target: https://sourceforge.net/projects/mishkal        
+[![downloads]( https://img.shields.io/sourceforge/dt/mishkal.svg)](http://sourceforge.org/projects/mishkal)
+[![downloads]( https://img.shields.io/sourceforge/dm/mishkal.svg)](http://sourceforge.org/projects/mishkal)
+      
   
   This program is licensed under the GPL License
   
