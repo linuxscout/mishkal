@@ -2,45 +2,38 @@
 
 mishkal
 =======
-  Mishkal Arabic text vocalization software
-  
-  Mishkal : Arabic text vocalization system
-  
-  مشكال لتشكيل النصوص العربية
+  Mishkal Arabic text vocalization software  مشكال لتشكيل النصوص العربية
 
 [![downloads]( https://img.shields.io/sourceforge/dt/mishkal.svg)](http://sourceforge.org/projects/mishkal)
 [![downloads]( https://img.shields.io/sourceforge/dm/mishkal.svg)](http://sourceforge.org/projects/mishkal)
-      
-  
-  This program is licensed under the GPL License
-  
+
   Developpers: 	Taha Zerrouki: http://tahadz.com
 	taha dot zerrouki at gmail dot com
 
 
-Site:
-==========
-http://tahadz.com/mishkal
-Download
-==========
-http://mishkal.sourceforge.net
-Source
-=============
-http://github.com/linuxscout/mishkal
+Features |   value
+---------|---------------------------------------------------------------------------------
+Authors  | [Authors.md](https://github.com/linuxscout/mishkal/master/AUTHORS.md)
+Release  | 1.10 Bouira
+License  |[GPL](https://github.com/linuxscout/mishkal/master/LICENSE)
+Tracker  |[linuxscout/mishkal/Issues](https://github.com/linuxscout/mishkal/issues)
+Mailinglist  |[<mishkal@googlegroups.com>](http://groups.google.com/group/mishkal/)
+Website  |[tahadz.com/mishkal](http://www.tahadz.com/mishkal/)
+Source  |[Github](http://github.com/linuxscout/mishkal)
+Download  |[sourceforge](http://mishkal.sourceforge.net)
+Feedbacks  |[Comments](http://tahadz.com/mishkal/contact)
+Accounts  |[@Facebook](https://www.facebook.com/mishkalarabic) [@Twitter](https://twitter.com/linuxscout)  [@Sourceforge](http://sourceforge.net/projectsmishkal/)
 
-
+        
 Usage
 =====
 ### Windows :
------------
  * Run MishkalGui.exe
 
 ### GUI: Linux
----------------
   - interfaces/gui/mishkal-gui.py
 
 ### Web server (linux, windows)
------------
   * interfaces/web/mishkal-webserver
   * serving on 0.0.0.0:8080 view at http://127.0.0.1:8080
   * open in your browser the URL: http://127.0.0.1:8080
