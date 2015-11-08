@@ -192,3 +192,9 @@ $.getJSON(<span style="background-color: #fff0f0">&quot;http://tahadz.com/mishka
 <li><strong>result</strong>: النص الناتج المشكول.</li>
 <li><strong>order</strong>: رقم السطر في النص الأصلي، فإذا كان النص الأصلي كبيرا يقسمه المشكال لعدد من الاسطر، وقد لا يرجعون في نفس الترتيب، لذا حددنا رقم الترتيب.</li>
 </ul>
+
+
+## Featured Posts
+-  “مشكال” لتشكيل النصوص العربية بإحترافية  [كمال فودة](http://www.prameg2day.com/?p=5194)
+-  كيفية تشكيل الحروف والكلمات أو حتى نصوص باللغة العربية في ثواني من خلال متصفحك-  [رضا بوربعة](http://www.th3professional.com/2015/09/blog-post_36.html)
+-  
