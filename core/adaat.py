@@ -13,8 +13,12 @@
 """
 Adaat, arabic tools interface
 """
-import sys
-sys.path.append('mishkal/lib/')
+import sys,os
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../support/'))
+#sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal/lib/'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal'))
+#sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../lib/web'))
+#sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../'))
 import random
 import pyarabic.araby  as araby # arabic words general functions
 import pyarabic.number
