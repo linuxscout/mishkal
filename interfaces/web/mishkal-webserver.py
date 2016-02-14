@@ -8,7 +8,7 @@ from glob import glob
 sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../../support/'))
 #sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../../mishkal/lib/'))
 sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../../mishkal'))
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '/lib'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), './lib'))
 sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../../'))
 from okasha2.baseWebApp import *
 from okasha2.utils import fromFs, toFs

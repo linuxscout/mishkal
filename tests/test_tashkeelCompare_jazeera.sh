@@ -3,7 +3,7 @@
 FILE="aljazeera.txt"
 #valgrind --trace-children=yes --tool=massif  ../mishkal-console.py -p -c -l 500 -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt
 
-action=`python -m cProfile ../mishkal-console.py -p -c -l 500 -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt`
+action=`python -m cProfile ../bin/mishkal-console.py -p -c -l 500 -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt`
 echo ${action}
 ${action}
 DATE=`date +%Y-%m-%d-%H:%M`

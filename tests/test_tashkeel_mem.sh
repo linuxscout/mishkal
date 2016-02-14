@@ -13,7 +13,7 @@ OUTDIR="output/eval/d${DATE}"
 valgrindNoCache="valgrind --tool=massif --time-unit=ms --detailed-freq=20 --massif-out-file=${OUTDIR}/massif.out.nocache"
 valgrindCache="valgrind --tool=massif --time-unit=ms --detailed-freq=20 --massif-out-file=${OUTDIR}/massif.out.cache"
 
-${valgrindNoCache} python -m cProfile ../mishkal-console.py -n -p  -l ${LIMIT} -f samples/corpus/${FILE} >output/eval/test.txt
+${valgrindNoCache} python -m cProfile ../bin/mishkal-console.py -n -p  -l ${LIMIT} -f samples/corpus/${FILE} >output/eval/test.txt
 echo "Date; ${DATE} \t ${LIMIT} lines" >> output/eval/file.stats
 echo "No Cache" >> output/eval/file.stats
 grep "function calls" -2 -h output/eval/test.txt | sed 's/^.*function .* in //g;s/:\*.*$//g' | sed 'N;s/\n//g' >> output/eval/file.stats
@@ -25,7 +25,7 @@ ms_print ${OUTDIR}/massif.out.nocache |grep -v -e "[|-]" |sed -e 's/,//g' > ${OU
 
 echo "test with cache"
 
-${valgrindCache} python -m cProfile ../mishkal-console.py -p  -l ${LIMIT} -f samples/corpus/${FILE} >output/eval/test.txt
+${valgrindCache} python -m cProfile ../bin/mishkal-console.py -p  -l ${LIMIT} -f samples/corpus/${FILE} >output/eval/test.txt
 echo "With Cache" >> output/eval/file.stats
 grep "function calls" -2 -h output/eval/test.txt | sed 's/^.*function .* in //g;s/:\*.*$//g' | sed 'N;s/\n//g' >> output/eval/file.stats
 echo "make archive" 
