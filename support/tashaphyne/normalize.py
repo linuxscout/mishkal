@@ -80,7 +80,7 @@ def normalize_lamalef(text):
         - LAM_ALEF, LAM_ALEF_HAMZA_ABOVE, LAM_ALEF_HAMZA_BELOW, LAM_ALEF_MADDA_ABOVE
 
     Example:
-        >>> text=u"لانها لالء الاسلام"
+        >>> text=u"لانها لالئ الاسلام"
         >>> normalize_lamalef(text)
         لانها لالئ الاسلام
 
