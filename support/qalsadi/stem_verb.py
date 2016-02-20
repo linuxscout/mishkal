@@ -110,7 +110,7 @@ class VerbStemmer:
         # stem reduced verb : level two
                 result = [] 
                 for verb2 in list_stem:
-                    #segment the coinjugated verb
+                    #segment the conjugated verb
                     list_seg_conj = self.conj_stemmer.segment(verb2) 
 
                     # verify affix compatibility
@@ -154,12 +154,14 @@ class VerbStemmer:
                         #because the conjugator can vocalized it, 
                         # we can return the tashkeel if we don't need the 
                         #conjugation step  
+
                         infverb_dict = self.get_infinitive_verb_by_stem(
-                        stem_conj, transitive) 
+                        stem_conj, transitive)
+
 
                         infverb_dict  =  self.verify_infinitive_verbs(stem_conj,
                          infverb_dict) 
-                            
+#                        print (u"\t".join(["verb found", stem_conj, str(len(infverb_dict))])).encode('utf8');                            
 
                         for item in infverb_dict:
                             #The haraka from is given from the dict
@@ -168,7 +170,7 @@ class VerbStemmer:
                             transtag      =   item['transitive'] 
                             transitive     =   (item['transitive'] == 'y' \
                             or not item['transitive']) 
-
+                            #print (u"\t".join(["verb ", stem_conj, inf_verb])).encode('utf8');             
                             original_tags  =  transtag  
                             # dict tag is used to mention word dictionary tags:
                             # the original word tags like transitive attribute
@@ -251,7 +253,7 @@ class VerbStemmer:
             for verb_tuple in verb_id_list:
                 liste.append({'verb':verb_tuple['vocalized'], 
                 'transitive':verb_tuple['transitive'], 
-                'haraka':verb_tuple['future_type']}) 
+                'haraka':verb_tuple['future_type'], "stamp":verb_tuple['stamped'] }) 
 
         # if the verb in dictionary is vi and the stemmed verb is vt, 
         #~don't accepot
@@ -302,7 +304,8 @@ class VerbStemmer:
         tmp = [] 
         stem_stamp = self.verb_stamp(stem_conj) 
         for item in infverb_dict:
-            if self.verb_stamp(item['verb']) == stem_stamp:
+            #print (u"\t".join(["verb in verify stamp", stem_conj, item['verb'], self.verb_stamp(item['verb']), item['stamp'], stem_stamp, str(self.verb_stamp(item['verb']) == stem_stamp)])).encode('utf8');     
+            if self.verb_stamp(item['stamp']) == stem_stamp:
                 tmp.append(item) 
         return tmp  
 
