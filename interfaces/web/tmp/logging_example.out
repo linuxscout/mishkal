@@ -82,3 +82,559 @@ INFO:paste.httpserver.ThreadPool:Shutting down threadpool
 INFO:paste.httpserver.ThreadPool:All workers stopped
 INFO:paste.httpserver.ThreadPool:Shutting down threadpool
 INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-11-08 06:43	Tashkeel2	يغسل الولد يديه.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-11-14 04:07	Tashkeel2	الفلاح لم يحلب بقرته .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:2 workers didn't stop properly, and 0 zombies
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2015-11-18 03:41	CompareTashkeel	يذهب العمال إلى المصنع.
+INFO:MyTestWebApp:2015-11-18 03:42	Tashkeel2	يَذْهَبُ الْعُمَّالُ إِلَى الْمَصْنَعِ
+INFO:MyTestWebApp:2015-11-18 03:42	CompareTashkeel	يَذْهَبُ الْعُمَّالُ إِلَى الْمَصْنَعِ
+INFO:MyTestWebApp:2015-11-18 03:42	CompareTashkeel	يَذْهَبُ الْعُمَّالَ إِلَى الْمَصْنَعِ
+INFO:MyTestWebApp:2015-11-18 03:54	Tashkeel2	يَذْهَبُ الْعُمَّالَ إِلَى الْمُصَّنَعِ
+INFO:MyTestWebApp:2015-11-18 03:54	CompareTashkeel	يَذْهَبُ الْعُمَّالَ إِلَى الْمُصَّنَعِ
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-14 03:46	Tashkeel2	يبيت البحر هائجا .
+INFO:MyTestWebApp:2016-02-14 03:46	Tashkeel2	يبيت البحر هائجا.
+INFO:MyTestWebApp:2016-02-14 03:49	StripHarakat	 قال صاحبُ شرطة المأمون العباس بن المُسيّب : دخلتُ يومًا مجلسَ أميرِ المؤمنين ببغداد ، وبين يديه رجلٌ مُكبَّلٌ بالحديد : فلمَّا رآني ، قال لي : يا عباس!! قلت : لبّيك يا أمير المؤمنين!! قال : خُذ هذا إليك ، واحتفظ به ، وبكّر به إلىّ في غد!! . فدعوتُ جماعةً فحملوه ولم يقدر أن يتحرك!! فقلت في نفسي : مع هذه الوصية التي أوصاني بها أمير المؤمنين من الاحتفاظ به ما يجبُ أن يكون معي في بيتي ، فأمرتهم فتركوه في مجلسٍ لي في داري . ثم أخدتُ اسأله عن قضيّته وعن حاله ، ومن أين هو ؟!! فقال : أنا من دمشق ، فقلت : جزى الله دمشق وأهلها خيراً ، فمن أنت من أهلها ؟!! قال : وعمّن تسأل ؟!! قلت : أتعرف فلاناً ؟!! قال : ومن أين تعرفُ ذلك الرجل ؟!! قلت : وقعت لي قضيّة معه ، فقال : ما كنت بالذي أعرّفُك خبره حتى تعرّفني قضيّتك معه!! ، فقلت : كنت مع بعض الولاة بدمشق فبغى أهلها وخرجوا علينا حتى إن الوالي تدلّى في زنبيل " قـُفة " من قصر الحجاج ، وهرب هو وجميع أصحابه ، وهربت في جملة القوم . فبينما أنا هاربٌ في بعض الدروب إذا جماعة يعدون خلفي ، فما زلت أعدو أمامهم ، حتى فُتُّهُم ، فمررت بهذا الرجل الذي ذكرته لك ، وهو جالس على باب داره ، فقلت : أغثني أغاثك الله!! فقال : لا بأس عليك!! ادخل الدار ، فدخلت ، فقالت لي امرأته : ادخل الحجلة فدخلتها ، - الحجلة : غرفة تعد للعروس في جوف البيت - ووقف الرجل على باب الدار فما شعرتُ إلا وقد دخل ، والرجالُ معه يقولون : هو والله عندك!! فقال : دونكم الدار ، فتشوها ، ففتَّوشها حتى لم يبقَ إلا البيت الذي كنت فيه ، فقالوا : هاهنا ، فصاحت بهم المرأة وانتهرتهم ، فانصرفوا . وخرج الرجل وجلس على باب داره ساعةً ، وأنا قائم في الحجلة أرجُف ، ما تحملني رجلاي من شدَّة الخوف ، فقالت المرأة : اجلس لا بأس عليك ، فجلست ، فلم ألبث أن دخل الرجل وقال : لا تخف ، فقد صرت إلى الأمن والدعة إن شاء الله تعالى . فقلت له : جزاك الله عني خيراً!! ثم ما زال يعاشرني أحسن المعاشرة وأجملها ، وأفردَ لي مكانًا في داره ، ولم يفتـُر عن تفقُّد أحوالي . فأقمتُ عنده أربعة أشهر في أرغدِ عيش وأهنئه إلى أن سكنت الفتنة وهدأت ، وزال أثَرها ، فقلت له : أتأذن لي في الخروج حتى أتفقّدَ خبر غلماني ، فلعلي أن أقفُ لهم على أثر أو خبر ، فأخذ عليّ المواثيق بالرجوع إليه ، فخرجتُ وطلبتُ غِلماني ، فلم أرَ لهم أثراً ، فرجعت إليه وأعلمته الخبر . وهو مع هذا كله لا يعرفُني ولا يسألني ، ولا يعرف اسمي ، ولا يُخاطبني بغير الكُنية . ثم قال : علام تعزم ؟!! فقلت : عزمت على التوجه إلى بغداد ، فقال : القافلة تخرج بعد ثلاثة أيام ، وهأنذا قد أعلمتك!! فقلت له : إنك تفضّلت عليّ هذه المدة ، ولك عليّ عهدٌ ألا أنسى لك هذا الفضل ولأُكافئنّك ما استطعت . ثم دعا غلامًا له أسود وقال له : أسرِج الفرس ، ثم جهّز آلةَ السفر ، فقلت في نفسي : ما أظنُّ إلا أنه يريدُ أن يخرجَ إلى ضيعةٍ له أو ناحية من النواحي ، فأقاموا يومهم ذلك في تعبٍ وكدّ ، فلما كان يوم خروج القافلة جاءني في السحَر وقال : يا أبا فلان قم فإن القافلة تخرج الساعة ، وأكره أن تنفرد عنها ، فقلت في نفسي : كيف أصنعُ ، وليس معي ما أتزوّد به ، ولا ما أكثري به مركوبًا!! ثم قمت ، فإذا هو وامرأته يحملان أفخرَ الثياب ، وخفّين جديدين ، وآلة السفر . ثم جاءني بسيف ومِنطقة فشدهما في وسطي ، ثم قدّم البغل فحمل عليه الصناديق وفوقها مفرشان ، ودفع إليّ نسخةً بما في الصناديق وفيها خمسة آلاف درهم ، وقدّم إلي الفرس الذي كان أنعله بسرجه ولجامه وقال لي : اركب ، وهذا الغلام الأسود يخدمك ويسوس مركوبك . وأقبل هو وامرأته يعتذران إليّ من التقصير في أمري ، وركب معي فشيعني ، وانصرفت إلى بغداد وأنا أتوقّعُ خبره ، لأفي بعهدي له في مجازاته ومكافأته ، واشتغلتُ مع أمير المؤمنين ، فلم أتفرّغ أن أُرسل إليه من يكشفُ خبره ، فلهذا اسألُ عنه!! . فلما سمع الرجل الحديث قال : لقد أمكنك الله عز وجل من الوفاء له ، ومكافأته على فعله ومجازاتِه على صنيعه بلا كُلفةٍ عليك ، ولا مؤونةٍ تَلزمُك . فقلت : وكيف ذلك ؟!! قال : أنا والله ذلك الرجل!! وإنما الضّرُّ الذي أنا فيه غيّرَ عليك حالي ، وما كنتَ تعرفُه منّي . وأقبل يذكرني بأشياء يتعرف بها إليّ حتى أثبته وعرفته فما تمالكت أن قمت إليه فقبّلت رأسه ، وقلت له : ما الذي أصارك إلى ما أرى ؟!! فقال : هاجت فتنة بدمشق مثل الفتنة التي كانت في أيامك ، فنُسِبت إليّ وبعث أمير المؤمنين بجيوش ، فأصلحوا البلد ، وحُملت إليه وقد ضُرِبتُ إلى أن أشرفتُ على الموت!! وأمري عنده عظيم ، وخَطبي لديه جسيم ، وهو قاتلي لا محالة ، وقد أُخرِجتُ من عند أهلي بلا وصيّةٍ ، وقد تبعني من غِلماني من ينصرف إلى أهلي بخبري ، وهو نازل عند فلان ، فإن رأيت أن تجعل مكافأتك لي أن تبعث إليه حتى يحضر فأوصيه بما أريد ، فإذا أنت فعلت ذلك فقد جاوزت حدَّ المكافأة لي ، وقمتَ لي بوفاء عهدك!! قلت : يصنعُ الله خيرًا . ثم أحضر العباس : حدّادًا في الليل فكّ قيوده ، وأزال ما كان فيه من الأنكال ، وأدخله حمّام داره ، وألبسه من الثياب ما احتاج إليه ، ثم سيَّر مَن أحضَرَ إليه غلامه . فلما رأه جعلَ يبكي ويوصيه ، فاستدعى العباسُ نائبه ، وقال عليّ بالأفراس والهدايا ، ثم أمره أن يشيّعه إلى حَدَّ الأنبار!! فقال له : إن ذنبي عند أمير المؤمنين عظيمٌ ، وخطبي جسيم ، وإن أنتَ أحتججت بأني هربتُ بعثَ في طلبي كلّ من على بابه ، فأُردّ وأقتل . فقال العباس : انجُ بنفسك ودَعني أدبّر أمري!! فقال : والله لا أبرحُ بغداد حتى أعلمَ ما يكون من خبرك!! فإن احتجتَ إلى حضوري حضرت . فقال العباس : إن كان الأمرُ على ما تقول ، فلتكن في موضع كذا ، فإن أنا سَلِمتُ في غداة غدٍ أعلمتـُك ، وإن أنا قـُتِلتُ فقد وَقَيتـُكَ بنفسي كما وقيتني!! ثم تفرّغ العباس لنفسه ، وتحنّظ وجهّز له كفنًا . قال العباس : فلم أفرغ من صلاة الصبح إلا ورسلُ المأمون في طلبي ، وهم يقولون : هاتِ الرجل معك وقُم!! فتوجّهتُ إلى دار أمير المؤمنين ، فإذا هو جالسٌ ينتظر . فقال : أين الرجل ؟!! فسكتُّ!! فقال : ويحك!! أين الرجل ؟!! فقلت : يا أمير المؤمنين ، اسمع مني . فقال : لله عليّ عهدٌ لئن ذكرتَ أنه هرب لأضرِبنَّ عُنقك!! فقلت : لا والله يا أمير المؤمنين ما هرب ، ولاكن اسمع حديثي ، ثم شأنك وما تريد أن تفعله في أمري!! قال : قل . فقلت : يا أمير المؤمنين ، كان من حديثي كيت وكيت ، وقصصتُ عليه القصة جميعها ، وعرّفتـُه أني أريدُ أن أفيّ له ، وأكافئه على فعله معي ، وقلت : أنا وسيدي ومولاي أمير المؤمنين بين أمرين : إما أن يصفحَ عني ، فأكون قد وفيتُ وكافأتُ وإما أن يقتلني فأقيَه نفسي ، وقد تحنّطت ، وها هو ذا كفني يا أمير المؤمنين!! . فلما سمع المأمون الحديث قال : ويلك!! لا جزاك الله عن نفسك خيرًا ، إنه فعل بك ما فعل من غير معرفةٍ ، وتكافئُه بعد المعرفة بهذا ؟!! هلا عرّفتني خبرَه ، فكنا نكافئُه عنك ، ولا نقصّر في وفائك له!! فقلت : يا أمير المؤمنين ، إنه هاهنا وقد حلف ألا يبرحَ حتى يعرفَ سلامتي ، فإن احتجت إلى حضوره حضر . فقال المأمون : وهذه منّةٌ أعظمُ من الأولى لله دركم!! اذهب إليه الآن ، فطيّب نفسه وسكّن روعه ، وائتني به حتى أتولّى مكافأته . فأتيتُ إليه وقلت له : ليزُل خوفُك ، إن أمير المؤمنين قال كذا وكذا!! فلما مَثَلَ بين يدي أمير المؤمنين أقبل عليه ، وأدناه من مجلسه وحدّثه ، حتى حضر الغداء فأكل معه ، وخلع عليه ، وعرض عليه أعمال دمشق ، فاستعفى!! ، فأمر له بصلةٍ عظيمة ووضع الخراج عن أرضه وكتب إلى عامله بدمشق بالوصيّةِ به .     لا تنسوا عبدالله " ياقوت " من صالح الدعاء .  تابعوني على فيسبوك : ياقوت الفرزدقي    
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 قال صاحب شرطة المأمون العباس بن المسيب : دخلت يوما مجلس أمير المؤمنين ببغداد ، وبين يديه رجل مكبل بالحديد : فلما رآني ، قال لي : يا عباس!! قلت : لبيك يا أمير المؤمنين!! قال : خذ هذا إليك ، واحتفظ به ، وبكر به إلى في غد!! .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فدعوت جماعة فحملوه ولم يقدر أن يتحرك!! فقلت في نفسي : مع هذه الوصية التي أوصاني بها أمير المؤمنين من الاحتفاظ به ما يجب أن يكون معي في بيتي ، فأمرتهم فتركوه في مجلس لي في داري .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فقلت له : جزاك الله عني خيرا!! ثم ما زال يعاشرني أحسن المعاشرة وأجملها ، وأفرد لي مكانا في داره ، ولم يفتـر عن تفقد أحوالي .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فبينما أنا هارب في بعض الدروب إذا جماعة يعدون خلفي ، فما زلت أعدو أمامهم ، حتى فتهم ، فمررت بهذا الرجل الذي ذكرته لك ، وهو جالس على باب داره ، فقلت : أغثني أغاثك الله!! فقال : لا بأس عليك!! ادخل الدار ، فدخلت ، فقالت لي امرأته : ادخل الحجلة فدخلتها ، - الحجلة : غرفة تعد للعروس في جوف البيت - ووقف الرجل على باب الدار فما شعرت إلا وقد دخل ، والرجال معه يقولون : هو والله عندك!! فقال : دونكم الدار ، فتشوها ، ففتوشها حتى لم يبق إلا البيت الذي كنت فيه ، فقالوا : هاهنا ، فصاحت بهم المرأة وانتهرتهم ، فانصرفوا .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 ثم أخدت اسأله عن قضيته وعن حاله ، ومن أين هو ؟!! فقال : أنا من دمشق ، فقلت : جزى الله دمشق وأهلها خيرا ، فمن أنت من أهلها ؟!! قال : وعمن تسأل ؟!! قلت : أتعرف فلانا ؟!! قال : ومن أين تعرف ذلك الرجل ؟!! قلت : وقعت لي قضية معه ، فقال : ما كنت بالذي أعرفك خبره حتى تعرفني قضيتك معه!! ، فقلت : كنت مع بعض الولاة بدمشق فبغى أهلها وخرجوا علينا حتى إن الوالي تدلى في زنبيل " قـفة " من قصر الحجاج ، وهرب هو وجميع أصحابه ، وهربت في جملة القوم .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 وخرج الرجل وجلس على باب داره ساعة ، وأنا قائم في الحجلة أرجف ، ما تحملني رجلاي من شدة الخوف ، فقالت المرأة : اجلس لا بأس عليك ، فجلست ، فلم ألبث أن دخل الرجل وقال : لا تخف ، فقد صرت إلى الأمن والدعة إن شاء الله تعالى .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فأقمت عنده أربعة أشهر في أرغد عيش وأهنئه إلى أن سكنت الفتنة وهدأت ، وزال أثرها ، فقلت له : أتأذن لي في الخروج حتى أتفقد خبر غلماني ، فلعلي أن أقف لهم على أثر أو خبر ، فأخذ علي المواثيق بالرجوع إليه ، فخرجت وطلبت غلماني ، فلم أر لهم أثرا ، فرجعت إليه وأعلمته الخبر .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 وهو مع هذا كله لا يعرفني ولا يسألني ، ولا يعرف اسمي ، ولا يخاطبني بغير الكنية .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 ثم قال : علام تعزم ؟!! فقلت : عزمت على التوجه إلى بغداد ، فقال : القافلة تخرج بعد ثلاثة أيام ، وهأنذا قد أعلمتك!! فقلت له : إنك تفضلت علي هذه المدة ، ولك علي عهد ألا أنسى لك هذا الفضل ولأكافئنك ما استطعت .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 ثم دعا غلاما له أسود وقال له : أسرج الفرس ، ثم جهز آلة السفر ، فقلت في نفسي : ما أظن إلا أنه يريد أن يخرج إلى ضيعة له أو ناحية من النواحي ، فأقاموا يومهم ذلك في تعب وكد ، فلما كان يوم خروج القافلة جاءني في السحر وقال : يا أبا فلان قم فإن القافلة تخرج الساعة ، وأكره أن تنفرد عنها ، فقلت في نفسي : كيف أصنع ، وليس معي ما أتزود به ، ولا ما أكثري به مركوبا!! ثم قمت ، فإذا هو وامرأته يحملان أفخر الثياب ، وخفين جديدين ، وآلة السفر .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 ثم جاءني بسيف ومنطقة فشدهما في وسطي ، ثم قدم البغل فحمل عليه الصناديق وفوقها مفرشان ، ودفع إلي نسخة بما في الصناديق وفيها خمسة آلاف درهم ، وقدم إلي الفرس الذي كان أنعله بسرجه ولجامه وقال لي : اركب ، وهذا الغلام الأسود يخدمك ويسوس مركوبك .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فقال العباس : انج بنفسك ودعني أدبر أمري!! فقال : والله لا أبرح بغداد حتى أعلم ما يكون من خبرك!! فإن احتجت إلى حضوري حضرت .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فقال : لله علي عهد لئن ذكرت أنه هرب لأضربن عنقك!! فقلت : لا والله يا أمير المؤمنين ما هرب ، ولاكن اسمع حديثي ، ثم شأنك وما تريد أن تفعله في أمري!! قال : قل .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فقلت : يا أمير المؤمنين ، كان من حديثي كيت وكيت ، وقصصت عليه القصة جميعها ، وعرفتـه أني أريد أن أفي له ، وأكافئه على فعله معي ، وقلت : أنا وسيدي ومولاي أمير المؤمنين بين أمرين : إما أن يصفح عني ، فأكون قد وفيت وكافأت وإما أن يقتلني فأقيه نفسي ، وقد تحنطت ، وها هو ذا كفني يا أمير المؤمنين!! .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فقال المأمون : وهذه منة أعظم من الأولى لله دركم!! اذهب إليه الآن ، فطيب نفسه وسكن روعه ، وائتني به حتى أتولى مكافأته .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فقال العباس : إن كان الأمر على ما تقول ، فلتكن في موضع كذا ، فإن أنا سلمت في غداة غد أعلمتـك ، وإن أنا قـتلت فقد وقيتـك بنفسي كما وقيتني!! ثم تفرغ العباس لنفسه ، وتحنظ وجهز له كفنا .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 وأقبل هو وامرأته يعتذران إلي من التقصير في أمري ، وركب معي فشيعني ، وانصرفت إلى بغداد وأنا أتوقع خبره ، لأفي بعهدي له في مجازاته ومكافأته ، واشتغلت مع أمير المؤمنين ، فلم أتفرغ أن أرسل إليه من يكشف خبره ، فلهذا اسأل عنه!! .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	     لا تنسوا عبدالله " ياقوت " من صالح الدعاء .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	  تابعوني على فيسبوك : ياقوت الفرزدقي    
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فقلت : وكيف ذلك ؟!! قال : أنا والله ذلك الرجل!! وإنما الضر الذي أنا فيه غير عليك حالي ، وما كنت تعرفه مني .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فقال : أين الرجل ؟!! فسكت!! فقال : ويحك!! أين الرجل ؟!! فقلت : يا أمير المؤمنين ، اسمع مني .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فلما رأه جعل يبكي ويوصيه ، فاستدعى العباس نائبه ، وقال علي بالأفراس والهدايا ، ثم أمره أن يشيعه إلى حد الأنبار!! فقال له : إن ذنبي عند أمير المؤمنين عظيم ، وخطبي جسيم ، وإن أنت أحتججت بأني هربت بعث في طلبي كل من على بابه ، فأرد وأقتل .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فلما سمع المأمون الحديث قال : ويلك!! لا جزاك الله عن نفسك خيرا ، إنه فعل بك ما فعل من غير معرفة ، وتكافئه بعد المعرفة بهذا ؟!! هلا عرفتني خبره ، فكنا نكافئه عنك ، ولا نقصر في وفائك له!! فقلت : يا أمير المؤمنين ، إنه هاهنا وقد حلف ألا يبرح حتى يعرف سلامتي ، فإن احتجت إلى حضوره حضر .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 قال العباس : فلم أفرغ من صلاة الصبح إلا ورسل المأمون في طلبي ، وهم يقولون : هات الرجل معك وقم!! فتوجهت إلى دار أمير المؤمنين ، فإذا هو جالس ينتظر .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 ثم أحضر العباس : حدادا في الليل فك قيوده ، وأزال ما كان فيه من الأنكال ، وأدخله حمام داره ، وألبسه من الثياب ما احتاج إليه ، ثم سير من أحضر إليه غلامه .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فلما سمع الرجل الحديث قال : لقد أمكنك الله عز وجل من الوفاء له ، ومكافأته على فعله ومجازاته على صنيعه بلا كلفة عليك ، ولا مؤونة تلزمك .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 وأقبل يذكرني بأشياء يتعرف بها إلي حتى أثبته وعرفته فما تمالكت أن قمت إليه فقبلت رأسه ، وقلت له : ما الذي أصارك إلى ما أرى ؟!! فقال : هاجت فتنة بدمشق مثل الفتنة التي كانت في أيامك ، فنسبت إلي وبعث أمير المؤمنين بجيوش ، فأصلحوا البلد ، وحملت إليه وقد ضربت إلى أن أشرفت على الموت!! وأمري عنده عظيم ، وخطبي لديه جسيم ، وهو قاتلي لا محالة ، وقد أخرجت من عند أهلي بلا وصية ، وقد تبعني من غلماني من ينصرف إلى أهلي بخبري ، وهو نازل عند فلان ، فإن رأيت أن تجعل مكافأتك لي أن تبعث إليه حتى يحضر فأوصيه بما أريد ، فإذا أنت فعلت ذلك فقد جاوزت حد المكافأة لي ، وقمت لي بوفاء عهدك!! قلت : يصنع الله خيرا .
+INFO:MyTestWebApp:2016-02-14 03:50	Tashkeel2	 فأتيت إليه وقلت له : ليزل خوفك ، إن أمير المؤمنين قال كذا وكذا!! فلما مثل بين يدي أمير المؤمنين أقبل عليه ، وأدناه من مجلسه وحدثه ، حتى حضر الغداء فأكل معه ، وخلع عليه ، وعرض عليه أعمال دمشق ، فاستعفى!! ، فأمر له بصلة عظيمة ووضع الخراج عن أرضه وكتب إلى عامله بدمشق بالوصية به .
+INFO:MyTestWebApp:2016-02-14 03:58	Tashkeel2	 الاحتماء بجدار الصمت  الحال كحال  ذلك الطبيب في حيرة يجهل الداء ويجهل أعراض السقام  وإذا قـام بالسـؤال فصـاحب الـداء يلوذ بالصمت ولا يجيد الكلام  ـــــــــــ ضياء ابراهيم 
+INFO:MyTestWebApp:2016-02-14 04:00	Tashkeel2	 الاحتماء بجدار الصمت  الحال كحال  ذلك الطبيب في حيرة يجهل الداء ويجهل أعراض السقام  وإذا قـام بالسـؤال فصـاحب الـداء يلوذ بالصمت ولا يجيد الكلام  ـــــــــــ ضياء ابراهيم 
+INFO:MyTestWebApp:2016-02-14 04:00	StripHarakat	 الاحتماء بجدار الصمت  الحال كحال  ذلك الطبيب في حيرة يجهل الداء ويجهل أعراض السقام  وإذا قـام بالسـؤال فصـاحب الـداء يلوذ بالصمت ولا يجيد الكلام  ـــــــــــ ضياء ابراهيم 
+INFO:MyTestWebApp:2016-02-14 04:00	ReduceTashkeel	 الاحتماء بجدار الصمت  الحال كحال  ذلك الطبيب في حيرة يجهل الداء ويجهل أعراض السقام  وإذا قـام بالسـؤال فصـاحب الـداء يلوذ بالصمت ولا يجيد الكلام  ـــــــــــ ضياء ابراهيم 
+INFO:MyTestWebApp:2016-02-14 04:00	CompareTashkeel	 الاحتماء بجدار الصمت  الحال كحال  ذلك الطبيب في حيرة يجهل الداء ويجهل أعراض السقام  وإذا قـام بالسـؤال فصـاحب الـداء يلوذ بالصمت ولا يجيد الكلام  ـــــــــــ ضياء ابراهيم 
+INFO:MyTestWebApp:2016-02-14 04:00	StripHarakat	 قِيْلَ لِلْحَقِّ: أَيْنَ كُنْتَ لَمَّا عَلَا البَاطِلُ؟    قَالَ: كُنْتُ تَحْتَهُ أَجْتَثُّ أُصُوْلَهُ!     
+INFO:MyTestWebApp:2016-02-14 04:00	Tashkeel2	 قيل للحق: أين كنت لما علا الباطل؟    قال: كنت تحته أجتث أصوله!     
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-15 07:04	Tashkeel2	يذهب التلميذ إلى المدرسة.
+INFO:MyTestWebApp:2016-02-15 07:10	Tashkeel2	يقطف علي الأزهار 
+INFO:MyTestWebApp:2016-02-15 07:16	Tashkeel2	جاءت البنت
+INFO:MyTestWebApp:2016-02-15 07:16	Tashkeel2	جاءت البنت وجاءوا هم.
+INFO:MyTestWebApp:2016-02-15 07:16	Tashkeel2	جاءت البنت وجاؤوا هم.
+INFO:MyTestWebApp:2016-02-15 07:19	Tashkeel2	رمى الصياد الشبكة .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-15 07:22	Tashkeel2	رمى الصياد الشبكة .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-15 07:25	Tashkeel2	رمى الصياد الشبكة .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-15 07:42	Tashkeel2	رمى الصياد الشبكة .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-15 07:44	Tashkeel2	رمى الصياد الشبكة .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-15 08:29	Tashkeel2	رمى الصياد الشبكة .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-15 09:24	Tashkeel2	رمى الصياد الشبكة .
+INFO:MyTestWebApp:2016-02-15 09:24	Tashkeel2	حلبت الفتاة البقرة
+INFO:MyTestWebApp:2016-02-15 09:24	Tashkeel2	أيقظ الرعد النائم
+INFO:MyTestWebApp:2016-02-15 09:24	Tashkeel2	أيقظ الرعد النائم.
+INFO:MyTestWebApp:2016-02-15 09:25	Tashkeel2	مزق الغلام الورق
+INFO:MyTestWebApp:2016-02-15 09:28	Tashkeel2	متصل يصدم ويفاجئ القرموطي
+INFO:MyTestWebApp:2016-02-15 09:29	Tashkeel2	طبخت المرأة الطعام .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-15 09:35	Tashkeel2	طبخت المرأة الطعام .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-15 09:35	Tashkeel2	طبخت المرأة الطعام .
+INFO:MyTestWebApp:2016-02-15 09:39	Tashkeel2	طبخت الفتاة الطعام .
+INFO:MyTestWebApp:2016-02-15 09:40	Tashkeel2	طبخت المرأة الطعام .
+INFO:MyTestWebApp:2016-02-15 09:40	Tashkeel2	طبخت مرأة الطعام .
+INFO:MyTestWebApp:2016-02-15 09:40	Tashkeel2	طبخت المرأة الطعام .
+INFO:MyTestWebApp:2016-02-15 09:40	Tashkeel2	طبخت والمرأة الطعام .
+INFO:MyTestWebApp:2016-02-15 09:40	Tashkeel2	طبخت المرأة الطعام .
+INFO:MyTestWebApp:2016-02-15 09:49	Tashkeel2	طبخت المرأة الطعام .
+INFO:MyTestWebApp:2016-02-15 10:14	Tashkeel2	 نائمون
+INFO:MyTestWebApp:2016-02-15 10:14	Tashkeel2	طبخت المرأة الطعام .
+INFO:MyTestWebApp:2016-02-16 07:33	LightStemmer	طبخت المرأة الطعام . نائمون
+INFO:MyTestWebApp:2016-02-16 07:33	Tashkeel2	طبخت المرأة الطعام .
+INFO:MyTestWebApp:2016-02-16 07:33	Tashkeel2	 نائمون
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	طبخت المرأة الطعام .
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	 نائمون
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		مِن ورائي بُرعُمٌ سَوفَ يَثور.
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		 قَطفوا الزهرةَ ...
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		قالت: 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		قطعوا البرعمَ ...
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		قالت: 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		غَيرُهُ يَنبِضُ في رَحمِ الجُذور.
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		قلعوا الجَذرَ مِن التُّربة ...
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		قالت: 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		إنني مِن أجلِ هذا اليوم 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		خبأتُ البذور.
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		كامن ثأري بأعماق الثرى 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		وغداً سوف يرى كل الورى 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		من صمت القبور.
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		كيف تأتي صرخة الميلاد 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		تَبردُ الشمسُ ...
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		ولا تبرد ثارات الزهور!   
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		&#160; 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:37	Tashkeel2		  (إلى زهورنا الذين قضوا شهداء في مواجهة قاتليهم)   
+INFO:MyTestWebApp:2016-02-16 07:38	StripHarakat	 
+	 قَطفوا الزهرةَ ... 
+	قالت: 
+	مِن ورائي بُرعُمٌ سَوفَ يَثور. 
+	قطعوا البرعمَ ... 
+	قالت: 
+	غَيرُهُ يَنبِضُ في رَحمِ الجُذور. 
+	قلعوا الجَذرَ مِن التُّربة ... 
+	قالت: 
+	إنني مِن أجلِ هذا اليوم 
+	خبأتُ البذور. 
+	كامن ثأري بأعماق الثرى 
+	وغداً سوف يرى كل الورى 
+	كيف تأتي صرخة الميلاد 
+	من صمت القبور. 
+	تَبردُ الشمسُ ... 
+	ولا تبرد ثارات الزهور!   
+ 
+	&#160; 
+ 
+	  (إلى زهورنا الذين قضوا شهداء في مواجهة قاتليهم)   
+
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		 قطفوا الزهرة ...
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		من ورائي برعم سوف يثور.
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		قالت: 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		قطعوا البرعم ...
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		قالت: 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		غيره ينبض في رحم الجذور.
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		قلعوا الجذر من التربة ...
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		قالت: 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		إنني من أجل هذا اليوم 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		خبأت البذور.
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		وغدا سوف يرى كل الورى 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		كامن ثأري بأعماق الثرى 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		كيف تأتي صرخة الميلاد 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		من صمت القبور.
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		تبرد الشمس ...
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		ولا تبرد ثارات الزهور!   
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		  
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:38	Tashkeel2		  (إلى زهورنا الذين قضوا شهداء في مواجهة قاتليهم)   
+INFO:MyTestWebApp:2016-02-16 07:39	StripHarakat	 
+	  &#160;كان لِعَبدالله بنُ الزُّبَير أَرضٌ قَريبَةٌ مِن أَرضٍ لِمعاويَة، فيها عَبيدٌ لَه مِن الزُّنوج يُعَمِّرونَها، فَدَخلوا في أَرضِ عَبدِالله (أي تعدوا على أرضه)، فَكتبَ إلى مُعاوية: أمّا بَعد، فإنَّهُ يا معاوية، إنْ لَم تَمنَع عَبيدَكَ مِن الدُّخولِ في أرضي، وإلا كان لي ولَك شأن. فَلَمّا وَقَفَ مُعاويَةُ على الكتاب، دَفَعَهُ إلى ابنِه يَزيد، فلمّا قَرأَهُ، قال له: ما ترى؟ قال: أرى أنْ تُنفِذَ إليه جَيشاً أَوَّلُه عِندَهُ وآخِرُهُ عندك يأتونَكَ بِرأسِه، فقال: يا بُني، عندي خَيرٌ مِن ذلك، عليَّ بِدواةٍ وقِرطاس، وكَتب: وقَفتُ على كِتابِكَ يا ابن حواري رسول الله صلى الله عليه وسلم، وساءَني واللهِ ما ساءَك، والدُّنيا هَيِّنَةٌ عِندي في جَنبِ رِضاك، وقَد كَتَبتُ على نفسي رَقماً بالأرضِ والعبيد، وأشهدتُ عليّ فيه (أي تنازلت عن أرضي وعبيدي لك)، ولتُضِفْ الأرضَ إلى أرضِك، والعبيدَ إلى عبيدِك والسلام.‏ ‏ فلمّا وقف عبدُالله على كتابِ مُعاوية، كتب إليه:‏ ‏ وقفت على كِتابِ أمير المؤمنين أطالَ الله بقاءَه، فلا عُدِمَ الرأيَّ الّذي أحَلَّهُ مِن قُريشٍ هذا المَحل والسلام.‏ ‏ فلما وقف معاوية على كتاب عبد الله، رماه إلى ابنه يزيد، فلما قرأه اصفر وجهه، فقال له معاوية: يا بني. إذا رُميت بهذا الداء، فداوه بهذا الدواء. ‏   
+
+INFO:MyTestWebApp:2016-02-16 07:39	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 07:39	Tashkeel2	‏ ‏ فلما وقف معاوية على كتاب عبد الله، رماه إلى ابنه يزيد، فلما قرأه اصفر وجهه، فقال له معاوية: يا بني.
+INFO:MyTestWebApp:2016-02-16 07:39	Tashkeel2	‏ ‏ فلما وقف عبدالله على كتاب معاوية، كتب إليه:‏ ‏ وقفت على كتاب أمير المؤمنين أطال الله بقاءه، فلا عدم الرأي الذي أحله من قريش هذا المحل والسلام.
+INFO:MyTestWebApp:2016-02-16 07:39	Tashkeel2	 فلما وقف معاوية على الكتاب، دفعه إلى ابنه يزيد، فلما قرأه، قال له: ما ترى؟ قال: أرى أن تنفذ إليه جيشا أوله عنده وآخره عندك يأتونك برأسه، فقال: يا بني، عندي خير من ذلك، علي بدواة وقرطاس، وكتب: وقفت على كتابك يا ابن حواري رسول الله صلى الله عليه وسلم، وساءني والله ما ساءك، والدنيا هينة عندي في جنب رضاك، وقد كتبت على نفسي رقما بالأرض والعبيد، وأشهدت علي فيه (أي تنازلت عن أرضي وعبيدي لك)، ولتضف الأرض إلى أرضك، والعبيد إلى عبيدك والسلام.
+INFO:MyTestWebApp:2016-02-16 07:39	Tashkeel2		   كان لعبدالله بن الزبير أرض قريبة من أرض لمعاوية، فيها عبيد له من الزنوج يعمرونها، فدخلوا في أرض عبدالله (أي تعدوا على أرضه)، فكتب إلى معاوية: أما بعد، فإنه يا معاوية، إن لم تمنع عبيدك من الدخول في أرضي، وإلا كان لي ولك شأن.
+INFO:MyTestWebApp:2016-02-16 07:39	Tashkeel2	 إذا رميت بهذا الداء، فداوه بهذا الدواء.
+INFO:MyTestWebApp:2016-02-16 07:39	Tashkeel2	 ‏   
+INFO:MyTestWebApp:2016-02-16 07:50	StripHarakat	إِنْ لَمْ تَمْنَعْ عَبِيدُكَ مِنَ الدُّخُولِ فِي أَرْضِيٍّ،
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2016-02-16 07:50	Tashkeel2	إن لم تمنع عبيدك من الدخول في أرضي،
+INFO:MyTestWebApp:2016-02-16 10:46	Tashkeel2	إن لم تمنع عبيدك من الدخول في أرضي،
+INFO:MyTestWebApp:2016-02-16 10:46	Tashkeel2	إن لم تمنع عبيدك من الدخول في أرضي،
+INFO:MyTestWebApp:2016-02-16 10:47	Tashkeel2	 قال الواقدي : كان لي صديقان أحدهما هاشمي والآخر عامي وكنا كنفس واحدة ، فنالتني ضيقة شديدة وحضر العيد فقالت لي امرأتي : أما نحن في أنفسنا فنصبر على البؤس والشدة ، وأما صبياننا هؤلاء قد قطعوا قلبي رحمة لهم ، لأنهم يرون صبيان جيراننا وقد تزينوا في عيدهم وهم على هذه الهيئة ، فلو احتلت فيما نصرفه في كسوتهم ، فكتبت إلى صديقي الهاشمي أسأله التوسعة علي مما حضر ، فوجّه إليّ كيساً مختوماً ذكر أن فيه ألف درهم ، فما استقر قراره حتى كتب إليّ الصديق الآخر يشكو مثل ما شكوت إلى صاحبي ، فوجهت إليه بالكيس على حاله وخرجت إلى المسجد فأقمت ليلتي مستحيياً من امرأتي ، فلما دخلت عليها استحسنت ذلك ولم تعنفني عليه ، فبينا أنا كذلك إذ وافى صديقي الهاشمي ومعه الكيس على هيئته وقال : أصدقني عما فعلته فيما وجهت به إليك ، فعرفته الخبر على جليته فقال : إنك وجهت إلي وما أملك على الأرض إلا ما بعثت به إليك ، وكتبت إلى صديقنا أسأله المواساة فوجّه إلي بكيسي هذا وخاتمي عليه .
+INFO:MyTestWebApp:2016-02-16 10:47	Tashkeel2	 قال : فأخرجت للمرأة مائة درهم وتقاسمنا الباقي بيننا أثلاثاً .
+INFO:MyTestWebApp:2016-02-16 10:47	Tashkeel2	 ونمى الخبر إلى أمير المؤمنين " المأمون " فدعاني وسألني عنه فشرحته له ما وقع بيننا، فأمر لنا بسبعة آلاف دينار منها ألف للمرأة وألفان لكل واحد منا .
+INFO:MyTestWebApp:2016-02-16 10:47	Tashkeel2	 
+INFO:MyTestWebApp:2016-02-16 10:47	Tashkeel2	  من كتاب " المستجاد من فعلات الأجياد " للقاضي التنوخي البصري أبو علي ( المتوفى : 384هـ )  لا تنسوا عبدالله " ياقوت " من صالح الدعاء .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-18 10:35	TashkeelText	السلام عليكم
+اهلا بكم
+كيف حالكم
+INFO:MyTestWebApp:2016-02-18 10:42	TashkeelText2	السلام عليكم
+اهلا بكم
+كيف حالكم
+INFO:MyTestWebApp:2016-02-18 10:46	Tashkeel2	السلام عليكم
+اهلا بكم
+كيف حالكم
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 03:21	Tashkeel2	قال الإمام مالك وغيره عن الرافضة: "هؤلاء قوم أرادوا الطعن في رسول الله صلى الله عليه وسلم، فلم يمكنهم ذلك، فطعنوا في الصحابة ليقول القائل: رجل سوء كان له أصحاب سوء، ولو كان رجلا صالحا لكان الصحابة صالحين".
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 03:34	CompareTashkeel	 قَالَ الْإمَامُ مَالِكٍ وَغَيْرِهِ عَنِ الرَّافِضَةِ:" هَؤُلَاءِ قَوْمٌ أَرَادُوا اِلْطَعِنَّ فِي رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيهِ وَسَلَّمَ، فَلَمْ يُمْكِنْهُمْ ذَلِكَ، فَطَعَنُوا فِي الصَّحَابَةِ لِيَقُولُ الْقَائِلُ: رَجُلُ سُوءٍ كَانَ لَهُ أَصْحَابُ سُوءٍ، وَلَوْ  رَجُلَا صَالِحًا لِكَانَ الصَّحَابَةُ صَالِحَيْنِ".
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 03:35	CompareTashkeel	 قَالَ الْإمَامُ مَالِكٍ وَغَيْرِهِ عَنِ الرَّافِضَةِ:" هَؤُلَاءِ قَوْمٌ أَرَادُوا اِلْطَعِنَّ فِي رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيهِ وَسَلَّمَ، فَلَمْ يُمْكِنْهُمْ ذَلِكَ، فَطَعَنُوا فِي الصَّحَابَةِ لِيَقُولُ الْقَائِلُ: رَجُلُ سُوءٍ كَانَ لَهُ أَصْحَابُ سُوءٍ، وَلَوْ  رَجُلَا صَالِحًا لِكَانَ الصَّحَابَةُ صَالِحَيْنِ".
+INFO:MyTestWebApp:2016-02-20 03:36	StripHarakat	 قَالَ الْإمَامُ مَالِكٍ وَغَيْرِهِ عَنِ الرَّافِضَةِ:" هَؤُلَاءِ قَوْمٌ أَرَادُوا اِلْطَعِنَّ فِي رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيهِ وَسَلَّمَ، فَلَمْ يُمْكِنْهُمْ ذَلِكَ، فَطَعَنُوا فِي الصَّحَابَةِ لِيَقُولُ الْقَائِلُ: رَجُلُ سُوءٍ كَانَ لَهُ أَصْحَابُ سُوءٍ، وَلَوْ  رَجُلَا صَالِحًا لِكَانَ الصَّحَابَةُ صَالِحَيْنِ".
+INFO:MyTestWebApp:2016-02-20 03:36	Tashkeel2	 قال الإمام مالك وغيره عن الرافضة:" هؤلاء قوم أرادوا الطعن في رسول الله صلى الله عليه وسلم، فلم يمكنهم ذلك، فطعنوا في الصحابة ليقول القائل: رجل سوء كان له أصحاب سوء، ولو  رجلا صالحا لكان الصحابة صالحين".
+INFO:MyTestWebApp:2016-02-20 03:40	LightStemmer	الصحابة
+INFO:MyTestWebApp:2016-02-20 03:41	Tashkeel2	الصحابة صحارى
+INFO:MyTestWebApp:2016-02-20 03:41	LightStemmer	الصحابة صحارى
+INFO:MyTestWebApp:2016-02-20 03:41	extractEnteties	 قال الإمام مالك وغيره عن الرافضة:" هؤلاء قوم أرادوا الطعن في رسول الله صلى الله عليه وسلم، فلم يمكنهم ذلك، فطعنوا في الصحابة ليقول القائل: رجل سوء كان له أصحاب سوء، ولو  رجلا صالحا لكان الصحابة صالحين".
+INFO:MyTestWebApp:2016-02-20 03:50	Tashkeel2	 قال الإمام مالك وغيره عن الرافضة:" هؤلاء قوم أرادوا الطعن في رسول الله صلى الله عليه وسلم، فلم يمكنهم ذلك، فطعنوا في الصحابة ليقول القائل: رجل سوء كان له أصحاب سوء، ولو  رجلا صالحا لكان الصحابة صالحين".
+INFO:MyTestWebApp:2016-02-20 03:51	Tashkeel2	 قال الإمام مالك وغيره عن الرافضة:" هؤلاء قوم أرادوا الطعن في رسول الله صلى الله عليه وسلم، فلم يمكنهم ذلك، فطعنوا في الصحابة ليقول القائل: رجل سوء كان له أصحاب سوء، ولو  رجلا صالحا كان الصحابة صالحين".
+INFO:MyTestWebApp:2016-02-20 03:51	Tashkeel2	 قال الإمام مالك وغيره عن الرافضة:" هؤلاء قوم أرادوا الطعن في رسول الله صلى الله عليه وسلم، فلم يمكنهم ذلك، فطعنوا في الصحابة ليقول القائل: رجل سوء كان له أصحاب سوء، ولو  رجلا صالحا كان أصحابه صالحين".
+INFO:MyTestWebApp:2016-02-20 03:52	Tashkeel2	تبدأ الحكاية وقت تدهمني احتمالات التّحوّل قاضيةً على محيطي الأكسجينيّ..
+INFO:MyTestWebApp:2016-02-20 03:52	Tashkeel2	 أختنق، فتشرع أحلامي في طقوسٍ جنائزيّةٍ..
+INFO:MyTestWebApp:2016-02-20 03:52	Tashkeel2	تتحنّى الأفكار عليّ لتوقظني من سباتي السّرمديّ، لكنّني آبى الخروج من شرودٍ غزاني فأقتـلها..
+INFO:MyTestWebApp:2016-02-20 03:56	Tashkeel2	كوندور تُعلن عن هاتف جديد بشكل رسمي والذي يأتي ببطارية ضخمة ومميزة مع سعر جيد
+INFO:MyTestWebApp:2016-02-20 03:56	Tashkeel2	ما رأيكم في هاتف كوندور الجديد 
+INFO:MyTestWebApp:2016-02-20 03:59	StripHarakat	الطِّبُّ الشَّعْبِيُّ .. حَقِيقَةٌ أَمْ دَجَلَ ؟: اِنْتَشَرَتْ فِي الْآوِنَةِ الْأَخِيرَةَ مَرَاكِزَ الطِّبِّ الشَّعْبِيِّ ( أَوْ الطِّبَّ الْبَدِيلَ )، وَبَدَأَ يَجْذُبُ اِهْتِمَامُ الْأكَادِيمِيَّيْنِ وَالْمُتَخَصِّصَيْنِ فِي الطِّبِّ ، وَحَقَّقَ نجَاحَاتُ كَبِيرَةَ خُصُوصًا فِي عِلَاَجِ   الْأَمْرَاضَ الْمُزْمِنَةَ ، عَنْ طَرِيقِ وَسَائِلِ   مِثْلُ الْحِجَامَةِ وَالْعِلَاَجِ بِالْأَعْشَابِ أَوْ الْوَخْزَ بِالْإِبَرِ ، فِي ظَلَّ تَنَامِي الْآثَارِ الْجانِبِيَّةِ لِلْأَدْوِيَةِ الْكِيميَائِيَّةِ ، لَكِنّهُ تَعَرَّضَ لانتقادات لَاَذِعَةً . فَهُنَاكَ مِنْ يراه أَقُرْبٌ إِلَى الْخُرَافَةِ أَوْ الدَّجْلَ فِي ظَلَّ التَّشْكِيكُ فِي فَعَّالِيَّتِهِ وَمُسْتَوَى الْأمَانِ فِيهِ . هَلْ تُرى فِي الطِّبِّ الشَّعْبِيِّ مَدْخَلًا عِلْميا جَدِيدًا وَحَقِيقَةَ يُمْكِنُ إِثْبَاتُهَا مِنْ مَنْظُورِ عِلْمِي ؟ أَمْ أَنّهُ أَقْرَبَ إِلَى الدَّجْلِ فِي ظَلَّ غِيَابُ الضَّوَابِطَ وَالْقَوَانِينَ الَّتِي تُؤَطِّرُهُ ؟  هَلْ هُوَ   حَقِيقَةَ يَمِّكُنَّ الْاِعْتِمَادِ عَلَيهَا فِي عِلَاَجِ الْأَمْرَاضِ أَمْ أَنّهُ مُجَرَّدَ وَسِيلَةٍ لِلْتَرَبُّحِ السَّرِيعِ عَبْرَ بَثِّ الْخُرَافَاتِ ؟/
+INFO:MyTestWebApp:2016-02-20 03:59	Tashkeel2	الطب الشعبي ..
+INFO:MyTestWebApp:2016-02-20 03:59	Tashkeel2	 حقيقة أم دجل ؟: انتشرت في الآونة الأخيرة مراكز الطب الشعبي ( أو الطب البديل )، وبدأ يجذب اهتمام الأكاديميين والمتخصصين في الطب ، وحقق نجاحات كبيرة خصوصا في علاج   الأمراض المزمنة ، عن طريق وسائل   مثل الحجامة والعلاج بالأعشاب أو الوخز بالإبر ، في ظل تنامي الآثار الجانبية للأدوية الكيميائية ، لكنه تعرض لانتقادات لاذعة .
+INFO:MyTestWebApp:2016-02-20 03:59	Tashkeel2	 فهناك من يراه أقرب إلى الخرافة أو الدجل في ظل التشكيك في فعاليته ومستوى الأمان فيه .
+INFO:MyTestWebApp:2016-02-20 03:59	Tashkeel2	 هل ترى في الطب الشعبي مدخلا علميا جديدا وحقيقة يمكن إثباتها من منظور علمي ؟ أم أنه أقرب إلى الدجل في ظل غياب الضوابط والقوانين التي تؤطره ؟  هل هو   حقيقة يمكن الاعتماد عليها في علاج الأمراض أم أنه مجرد وسيلة للتربح السريع عبر بث الخرافات ؟/
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 04:03	StripHarakat	وَحَقَّقَ نجَاحَاتُ كَبِيرَةَ
+INFO:MyTestWebApp:2016-02-20 04:03	Tashkeel2	وحقق نجاحات كبيرة
+INFO:MyTestWebApp:2016-02-20 04:03	Tashkeel2	حقق نجاحات كبيرة
+INFO:MyTestWebApp:2016-02-20 04:05	Tashkeel2	حقق نجاحات كبيرة.
+INFO:MyTestWebApp:2016-02-20 04:05	Tashkeel2	قامت الدولة.
+INFO:MyTestWebApp:2016-02-20 04:05	Tashkeel2	أقامت الدولة.
+INFO:MyTestWebApp:2016-02-20 04:05	Tashkeel2	أقام الدولة.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 04:06	Tashkeel2	حقق نجاحات كبيرة.
+INFO:MyTestWebApp:2016-02-20 04:06	Tashkeel2	أقام الدولة.
+INFO:MyTestWebApp:2016-02-20 04:06	Tashkeel2	أقامت الدولة.
+INFO:MyTestWebApp:2016-02-20 04:06	Tashkeel2	قامت الدولة.
+INFO:MyTestWebApp:2016-02-20 04:06	Tashkeel2	حقق نجاحات كبيرة.
+INFO:MyTestWebApp:2016-02-20 04:06	Tashkeel2	أقام الدولة.
+INFO:MyTestWebApp:2016-02-20 04:06	Tashkeel2	أقامت الدولة.
+INFO:MyTestWebApp:2016-02-20 04:06	Tashkeel2	 قام الدولة.
+INFO:MyTestWebApp:2016-02-20 04:06	Tashkeel2	قامت الدولة.
+INFO:MyTestWebApp:2016-02-20 04:07	Tashkeel2	حقق نجاحات كبيرة.
+INFO:MyTestWebApp:2016-02-20 04:07	Tashkeel2	قامت الدولة.
+INFO:MyTestWebApp:2016-02-20 04:07	Tashkeel2	 يقوم  الدولة.
+INFO:MyTestWebApp:2016-02-20 04:07	Tashkeel2	أقامت الدولة.
+INFO:MyTestWebApp:2016-02-20 04:07	Tashkeel2	أقام الدولة.
+INFO:MyTestWebApp:2016-02-20 04:07	Tashkeel2	حقق نجاحات كبيرة.
+INFO:MyTestWebApp:2016-02-20 04:07	Tashkeel2	قامت الدولة.
+INFO:MyTestWebApp:2016-02-20 04:07	Tashkeel2	 يقوم  الدولة.
+INFO:MyTestWebApp:2016-02-20 04:07	Tashkeel2	 تقوم الدولة
+INFO:MyTestWebApp:2016-02-20 04:07	Tashkeel2	أقامت الدولة.
+INFO:MyTestWebApp:2016-02-20 04:07	Tashkeel2	أقام الدولة.
+INFO:MyTestWebApp:2016-02-20 04:50	LightStemmer	يرى
+INFO:MyTestWebApp:2016-02-20 04:50	LightStemmer	يرأى
+INFO:MyTestWebApp:2016-02-20 04:51	LightStemmer	خذ
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:02	Tashkeel2	يرى
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:02	Tashkeel2	يرى
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:03	Tashkeel2	يرى
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:03	Tashkeel2	يرى
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:03	Tashkeel2	يرى
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:04	Tashkeel2	يرى
+INFO:MyTestWebApp:2016-02-20 05:05	Tashkeel2	يرى يراه
+INFO:MyTestWebApp:2016-02-20 05:05	Tashkeel2	يرى يراه يريه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:07	Tashkeel2	يرى يراه يريه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:17	Tashkeel2	يرى يراه يريه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:18	Tashkeel2	يرى يراه يريه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:22	Tashkeel2	يرى يراه يريه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:23	Tashkeel2	يرى يراه يريه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:25	Tashkeel2	يرى يراه يريه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:27	Tashkeel2	يرى يراه يريه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:27	Tashkeel2	يرى يراه يريه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:28	Tashkeel2	يرى يراه يريه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:30	Tashkeel2	يرى يراه يريه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:31	Tashkeel2	يرى يراه يريه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:32	Tashkeel2	يرى يراه يريه
+INFO:MyTestWebApp:2016-02-20 05:33	Tashkeel2	يرى يراه يريه يري
+INFO:MyTestWebApp:2016-02-20 05:48	Tashkeel2	الطب الشعبي ..
+INFO:MyTestWebApp:2016-02-20 05:48	Tashkeel2	 هل ترى في الطب الشعبي مدخلا علميا جديدا وحقيقة يمكن إثباتها من منظور علمي ؟ أم أنه أقرب إلى الدجل في ظل غياب الضوابط والقوانين التي تؤطره ؟  هل هو   حقيقة يمكن الاعتماد عليها في علاج الأمراض أم أنه مجرد وسيلة للتربح السريع عبر بث الخرافات ؟/
+INFO:MyTestWebApp:2016-02-20 05:48	Tashkeel2	 فهناك من يراه أقرب إلى الخرافة أو الدجل في ظل التشكيك في فعاليته ومستوى الأمان فيه .
+INFO:MyTestWebApp:2016-02-20 05:48	Tashkeel2	 حقيقة أم دجل ؟: انتشرت في الآونة الأخيرة مراكز الطب الشعبي ( أو الطب البديل )، وبدأ يجذب اهتمام الأكاديميين والمتخصصين في الطب ، وحقق نجاحات كبيرة خصوصا في علاج   الأمراض المزمنة ، عن طريق وسائل   مثل الحجامة والعلاج بالأعشاب أو الوخز بالإبر ، في ظل تنامي الآثار الجانبية للأدوية الكيميائية ، لكنه تعرض لانتقادات لاذعة .
+INFO:MyTestWebApp:2016-02-20 05:49	StripHarakat	غِيَابُ الضَّوَابِطَ وَالْقَوَانِينَ 
+INFO:MyTestWebApp:2016-02-20 05:49	Tashkeel2	غياب الضوابط والقوانين 
+INFO:MyTestWebApp:2016-02-20 05:49	Tashkeel2	غياب الضوابط والقوانين .
+INFO:MyTestWebApp:2016-02-20 05:49	Tashkeel2	غياب القوانين.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 05:54	Tashkeel2	غياب الضوابط والقوانين .
+INFO:MyTestWebApp:2016-02-20 05:54	Tashkeel2	غياب القوانين.
+INFO:MyTestWebApp:2016-02-20 06:55	Tashkeel2	غياب الضوابط والقوانين .
+INFO:MyTestWebApp:2016-02-20 06:55	Tashkeel2	غياب القوانين.
+INFO:MyTestWebApp:2016-02-20 06:57	Tashkeel2	غياب الضوابط والقوانين .
+INFO:MyTestWebApp:2016-02-20 06:57	Tashkeel2	غياب القوانين.
+INFO:MyTestWebApp:2016-02-20 06:57	Tashkeel2	غياب الضوابط والقوانين .
+INFO:MyTestWebApp:2016-02-20 06:57	Tashkeel2	غياب القوانين.
+INFO:MyTestWebApp:2016-02-20 06:57	StripHarakat	 غِيَابُ الضَّوَابِطِ وَالْقَوَانِينِ. غِيَابُ الْقَوَانِينِ.
+INFO:MyTestWebApp:2016-02-20 06:57	Tashkeel2	 غِيَابُ الضَّوَابِطِ وَالْقَوَانِينِ.
+INFO:MyTestWebApp:2016-02-20 06:57	Tashkeel2	 غِيَابُ الْقَوَانِينِ.
+INFO:MyTestWebApp:2016-02-20 06:57	StripHarakat	 غِيَابُ الضَّوَابِطِ وَالْقَوَانِينِ. غِيَابُ الْقَوَانِينِ.
+INFO:MyTestWebApp:2016-02-20 06:57	Tashkeel2	 غياب الضوابط والقوانين.
+INFO:MyTestWebApp:2016-02-20 06:57	Tashkeel2	 غياب القوانين.
+INFO:MyTestWebApp:2016-02-20 07:05	Tashkeel2	أما الحماة الجديدة فقد بدأت تحبني إذ صارت تصادفني من حين ٍ إلى آخر في أماكن لا أتوقعها وكنت أظن أن والد فتاتي يلاحقني، أما هو فكان نحيفا ً قصيراً وكان من الصعب أن أرى رأسه حين قيادتها مما يجعلها تبدو بلا سائق وكان ينزلق من على كرسيه ليتمكن من الوصول بطرف قدمه لدواسة الوقود .
+INFO:MyTestWebApp:2016-02-20 08:36	Tashkeel2	أما الحماة الجديدة فقد بدأت تحبني إذ صارت تصادفني من حين ٍ إلى آخر في أماكن لا أتوقعها وكنت أظن أن والد فتاتي يلاحقني، أما هو فكان نحيفا ً قصيراً وكان من الصعب أن أرى رأسه حين قيادتها مما يجعلها تبدو بلا سائق وكان ينزلق من على كرسيه ليتمكن من الوصول بطرف قدمه لدواسة الوقود .
+INFO:MyTestWebApp:2016-02-20 08:36	Tashkeel2	بدأت
+INFO:MyTestWebApp:2016-02-20 08:36	LightStemmer	بدأت
+INFO:MyTestWebApp:2016-02-20 08:36	LightStemmer	بدأت
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 08:38	Tashkeel2	بدأت
+INFO:MyTestWebApp:2016-02-20 08:38	Tashkeel2	بدأت
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 08:44	Tashkeel2	بدأت
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 08:45	Tashkeel2	بدأت
+INFO:MyTestWebApp:2016-02-20 09:15	Tashkeel2	أما الحماة الجديدة فقد بدأت تحبني إذ صارت تصادفني من حين ٍ إلى آخر في أماكن لا أتوقعها وكنت أظن أن والد فتاتي يلاحقني، أما هو فكان نحيفا ً قصيراً وكان من الصعب أن أرى رأسه حين قيادتها مما يجعلها تبدو بلا سائق وكان ينزلق من على كرسيه ليتمكن من الوصول بطرف قدمه لدواسة الوقود .
+INFO:MyTestWebApp:2016-02-20 09:18	Tashkeel2	وبقيت أحب فتاتي فلم يكن مقدرا ً لي أن أتراجع عن اختيارها كأفضل فتاة في ذلك الزمان، وكانت بما تمنحني من ابتسامات ٍ هادئة وإشارات متزنة تشد قلبي بقيود وروابط جديدة، وتقيم شبكة متينة من حبال الحب حتى وجدت نفسي مستسلما ً لحقيقة اعتبرتها ظاهرة طبيعية ومنحتها تفسيرا ً وتعريفا ً فقلت: أنا قلبٌ وهي جابية القلوب .
+INFO:MyTestWebApp:2016-02-20 09:18	StripHarakat	وبقيت أحب فتاتي فلم يكن مقدرا ً لي أن أتراجع عن اختيارها كأفضل فتاة في ذلك الزمان، وكانت بما تمنحني من ابتسامات ٍ هادئة وإشارات متزنة تشد قلبي بقيود وروابط جديدة، وتقيم شبكة متينة من حبال الحب حتى وجدت نفسي مستسلما ً لحقيقة اعتبرتها ظاهرة طبيعية ومنحتها تفسيرا ً وتعريفا ً فقلت: أنا قلبٌ وهي جابية القلوب .
+INFO:MyTestWebApp:2016-02-20 09:18	Tashkeel2	وبقيت أحب فتاتي فلم يكن مقدرا  لي أن أتراجع عن اختيارها كأفضل فتاة في ذلك الزمان، وكانت بما تمنحني من ابتسامات  هادئة وإشارات متزنة تشد قلبي بقيود وروابط جديدة، وتقيم شبكة متينة من حبال الحب حتى وجدت نفسي مستسلما  لحقيقة اعتبرتها ظاهرة طبيعية ومنحتها تفسيرا  وتعريفا  فقلت: أنا قلب وهي جابية القلوب .
+INFO:MyTestWebApp:2016-02-20 09:27	Tashkeel2	في تلك الأيام كنتُ أعيش بمقاييس مختلفة عما كان يعيش بها الآخرون فعلى الرغم ِ أن الشهرَ ثلاثون يوماً وأن اليوم َ أربعة ٌ وعشرون ساعة إلا أنها كانت مختلفة ٌ معي فبدت أطول مما هي عليه، أما الألوان فقد كانت مختلفة ً أيضاً وظننت أن ألوان الطيف كذبة ٌ ابتدعها أستاذ الفيزياء ليجعل من الدرسِ أكثر متعة
+INFO:MyTestWebApp:2016-02-20 09:27	StripHarakat	في تلك الأيام كنتُ أعيش بمقاييس مختلفة عما كان يعيش بها الآخرون فعلى الرغم ِ أن الشهرَ ثلاثون يوماً وأن اليوم َ أربعة ٌ وعشرون ساعة إلا أنها كانت مختلفة ٌ معي فبدت أطول مما هي عليه، أما الألوان فقد كانت مختلفة ً أيضاً وظننت أن ألوان الطيف كذبة ٌ ابتدعها أستاذ الفيزياء ليجعل من الدرسِ أكثر متعة
+INFO:MyTestWebApp:2016-02-20 09:27	Tashkeel2	في تلك الأيام كنت أعيش بمقاييس مختلفة عما كان يعيش بها الآخرون فعلى الرغم  أن الشهر ثلاثون يوما وأن اليوم  أربعة  وعشرون ساعة إلا أنها كانت مختلفة  معي فبدت أطول مما هي عليه، أما الألوان فقد كانت مختلفة  أيضا وظننت أن ألوان الطيف كذبة  ابتدعها أستاذ الفيزياء ليجعل من الدرس أكثر متعة
+INFO:MyTestWebApp:2016-02-20 09:28	Tashkeel2	في تلك الأيام كنت أعيش بمقاييس مختلفة عما كان يعيش بها الآخرون فعلى الرغم  أن الشهر ثلاثون يوما وأن اليوم  أربعة  وعشرون ساعة إلا أنها كانت مختلفة  معي فبدت أطول مما هي عليه، أما الألوان فقد كانت مختلفة  أيضا وظننت أن ألوان الطيف كذبة  ابتدعها أستاذ الفيزياء ليجعل من الدرس أكثر متعة
+INFO:MyTestWebApp:2016-02-20 09:28	Tashkeel2	أيضا
+INFO:MyTestWebApp:2016-02-20 09:29	Tashkeel2	أيضًا
+INFO:MyTestWebApp:2016-02-20 09:33	StripHarakat	ولأن ذاكَ الزمانُ كان مثلي ، يعيش في الماضي ، فقد كانت أشياءه ُ بلون ٍ واحد ٍ معتم ٍ ، لونٌ رمادي بين الأسود ِ والأبيض ِ وعند انتهاء الشتاء أدركت بأن ظهور الحب ّ في حياتي منذ أربعة أشهر هو تعقيد كبير وأنني لستُ بقادر ٍعلى التعامل معه ولا على فهمه أو تحليله ، بل أنه مشكلة ٌ كبرى ومن الضروري الوصول إلى حالة ٍ من الرضا والصفاء قبل وقوعي في شراك الجنون.
+INFO:MyTestWebApp:2016-02-20 09:33	Tashkeel2	ولأن ذاك الزمان كان مثلي ، يعيش في الماضي ، فقد كانت أشياءه  بلون  واحد  معتم  ، لون رمادي بين الأسود  والأبيض  وعند انتهاء الشتاء أدركت بأن ظهور الحب  في حياتي منذ أربعة أشهر هو تعقيد كبير وأنني لست بقادر على التعامل معه ولا على فهمه أو تحليله ، بل أنه مشكلة  كبرى ومن الضروري الوصول إلى حالة  من الرضا والصفاء قبل وقوعي في شراك الجنون.
+INFO:MyTestWebApp:2016-02-20 09:38	Tashkeel2	ولأن ذاك الزمان كان مثلي ، يعيش في الماضي ، فقد كانت أشياءه  بلون  واحد  معتم  ، لون رمادي بين الأسود  والأبيض  وعند انتهاء الشتاء أدركت بأن ظهور الحب  في حياتي منذ أربعة أشهر هو تعقيد كبير وأنني لست بقادر على التعامل معه ولا على فهمه أو تحليله ، بل أنه مشكلة  كبرى ومن الضروري الوصول إلى حالة  من الرضا والصفاء قبل وقوعي في شراك الجنون.
+INFO:MyTestWebApp:2016-02-20 09:38	Tashkeel2	أيضًا
+INFO:MyTestWebApp:2016-02-20 09:38	Tashkeel2	أيضًا
+INFO:MyTestWebApp:2016-02-20 09:38	Tashkeel2	أيضًا
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:1 workers didn't stop properly, and 0 zombies
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 09:38	Tashkeel2	أيضًا
+INFO:MyTestWebApp:2016-02-20 09:39	Tashkeel2	أيضا
+INFO:MyTestWebApp:2016-02-20 09:40	Tashkeel2	أيضا
+INFO:MyTestWebApp:2016-02-20 09:40	Tashkeel2	أيضا
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 09:41	Tashkeel2	أيضا
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 09:44	Tashkeel2	ولأن ذاك الزمان كان مثلي ، يعيش في الماضي ، فقد كانت أشياءه  بلون  واحد  معتم  ، لون رمادي بين الأسود  والأبيض  وعند انتهاء الشتاء أدركت بأن ظهور الحب  في حياتي منذ أربعة أشهر هو تعقيد كبير وأنني لست بقادر على التعامل معه ولا على فهمه أو تحليله ، بل أنه مشكلة  كبرى ومن الضروري الوصول إلى حالة  من الرضا والصفاء قبل وقوعي في شراك الجنون.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 09:45	Tashkeel2	أيضا
+INFO:MyTestWebApp:2016-02-20 09:45	Tashkeel2	ولأن ذاك الزمان كان مثلي ، يعيش في الماضي ، فقد كانت أشياءه  بلون  واحد  معتم  ، لون رمادي بين الأسود  والأبيض  وعند انتهاء الشتاء أدركت بأن ظهور الحب  في حياتي منذ أربعة أشهر هو تعقيد كبير وأنني لست بقادر على التعامل معه ولا على فهمه أو تحليله ، بل أنه مشكلة  كبرى ومن الضروري الوصول إلى حالة  من الرضا والصفاء قبل وقوعي في شراك الجنون.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 09:46	Tashkeel2	ولأن ذاك الزمان كان مثلي ، يعيش في الماضي ، فقد كانت أشياءه  بلون  واحد  معتم  ، لون رمادي بين الأسود  والأبيض  وعند انتهاء الشتاء أدركت بأن ظهور الحب  في حياتي منذ أربعة أشهر هو تعقيد كبير وأنني لست بقادر على التعامل معه ولا على فهمه أو تحليله ، بل أنه مشكلة  كبرى ومن الضروري الوصول إلى حالة  من الرضا والصفاء قبل وقوعي في شراك الجنون.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 09:51	Tashkeel2	ولأن ذاك الزمان كان مثلي ، يعيش في الماضي ، فقد كانت أشياءه  بلون  واحد  معتم  ، لون رمادي بين الأسود  والأبيض  وعند انتهاء الشتاء أدركت بأن ظهور الحب  في حياتي منذ أربعة أشهر هو تعقيد كبير وأنني لست بقادر على التعامل معه ولا على فهمه أو تحليله ، بل أنه مشكلة  كبرى ومن الضروري الوصول إلى حالة  من الرضا والصفاء قبل وقوعي في شراك الجنون.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 09:52	Tashkeel2	ولأن ذاك الزمان كان مثلي ، يعيش في الماضي ، فقد كانت أشياءه  بلون  واحد  معتم  ، لون رمادي بين الأسود  والأبيض  وعند انتهاء الشتاء أدركت بأن ظهور الحب  في حياتي منذ أربعة أشهر هو تعقيد كبير وأنني لست بقادر على التعامل معه ولا على فهمه أو تحليله ، بل أنه مشكلة  كبرى ومن الضروري الوصول إلى حالة  من الرضا والصفاء قبل وقوعي في شراك الجنون.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 09:53	Tashkeel2	ولأن ذاك الزمان كان مثلي ، يعيش في الماضي ، فقد كانت أشياءه  بلون  واحد  معتم  ، لون رمادي بين الأسود  والأبيض  وعند انتهاء الشتاء أدركت بأن ظهور الحب  في حياتي منذ أربعة أشهر هو تعقيد كبير وأنني لست بقادر على التعامل معه ولا على فهمه أو تحليله ، بل أنه مشكلة  كبرى ومن الضروري الوصول إلى حالة  من الرضا والصفاء قبل وقوعي في شراك الجنون.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 10:09	StripHarakat	هُوَ تَعْقِيدٌ كَبِيرٌ.
+غياب الضوابط.
+INFO:MyTestWebApp:2016-02-20 10:09	Tashkeel2	هو تعقيد كبير.
+INFO:MyTestWebApp:2016-02-20 10:09	Tashkeel2	غياب الضوابط.
+INFO:MyTestWebApp:2016-02-20 10:09	Tashkeel2	هو تعقيد كبير.
+INFO:MyTestWebApp:2016-02-20 10:09	Tashkeel2	غياب ضوابط.
+INFO:MyTestWebApp:2016-02-20 10:10	Tashkeel2	هو تعقيد كبير.
+INFO:MyTestWebApp:2016-02-20 10:10	Tashkeel2	غياب الضوابط.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 10:10	Tashkeel2	هو تعقيد كبير.
+INFO:MyTestWebApp:2016-02-20 10:10	Tashkeel2	غياب الضوابط.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 10:10	Tashkeel2	هو تعقيد كبير.
+INFO:MyTestWebApp:2016-02-20 10:10	Tashkeel2	غياب الضوابط.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 10:18	Tashkeel2	هو تعقيد كبير.
+INFO:MyTestWebApp:2016-02-20 10:18	Tashkeel2	غياب الضوابط.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2016-02-20 10:22	Tashkeel2	هو تعقيد كبير.
+INFO:MyTestWebApp:2016-02-20 10:22	Tashkeel2	غياب الضوابط.
+INFO:MyTestWebApp:2016-02-20 10:31	Tashkeel2	ولأن ذاك الزمان كان مثلي ، يعيش في الماضي ، فقد كانت أشياءه  بلون  واحد  معتم  ، لون رمادي بين الأسود  والأبيض  وعند انتهاء الشتاء أدركت بأن ظهور الحب  في حياتي منذ أربعة أشهر هو تعقيد كبير وأنني لست بقادر على التعامل معه ولا على فهمه أو تحليله ، بل أنه مشكلة  كبرى ومن الضروري الوصول إلى حالة  من الرضا والصفاء قبل وقوعي في شراك الجنون.
+INFO:MyTestWebApp:2016-02-20 10:44	Tashkeel2	يعرفني
+INFO:MyTestWebApp:2016-02-20 10:44	Tashkeel2	يعرفني أني لست من ذلك النوع

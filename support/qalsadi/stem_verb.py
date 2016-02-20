@@ -57,9 +57,9 @@ class VerbStemmer:
     
         self.verb_dictionary = arabicdictionary.ArabicDictionary("verbs")
 
-        self.verb_stamp_pat = re.compile(u"[%s%s%s%s%s]"%( araby.ALEF, 
-        araby.YEH, araby.WAW, araby.ALEF_MAKSURA, araby.SHADDA), re.UNICODE)
-
+        self.verb_stamp_pat = re.compile(u"[%s%s%s%s%s%s]"%( araby.ALEF, 
+        araby.YEH, araby.WAW, araby.ALEF_MAKSURA, araby.HAMZA, araby.SHADDA), re.UNICODE)
+ 
     def stemming_verb(self, verb):
         """
         Stemming verb

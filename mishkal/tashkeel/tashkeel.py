@@ -590,6 +590,7 @@ class TashkeelClass:
             # if indexes list is empty, the current indexes list is reloaded, and no change
             if tmplist:
                 indxlist = tmplist
+
             # if there are many semantic relations or non one, we use frequency to choose the
             # most frequent word to be selected
                 if len(indxlist) == 1 : rule = 2

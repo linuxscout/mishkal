@@ -1,0 +1,37 @@
+<!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  <div id="result">
+
+</div>
+<script>
+$().ready(function() {
+$.getJSON("http://tahadz.com/mishkal/ajaxGet", {text:"السلام عليكم\nاهلا بكم\nكيف حالكم", action:"TashkeelText"},
+  function(data) {
+      $("#result").text(data.result);
+  });
+
+ });
+</script>
+
+<!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  <div id="result">
+
+</div>
+<script>
+$().ready(function() {
+$.getJSON("http://tahadz.com/mishkal/ajaxGet", {text:"السلام عليكم\nاهلا بكم\nكيف حالكم", action:"TashkeelText"},
+  function(data) {
+      $("#result").text(data.result);
+  });
+
+ });
+</script>
+
+

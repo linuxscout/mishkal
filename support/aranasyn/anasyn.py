@@ -23,7 +23,7 @@ import aranasyn.syn_const
 import aranasyn.synnode
 import aranasyn.stemmedsynword as stemmedsynword
 import naftawayh.wordtag as wordtag
-from operator import and_
+#from operator import and_
 from operator import xor
 
 class SyntaxAnalyzer:
@@ -378,9 +378,8 @@ class SyntaxAnalyzer:
                 if current.is_majrour() :
                     if previous.is_added():
                         weight = aranasyn.syn_const.JarMajrourRelation
-                    elif previous.is_noun() and not previous.is_defined() \
-                           and not previous.is_added() and \
-                           not previous.is_tanwin() and not current.is_adj():
+                    elif (previous.is_noun() and not previous.is_defined() 
+                           and not previous.is_tanwin() )and not (current.is_adj() and not current.is_defined()):
                         weight = aranasyn.syn_const.JarMajrourRelation 
                 # منعوت والنعت
                 #  تحتاج إلى إعادة نظر
