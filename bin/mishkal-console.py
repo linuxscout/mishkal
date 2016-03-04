@@ -178,11 +178,6 @@ def test():
         print "id\tfully Correct\tStrip Correct\tfully WER\tStrip WER\tLER\tTotal\tline Fully correct\tline Strip correct"
         
     while line and (nolimit or counter <= limit):
-        if progress and not nolimit:
-            #~percent = (counter * 100/ limit ) if (counter / limit * 100 >percent) else percent
-            sys.stderr.write("\r[%d%%]%d/%d lines" %(counter * 100/ limit, counter, limit))
-            #~sys.stderr.write("treatment of "+line.encode('utf8'))
-            sys.stderr.flush()
         if not line.startswith('#'):
             line = line.strip()
             lineCorrect = 0
@@ -251,6 +246,16 @@ def test():
                     print "%0.2f%%\t"%round((lineTotal-lineWLMIncorrect)*100.00/lineTotal, 2), #line Strip correct
                         
             print result.encode('utf8')
+        if progress and not nolimit:
+            #~percent = (counter * 100/ limit ) if (counter / limit * 100 >percent) else percent
+            sys.stderr.write("\r[%d%%]%d/%d lines    Full %0.2f Strip %0.2f     " %(counter * 100/ limit, counter, limit,
+                        round(correct*100.00/total, 2), #fully Correct
+                        round((total-WLMIncorrect)*100.00/total, 2), #Strip Correct
+
+))
+            #~sys.stderr.write("treatment of "+line.encode('utf8'))
+            sys.stderr.flush()
+
         #get the next line
         if not text:
             line = (myfile.readline()).decode('utf8')
