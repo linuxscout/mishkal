@@ -47,8 +47,8 @@ class TashkeelClass:
         # set the option to do statistical vocalization based 
         # on collocations
         # default value is True, can be disabled for debuging porpus
-        #self.enabled_stat_tashkeel = False    
-        self.enabled_stat_tashkeel = True   
+        self.enabled_stat_tashkeel = False    
+        #self.enabled_stat_tashkeel = True   
             
         # set the option to show the collocations marks
         # default value is False, can be enabled for debuging porpus
@@ -496,7 +496,7 @@ class TashkeelClass:
         #prevocalized_list = wordlist
         #Todo ajust prevocalization of named enteties
         #if len(prevocalized_list) != len(wordlist):
-            #print "nb", u"+".join(prevocalized_list)
+        #    print "nb", u"+".join(prevocalized_list)
         #prevocalized_list = pyarabic.named.pretashkeel_named(prevocalized_list)
         #print "nmd", u"@".join(prevocalized_list)
         return u" ".join(prevocalized_list)
@@ -544,7 +544,10 @@ class TashkeelClass:
         chosen_index = False
         rule = 0
         previous = previous_chosen_case
-        pre_relation = 0
+        if previous:
+              pre_relation = 0 #_chosen_list[i].get_previous_relation(_chosen_list[previous].get_order());
+        else:
+            pre_relation = 0    
         debug = False
         #~ debug = True
         if next_node:
