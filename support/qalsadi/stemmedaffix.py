@@ -53,7 +53,7 @@ class StemmedAffix:
         self.tag_number = self.__get_number() #number (single, dual, plural)
         # majrour, majzoum, marfou3, mansoub, mabni
         self.tag_inflect = self.__get_inflect()  
-        self.tag_sex  = self.__get_sex()
+        self.tag_gender  = self.__get_gender()
                                   
         # not noun or stopword 
         self.tag3rdperson     =  False
@@ -314,26 +314,27 @@ class StemmedAffix:
             self.tag_tense += 16
         return self.tag_tense
 
-    def __get_sex(self,):
+    def __get_gender(self,):
         """
-        Return the int code of the sex state.
+        Return the int code of the gender state.
         the number cases are coded in binary like
         not defined        : 0  00000
         masculin  : 1  00001
         feminin    : 2  00010
         this codification allow to have case in the same word
-        @return: get the numeric sex state .
+        @return: get the numeric gender state .
         @rtype: int 
         """
         # غير محدد
-        self.tag_sex = 0
+        self.tag_gender = 0
         if u'مذكر' in self.get_tags() :
-            self.tag_sex += 1
+            self.tag_gender += 1
         if u'مؤنث' in self.get_tags() :
-            self.tag_sex += 2
+            self.tag_gender += 2
         elif u'جمع مؤنث سالم' in self.get_tags():
-            self.tag_sex += 2            
-        return self.tag_sex
+            self.tag_gender += 2
+
+        return self.tag_gender
 
 
         
@@ -650,7 +651,7 @@ class StemmedAffix:
         @rtype: True/False
         """
         #~return self.tag_feminin
-        return bool(self.tag_sex /2 % 2)
+        return bool(self.tag_gender /2 % 2)
 
     def is_dual(self):
         """

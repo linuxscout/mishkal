@@ -56,13 +56,15 @@ class WordCase:
             self.stem = result_dict.get('stem', u'')
             self.affix = result_dict.get('affix', [])
             self.tags = u':'.join([result_dict.get('tags', u''), 
-                result_dict.get('originaltags', u'')])            
+                result_dict.get('originaltags', u'')])
+           
             self.freq = result_dict.get('freq', u'')
             self.type = result_dict.get('type', u'')
             self.original = result_dict.get('original', u'')
             self.tense = result_dict.get('tense', u'')
             self.pronoun = result_dict.get('pronoun', u'') 
             self.action    = result_dict.get('action', u'')
+
             self.object_type    = result_dict.get('object_type', u'')
             self.need    = result_dict.get('need', u'')                      
             self.number    = result_dict.get('number', u'')                      
@@ -70,6 +72,7 @@ class WordCase:
             self.person    = result_dict.get('person', u'')                      
             self.voice    = result_dict.get('voice', u'')                      
             self.mood    = result_dict.get('mood', u'')                      
+            self.transitive = result_dict.get('transitive', False)
 
 
     ######################################################################

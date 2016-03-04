@@ -13,7 +13,8 @@
 import libqutrub.verb_const as vconst
 #constants of syntaxic relations
 VerbSubjectRelation = 1; #علاقة فعل وفاعل
-SubjectVerbRelation = 16; # علاثة فاعل وفعل
+SubjectVerbRelation = 16; # علاقة فاعل وفعل
+VerbParticulRelation = 22; # علاقة فعل متعدي بحرف
 VerbObjectRelation  = 2; # علاقة فعل ومفعول به
 PrimateRelation = 10; # علاقة مبتدأ، ببداية الجملة
 PrimatePredicateRelation  = 3; # علاقة مبتدأ وخبر
@@ -54,6 +55,7 @@ VerbPassiveSubjectRelation : u"18  علاقة فعل ونائب فاعل",
 InnaRafe3Marfou3Relation :u" 19 #علاقة خبر إنّ مرفوع",
 KanaNasebMansoubRelation : u"20   خبر كان منصوب", 
 JoblessFactorVerbRelation:u"21 أدوات عاطلة للفعل مثل قد",
+VerbParticulRelation : u"22 علاقة فعل متعدي بحرف",
 }
 #-------------------
 NOMINAL_FACTOR_LIST =set([
@@ -388,6 +390,7 @@ u'جَنُوبَ',
 u'يَمِينَ',
 u'شَرِقَ',
 u'غَرِبَ',
+
 u'شَطَرَ',
 u'أَسْفَلَ',
 u'أَعَلَى',

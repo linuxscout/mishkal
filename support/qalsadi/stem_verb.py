@@ -167,11 +167,15 @@ class VerbStemmer:
                             #The haraka from is given from the dict
                             inf_verb      =  item['verb'] 
                             haraka        =  item['haraka'] 
-                            transtag      =   item['transitive'] 
-                            transitive     =   (item['transitive'] == 'y' \
-                            or not item['transitive']) 
+                            #transtag      =   item['transitive']
+
+                            transitive     =  bool( item['transitive'] == 'y' )
+#to fix
+                            #print u" ".join(["transtag",inf_verb, transtag, str(transitive)]).encode('utf8')                              
+                            #transitive     =   item['transitive'] == 'y'                             or not item['transitive']) 
+
                             #print (u"\t".join(["verb ", stem_conj, inf_verb])).encode('utf8');             
-                            original_tags  =  transtag  
+                            #original_tags  =  transtag  
                             # dict tag is used to mention word dictionary tags:
                             # the original word tags like transitive attribute
                             unstemed_verb =  verb2 
@@ -195,6 +199,9 @@ class VerbStemmer:
                         vocalized, semivocalized = vocalize(conj['vocalized'], procletic,
                          encletic)
                         tag_type = 'Verb'
+                        original_tags = "y" if conj['transitive'] else "n"
+                             
+
                         #~ print "****", (conj['pronoun_tags'].get('person','مشكلة')).encode('utf8')
                         #~ if conj['verb'] ==u"كَادَ":
                               #~ tag_type = 'Verb:STOPWORD'  
@@ -220,7 +227,7 @@ class VerbStemmer:
                         'voice': conj['tense_tags'].get('voice',''),
                         'mood': conj['tense_tags'].get('mood',''),
                         'confirmed': conj['tense_tags'].get('confirmed',''),
-                        'transitive': bool('y' in original_tags), 
+                        'transitive': conj['transitive'] , #False,#bool('y' in original_tags), 
                         'tense': conj['tense'], 
                         'pronoun': conj['pronoun'],
                         'freq':'freqverb', 
@@ -517,7 +524,9 @@ transitive = True):
                     'pronoun':pronoun, 
                     'pronoun_tags':vbc.get_pronoun_features(pronoun),
                     'tense_tags':vbc.get_tense_features(tense),
-                    'vocalized':conj_vocalized, 'unvocalized':conj_nm}) 
+                    'vocalized':conj_vocalized, 
+					'unvocalized':conj_nm,
+					'transitive':transitive}) 
     return list_correct_conj 
 
 def mainly():

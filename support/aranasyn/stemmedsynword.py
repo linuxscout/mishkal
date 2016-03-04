@@ -445,14 +445,26 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         # Naseb    ناصب
         # Jazem     جازم   
 
-        if u"اسم" in self.get_object_type():
+        if u"اسم" in self.get_object_type() :
             self.tag_nominal_factor = 1
-            # Naseb
+            # rafe3
             if u"رافع" in self.get_action():
-                self.tag_nominal_factor += 2
+                if not self.has_encletic():
+                    self.tag_nominal_factor += 2
+                else:
+                    self.tag_nominal_factor += 4                    
             if u"ناصب" in self.get_action():
-                self.tag_nominal_factor += 4
-        if u"جار" in self.get_action():
+                if  not self.has_encletic(): 
+                    self.tag_nominal_factor += 4
+                else: # الناصب يتحول إلى رافع إذا ألحق به ضمير متصل
+# هذا ينبغي التحقق منه 
+                    self.tag_nominal_factor += 2
+			# اسم الإشارة المجرور مثل بذلك الرجل أو بهذا الرجل
+            if u"اسم إشارة" in self.get_tags():
+                if  u"جر" in self.get_tags(): 
+                    self.tag_nominal_factor += 8
+    
+        if u"جار" in self.get_action() and not self.has_encletic():
             self.tag_nominal_factor += 8
         if u"ضمير" in self.get_tags():
             #Rafe3

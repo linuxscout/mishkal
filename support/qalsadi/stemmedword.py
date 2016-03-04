@@ -105,7 +105,8 @@ class  StemmedWord:
             self.tag_mood     = resultdict.get('mood', u'')
             self.tag_confirmed     = resultdict.get('confirmed', u'')
             self.tag_pronoun   = resultdict.get('pronoun', u'')
-            self.tag_transitive   = resultdict.get('transitive',False)            
+            self.tag_transitive   = resultdict.get('transitive',False) 
+            #print ("stemmedword", self.tag_transitive)           
 
             # #if the word is verb: we must add the tense and pronoun 
             # to the affixkay.
@@ -242,6 +243,7 @@ class  StemmedWord:
         if (u'صفة' in input_type or u'اسم مفعول' in input_type or 
         u'اسم فاعل' in input_type or u'صيغة مبالغة' in input_type 
             or  u'فاعل' in input_type  or u'منسوب' in self.get_tags()  
+            or u'اسم تفضيل' in input_type
             or u'منسوب' in input_type
             or "adj" in input_type):
             self.tag_type += 16
@@ -256,7 +258,7 @@ class  StemmedWord:
 
     def __get_gender(self, input_gender = ""):
         """
-        Return the int code of the sex state.
+        Return the int code of the gender state.
         the number cases are coded in binary like
         not defined        : 0  00000
         masculin  : 1  00001
@@ -268,15 +270,17 @@ class  StemmedWord:
         # غير محدد
         self.tag_gender = 0
         if u'مذكر' in self.get_tags() or (input_gender and u'مذكر' in input_gender):
-            self.tag_gender += 1
+            self.tag_gender = 1
+        elif u'يؤنث' in self.get_tags():
+            self.tag_gender = 1			
         elif not self._affix_is_feminin(): 
             if (u'اسم فاعل' in self.get_type() or
            u'اسم مفعول' in self.get_type() or
            u'صفة مشبهة' in self.get_type() 
             ):
-                self.tag_gender += 1 
+                self.tag_gender = 1 
             elif u'' in self.get_tags():
-                self.tag_gender += 1                     
+                self.tag_gender = 1                     
         #يتحدد المؤنث 
         # بزيادة التاء المربوطة
         # جمع مؤنث سالم
@@ -295,6 +299,8 @@ class  StemmedWord:
         elif u'جمع تكسير' in self.get_tags() and (u"جامد" in self.get_type()
          or u"مصدر" in self.get_type()):
             self.tag_gender += 2
+
+
         #~ print "gender", self.word.encode('utf8'), self.tag_gender
         return self.tag_gender
 
@@ -313,7 +319,8 @@ class  StemmedWord:
         # which havent any gramatical effect.
         # Todo 
         # حالة بذلك الرجل
-        return  (u'شفاف' in self.get_tags() or u'إشارة'in self.get_tags()  ) and self.has_jar()
+        #return  (u'شفاف' in self.get_tags() or u'إشارة'in self.get_tags()  ) and self.has_jar()
+        return  (u'شفاف' in self.get_tags() )
 
 
     def _is_mamnou3(self):
@@ -360,6 +367,13 @@ class  StemmedWord:
         @return: True if is transitive
         """
         return self.tag_transitive
+    def is_indirect_transitive(self,):
+        """
+        return True if the verb is indirect transitive  متعدي بحرف
+        @return: True if is indirect transitive
+        """
+        return self.tag_transitive
+
     def get_prefix(self, ):
         """
         Get the prefix 
@@ -692,6 +706,14 @@ class  StemmedWord:
         @rtype: True/False
         """            
         return bool(self.tag_type % 2)
+
+    def is_indirect_transitive_stopword(self):
+        """
+        Return True if the word is a stop word.
+        @return: is a noun.
+        @rtype: True/False
+        """            
+        return self.is_stopword() and self.get_original() in (u'فِي', u'عَنْ', u'إِلَى',u'عَلَى' )
     def is_verb(self):
         """
         Return True if the word is a verb.
@@ -864,7 +886,30 @@ class  StemmedWord:
             return GLOBAL_AFFIXES[self.affix_key].is_present()
         return False
 
+    def is_speaker_person(self):
+        """
+        Return True if the word has the 1st person.
+        @return: has the  1st persontense.
+        @rtype: True/False
+        """
+        return bool(self.tag_person % 2 )  
 
+    def is_present_person(self):
+        """
+        Return True if the word has the 2nd person.
+        @return: has the  1st persontense.
+        @rtype: True/False
+        """
+        return bool(self.tag_person /2 % 2 ) 
+   
+    def is_absent_person(self):
+        """
+        Return True if the word has the 3rd person.
+        @return: has the 3rd persontense.
+        @rtype: True/False
+        """
+
+        return bool(self.tag_person / 4 % 2)  
         
     def is1stperson(self):
         """
@@ -873,9 +918,15 @@ class  StemmedWord:
         @rtype: True/False
         """
         return bool(self.tag_person % 2 )  and  self.is_single()
-        #~ if GLOBAL_AFFIXES.has_key(self.affix_key):
-            #~ return GLOBAL_AFFIXES[self.affix_key].is1stperson()
-        #~ return False     
+
+    def is2ndperson(self):
+        """
+        Return True if the word has the 2nd person.
+        @return: has the  1st persontense.
+        @rtype: True/False
+        """
+        return bool(self.tag_person /2 % 2 )  and  self.is_single()
+   
     def is3rdperson(self):
         """
         Return True if the word has the 3rd person.
@@ -884,9 +935,7 @@ class  StemmedWord:
         """
         #~ print "tag_person", self.tag_person, self.word.encode('utf8')
         return bool(self.tag_person / 4 % 2)   and  self.is_single()
-        #~ if GLOBAL_AFFIXES.has_key(self.affix_key):
-            #~ return GLOBAL_AFFIXES[self.affix_key].is3rdperson()
-        #~ return False 
+
     def is3rdperson_feminin(self):
         """
         Return True if the word has the 3rd person.
@@ -894,10 +943,7 @@ class  StemmedWord:
         @rtype: True/False
         """
         return bool(self.tag_person /4 % 2 )    and  self.is_single() and self.is_feminin()
-        
-        #~ if GLOBAL_AFFIXES.has_key(self.affix_key):
-            #~ return GLOBAL_AFFIXES[self.affix_key].is3rdperson_fem()
-        #~ return False 
+ 
     def is3rdperson_masculin(self):
         """
         Return True if the word has the 3rd person.

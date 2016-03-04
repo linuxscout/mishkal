@@ -86,6 +86,11 @@ class StopWordStemmer:
                         list_stem.append(stem[:-1]+araby.ALEF_MAKSURA)
                     elif stem.endswith(araby.TEH):
                         list_stem.append(stem[:-1]+araby.TEH_MARBUTA)
+				# treat gemination cases
+                    if encletic_nm.startswith(araby.YEH):
+                        list_stem.append(stem+araby.YEH)
+                    elif encletic_nm.startswith(araby.NOON):
+                        list_stem.append(stem+araby.NOON)
 
         # stem reduced stop : level two
                 for stem in list_stem:
@@ -257,8 +262,6 @@ class StopWordStemmer:
 
         return self.cache_affixes_verification[affix]
 
-
-
     
     def set_debug(self, debug):
         """
@@ -327,6 +330,7 @@ def get_suffix_variants(word, suffix, enclitic):
     if     not enclitic_nm and word[-1:] in (araby.ALEF_MAKSURA, 
     araby.YEH, araby.ALEF) and araby.is_haraka(suffix):
         newsuffix = u""
+
     #gererate the suffix without I'rab short mark
     # here we lookup with given suffix because the new suffix is 
     # changed and can be not found in table
@@ -334,7 +338,40 @@ def get_suffix_variants(word, suffix, enclitic):
         suffix_non_irab_mark = araby.strip_lastharaka(newsuffix)
     else:
         suffix_non_irab_mark = newsuffix
-    return newsuffix, suffix_non_irab_mark 
+
+
+    return newsuffix, suffix_non_irab_mark
+
+
+
+
+def get_enclitic_variants(word, suffix, enclitic):
+    """
+    Get the enclitic variant to be joined to the word.
+    For example: word = عن, suffix = , encletic = ني. 
+    The word and enclitic are geminated.
+    @param word: word found in dictionary.
+    @type word: unicode.
+    @param suffix: second level suffix.
+    @type suffix: unicode.
+    @param enclitic: first level suffix.
+    @type enclitic: unicode.        
+    @return: variant of suffixes  (vocalized suffix and vocalized 
+    suffix without I'rab short mark).
+    @rtype: (unicode, unicode)
+    """
+    #enclitic_nm = araby.strip_tashkeel(enclitic)
+    #newsuffix = suffix #default value
+    #if the word ends by a haraka
+	# الإدغام في النون والياء في مثل فيّ، إليّ، عنّا ، منّا 
+    if enclitic.startswith(araby.NOON) and word.endswith(araby.NOON) :
+		enclitic = enclitic[1:] + araby.SHADDA
+		print "xxxxxxxxxxx--1"
+    if enclitic.startswith(araby.KASRA + araby.YEH) and word.endswith(araby.YEH)  :
+		enclitic = enclitic[1:] + araby.SHADDA
+		print "xxxxxxxxxxx--2"
+
+    return enclitic
 
 def get_word_variant(word, suffix):
     """
@@ -349,18 +386,35 @@ def get_word_variant(word, suffix):
     """
     word_stem = word
     suffix_nm = araby.strip_tashkeel(suffix)
-    #if the word ends by a haraka strip the haraka if the suffix is not null
-    if suffix:
-        word_stem = araby.strip_lastharaka(word_stem)
 
-    if word_stem.endswith(araby.ALEF_MAKSURA) and suffix_nm != u"":
-        word_stem = word_stem[:-1]+araby.YEH            
-    elif word_stem.endswith(araby.HAMZA) and suffix_nm != u"":
+	# تحويل الألف المقصورة إلى ياء في مثل إلى => إليك
+    if word_stem.endswith(araby.ALEF_MAKSURA) and suffix_nm :
+        if word_stem == u"سِوَى":
+            word_stem = word_stem[:-1]+araby.ALEF
+        else: 
+            word_stem = word_stem[:-1]+araby.YEH + araby.SUKUN
+	# تحويل الهمزة حسب موقعها           
+    elif word_stem.endswith(araby.HAMZA) and suffix_nm :
         if suffix.startswith(araby.DAMMA):
             word_stem = word_stem[:-1] + araby.WAW_HAMZA
         elif suffix.startswith(araby.KASRA):
             word_stem = word_stem[:-1] + araby.YEH_HAMZA
-            
+
+
+
+
+	# this option is not used with stop words, because most of them are not inflected مبني
+    #if the word ends by a haraka strip the haraka if the suffix is not null
+    if suffix and suffix[0] in araby.HARAKAT:
+        word_stem = araby.strip_lastharaka(word_stem)
+
+
+	# الإدغام في النون والياء في مثل فيّ، إليّ، عنّا ، منّا 
+    if suffix.startswith(araby.NOON) and word.endswith(araby.NOON + araby.SUKUN) :
+        word_stem = araby.strip_lastharaka(word_stem)
+    elif suffix.startswith(araby.KASRA + araby.YEH) and word.endswith(araby.YEH + araby.SUKUN)  :
+        word_stem = araby.strip_lastharaka(word_stem)
+         
     return word_stem
         
 def vocalize( stop, proclitic,  suffix, enclitic):
@@ -378,44 +432,30 @@ def vocalize( stop, proclitic,  suffix, enclitic):
     @return: vocalized word.
     @rtype: unicode.
     """
-    # enclitic and procletric have only an uniq vocalization in arabic
-    enclitic_voc = ssconst.COMP_SUFFIX_LIST_TAGS[enclitic]["vocalized"][0]
+    # procletic have only an uniq vocalization in arabic
     proclitic_voc = ssconst.COMP_PREFIX_LIST_TAGS[proclitic]["vocalized"][0]
+    # enclitic can have many vocalization in arabic
+	# like heh => عليهِ سواهُ
+	# in this stage we consider only one,
+	# the second situation is ajusted by vocalize_ajust
+    enclitic_voc = ssconst.COMP_SUFFIX_LIST_TAGS[enclitic]["vocalized"][0]
     suffix_voc = suffix#CONJ_SUFFIX_LIST_TAGS[suffix]["vocalized"][0]
-    #adjust some some harakat
-    
-    #strip last if tanwin or last harakat
-    if suffix_voc and araby.is_haraka(stop[-1:]):
-        #(DAMMATAN, FATHATAN, KASRATAN, FATHA, DAMMA, KASRA):
-        stop = stop[:-1]
-    # convert Fathatan into one fatha, in some cases where #
-    #the tanwin is not at the end: eg. محتوًى
-    stop = stop.replace(araby.FATHATAN, araby.FATHA)
 
-    #add shadda if the first letter is sunny and the procletic 
-    #contains AL definition mark
-    if (u'تعريف' in ssconst.COMP_PREFIX_LIST_TAGS[proclitic]["tags"]\
-     and araby.is_sun(stop[0])):
-        stop = u''.join([stop[0], araby.SHADDA, stop[1:]])
-        #strip the Skun from the lam
-        if proclitic_voc.endswith(araby.SUKUN):
-            proclitic_voc = proclitic_voc[:-1]
+    
     # generate the word variant for some words witch ends by special 
-    #letters like Teh_marbuta or Alef_maksura, or hamza, 
+    #letters like Alef_maksura, or hamza, 
     #the variant is influed by the suffix harakat, 
-    # for example مدرسة+ي = مدرست+ي
+    # for example إلي +ك = إلى+ك
     stop = get_word_variant(stop, suffix+enclitic)
 
-    # generate the suffix variant. if the suffix is Teh_marbuta or 
-    #Alef_maksura, or hamza, the variant is influed by the enclitic harakat,
-    # for example مدرس+ة+ي = مدرس+ت+ي        
+    # generate the suffix variant. if the suffix is removed for some letters like Alef Maqsura and Yeh 
+    # for example        
     suffix_voc, suffix_non_irab_mark = get_suffix_variants(stop,
-     suffix_voc, enclitic)
+     suffix_voc, enclitic_voc)
 
-    #Get the enclitic variant to be joined to the word.
-    #For example: word = مدرس, suffix = ِة, encletic = هُ. 
-    #The enclitic  is convert to HEH+ KAsra.
-    #~enclitic_voc = self.getEncliticVariant(stop, suffix_voc, enclitic_voc)
+    # generate the suffix variant. if the suffix is Yeh or Noon for geminating 
+    # for example عنّي = عن+ني
+    enclitic_voc = get_enclitic_variants(stop, suffix_voc, enclitic_voc)
 
     # generate the non vacalized end word: the vocalized word 
     # without the I3rab Mark
@@ -472,15 +512,25 @@ def validate_tags(stop_tuple, affix_tags, procletic, encletic_nm ,
         return False 
     if u"متحرك" in affix_tags  and  not stop_tuple['is_inflected']:
         return False  
+	
     if u"مضاف" in affix_tags and not stop_tuple['pronoun']:
         return False 
     if u"مضاف" in affix_tags and stop_tuple['defined']:
         return False 
+	# حين تكون الأداة متحركة فهي تقبل الاتصال بياء المتكلم مباشرة
+    if encletic_nm == araby.YEH  and  not stop_tuple['is_inflected']:
+        return False
+	# noon wiqaya نون الوقاية
+	# حين تكون الأداة غير متحركة فهي تلزم  الاتصال بنون الوقاية قبل ياء المتكلم مباشرة
+    if u"وقاية" in affix_tags  and  ( stop_tuple['is_inflected'] or stop_tuple['word'].endswith(araby.YEH)) :
+        return False
         #~interrog
     if u"استفهام" in affix_tags and not stop_tuple['interrog']:
         return False          
         #~conjugation                   
         #~qasam 
+
+	
     if u"قسم" in affix_tags and not stop_tuple['qasam']:
         return False           
         #~

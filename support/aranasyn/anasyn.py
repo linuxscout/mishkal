@@ -78,7 +78,7 @@ class SyntaxAnalyzer:
         # factor + verb
 
         # ignore if the current word is transparent
-        ignore = False
+        #ignore = False
         #~counter = 0
         previous_index = 0
         pre_node = None
@@ -114,11 +114,15 @@ class SyntaxAnalyzer:
 
                 # if the current word is transparent, ignore it 
                 # and fix the previous index to the previous word.
-                if stmword.is_transparent():
-                    ignore = True
-                else: ignore = False
+                #if stmword.is_transparent():
+                #    ignore = True
+                #else: ignore = False
                 stmword_case_position += 1
+
+			# خاصية الشفافية يجب أن تعالج في مستوى آخر وليس في مستوى حالات الكلمة
+            previous_index = current_index
             # if the current word ha sall its cases as transparent
+
                 #~words = u"""تغمده الله برحمته .            
             #~# الكلمة الشفافة مثل اسم الإشارة 
             #~تنقل تأثير الكلمة السابقة لها للكلمة اللاحقة لها# م
@@ -126,11 +130,14 @@ class SyntaxAnalyzer:
             # مثل رأيت هذا الرجل
             # if not the word is not transprent, change the previous index.
             # else: change the ignore state and save the previous index as it.
-            if not ignore:
-                previous_index = current_index
-            else:
+
+            #if not ignore:
+            #    previous_index = current_index
+            #else:
+            #    previous_index = current_index
+
                 # previous index is mantained.
-                ignore = False
+            #    ignore = False
         return stemmedsynwordlistlist
 
     def bigram_analyze2(self, previous, current, previous_position = 0, 
@@ -293,6 +300,14 @@ class SyntaxAnalyzer:
 
         elif current.is_pounct() or current.is_stopword() or \
         (current.has_procletic()) :# and not current.is_defined()):
+                       
+            # فعل متعدي بحرف
+            #ToDo:
+
+            if  current.is_indirect_transitive_stopword() and previous.is_indirect_transitive() :
+                #print "I am here"
+                #sys.exit()
+                weight = aranasyn.syn_const.VerbParticulRelation
             # if the pounct is a break, the tanwin is prefered
             # the previous will have twnin
 
@@ -311,7 +326,7 @@ class SyntaxAnalyzer:
             if current.is_noun():# and previous.is_nominalFactor():
                 if (previous.is_jar() or previous.is_addition()) and \
                 current.is_majrour():
-                    print current.get_vocalized().encode('utf8'), current.get_tags().encode('utf8'),current.get_order(),current.is_majrour()
+                    #print current.get_vocalized().encode('utf8'), current.get_tags().encode('utf8'),current.get_order(),current.is_majrour()
                     weight = aranasyn.syn_const.JarMajrourRelation
 
                 # اسم إنّ منصوب
@@ -364,10 +379,15 @@ class SyntaxAnalyzer:
                     weight = aranasyn.syn_const.JoblessFactorVerbRelation
 
         else : # previous is not a stopword
+
+            # الفعل والمفعول به
+            if self.is_verb_object_relation(previous, current):
+                weight = aranasyn.syn_const.VerbObjectRelation
+
             if current.is_verb() and not current.is_break():
                 # الجارية فعل والسابق مبتدأ
-                if previous.is_noun() and previous.is_defined():
-                    if current.is_marfou3():
+                if (previous.is_defined() or previous.is_tanwin()):
+                    if self.compatible_subject_verb(previous, current): #current.is_marfou3()
                     # Todo treat the actual word
                         weight = aranasyn.syn_const.Rafe3Marfou3Relation 
             if not current.is_break() and (current.is_noun() or current.is_addition()):
@@ -395,7 +415,7 @@ class SyntaxAnalyzer:
                         if current.is_adj():
                             weight = aranasyn.syn_const.PrimatePredicateRelation
                 if previous.is_verb() and not current.is_break():
-                    if previous.is3rdperson():
+                    if previous.is3rdperson() and previous.is_single():
                         # Todo treat the actual word
                         # الفعل والفاعل أو نائبه
                         
@@ -411,14 +431,6 @@ class SyntaxAnalyzer:
 		                            weight = aranasyn.syn_const.VerbPassiveSubjectRelation
                                 
 
-            # الفعل والمفعول به
-            if self.is_verb_object_relation(previous, current):
-                weight = aranasyn.syn_const.VerbObjectRelation
-                       
-            # فعل متعدي بحرف
-            #ToDo:
-            if previous.is_transitive() and current.is_stopword():
-                weight = aranasyn.syn_const.VerbObjectRelation
      
         if weight :
             # add to the previous a pointer to the next word order.
@@ -482,7 +494,10 @@ class SyntaxAnalyzer:
         # إمّا مفردان معا، أو جمعان معا أو مثنيان معا
         if ((current.is_plural() and previous.is_plural()) 
              or  (current.is_dual() and previous.is_dual())
-			or (current.is_single() and previous.is_single())):
+			or (current.is_single() and previous.is_single())
+			#or (current.is_single() and current.is_feminin() and previous.is_broken_plural() and previous.is_feminin())
+			or (current.is_single() and current.is_feminin() and previous.is_plural() and previous.is_feminin())
+):
             compatible = True
         else:
             return False
@@ -512,11 +527,11 @@ class SyntaxAnalyzer:
         # مذكر ومذكر
         #مؤنث ومؤنث
         # جمع التكسير مؤنث
-        if (current.is_feminin() and previous.is_feminin()) \
-           or (current.is_masculin() and previous.is_masculin()) : # \
-           #~or (previous.is_broken_plural() and current.is_feminin()
+        if ((current.is_feminin() and previous.is_feminin()) 
+           or (current.is_masculin() and previous.is_masculin())
+		):
             compatible = True
-        #~else: return False
+        else: return False
         #ToDo: fix feminin and masculin cases
         return compatible
 
@@ -583,10 +598,10 @@ class SyntaxAnalyzer:
             # التذكير والتأنيث
             # مذكر ومذكر
             #مؤنث ومؤنث
-            # جمع التكسير مؤنث
-            if (current.is_feminin() and previous.is_feminin()) \
-             or (current.is_masculin() and previous.is_masculin()) \
-             or (previous.is_broken_plural() and current.is_feminin()):
+            # جمع التكسير مؤنث: عولجت هذه المسألة في الدالة Is_feminin
+            if  ((current.is_feminin() and previous.is_feminin()) 
+             or (current.is_masculin() and previous.is_masculin())
+				):
                 compatible = True
             else: return False
         #الأول اسم والثاني فعل
@@ -616,9 +631,27 @@ class SyntaxAnalyzer:
             else:
                 return False
             # والتثنية والإفراد الجمع
+            if ((current.is_plural() and previous.is_plural()) 
+		         or  (current.is_dual() and previous.is_dual())
+				or (current.is_single() and previous.is_single())):
+                compatible = True
+            else:
+                return False
+# الضمير
+            if  ((current.is_speaker_person() and previous.is_speaker_person()) 
+             or (current.is_present_person() and previous.is_present_person())
+             or (current.is_absent_person() and previous.is_absent_person())
+				):
+                compatible = True
+            else: return False
             # التذكير والتأنيث
             # مذكر ومذكر
             #مؤنث ومؤنث
+            if  ((current.is_feminin() and previous.is_feminin()) 
+             or (current.is_masculin() and previous.is_masculin())
+				):
+                compatible = True
+            else: return False
             # جمع التكسير مؤنث
             # else: return False
             #الفعل مرفوع أو مبني
@@ -664,6 +697,37 @@ class SyntaxAnalyzer:
                 #~ print "is_added",previous.is_added(),  u"\t".join([previous.get_vocalized(), previous.get_encletic(),u", ".join(expected_pronouns)]).encode('utf8')
                 if previous.get_encletic() in expected_pronouns:
                     compatible = True                    
+        else:
+            # والتثنية والإفراد الجمع
+            if ((current.is_plural() and previous.is_plural()) 
+		         or  (current.is_dual() and previous.is_dual())
+				or (current.is_single() and previous.is_single())):
+                compatible = True
+            else:
+                return False
+# الضمير
+            if  ((current.is_speaker_person() and previous.is_speaker_person()) 
+             or (current.is_present_person() and previous.is_present_person())
+             or (current.is_absent_person() and previous.is_absent_person())
+				):
+                compatible = True
+            else: return False
+            # التذكير والتأنيث
+            # مذكر ومذكر
+            #مؤنث ومؤنث
+            if  ((current.is_feminin() and previous.is_feminin()) 
+             or (current.is_masculin() and previous.is_masculin())
+				):
+                compatible = True
+            else: return False
+            # جمع التكسير مؤنث
+            # else: return False
+            #الفعل مرفوع أو مبني
+            if current.is_past() or (current.is_present() and\
+             current.is_marfou3()):
+                compatible = True
+            else:
+                return False
         return compatible
 
 
