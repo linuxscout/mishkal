@@ -16,8 +16,9 @@
 import sys
 sys.path.append('../')
 sys.path.append('../lib')
-#import  asmai.sem_const_light as sem_const
-import  asmai.sem_const_heavy as sem_const
+import  asmai.sem_const_light as sem_const
+import semdictionary 
+#~ import  asmai.sem_const_heavy as sem_const
 import  aranasyn.anasyn
 debug  =  False
 #debug  =  True
@@ -27,7 +28,7 @@ class SemanticAnalyzer:
     """
 
     def __init__(self):
-        pass
+        self.semdict = semdictionary.SemanticDictionary()
     def analyze(self, detailed_stemming_dict):
         """
         Semantic analysis of stemming and syntaxic results.
@@ -133,6 +134,7 @@ class SemanticAnalyzer:
             if previous.is_verb() and current.is_noun():
                 confirmed = ""
                 relation  = self.are_sem_related(previous, current)
+                #~ print "relation", relation
                 if relation:
                     if relation == sem_const.Predicate :
                         #نائب فاعل
@@ -163,6 +165,7 @@ class SemanticAnalyzer:
                             confirmed = "ok3"
             elif previous.is_noun() and current.is_noun():
                 relation  = self.are_sem_related(current, previous)
+                #~ print "#2", relation
                 confirmed = ""
                 if relation:
                     if relation == sem_const.Added :
@@ -171,25 +174,91 @@ class SemanticAnalyzer:
                             confirmed = "ok1"
                     #Todo    #نعت
                     elif relation  ==  sem_const.Adj:
-                        if current.isAdj():
+                        if current.is_adj():
                             confirmed = 'ok4' 
+                    #Todo    #نعت
+                    elif relation  ==  sem_const.Subject:
+                        if current.is_adj() and u"اسم فاعل" in current.get_type():
+                            confirmed = 'ok5' 
+                    #Todo    #نعت
+                    elif relation  ==  sem_const.Predicate:
+                        #~ print "x"
+                        #~ print current.get_tags().encode('utf8');
+
+                        #~ if current.is_adj() and not u"اسم فاعل" in current.get_tags():
+
+                        if current.is_adj() and u"اسم مفعول"in  current.get_type():
+                            confirmed = 'ok6'
+                            #~ print confirmed
                         #فاعل
                 #        if not current.is_passive():
                 #            confirmed = "ok3"
-
+                #~ print "#2", confirmed
                        
         if relation and confirmed:
             # add to the previous a pointer to the next word order.
             # N for next
-            #previous.add_syntax('@')
-            #print '@'
-            #current.add_syntax('@')            
             previous.add_sem_next(current_position)
             # add to the current word case a pointer to the previous word order.
             #p for previous
             current.add_sem_previous(previous_position)
         return previous, current
 
+    #~ @deprecated_func
+    def are_sem_related3(self, previous, current):
+        """
+        verify the semantic relation between the previous 
+        to current stemmed word.
+        If the current word is related with the previous word, return True.
+        The previous word can contain a pointer to the next word. 
+        the current can have a pointer to the previous if they ara realated
+        @param previous: the previous stemmed word, 
+        choosen by the tashkeel process.
+        @type previous:stemmedSynWord class 
+        @param current: the current stemmed word.
+        @type current:stemmedSynWord class 
+        @return: return the relation between two words, else False
+        @rtype: Unicode or False
+        """
+        preorigin  =  previous.get_original()
+        relation = ''
+        if previous.is_proper_noun():
+            preorigin  =  u'فلان'
+        curorigin  =  current.get_original()
+        if current.is_proper_noun():
+            curorigin  =  u'فلان'
+        if sem_const.SEM_RELATION_TABLE.get(preorigin, []):
+            relation = sem_const.SEM_RELATION_TABLE[preorigin].get(curorigin, '')
+        else:
+            print "are_sem_related", (u" + ".join([preorigin, curorigin])).encode('utf8')
+
+            for key in sem_const.SEM_DERIVATION_TABLE:
+                #~ print "1"
+                if sem_const.SEM_DERIVATION_TABLE[key]['subj'] == preorigin:
+                    relation = sem_const.SEM_RELATION_TABLE[key].get(curorigin, '')
+                    if relation == sem_const.Subject:
+                        break
+                    else: 
+                        relation = ''
+                # if the verb is transitive, we can test predicate (مفعولية) relation
+                elif  (sem_const.SEM_DERIVATION_TABLE[key]['trans'] and
+                sem_const.SEM_DERIVATION_TABLE[key]['obj'] == preorigin):
+                    relation = sem_const.SEM_RELATION_TABLE[key].get(curorigin, '')
+                    if relation == sem_const.Predicate:
+                        break
+                    else: 
+                        relation = ''
+                elif  sem_const.SEM_DERIVATION_TABLE[key]['add'] == preorigin:
+                    relation = sem_const.SEM_RELATION_TABLE[key].get(curorigin, '')
+                    if relation == sem_const.Added:
+                        break
+                    else: 
+                        relation = ''
+        print relation
+        if relation == '':
+            return False
+        else: 
+            return relation
     def are_sem_related(self, previous, current):
         """
         verify the semantic relation between the previous 
@@ -206,20 +275,14 @@ class SemanticAnalyzer:
         @rtype: Unicode or False
         """
         preorigin  =  previous.get_original()
+        relation = ''
         if previous.is_proper_noun():
             preorigin  =  u'فلان'
         curorigin  =  current.get_original()
         if current.is_proper_noun():
             curorigin  =  u'فلان'
-        key = u" ".join([preorigin, curorigin])
-        #~key = u"".join([preorigin, curorigin])
-        relation  =  sem_const.SemanticTable.get(key, '')
+        return self.semdict.lookup(preorigin, curorigin)
         
-        if relation == '':
-            return False
-        else: 
-            return relation
-
     def is_syn_related(self, previous, current):
         """
         verify the syntaxic path from the previous 
@@ -235,12 +298,10 @@ class SemanticAnalyzer:
         @return: return if the two words are related syntaxicly.
         @rtype: boolean
         """
-        if ( previous and  current ) and \
-        previous.get_order() in current.get_previous() \
-        and current.get_order() in previous.get_next():
-            return True
-        else:
-            return False
+        return (( previous and  current ) and 
+        previous.get_order() in current.get_previous() 
+        and current.get_order() in previous.get_next()
+        )
 
     def is_related(self, previous, current):
         """
@@ -256,11 +317,10 @@ class SemanticAnalyzer:
         @return: return if the two words are related syntaxicly.
         @rtype: boolean
         """
-        if ( previous and  current ) and \
-        previous.get_order() in current.get_sem_previous() \
-        and current.get_order() in previous.get_sem_next():
-            return True
-        else: return False        
+        return (( previous and  current ) and 
+        previous.get_order() in current.get_sem_previous() 
+        and current.get_order() in previous.get_sem_next()
+        )
         
     def decode(self, stemmed_synwordlistlist):
         """
