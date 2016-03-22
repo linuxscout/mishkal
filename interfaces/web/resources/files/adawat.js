@@ -28,6 +28,131 @@ function strip_tashkeel(input) {
 function ajust_ligature(input) {
   return x = input.replace("لَا", "لاَ");
 }﻿
+
+function draw_graph(d){
+//alert("Hello");
+var cy = cytoscape({
+  container: $('#result'),
+  layout: { name: 'grid'},
+ style: [
+    {
+      selector: 'node',
+      style: {
+        'content': 'data(label)',
+        'background-color':'data(color)',
+        'shape': 'data(faveShape)',
+        'font-family':'Droid Arabic Naskh',
+        'font-size':'14pt',
+
+        
+          }
+    },
+    {
+      selector: 'edge',
+      style: {
+        'content': 'data(label)',
+        'opacity': 1,
+        'width': 'mapData(strength, 70, 100, 2, 6)',
+        'line-color': 'data(color)',
+        'curve-style': 'data(curve)',
+      }
+    },
+
+    {
+      selector: ':parent',
+      style: {
+        'background-opacity': 0.6
+      }
+    }
+  ]
+
+});
+cy.zoomingEnabled( true );
+cy.layout({ name: 'grid' });
+var layout = cy.makeLayout({
+  name: 'grid'
+});
+
+layout.run();
+for (k in d.result) {
+    if (d.result[k].length != 0) {
+// create the actual word node
+    var word = d.result[k][0]['word'];
+    //alert ("n"+ k.toString());
+    var id_parent = k.toString();
+    cy.add([
+     // { group: "nodes", data: { id: id_parent , label :word} } ,
+  { group: "nodes", data: { id: id_parent , label :word,  color:"#ddd", faveShape:"rectangle"}, position: { x: 80*(k+1), y: 30 } },
+    ]);
+    for (j in d.result[k])
+        {
+        var color = "#ddd";
+        var faveShape = 'ellipse';
+        var item = d.result[k][j];
+        var vocalized = item['vocalized'];
+        //extract syntaxic relations,
+        // ToDo improve relations extraction
+        var synt = item["syntax"];
+    
+        if (item['type'].indexOf("Verb") !=-1)
+            {
+            color = "#6FB1FC";
+            faveShape = "octagon";
+            }
+        else if (item['type'].indexOf("STOPWORD") !=-1)
+            {
+            color = "#EDA1ED";
+            faveShape = "triangle";
+            }
+        var cur_id = k.toString()+"-"+j.toString();
+         var node = cy.add([
+      { group: "nodes", data: { id: cur_id , label : vocalized , parent:id_parent, color:color, faveShape:faveShape}, position: { x: 50+10*(k+1), y: 50+10*(j+1) } },
+            ]);
+
+        // if have previous we can represent all connections
+        if (k-1 >= 0)
+        {
+        // syntaxic
+        for( h in synt['P'])
+        {
+        var previous = (k-1).toString()+"-"+h.toString();
+        var edge_color = "#6FB1FC";
+        if(h%3 ==1)
+            edge_color = "#EDA1ED";
+        else if (h% 3 ==2)
+            edge_color = "#86B342";         
+
+        cy.add([
+          { group: "edges", data: { id: "e"+cur_id+"-"+previous, source: previous, target: cur_id , label:synt['P'][h], color:edge_color, curve: 'bezier'} },
+        ]); 
+        }
+
+        // sementic
+        for( h in synt['SP'])
+        {
+        var previous = (k-1).toString()+"-"+h.toString();
+        var edge_color = "#ff0000";
+        cy.add([
+          { group: "edges", data: { id: "e"+cur_id+"-"+previous, source: previous, target: cur_id , label:synt['SP'][h], color:edge_color, curve: 'haystack'} },
+        ]); 
+        }
+        }           
+    
+        
+        }//for j
+
+       } //end if
+  
+    } //end for k
+layout.run();           
+}
+
+
+
+
+
+
+
 $().ready(function() {
   $('#btn1').click(function() {
     $.getJSON(script + "/ajaxGet", {}, function(d) {
@@ -135,6 +260,9 @@ $().ready(function() {
   $('#move').click(function() {
     document.NewForm.InputText.value = $("#result").text();
   });
+
+
+// morphology analysis by Al-Qalsadi
   $('#stem').click(function() {
     $("#loading").slideDown();
     var $table = $('<table/>');
@@ -152,6 +280,90 @@ $().ready(function() {
       action: "LightStemmer"
     }, function(d) {
       for (k in d.result) {
+        var tbody = document.createElement('tbody');
+        if (d.result[k].length == 0) {
+          var tr = document.createElement('tr');
+          var td = document.createElement('td');
+          td.appendChild(document.createTextNode(k));
+          tr.appendChild(td);
+          for (j = 0; j < 7; j++) {
+            var td = document.createElement('td');
+            td.appendChild(document.createTextNode("-"));
+            tr.appendChild(td);
+          }
+          tbody.appendChild(tr);
+        } else {
+          for (i = 0; i < d.result[k].length; i++) {
+            var tr = document.createElement('tr');
+            item = d.result[k][i];
+            var td = document.createElement('td');
+            td.appendChild(document.createTextNode(item['word']));
+            tr.appendChild(td);
+            td = document.createElement('td');
+            td.appendChild(document.createTextNode(item['vocalized']));
+            tr.appendChild(td);
+            td = document.createElement('td');
+            td.appendChild(document.createTextNode(item['original']));
+            tr.appendChild(td);
+            td = document.createElement('td');
+            td.appendChild(document.createTextNode(item['affix']));
+            tr.appendChild(td);
+            td = document.createElement('td');
+            td.appendChild(document.createTextNode(item['stem']));
+            tr.appendChild(td);
+            td = document.createElement('td');
+            td.appendChild(document.createTextNode(item['tags'].replace(/:/g, ': ')));
+            tr.appendChild(td);
+            td = document.createElement('td');
+            td.appendChild(document.createTextNode(item['type']));
+            tr.appendChild(td);
+            td = document.createElement('td');
+            td.appendChild(document.createTextNode(JSON.stringify(item['syntax'])));
+            tr.appendChild(td);
+            td = document.createElement('td');
+            td.appendChild(document.createTextNode(item['freq']));
+            tr.appendChild(td);
+            tbody.appendChild(tr);
+          }
+        }
+        table.appendChild(tbody);
+      }
+      $("#result").append($table);
+    });
+    $("#loading").slideUp();
+  });
+  $('#tokenize').click(function() {
+    var item;
+    $.getJSON(script + "/ajaxGet", {
+      text: document.NewForm.InputText.value,
+      action: "Tokenize"
+    }, function(d) {
+      $("#result").html("");
+      for (i = 0; i < d.result.length; i++) {
+        $("#result").append(d.result[i] + "<br/>");
+      }
+    });
+  });
+// Gramatical Analysis
+ $('#synt').click(function() {
+    $("#loading").slideDown();
+    var $table = $('<table/>');
+    var table = $table.attr("border", "1")[0];
+    var headers = ["<tr>", "<th>المدخل</th>", "<th>تشكيل</th>", "<th>الأصل</th>",
+      "<th>الزوائد</th>", "<th>الجذع</th>",
+      "<th style='white-space:nowrap;'>الحالة الإعرابية</th>",
+      "<th>النوع</th><th>النحوي</th>", "<th>شيوع</th>", "</tr>"
+    ].join('');
+    $table.append(headers);
+    var item = "";
+    $("#result").html("");
+    $.getJSON(script + "/ajaxGet", {
+      text: document.NewForm.InputText.value,
+      action: "LightStemmer"
+    }, function(d) {
+        draw_graph(d);
+      for (k in d.result) {
+
         var tbody = document.createElement('tbody');
         if (d.result[k].length == 0) {
           var tr = document.createElement('tr');
@@ -193,7 +405,7 @@ $().ready(function() {
             td.appendChild(document.createTextNode(item['type']));
             tr.appendChild(td);
             td = document.createElement('td');
-            td.appendChild(document.createTextNode(item['syntax']));
+            td.appendChild(document.createTextNode(JSON.stringify(item['syntax'])));
             tr.appendChild(td);
             td = document.createElement('td');
             td.appendChild(document.createTextNode(item['freq']));
@@ -206,19 +418,9 @@ $().ready(function() {
       $("#result").append($table);
     });
     $("#loading").slideUp();
-  });
-  $('#tokenize').click(function() {
-    var item;
-    $.getJSON(script + "/ajaxGet", {
-      text: document.NewForm.InputText.value,
-      action: "Tokenize"
-    }, function(d) {
-      $("#result").html("");
-      for (i = 0; i < d.result.length; i++) {
-        $("#result").append(d.result[i] + "<br/>");
-      }
-    });
-  });
+  });  
+  
+  // extract chunks from text
     $('#chunk').click(function() {
     var item;
     $.getJSON(script + "/ajaxGet", {
@@ -432,6 +634,11 @@ $().ready(function() {
     $("#result").html("");
     $("#loading").show();
     $('#loading').data('length', 0);
+    
+
+
+
+
     var textlist = new Array();
     for (var i = 0; i < textlistOne.length; i++) {
       if (textlistOne[i] != "") textlist.push(textlistOne[i]);
@@ -448,6 +655,8 @@ $().ready(function() {
         lastmark: vocalizewWordsEnds
       }, function(d) {
         console.log(d);
+        // Grammar graph 
+        //draw_graph();
         var text = "";
         var id = parseInt(d.order);
         var openColocation = 0;
@@ -501,9 +710,11 @@ $().ready(function() {
   $('.vocalized').live("click", function() {
     $(".txkl").change();
     var myword = $(this);
+    var nextword = $(this).next();
     var id = myword.attr('id');
     var list = $("#result").data(id).split(';');
-    var text = "<select class='txkl' id='" + id + "'>";
+    //~ var text = "<form><select class='txkl' id='" + id + " size=3'>";
+    var text = "<select class='txkl' id='" + id + " size=3'>";
     var cpt = 0;
     for (i in list) {
       if (list[i] != "") {
@@ -514,6 +725,10 @@ $().ready(function() {
     }
     text += "<option><strong>تعديــل...</strong></option>";
     text += "</select>";
+    //~ text += "<br/> <input  type='text' name='change' />";
+    //~ text += "<input type='submit' value='موافق' id ='changevocalized'/>";
+    //~ text += "<input type='reset' value='إلغاء' id ='cancelvocalized'/>";
+    //~ text += "</form>";
     // disable others suggestion lists  
     //$(".txkl").change();
     if (cpt > 1) {
@@ -523,10 +738,10 @@ $().ready(function() {
         "' value='" + myword.text() + "'/>";
       myword.replaceWith(text);
     }
-  });
+    console.log(myword.text()+";;"+nextword.text())
+});
   $('.txkl').live('change', function() {
     if ($(this).val() != "تعديــل...") {
-      //var text="<span class='vocalized-color' id='"+$(this).attr('id')+"'>"+$(this).val()+"</span>";
       var text = "<span class='vocalized' id='" + $(this).attr('id') + "'>" + $(this).val() +
         "</span>";
       $(this).replaceWith(text);
@@ -536,7 +751,10 @@ $().ready(function() {
       text = "<input type='text' class='txkl'  size='10' id='" + $(this).attr('id') +
         "' value='" + list[0] + "'/>";
       $(this).replaceWith(text);
+       console.log($(this).text()+"-"+$(this).next().text());
     }
+
+
   });
   // spell checking
   $('#spellcheck').click(function() {
@@ -566,7 +784,6 @@ $().ready(function() {
         order: i.toString(),
         lastmark: vocalizewWordsEnds
       }, function(d) {
-        //$("#result").html("<p class=\'tashkeel\'>"+d.result+"</p>");
         console.log(d);
         var text = "";
         var id = parseInt(d.order);
@@ -591,14 +808,10 @@ $().ready(function() {
           } else {
             var pattern = /[-[\]{}()*+?.,،:\\^$|#\s]/;
             if (!pattern.test(item.chosen)) text += " ";
-            // item.chosen=item.chosen.replace(SEPARATOR,' '); 
-            // if (item.chosen==SEPARATOR) text+=" ";
-            // else 
             if (item.suggest != '') text += "<span class='spelled-incorrect' id='" +
               currentId + "'>" + item.chosen + "</span>";
             else text += "<span class='spelled' id='" + currentId + "'>" + item.chosen +
               "</span>";
-            //text+=" <span>"+item.chosen+"</span>";
             $('#result').data(currentId.toString(), item.suggest);
           }
         }
@@ -610,7 +823,6 @@ $().ready(function() {
         $("#loading").html($("#loading").html().replace('.', ''));
         if ($("#loading").html().indexOf('.') < 0) { // if no dot, the work is terminated
           // redraw the text result with order
-          //$('#result').html('');
           var ordredtext = "";
           for (var j = 0; j < $("#loading").data('length'); j++) {
             ordredtext += "<br/>" + $("#loading").data(j.toString());
@@ -624,7 +836,6 @@ $().ready(function() {
   });
   $('.spelled-incorrect').live("click", function() {
     $(".txkl").change();
-    //$("#vocalized").slideDown("slow");
     var myword = $(this);
     var id = myword.attr('id');
     var list = $("#result").data(id).split(';');
