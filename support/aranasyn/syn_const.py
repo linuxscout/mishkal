@@ -12,50 +12,82 @@
 #------------------------------------------------------------------------------
 import libqutrub.verb_const as vconst
 #constants of syntaxic relations
-VerbSubjectRelation = 1; #علاقة فعل وفاعل
-SubjectVerbRelation = 16; # علاقة فاعل وفعل
-VerbParticulRelation = 22; # علاقة فعل متعدي بحرف
-VerbObjectRelation  = 2; # علاقة فعل ومفعول به
-PrimateRelation = 10; # علاقة مبتدأ، ببداية الجملة
-PrimatePredicateRelation  = 3; # علاقة مبتدأ وخبر
-DescribedAdjectiveRelation = 4; # علاقة منعوت ونعت
-AdditionRelation =5; #علاقة مضاف مضاف إليه
-InnaNasebMansoubRelation =6; # علاقة ناصب ومنصوب
-NasebMansoubRelation =13; # علاقة ناصب ومنصوب
-JarMajrourRelation = 7; # علاقة جار ومجرور
-JazemMajzoumRelation = 8; # علاقة جازم ومجزوم
-Rafe3Marfou3Relation = 9; # علاقة رافع  ومرفوع
-KanaRafe3Marfou3Relation = 12; # علاقة رافع  ومرفوع
-TanwinRelation = 11; #علاقة تنوين، للكلمة النكرة بفاصل بعدها
-JonctionRelation = 15 ; # علاقة المعطوف والمعطوف عليه
-ConditionVerbRelation = 17 #علاقة اسم شرط مع فعل
-VerbPassiveSubjectRelation = 18 # علاقة فعل ونائب فاعل
-InnaRafe3Marfou3Relation = 19 #علاقة خبر إنّ مرفوع
-KanaNasebMansoubRelation = 20 #   خبر كان منصوب
-JoblessFactorVerbRelation = 21 # أدوات عاطلة للفعل مثل قد
+# RAF3  رفعrelation starts with 10
+VerbSubjectRelation = 10; #علاقة فعل وفاعل
+SubjectVerbRelation = 11; # علاقة فاعل وفعل
+VerbPassiveSubjectRelation = 12 # علاقة فعل ونائب فاعل
+
+PrimateRelation = 13; # علاقة مبتدأ، ببداية الجملة
+Rafe3Marfou3Relation = 14; # علاقة رافع  ومرفوع
+KanaRafe3Marfou3Relation = 15; # علاقة رافع  ومرفوع
+InnaRafe3Marfou3Relation = 16 #علاقة خبر إنّ مرفوع
+KanaNasebMansoubRelation = 17 #   خبر كان منصوب
+
+# Nasb نصب relation starts with 20
+VerbObjectRelation  = 20; # علاقة فعل ومفعول به
+InnaNasebMansoubRelation = 21; # علاقة ناصب ومنصوب
+NasebMansoubRelation =22; # علاقة ناصب ومنصوب
+
+# Jar/ Jazm جر relation starts with 30
+AdditionRelation = 30; #علاقة مضاف مضاف إليه
+JarMajrourRelation = 31; # علاقة جار ومجرور
+JazemMajzoumRelation = 32; # علاقة جازم ومجزوم
+
+# Related (تبعية) relation starts with 40
+DescribedAdjectiveRelation = 40; # علاقة منعوت ونعت
+JonctionRelation = 41 ; # علاقة المعطوف والمعطوف عليه
+SubstitutionRelation = 42 #23 بدل منه وبدل
+ConfirmationRelation =45 #"24 توكيد"
+
+#Jobless relations علاقة عاطلة starts with 50
+JoblessFactorVerbRelation = 50 # أدوات عاطلة للفعل مثل قد
+
+# Divers relations متنوعة starts with 60
+VerbParticulRelation = 60; # علاقة فعل متعدي بحرف
+PrimatePredicateRelation  = 61; # علاقة مبتدأ وخبر
+TanwinRelation = 62; #علاقة تنوين، للكلمة النكرة بفاصل بعدها
+ConditionVerbRelation = 63 #علاقة اسم شرط مع فعل
+
+
 #used to display text on relations
 DISPLAY_RELATION={
-VerbSubjectRelation : u"1  فعل وفاعل", 
-SubjectVerbRelation : u"16   فاعل وفعل", 
-VerbObjectRelation  : u"2   فعل ومفعول به", 
-PrimateRelation : u"10   مبتدأ، ببداية الجملة", 
-PrimatePredicateRelation  : u"3   مبتدأ وخبر", 
-DescribedAdjectiveRelation : u"4   منعوت ونعت", 
-AdditionRelation : u"5  مضاف مضاف إليه", 
-InnaNasebMansoubRelation : u"6   ناصب ومنصوب", 
-NasebMansoubRelation :u"13   ناصب ومنصوب", 
-JarMajrourRelation : u"7   جار ومجرور", 
-JazemMajzoumRelation : u"8   جازم ومجزوم", 
-Rafe3Marfou3Relation : u"9   رافع  ومرفوع", 
-KanaRafe3Marfou3Relation : u"12   رافع  ومرفوع", 
-TanwinRelation : u"11  تنوين، للكلمة النكرة بفاصل بعدها", 
-JonctionRelation : u"15    المعطوف والمعطوف عليه", 
-ConditionVerbRelation : u"17  اسم شرط مع فعل",
-VerbPassiveSubjectRelation : u"18  علاقة فعل ونائب فاعل",
-InnaRafe3Marfou3Relation :u" 19 #علاقة خبر إنّ مرفوع",
-KanaNasebMansoubRelation : u"20   خبر كان منصوب", 
-JoblessFactorVerbRelation:u"21 أدوات عاطلة للفعل مثل قد",
-VerbParticulRelation : u"22 علاقة فعل متعدي بحرف",
+# RAF3  رفعrelation starts with 10
+VerbSubjectRelation : u" 10علاقة فعل وفاعل", 
+SubjectVerbRelation : u" 11 علاقة فاعل وفعل", 
+VerbPassiveSubjectRelation : u" 12 # علاقة فعل ونائب فاعل", 
+
+PrimateRelation : u" 13 علاقة مبتدأ، ببداية الجملة", 
+Rafe3Marfou3Relation : u" 14 علاقة رافع  ومرفوع", 
+KanaRafe3Marfou3Relation : u" 15 علاقة رافع  ومرفوع", 
+InnaRafe3Marfou3Relation : u" 16 #علاقة خبر إنّ مرفوع", 
+KanaNasebMansoubRelation : u" 17 #   خبر كان منصوب", 
+
+# Nasb نصب relation starts with 20 
+VerbObjectRelation  : u" 20 علاقة فعل ومفعول به", 
+InnaNasebMansoubRelation : u" 21 علاقة ناصب ومنصوب", 
+NasebMansoubRelation : u" 22 علاقة ناصب ومنصوب", 
+
+# Jar/ Jazm جر relation starts with 30
+AdditionRelation : u" 30علاقة مضاف مضاف إليه", 
+JarMajrourRelation : u" 31 علاقة جار ومجرور", 
+JazemMajzoumRelation : u" 32 علاقة جازم ومجزوم", 
+
+# Related (تبعية) relation starts with 40
+DescribedAdjectiveRelation : u" 40 علاقة منعوت ونعت", 
+JonctionRelation : u" 41  علاقة المعطوف والمعطوف عليه", 
+SubstitutionRelation : u" 42 بدل منه وبدل", 
+ConfirmationRelation : u"45 توكيد",
+
+#Jobless relations علاقة عاطلة starts with 50
+JoblessFactorVerbRelation : u" 50 # أدوات عاطلة للفعل مثل قد", 
+
+# Divers relations متنوعة starts with 60
+VerbParticulRelation : u" 60 علاقة فعل متعدي بحرف", 
+PrimatePredicateRelation  : u" 61 علاقة مبتدأ وخبر", 
+TanwinRelation : u" 62علاقة تنوين، للكلمة النكرة بفاصل بعدها", 
+ConditionVerbRelation : u" 63 #علاقة اسم شرط مع فعل", 
+
+
 }
 #-------------------
 NOMINAL_FACTOR_LIST =set([
