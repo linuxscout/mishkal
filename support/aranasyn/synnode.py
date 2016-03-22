@@ -18,11 +18,12 @@ morpholocigal analysis
 if __name__ == "__main__":
     import sys
     sys.path.append('../lib')
+
 def ispunct(word):
     return word in u'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~،؟'
-#~import aranasyn.syn_const as syn_const
-#~import aranasyn.stemmedsynword
+
 import syn_const
+
 class SynNode:
     """
     synNode represents the regrouped data resulted from the 
@@ -41,12 +42,11 @@ class SynNode:
         # the  syntaxical previous nodes 
         self.next_nodes = {}
         # the  syntaxical next nodes
+        self.vocalizeds = []
         if case_list:        
             self.vocalizeds = [case.get_vocalized() for case in case_list]
             self.vocalizeds = list(set(self.vocalizeds))
             self.vocalizeds.sort()
-        else:
-            self.vocalizeds = []
         
         #~ all vocalized forms
         self.originals = {}
@@ -55,7 +55,7 @@ class SynNode:
         self.guessed_type_tag = ""
         # guessed word type tag given by the word tagger
         self.break_end = False
-        # the break position at he end or at the begining
+        # the break position at the end or at the begining
         # the pounctuation is an end break 
         # a stop word is a start break
         
@@ -279,6 +279,7 @@ class SynNode:
         @rtype: unicode string
         """
         return self.chosen_indexes
+
     def set_chosen_indexes(self,indexes ):
         """
         Get the chosen_indexes forms of the input word
@@ -291,6 +292,7 @@ class SynNode:
                 break;
         else:
             self.chosen_indexes = indexes
+
     ######################################################################
     #{ Tags extraction Functions
     ###################################################################### 
@@ -301,6 +303,7 @@ class SynNode:
         @rtype:boolean
         """
         return self.count["verb"] > 0
+
     def has_noun(self, ):
         """
         Return if all cases are nouns.
@@ -316,29 +319,32 @@ class SynNode:
         @rtype:boolean
         """
         return self.count["stopword"] > 0
-    def has_pount(self, ):
+
+    def has_punct(self, ):
         """
         Return if all cases are pounctuations
         @return:True if the node has pounctation in one case at least.
         @rtype:boolean
         """
         return self.count["pounct"] > 0        
+
     def is_verb(self, ):
         """
         Return if all cases are verbs.
         @return:True if the node is verb in alll cases.
         @rtype:boolean
         """
-        return self.count["pounct"] == 0 and self.count["stopword"] == 0 and \
-        self.count["verb"] and self.count["noun"] == 0
+        return (self.count["verb"] and not self.count["pounct"] and not self.count["stopword"] and
+         not self.count["noun"] )
+
     def is_noun(self, ):
         """
         Return if all cases are nouns.
         @return:True if the node is noun in alll cases.
         @rtype:boolean
         """
-        return self.count["pounct"] == 0 and self.count["stopword"] == 0 and \
-        self.count["verb"] == 0 and self.count["noun"]
+        return not self.count["pounct"]  and not self.count["stopword"]  and  not\
+        self.count["verb"]  and self.count["noun"]
         
 
     def is_stopword(self, ):
@@ -347,16 +353,18 @@ class SynNode:
         @return:True if the node is stopword in alll cases.
         @rtype:boolean
         """
-        return self.count["pounct"] == 0 and self.count["stopword"] and \
-        self.count["verb"] == 0 and self.count["noun"] == 0
+        return not self.count["pounct"] and self.count["stopword"] and \
+        not self.count["verb"]  and not self.count["noun"] 
+
     def is_pounct(self, ):
         """
         Return if all cases are pounctuations
         @return:True if the node is pounctation in alll cases.
         @rtype:boolean
         """
-        return self.count["pounct"] and self.count["stopword"] == 0 and \
-        self.count["verb"] == 0 and self.count["noun"] == 0
+        return (self.count["pounct"] and not self.count["stopword"]  and 
+	        not self.count["verb"]  and not self.count["noun"] )
+
     def is_most_verb(self, ):
         """
         Return True if most  cases are verbs.
@@ -366,14 +374,15 @@ class SynNode:
         
         return self.count["verb"] > self.count["noun"] and \
         self.count["verb"] > self.count["stopword"]
+
     def is_most_noun(self, ):
         """
         Return True if most  cases are nouns.
         @return:True if the node is noun in most cases.
         @rtype:boolean
         """
-        return self.count["noun"] > self.count["verb"]  and \
-        self.count["noun"] > self.count["stopword"]
+        return (self.count["noun"] > self.count["verb"]  and \
+        self.count["noun"] > self.count["stopword"])
 
     def is_most_stopword(self, ):
         """
@@ -406,6 +415,7 @@ class SynNode:
             return 'moststopword'
         else:
             return 'ambiguous'
+
     def get_break_type(self, ):
         """
         Return the word break type, 
@@ -416,12 +426,12 @@ class SynNode:
         #~if len(self.breaks) == 0 and len(self.non_breaks) == 0 :
             #~return 'ambiguous'
         #~elif 
-        if len(self.breaks) > 0 and len(self.non_breaks) == 0 :
+        if self.breaks and not self.non_breaks:
             return 'break'
         # إذا كانت الكلمة مستبعدة ولم يكن لها علاقة دلالية بما قبلها
         elif self.has_stopword() and not self.sem_previous and not self.sem_nexts:
             return 'break'
-        elif len(self.non_breaks) > 0 and len(self.breaks) == 0:
+        elif self.non_breaks and not self.breaks:
             return 'non_break'
         elif len(self.non_breaks) > len(self.breaks) :
             return 'mostNon_break'
@@ -429,8 +439,15 @@ class SynNode:
             return 'most_break'
         else:
             return 'ambiguous'
+
     def is_break_end(self,):
+        """
+        The syn node is break end like puctuation, if it  hasn't any syntaxique or semantique 
+        relation with the previous word
+        """
+
         return self.break_end
+
     def is_break(self,):
         """
         The syn node is break, if it hasn't any syntaxique or semantique 
@@ -455,9 +472,9 @@ class SynNode:
                 
     def __repr__(self):
         text = u"\n'%s':%s, [%s-%s]{V:%d, N:%d, S:%d} " % (
-        self.__dict__['word'], u', '.join(self.originals), 
-        self.get_word_type(), self.get_break_type(), self.count["verb"], 
-        self.count["noun"], self.count["stopword"])
+		    self.__dict__['word'], u', '.join(self.originals), 
+		    self.get_word_type(), self.get_break_type(), self.count["verb"], 
+		    self.count["noun"], self.count["stopword"])
         text += repr(self.syntax_mark)
         return text.encode('utf8') 
 

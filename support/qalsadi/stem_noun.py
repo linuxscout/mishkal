@@ -167,13 +167,17 @@ class NounStemmer:
                                 #add some tags from dictionary entry as 
                                 #mamnou3 min sarf and broken plural
                                 original_tags = []
-                                if noun_tuple['mamnou3_sarf'] == \
-                                u"ممنوع من الصرف":
+                                if noun_tuple['mamnou3_sarf'] == u"ممنوع من الصرف":
                                     original_tags.append(u"ممنوع من الصرف")
                                 if noun_tuple['number'] == u"جمع تكسير":
                                     original_tags.append(u"جمع تكسير")
+                                # إذا كان قابلا للتأنيث فهو مذكر
+                                # وإن لم يكن يؤنث ويجمع جمع مؤنث سالم فهو مؤنث
+        
                                 if noun_tuple['feminable']:
-                                    original_tags.append(u"يؤنث")                                    
+                                    original_tags.append(u"يؤنث")
+                                #~ elif noun_tuple['feminin_plural']:
+                                    #~ original_tags.append(u"مؤنث")
                                 # get affix tags
                                 vocalized_affix_tags = snconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']\
                                   +snconst.COMP_SUFFIX_LIST_TAGS[vocalized_encletic]['tags']\
@@ -471,13 +475,16 @@ def vocalize( noun, proclitic,  suffix, enclitic):
     # this allow to avoid some missed harakat before ALEF
     # in the dictionary form of word, all alefat are preceded by Fatha
     #~noun = araby.complet
+    #~ print "stem_noun.vocalize; before", noun.encode('utf8');
     noun = noun.replace(araby.ALEF, araby.FATHA + araby.ALEF)
+    #~ print "stem_noun.vocalize; 2", noun.encode('utf8');
 
     noun = noun.replace(araby.ALEF_MAKSURA, araby.FATHA + araby.ALEF_MAKSURA)
     noun = re.sub(ur"(%s)+"%araby.FATHA , araby.FATHA, noun)
     # remove initial fatha if alef is the first letter
     noun = re.sub(ur"^(%s)+"%araby.FATHA , "", noun)
-    
+    #~ print "stem_noun.vocalize; 3", noun.encode('utf8');
+  
     # generate the non vacalized end word: the vocalized word 
     # without the I3rab Mark
     # if the suffix is a short haraka 
@@ -545,19 +552,8 @@ def validate_tags(noun_tuple, affix_tags, procletic, encletic_nm ,
     encletic = encletic_nm
     suffix = suffix_nm
 
-    if u'مؤنث' in affix_tags and not noun_tuple['feminable']:
-        return False
-    if  u'جمع مؤنث سالم' in affix_tags and \
-       not noun_tuple['feminin_plural']:
-        return False
-    if  u'جمع مذكر سالم' in affix_tags and \
-       not noun_tuple['masculin_plural']:
-        return False
-    if  u'مثنى' in affix_tags and not noun_tuple['dualable']:
-        return False
+
     if  u'تنوين' in affix_tags and  noun_tuple['mamnou3_sarf']:
-        return False
-    if  u'مجرور' in affix_tags and  noun_tuple['mamnou3_sarf']:
         return False
     #~if  u'منسوب' in affix_tags and (not noun_tuple['relative'] and not u'مصدر' in noun_tuple['word_type']):
         #~return False

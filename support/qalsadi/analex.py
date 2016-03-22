@@ -641,7 +641,7 @@ def check_shadda(word_vocalised, resulted_data):
 #~x for x in [1, 1, 2] if x == 1
     return [x for x in resulted_data if araby.shaddalike(word_vocalised, 
     x.__dict__.get('vocalized', ''))]
-  
+
 def check_normalized(word_vocalised, resulted_data):
     """
     If the entred word is like the found word in dictionary, 

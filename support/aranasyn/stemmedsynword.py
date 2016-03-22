@@ -375,7 +375,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         Return True if the word is a  nominal addition اسم إضافة مثل نحو ومعاذ
         @rtype: True/False
         """
-        if u'اسم إضافة' in self.get_tags() and not self.has_encletic():
+        if (u'اسم إضافة' in self.get_tags() or u'إضافة' in self.get_tags()) and not self.has_encletic():
             return True
         return False
 
@@ -428,8 +428,6 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         Rafe3              : 2  00010
         Naseb              : 4  00100
         Jar                : 8  01000
-        Jazem              : 16 10000
-        active             : 32 100000
         this codification allow to have two noun factor for the same case, 
         like feminin plural which ahve the same mark for Nasb and jar
 هذا الترميز يرمز حالتين في وقت واحد
@@ -459,11 +457,11 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
                 else: # الناصب يتحول إلى رافع إذا ألحق به ضمير متصل
 # هذا ينبغي التحقق منه 
                     self.tag_nominal_factor += 2
-			# اسم الإشارة المجرور مثل بذلك الرجل أو بهذا الرجل
+            # اسم الإشارة المجرور مثل بذلك الرجل أو بهذا الرجل
             if u"اسم إشارة" in self.get_tags():
                 if  u"جر" in self.get_tags(): 
                     self.tag_nominal_factor += 8
-    
+            
         if u"جار" in self.get_action() and not self.has_encletic():
             self.tag_nominal_factor += 8
         if u"ضمير" in self.get_tags():
@@ -472,6 +470,32 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
                          
         return self.tag_nominal_factor
 
+    def is_jonction(self,):
+        """
+        Return True if the word is jonction عطف منفصل.
+
+        @return: is jonction.
+        @rtype: True/False
+        """
+        return  u"متبع" in self.get_action() 
+        
+    def is_substituted(self,):
+        """
+        Return True if the word is substitute مبدل منه.
+
+        @return: is substituted.
+        @rtype: True/False
+        """
+        return  u"اسم إشارة" in self.get_tags()        
+        
+    def is_confirmation(self,):
+        """
+        Return True if the word is confirmation توكيد.
+
+        @return: is confirmation.
+        @rtype: True/False
+        """
+        return  u"توكيد" in self.get_tags()  
         
     def _is_break(self):
         """
@@ -748,9 +772,14 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         """
         get dictionary of attributes 
         """
-        syntax = u', '.join(['O'+repr(self.get_order()), self.get_syntax(),
-         'SP'+repr(self.sem_previous), 'SN'+repr(self.sem_next),
-          'P'+repr(self.previous)    , 'N'+repr(self.next)])
+        syntax = {"SP":self.sem_previous, 
+				"SN":self.sem_next,
+				"P":self.previous, 
+				"N":self.next,
+				}
+        #syntax = u', '.join(['O'+repr(self.get_order()), self.get_syntax(),
+        # 'SP'+repr(self.sem_previous), 'SN'+repr(self.sem_next),
+        #  'P'+repr(self.previous)    , 'N'+repr(self.next)])
         ret_dict = self.__dict__
         ret_dict['syntax'] = syntax
         return ret_dict

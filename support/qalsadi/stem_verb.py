@@ -93,7 +93,7 @@ class VerbStemmer:
 
                 list_stem = [stem] 
                 if encletic:  #! = "":
-                    transitive = True 
+                    transitive_comp = True
                     if stem.endswith(araby.TEH + araby.MEEM + araby.WAW):
                         list_stem.append(stem[:-1]) 
                     elif stem.endswith(araby.WAW):
@@ -101,7 +101,8 @@ class VerbStemmer:
                     elif stem.endswith( araby.ALEF):
                         list_stem.append(stem[:-1]+ araby.ALEF_MAKSURA) 
 
-                else: transitive = False 
+                else:
+                    transitive_comp = False 
                 if verb.startswith(araby.ALEF_MADDA):
                     # االبداية بألف مد
                     list_stem.append(araby.ALEF_HAMZA_ABOVE + \
@@ -126,15 +127,19 @@ class VerbStemmer:
                             stem_conj     =  verb2[seg_conj[0]:seg_conj[1]]
                             suffix_conj   =  verb2[seg_conj[1]:]
                             affix_conj    =  prefix_conj+'-'+suffix_conj 
+                            #~ print (u' + '.join([prefix_conj,stem_conj,suffix_conj ])).encode('utf8')
 
                         # verify compatibility between procletics and afix
                             if (is_compatible_proaffix_affix(procletic, 
                             encletic, affix_conj)):
+                                #~ print (u' - '.join([prefix_conj,stem_conj,suffix_conj ])).encode('utf8')
                                 # verify the existing of a verb stamp in 
                                 #the dictionary
                                 if self.verb_dictionary.exists_as_stamp(
                                    stem_conj):
                                     list_seg_conj2.append(seg_conj)
+                                    #~ print ("****"+u' - '.join([prefix_conj,stem_conj,suffix_conj ])).encode('utf8')
+                                    
 
                     list_seg_conj      =  list_seg_conj2 
                     list_correct_conj  =  [] 
@@ -154,9 +159,9 @@ class VerbStemmer:
                         #because the conjugator can vocalized it, 
                         # we can return the tashkeel if we don't need the 
                         #conjugation step  
-
+                        #~ print "transitive", transitive_comp
                         infverb_dict = self.get_infinitive_verb_by_stem(
-                        stem_conj, transitive)
+                        stem_conj, transitive_comp)
 
 
                         infverb_dict  =  self.verify_infinitive_verbs(stem_conj,
@@ -169,7 +174,7 @@ class VerbStemmer:
                             haraka        =  item['haraka'] 
                             #transtag      =   item['transitive']
 
-                            transitive     =  bool( item['transitive'] == 'y' )
+                            transitivity    =  bool( item['transitive'] == 'y' )
 #to fix
                             #print u" ".join(["transtag",inf_verb, transtag, str(transitive)]).encode('utf8')                              
                             #transitive     =   item['transitive'] == 'y'                             or not item['transitive']) 
@@ -189,8 +194,9 @@ class VerbStemmer:
                             # تعرض النتيجة
                             onelist_correct_conj  =  [] 
                             onelist_correct_conj  =  generate_possible_conjug(
-                            inf_verb, unstemed_verb, affix_conj, haraka, 
-                            procletic, encletic, transitive) 
+                                inf_verb, unstemed_verb, affix_conj, haraka, 
+                                procletic, encletic, transitivity)
+                            #print (u"* ".join([inf_verb, stem_conj, str(len(onelist_correct_conj))])).encode('utf8')   
 
                             if len(onelist_correct_conj)>0:
                                 list_correct_conj += onelist_correct_conj 
@@ -253,14 +259,15 @@ class VerbStemmer:
         """
         # a solution by using verbs stamps
         liste = [] 
-        
+        #~ print (u"* ".join([verb,])).encode('utf8')
         verb_id_list = self.verb_dictionary.lookup_by_stamp(verb) 
 
         if len(verb_id_list):
             for verb_tuple in verb_id_list:
                 liste.append({'verb':verb_tuple['vocalized'], 
                 'transitive':verb_tuple['transitive'], 
-                'haraka':verb_tuple['future_type'], "stamp":verb_tuple['stamped'] }) 
+                'haraka':verb_tuple['future_type'], "stamp":verb_tuple['stamped'] })
+                #print (u"* ".join([verb, verb_tuple['vocalized']])).encode('utf8')                
 
         # if the verb in dictionary is vi and the stemmed verb is vt, 
         #~don't accepot
@@ -270,6 +277,7 @@ class VerbStemmer:
             ##        print item['transitive'].encode("utf8"), transitive
             if item['transitive'] == u'y' or  not transitive:
                 liste.append(item) 
+                #print (u"----\t"+u" ".join([verb, verb_tuple['vocalized']])).encode('utf8')                   
 
         return liste 
 
@@ -525,8 +533,8 @@ transitive = True):
                     'pronoun_tags':vbc.get_pronoun_features(pronoun),
                     'tense_tags':vbc.get_tense_features(tense),
                     'vocalized':conj_vocalized, 
-					'unvocalized':conj_nm,
-					'transitive':transitive}) 
+                    'unvocalized':conj_nm,
+                    'transitive':transitive}) 
     return list_correct_conj 
 
 def mainly():

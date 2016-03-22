@@ -16,6 +16,7 @@ POUNCTUATION[u'؟']={'word':u'؟', 'tags':u'استفهام:break',}
 POUNCTUATION[u'!']={'word':u'!', 'tags':u'تعجب:break',}
 
 POUNCTUATION[u';']={'word':u';', 'tags':u'نقطة فاصلة:break',}
+POUNCTUATION[u'-']={'word':u'-', 'tags':u'مطة:break',}
 
 POUNCTUATION[u':']={'word':u':', 'tags':u'نقطتان:break',}
 

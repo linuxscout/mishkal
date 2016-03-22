@@ -249,7 +249,8 @@ class UnknownStemmer:
                 'freq':noun_tuple['freq'], 
                 'originaltags':u':'.join(original_tags), 
                 'syntax':'', 
-                })) 
+                }))
+
         return detailed_result 
 
 
@@ -282,14 +283,28 @@ def vocalize(noun, proclitic, prefix, suffix, enclitic):
     @rtype: unicode.
     """
     enclitic_voc = snconst.COMP_SUFFIX_LIST_TAGS[enclitic]["vocalized"][0] 
-    proclitic_voc = \
-    snconst.COMP_PREFIX_LIST_TAGS[proclitic]["vocalized"][0] 
-    suffix_voc = suffix #CONJ_SUFFIX_LIST_TAGS[suffix]["vocalized"][0] 
+    proclitic_voc = snconst.COMP_PREFIX_LIST_TAGS[proclitic]["vocalized"][0] 
+    suffix_voc = suffix 
     #adjust some some harakat
     
     #strip last if tanwin or harakat
     if noun[-1:] in araby.HARAKAT:
-        noun = noun[:-1] 
+        noun = noun[:-1]
+    #completate the dictionary word vocalization
+    # this allow to avoid some missed harakat before ALEF
+    # in the dictionary form of word, all alefat are preceded by Fatha
+    #~noun = araby.complet
+    #~ print "stem_unknown.vocalize; before", noun.encode('utf8');
+    noun = noun.replace(araby.ALEF, araby.FATHA + araby.ALEF)
+    #~ print "stem_unknown.vocalize; 2", noun.encode('utf8');
+
+    noun = noun.replace(araby.ALEF_MAKSURA, araby.FATHA + araby.ALEF_MAKSURA)
+    noun = re.sub(ur"(%s)+"%araby.FATHA , araby.FATHA, noun)
+    
+    # remove initial fatha if alef is the first letter
+    noun = re.sub(ur"^(%s)+"%araby.FATHA , "", noun)
+    #~ print "stem_unknown.vocalize; 3", noun.encode('utf8');
+        
     #add shadda if the first letter is sunny and the prefix 
     #ends by al definition
     if proclitic.endswith(araby.ALEF+araby.LAM) and araby.is_sun(noun[0]):
@@ -449,4 +464,28 @@ def verify_affix(word, list_seg, affix_list):
     return [s for s in list_seg if '-'.join([word[:s[0]], 
        word[s[1]:]]) in affix_list]
     #~return filter (lambda s: '-'.join([word[:s[0]], 
-        #~word[s[1]:]]) in affix_list, list_seg)        
+        #~word[s[1]:]]) in affix_list, list_seg)
+def validate_tags(noun_tuple, affix_tags, procletic, encletic_nm ,
+ suffix_nm):
+    """
+    Test if the given word from dictionary is compabilbe with affixes tags.
+    @param noun_tuple: the input word attributes given from dictionary.
+    @type noun_tuple: dict.
+    @param affix_tags: a list of tags given by affixes.
+    @type affix_tags:list.
+    @param procletic: first level prefix vocalized.
+    @type procletic: unicode.        
+    @param encletic_nm: first level suffix vocalized.
+    @type encletic_nm: unicode.
+    @param suffix_nm: first level suffix vocalized.
+    @type suffix_nm: unicode.        
+    @return: if the tags are compatible.
+    @rtype: Boolean.
+    """
+    procletic = araby.strip_tashkeel(procletic)
+    encletic = encletic_nm
+    suffix = suffix_nm
+
+    if  u'تنوين' in affix_tags and  noun_tuple['word_type']==  "noun_prop":
+        return False
+    return True        

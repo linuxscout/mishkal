@@ -66,10 +66,9 @@ class  StemmedWord:
             self.original    = resultdict.get('original', u'')
             # tags of stop word 
             # action: the word role 
+            self.action    = resultdict.get('action', u'')
             # object_type: the next word type if is submitted to the action
             # the type of next word needed by the actual stop word
-            self.action    = resultdict.get('action', u'')
-            #~print "action:", self.action.encode("utf8")
             self.object_type    = resultdict.get('object_type', u'')
             self.need    = resultdict.get('need', u'')
             self.tag_type     =  self.__get_type(resultdict.get('type', u''))
@@ -272,7 +271,7 @@ class  StemmedWord:
         if u'مذكر' in self.get_tags() or (input_gender and u'مذكر' in input_gender):
             self.tag_gender = 1
         elif u'يؤنث' in self.get_tags():
-            self.tag_gender = 1			
+            self.tag_gender = 1         
         elif not self._affix_is_feminin(): 
             if (u'اسم فاعل' in self.get_type() or
            u'اسم مفعول' in self.get_type() or
@@ -795,8 +794,11 @@ class  StemmedWord:
         @return: has the state majrour.
         @rtype: True/False
         """
+        #~ if self.is_mabni():
+            #~ return True
         if GLOBAL_AFFIXES.has_key(self.affix_key):
             return GLOBAL_AFFIXES[self.affix_key].is_majrour()
+        
         return False
 
 
@@ -817,6 +819,8 @@ class  StemmedWord:
         @return: has the state mansoub.
         @rtype: True/False
         """
+        #~ if self.is_mabni():
+            #~ return True
         if GLOBAL_AFFIXES.has_key(self.affix_key):
             return GLOBAL_AFFIXES[self.affix_key].is_mansoub()
         return False
@@ -828,6 +832,8 @@ class  StemmedWord:
         @return: has the state marfou3.
         @rtype: True/False
         """
+        #~ if self.is_mabni():
+            #~ return True
         if GLOBAL_AFFIXES.has_key(self.affix_key):
             return GLOBAL_AFFIXES[self.affix_key].is_marfou3()
         return False
@@ -838,6 +844,8 @@ class  StemmedWord:
         @return: has the state mabni.
         @rtype: True/False
         """
+        if u"مبني" in self.get_tags():
+            return True
         if GLOBAL_AFFIXES.has_key(self.affix_key):
             return GLOBAL_AFFIXES[self.affix_key].is_mabni()
         return False
@@ -848,8 +856,18 @@ class  StemmedWord:
         @return: has the state defined.
         @rtype: True/False
         """
+        #~ المعرفة: ما يقصد منه معيّن: والمعرفة سبعة أقسام هي:
+#~ الضمير، العلم، اسم الإشارة، الاسم الموصول، المحلَّى بأل، المضاف إلى معرفة، المنادى.
         if GLOBAL_AFFIXES.has_key(self.affix_key):
             return GLOBAL_AFFIXES[self.affix_key].is_defined()
+        elif u"ضمير" in self.get_tags():
+                return True
+        elif u"اسم إشارة" in self.get_tags():
+                return True
+        elif u"اسم موصول"in self.get_tags():
+                return True
+        elif u"noun_prop"in self.get_tags():
+                return True
         return False
 
 
