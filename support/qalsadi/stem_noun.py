@@ -77,10 +77,18 @@ class NounStemmer:
                 # ajusting nouns variant
                 list_stem = [stem]
                 if encletic_nm: #  != ""
+                    # حالة الاسم المقصور إذا كان به زيادة مثل سوى +ها = سواها
                     if stem.endswith(araby.ALEF):
-                        list_stem.append(stem[:-1]+araby.ALEF_MAKSURA)
+                        list_stem.append(stem[:-1] + araby.ALEF_MAKSURA)
+                    # حالة المؤنث بالتاء قد يكون أصلها تاء مربوطة
                     elif stem.endswith(araby.TEH):
-                        list_stem.append(stem[:-1]+araby.TEH_MARBUTA)
+                        list_stem.append(stem[:-1] + araby.TEH_MARBUTA)
+                # Case of Mankous Name حالة الاسم المنقوص
+                # إذا لم يكن به زيادة ربما كان الاسم منقوصا منوّنا
+                # قد يقبل السابقة مثل وقاضٍ
+                # لكنه لا يقبل اللاحقة
+                else: # no encletic
+                    list_stem.append(stem + araby.YEH)
         # stem reduced noun : level two
                 for stem in list_stem:
                     detailed_result.extend(self.steming_second_level(noun, 
@@ -167,8 +175,8 @@ class NounStemmer:
                                 #add some tags from dictionary entry as 
                                 #mamnou3 min sarf and broken plural
                                 original_tags = []
-                                if noun_tuple['mamnou3_sarf'] == u"ممنوع من الصرف":
-                                    original_tags.append(u"ممنوع من الصرف")
+                                if noun_tuple['mankous'] == u"Tk":
+                                    original_tags.append(u"منقوص")
                                 if noun_tuple['number'] == u"جمع تكسير":
                                     original_tags.append(u"جمع تكسير")
                                 # إذا كان قابلا للتأنيث فهو مذكر
@@ -310,7 +318,7 @@ def get_stem_variants(stem, suffix_nm):
     possible_noun_list = set([stem,])
     if suffix_nm in (araby.ALEF+araby.TEH, araby.YEH+araby.TEH_MARBUTA,
       araby.YEH, araby.YEH+araby.ALEF+araby.TEH):
-        possible_noun = stem+araby.TEH_MARBUTA
+        possible_noun = stem + araby.TEH_MARBUTA
         possible_noun_list.add(possible_noun)
     if not suffix_nm  or suffix_nm in (araby.YEH+araby.NOON, 
     araby.WAW+araby.NOON):
@@ -326,7 +334,7 @@ def get_stem_variants(stem, suffix_nm):
     validated_list = possible_noun_list
     return validated_list
 
-def get_suffix_variants(word, suffix, enclitic):
+def get_suffix_variants(word, suffix, enclitic, mankous = False):
     """
     Get the suffix variant to be joined to the word.
     For example: word = مدرس, suffix = ة, encletic = ي. 
@@ -337,6 +345,8 @@ def get_suffix_variants(word, suffix, enclitic):
     @type suffix: unicode.
     @param enclitic: first level suffix.
     @type enclitic: unicode.        
+    @param mankous: if the noun is mankous ends with Yeh منقوص.
+    @type mankous: boolean.        
     @return: variant of suffixes  (vocalized suffix and vocalized 
     suffix without I'rab short mark).
     @rtype: (unicode, unicode)
@@ -344,11 +354,16 @@ def get_suffix_variants(word, suffix, enclitic):
     enclitic_nm = araby.strip_tashkeel(enclitic)
     newsuffix = suffix #default value
     #if the word ends by a haraka
-    if suffix.find(araby.TEH_MARBUTA) >= 0 and len (enclitic_nm)>0:
+    if suffix.find(araby.TEH_MARBUTA) >= 0 and enclitic_nm:
         newsuffix = re.sub(araby.TEH_MARBUTA, araby.TEH, suffix)
 
-    elif  not enclitic_nm and word[-1:] in (araby.YEH, araby.ALEF) and araby.is_haraka(suffix):
-        newsuffix = u""        
+    elif  not enclitic_nm and  araby.is_haraka(suffix):
+        if word[-1:] in (araby.YEH, araby.ALEF):
+            newsuffix = u""
+        elif mankous :
+            # the word is striped from YEH المنقوص حذفت ياؤه قبل قليل
+            # تحول حركته إلى تنوين كسر
+             newsuffix =  araby.KASRATAN
     #gererate the suffix without I'rab short mark
     # here we lookup with given suffix because the new suffix is 
     # changed and can be not found in table
@@ -380,33 +395,56 @@ def get_enclitic_variant(enclitic_voc, suffix_voc):
     return enclitic_voc, enclitic_voc_non_inflection_mark 
 
 
-def get_word_variant(word, suffix):
+def get_word_variant(word, suffix, encletic):
     """
     Get the word variant to be joined to the suffix.
     For example: word = مدرسة, suffix = ي. The word is converted to مدرست.
     @param word: word found in dictionary.
     @type word: unicode.
-    @param suffix: suffix ( firts or second level).
+    @param suffix: suffix ( first level).
     @type suffix: unicode.
+    @param encletic: encletic( second level).
+    @type encletic: unicode.
     @return: variant of word.
     @rtype: unicode.
     """
     word_stem = word
-    # print word.encode('utf8')
-    #HARAKAT = (FATHA, DAMMA, KASRA, SUKUN, DAMMA, DAMMATAN, 
-    # KASRATAN, FATHATAN)
+    
     suffix_nm = araby.strip_tashkeel(suffix)
+
+    encletic_nm = araby.strip_tashkeel(encletic)
+    long_suffix_nm = suffix_nm + encletic_nm 
     #if the word ends by a haraka
     word_stem = araby.strip_lastharaka(word_stem)
-
-    if word_stem.endswith(araby.TEH_MARBUTA) and suffix_nm in (
-    araby.ALEF+araby.TEH, araby.YEH+araby.TEH_MARBUTA, 
+    
+    # الاسم المؤنث بالتاء المروبطة نحذفها قبل اللاحقات مثل ات وية
+    if word_stem.endswith(araby.TEH_MARBUTA):
+        if suffix_nm in (araby.ALEF+araby.TEH, araby.YEH+araby.TEH_MARBUTA, 
     araby.YEH, araby.YEH+araby.ALEF+araby.TEH):
-        word_stem = word_stem[:-1]
-    elif word_stem.endswith(araby.TEH_MARBUTA) and suffix_nm != u"":
-        word_stem = word_stem[:-1]+araby.TEH
-    elif word_stem.endswith(araby.ALEF_MAKSURA) and suffix_nm != u"":
-        word_stem = word_stem[:-1]+araby.YEH            
+            word_stem = word_stem[:-1]
+        # الاسم المؤنث بالتاء المروبطة نفتحها قبل اللصق
+        #مدرسة +ين = مدرستين
+        elif long_suffix_nm != u"":
+            word_stem = word_stem[:-1]+araby.TEH
+       
+
+    elif word_stem.endswith(araby.ALEF_MAKSURA):
+        # الاسم المقصور إذا اتصل بلاحقة نحوية صارت ألف المقصورة ياء
+        # مستوى +ان = مستويان        
+ # إذا كانت اللاحقة الصرفية ذات حروف تتحول الألف المقصورة إلى ياء
+         if suffix_nm != u"":
+            word_stem = word_stem[:-1]+araby.YEH
+        # إذا كانت اللاحقة الصرفية حركات فقط والضمير المتصل  تتحول الألف المقصورة إلى ألف
+         elif encletic_nm != u"":
+            word_stem = word_stem[:-1]+araby.ALEF 
+    elif word_stem.endswith(araby.KASRA + araby.YEH):
+     # الاسم المنقوص ينتهي بياء قبلها مكسور
+     # إذا كان لا ضمير واللاحقة فقط حركات
+     # نحذف ال
+         if not encletic_nm  and not suffix_nm :
+            word_stem = word_stem[:-2] 
+
+        #ضبط المنتهي بالهمزة حسب حركة اللاحقة النحوية         
     elif word_stem.endswith(araby.HAMZA) and suffix_nm != u"":
         if suffix.startswith(araby.DAMMA):
             word_stem = word_stem[:-1] + araby.WAW_HAMZA
@@ -457,20 +495,6 @@ def vocalize( noun, proclitic,  suffix, enclitic):
         #strip the Skun from the lam
         if proclitic_voc.endswith(araby.SUKUN):
             proclitic_voc = proclitic_voc[:-1]
-    # generate the word variant for some words witch ends by special 
-    #letters like Teh_marbuta or Alef_maksura, or hamza, 
-    #the variant is influed by the suffix harakat, 
-    # for example مدرسة+ي = مدرست+ي
-    noun = get_word_variant(noun, suffix+enclitic)
-
-    # generate the suffix variant. if the suffix is Teh_marbuta or 
-    #Alef_maksura, or hamza, the variant is influed by the enclitic harakat,
-    # for example مدرس+ة+ي = مدرس+ت+ي        
-    suffix_voc, suffix_non_irab_mark = get_suffix_variants(noun,
-     suffix_voc, enclitic)
-
-
-    
     #completate the dictionary word vocalization
     # this allow to avoid some missed harakat before ALEF
     # in the dictionary form of word, all alefat are preceded by Fatha
@@ -484,7 +508,21 @@ def vocalize( noun, proclitic,  suffix, enclitic):
     # remove initial fatha if alef is the first letter
     noun = re.sub(ur"^(%s)+"%araby.FATHA , "", noun)
     #~ print "stem_noun.vocalize; 3", noun.encode('utf8');
-  
+    
+    # generate the word variant for some words witch ends by special 
+    #letters like Teh_marbuta or Alef_maksura, or hamza, 
+    #the variant is influed by the suffix harakat, 
+    # for example مدرسة+ي = مدرست+ي
+    mankous = True if noun.endswith(araby.KASRA + araby.YEH) else False;
+        
+    noun = get_word_variant(noun, suffix, enclitic)
+
+    # generate the suffix variant. if the suffix is Teh_marbuta or 
+    #Alef_maksura, or hamza, the variant is influed by the enclitic harakat,
+    # for example مدرس+ة+ي = مدرس+ت+ي        
+    suffix_voc, suffix_non_irab_mark = get_suffix_variants(noun,
+     suffix_voc, enclitic, mankous)
+
     # generate the non vacalized end word: the vocalized word 
     # without the I3rab Mark
     # if the suffix is a short haraka 
