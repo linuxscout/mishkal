@@ -16,6 +16,8 @@
 
   <script src="%(script)s/_files/jquery-1.7.1.min.js"></script>
   <script src="%(script)s/_files/xzero-rtl/js/bootstrap-arabic.min.js"></script><!--<link rel="stylesheet" href="%(script)s/_files/twbs-rtl/css/bootstrap.min.css">-->
+
+  <script src="%(script)s/_files/cytoscape.min.js"></script>
   <meta content="width=device-width, initial-scale=1" name="viewport">
 </head>
 
@@ -85,6 +87,7 @@
      
            <div class='form-inline'>
             <a class="btn btn-success" id="tashkeel" title='تشكيل النص'>تشكيل</a>
+            <a class="btn btn-primary" id="synt" title='تحليل نحويا'><span>إعراب</span></a>
              <input checked class="checkbox" id="LastMark" type="checkbox" value='1'> حركة الإعراب
 
 <button class="close pull-right" id="move" title="نسخ الناتج إلى المدخل"><span aria-hidden="true"><span class="glyphicon glyphicon-arrow-up form-control"></span></span><span class="sr-only">نص عشوائي</span></button>
@@ -145,6 +148,7 @@
             'تنسيق الشعر العربي العمودي إلى عمودين'><span>ضبط قصيدة عمودية</span></a>
         </div>
             <a class="btn btn-primary" id="stem" title='تحليل النص صرفيا'><span>تحليل</span></a>
+
             <a class="btn btn-primary" id="spellcheck" title='تدقيق'><span>تدقيق</span></a> 
 
 </div>
@@ -176,8 +180,7 @@
       <div class="col-md-9 column"> 
 
 
-<output id="result" class="form-control">%(ResultText)s</output>
-
+<output id="result" class="form-control" width=100%%>%(ResultText)s</output>
 <section class="bg-info" id="small_hint"></section>
 </div>
 

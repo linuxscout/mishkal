@@ -57,6 +57,9 @@ color:red;
   left:0
 }
 #result {
+  height: 100%;
+  width: 100%;
+
   display:block;
   position:relative;
   height: auto;
@@ -125,6 +128,7 @@ tbody:nth-child(even) td {
   background-color:#fdffdd;
   color:#000
 }
+.verb2  {color:red}
 .v,.verb,.arabic{background-color:#c2f7b9}
 .v1,.verbcontext{background-color:#91f080}
 .v2,.verbBicontext {background-color:#91f078}
