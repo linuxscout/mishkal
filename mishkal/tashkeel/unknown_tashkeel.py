@@ -15,8 +15,7 @@ sys.path.append('../lib')
 sys.path.append('../')
 import re
 import unknown_const
-
-
+import pyarabic.araby as araby
 debug = True
 class UnknownTashkeel:
     """
@@ -28,5 +27,39 @@ class UnknownTashkeel:
         """
         return a vocalized form of an unknown word, from a word list
         """
-        return unknown_const.Table.get(word, word)
-        
+        return unknown_const.Table.get(word, vocalize_foreign(word))
+		
+def vocalize_foreign(word):
+    """
+    vocalize a foreign names written in arabic
+    @param word: given word
+    @type  word:  unicode
+    @return: the vocalized word
+    @rtype: unicode
+    """
+    marks =[]
+    previous = ""
+    for c in word:
+        if previous and not previous == araby.ALEF:
+            #--------- add Harakat before letter
+            if  c in (araby.ALEF, araby.ALEF_MAKSURA, araby.TEH_MARBUTA,):
+                marks.pop()
+                marks.append(araby.FATHA)
+            elif c in (araby.WAW, araby.WAW_HAMZA):
+                marks.pop()
+                marks.append(araby.DAMMA)
+            elif  c in( araby.YEH , araby.YEH_HAMZA ):
+                marks.pop()
+                marks.append(araby.KASRA)
+        #--------- add Harakat before letter
+        if c in (araby.ALEF_HAMZA_BELOW):
+                marks.append(araby.KASRA)
+        elif previous in (araby.ALEF_HAMZA_BELOW, araby.ALEF_HAMZA_ABOVE):
+                marks.append(araby.SUKUN)
+        else:
+                marks.append(araby.NOT_DEF_HARAKA)
+        previous = c        
+    #print len(word) ,len(marks)
+    #print marks
+    return araby.joint(word, u"".join(marks))
+          
