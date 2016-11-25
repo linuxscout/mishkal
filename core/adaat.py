@@ -387,11 +387,10 @@ def tabulize(text):
         for line in lines:
             resulttext += u'\\hline '+" & ".join(line.split("\t")) + "\\"*2+"\n"
         resulttext += u"""\hline\n
-                    \\label{mytab:table}\n
-                    \\caption{mytab:table}\n
-                    \\end{tabular}\n
-                     \\end{table}\n
-                    """
+\\end{tabular}\n
+\\label{mytab:table}\n
+\\caption{mytab:table}\n
+\\end{table}\n"""
     return resulttext
 
 def tabbing(text):
