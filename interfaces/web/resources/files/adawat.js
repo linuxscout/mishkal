@@ -861,7 +861,7 @@ $().ready(function() {
   });
   // change diff 
   $('#diff').live("hover", function() {
-    var text = $(this).text() + " : " + $(this).attr('inflect')  + "<br/>ق[" + $(this).attr('rule') + "] " + $(this).attr('link') + "<br/>" + $(this).attr('suggest');
+    var text = $(this).text() + " : " + $(this).attr('original') + "<br/>"+$(this).attr('inflect')  + "<br/>ق[" + $(this).attr('rule') + "] " + $(this).attr('link') ;
     if ($('#result').data("count")>20) {$('#hint').html(text);  $('#hint').show(); $('#small_hint').hide();}
     else  {$('#small_hint').html(text); $('#small_hint').show();$('#hint').hide();}
 
