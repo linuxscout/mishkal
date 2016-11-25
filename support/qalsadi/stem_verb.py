@@ -223,8 +223,6 @@ class VerbStemmer:
                         'tags':u':'.join((conj['tense'], conj['pronoun'])+\
                         svconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']+\
                         svconst.COMP_SUFFIX_LIST_TAGS[encletic]['tags']),#\
-                        #~ +':'+ u':'.join(conj['pronoun_tags'].values())\
-                         #~ + u':'.join(conj['tense_tags'].values()), 
                         'type':tag_type, 
                         'number': conj['pronoun_tags'].get('number',''),
                         'gender': conj['pronoun_tags'].get('gender',''),
@@ -233,7 +231,7 @@ class VerbStemmer:
                         'voice': conj['tense_tags'].get('voice',''),
                         'mood': conj['tense_tags'].get('mood',''),
                         'confirmed': conj['tense_tags'].get('confirmed',''),
-                        'transitive': conj['transitive'] , #False,#bool('y' in original_tags), 
+                        'transitive': conj['transitive'] , 
                         'tense': conj['tense'], 
                         'pronoun': conj['pronoun'],
                         'freq':'freqverb', 
@@ -419,13 +417,20 @@ def is_compatible_proaffix_tense(procletic, encletic, tense, pronoun,
     
     if encletic and tense in svconst.qutrubVerbConst.TablePassiveTense:
         return False 
-    elif (not procletic or tense in \
-    svconst.ExternalPrefixTable.get(procletic, ''))\
-        and (not encletic or pronoun in \
-        svconst.ExternalSuffixTable.get(encletic, '')):
-        return True 
+
+    #~ elif encletic and think_trans and pronoun 
+    # لا سابقة
+    # أو سابقة ، والزمن مسموح لها
+    # لا لاحقة
+    #أو زمن مسموح لتلك اللاحقة
+    elif ((not procletic or tense in  svconst.ExternalPrefixTable.get(procletic, ''))
+        and (not encletic or pronoun in svconst.ExternalSuffixTable.get(encletic, ''))
+        ):
+        return True
+    
     else:
         return False 
+    
 def verify_affix(word, list_seg, affix_list):
     """
     Verify possible affixes in the resulted segments 

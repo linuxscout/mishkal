@@ -244,12 +244,12 @@ class TashkeelClass:
         rtype: dict of dict or text.
         """
         inputtext = self.pre_tashkeel(inputtext)
-        print "PreTashkeel", inputtext.encode('utf8')
+        #print "PreTashkeel", inputtext.encode('utf8')
         # The statistical tashkeel must return a text.
         #comment this after tests
         if self.get_enabled_stat_tashkeel():
             inputtext = self.stat_tashkeel(inputtext)
-            print "statTashkeel", inputtext.encode('utf8')
+            #print "statTashkeel", inputtext.encode('utf8')
         #split texts into phrases to treat one phrase in time
         #~texts = self.analyzer.split_into_phrases(inputtext)
         texts = [inputtext, ]
@@ -267,6 +267,7 @@ class TashkeelClass:
             pre_node = None
             previous_index = False
             previous_case_index = False
+            previous_chosen_relation = False
             # reduce cases
             for current_index, word_cases_list, current_synode  in izip(count(),detailled_syntax, synodelist):
                 #~ word_cases_list = detailled_syntax[current_index]
@@ -302,7 +303,17 @@ class TashkeelClass:
                     previous = detailled_syntax[previous_index][previous_case_index]
                 # choose a tashkeel 
                 current_chosen_case_index = self.__choose_tashkeel(word_cases_list, current_synode,  
-                previous, pre_node, next_node)
+                previous, pre_node, next_node, previous_chosen_relation)
+                # the new previous relation
+                if previous:
+                    current_chosen_relation = previous.get_next_relation(current_chosen_case_index)
+                else:
+                    current_chosen_relation = False
+                    
+                #~ print "relations", previous_chosen_relation, current_chosen_relation
+                previous_chosen_relation = current_chosen_relation 
+                #~ current_chosen_relation = previous.get_next_relation(current_chosen_case_index)
+                
                 #~print current_chosen_case_index, len(detailled_syntax[current_index]), current_index
                 # ajust tanwin case
                 # if previous and previous.canhave_tanwin() and not 
@@ -313,10 +324,14 @@ class TashkeelClass:
                 # if the actual word is transparent don't change the previous
                 # add this to Sytaxic Analyser
                 current_chosen = word_cases_list[current_chosen_case_index]
-                if not current_chosen.is_transparent():
-                    previous_index = current_index 
-                    previous_case_index = current_chosen_case_index 
-                    previous = current_chosen
+                #~ if not current_chosen.is_transparent():
+                    #~ previous_index = current_index 
+                    #~ previous_case_index = current_chosen_case_index 
+                    #~ previous = current_chosen
+                #~ if not current_chosen.is_transparent():
+                previous_index = current_index 
+                previous_case_index = current_chosen_case_index 
+                previous = current_chosen
                 _chosen_list.append(current_chosen)
 
                 # create a suggest list
@@ -343,7 +358,12 @@ class TashkeelClass:
         privous_order = -1
         previous = -1
         for i, current_chosen in enumerate(_chosen_list):
-            word = _chosen_list[i].get_vocalized()
+            voc_word = _chosen_list[i].get_vocalized()
+            if not voc_word:
+                voc_word = _chosen_list[i].get_word()
+            #print "uuu", _chosen_list[i].get_semivocalized().encode('utf8')
+            #print _chosen_list[i]
+            #print "**", voc_word.encode('utf8')
             semivocalized = _chosen_list[i].get_semivocalized()
             #word without inflection mark
             inflect = u":".join([_chosen_list[i].get_type() , _chosen_list[i].get_tags_to_display()] ) 
@@ -359,14 +379,14 @@ class TashkeelClass:
             # Add uncertain cases
             # if the selection is not sure, we take semivocalized only
             if  UNCERTAIN_TASHKEEL and selection_rule > 30:
-                word =   semivocalized                    
+                voc_word =   semivocalized                    
             # omit the last haraka if the option LastMark is False
             if not self.get_enabled_last_mark():
                 vocalized_text = u" ".join([vocalized_text, self.display(word, format_display)])
             else:
                 #semivocalized 
                 vocalized_text = u" ".join([vocalized_text, self.display(semivocalized, format_display)])
-            output_suggest_list.append({'chosen':word, 'semi':semivocalized, 
+            output_suggest_list.append({'chosen':voc_word, 'semi':semivocalized, 
             'suggest':u";".join(suggests_list[i]), 'inflect':inflect, "link":relation, 'rule':selection_rule})
             # save the current chosen as a previous
             previous = i
@@ -535,7 +555,7 @@ class TashkeelClass:
     # first we use indexes instead of stemmedsynword object
     #~ def __choose_tashkeel_algo2(self, caselist, previous_chosen_case = None,
     def __choose_tashkeel(self, caselist, current_synode, previous_chosen_case = None,
-     pre_node = None, next_node = None):
+     pre_node = None, next_node = None, previous_chosen_relation = False):
         """
         Choose a tashkeel for the current word, according to the previous one.
         A new algorithm
@@ -552,11 +572,9 @@ class TashkeelClass:
         rule = 0
         previous = previous_chosen_case
         if previous:
-              pre_relation = 0 #_chosen_list[i].get_previous_relation(_chosen_list[previous].get_order());
+              pre_relation = 0 ; #_chosen_list[i].get_previous_relation(_chosen_list[previous].get_order());
         else:
             pre_relation = 0    
-        debug = False
-        #~ debug = True
         if next_node:
             next_chosen_indexes = next_node.get_chosen_indexes()
         else:
@@ -587,65 +605,36 @@ class TashkeelClass:
             tmplist = filter(lambda x: (caselist[x].is_stopword() or
                      (caselist[x].is_marfou3() and not caselist[x].is_passive())
                      or caselist[x].is_past() ), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            # else 
-            if tmplist:
-                indxlist = tmplist                            
-                if len(indxlist) == 1 : rule = 1
-            if debug: print 1,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, rule)
             # and lets other methode to choices by semantic and syntaxic
             # select all cases with semantic relations
         if not rule and self.get_enabled_semantic_analysis():            
             tmplist = filter(lambda x: self.anasem.is_related(previous, caselist[x]) or caselist[x].has_sem_next(next_chosen_indexes), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist
 
-            # if there are many semantic relations or non one, we use frequency to choose the
-            # most frequent word to be selected
-                if len(indxlist) == 1 : rule = 2
-            if debug: print 2,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
-
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, rule)
 
             # two semantic relations
             tmplist = filter(lambda x: self.anasem.is_related(previous, caselist[x]) and caselist[x].has_sem_next(next_chosen_indexes), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist
-            # if there are many semantic relations or non one, we use frequency to choose the
-            # most frequent word to be selected
-                if len(indxlist) == 1 : rule = 4
-            if debug: print 2,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 4)
             
+
             # one semantic relations from previous
             tmplist = filter(lambda x: self.anasem.is_related(previous, caselist[x]) and caselist[x].has_next(next_chosen_indexes), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist
-            # if there are many semantic relations or non one, we use frequency to choose the
-            # most frequent word to be selected
-                if len(indxlist) == 1 : rule = 5
-            if debug: print 2,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
-
             
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 5)
+
+
             # one semantic relations from next
             tmplist = filter(lambda x: self.anasynt.is_related(previous, caselist[x]) and caselist[x].has_sem_next(next_chosen_indexes), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist
-            # if there are many semantic relations or non one, we use frequency to choose the
-            # most frequent word to be selected
-                if len(indxlist) == 1 : rule = 6
-            if debug: print 2,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 6)
 
             # select stopword
         if not rule:
             tmplist = filter(lambda x:  caselist[x].is_stopword(), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist  
-                if len(indxlist) == 1 : rule = 3
-            if debug: print 3,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 3)
 
             # syntaxic
             # select stopword
@@ -653,19 +642,13 @@ class TashkeelClass:
         if not rule:           
             tmplist = filter(lambda x:  caselist[x].is_stopword() and (self.anasynt.is_related(previous, caselist[x])
                                      and caselist[x].has_next(next_chosen_indexes)) , indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist  
-                if len(indxlist) == 1 : rule = 41
-            if debug: print 10,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 41)
 
         if not rule:           
             tmplist = filter(lambda x:  caselist[x].is_stopword() and caselist[x].has_next(next_chosen_indexes) , indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist  
-                if len(indxlist) == 1 : rule = 10
-            if debug: print 10,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 10)
 
         #~ if not rule:           
             #~ tmplist = filter(lambda x:  caselist[x].is_stopword()  and self.anasynt.is_related(previous, caselist[x]) , indxlist)
@@ -679,44 +662,48 @@ class TashkeelClass:
         if not rule and self.get_enabled_syntaxic_analysis():
             # select all cases with syntaxic relations
             tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and caselist[x].has_next(next_chosen_indexes)), indxlist)
-           
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist
-                if len(indxlist) == 1 : rule = 11
-            if debug: print 11,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
-                    
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 11)
+      
         if not rule and  self.get_enabled_syntaxic_analysis():
             tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x])), indxlist)
            
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist                
-                if len(indxlist) == 1 : rule = 12
-            if debug: print 12,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 12)
+
+        # select only compatible relations with previous relations
+        # like قال هذا الرجل، 
+        #قال هذا 
+        #~ give us a verb subject,
+         #~ then the relation between
+         #~ هذا الرجل 
+        #~ must be raf3 substitution
+
+        if not rule and  self.get_enabled_syntaxic_analysis():
+            tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and self.anasynt.are_compatible_relations(previous_chosen_relation, previous.get_next_relation(x)) ), indxlist)
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 13)
 
             # Default cases selection 
             # get all the indexes in the current cases list
         if not rule and self.get_enabled_syntaxic_analysis():
             # select all cases with syntaxic relations
             tmplist = filter(lambda x: caselist[x].has_next(next_chosen_indexes), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist
-                if len(indxlist) == 1 : rule = 13
-            if debug: print 13,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
-                    
-            # get all the indexes in the current cases list
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 14)
+        # Get relations of non mansoub with a has_previous
+        # Previlege relations of Raf3 or Jar than the Nasb if there are many relations
+        if not rule and self.get_enabled_syntaxic_analysis():
+            # select all cases with syntaxic relations
+            tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and caselist[x].is_noun() and not caselist[x].is_mansoub()), indxlist)
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 17)        
         if not rule:
             # select all cases with tanwin
             if (next_node and next_node.is_break()) or not next_node:
                 tmplist = filter(lambda x: caselist[x].is_tanwin() or not caselist[x].is_noun() , indxlist)
-                # if indexes list is empty, the current indexes list is reloaded, and no change
-                if tmplist:
-                    indxlist = tmplist
-            # print "len list tawin", len(tmplist)
-                    if len(indxlist) == 1 : rule = 14
-            if debug: print 14,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+
+                indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 15)
 
             #select default
 
@@ -726,11 +713,8 @@ class TashkeelClass:
             maxfreq = 0
             maxfreq = max([caselist[x].get_freq() for x in indxlist])
             tmplist = filter(lambda x: caselist[x].get_freq() == maxfreq, indxlist)
-            if tmplist:
-                indxlist = tmplist 
-                if len(indxlist) == 1 : rule = 31
-            if debug: print 31,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
 
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 31)
         #~ conditions = [
         #~ { "rule":30, "cond":[("is_stopword",True), ],} ,
         #~ { "rule":32, "cond":[("is_noun",True),  ("is_mansoub",True),],} ,
@@ -757,54 +741,46 @@ class TashkeelClass:
                         #~ rule = cond.get('rule',0)
                         #~ break
         if not rule:                
-            # select mansoub noun
-            tmplist = filter(lambda x: ( caselist[x].is_noun() and  caselist[x].is_mansoub()), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist  
-                if len(indxlist) == 1 : rule = 32
-            if debug: print 32,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+            # exode Dual cases
+            # use to avoid dual cases like من الفلاحَين instead of من الفلاحِين
+            tmplist = filter(lambda x: ( caselist[x].is_noun() and  not caselist[x].is_dual()), indxlist)
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 32)
 
         if not rule:                
-            # select plural noun
-            tmplist = filter(lambda x: ( caselist[x].is_noun() and  caselist[x].is_plural()), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist  
-                if len(indxlist) == 1 : rule = 37
-            if debug: print 32,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+            # select mansoub noun
+            tmplist = filter(lambda x: ( caselist[x].is_noun() and  caselist[x].is_mansoub()), indxlist)
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 33)
+
+        #~ if not rule:                
+            #~ # select plural noun
+            #~ tmplist = filter(lambda x: ( caselist[x].is_noun() and  caselist[x].is_plural()), indxlist)
+
+            #~             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, rule)
+
         if not rule:                
             # select active voice
             tmplist = filter(lambda x: ( caselist[x].is_verb() and not caselist[x].is_passive()), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist                
-                if len(indxlist) == 1 : rule = 33
-            if debug: print 33,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 35)
+
         if not rule:                        
             # select present marfou3 or past
             tmplist = filter(lambda x: ( caselist[x].is_verb() and (caselist[x].is_marfou3() or caselist[x].is_past())), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist               
-                if len(indxlist) == 1 : rule = 34  
-            if debug: print 34,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 36)
         if not rule:            
             # select 3rd person
             tmplist = filter(lambda x: ( caselist[x].is_verb() and caselist[x].is3rdperson()), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist               
-                if len(indxlist) == 1 : rule = 35 
-            if debug: print 35,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 37)
+
         if not rule:            
             # select 1st person
             tmplist = filter(lambda x: ( caselist[x].is_verb() and caselist[x].is1stperson()), indxlist)
-            # if indexes list is empty, the current indexes list is reloaded, and no change
-            if tmplist:
-                indxlist = tmplist               
-                if len(indxlist) == 1 : rule = 36 
-            if debug: print 35,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 38)
                                         
         # select the first case if there one or many
         chosen_index =  indxlist[0]
@@ -898,7 +874,27 @@ class TashkeelClass:
         # reduce the list of cases
         current_synode.set_chosen_indexes(indxlist)
 
- 
+def _get_indexlist_and_rule(tmplist, indexlist, caselist, rule):
+    """
+    Just a macro to avoid repetetion
+    if tmplist is not empty, change indexlist,
+    if the indexlist has one element, the rule is applyed
+    """
+    debug = False
+    #~ debug = True
+    #~ if tmplist is not empty, change indexlist,
+
+    if tmplist:
+       indexlist = tmplist
+
+    #~ if the indexlist has one element, the rule is applied
+    applied_rule = rule if len(indexlist) == 1 else 0
+    # if debug, display the 
+    if debug: 
+        print "choose tashkeel", rule,applied_rule, u", ".join([caselist[x].get_vocalized() for x in indexlist]).encode('utf8')
+    return indexlist, applied_rule
+
+
 def mainly():
     """
     main test

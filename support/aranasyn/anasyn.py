@@ -1,7 +1,7 @@
 ﻿#!/usr/bin/python
 # -*- coding=utf-8 -*-
 #------------------------------------------------------------------------
-# Name:        aranasyn.syn_const
+# Name:        sconst
 # Purpose:     Arabic syntaxic analyser.
 #
 # Author:      Taha Zerrouki (taha.zerrouki[at]gmail.com)
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     sys.path.append('../lib')
     sys.path.append('../')
 import pyarabic.araby as araby
-import aranasyn.syn_const 
+import aranasyn.syn_const  as sconst
 #~ import qalsadi.stemmedword as stemmedword
 import aranasyn.synnode
 import aranasyn.stemmedsynword as stemmedsynword
@@ -96,7 +96,7 @@ class SyntaxAnalyzer:
 
             # خاصية الشفافية يجب أن تعالج في مستوى آخر وليس في مستوى حالات الكلمة
             previous_index = current_index
-            pre_node        = current_node
+            pre_node       = current_node
 
         return stemmedsynwordlistlist, synnode_list
 
@@ -109,7 +109,7 @@ class SyntaxAnalyzer:
         """
 
         """
-        for cond in aranasyn.syn_const.conditions:
+        for cond in sconst.conditions:
             precondlist = cond['previous'] 
             curcondlist = cond['current']
             precriteria = False 
@@ -136,7 +136,7 @@ class SyntaxAnalyzer:
                 break;
     #~ def bigram_analyze2(self, previous, current, previous_position = 0, 
             #~ current_position = 0, pre_node = None, next_node = None):
-        #~ for cond in aranasyn.syn_const.conditions:
+        #~ for cond in sconst.conditions:
             #~ precondlist = cond['previous'] 
             #~ curcondlist = cond['current']
             #~ precriteria = False 
@@ -164,10 +164,10 @@ class SyntaxAnalyzer:
                 number = 0
             if number  % 100 in range(3,10) or number % 100 == 0:
                 if current.is_majrour():
-                    weight = aranasyn.syn_const.JarMajrourRelation
+                    weight = sconst.JarMajrourRelation
             elif  number % 100 in range(11,99) or number % 100 == 0:
                 if current.is_mansoub():
-                    weight = aranasyn.syn_const.NasebMansoubRelation 
+                    weight = sconst.NasebMansoubRelation 
         return weight
         
     def is_verb_object_relation(self, previous, current):
@@ -224,21 +224,27 @@ class SyntaxAnalyzer:
             return self.treat_final(previous, current, previous_position, current_position)
         # jonction relations
         elif self.is_jonction_relation(previous, current): 
-            previous.add_next( current_position, aranasyn.syn_const.JonctionRelation)
-            current.add_previous(previous_position, aranasyn.syn_const.JonctionRelation)
+            previous.add_next( current_position, sconst.JonctionRelation)
+            current.add_previous(previous_position, sconst.JonctionRelation)
             return (previous, current)
         if current.is_break():
             # حالة التنوين في آخر الجملة
             if previous.is_tanwin():
-                previous.add_next(current_position, aranasyn.syn_const.TanwinRelation)
+                previous.add_next(current_position, sconst.TanwinRelation)
                 return (previous, current)
                 # فعل متعدي بحرف
             #ToDo:
             if previous.is_verb() and (current.is_stopword() or current.has_jar()) :
                 if  (current.has_jar() or current.is_indirect_transitive_stopword()) and previous.is_indirect_transitive() :
                     # Todo Has jar if it's كاف التشبيه
-                    weight = aranasyn.syn_const.VerbParticulRelation
-
+                    weight = sconst.VerbParticulRelation
+              # جملة مقول القول    
+            if current.is_pounct():
+                print "anasyn", 381, "Kala", previous.get_original().encode('utf8')
+                if previous.get_original() == u"قَالَ":
+                    #if the current is pounctuation and the previous is a speach verb, 
+                    previous.add_next(current_position, sconst.VerbObjectRelation)
+                    return (previous, current)                    
             
         else: # current is not a break        
             if previous.is_noun():
@@ -279,7 +285,7 @@ class SyntaxAnalyzer:
             #that the previous is initiatl state
             # the current word is prefered, we add previous
             # pointer to 0 position.
-            current.add_previous(previous_position, aranasyn.syn_const.PrimateRelation)
+            current.add_previous(previous_position, sconst.PrimateRelation)
         return (previous, current)
 
 
@@ -311,7 +317,7 @@ class SyntaxAnalyzer:
 
         if previous.is_tanwin():
         # add a relation to previous
-            previous.add_next(current_position, aranasyn.syn_const.TanwinRelation)
+            previous.add_next(current_position, sconst.TanwinRelation)
         return (previous, current)
 
     def treat_previous_noun(self, previous, current):
@@ -334,30 +340,33 @@ class SyntaxAnalyzer:
         if current.is_noun():
             if current.is_majrour() :
                 if previous.is_addition():
-                    weight = aranasyn.syn_const.AdditionRelation
+                    weight = sconst.AdditionRelation
                 elif ((not previous.is_defined()  and not previous.is_tanwin() )
                       and (not (current.is_adj() and not current.is_defined()) 
                         or  current.is_defined() )
                     ):
-                    weight = aranasyn.syn_const.AdditionRelation 
+                    weight = sconst.AdditionRelation 
             # منعوت والنعت
             #  تحتاج إلى إعادة نظر
             # بالاعتماد على خصائص الاسم الممكن أن يكون صفة
             if self.are_compatible(previous, current):
+                #~ print "adj-1", (u"\t".join([current.get_word(), previous.get_word()])).encode('utf8')
                 if current.is_adj() and (current.is_defined() or current.is_tanwin()):
-                    weight = aranasyn.syn_const.DescribedAdjectiveRelation
+                    weight = sconst.DescribedAdjectiveRelation
             #مبتدأ وخبر
             elif self.are_nominal_compatible(previous, current):
                 if current.is_adj():
-                    weight = aranasyn.syn_const.PrimatePredicateRelation
+                    weight = sconst.PrimatePredicateRelation
+            #~ else:
+                #~ print "adj-2", (u"\t".join([current.get_word(), previous.get_word()])).encode('utf8')
         if current.is_verb():
             # الجارية فعل والسابق مبتدأ
             if (previous.is_defined() or previous.is_tanwin()):
                 if self.compatible_subject_verb(previous, current):
                 # Todo treat the actual word
-                    weight = aranasyn.syn_const.Rafe3Marfou3Relation 
+                    weight = sconst.Rafe3Marfou3Relation 
         if current.is_confirmation():
-            weight = aranasyn.syn_const.ConfirmationRelation 
+            weight = sconst.ConfirmationRelation 
         return weight                
 
     def treat_previous_verb(self, previous, current):
@@ -373,11 +382,7 @@ class SyntaxAnalyzer:
         weight = 0
         if current.is_break() or not previous.is_verb():
             return 0                       
-              # جملة مقول القول    
-        if current.is_pounct():
-            if previous.get_original() == u"قالَ":
-            #if the current is pounctuation and the previous is a speach verb, 
-                return aranasyn.syn_const.VerbObjectRelation
+
 
         if current.is_noun():
             #~ if current.is_marfou3() or current.is_mabni():
@@ -388,12 +393,12 @@ class SyntaxAnalyzer:
                     if not previous.is_passive():
                         if True or ((current.is_feminin() and previous.is3rdperson_feminin())
                            or (not current.is_feminin() and previous.is3rdperson_masculin())):
-                            weight = aranasyn.syn_const.VerbSubjectRelation
+                            weight = sconst.VerbSubjectRelation
                            
                     else: # passive verb
                         if ((current.is_feminin() and previous.is3rdperson_feminin())
                            or (not current.is_feminin() and previous.is3rdperson_masculin())):
-                            weight = aranasyn.syn_const.VerbPassiveSubjectRelation
+                            weight = sconst.VerbPassiveSubjectRelation
     # الفعل والمفعول به     
             #~ print "12",current.is_mansoub(), current.is_majrour(), current.is_marfou3()
             if current.is_mansoub() or current.is_mabni():
@@ -401,7 +406,7 @@ class SyntaxAnalyzer:
                 #~ #print "1-2"
                 if not previous.is_passive():
                     if not previous.has_encletic() and previous.is_transitive():
-                        weight = aranasyn.syn_const.VerbObjectRelation 
+                        weight = sconst.VerbObjectRelation 
 
         return weight                            
 
@@ -424,36 +429,42 @@ class SyntaxAnalyzer:
             if previous.is_jar():
                 #~ if (current.is_majrour() or current.is_mabni() ):
                 if current.is_majrour():
-                    weight = aranasyn.syn_const.JarMajrourRelation
+                    weight = sconst.JarMajrourRelation
 
             # اسم إنّ منصوب
             elif previous.is_naseb():
                 #~ if (current.is_mansoub() or current.is_mabni() ):
                 if current.is_mansoub():
-                    weight = aranasyn.syn_const.InnaNasebMansoubRelation
+                    weight = sconst.InnaNasebMansoubRelation
 
             elif previous.is_initial() and  current.is_marfou3():
-                weight = aranasyn.syn_const.PrimateRelation
+                weight = sconst.PrimateRelation
 
             # اسم كان وأخواتها
             elif previous.is_kana_rafe3() and current.is_marfou3():
-                weight = aranasyn.syn_const.KanaRafe3Marfou3Relation
+                weight = sconst.KanaRafe3Marfou3Relation
             elif previous.is_rafe3():
                 #~ if (current.is_marfou3() or current.is_mabni() ):
                 if current.is_marfou3() :
-                    weight = aranasyn.syn_const.Rafe3Marfou3Relation
+                    weight = sconst.Rafe3Marfou3Relation
                 #~ # خبر إنّ لمبتدإ ضمير متصل
                 #~ elif current.is_marfou3():
                     #~ if previous.has_encletic():
-                        #~ weight = aranasyn.syn_const.InnaRafe3Marfou3Relation 
+                        #~ weight = sconst.InnaRafe3Marfou3Relation 
             if previous.is_substituted():
-                weight = aranasyn.syn_const.SubstitutionRelation                
+                   
+                if (previous.is_mansoub() and current.is_mansoub()):
+                    weight = sconst.SubstitutionMansoubRelation                         
+                elif (previous.is_marfou3() and current.is_marfou3()):
+                    weight = sconst.SubstitutionMarfou3Relation                         
+                elif (previous.is_majrour() and current.is_majrour()):
+                    weight = sconst.SubstitutionMajrourRelation                     
 
         # pronoun verb
         elif current.is_verb():
             if self.compatible_subject_verb(previous, current):
             # تطابق الضمير مع الضمير المسند إليه
-                weight = aranasyn.syn_const.SubjectVerbRelation
+                weight = sconst.SubjectVerbRelation
         #verb
             #if previous.is_verbal_factor():
             if current.is_present():
@@ -462,25 +473,25 @@ class SyntaxAnalyzer:
 # المسندة للضمير المخاطب فقط
                     if previous.get_unvoriginal() == u'لا':
                         if current.has_imperative_pronoun():
-                           weight = aranasyn.syn_const.JazemMajzoumRelation 
+                           weight = sconst.JazemMajzoumRelation 
                     else:
-                        weight = aranasyn.syn_const.JazemMajzoumRelation
+                        weight = sconst.JazemMajzoumRelation
                 elif previous.is_verb_naseb() and  current.is_mansoub():
-                    weight = aranasyn.syn_const.NasebMansoubRelation
+                    weight = sconst.NasebMansoubRelation
                 elif previous.is_verb_rafe3() and current.is_marfou3():
                     #حالة لا النافية 
                     # المسندة لغير الضمائر المخاطبة
                     if previous.get_unvoriginal() == u'لا':
                         if not current.has_imperative_pronoun():
-                           weight = aranasyn.syn_const.Rafe3Marfou3Relation
+                           weight = sconst.Rafe3Marfou3Relation
                     else:
-                        weight = aranasyn.syn_const.Rafe3Marfou3Relation
+                        weight = sconst.Rafe3Marfou3Relation
             if previous.is_condition_factor():
-                weight = aranasyn.syn_const.ConditionVerbRelation
+                weight = sconst.ConditionVerbRelation
             if previous.is_verb_jobless_factor():
-                weight = aranasyn.syn_const.JoblessFactorVerbRelation
+                weight = sconst.JoblessFactorVerbRelation
         if previous.is_jonction():
-            weight = aranasyn.syn_const.JonctionRelation
+            weight = sconst.JonctionRelation
         return weight
 
     def is_related(self, previous, current):
@@ -541,7 +552,8 @@ class SyntaxAnalyzer:
            or (current.is_masculin() and previous.is_masculin())
         ):
             compatible = True
-        else: return False
+            # تحتاج إلى استكمال بعد أن يتم تحديد نوع كل اسم في القاموس
+        #~ else: return False
 
         # العدد
         # والتثنية والإفراد الجمع
@@ -732,14 +744,14 @@ class SyntaxAnalyzer:
             if (previous.is_pronoun() and current.is_verb()):
                 # الضمير مطابق لضمير الفعل
                 if previous.is_pronoun():
-                    expected_pronouns = aranasyn.syn_const.TABLE_PRONOUN.get(current.get_pronoun(), [])
+                    expected_pronouns = sconst.TABLE_PRONOUN.get(current.get_pronoun(), [])
                     #~ print u"\t".join([previous.get_vocalized(),expected_pronoun]).encode('utf8')
                     if previous.get_original() in expected_pronouns:
                         compatible = True
             #الضمير المتصل مطابق لضمير الفعل
             #Todo fix is_added function
             if True or previous.is_added():
-                expected_pronouns = aranasyn.syn_const.TABLE_PRONOUN.get(current.get_pronoun(), [])
+                expected_pronouns = sconst.TABLE_PRONOUN.get(current.get_pronoun(), [])
                 #~ print "is_added",previous.is_added(),  u"\t".join([previous.get_vocalized(), previous.get_encletic(),u", ".join(expected_pronouns)]).encode('utf8')
                 if previous.get_encletic() in expected_pronouns:
                     compatible = True                    
@@ -777,7 +789,35 @@ class SyntaxAnalyzer:
         return compatible
 
 
-
+    def are_compatible_relations(self, previous, current):
+        """
+        verify the gramatica relation between three words are compatible.
+           دراسة الترابط النحوي بين ثلاث كلمات بواسطة علاقتها، اي توافق العلاقتين، لا سيما في التبعية والبدل.
+        If the current relation can be compatible with the previous relation
+        @param previous: the relation choosen by the tashkeel process.
+        @type previous:int 
+        @param current: the current relation.
+        @type current: int 
+        @return: return if the two relations are compatible syntaxicly.
+        @rtype: boolean
+        """
+        # substitutions
+        if current == sconst.SubstitutionMajrourRelation :
+            if u"جر" in sconst.RELATIONS_TAGS.get(previous,""):
+                return True;
+            else :
+                return False
+        if current == sconst.SubstitutionMansoubRelation :
+            if u"نصب" in sconst.RELATIONS_TAGS.get(previous,""):
+                return True;
+            else :
+                return False
+        if current == sconst.SubstitutionMarfou3Relation :
+            if u"رفع" in sconst.RELATIONS_TAGS.get(previous,""):
+                return True;
+            else :
+                return False
+        return True
 
     def exclode_cases(self, word_result):
         """

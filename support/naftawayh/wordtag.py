@@ -670,11 +670,12 @@ class WordTagger():
             #~ previous_tag  = ""
             for word in word_list:
                 word_nm = araby.strip_tashkeel(word)
+                word_nm = araby.strip_tatweel(word_nm)
                 tag = ''
                 if self.cache.has_key(word):
                     tag = self.cache.get(word, '')
                 else:
-                    if self.is_stopword(word):
+                    if self.is_stopword(word_nm):
                         tag = 't'
                     else:
                         if self.is_noun(word):

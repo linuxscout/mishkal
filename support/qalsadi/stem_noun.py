@@ -17,7 +17,7 @@
 import re
 import pyarabic.araby as araby
 import tashaphyne.stemming
-import tashaphyne.normalize
+#~ import tashaphyne.normalize
 import qalsadi.stem_noun_const as snconst
 import arramooz.arabicdictionary as arabicdictionary 
 import qalsadi.wordcase as wordcase
@@ -144,8 +144,7 @@ class NounStemmer:
                 #broken plural dictionary
                 if not self.cache_dict_search.has_key(infnoun):
                     infnoun_foundlist = self.noun_dictionary.lookup(infnoun)
-                    self.cache_dict_search[infnoun] = create_dict_word(
-                    infnoun_foundlist)
+                    self.cache_dict_search[infnoun] = infnoun_foundlist
                 else: 
                     infnoun_foundlist = self.cache_dict_search[infnoun]        
                 infnoun_form_list.extend(infnoun_foundlist)
@@ -163,29 +162,16 @@ class NounStemmer:
                     ## get all vocalized form of suffixes
                     for vocalized_encletic in snconst.COMP_SUFFIX_LIST_TAGS[encletic_nm]['vocalized']:
                         for vocalized_suffix in snconst.CONJ_SUFFIX_LIST_TAGS[suffix_conj_nm]['vocalized']:
+
                          ## verify compatibility between procletics and affix
-                            if vocalized_suffix == araby.FATHATAN and not (noun.endswith(araby.TEH_MARBUTA) or noun.endswith(araby.ALEF+araby.HAMZA) ):
-                                continue
-                            if u'جمع مذكر سالم' in snconst.CONJ_SUFFIX_LIST_TAGS[vocalized_suffix]['tags']\
-                              and not noun_tuple['masculin_plural']:
-                                continue;
                             if self.is_compatible_proaffix_affix(noun_tuple, procletic, vocalized_encletic, vocalized_suffix):
-                                vocalized, semi_vocalized = vocalize(infnoun,procletic,  vocalized_suffix, vocalized_encletic)
+                                vocalized, semi_vocalized = vocalize(infnoun, procletic,  vocalized_suffix, vocalized_encletic)
 
                                 #add some tags from dictionary entry as 
                                 #mamnou3 min sarf and broken plural
                                 original_tags = []
                                 if noun_tuple['mankous'] == u"Tk":
                                     original_tags.append(u"منقوص")
-                                if noun_tuple['number'] == u"جمع تكسير":
-                                    original_tags.append(u"جمع تكسير")
-                                # إذا كان قابلا للتأنيث فهو مذكر
-                                # وإن لم يكن يؤنث ويجمع جمع مؤنث سالم فهو مؤنث
-        
-                                if noun_tuple['feminable']:
-                                    original_tags.append(u"يؤنث")
-                                #~ elif noun_tuple['feminin_plural']:
-                                    #~ original_tags.append(u"مؤنث")
                                 # get affix tags
                                 vocalized_affix_tags = snconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']\
                                   +snconst.COMP_SUFFIX_LIST_TAGS[vocalized_encletic]['tags']\
@@ -207,17 +193,13 @@ class NounStemmer:
                                     'semivocalized':semi_vocalized,
                                     'tags':  u':'.join(voc_affix_case), 
                                     'type':  u':'.join(['Noun', noun_tuple['wordtype']]),  
+                                    'number': noun_tuple['number'],
+                                    'gender': noun_tuple['gender'],                                    
                                     'freq':'freqnoun', # to note the frequency type 
                                     'originaltags':u':'.join(original_tags), 
                                     'syntax':'', 
                                     }))
         return detailed_result
-
-
-
-
-
-
 
 
     def is_compatible_proaffix_affix(self, noun_tuple, procletic, encletic, 
@@ -234,6 +216,16 @@ class NounStemmer:
         @return: compatible.
         @rtype: True/False.
         """ 
+        # avoid Fathatan on no ALEF Tawnwin expect on Teh marbuta and Alef followed by Hamza
+        # تجنب تنوين النصب على غير الألف ما عدا التاء المربوطة أو همزة بعد ألف
+        if suffix == araby.FATHATAN and not (noun_tuple["unvocalized"].endswith(araby.TEH_MARBUTA) 
+            or noun_tuple["unvocalized"].endswith(araby.ALEF+araby.HAMZA) ):
+            return False 
+        # avoid masculin regular plural with unallowed case
+        # تجنب جمع المذكر السالم للكلمات التي لا تقبلها
+        if u'جمع مذكر سالم' in snconst.CONJ_SUFFIX_LIST_TAGS[suffix]['tags']\
+          and not noun_tuple['masculin_plural']:
+            return False;
         #if not procletic and not encletic:  return True
         #use cache for affix verification
         affix = u'-'.join([procletic, encletic, suffix, str(
@@ -247,7 +239,9 @@ class NounStemmer:
         encletic_tags = snconst.COMP_SUFFIX_LIST_TAGS[encletic]['tags']
         # in nouns there is no prefix 
         suffix_tags = snconst.CONJ_SUFFIX_LIST_TAGS[suffix]['tags']        
-
+        # in some cases the suffixes have more cases
+        # add this cases to suffix tags
+        suffix_tags += snconst.CONJ_SUFFIX_LIST_TAGS[suffix].get("cases",())
         if u"تعريف" in procletic_tags and u"مضاف" in suffix_tags and \
         not u'مضاف' in encletic_tags:
             self.cache_affixes_verification[affix] = False
@@ -278,8 +272,6 @@ class NounStemmer:
 
         return self.cache_affixes_verification[affix]
 
-
-
     
     def set_debug(self, debug):
         """
@@ -288,6 +280,7 @@ class NounStemmer:
         @type debug: True/False.
         """
         self.debug = debug
+
     def enable_syntax_lastmark(self):
         """
         Enable the syntaxic last mark attribute to allow use of I'rab harakat.
@@ -299,6 +292,7 @@ class NounStemmer:
         Disable the syntaxic last mark attribute to allow use of I'rab harakat.
         """
         self.allow_syntax_lastmark = False
+
 def get_stem_variants(stem, suffix_nm):
     """
     Generate the Noun stem variants according to the affixes.
@@ -325,8 +319,10 @@ def get_stem_variants(stem, suffix_nm):
         possible_noun = stem+araby.YEH
         possible_noun_list.add(possible_noun)
     if stem.endswith(araby.YEH):
+        # إذا كان أصل الياء ألفا مقصورة
         possible_noun = stem[:-1]+araby.ALEF_MAKSURA
         possible_noun_list.add(possible_noun)
+        
     if stem.endswith(araby.HAMZA):
         possible_noun = stem[:-1]+araby.YEH_HAMZA
         possible_noun_list.add(possible_noun)        
@@ -442,6 +438,10 @@ def get_word_variant(word, suffix, encletic):
      # إذا كان لا ضمير واللاحقة فقط حركات
      # نحذف ال
          if not encletic_nm  and not suffix_nm :
+            word_stem = word_stem[:-2] 
+     # الاسم المنقوص ينتهي بياء قبلها مكسور
+     # إذا كانت اللاحقة ياء ونون
+         elif suffix_nm in (araby.YEH + araby.NOON, araby.WAW + araby.NOON) :
             word_stem = word_stem[:-2] 
 
         #ضبط المنتهي بالهمزة حسب حركة اللاحقة النحوية         
@@ -587,8 +587,8 @@ def validate_tags(noun_tuple, affix_tags, procletic, encletic_nm ,
     @rtype: Boolean.
     """
     procletic = araby.strip_tashkeel(procletic)
-    encletic = encletic_nm
-    suffix = suffix_nm
+    #~ encletic = encletic_nm
+    #~ suffix = suffix_nm
 
 
     if  u'تنوين' in affix_tags and  noun_tuple['mamnou3_sarf']:
@@ -596,22 +596,22 @@ def validate_tags(noun_tuple, affix_tags, procletic, encletic_nm ,
     #~if  u'منسوب' in affix_tags and (not noun_tuple['relative'] and not u'مصدر' in noun_tuple['word_type']):
         #~return False
     #تدقيق الغضافة إلى الضمائر المتصلة
-    if encletic == u"هم" and noun_tuple['hm_suffix'] == 'N':
+    if encletic_nm == u"هم" and noun_tuple['hm_suffix'] == 'N':
         return False
-    if encletic == u"ه" and noun_tuple['ha_suffix'] == 'N':
+    if encletic_nm == u"ه" and noun_tuple['ha_suffix'] == 'N':
         return False
-    if encletic == u"ك" and noun_tuple['k_suffix'] == 'N':
+    if encletic_nm == u"ك" and noun_tuple['k_suffix'] == 'N':
         return False
     #حالة قابلية التشبيه
     if procletic.endswith(u"كال") and noun_tuple['kal_prefix'] == 'N':
         return False
     # حالة المضاف إلى ما بعهده في حالة جمع المذكر السالم
     # مثل لاعبو، رياضيو
-    if suffix == araby.WAW and not noun_tuple['w_suffix']:
+    if suffix_nm == araby.WAW and not noun_tuple['w_suffix']:
         return False
     #التاء المربوطة لا تتصل بجمع التكسير
-    # if suffix == araby.TEH_MARBUTA and noun_tuple['broken_plural']:
-        # return False
+    if suffix_nm == araby.TEH_MARBUTA and noun_tuple['number'] == u"جمع":
+        return False
     # elif  u'مضاف' in affix_tags and not noun_tuple['annex']:
         # return False
 #todo
@@ -631,18 +631,4 @@ def validate_tags(noun_tuple, affix_tags, procletic, encletic_nm ,
 # u'k_suffix':21, *
 # u'annex':22, 
     return True
-def create_dict_word(dict_entries_list):
-    """
-    Create a list of dictWord objects from dictionary entries
-    @param dict_entries_list: a list of entiers from lexicon
-    @type  dict_entries_list: list of dict
-    @return: a list of dictWord object
-    @rtype: a list of dictWord object
-    """
-    return dict_entries_list
-    #ToDo
-    #~return [dictword.dictWord(dict(lexiconEntry))  for 
-    # lexiconEntry in  dict_entries_list]
-    #for lexiconEntry in dict_entries_list:
-        #dictWordList.append(dictword.dictWord(dict(lexiconEntry)))
-    ## return dictWordList
+

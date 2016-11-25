@@ -274,6 +274,7 @@ class SemanticAnalyzer:
         @return: return the relation between two words, else False
         @rtype: Unicode or False
         """
+        #~ return False
         preorigin  =  previous.get_original()
         relation = ''
         if previous.is_proper_noun():

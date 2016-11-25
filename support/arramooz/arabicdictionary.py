@@ -20,6 +20,7 @@ import os, os.path
 import sqlite3 as sqlite
 import sys
 FILE_DB = u"data/arabicdictionary.sqlite"
+#~ FILE_DB = u"data/arabicdictionary.old.sqlite"
 import pyarabic.araby as araby
 class ArabicDictionary:
     """

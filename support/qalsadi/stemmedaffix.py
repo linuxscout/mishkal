@@ -70,7 +70,8 @@ class StemmedAffix:
             if self.is_noun():
                 self.tag_defined  =  self.__is_defined()
                 self.tag_tanwin   =  self.__is_tanwin()                
-                self.tag_jar      =  self.__has_jar()
+        # used for nouns and stop words
+        self.tag_jar      =  self.__has_jar()
         self.tag_added          =  self.__is_added()
         #~self.tag_feminin         =  self.__is_feminin()        
         self.tag_break = self.__is_break()
@@ -392,7 +393,7 @@ class StemmedAffix:
         @return: has jar.
         @rtype: True/False
         """        
-        return  u'جر:'in self.get_tags() or self.procletic.startswith(araby.LAM)
+        return  u'جر:'in self.get_tags() #or self.procletic.startswith(araby.LAM)
 
     def __has_istfham(self):
         """

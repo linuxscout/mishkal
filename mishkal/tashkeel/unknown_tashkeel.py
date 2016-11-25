@@ -56,6 +56,9 @@ def vocalize_foreign(word):
                 marks.append(araby.KASRA)
         elif previous in (araby.ALEF_HAMZA_BELOW, araby.ALEF_HAMZA_ABOVE):
                 marks.append(araby.SUKUN)
+        elif previous in (araby.ALEF, araby.YEH, araby.WAW):
+                if c == araby.YEH_HAMZA : 
+                    marks.append(araby.KASRA)
         else:
                 marks.append(araby.NOT_DEF_HARAKA)
         previous = c        

@@ -52,6 +52,8 @@ class WordCase:
         if result_dict:
             self.word = result_dict.get('word', u'')
             self.vocalized = result_dict.get('vocalized', u'')
+            if not self.vocalized:
+            	 self.vocalized = result_dict.get('word', u'T')
             self.semivocalized = result_dict.get('semivocalized', u'')
             self.stem = result_dict.get('stem', u'')
             self.affix = result_dict.get('affix', [])

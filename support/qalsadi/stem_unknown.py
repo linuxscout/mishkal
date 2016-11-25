@@ -226,6 +226,8 @@ class UnknownStemmer:
                 original_tags = ()
                 #~original = noun_tuple['vocalized'] 
                 wordtype = noun_tuple['word_type'] 
+                vocalized = vocalize(infnoun, procletic, prefix_conj, suffix_conj, encletic)
+                #print "v", vocalized.encode('utf8')
                 detailed_result.append(wordcase.WordCase({
                 'word':noun, 
                 'affix': ( procletic, 
@@ -238,9 +240,10 @@ class UnknownStemmer:
                 #~ 'suffix':suffix_conj, 
                 'stem':stem_conj, 
                 'original':infnoun, #original, 
-                'vocalized':vocalize(infnoun, procletic, prefix_conj,
-                 suffix_conj, encletic), 
-            'tags':u':'.join(snconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']\
+                'vocalized':vocalized, 
+				'semivocalized':vocalize(infnoun, procletic, prefix_conj,
+                 suffix_conj, encletic),
+                'tags':u':'.join(snconst.COMP_PREFIX_LIST_TAGS[procletic]['tags']\
                 +snconst.COMP_SUFFIX_LIST_TAGS[encletic]['tags']+\
                 snconst.CONJ_SUFFIX_LIST_TAGS[suffix_conj]['tags']), 
                 'type':u':'.join(['Noun', wordtype]), #'Noun', 
@@ -314,7 +317,7 @@ def vocalize(noun, proclitic, prefix, suffix, enclitic):
             proclitic_voc = proclitic_voc[:-1] 
     noun = get_word_variant(noun, suffix) 
     noun = get_word_variant(noun, enclitic)         
-    suffix_voc = get_suffix_variant(noun, suffix_voc, enclitic) 
+    suffix_voc = get_suffix_variant(noun, suffix_voc, enclitic)
     return ''.join([ proclitic_voc, prefix, noun, suffix_voc,
      enclitic_voc]) 
 

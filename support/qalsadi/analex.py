@@ -231,64 +231,6 @@ class Analex :
     def check_text(self, text, mode = 'all'):
         """
         Analyze text morphologically.
-The analyzed data given by morphological analyzer Qalsadi 
-have the following format:
-                "<th>المدخل</th>", "<th>تشكيل</th>", "<th>الأصل</th>",
-                 "<th>السابقة</th>", "<th>الجذع</th>", 
-                "<th>اللاحقة</th>", "<th>الحالة الإعرابية</th>", 
-                "<th>الجذر</th>", "<th>النوع</th><th>شيوع</th>", 
-                "</tr>"
-        morphological Result is a list of list of dict.
-        The list contains all possible morphological analysis as a dict
-        [
-        [
-         {
-            "word": "الحياة",      # input word
-            "vocalized": "الْحَيَاةُ", # vocalized form of the input word 
-            "procletic": "ال",      # the syntaxic pprefix called procletic
-            "prefix": "",          # the conjugation or inflection prefix
-            "stem": "حياة",          # the word stem
-            "suffix": "ُ",           # the conjugation suffix of the word
-            "encletic": "",          # the syntaxic suffix
-            
-            "tags": "تعريف::مرفوع*", # 
-tags of affixes and tags extracted form lexical dictionary
-
-            "freq": 0,              
-# the word frequency from Word Frequency database 
-            "root": "",             
- # the word root not yet used
-            "template": "",          # the template وزن 
-            "type": "Noun:مصدر",  # the word type
-            "original": "حَيَاةٌ"        #original word from lexical dictionary
-            "syntax":""                # used for syntaxique analysis porpos
-            }, 
-         {"vocalized": "الْحَيَاةِ", "suffix": "ِ", "tags": "تعريف::مجرور",
- "stem": "حياة", "prefix": "", "freq": 0, "encletic": "", "word": "الحياة",
- "procletic": "ال", "root": "", "template": "", "type": "Noun:مصدر",
- "original": "حَيَاةٌ", "syntax":""}, 
-         {"vocalized": "الْحَيَاةَ", "suffix": "َ", "tags": "تعريف::منصوب", 
-"stem": "حياة", "prefix": "", "freq": 0, "encletic": "", "word": "الحياة",
- "procletic": "ال", "root": "", "template": "", "type": "Noun:مصدر", 
-"original": "حَيَاةٌ", "syntax":""}
-        ], 
-        [ 
-         {"vocalized": "جَمِيلَةُ", "suffix": "َةُ", "tags": 
-"::مؤنث:مرفوع:ممنوع من الصرف", "stem": "جميل",
- "prefix": "", "freq": 63140, "encletic": "", 
-"word": "جميلة", "procletic": "", "root": "", "template": "", "type": 
-"Noun:صيغة مبالغة", "original": "جَمِيلٌ", "syntax":""}, 
-         {"vocalized": "جَمِيلَةِ", "suffix": "َةِ", "tags":
- "::مؤنث:مجرور:ممنوع من الصرف", "stem": "جميل",
- "prefix": "", "freq": 63140, "encletic": "",
- "word": "جميلة", "procletic": "", "root": "", "template": "", 
-"type": "Noun:صيغة مبالغة", "original": "جَمِيلٌ"}, {"vocalized": "جَمِيلَةَ",
- "suffix": "َةَ", "tags": "::مؤنث:منصوب:ممنوع من الصرف", "stem": "جميل", 
-"prefix": "", "freq": 63140, "encletic": "", "word": "جميلة", 
-"procletic": "", "root": "", "template": "", "type": "Noun:صيغة مبالغة",
- "original": "جَمِيلٌ", "syntax":""}
-        ]
-        ], 
         @param text: the input text.
         @type text: unicode.
         @param mode: the mode of analysis as 'verbs', 'nouns', or 'all'.
@@ -331,25 +273,6 @@ tags of affixes and tags extracted form lexical dictionary
                 one_data_list = self.check_word(word, guessedtag)
                 stemmed_one_data_list = [ stemmedword.StemmedWord(w) for w in one_data_list ]
                 resulted_data.append(stemmed_one_data_list)
-                """if self.allow_cache_use and self.cache.isAlreadyChecked(word):
-                    #~ print (u"'%s'"%word).encode('utf8'), 'found'
-                    one_data_list = self.cache.getChecked(word)
-                    stemmed_one_data_list = \
-                    [ stemmedword.StemmedWord(w) for w in one_data_list ]
-                    resulted_data.append(stemmed_one_data_list)
-                else:
-                    guesedtag = list_guessed_tag[i]    
-                    print "word  check",(u"'%s'"%word).encode('utf8'), ' not'            
-                    one_data_list = self.check_word(word, guessedtag)
-                    stemmed_one_data_list = \
-                    [stemmedword.StemmedWord(w) for w in one_data_list ]
-                    resulted_data.append(stemmed_one_data_list)
-
-                    one_data_list_to_serialize = [w.__dict__ \
-                    for w in one_data_list]
-                    sif self.allow_cache_use:
-                        self.cache.addChecked(word, one_data_list_to_serialize)
-"""
         elif mode == 'nouns':
         
             for word in list_word[:self.limit] :
@@ -432,9 +355,10 @@ tags of affixes and tags extracted form lexical dictionary
             resulted_data.append(wordcase.WordCase({
             'word':word, 
             'affix': ('' , '', '', ''),     
-            'stem':'', 
+            'stem':word, 
             'original':word, 
             'vocalized':word, 
+            'semivocalized':word, 
             'tags':u'', 
             'type':'unknown', 
             'root':'', 
@@ -666,10 +590,11 @@ def check_normalized(word_vocalised, resulted_data):
         #~ if 'vocalized' in item :
             #~ outputword = araby.strip_tashkeel(item['vocalized'])
             outputword = araby.strip_tashkeel(item.__dict__['vocalized'])
-            #print u'\t'.join([inputword, outputword]).encode('utf8')
+            #~ print u'\t'.join([inputword, outputword]).encode('utf8')
             if inputword == outputword:
                 #item['tags'] += ':a'
                 filtred_data.append(item)
+            #~ filtred_data.append(item)
     return  filtred_data
 
 

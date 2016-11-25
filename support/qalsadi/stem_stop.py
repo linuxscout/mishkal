@@ -86,7 +86,7 @@ class StopWordStemmer:
                         list_stem.append(stem[:-1]+araby.ALEF_MAKSURA)
                     elif stem.endswith(araby.TEH):
                         list_stem.append(stem[:-1]+araby.TEH_MARBUTA)
-				# treat gemination cases
+                # treat gemination cases
                     if encletic_nm.startswith(araby.YEH):
                         list_stem.append(stem+araby.YEH)
                     elif encletic_nm.startswith(araby.NOON):
@@ -363,13 +363,13 @@ def get_enclitic_variants(word, suffix, enclitic):
     #enclitic_nm = araby.strip_tashkeel(enclitic)
     #newsuffix = suffix #default value
     #if the word ends by a haraka
-	# الإدغام في النون والياء في مثل فيّ، إليّ، عنّا ، منّا 
+    # الإدغام في النون والياء في مثل فيّ، إليّ، عنّا ، منّا 
     if enclitic.startswith(araby.NOON) and word.endswith(araby.NOON) :
-		enclitic = enclitic[1:] + araby.SHADDA
-		print "xxxxxxxxxxx--1"
+        enclitic = enclitic[1:] + araby.SHADDA
+        print "xxxxxxxxxxx--1"
     if enclitic.startswith(araby.KASRA + araby.YEH) and word.endswith(araby.YEH)  :
-		enclitic = enclitic[1:] + araby.SHADDA
-		print "xxxxxxxxxxx--2"
+        enclitic = enclitic[1:] + araby.SHADDA
+        print "xxxxxxxxxxx--2"
 
     return enclitic
 
@@ -387,13 +387,13 @@ def get_word_variant(word, suffix):
     word_stem = word
     suffix_nm = araby.strip_tashkeel(suffix)
 
-	# تحويل الألف المقصورة إلى ياء في مثل إلى => إليك
+    # تحويل الألف المقصورة إلى ياء في مثل إلى => إليك
     if word_stem.endswith(araby.ALEF_MAKSURA) and suffix_nm :
         if word_stem == u"سِوَى":
             word_stem = word_stem[:-1]+araby.ALEF
         else: 
             word_stem = word_stem[:-1]+araby.YEH + araby.SUKUN
-	# تحويل الهمزة حسب موقعها           
+    # تحويل الهمزة حسب موقعها           
     elif word_stem.endswith(araby.HAMZA) and suffix_nm :
         if suffix.startswith(araby.DAMMA):
             word_stem = word_stem[:-1] + araby.WAW_HAMZA
@@ -403,13 +403,13 @@ def get_word_variant(word, suffix):
 
 
 
-	# this option is not used with stop words, because most of them are not inflected مبني
+    # this option is not used with stop words, because most of them are not inflected مبني
     #if the word ends by a haraka strip the haraka if the suffix is not null
     if suffix and suffix[0] in araby.HARAKAT:
         word_stem = araby.strip_lastharaka(word_stem)
 
 
-	# الإدغام في النون والياء في مثل فيّ، إليّ، عنّا ، منّا 
+    # الإدغام في النون والياء في مثل فيّ، إليّ، عنّا ، منّا 
     if suffix.startswith(araby.NOON) and word.endswith(araby.NOON + araby.SUKUN) :
         word_stem = araby.strip_lastharaka(word_stem)
     elif suffix.startswith(araby.KASRA + araby.YEH) and word.endswith(araby.YEH + araby.SUKUN)  :
@@ -435,9 +435,9 @@ def vocalize( stop, proclitic,  suffix, enclitic):
     # procletic have only an uniq vocalization in arabic
     proclitic_voc = ssconst.COMP_PREFIX_LIST_TAGS[proclitic]["vocalized"][0]
     # enclitic can have many vocalization in arabic
-	# like heh => عليهِ سواهُ
-	# in this stage we consider only one,
-	# the second situation is ajusted by vocalize_ajust
+    # like heh => عليهِ سواهُ
+    # in this stage we consider only one,
+    # the second situation is ajusted by vocalize_ajust
     enclitic_voc = ssconst.COMP_SUFFIX_LIST_TAGS[enclitic]["vocalized"][0]
     suffix_voc = suffix#CONJ_SUFFIX_LIST_TAGS[suffix]["vocalized"][0]
 
@@ -505,23 +505,21 @@ def validate_tags(stop_tuple, affix_tags, procletic, encletic_nm ,
         return False;
     if u"تعريف" in affix_tags and stop_tuple['defined']:
         return False;        
-        #~preposition 
-    if  u':جر:'in affix_tags and not stop_tuple['preposition']:
-        return False 
-    if  u':جر:'in affix_tags and not stop_tuple['preposition']:
+    #~preposition 
+    if  u'جر'in affix_tags and not stop_tuple['preposition']:
         return False 
     if u"متحرك" in affix_tags  and  not stop_tuple['is_inflected']:
         return False  
-	
+    
     if u"مضاف" in affix_tags and not stop_tuple['pronoun']:
         return False 
     if u"مضاف" in affix_tags and stop_tuple['defined']:
         return False 
-	# حين تكون الأداة متحركة فهي تقبل الاتصال بياء المتكلم مباشرة
+    # حين تكون الأداة متحركة فهي تقبل الاتصال بياء المتكلم مباشرة
     if encletic_nm == araby.YEH  and  not stop_tuple['is_inflected']:
         return False
-	# noon wiqaya نون الوقاية
-	# حين تكون الأداة غير متحركة فهي تلزم  الاتصال بنون الوقاية قبل ياء المتكلم مباشرة
+    # noon wiqaya نون الوقاية
+    # حين تكون الأداة غير متحركة فهي تلزم  الاتصال بنون الوقاية قبل ياء المتكلم مباشرة
     if u"وقاية" in affix_tags  and  ( stop_tuple['is_inflected'] or stop_tuple['word'].endswith(araby.YEH)) :
         return False
         #~interrog
@@ -530,7 +528,7 @@ def validate_tags(stop_tuple, affix_tags, procletic, encletic_nm ,
         #~conjugation                   
         #~qasam 
 
-	
+    
     if u"قسم" in affix_tags and not stop_tuple['qasam']:
         return False           
         #~

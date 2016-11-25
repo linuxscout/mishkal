@@ -1,3 +1,5 @@
+2016-09-14:*  Taha Zerrouki
+	- 
 2015-05-09: *Taha Zerrouki
     - add jobless or inactive verb factor like قد
     - reduce basewebApp logger text to reduce logout_file size
@@ -205,3 +207,807 @@
 24-11-2011:Taha
 	* first alpha release on the web
 	* The script use cgi to run web frame work.
+commit 46c0ceeef0ca7a0398a9637c22e3760270a9be17
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Tue Mar 22 17:25:06 2016 +0100
+
+    تصحيح تحليل الاسم المقصور
+    
+    تصحيح تحليل الاسم المقصور
+    5True 500   78.06%  89.91%  4627    2129    6041    21090   85.71%
+    91.07%
+
+commit b90b64ea5b87238de4ba968e73a463a3d52cdded
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Tue Mar 22 13:13:47 2016 +0100
+
+    add to ignore
+
+commit 7562a8efcfa314ecc5fd22cdcb94a3e78993f591
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Tue Mar 22 13:05:57 2016 +0100
+
+    add web graphical visualization
+
+commit 192e925c67d94eb2bb8a1306865fb87f08bd034d
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Tue Mar 22 13:05:35 2016 +0100
+
+    add semantic relations
+    
+    إضافة قاعدة بياتات دلالية اشتقاقية
+    add file semdictionary
+    fill this dictionnary with derivational and semantic relations
+    5true 500 78.17%  89.94%  4604    2121    5996    21090   87.50%  91.07%
+
+commit c123b5d386c6b3bde0330f5021ba67870ec08aee
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Tue Mar 22 13:03:50 2016 +0100
+
+    correct data
+
+commit 9513b27e312ca88d5f8a568e95f03bc0ec48f726
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Tue Mar 22 13:03:20 2016 +0100
+
+    add 4 number name
+
+commit b684c9c689abd0db8c5a55033f190d7e5a474813
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Tue Mar 22 13:02:36 2016 +0100
+
+    fix syntax
+
+commit 9dcd6f7e50a8cd16a7f4ca1a5e6aeee2e4302107
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Tue Mar 22 13:02:21 2016 +0100
+
+    syntax fo=ix cases and errors
+    
+    تشكيل تلقائي للكلمات الأجنبية
+    5true 500   78.28%  89.96%  4580    2117    5953    21090   87.50%
+    91.07%
+    تصحيح حالة كلمة ينبغي
+    5True 500   78.29%  89.96%  4579    2117    5952    21090   87.50%
+    91.07%
+    إلغاء علاقة فعل ومفعول به لأجل تفضيل علاقات أقوى مثل الفاعلية
+    ما دات المفعولية هي علاقة تلقائية لأنها منصوبة
+    5true 500   78.99%  89.91%  4430    2128    5779    21090   89.29%
+    91.07%
+    arramoooz/stopwords.sqlite: إضافة كلمة بينما إلى المستبعدات
+    5true 500   79.01%  89.92%  4427    2126    5773    21090   89.29%
+    91.07%
+    tmishkal/tahshkeel/tashkeel.py: فعيل خاصية التشكيل الإحصائي
+    5true 500   79.01%  90.00%  4427    2110    5762    21090   89.29%
+    91.07%
+    stem_noun_const.py: تصحيح الرفع في المثنى
+    5true 500   78.46%  89.89%  4543    2132    5915    21090   89.29%
+    91.07%
+    qalsadi:stem_unknown.py: تصحيح تشكيل ما قبل الألف
+    5true 500   78.72%  89.96%  4488    2117    5848    21090   89.29%
+    91.07%
+
+commit e976b2e2e2352b62bd30a59a504be24cd23097e0
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Tue Mar 22 12:59:19 2016 +0100
+
+    Add  vocalization by rules for unkown words
+    
+    Add  vocalization by rules for unkown words
+
+commit b8ff413bfc7f0775a293bebf70eb32be6305e902
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Tue Mar 22 12:57:52 2016 +0100
+
+    working on graph visualization
+
+commit 884fe866cafb88443157b9a6624eeb732e9dcd3f
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Tue Mar 22 12:57:06 2016 +0100
+
+    working on syntaxic graphs
+    
+    working on graphical visualization of syntaxic and semantic relations
+
+commit 5101e2931af177856f95846284e3efefc76313af
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Fri Mar 4 21:35:10 2016 +0100
+
+    fix errors on syntax analysis
+    
+    5 True500	78.07%	89.91%	4626	2127
+    5986	21090	85.71%	87.50%
+    تصحيح التعت المفرد مع جمع المؤنث السالم
+    5 True500	78.52%	89.88%	4530	2134
+    5887	21090	85.71%	87.50%
+    تصحيح فك التباس حرف أن
+    5 True500	78.64%	89.93%	4505	2123
+    5861	21090	85.71%	87.50%
+    
+    5 True500	78.64%	89.93%	4505	2123
+    5861	21090	85.71%	87.50%
+    المبتدأ والفعل الذي يأتي بعده
+    5 True500	78.72%	90.00%	4488	2110
+    5835	21090	85.71%	87.50%
+    تصحيح خطأ في تعدي الفعل، كان لا يجلبه من قاعدة البيانات
+    وكانت كل اﻷفعال غير متعدية
+    5 True 500	78.06%	90.11%	4628	2085
+    5985	21090	82.14%	87.50%
+    
+    5 True 500	78.08%	90.13%	4623	2081
+    5975	21090	83.93%	89.29%
+    التعامل مع الأفعال المتعدية بحرف
+    
+    5 True 500	78.07%	90.14%	4624	2080
+    5974	21090	83.93%	89.29%
+    5 True 500	78.07%	90.14%	4624	2080
+    5974	21090	83.93%	89.29%
+    إضافة شرط آخر لمعرفة تأنيث اسم، مثل يؤنث feminable
+    5 True 500	78.17%	90.08%	4605	2092
+    5956	21090	83.93%	89.29%
+    تصحيح مشكلة في تعدي الأفعال
+    5 True 500	78.10%	90.06%	4618	2097
+    5962	21090	83.93%	89.29%
+    جعل الفاصلة شفافة من أجل حالات العطف
+    5 True 500	77.94%	90.08%	4652	2093
+    6010	21090	83.93%	89.29%
+    إلغاء شفافية الفاصلة
+    
+    5 True 500	78.10%	90.06%	4618	2097
+    5962	21090	83.93%	89.29%
+    
+    إلغاء خاصية الشفافية من التحليل النحوي بين حالات الكلمات لأنها لا تؤثر
+    في شيء
+
+commit c7d45987de0fb90039583fe181647e54f8a8dbd3
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Fri Mar 4 21:33:20 2016 +0100
+
+    تمكين التشكيل الإحصائي
+    
+    تمكين التشكيل الإحصائي
+
+commit e5a2d65f31836eca728c04c551cc26000a778cdc
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Fri Mar 4 21:32:27 2016 +0100
+
+    add line tashkeel precesion
+    
+    إضافة عرض نسبة دقة تشكيل كل سطر أثناء الفحص
+
+commit 05250d69a173fcc685a471d07e7a0b0da7cbc911
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sat Feb 20 22:46:43 2016 +0100
+
+    fix error about مضاف ومضاف إليه
+    
+    تصحيح حالة المضاف إليه إن كان صفة
+
+commit a7066a06ce3065c8ded1a61bd0f3696f1585c1d7
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sat Feb 20 17:41:16 2016 +0100
+
+    fix compatible names error
+    
+    التطابق بين الفوصوف والصفة
+    التطابق بين المبتدإ والخبر
+
+commit 2524a69906c36a1a5fc391b790abe3e6366a5f3c
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sat Feb 20 17:39:49 2016 +0100
+
+    fix irregular verb رأى stemming
+    
+    تصحيح تحليل الفعل رأى
+
+commit 5bcabf603d1b47f08eb43c1dabac3cee16a28f1a
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun Feb 14 15:38:57 2016 +0100
+
+    add data files of arramooz
+
+commit 049c8e7e7f2e313f78c851c2a695634bd4560793
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun Feb 14 15:38:17 2016 +0100
+
+    fix relative library path
+    
+    fix relative library path
+
+commit 9aa79e163735cacefd32ce1480d594cd6da11ab3
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun Feb 14 15:34:43 2016 +0100
+
+    add relative library path
+    
+    Add relative library path
+
+commit f1ac9df4a74c43c9d99f15a8ee50a33152b87afb
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun Feb 14 15:33:08 2016 +0100
+
+    fix an error on docstring
+    
+    fix an error on docstring
+
+commit 9743acc85fa0bf99106a2cb60bf3c6d2ec0c60e4
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun Nov 8 18:33:21 2015 +0100
+
+    fix collocations data path
+
+commit 8a0e3d5e5870e4d91dda83c0bf87eec77a152033
+Merge: 23480c7 387111f
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun Nov 8 16:38:36 2015 +0100
+
+    update readm.md
+
+commit 23480c7e83d3ab54a0dea2493ae56c126e91d88a
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun Nov 8 16:37:40 2015 +0100
+
+    update readm.md
+
+commit 387111f7b18547caea33fc7c6cfe45fa119c6a5c
+Author: Taha Zerrouki (طه زروقي ) <taha_zerrouki@hotmail.com>
+Date:   Sun Nov 8 16:31:56 2015 +0100
+
+    Update README.md
+
+commit e3ceb5f2e18533102630bf99fba407de4e74af5d
+Author: Taha Zerrouki (طه زروقي ) <taha_zerrouki@hotmail.com>
+Date:   Sun Nov 8 16:09:53 2015 +0100
+
+    Update README.md
+
+commit 00d814d61e3d84ca67682cc405175a32fa4bb1bd
+Author: Taha Zerrouki (طه زروقي ) <taha_zerrouki@hotmail.com>
+Date:   Sun Nov 8 15:42:01 2015 +0100
+
+    Update README.md
+
+commit 02dc4fb052cb1d94a313c39a0915474958748295
+Author: Taha Zerrouki (طه زروقي ) <taha_zerrouki@hotmail.com>
+Date:   Sun Nov 8 15:41:19 2015 +0100
+
+    Update README.md
+
+commit 1127ef7a1eb6aaa4adbf2d8debfaf58eb6600c51
+Author: Taha Zerrouki (طه زروقي ) <taha_zerrouki@hotmail.com>
+Date:   Sun Nov 8 15:01:14 2015 +0100
+
+    Update and rename README.rst to README.md
+
+commit abc5b8c68daa173b3d4c98c7eb8b7a71a1f21553
+Author: Taha Zerrouki (طه زروقي ) <taha_zerrouki@hotmail.com>
+Date:   Sun Nov 8 14:33:16 2015 +0100
+
+    Update README.rst
+
+commit f21289f8a4a6b260557fe436ed0d4eacccbd7033
+Author: Taha Zerrouki (طه زروقي ) <taha_zerrouki@hotmail.com>
+Date:   Sun Nov 8 14:28:11 2015 +0100
+
+    Update and rename README.md to README.rst
+
+commit 6e86bf63d3b5aa08d130b3451b36b00d784bb538
+Merge: 5da6c68 4a3c600
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun Nov 8 13:55:09 2015 +0100
+
+    Merge branch 'master' of https://github.com/linuxscout/Mishkal
+
+commit 5da6c68b0e612f4ddd4412ee069221f6d4b718b6
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun Nov 8 13:46:49 2015 +0100
+
+    fix icon file
+    tatweel.png
+    smallalef.png
+
+commit d88c7d34a7b82ef06b89c2856d1362a68c086247
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sat Nov 7 21:49:24 2015 +0100
+
+    remove pyc
+
+commit 4a3c6008ab0e534380c5d900bf02a52676053f7d
+Merge: 70b2d59 35c6352
+Author: Taha Zerrouki (طه زروقي ) <taha_zerrouki@hotmail.com>
+Date:   Sat Nov 7 21:39:24 2015 +0100
+
+    Merge pull request #7 from assem-ch/master
+    
+    Remove python compiled files `.pyc`
+
+commit 70b2d59a6261707a65df38b48d78d926c7252c5d
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sat Nov 7 21:11:40 2015 +0100
+
+    update readme file
+
+commit 769dce66ae921f929e3903cacbe27a35a9010897
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sat Nov 7 21:09:04 2015 +0100
+
+    update readme.md
+
+commit 0483fb8c879c2cc14499914d638880ed05dfc3cc
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sat Nov 7 20:27:35 2015 +0100
+
+    reorganize directories,
+    put interfaces in separate folder
+    put all extern library in support folder
+    ajust relative paths
+
+commit 7df25f8ee2e1d89d5374db7d68629855681c46a0
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sat Nov 7 20:25:51 2015 +0100
+
+    reorganize directories,
+    put interfaces in separate folder
+    put all extern library in support folder
+    ajust relative paths
+
+commit 69256eb19fdc66faa4063def2c4b7b99bad7ffb8
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Fri Nov 6 22:40:14 2015 +0100
+
+    reorganize directories,
+    put interfaces in separate folder
+    put all extern library in support folder
+    ajust relative paths
+
+commit 35c63521e03a2a8ecbcbf5b6bed4642b909284b6
+Author: Assem Chelli <assem.ch@gmail.com>
+Date:   Fri Nov 6 17:31:46 2015 +0100
+
+    Remove python compiled files `.pyc`
+
+commit ab44e0098288c49a7490f1f3b4893998c6a2a575
+Merge: 17aba90 70b9ca2
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Fri Nov 6 16:32:13 2015 +0100
+
+    merge pylint with master
+
+commit 17aba9062d46518d23c4ab0a722680e5013227b8
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Thu Nov 5 22:21:55 2015 +0100
+
+    git ignore
+
+commit 585bd87f5ed7771f9d384591a2fe8831267f377b
+Merge: d4e9732 b19b84a
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Thu Nov 5 22:07:06 2015 +0100
+
+    try to merge
+
+commit b19b84a939cea75a606dd641995af60e79d920d2
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Thu Nov 5 21:10:29 2015 +0100
+
+    fix qutrub lib error
+
+commit 214234a324f26e494d8546a302f6c97e5c23d939
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Thu Nov 5 21:06:49 2015 +0100
+
+    fix qutrub files
+
+commit 23355df7b1938c9b540a107c9def43115ab18443
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Wed Nov 4 19:54:43 2015 +0100
+
+    add punctuations
+
+commit ef192adefd699d71045db6ee758d6799e825941e
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun May 10 23:42:42 2015 +0100
+
+    add ignore git
+    
+    git ignore
+
+commit 26b69423a30a948224efb9f47ae2e830fbfb7875
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun May 10 23:42:19 2015 +0100
+
+    add clean cache
+    
+    add clean cache
+
+commit 811abd20eec17074125ed036cdc66aa0dd9b2970
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun May 10 23:23:43 2015 +0100
+
+    add
+    
+    add some files
+
+commit 320757d171d61240a47a01714f419cbf9f2c840b
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun May 10 22:07:35 2015 +0100
+
+    modify tags
+    
+    modify tags to add gender, number
+
+commit f7b5b5ea7256c743df8207be1eaf8626c8182d49
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun May 10 22:06:40 2015 +0100
+
+    add specific tags to tense and pronoun
+    
+    add specific tags to tense and pronoun
+
+commit c11e29f3bffeb87fd19ab06e24bc0c36d0c7891c
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun May 10 22:05:57 2015 +0100
+
+    reduce logging info
+    
+    reduce logging info
+
+commit a0c1dad71ee931435741eef5122801db45ee7526
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun May 10 22:05:33 2015 +0100
+
+    reduce logging info
+    
+    reduce logging info
+
+commit 585f618ffbce852ed0e734628ec7e8fda400c866
+Author: zerrouki <taha_zerrouki@hotmail.com>
+Date:   Tue May 5 15:52:58 2015 +0100
+
+    Improve an fix errors
+    
+    2015-05-03: *Taha Zerrouki
+        - qalsadi/stem_noun :ajust multiple cases with same suffix
+    الْخِيَارَاتِ الصِّحِّيَّةِ
+        - qalsadi/stem_noun: ajust tanwin on words ended by ALEF + HAMZA
+    سواءً
+        - aranasyn/anasyn.py: fix VerbObjectRelation
+        - qalsadi/stemmedword: fix tag_transitive tag
+
+commit 4f14b25a127d4220d836bad9482168e25ca8d010
+Author: zerrouki <taha_zerrouki@hotmail.com>
+Date:   Wed Apr 1 22:12:04 2015 +0100
+
+    use boot strap for interface
+    
+    use boot strap for interface
+
+commit 767483c3afaae113a37a7ed69ba4db0e76edfaa7
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Fri Feb 27 18:35:38 2015 +0100
+
+    add cache use  option
+    
+    Add an option to enable or disable cache use in morphology analysis
+
+commit 9b345e1fe63d00228a2fdc83edd670d6c40d89b8
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Thu Feb 19 21:37:40 2015 +0100
+
+    modify web interface
+
+commit 4f78bc4a902019c4dc35bf8c9ca6ad3bdefb94c1
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Sat Feb 14 14:45:45 2015 +0100
+
+    a new web design based on bootstrap
+    
+    refactor web pages with bootstrap framwork
+
+commit 5866e554530aeae91d2b1e7f4db44d43fe00f9d5
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Sun Jan 25 16:28:19 2015 +0100
+
+    add a script to test aljazeera vocalized texts
+    
+    add a script to test aljazeera vocalized texts
+
+commit f18de3c4629259100df68985f0abda33e156f8d3
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Sun Jan 25 16:23:57 2015 +0100
+
+    add inflected mark enable/disable
+    
+    - pyarabic.araby.py: fix strip_tashkeel bug when a word contain shadda
+    only
+        - core/adaat.py: ajust compare vocalization by adding iflection mark
+    remove which is not the last mark always
+        - mishkal-console.py : fix compare vocalization problems by adding
+    iflection mark remove
+        - plan to ajust collocations search
+        - asmaii/synode.py: add more attibutes for handle syntaxic nodes
+        - asmaii/anasyn.py: add synode to syntaxical analysis
+        - qalsadi/analex.py: disable initial word tags because of errors
+    
+        - qalsadi/analex.py: use of araby.tokenize() function instead of
+    specific function
+        - qalsadi/stem_noun.py: fix semivocalized form from vocalize()
+    function
+        - qalsadi/stem_verb.py: add semivocalized output to from vocalize()
+    function
+        - qalsadi/stem_punct_const.py: add arabic comma
+        - qalsadi/stem_stop.py: add unvariable state (مبني)
+        - qalsadi/wordcase.py: add semivocalized output
+        - resources/files/adawaty.js: add semivocalized to do result to
+    display words without inflected mark
+
+commit aced68a4de921b9f2f1ef6eb326365e1b279d484
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Fri Jan 2 11:45:59 2015 +0100
+
+    fix errors
+    
+    Fix error on tashkeel compare
+    apply stopwords propreities as factors
+
+commit 0e9a75edf7532703b3d40df4ede039bd8a565d3b
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Fri Dec 26 16:42:34 2014 +0100
+
+    add custom dictionary
+    
+    add custom dictionary to help user to save his suggestions
+
+commit 2da97daeebeecc6d20b53e204d3fc7ade575ef51
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Thu Dec 25 21:23:04 2014 +0100
+
+    try a new algorithm to select tashkeel
+    
+    try a new algorithm to select tashkeel
+    fix errors on web interface
+
+commit b911e545a5d1d7c60e8d009de5efff24199088e7
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Mon Dec 22 18:13:21 2014 +0100
+
+    add new features on GUI and Web
+    
+    - display tashkeel selection rule number
+    - add custmized dictionary to get users feed back
+
+commit a7f9fe89adcd8120504e224a1de6089318ec3260
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Tue Nov 18 14:46:28 2014 +0100
+
+    Ajust punctuation
+    
+    ajust punctuation
+
+commit bc6598cd5cdfb1abdb97e8337d2bacd7c4156d02
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Sun Nov 16 13:05:42 2014 +0100
+
+    refactor attributes and imrove compare display
+    
+    2014-07-06:
+        - Display informations about vocalized word as hint
+        (we display inflection, suggestions and previous relation)
+    2014-07-05:
+    
+        - refactor some attributes to have less attributes
+        - use a numeric code for
+            - number: single, dual, plural (feminin, masculin, irregular)
+            - inflaction : majrour, mansoub, marfou3, majrour, mabni
+            - add alternative inflection to stemmedSynWord class : محل من
+    الإعراب
+            - add pronoun and tense fields to stemmed word for verbs.
+    - إضافة علاقة التبعية
+    - إضافة حقل محل الإعراب للكلمة * تم
+    - إضافة البناء للكلمة  *تم
+    - إضافة الضمير والزمن إلى الفعل
+    	- الضمير نوعه ونوعه
+    	-  الزمن نوعه بناؤه
+    - تقليل الحقول: *تم
+    	استخدام ترميز ثنائي من أجل السماح بعدة خيارات
+            not defined        : 0  00000
+            factor             : 1  00001
+            Rafe3              : 2  00010
+            Naseb              : 4  00100
+            Jar                : 8  01000
+            Jazem              : 16 10000
+            active             : 32 100000
+    	- حقل واحد للحالة الإعرابية
+    		- مبني مرفوع، منصوب، مجرور، مجزوم
+    	- حقل واحد للعدد
+    		- مفرد، مثنى، جمع (نوع الجمع: مؤنث سالم، مذكر سالم،
+    تكسير
+    	- حقل واحد للجنس: مذكر مؤنث
+    	- حقل واحد للقسم: اسم، حرف، فعل
+    		- أقسام الاسم: علم، صفة،
+    	- حقل واحد للعامل: عامل/ عاطل، رافع، ناصب، جار، جازم،
+    - عرض معلومات أكثر في الموقع، عرض إعراب الكلمة  * تم
+            - allow multile Part of speech like stopword and noun
+            السماح بأن تكون الأداة اسمًا
+    2014-07-04:
+        - add a hint to display given vocalization and automated
+    vocalization
+        in comparing vocalization
+
+commit 70b9ca22acce96adf088ff629ac68e26a632ad47
+Merge: 832763c 4260726
+Author: Taha Zerrouki (طه زروقي ) <taha_zerrouki@hotmail.com>
+Date:   Fri Nov 7 17:35:58 2014 +0100
+
+    Merge pull request #3 from Fahad-Alsaidi/master
+    
+    preserve new lines marks feature
+
+commit 42607264f2e95f835164ede0f7a4b2557905e2a6
+Author: Fahad Al-Saidi <fahad.alsaidi@gmail.com>
+Date:   Thu Nov 6 23:06:02 2014 +0400
+
+    This commit will make mishkal able to preserve new lines marks when get
+    words vocalized. This commit also makes a workaround to fix a Qt bug
+    which makes difficult to select a word without arabic punctuation marks
+    see https://bugreports.qt-project.org/browse/QTBUG-42397.
+
+commit 832763c17fa2c58e9db9749df915662724a078cc
+Merge: d4e9732 0b9a8b5
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Sun Jul 6 17:49:31 2014 +0100
+
+    Merge pull request #2 from a-bougouffa/master
+    
+    Add an icon for small sizes (16x16 and 24x24px)
+
+commit d4e9732e53a1bd0bd5387f9c06a7d3cb8b0e1cc8
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Thu Jun 19 00:37:00 2014 +0100
+
+    d
+
+commit b561e05b47702b068aae17c710a84d3f39d72431
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Thu Jun 19 00:28:42 2014 +0100
+
+    cc
+
+commit df640bcb56a451af570b78a644a73f7ed29cf032
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Wed Jun 18 23:37:39 2014 +0100
+
+    move libqutrub directory
+    
+    move libqutrub directory
+    using pylint to improve code
+
+commit 0197a539c64cd789257f28279133880bd23c1c00
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Wed Jun 18 21:52:49 2014 +0100
+
+    Rename collocations to maskouk
+    
+    Rename collocations to maskouk and using pYlint to improve code
+
+commit 758524beb51fef87854641094c9f052b4b9bc5d8
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Wed Jun 18 21:48:44 2014 +0100
+
+    using Pylint to improve code
+    
+    using Pylint to improve code
+
+commit 0b9a8b54e0f64d0a016bd46ca93d4acd5f0174ac
+Author: Abdelhak Bougouffa <abdelhak@cryptolab.net>
+Date:   Mon Jun 2 20:04:26 2014 +0100
+
+    Update .gitignore
+
+commit 957a0ec36e7bb5a4793fbf42bb88edd766ea9878
+Author: Abdelhak Bougouffa <abdelhak@cryptolab.net>
+Date:   Mon Jun 2 19:54:24 2014 +0100
+
+    Update .gitignore
+
+commit 2284359267d09c2fca27d6fead62b32d0d7cafe1
+Author: Abdelhak Bougouffa <abdelhak@cryptolab.net>
+Date:   Fri May 23 23:34:33 2014 +0100
+
+    Add an icon for small sizes (16x16 and 24x24px)
+
+commit c2db7c1aa5f886cbb5be7736e9346708c6adf824
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Fri May 23 23:24:56 2014 +0200
+
+    Update README.md
+
+commit 3c111ff0878587db8cc449a1d8e767148988412b
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Fri May 23 23:23:16 2014 +0200
+
+    Update README.md
+
+commit bad76c12b386a393bcbd610fb8e83502e23b7c90
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Fri May 23 23:17:41 2014 +0200
+
+    Update README.md
+
+commit 37968abf6c416a28984e4e2b07c17734728bb228
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Fri May 23 23:10:17 2014 +0200
+
+    Update README.md
+
+commit a3d41c4ba2f36537b41668a044fb431c62e2db26
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Fri May 23 22:37:59 2014 +0200
+
+    Update README.md
+
+commit 4993642d1e0e2b421ada4b4b2c2c1340aebcc639
+Merge: e1809d7 0f2a531
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Thu May 22 19:47:17 2014 +0200
+
+    Merge pull request #1 from a-bougouffa/master
+    
+    New icon theme and logo design + clearing the Windows "Thumbs.db" files
+
+commit e1809d75b7bd2d6b96e4bbc207c933aff411ad6e
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Thu May 22 17:45:07 2014 +0200
+
+    Update README.md
+
+commit 0f2a5318e7ee304cdeef73749e0e46377185ec8f
+Author: Abdelhak Bougouffa <abdelhak@cryptolab.net>
+Date:   Thu May 22 10:19:24 2014 +0100
+
+    New icon and logo
+
+commit d75c7414599616a2d0ce571d483e140d2147a524
+Author: Abdelhak Bougouffa <abdelhak@cryptolab.net>
+Date:   Thu May 22 02:19:57 2014 +0100
+
+    Clearing the windows 'Thumbs.db' files
+
+commit b7705c119bc0c799d19b360926e17f3c8f7a7cbc
+Author: Abdelhak Bougouffa <abdelhak@cryptolab.net>
+Date:   Thu May 22 02:16:06 2014 +0100
+
+    New icons theme :-D
+
+commit eeadfda972f1468a0483751e2d76b1ba4d429ab5
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Tue May 20 19:02:56 2014 +0100
+
+    Merge branch 'master' of https://github.com/linuxscout/Mishkal
+    
+    # Please enter a commit message to explain why this merge is necessary,
+    # especially if it merges an updated upstream into a topic branch.
+    #
+    # Lines starting with '#' will be ignored, and an empty message aborts
+    # the commit.
+
+commit 24d15453ff091b005831216793dc52567bb3202b
+Merge: 97d7aa2 5d78ed3
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Tue May 20 19:02:09 2014 +0100
+
+    Merge branch 'master' of https://github.com/linuxscout/Mishkal
+
+commit 5d78ed33ab31c8c384245f776a30d018283c4d3c
+Author: linuxscout <taha_zerrouki@hotmail.com>
+Date:   Tue May 20 10:47:36 2014 -0700
+
+    Initial commit
+
+commit 97d7aa22cc298ed67f49b7ab202add7d6145850e
+Author: zerrouki <taha.zerrouki@gmail.com>
+Date:   Tue May 20 18:42:40 2014 +0100
+
+    first github version
+    
+    uplaod mishkal project on github

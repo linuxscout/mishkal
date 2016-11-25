@@ -9,7 +9,7 @@ Many thanks to the following individuals who have provided useful feedback and c
 	Mohamed Attia
 	Dr. Nada Ghoneim
 	Waleed Alhassan 
-	Mohamed Chaaban ( linuxac.org)
+	Mohamed Chaaban (linuxac.org)
 	Mos'ab alZu'bi (linuxac.org)
 	Taha munzir
 	Walid Ziouche
