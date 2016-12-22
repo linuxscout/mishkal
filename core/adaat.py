@@ -91,6 +91,8 @@ def DoAction(text, action, options = {}):
         return extractNamed(text)
     elif action == "chunk":
         return chunksplit(text)
+    elif action == "bigrams":
+        return bigrams(text)
     elif action == "extractNumbered":
         return extractNumbered(text)       
     else:
@@ -819,3 +821,20 @@ def chunksplit(text):
             #print synnode.get_word().encode('utf8'),
         #syno_tags += " '%s[%s]'"%(synnode.get_word_type(), synnode.get_guessed_type_tag())
     return chunklist
+def bigrams(text):
+    """
+    split text into bigrams
+    """
+    import pyarabic.araby as araby
+    from collections import Counter
+    # tokenize texts
+    words = araby.tokenize(text)
+    bigramslist = []
+    for i in range(len(words)-1):
+        bigramslist.append(u" ".join([words[i], words[i+1]]))
+    counts = Counter(bigramslist)
+    bl =[]
+    for item in sorted(counts):
+        bl.append(u' '.join([item, str(counts[item])]))
+    #~ return bigramslist
+    return bl

@@ -72,7 +72,7 @@ class ArabicDictionary:
         #create index  by word stampfor dictionary to accelerate word search.
         # the word stamp is the arabic word without any affixation  letters,
         # for example
-        # the word مضرب give ضر, by removing meem and beh, the word ضرم give ضر.
+        # the word قالب give قلب, by removing meem and beh, the word قوالب give قلب.
         # the stamp is used as a first level of indexing, especially
         # for verbs
         # the stamp pattern is used to create the word stamp

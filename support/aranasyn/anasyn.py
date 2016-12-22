@@ -178,6 +178,7 @@ class SyntaxAnalyzer:
            and not previous.has_encletic() and previous.is_transitive())
 
     def is_jonction_relation(self, previous, current): 
+        #العطف بين اسمين
         if current.is_break() and current.is_noun()  and previous.is_noun() \
          and (current.has_procletic() and current.has_jonction() and not current.has_jar()): 
             # jonction 
@@ -185,6 +186,26 @@ class SyntaxAnalyzer:
             or (current.is_mansoub() and previous.is_mansoub()) \
             or (current.is_marfou3()and previous.is_marfou3()):
                 return True
+        elif current.is_break() and current.is_verb()  and previous.is_verb() \
+         and (current.has_procletic() and current.has_jonction() and not current.has_jar()): 
+            # jonction 
+            # تساوي الأزمنة والضمائر
+            # 
+            if ((current.get_tense() == previous.get_tense())
+                and (current.get_pronoun() == previous.get_pronoun())):
+                # الفعل المضارع يتساوى في الحالة الإعرابية
+                if not current.is_present():
+                    if((current.is_majzoum() and previous.is_majzoum()) 
+                        or (current.is_mansoub() and previous.is_mansoub()) 
+                        or (current.is_marfou3()and previous.is_marfou3()) ):
+                        return True
+                    else: 
+                        return False
+                # الفعل غير المضارع يكفي تساوي الأزمنة والضمائر
+                else:
+                    return True
+            else: #عدم تساوي الأزمنة والضمائر
+                return False                
         else:
             return False
 
@@ -356,7 +377,15 @@ class SyntaxAnalyzer:
             #مبتدأ وخبر
             elif self.are_nominal_compatible(previous, current):
                 if current.is_adj():
-                    weight = sconst.PrimatePredicateRelation
+                    # مبتدأ مرفوع خبر مرفوع 
+                    if  previous.is_marfou3() and current.is_marfou3():
+                        weight = sconst.PrimatePredicateRelation  
+                     # مبتدأ منصوب خبر مرفوع# اسم كان
+                    elif (previous.is_mansoub() and current.is_marfou3()):
+                        weight = sconst.PrimateMansoubPredicateRelation                        
+
+                    elif (previous.is_marfou3() and current.is_mansoub()):
+                        weight = sconst.PrimatePredicateMansoubRelation                         
             #~ else:
                 #~ print "adj-2", (u"\t".join([current.get_word(), previous.get_word()])).encode('utf8')
         if current.is_verb():
@@ -393,7 +422,13 @@ class SyntaxAnalyzer:
                     if not previous.is_passive():
                         if True or ((current.is_feminin() and previous.is3rdperson_feminin())
                            or (not current.is_feminin() and previous.is3rdperson_masculin())):
-                            weight = sconst.VerbSubjectRelation
+                            # if the verb is a factor
+                            if previous.is_kana_rafe3():
+                                weight = sconst.KanaRafe3Marfou3Relation
+                            # كاد وأخواتها
+                            
+                            else:
+                                weight = sconst.VerbSubjectRelation
                            
                     else: # passive verb
                         if ((current.is_feminin() and previous.is3rdperson_feminin())
@@ -406,7 +441,7 @@ class SyntaxAnalyzer:
                 #~ #print "1-2"
                 if not previous.is_passive():
                     if not previous.has_encletic() and previous.is_transitive():
-                        weight = sconst.VerbObjectRelation 
+                        weight = sconst.VerbObjectRelation
 
         return weight                            
 
@@ -624,11 +659,18 @@ class SyntaxAnalyzer:
             # مبتدأ مرفوع خبر مرفوع
             # مبتدأ منصوب خبر مرفوع# اسم كان
             # مبتدأ مرفوع خبر منصوب#  اسم إنّ
-            if (previous.is_inna_noun() and previous.is_mansoub() \
-            and current.is_marfou3()) or (previous.is_kana_noun() \
-             and previous.is_marfou3() and current.is_mansoub())\
-            or (not previous.is_inna_noun() and not previous.is_kana_noun() \
-            and previous.is_marfou3() and current.is_marfou3()):
+            #~ if (previous.is_inna_noun() and previous.is_mansoub() \
+            #~ and current.is_marfou3()) or (previous.is_kana_noun() \
+             #~ and previous.is_marfou3() and current.is_mansoub())\
+            #~ or (not previous.is_inna_noun() and not previous.is_kana_noun() \
+            #~ and previous.is_marfou3() and current.is_marfou3()):
+                #~ compatible = True
+                        # مبتدأ مرفوع خبر منصوب#  اسم إنّ
+            if ((previous.is_mansoub() and current.is_marfou3())
+                         # مبتدأ منصوب خبر مرفوع# اسم كان
+             or (previous.is_marfou3() and current.is_mansoub())
+            # مبتدأ مرفوع خبر مرفوع
+            or (previous.is_marfou3() and current.is_marfou3())):
                 compatible = True
             else:
                 return False
@@ -740,6 +782,10 @@ class SyntaxAnalyzer:
         @rtype: boolean
         """
         compatible = False
+        # لا يلتصق المبتدأ مع فعل مجزوم أو منصوب
+        # في المضارع
+        if current.is_majzoum() or current.is_mansoub():
+            return False
         if previous.is_stopword():
             if (previous.is_pronoun() and current.is_verb()):
                 # الضمير مطابق لضمير الفعل
@@ -817,6 +863,35 @@ class SyntaxAnalyzer:
                 return True;
             else :
                 return False
+        # relation of "subject verb" with "verb subject"
+        #علاقة مبتدأ فعل مع علاقة فعل وفاعل
+        if current == sconst.VerbSubjectRelation and previous == sconst.SubjectVerbRelation :
+            return False;
+        # relation of "subject verb" with "verb subject"
+        #علاقةالاسم الموصول من مع بقية  العلاقة فعل وفاعل
+        elif current == sconst.VerbSubjectRelation and previous == sconst.ConditionVerbRelation :
+            return False;
+            
+            
+        #  Premate is mansoub by INNA, Predicate is marfou3
+       #مبتدأ مرفوع وخبر منصوب
+        if current == sconst.PrimateMansoubPredicateRelation and not previous == sconst.InnaNasebMansoubRelation :
+            return False;
+        #  Premate is Mrfou3 by Kana, Predicate is mansoub
+        #مبتدأ مرفوع، خبر منصوب
+        elif current == sconst.PrimatePredicateMansoubRelation and not previous == sconst.KanaRafe3Marfou3Relation :
+            return False; 
+         # منع حالات رفع المبتدا والخبر إن كانمسبوقا بناسخ   
+        #  Premate is mansoub by INNA, Predicate is marfou3
+       #مبتدأ مرفوع وخبر منصوب
+        if current == sconst.PrimatePredicateRelation:
+            if previous == sconst.InnaNasebMansoubRelation :
+                return False;
+        #  Premate is Mrfou3 by Kana, Predicate is mansoub
+        #مبتدأ مرفوع، خبر منصوب
+            elif previous == sconst.KanaRafe3Marfou3Relation :
+                return False; 
+                       
         return True
 
     def exclode_cases(self, word_result):

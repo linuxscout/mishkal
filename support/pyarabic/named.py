@@ -354,10 +354,10 @@ def detect_named(wordlist):
                     # add family name إضافة الكنية
                     taglist.append("NI")
                 else:
-                    taglist.append("NO")
+                    taglist.append("O")
                     startnamed = False
             else:
-                taglist.append("NO")
+                taglist.append("O")
                 startnamed = False
                                   
         previous = word_nm

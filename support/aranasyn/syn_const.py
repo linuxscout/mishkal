@@ -1172,11 +1172,14 @@ Rafe3Marfou3Relation = 14; # علاقة رافع  ومرفوع
 KanaRafe3Marfou3Relation = 15; # علاقة رافع  ومرفوع
 InnaRafe3Marfou3Relation = 16 #علاقة خبر إنّ مرفوع
 KanaNasebMansoubRelation = 17 #   خبر كان منصوب
+PrimateMansoubPredicateRelation  = 18   #مبتدأ منصوب وخبر مرفوع
+
 
 # Nasb نصب relation starts with 20
 VerbObjectRelation  = 20; # علاقة فعل ومفعول به
 InnaNasebMansoubRelation = 21; # علاقة ناصب ومنصوب
 NasebMansoubRelation =22; # علاقة ناصب ومنصوب
+PrimatePredicateMansoubRelation = 23  #مبتدأ مرفوع وخبر منصوب
 
 # Jar/ Jazm جر relation starts with 30
 AdditionRelation = 30; #علاقة مضاف مضاف إليه
@@ -1214,11 +1217,13 @@ Rafe3Marfou3Relation: [u"رفع",u""],
 KanaRafe3Marfou3Relation: [u"رفع",u""], 
 InnaRafe3Marfou3Relation: [u"رفع",u""], 
 KanaNasebMansoubRelation: [u"رفع",u""], 
+PrimateMansoubPredicateRelation : [u"رفع",u""], 
 
 # Nasb
 VerbObjectRelation: [u"نصب",u""], 
 InnaNasebMansoubRelation: [u"نصب",u""], 
 NasebMansoubRelation: [u"نصب",u""], 
+PrimatePredicateMansoubRelation : [u"نصب",u""],
 
 # jAR jAZM
 AdditionRelation: [u"جر",u""], 
@@ -1258,11 +1263,13 @@ Rafe3Marfou3Relation : u" 14 علاقة رافع  ومرفوع",
 KanaRafe3Marfou3Relation : u" 15 علاقة رافع  ومرفوع", 
 InnaRafe3Marfou3Relation : u" 16 #علاقة خبر إنّ مرفوع", 
 KanaNasebMansoubRelation : u" 17 #   خبر كان منصوب", 
+PrimateMansoubPredicateRelation :u"18   #مبتدأ منصوب  وخبر مرفوع",
 
 # Nasb نصب relation starts with 20 
 VerbObjectRelation  : u" 20 علاقة فعل ومفعول به", 
 InnaNasebMansoubRelation : u" 21 علاقة ناصب ومنصوب", 
 NasebMansoubRelation : u" 22 علاقة ناصب ومنصوب", 
+PrimatePredicateMansoubRelation : u"23  #مبتدأ مرفوع وخبر منصوب", 
 
 # Jar/ Jazm جر relation starts with 30
 AdditionRelation : u" 30علاقة مضاف مضاف إليه", 

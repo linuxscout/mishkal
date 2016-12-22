@@ -433,6 +433,20 @@ $().ready(function() {
       }
     });
   });
+  
+    // extract chunks from text
+    $('#bigrams').click(function() {
+    var item;
+    $.getJSON(script + "/ajaxGet", {
+      text: document.NewForm.InputText.value,
+      action: "bigrams"
+    }, function(d) {
+      $("#result").html("");
+      for (i = 0; i < d.result.length; i++) {
+        $("#result").append(d.result[i] + "<br/>");
+      }
+    });
+  });
   // inverse order
   $('#inverse').click(function() {
     var item;

@@ -42,7 +42,9 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
             self.unvoriginal =  araby.strip_tashkeel(self.original)
         self.tag_verbal_factor  =   0
         self.tag_nominal_factor =   0
-        self.tag_kana_rafe3     =   False         
+        self.tag_kana_rafe3     =   False 
+        if self.is_verb():
+            self.tag_kana_rafe3 =   self._is_kana_rafe3() 
         if self.is_stopword():
             self.tag_kana_rafe3 =   self._is_kana_rafe3()  
             self.tag_nominal_factor = self.__get_nominal_factor()
@@ -53,8 +55,8 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         self.tag_addition =  self._is_addition()                
 
         self.tag_break =  self._is_break() 
-        self.tag_kana_noun = False # اسم كان
-        self.tag_inna_noun = False # اسم إنّ
+        #~ self.tag_kana_noun = False # اسم كان
+        #~ self.tag_inna_noun = False # اسم إنّ
         #~self.set_order(order)
         self.forced_word_case = False
         self.syntax =  u""   # used for syntaxique analysis porpos
@@ -364,8 +366,11 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @return:  Rafe3.
         @rtype: True/False
         """
+        print self.get_unvoriginal().encode('utf8')
         if (not self.has_encletic()) and \
         u"كان و أخواتها" in self.get_tags():    
+            return True
+        elif self.get_unvoriginal() in syn_const.KanaSisters_LIST:
             return True
         return False
 
@@ -650,33 +655,34 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         """
         return self.tag_addition    
 
-    def is_kana_noun(self):
-        """
-        Return True if the word is a  Kana Noun اسم كان منصوب.
-        @return:  is a  Kana Noun.
-        @rtype: True/False
-        """
-        return self.tag_kana_noun
+    #~ def is_kana_noun(self):
+        #~ """
+        #~ Return True if the word is a  Kana Noun اسم كان منصوب.
+        #~ @return:  is a  Kana Noun.
+        #~ @rtype: True/False
+        #~ """
+        #~ return self.tag_kana_noun
+#~ 
+    #~ def set_kana_noun(self):
+        #~ """
+        #~ Set True to the word to be  Kana Noun اسم كان منصوب.
+        #~ """
+        #~ self.tag_kana_noun =  True
 
-    def set_kana_noun(self):
-        """
-        Set True to the word to be  Kana Noun اسم كان منصوب.
-        """
-        self.tag_kana_noun =  True
-
-    def is_inna_noun(self):
-        """
-        Return True if the word is a  Inna Noun اسم إنّ مرفوع.
-        @return:  is a  Inna Noun.
-        @rtype: True/False
-        """
-        return self.tag_inna_noun
-
-    def set_inna_noun(self):
-        """
-        Set True to the word to be  Inna Noun اسم إنّ.
-        """
-        self.tag_inna_noun =  True
+    #~ def is_inna_noun(self):
+        #~ """
+        #~ Return True if the word is a  Inna Noun اسم إنّ مرفوع.
+        #~ @return:  is a  Inna Noun.
+        #~ @rtype: True/False
+        #~ """
+#~ 
+        #~ return self.tag_inna_noun
+#~ 
+    #~ def set_inna_noun(self):
+        #~ """
+        #~ Set True to the word to be  Inna Noun اسم إنّ.
+        #~ """
+        #~ self.tag_inna_noun =  True
 
     def is_verbal_factor(self):
         """
@@ -773,10 +779,10 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         get dictionary of attributes 
         """
         syntax = {"SP":self.sem_previous, 
-				"SN":self.sem_next,
-				"P":self.previous, 
-				"N":self.next,
-				}
+                "SN":self.sem_next,
+                "P":self.previous, 
+                "N":self.next,
+                }
         #syntax = u', '.join(['O'+repr(self.get_order()), self.get_syntax(),
         # 'SP'+repr(self.sem_previous), 'SN'+repr(self.sem_next),
         #  'P'+repr(self.previous)    , 'N'+repr(self.next)])

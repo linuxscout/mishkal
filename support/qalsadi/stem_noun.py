@@ -165,7 +165,7 @@ class NounStemmer:
 
                          ## verify compatibility between procletics and affix
                             if self.is_compatible_proaffix_affix(noun_tuple, procletic, vocalized_encletic, vocalized_suffix):
-                                vocalized, semi_vocalized = vocalize(infnoun, procletic,  vocalized_suffix, vocalized_encletic)
+                                vocalized, semi_vocalized, segmented = vocalize(infnoun, procletic,  vocalized_suffix, vocalized_encletic)
 
                                 #add some tags from dictionary entry as 
                                 #mamnou3 min sarf and broken plural
@@ -247,6 +247,8 @@ class NounStemmer:
             self.cache_affixes_verification[affix] = False
         elif u"تعريف" in procletic_tags and u"تنوين" in suffix_tags:
             self.cache_affixes_verification[affix] = False
+        elif u"تعريف" in procletic_tags and u"إضافة" in suffix_tags:
+            self.cache_affixes_verification[affix] = False              
         # التنوين لا يتطابق مع الممنوع من الصرف
         elif ( u'تنوين' in suffix_tags)  and  noun_tuple['mamnou3_sarf']:
             self.cache_affixes_verification[affix] = False
@@ -415,9 +417,23 @@ def get_word_variant(word, suffix, encletic):
     
     # الاسم المؤنث بالتاء المروبطة نحذفها قبل اللاحقات مثل ات وية
     if word_stem.endswith(araby.TEH_MARBUTA):
-        if suffix_nm in (araby.ALEF+araby.TEH, araby.YEH+araby.TEH_MARBUTA, 
-    araby.YEH, araby.YEH+araby.ALEF+araby.TEH):
-            word_stem = word_stem[:-1]
+        # حالة الاسماء مثل حياة وفتاة
+        if word_stem.endswith(araby.ALEF + araby.TEH_MARBUTA):
+            if suffix_nm in (araby.YEH, araby.YEH+araby.TEH_MARBUTA, 
+         araby.YEH+araby.ALEF+araby.TEH):
+                word_stem = word_stem[:-1] + araby.TEH
+            elif suffix_nm == araby.ALEF+araby.TEH:
+                #نحن بحاجة إلى حذف آخر حركة أيضا
+                word_stem = araby.strip_lastharaka(word_stem[:-1])
+            elif long_suffix_nm != u"":
+                word_stem = word_stem[:-1]+araby.TEH
+                
+            
+
+        elif suffix_nm in (araby.ALEF+araby.TEH, araby.YEH+araby.TEH_MARBUTA, 
+        araby.YEH, araby.YEH+araby.ALEF+araby.TEH):
+            #نحن بحاجة إلى حذف آخر حركة أيضا
+            word_stem = araby.strip_lastharaka(word_stem[:-1])
         # الاسم المؤنث بالتاء المروبطة نفتحها قبل اللصق
         #مدرسة +ين = مدرستين
         elif long_suffix_nm != u"":
@@ -438,11 +454,12 @@ def get_word_variant(word, suffix, encletic):
      # إذا كان لا ضمير واللاحقة فقط حركات
      # نحذف ال
          if not encletic_nm  and not suffix_nm :
-            word_stem = word_stem[:-2] 
+            word_stem = araby.strip_lastharaka(word_stem[:-2])
      # الاسم المنقوص ينتهي بياء قبلها مكسور
      # إذا كانت اللاحقة ياء ونون
          elif suffix_nm in (araby.YEH + araby.NOON, araby.WAW + araby.NOON) :
-            word_stem = word_stem[:-2] 
+            word_stem = araby.strip_lastharaka(word_stem[:-2])
+
 
         #ضبط المنتهي بالهمزة حسب حركة اللاحقة النحوية         
     elif word_stem.endswith(araby.HAMZA) and suffix_nm != u"":
@@ -541,6 +558,9 @@ def vocalize( noun, proclitic,  suffix, enclitic):
     
     word_vocalized = ''.join([ proclitic_voc, noun, suffix_voc, 
        enclitic_voc])
+    #used for spelling purposes
+    segmented = '-'.join([ proclitic_voc, noun, suffix_voc, enclitic_voc])
+    segmented = araby.strip_tashkeel(segmented)       
     #~word_vocalized = araby.ajust_vocalization(word_vocalized)
     word_vocalized = re.sub(ur"(%s)+"%araby.FATHA , araby.FATHA, word_vocalized)
     word_vocalized = re.sub(ur"%s%s%s"%(araby.FATHA, araby.ALEF_MAKSURA, araby.KASRATAN)
@@ -553,7 +573,7 @@ def vocalize( noun, proclitic,  suffix, enclitic):
      , araby.FATHA + araby.ALEF_MAKSURA, word_vocalized) 
     word_vocalized = re.sub(ur"%s[%s|%s|%s]"%(araby.ALEF_MAKSURA, araby.DAMMA, araby.FATHA, araby.KASRA)
      , araby.ALEF_MAKSURA, word_vocalized)      
-    return word_vocalized, word_non_irab_mark 
+    return word_vocalized, word_non_irab_mark, segmented 
 
 def verify_affix(word, list_seg, affix_list):
     """
@@ -593,17 +613,29 @@ def validate_tags(noun_tuple, affix_tags, procletic, encletic_nm ,
 
     if  u'تنوين' in affix_tags and  noun_tuple['mamnou3_sarf']:
         return False
+    # ألجمع السالم لا يتصل بجمع التكسير
+    print noun_tuple['number'].encode('utf8'),bool( noun_tuple['number'] in (u'جمع', u'جمع تكسير'))
+    print (u"', '".join(affix_tags)).encode('utf8'), bool(u'جمع مؤنث سالم' in affix_tags)
+    if  noun_tuple['number'] in (u'جمع', u'جمع تكسير'):
+        
+        if  u'جمع مؤنث سالم' in affix_tags:
+            return False
+        if  u'جمع مذكر سالم' in affix_tags:
+            return False
+        if  u'مثنى' in affix_tags:
+            return False        
     #~if  u'منسوب' in affix_tags and (not noun_tuple['relative'] and not u'مصدر' in noun_tuple['word_type']):
         #~return False
     #تدقيق الغضافة إلى الضمائر المتصلة
-    if encletic_nm == u"هم" and noun_tuple['hm_suffix'] == 'N':
+    if encletic_nm in (u"هم", u"هن", u"كما", u"كم", u"هما") and not noun_tuple['hm_suffix'] :
+        return False 
+    if encletic_nm in (u"ه", u"ها") and not noun_tuple['ha_suffix'] :
         return False
-    if encletic_nm == u"ه" and noun_tuple['ha_suffix'] == 'N':
+    #حالة قابلية السوابق  بدون تعريف
+    if u"ال" not in procletic and not noun_tuple['k_prefix']:
         return False
-    if encletic_nm == u"ك" and noun_tuple['k_suffix'] == 'N':
-        return False
-    #حالة قابلية التشبيه
-    if procletic.endswith(u"كال") and noun_tuple['kal_prefix'] == 'N':
+    #حالة قابلية السوابق  مع التعريف
+    if procletic.endswith(u"ال") and not noun_tuple['kal_prefix']:
         return False
     # حالة المضاف إلى ما بعهده في حالة جمع المذكر السالم
     # مثل لاعبو، رياضيو

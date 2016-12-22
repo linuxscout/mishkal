@@ -581,13 +581,14 @@ class TashkeelClass:
             next_chosen_indexes = None            
         #~ debug = True
         # How to choose a vocalized case
-        # and lets other methode to choices by semantic and syntaxic
+        # and lets other methods to choose by semantic and syntaxic
         # choose a case is a stop, word and has next relation
         # browse the list by indexes
         #~ indxlist = range(len(caselist))
         # get the chosen indexes from the current synode
         # which allow to handle previous and nexts and make other analysis
         indxlist = current_synode.get_chosen_indexes()
+        
         # get all the indexes in the current cases list
         tmplist = []
         if len(indxlist) == 1 : 
@@ -670,8 +671,14 @@ class TashkeelClass:
            
 
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 12)
+        #
+        if not rule and  self.get_enabled_syntaxic_analysis():
+            tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and self.anasynt.are_compatible_relations(previous_chosen_relation, previous.get_next_relation(x)) ), indxlist)
 
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 13)
         # select only compatible relations with previous relations
+        # reduces cases if the previous chosen relation is not compatible with actual relations
+        
         # like قال هذا الرجل، 
         #قال هذا 
         #~ give us a verb subject,

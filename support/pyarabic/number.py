@@ -209,12 +209,12 @@ class ArNumbers:
 
     def _int2str(self, number):
         """
-		 * Spell integer number in Arabic idiom
-		 *
-		 * @param integer number The number you want to spell in Arabic idiom
-		 *
-		 * @return string The Arabic idiom that spells inserted number
-		 * @author Khaled Al-Shamaa <khaled.alshamaa@gmail.com>
+         * Spell integer number in Arabic idiom
+         *
+         * @param integer number The number you want to spell in Arabic idiom
+         *
+         * @return string The Arabic idiom that spells inserted number
+         * @author Khaled Al-Shamaa <khaled.alshamaa@gmail.com>
         """
 
         blocks = []
@@ -597,7 +597,7 @@ def detect_number_phrases_position(wordlist):
             key = word_nm[1:]
         elif word_nm != u'واحد' and word_nm.startswith(u'و'):
             key = word_nm[1:]
-        if nbconst.NumberWords.has_key(key):
+        if nbconst.NumberWords.has_key(key) or key.isnumeric() :
             if not key in (u'أحد', u'إحدى', u'اثنا', u'اثني',  u'اثنتي', \
              u'اثنتا')  or nextword in (u'عشر',  u'عشرة'):
                 if startnumber < 0:
@@ -624,7 +624,7 @@ def detect_numbers(wordlist):
     @return : list of tags BIO
     @rtype: list of unicode
     >>> detect_numbers(u"وجدت خمسمئة وثلاثة وعشرين دينارا فاشتريت ثلاثة عشر دفترا")
-    ['O', 'B', 'I', 'I', 'O', 'O', 'B', 'I', 'O']
+    ['DO', 'DB', 'DI', 'DI', 'DO', 'DO', 'DB', 'DI', 'DO']
     """
     phrases = []
     starts = False
@@ -645,7 +645,7 @@ def detect_numbers(wordlist):
             key = word_nm[1:]
         elif word_nm != u'واحد' and word_nm.startswith(u'و'):
             key = word_nm[1:]
-        if nbconst.NumberWords.has_key(key):
+        if nbconst.NumberWords.has_key(key) or key.isnumeric():
             if not key in (u'أحد', u'إحدى', u'اثنا', u'اثني',  u'اثنتي', \
              u'اثنتا')  or nextword in (u'عشر',  u'عشرة'):
                 if not starts:
@@ -655,10 +655,10 @@ def detect_numbers(wordlist):
                     taglist.append("DI")
             else:
                 starts = False
-                taglist.append("DO")       
+                taglist.append("O")       
         else:
             starts = False
-            taglist.append("DO")
+            taglist.append("O")
     return taglist
 def detect_number_words(text):
     """

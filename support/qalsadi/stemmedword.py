@@ -1207,7 +1207,6 @@ if __name__ == "__main__":
             "stem": "حياة", # the word stem
             "suffix": "ُ", # the conjugation suffix of the word
             "encletic": "", # the syntaxic suffix
-            
             "tags": "تعريف::مرفوع*", 
             # tags of affixes and tags extracted form lexical dictionary
             "freq": 0, # the word frequency from _word _frequency database 
