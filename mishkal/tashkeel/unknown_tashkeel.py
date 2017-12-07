@@ -16,7 +16,8 @@ sys.path.append('../')
 import re
 import unknown_const
 import pyarabic.araby as araby
-debug = True
+#debug = True
+debug = False
 class UnknownTashkeel:
     """
         Unknown Arabic Tashkeel Class

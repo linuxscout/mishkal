@@ -9,7 +9,7 @@ if __name__   == "__main__":
     import sys
     sys.path.append('../')
     sys.path.append('lib')    
-import tashaphyne
+import tashaphyne.stemming as tashaphyne
 import naftawayh.stopwords  as stopwords
 #
 #from arabic_const import *

@@ -366,7 +366,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @return:  Rafe3.
         @rtype: True/False
         """
-        print self.get_unvoriginal().encode('utf8')
+        #print self.get_unvoriginal().encode('utf8')
         if (not self.has_encletic()) and \
         u"كان و أخواتها" in self.get_tags():    
             return True

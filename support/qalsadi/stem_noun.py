@@ -614,8 +614,8 @@ def validate_tags(noun_tuple, affix_tags, procletic, encletic_nm ,
     if  u'تنوين' in affix_tags and  noun_tuple['mamnou3_sarf']:
         return False
     # ألجمع السالم لا يتصل بجمع التكسير
-    print noun_tuple['number'].encode('utf8'),bool( noun_tuple['number'] in (u'جمع', u'جمع تكسير'))
-    print (u"', '".join(affix_tags)).encode('utf8'), bool(u'جمع مؤنث سالم' in affix_tags)
+    #~ print noun_tuple['number'].encode('utf8'),bool( noun_tuple['number'] in (u'جمع', u'جمع تكسير'))
+    #~ print (u"', '".join(affix_tags)).encode('utf8'), bool(u'جمع مؤنث سالم' in affix_tags)
     if  noun_tuple['number'] in (u'جمع', u'جمع تكسير'):
         
         if  u'جمع مؤنث سالم' in affix_tags:

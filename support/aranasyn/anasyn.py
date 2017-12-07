@@ -261,7 +261,7 @@ class SyntaxAnalyzer:
                     weight = sconst.VerbParticulRelation
               # جملة مقول القول    
             if current.is_pounct():
-                print "anasyn", 381, "Kala", previous.get_original().encode('utf8')
+                #print "anasyn", 381, "Kala", previous.get_original().encode('utf8')
                 if previous.get_original() == u"قَالَ":
                     #if the current is pounctuation and the previous is a speach verb, 
                     previous.add_next(current_position, sconst.VerbObjectRelation)

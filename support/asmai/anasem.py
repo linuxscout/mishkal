@@ -73,7 +73,9 @@ class SemanticAnalyzer:
                     for previous in stemmed_synwordlistlist[previous_index]:
                         #~counter +=  1
                         previous, stmword  = self.bigram_analyze(previous, 
-                        stmword, previous_case_position, stmword_case_position)
+                                                            stmword, 
+                                                            previous_case_position,
+                                                            stmword_case_position)
                         previous_case_position  += 1  
                             
                 # if the current word is transparent, ignore it and fix 
@@ -120,6 +122,8 @@ class SemanticAnalyzer:
         # if the two words are related syntaxicly
         relation = ""
         confirmed = ''
+        if not previous or not current:
+            return previous, current
         if self.is_syn_related(previous, current):
             # if the first word is a verb and the second is a noun, 
             # the noun can be Suject of object or vice-object

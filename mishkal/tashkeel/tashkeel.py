@@ -30,7 +30,8 @@ from itertools import izip, count
 # This global constant is used todefine where the vocazlizer don't vocalized uncertain words' ends
 UNCERTAIN_TASHKEEL = False
 # to debug program
-debug = True
+debug = False
+#~ debug = True
 class TashkeelClass:
     """
         Arabic Tashkeel Class

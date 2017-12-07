@@ -17,7 +17,7 @@ import re
 import unkown_const
 
 
-debug = True
+debug = False
 class UnkownTashkeel:
     """
         Arabic Tashkeel Class

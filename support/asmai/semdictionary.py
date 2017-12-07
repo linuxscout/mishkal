@@ -36,6 +36,7 @@ class SemanticDictionary:
         to speed up the access.
 
         """
+
         # get the database path
         if hasattr(sys, 'frozen'): # only when running in py2exe this exists
             base = sys.prefix
@@ -157,6 +158,7 @@ class SemanticDictionary:
         @param primate_word: the derived word.
         @type primate_word: unicode.
         @param second_word: the related word.
+        @param original:  if the lookup is made with original word
         @type second_word: unicode.
         @return: list of relations .
         @rtype: list.
@@ -164,18 +166,21 @@ class SemanticDictionary:
         rule = False
         # search for direct relation between first and second word
         rule = self.lookup_rule(primate_word, second_word)
-        if not rule :
+        
+        # look up if the first word is derived 
+        if not rule:
            # look up if the first word is derived 
            # as subject
            original_primate_word, derivation_type = self.get_original(primate_word)
-           if original_primate_word:
-               rule = self.lookup(original_primate_word, second_word)
+           if original_primate_word and second_word:
+               rule = self.lookup_rule(original_primate_word, second_word)
                # test if rulelist is icompatible with derivation type
                if self.is_compatible(rule, derivation_type):
                     return rule
                else: 
                     rule = False
         return rule
+
         
     def is_compatible(self, rule, derivation_type):
         """
