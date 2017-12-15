@@ -83,6 +83,9 @@ class TashkeelClass:
 
         # syntaxic analyzer
         self.anasynt = aranasyn.anasyn.SyntaxAnalyzer()
+        # to disable the training when do Tashkeel
+        self.syntax_train_enabled = False
+        
         # semantic analyzer
         self.anasem = asmai.anasem.SemanticAnalyzer()        
         #set the lexical analzer debugging
@@ -109,6 +112,16 @@ class TashkeelClass:
         Enable the stat tasheel option.
         """
         self.enabled_stat_tashkeel = True
+        
+    def enable_syn_train(self):
+        """
+        Enable the syntaxique relation extraction from a vocalized text
+        """
+        self.anasynt.syntax_train_enabled = True
+        
+        # in this case we should use fully_vocalized_input text
+        self.analyzer.enable_fully_vocalized_input()
+        
     def disable_stat_tashkeel(self):
         """
         disable the stat tasheel option.

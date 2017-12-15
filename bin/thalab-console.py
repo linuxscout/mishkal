@@ -6,8 +6,9 @@ import sys
 import re
 from glob import glob
 
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal/lib/'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../support/'))
 sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal'))
+sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../')) # used for core
 from itertools import tee, islice, chain, izip
 
 def previous_and_next(some_iterable):
@@ -22,6 +23,7 @@ def previous_and_next(some_iterable):
     prevs =  chain([None], prevs)
     nexts =  chain(islice(nexts, 1, None), [None])
     return izip(prevs, items, nexts)
+    
 def display_trigram_cases(detailled_syntax):
     """
     Display tri grams of detailled syntaxical resulted from syntaxic analysis
@@ -148,16 +150,16 @@ def grabargs():
 
     #if text: print text.encode('utf8');
     options ={"filename":fname,
-			 "text":text,
-			"stripTashkeel": stripTashkeel,
-			"reducedTashkeel": reducedTashkeel,
-			"disableSyntax": disableSyntax,
-			"disableSemantic": disableSemantic,
-			"disableStatistic":disableStatistic, 
-			"ignore":ignore,
-			"limit":limit ,
-			"compare": compare,
-	}
+             "text":text,
+            "stripTashkeel": stripTashkeel,
+            "reducedTashkeel": reducedTashkeel,
+            "disableSyntax": disableSyntax,
+            "disableSemantic": disableSemantic,
+            "disableStatistic":disableStatistic, 
+            "ignore":ignore,
+            "limit":limit ,
+            "compare": compare,
+    }
     return options
 
 import tashkeel
@@ -191,7 +193,8 @@ if __name__ ==  '__main__':
     # lexical analyzer
     morphanalyzer = qalsadi.analex.Analex()
     # syntaxic analyzer
-    anasynt = aranasyn.anasyn.SyntaxAnalyzer();    
+    anasynt = aranasyn.anasyn.SyntaxAnalyzer();
+    anasynt.syntax_train_enabled = True  
     while line and (nolimit or counter <= limit):
         # lineIncorrect =  0;
         #strip harakat from line
