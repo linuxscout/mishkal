@@ -52,6 +52,7 @@ def grabargs():
     "strip_tashkeel" : False,
     "reducedTashkeel" : False,  
     "progress" : False,  
+    "train" : False,  
     "nocache" : False,
     "text" : "",
     }
@@ -59,10 +60,10 @@ def grabargs():
         usage()
         sys.exit(0)
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hVtcpixsmnrv:f:l:", 
+        opts, args = getopt.getopt(sys.argv[1:], "hVtgcpixsmnrv:f:l:", 
                                ["help", "version", "stat", "compare", 
                                "reduced", "strip", "syntax", "progress", "semantic", 
-                               "ignore", "nocache", "limit=", "file="], )
+                               "ignore", "nocache", "train", "limit=", "file="], )
     except getopt.GetoptError:
         usage()
         sys.exit(0)
@@ -91,6 +92,8 @@ def grabargs():
             options["disableStatistic"] = True
         if o in ("-p", "--progress"):
             options["progress"] = True            
+        if o in ("-g", "--train"):
+            options["train"] = True            
         if o in ("-l", "--limit"):
             try: options["limit"] = int(val)
             except: options["limit"] = 0
@@ -122,6 +125,7 @@ def test():
     limit  = options['limit']
     compare = options['compare']
     progress = options['progress']
+    enable_syn_train = options['train']
         
     #filename = "samples/randomtext.txt"    
     if not text and not filename:
@@ -156,6 +160,9 @@ def test():
             vocalizer.disable_syntaxic_analysis()
         if disableStat:
             vocalizer.disable_stat_tashkeel()
+        if enable_syn_train:
+            vocalizer.enable_syn_train()
+            print "mishkal-console, vocalizer.anasynt.syntax_train_enabled", vocalizer.anasynt.syntax_train_enabled
 
     #vocalizer.disableShowCollocationMark()
     #print "show delimiter", vocalizer.collo.showDelimiter
