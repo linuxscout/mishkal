@@ -76,7 +76,7 @@ class ArabicDictionary:
         # the stamp is used as a first level of indexing, especially
         # for verbs
         # the stamp pattern is used to create the word stamp
-        self.stamp_pat = re.compile(u"[%s%s%s%s%s%s%s%s%s]"% (araby.ALEF, 
+        self.stamp_pat = re.compile(ur"[%s%s%s%s%s%s%s%s%s]"% (araby.ALEF, 
         araby.YEH, araby.HAMZA, araby.ALEF_HAMZA_ABOVE, araby.WAW_HAMZA,
          araby.YEH_HAMZA, araby.WAW, araby.ALEF_MAKSURA, araby.SHADDA), 
          re.UNICODE)

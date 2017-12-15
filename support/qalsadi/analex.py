@@ -304,9 +304,9 @@ class Analex :
         word_vocalised = word
         word_nm = araby.strip_tashkeel(word)
         # get analysed details from cache if used
-        if self.allow_cache_use and self.cache.isAlreadyChecked(word_nm):
+        if self.allow_cache_use and self.cache.is_already_checked(word_nm):
             #~ print (u"'%s'"%word).encode('utf8'), 'found'
-            resulted_data = self.cache.getChecked(word_nm)
+            resulted_data = self.cache.get_checked(word_nm)
         else:
             resulted_data = []
             # if word is a pounctuation
@@ -345,7 +345,7 @@ class Analex :
             # add the stemmed words details into Cache
             data_list_to_serialize = [w.__dict__ for w in resulted_data]
             if self.allow_cache_use:
-                self.cache.addChecked(word_nm, data_list_to_serialize)
+                self.cache.add_checked(word_nm, data_list_to_serialize)
 
         #check if the word is vocalized like results 
         if self.partial_vocalization_support:
@@ -563,8 +563,10 @@ def check_shadda(word_vocalised, resulted_data):
     #~return filter(lambda item: araby.shaddalike(word_vocalised, 
     #~item.__dict__.get('vocalized', '')), resulted_data)
 #~x for x in [1, 1, 2] if x == 1
-    return [x for x in resulted_data if araby.shaddalike(word_vocalised, 
-    x.__dict__.get('vocalized', ''))]
+    return [x for x in resulted_data if araby.strip_harakat(word_vocalised) == 
+    araby.strip_harakat(x.__dict__.get('vocalized', ''))]
+    #~ return [x for x in resulted_data if araby.shaddalike(word_vocalised, 
+    #~ x.__dict__.get('vocalized', ''))]
 
 def check_normalized(word_vocalised, resulted_data):
     """
@@ -621,7 +623,7 @@ def check_partial_vocalized(word_vocalised, resulted_data):
         for item in  resulted_data:
             if 'vocalized' in item and araby.vocalizedlike(word_vocalised,
               item['vocalized']):
-                item['tags'] += ':'+analex_const.partialVocalizedTag
+                item['tags'] += ':' + analex_const.partialVocalizedTag
                 filtred_data.append(item)
     return  filtred_data
 

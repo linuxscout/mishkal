@@ -2,7 +2,7 @@
 # -*- coding=utf-8 -*-
 #-------------------------------------------------------------------------------
 # Name:        analex
-# Purpose:     Arabic lexical analyser, provides feature to stem arabic words as noun, verb, stopword 
+# Purpose:     Arabic lexical analyser, provides feature to stem arabic words as noun, verb, stopword
 #
 # Author:      Taha Zerrouki (taha.zerrouki[at]gmail.com)
 #
@@ -11,8 +11,8 @@
 # Licence:     GPL
 #-------------------------------------------------------------------------------
 if __name__=="__main__":
-	import sys
-	sys.path.append('..');
+    import sys
+    sys.path.append('..');
 
 
 from CodernityDB.database import Database
@@ -43,60 +43,60 @@ class WithAIndex(HashIndex):
         return md5(key.encode('utf8')).hexdigest()
 
 class cache :
-	"""
-		cache for word morphological analysis
-	"""
-	def __init__(self,):
-		"""
-		Create Analex Cache
-		"""
-		self.cache={'checkedWords':{},
-			    'FreqWords':{'noun':{}, 'verb':{},'stopword':{}},
-			};
-		self.db = Database('~/tmp/qalsadiCache')
-		if not self.db.exists():
-			self.db.create();
-			x_ind = WithAIndex(self.db.path, 'a')
-			self.db.add_index(x_ind)        
-		else:
-			self.db.open();
+    """
+        cache for word morphological analysis
+    """
+    def __init__(self,):
+        """
+        Create Analex Cache
+        """
+        self.cache={'checkedWords':{},
+                'FreqWords':{'noun':{}, 'verb':{},'stopword':{}},
+            };
+        self.db = Database('~/tmp/qalsadiCache')
+        if not self.db.exists():
+            self.db.create();
+            x_ind = WithAIndex(self.db.path, 'a')
+            self.db.add_index(x_ind)
+        else:
+            self.db.open();
 
-	def __del__(self):
-		"""
-		Delete instance and clear cache
-		
-		"""
-		self.cache=None;
-		self.db.close();
+    def __del__(self):
+        """
+        Delete instance and clear cache
 
-	def isAlreadyChecked(self, word):
-		try:
-			return bool(self.db.get('a', word))
-		except: return False
-		#~ except: return False;
+        """
+        self.cache=None;
+        self.db.close();
 
-	def getChecked(self, word):
-		x = self.db.get('a', word, with_doc=True)
-		y= x.get('doc',False);
-		if y: return y.get('d',[])
-		else: return []
-	
-	def addChecked(self, word, data):
-		idata = {"a":word,'d':data}
-		self.db.insert(idata)
+    def is_already_checked(self, word):
+        try:
+            return bool(self.db.get('a', word))
+        except: return False
+        #~ except: return False;
 
-	
-	def existsCacheFreq(self, word, wordtype):
-		return word in self.cache['FreqWords'];
-	
-	def getFreq(self, originalword, wordtype):
-		return self.cache['FreqWords'][wordtype].get(originalword,0);
-	
-	def addFreq(self, original, wordtype, freq):
-		self.cache['FreqWords'][wordtype][original] = freq;
-		
+    def get_checked(self, word):
+        x = self.db.get('a', word, with_doc=True)
+        y= x.get('doc',False);
+        if y: return y.get('d',[])
+        else: return []
+
+    def add_checked(self, word, data):
+        idata = {"a":word,'d':data}
+        self.db.insert(idata)
+
+
+    def exists_cacheFreq(self, word, wordtype):
+        return word in self.cache['FreqWords'];
+
+    def get_freq(self, originalword, wordtype):
+        return self.cache['FreqWords'][wordtype].get(originalword,0);
+
+    def add_freq(self, original, wordtype, freq):
+        self.cache['FreqWords'][wordtype][original] = freq;
+
 def mainly():
-	print "test";		
-	
+    print "test";
+
 if __name__=="__main__":
-	mainly();
+    mainly();

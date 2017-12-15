@@ -23,6 +23,8 @@ import aranasyn.syn_const  as sconst
 import aranasyn.synnode
 import aranasyn.stemmedsynword as stemmedsynword
 import naftawayh.wordtag as wordtag
+from pyarabic.arabrepr import arepr 
+import aranasyn.cache as cache
 #from operator import and_
 from operator import xor
 
@@ -32,7 +34,34 @@ class SyntaxAnalyzer:
     """
     def __init__(self):
         self.wordtagger = wordtag.WordTagger()
+        ## Cache for relations betwwen words
+        # I will use it for traning for extracting relations between original words
+        self.syntax_train_enabled = False
+        #~ self.syntax_train_enabled = True
+        #file to use as cache in NoSQL format
+        self.cache = cache.cache()
+        # structure will be:
+        # { "original-word":{
+        # "nextoriginalword":{relation1:frequncy, relation2:frequency2},},
+        
         pass
+    def __del__(self):
+        #~ print "SynatxAnalyzer is dying"
+        # print or log relations into a file or a file
+        if self.syntax_train_enabled:
+            self.cache.update()
+            self.cache.display_all()
+        pass
+        
+    def add_cache_relation(self, previous, current, relation):
+        """
+        Add relation between previous and current with realtion code
+        """
+        pre_original = previous.get_original()
+        cur_original = current.get_original()
+        self.cache.add_relation(pre_original, cur_original, relation)
+        
+        
     def analyze(self, detailed_stemming_dict):
         """
         Syntaxic analysis of stemming results.
@@ -288,6 +317,9 @@ class SyntaxAnalyzer:
             # add to the current word case a pointer 
             #to the previous word order.
             current.add_previous(previous_position, weight)
+            
+            if self.syntax_train_enabled:
+                self.add_cache_relation(previous, current, weight)
         return previous, current
 
 

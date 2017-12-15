@@ -2,11 +2,11 @@
 #FILE="rndlines.txt"
 FILE="aljazeera.txt"
 #valgrind --trace-children=yes --tool=massif  ../mishkal-console.py -p -c -l 500 -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt
-
-action=`python -m cProfile ../bin/mishkal-console.py -p -c -l 500 -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt`
+DATE=`date +%Y-%m-%d-%H:%M`
+action=`python  -m cProfile -o output/mishkal${DATE}.profile ../bin/mishkal-console.py -p -c -l 500 -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt`
 echo ${action}
 ${action}
-DATE=`date +%Y-%m-%d-%H:%M`
+
 echo "make archive" 
 cp output/compare/rndlines.11.txt  output/compare/L${DATE}.txt
 echo "save stats"

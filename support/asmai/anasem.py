@@ -20,6 +20,7 @@ import  asmai.sem_const_light as sem_const
 import semdictionary 
 #~ import  asmai.sem_const_heavy as sem_const
 import  aranasyn.anasyn
+import  aranasyn.cache
 debug  =  False
 #debug  =  True
 class SemanticAnalyzer:
@@ -28,7 +29,12 @@ class SemanticAnalyzer:
     """
 
     def __init__(self):
+        
         self.semdict = semdictionary.SemanticDictionary()
+        
+        # a NoSql database for ferquent relationship between lexical words.
+        self.syncache = aranasyn.cache.cache()
+        
     def analyze(self, detailed_stemming_dict):
         """
         Semantic analysis of stemming and syntaxic results.
@@ -279,14 +285,20 @@ class SemanticAnalyzer:
         @rtype: Unicode or False
         """
         #~ return False
-        preorigin  =  previous.get_original()
+        origin_pre  =  previous.get_original()
         relation = ''
         if previous.is_proper_noun():
-            preorigin  =  u'فلان'
-        curorigin  =  current.get_original()
+            origin_pre  =  u'فلان'
+        origin_cur  =  current.get_original()
         if current.is_proper_noun():
-            curorigin  =  u'فلان'
-        return self.semdict.lookup(preorigin, curorigin)
+            origin_cur  =  u'فلان'
+        #
+        freq_synt = self.syncache.is_related(origin_pre, origin_cur)
+        if freq_synt :
+            # return the first key
+            # to do add more options
+            return freq_synt.keys()[0]
+        return self.semdict.lookup(origin_pre, origin_cur)
         
     def is_syn_related(self, previous, current):
         """
