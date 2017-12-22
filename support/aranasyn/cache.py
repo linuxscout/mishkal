@@ -85,11 +85,14 @@ class cache :
         #~ except: return False;
 
     def get_checked(self, word):
-        x = self.db.get('a', word, with_doc=True)
-        y = x.get('doc',False);
-        if y: 
-            return y.get('d',[])
-        else: return []
+        try:
+            x = self.db.get('a', word, with_doc=True)
+            y = x.get('doc',False);
+            if y: 
+                return y.get('d',[])
+            else: return []
+        except:
+            return []
     
     def add_checked(self, word, data):
         idata = {"a":word,'d':data}
@@ -107,15 +110,33 @@ class cache :
 
     
     def exists_cache_word(self, word):
-        return word in self.cache;
+        """ test if word exists in cache"""
+        #if exists in cache dictionary
+        if word in self.cache:
+            return True
+        else: # test in database
+            if self.is_already_checked(word):
+                stored_data = self.get_checked(word)
+                self.cache[word] = stored_data
+                return bool(self.cache[word])
+            else:
+                # add null dict to the word index to avoid multiple database check
+                self.cache[word] = {}
+                return {}            
+
     
     def get_relation_freq(self, word_prev, word_cur, relation):
-        
+        self.exists_cache_word(word_prev)
         return self.cache.get(word_prev, {}).get(word_cur, {}).get(relation, 0);
     
     def is_related(self, word_prev, word_cur):
-        
+        """ test if two words are related"""
+        #serach in cache
+        self.exists_cache_word(word_prev)
+        # if exists in cache or database
         return self.cache.get(word_prev, {}).get(word_cur, {});
+                
+            
 
     def add_relation(self, word_prev, word_cur, relation):
         
