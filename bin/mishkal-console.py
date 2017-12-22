@@ -35,6 +35,7 @@ def usage():
     print "\t[-l | --limit]    vocalize only a limited number of line"
     print "\t[-x | --syntax]   disable syntaxic analysis"
     print "\t[-m | --semantic] disable semantic analysis"
+    print "\t[-g | --train]     enable tranining option"
     print "\t[-i | --ignore]   ignore the last Mark on output words."    
     print "\t[-t | --stat]     disable statistic tashkeel"
     print "\r\nThis program is licensed under the GPL License\n"
