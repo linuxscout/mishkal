@@ -130,7 +130,35 @@ class SemanticAnalyzer:
         confirmed = ''
         if not previous or not current:
             return previous, current
+        
+        #~ # Choose predifined syntaxique semantique relation
+        #~ freq_synt = self.syncache.is_related(origin_pre, origin_cur)
+        #~ if freq_synt :
+            #~ # return the first key
+            #~ # to do add more options
+            #~ return freq_synt.keys()[0]
         if self.is_syn_related(previous, current):
+            # First use syntaxic trained database
+            # if the actual relation existes in database, then 
+            # The actual syntax relation is semantic
+            syn_relation = previous.get_next_relation(current.get_order())
+
+            # Choose predifined syntaxique semantique relation
+            syn_relat_dict = self.syncache.is_related(previous.get_original(), 
+                                                      current.get_original())
+            if debug: print "anasem"
+            if debug: print(u" ".join([previous.get_original(), current.get_original(), str(syn_relation), repr(syn_relat_dict)])).encode('utf8') 
+            if syn_relat_dict:
+                # if syntax relation exists in the given dict, ok , there is a relation
+                # between the two words
+                if syn_relation in syn_relat_dict:
+                    
+                    relation = syn_relation
+                    confirmed = "ok0" # just for test, instead True is enough
+                    #ToDo: add compatible relations
+                    # like verb + subject => subject verb
+
+            # second step
             # if the first word is a verb and the second is a noun, 
             # the noun can be Suject of object or vice-object
             #إذا توالى فعل واسم، فيكون الاسم
@@ -141,77 +169,79 @@ class SemanticAnalyzer:
             # تخزن المعلومات على شكل مصدر الفعل مضافا إلى الاسم
             # وجود الإضافة بين المصدر والاسم 
 #يدل على وجود علاقة الفاعلية أو المفعولية
-            if previous.is_verb() and current.is_noun():
-                confirmed = ""
-                relation  = self.are_sem_related(previous, current)
-                #~ print "relation", relation
-                if relation:
-                    if relation == sem_const.Predicate :
-                        #نائب فاعل
-                        if previous.is_passive() and current.is_marfou3():
-                            confirmed = "ok1"
-                        #مفعول به
-                        elif not previous.is_passive() and current.is_mansoub():
-                            confirmed = "ok2"
-                    elif relation == sem_const.Subject: 
-                        #فاعل
-                        if not previous.is_passive() and current.is_marfou3():
-                            confirmed = "ok3"
-                    
-            elif previous.is_noun() and current.is_verb():
-                relation  = self.are_sem_related(current, previous)
-                confirmed = ""
-                if relation:
-                    if relation == sem_const.Predicate :
-                        #نائب فاعل
-                        if current.is_passive():
-                            confirmed = "ok1"
-                        #مفعول به
-                        elif not current.is_passive():
-                            confirmed = "ok2"
-                    elif relation == sem_const.Subject: 
-                        #فاعل
-                        if not current.is_passive():
-                            confirmed = "ok3"
-            elif previous.is_noun() and current.is_noun():
-                relation  = self.are_sem_related(current, previous)
-                #~ print "#2", relation
-                confirmed = ""
-                if relation:
-                    if relation == sem_const.Added :
-                        #مضاف إليه
-                        if current.is_majrour():
-                            confirmed = "ok1"
-                    #Todo    #نعت
-                    elif relation  ==  sem_const.Adj:
-                        if current.is_adj():
-                            confirmed = 'ok4' 
-                    #Todo    #نعت
-                    elif relation  ==  sem_const.Subject:
-                        if current.is_adj() and u"اسم فاعل" in current.get_type():
-                            confirmed = 'ok5' 
-                    #Todo    #نعت
-                    elif relation  ==  sem_const.Predicate:
-                        #~ print "x"
-                        #~ print current.get_tags().encode('utf8');
+            if not relation:
+                if previous.is_verb() and current.is_noun():
+                    confirmed = ""
+                    relation  = self.are_sem_related(previous, current)
+                    #~ print "relation", relation
+                    if relation:
+                        if relation == sem_const.Predicate :
+                            #نائب فاعل
+                            if previous.is_passive() and current.is_marfou3():
+                                confirmed = "ok1"
+                            #مفعول به
+                            elif not previous.is_passive() and current.is_mansoub():
+                                confirmed = "ok2"
+                        elif relation == sem_const.Subject: 
+                            #فاعل
+                            if not previous.is_passive() and current.is_marfou3():
+                                confirmed = "ok3"
+                        
+                elif previous.is_noun() and current.is_verb():
+                    relation  = self.are_sem_related(current, previous)
+                    confirmed = ""
+                    if relation:
+                        if relation == sem_const.Predicate :
+                            #نائب فاعل
+                            if current.is_passive():
+                                confirmed = "ok1"
+                            #مفعول به
+                            elif not current.is_passive():
+                                confirmed = "ok2"
+                        elif relation == sem_const.Subject: 
+                            #فاعل
+                            if not current.is_passive():
+                                confirmed = "ok3"
+                elif previous.is_noun() and current.is_noun():
+                    relation  = self.are_sem_related(current, previous)
+                    #~ print "#2", relation
+                    confirmed = ""
+                    if relation:
+                        if relation == sem_const.Added :
+                            #مضاف إليه
+                            if current.is_majrour():
+                                confirmed = "ok1"
+                        #Todo    #نعت
+                        elif relation  ==  sem_const.Adj:
+                            if current.is_adj():
+                                confirmed = 'ok4' 
+                        #Todo    #نعت
+                        elif relation  ==  sem_const.Subject:
+                            if current.is_adj() and u"اسم فاعل" in current.get_type():
+                                confirmed = 'ok5' 
+                        #Todo    #نعت
+                        elif relation  ==  sem_const.Predicate:
+                            #~ print "x"
+                            #~ print current.get_tags().encode('utf8');
 
-                        #~ if current.is_adj() and not u"اسم فاعل" in current.get_tags():
+                            #~ if current.is_adj() and not u"اسم فاعل" in current.get_tags():
 
-                        if current.is_adj() and u"اسم مفعول"in  current.get_type():
-                            confirmed = 'ok6'
-                            #~ print confirmed
-                        #فاعل
-                #        if not current.is_passive():
-                #            confirmed = "ok3"
-                #~ print "#2", confirmed
+                            if current.is_adj() and u"اسم مفعول"in  current.get_type():
+                                confirmed = 'ok6'
+                                #~ print confirmed
+                            #فاعل
+                    #        if not current.is_passive():
+                    #            confirmed = "ok3"
+                    #~ print "#2", confirmed
                        
         if relation and confirmed:
             # add to the previous a pointer to the next word order.
             # N for next
-            previous.add_sem_next(current_position)
+            if debug: print "anasem:r relation",relation, "confirmed", confirmed 
+            previous.add_sem_next(current_position, relation)
             # add to the current word case a pointer to the previous word order.
             #p for previous
-            current.add_sem_previous(previous_position)
+            current.add_sem_previous(previous_position, relation)
         return previous, current
 
     #~ @deprecated_func
@@ -292,12 +322,6 @@ class SemanticAnalyzer:
         origin_cur  =  current.get_original()
         if current.is_proper_noun():
             origin_cur  =  u'فلان'
-        #
-        freq_synt = self.syncache.is_related(origin_pre, origin_cur)
-        if freq_synt :
-            # return the first key
-            # to do add more options
-            return freq_synt.keys()[0]
         return self.semdict.lookup(origin_pre, origin_cur)
         
     def is_syn_related(self, previous, current):
