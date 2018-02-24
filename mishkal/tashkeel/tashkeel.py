@@ -404,7 +404,7 @@ class TashkeelClass:
                 voc_word =   semivocalized                    
             # omit the last haraka if the option LastMark is False
             if not self.get_enabled_last_mark():
-                vocalized_text = u" ".join([vocalized_text, self.display(word, format_display)])
+                vocalized_text = u" ".join([vocalized_text, self.display(voc_word, format_display)])
             else:
                 #semivocalized 
                 vocalized_text = u" ".join([vocalized_text, self.display(semivocalized, format_display)])
