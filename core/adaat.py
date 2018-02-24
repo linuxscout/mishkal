@@ -23,7 +23,7 @@ import random
 import pyarabic.araby  as araby # arabic words general functions
 import pyarabic.number
 
-import tashaphyne
+import tashaphyne.stemming 
 import re
 #~import pyarabic.number
 def DoAction(text, action, options = {}):
@@ -209,7 +209,7 @@ def light_stemmer(text):
     LightStemming unsing Tashaphyne
     """
     result = []
-    als = tashaphyne.ArabicLightStemmer()
+    als = tashaphyne.stemming.ArabicLightStemmer()
     word_list = als.tokenize(text)
     for word in word_list:
         #~listseg =  als.segment(word)
@@ -254,7 +254,8 @@ def token_text(text):
     """
     tokenize a text into words
     """
-    tasha = tashaphyne.ArabicLightStemmer()
+    tasha = tashaphyne.stemming.ArabicLightStemmer()
+    return araby.tokenize(text)
     return tasha.tokenize(text)
 ##    if u'' in listword:listword.remove(u'')
 ##     listword
@@ -263,7 +264,7 @@ def normalize(text):
     """
     normalize a text
     """
-    tasha = tashaphyne.ArabicLightStemmer()
+    tasha = tashaphyne.stemming.ArabicLightStemmer()
     return tasha.normalize(text)
     
 def justify_poetry(text):

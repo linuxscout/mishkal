@@ -183,7 +183,7 @@ def test():
     percent = 0
     if compare:
         #dispaly stats for the current line
-        print "id\tfully Correct\tStrip Correct\tfully WER\tStrip WER\tLER\tTotal\tline Fully correct\tline Strip correct"
+        print "id\tfully Correct\tStrip Correct\tfully WER\tStrip WER\tLER\tTotal\tline Fully correct\tline Strip correct\tLine"
         
     while line and (nolimit or counter <= limit):
         if not line.startswith('#'):

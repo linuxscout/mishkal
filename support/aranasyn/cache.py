@@ -18,7 +18,8 @@ if __name__=="__main__":
     sys.path.append('../');
     sys.path.append('../../support/');
 
-
+import sys
+import os
 from CodernityDB.database import Database
 from CodernityDB.hash_index import HashIndex
 from hashlib import md5
@@ -55,8 +56,15 @@ class cache :
         """
         # use this dictionary as a local cache,
         # The global db will be updated on destructing object
+        # get the database path
+        if hasattr(sys, 'frozen'): # only when running in py2exe this exists
+            base = sys.prefix
+        else: # otherwise this is a regular python script
+            base = os.path.dirname(os.path.realpath(__file__))
+        file_path = os.path.join(base, "data/thaalibCache")
+        
         self.cache={};
-        self.db = Database('~/tmp/thaalibCache')
+        self.db = Database(file_path)
         if not self.db.exists():
             self.db.create();
             x_ind = WithAIndex(self.db.path, 'a')

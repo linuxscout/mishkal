@@ -20,6 +20,7 @@ sys.path.append('mishkal/lib')
 sys.path.append('../lib')
 #~print sys.path
 import math
+from operator import xor
 import pyarabic.araby as araby
 import aranasyn.syn_const as syn_const
 import qalsadi
@@ -383,6 +384,26 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         if (u'اسم إضافة' in self.get_tags() or u'إضافة' in self.get_tags()) and not self.has_encletic():
             return True
         return False
+        
+    def need_addition(self):
+        """
+        Return True if the word can be added like  مديرو and not مديرون
+        @rtype: True/False
+        """
+        return self.is_addition() or not (u'لايضاف' in self.get_tags() or self.is_defined() or  self.is_tanwin() or self.has_encletic())
+        
+    def is_additionable(self):
+        """
+        Return True if the word can be an addition مضاف إليه
+        @rtype: True/False
+        """
+        # مجرور
+        if self.is_majrour() :
+            # ليس صفة نكرة
+            # يكون معرفة
+            if not self.is_adj() or  self.is_defined():
+                return True
+        return False
 
     def __get_verbal_factor(self):
         """
@@ -692,6 +713,60 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         """    
         #~return bool(self.tag_verbal_factor % 2)
         return bool(self.tag_verbal_factor)
+    
+    def eq_defined(self, otherword):
+        """
+        Return True if the current word is equal in definition with otherword.
+        @return:  equal or not.
+        @rtype: True/False
+        """          
+        return (not xor(self.is_defined() , otherword.is_defined()) and 
+         not xor(self.is_tanwin() , otherword.is_tanwin()))
+         
+         #~ or not xor(self.has_encletic() , otherword.is_defined())
+         #~ or not xor(self.is_defined() , otherword.has_encletic())
+         #~ ) 
+         
+    def eq_case(self, otherword):
+        """
+        Return True if the current word is equal in case إعراب with otherword.
+        @return:  equal or not.
+        @rtype: True/False
+        """          
+        return ( (self.is_majrour() and otherword.is_majrour()) \
+            or (self.is_mansoub() and otherword.is_mansoub()) \
+            or (self.is_marfou3()and otherword.is_marfou3()))
+
+    def eq_gender(self, otherword):
+        """
+        Return True if the current word is equal in gender النوع ذكر أنثى with otherword.
+        @return:  equal or not.
+        @rtype: True/False
+        """          
+        return ( (self.is_feminin() and otherword.is_feminin()) 
+           or (self.is_masculin() and otherword.is_masculin())
+        )
+    def eq_number(self, otherword):
+        """
+        Return True if the current word is equal in number العدد مفرد مثنى جمع with otherword.
+        @return:  equal or not.
+        @rtype: True/False
+        """          
+        return ( (self.is_plural() and otherword.is_plural()) 
+             or  (self.is_dual() and otherword.is_dual())
+            or (self.is_single() and otherword.is_single())
+             )
+    def eq_person(self, otherword):
+        """
+        Return True if the current word is equal in person الشخض متكلم مخاطب غائب with otherword.
+        @return:  equal or not.
+        @rtype: True/False
+        """          
+        return ( (self.is_speaker_person() and otherword.is_speaker_person()) 
+             or (self.is_present_person() and otherword.is_present_person())
+             or (self.is_absent_person() and otherword.is_absent_person()))
+                
+
 
     def ajust_tanwin(self):
         """

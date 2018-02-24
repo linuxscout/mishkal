@@ -20,9 +20,17 @@ import  asmai.sem_const_light as sem_const
 import semdictionary 
 #~ import  asmai.sem_const_heavy as sem_const
 import  aranasyn.anasyn
+import  aranasyn.syn_const as syc
+
 import  aranasyn.cache
 debug  =  False
 #debug  =  True
+PRIMATE_RELATION_LIST = [
+                syc.PrimatePredicateMansoubRelation,
+                syc.PrimateMansoubPredicateRelation,
+                syc.DescribedAdjectiveRelation,
+                syc.PrimatePredicateRelation,
+                ]
 class SemanticAnalyzer:
     """
         Arabic Semantic analyzer
@@ -146,6 +154,9 @@ class SemanticAnalyzer:
             # Choose predifined syntaxique semantique relation
             syn_relat_dict = self.syncache.is_related(previous.get_original(), 
                                                       current.get_original())
+            # Choose predifined syntaxique semantique relation                                                      
+            syn_relat_dict_invertd = self.syncache.is_related(current.get_original(), 
+                                                      previous.get_original())
             if debug: print "anasem"
             if debug: print(u" ".join([previous.get_original(), current.get_original(), str(syn_relation), repr(syn_relat_dict)])).encode('utf8') 
             if syn_relat_dict:
@@ -155,8 +166,28 @@ class SemanticAnalyzer:
                     
                     relation = syn_relation
                     confirmed = "ok0" # just for test, instead True is enough
-                    #ToDo: add compatible relations
-                    # like verb + subject => subject verb
+                
+                elif syn_relation ==  syc.VerbSubjectRelation and syc.SubjectVerbRelation in syn_relat_dict_invertd:
+                # relation verb Subject and inverted Subject Verb
+                    relation = syn_relation
+                    confirmed = "ok0-verb-subject" 
+                #~ elif syn_relation ==  syc.SubjectVerbRelation and syc.VerbSubjectRelation in syn_relat_dict_invertd:
+                #~ # relation Subject  Verb and inverted Verb Subject
+                    #~ relation = syn_relation
+                    #~ confirmed = "ok0-subject-verb"
+                #~ elif syn_relation ==  syc.VerbPassiveSubjectRelation and syc.VerbObjectRelation in syn_relat_dict:
+                #~ # 
+                    #~ relation = syn_relation
+                    #~ confirmed = "ok0-paasiv-verb_object"                
+                #~ elif syn_relation ==  syc.VerbObjectRelation  and syc.VerbPassiveSubjectRelation in syn_relat_dict:
+                #~ # 
+                    #~ relation = syn_relation
+                    #~ confirmed = "ok0-verb_object"                
+                elif syn_relation  in PRIMATE_RELATION_LIST  and  any(r in syn_relat_dict for r in PRIMATE_RELATION_LIST):
+                    relation = syn_relation
+                    confirmed = "ok0-primate"                      
+                   #~ #ToDo: add compatible relations
+                    #~ # like verb + subject => subject verb
 
             # second step
             # if the first word is a verb and the second is a noun, 

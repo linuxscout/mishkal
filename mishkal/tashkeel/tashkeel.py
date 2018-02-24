@@ -78,8 +78,8 @@ class TashkeelClass:
 
         # lexical analyzer
         self.analyzer = qalsadi.analex.Analex()
-        self.analyzer.disable_allow_cache_use()
-        #~ self.analyzer.enable_allow_cache_use()
+        #~ self.analyzer.disable_allow_cache_use()
+        self.analyzer.enable_allow_cache_use()
 
         # syntaxic analyzer
         self.anasynt = aranasyn.anasyn.SyntaxAnalyzer()
@@ -239,6 +239,8 @@ class TashkeelClass:
         """
         result = []
         result = self.analyzer.check_text(text)
+        #~ print "tashkeel6", len(result), len(araby.tokenize(text)), text.encode('utf8')
+        
         if self.get_enabled_syntaxic_analysis():
             result, synodelist = self.anasynt.analyze(result)
             # in this stpe we can't do semantic analysis without 
@@ -246,7 +248,8 @@ class TashkeelClass:
             # we think it's can be done, 
             # To do: do semantic analysis without syntaxic one
             if self.get_enabled_semantic_analysis():
-                result = self.anasem.analyze(result)    
+                result = self.anasem.analyze(result) 
+        #~ print "tashkeel5", len(result), len(synodelist)                 
         return result, synodelist
 
     def tashkeel(self, inputtext, suggestion = False, format_display = 'text'):
@@ -257,12 +260,15 @@ class TashkeelClass:
         @return: vocalized text.
         rtype: dict of dict or text.
         """
+        #~ print "tashkeel 10", inputtext.encode('utf8')        
         inputtext = self.pre_tashkeel(inputtext)
         #print "PreTashkeel", inputtext.encode('utf8')
         # The statistical tashkeel must return a text.
         #comment this after tests
+        #~ print "tashkeel 9", inputtext.encode('utf8')
         if self.get_enabled_stat_tashkeel():
             inputtext = self.stat_tashkeel(inputtext)
+        #~ print "tashkeel 7", inputtext.encode('utf8')                         
             #print "statTashkeel", inputtext.encode('utf8')
         #split texts into phrases to treat one phrase in time
         #~texts = self.analyzer.split_into_phrases(inputtext)
@@ -283,6 +289,7 @@ class TashkeelClass:
             previous_case_index = False
             previous_chosen_relation = False
             # reduce cases
+            #~ print "tashkeel 4", len(detailled_syntax), len(synodelist)            
             for current_index, word_cases_list, current_synode  in izip(count(),detailled_syntax, synodelist):
                 #~ word_cases_list = detailled_syntax[current_index]
                 if current_index - 1 >= 0 :
@@ -301,7 +308,7 @@ class TashkeelClass:
                 previous, pre_node, next_node)
 
             # choose tashkeel
-            
+            #~ print "tashkeel3", len(detailled_syntax), len(synodelist)
             for current_index, word_cases_list, current_synode  in izip(count(),detailled_syntax, synodelist):
                 #~ word_cases_list = detailled_syntax[current_index]
                 if current_index - 1 >= 0 :
@@ -371,6 +378,7 @@ class TashkeelClass:
         #create texts from chosen cases
         privous_order = -1
         previous = -1
+        #~ print "tashkeel 1.0", len(_chosen_list)        
         for i, current_chosen in enumerate(_chosen_list):
             voc_word = _chosen_list[i].get_vocalized()
             if not voc_word:
@@ -407,6 +415,7 @@ class TashkeelClass:
 
         # correct the resulted text to ajust some case of consonant neighbor
         #معالجة حالات التقاء الساكنين
+        #~ print "tashkeel 2", vocalized_text.encode('utf8')
         if self.get_enabled_ajust_vocalization():
             vocalized_text = self._ajust_vocalized_result(vocalized_text)
         if suggestion:
@@ -449,7 +458,8 @@ class TashkeelClass:
         #An = > ani
         text = re.sub(ur'\sعَنْ\s+ا', u' عَنِ ا', text)
         #sukun + alef = > kasra +alef
-        text = re.sub(ur'\s%s\s+ا'%araby.SUKUN, u' %s ا' % araby.SUKUN, text)
+        text = re.sub(ur'\s%s\s+ا'%araby.SUKUN, u' %s ا' % araby.KASRA, text)
+        #~ text = re.sub(ur'\s%s\s+ا'%araby.SUKUN, u' %s ا' % araby.SUKUN, text)
         #ajust pounctuation
         text = re.sub(ur" ([.?!, :)”—]($| ))", ur"\1", text)
         #binu = > bin 
@@ -469,16 +479,19 @@ class TashkeelClass:
         @rtype: list of dict of unicode
         """
         for i in range(len(_suggest_list)-1):
-            if _suggest_list[i]['chosen'] in (u'مَنْ', u'مِنْ', u'عَنْ'):
-                if i+1 < len(_suggest_list) and \
-                _suggest_list[i+1].has_key('chosen') \
-                and _suggest_list[i+1]['chosen'].startswith(araby.ALEF):
-                    if _suggest_list[i]['chosen'] == u'مِنْ':
-                        _suggest_list[i]['chosen'] = u'مِنَ'
-                    elif _suggest_list[i]['chosen'] == u'عَنْ':
-                        _suggest_list[i]['chosen'] = u'عَنِ'
-                    elif _suggest_list[i]['chosen'] == u'مَنْ':
-                        _suggest_list[i]['chosen'] = u'مَنِ'
+            if i+1 < len(_suggest_list) and  _suggest_list[i+1].has_key('chosen') \
+            and _suggest_list[i+1]['chosen'].startswith(araby.ALEF):
+
+                if _suggest_list[i]['chosen'] in (u'مَنْ', u'مِنْ', u'عَنْ'):
+                        if _suggest_list[i]['chosen'] == u'مِنْ':
+                            _suggest_list[i]['chosen'] = u'مِنَ'
+                        elif _suggest_list[i]['chosen'] == u'عَنْ':
+                            _suggest_list[i]['chosen'] = u'عَنِ'
+                        elif _suggest_list[i]['chosen'] == u'مَنْ':
+                            _suggest_list[i]['chosen'] = u'مَنِ'
+                        
+                elif _suggest_list[i]['chosen'].endswith(araby.SUKUN):
+                    _suggest_list[i]['chosen'] =  _suggest_list[i]['chosen'][:-1] + araby.KASRA
             # if _suggest_list[i]['chosen'] == u'بْنُ':
                 # _suggest_list[i]['chosen'] = u'بْن'
         return _suggest_list
@@ -533,7 +546,9 @@ class TashkeelClass:
             text = re.sub(ur"\s%s\s"%abr, ur" %s " % \
             tashkeel_const.CorrectedTashkeel[abr], text)
         wordlist = self.analyzer.tokenize(text)
+        #~ print "tashkeel 11", len(wordlist)
         prevocalized_list = pyarabic.number.pre_tashkeel_number(wordlist)
+        #~ print "tashkeel 12", len(prevocalized_list)
         #prevocalized_list = wordlist
         #Todo ajust prevocalization of named enteties
         #if len(prevocalized_list) != len(wordlist):
