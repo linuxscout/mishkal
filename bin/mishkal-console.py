@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python2
 # -*- coding: UTF-8 -*-
 
 import getopt
@@ -7,13 +7,16 @@ import sys
 import os.path
 import re
 from glob import glob
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../support/'))
-#sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal/lib/'))
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal'))
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../')) # used for core
+base_dir = os.path.dirname(os.path.realpath(__file__))
+#~ sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../support/'))
+#~ sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal'))
+#~ sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../')) # used for core
+sys.path.append(os.path.join(base_dir, '../support/'))
+sys.path.append(os.path.join(base_dir, '../mishkal'))
+sys.path.append(os.path.join(base_dir, '../')) # used for core
 
                 
-scriptname = os.path.splitext(os.path.basename(sys.argv[0]))[0]
+scriptname = os.path.splitext(base_dir)[0]
 
 scriptversion = '0.1'
 AuthorName = "Taha Zerrouki"

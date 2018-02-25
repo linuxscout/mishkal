@@ -1,0 +1,24 @@
+#!/bin/sh
+# Mintiq: Arabic Text to speech, by using espeak and Mishkal
+#
+#
+#
+mishkalpath=/workspace/projects/mishkal-2017-03-19
+voice=mb-ar1
+if [ -n "$1" ]
+then 
+	cd $mishkalpath
+	python2.7 bin/mishkal-console.py $1 | espeak -v $voice
+else
+	read text;
+	if [ -n "$text" ]
+		then
+			#echo "$text"			
+			cd $mishkalpath
+			python2.7 bin/mishkal-console.py $text | espeak -v $voice
+	
+		else
+		espeak -v $voice "  عُذْرَنْ ، أَدْخِلْ نَصْصَنْ ,"
+		fi 
+fi
+exit
