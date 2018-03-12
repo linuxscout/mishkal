@@ -24,6 +24,7 @@ from CodernityDB.database import Database
 from CodernityDB.hash_index import HashIndex
 from hashlib import md5
 from pyarabic.arabrepr import arepr
+
 DB_PATH = os.path.join(os.path.expanduser('~'), '.thaalabCache')
 
 class WithAIndex(HashIndex):
@@ -61,8 +62,6 @@ class cache :
             base = sys.prefix
         else: # otherwise this is a regular python script
             base = os.path.dirname(os.path.realpath(__file__))
-        #file_path = os.path.join(base, "data/thaalibCache")
-        #~ file_path = "/var/thaalibCache"
         file_path = DB_PATH
         
         self.cache={};

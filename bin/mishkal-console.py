@@ -153,7 +153,6 @@ def test():
         limit = 100000000
     if not strip_tashkeel: 
         vocalizer = ArabicVocalizer.TashkeelClass()
-        vocalizer.enable_last_mark()
         if nocache : 
             vocalizer.disable_cache()
             #print "nocache"
@@ -256,13 +255,8 @@ def test():
                 if lineTotal:
                     print "%0.2f%%\t"%round(lineCorrect*100.00/lineTotal, 2), #line Fully correct
                     print "%0.2f%%\t"%round((lineTotal-lineWLMIncorrect)*100.00/lineTotal, 2), #line Strip correct
-            
-            if not text:            
-                print result.encode('utf8')
-            else:
-            	# don't print newline in order to use pipeline mode
-                print result.strip('\n').encode('utf8'),
-
+                        
+            print result.strip('\n').encode('utf8'),
         if progress and not nolimit:
             #~percent = (counter * 100/ limit ) if (counter / limit * 100 >percent) else percent
             sys.stderr.write("\r[%d%%]%d/%d lines    Full %0.2f Strip %0.2f     " %(counter * 100/ limit, counter, limit,

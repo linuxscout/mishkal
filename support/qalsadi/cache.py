@@ -21,9 +21,10 @@ from CodernityDB.hash_index import HashIndex
 from hashlib import md5
 import pyarabic.arabrepr as arabrepr
 arabicRepr = arabrepr.ArabicRepr()
-import os
-#DB_PATH = '/var/qalsadiCache'
+#DB_PATH = '/var/qalsadiCache'import os
 DB_PATH = os.path.join(os.path.expanduser('~'), '.qalsadiCache')
+
+#DB_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data/qalsadiCache')
 
 
 class WithAIndex(HashIndex):
