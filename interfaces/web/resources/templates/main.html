@@ -8,14 +8,12 @@
 
   <title>مشكال النصوص العربية</title>
   <meta charset="UTF-8">
-  <!--<link href="styles.css" rel="stylesheet">-->
   <link href="%(script)s/_files/favicon1.png" rel="icon" type="image/png">
   <link href="%(script)s/_files/adawatstyle.css" rel="stylesheet">
   <link href="%(script)s/_files/xzero-rtl/css/bootstrap-arabic.min.css" rel="stylesheet">
-  <!--<link rel="stylesheet" href="%(script)s/_files/twbs-rtl/css/bootstrap-arabic.min.css">-->
 
   <script src="%(script)s/_files/jquery-1.7.1.min.js"></script>
-  <script src="%(script)s/_files/xzero-rtl/js/bootstrap-arabic.min.js"></script><!--<link rel="stylesheet" href="%(script)s/_files/twbs-rtl/css/bootstrap.min.css">-->
+  <script src="%(script)s/_files/xzero-rtl/js/bootstrap-arabic.min.js"></script>
 
   <script src="%(script)s/_files/cytoscape.min.js"></script>
   <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -43,6 +41,7 @@
             <li>
               <a href="/mishkal/download"><span class="glyphicon glyphicon-download"></span>تحميل</a>
             </li>
+
 
             <li>
               <a href="/mishkal/projects"><span class="glyphicon glyphicon-pushpin"></span>مشاريع</a>
@@ -90,7 +89,13 @@
             <a class="btn btn-primary" id="synt" title='تحليل نحويا'><span>إعراب</span></a>
              <input checked class="checkbox" id="LastMark" type="checkbox" value='1'> حركة الإعراب
 
-<button class="close pull-right" id="move" title="نسخ الناتج إلى المدخل"><span aria-hidden="true"><span class="glyphicon glyphicon-arrow-up form-control"></span></span><span class="sr-only">نص عشوائي</span></button>
+<button class="close pull-right" id="move" title="نسخ الناتج إلى المدخل">
+<span aria-hidden="true"><span class="glyphicon glyphicon-arrow-up form-control"></span></span>
+<span class="sr-only">نص عشوائي</span></button>
+
+<button class="close pull-right" id="copy" title="نسخ إلى الحافظة">
+<span aria-hidden="true"><span class="glyphicon glyphicon-copy form-control">نسخ</span></span>
+<span class="sr-only">نسخ</span></button>
             
           <div class='moresection' id="vocalizesection">
             <label>تشكيل:</label>
@@ -180,6 +185,10 @@
     <div class="row clearfix">
       <div class="col-md-9 column"> 
 
+
+<section class="bg-danger text-white">
+أضفنا زرا لتسهيل النسخ
+</section>
 
 <output id="result" class="form-control" width=100%%>%(ResultText)s</output>
 <section class="bg-info" id="small_hint"></section>

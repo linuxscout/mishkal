@@ -258,7 +258,18 @@ $().ready(function() {
   });
   //move result into input 
   $('#move').click(function() {
+    $(".txkl").change();
     document.NewForm.InputText.value = $("#result").text();
+  });
+  //copy result into clipboard
+  $('#copy').click(function() {
+    $(".txkl").change();
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($("#result").text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+    //document.NewForm.InputText.value = $("#result").text();
   });
 
 
@@ -636,6 +647,9 @@ $().ready(function() {
       action: "showCollocations"
     }, function(d) {$("#result").html(d.result);});
   });
+  $('.txkl').select(function() {
+    $(".txkl").change();
+  });
   $('#tashkeel').click(function() {
     var collocation = 1;
     var vocalizewWordsEnds = "0";
@@ -675,6 +689,7 @@ $().ready(function() {
         var id = parseInt(d.order);
         var openColocation = 0;
         for (var i = 0; i < d.result.length; i++) {
+          
           item = d.result[i];
           var currentId = id * 100 + i;
           if (item.chosen.indexOf("~~") >= 0) { // handle collocations
@@ -698,7 +713,8 @@ $().ready(function() {
             text += "<span class='vocalized' id='" + currentId + "' inflect='" + item.inflect.replace(/:+/g, ', ') +
               "' suggest='" + item.suggest.replace(/;/g, '، ') + "' rule='" + item.rule +
               "' link='" + item.link + "'>" + word_to_display + "</span>";
-            $('#result').data(currentId.toString(), item.suggest);
+            //~ $('#result').data(currentId.toString(), item.suggest);
+            $('#result').data(currentId.toString(), item);
           }
         }
         // display the result
@@ -721,14 +737,16 @@ $().ready(function() {
     } // end for i intextlist
     $("#contributeSection").show();
   });
+  
+
   $('.vocalized').live("click", function() {
     $(".txkl").change();
     var myword = $(this);
     var nextword = $(this).next();
     var id = myword.attr('id');
-    var list = $("#result").data(id).split(';');
+    var list = $("#result").data(id).suggest.split(';');
     //~ var text = "<form><select class='txkl' id='" + id + " size=3'>";
-    var text = "<select class='txkl' id='" + id + " size=3'>";
+    var text = "<select class='txkl' id='" + id + "'>";
     var cpt = 0;
     for (i in list) {
       if (list[i] != "") {
@@ -739,14 +757,9 @@ $().ready(function() {
     }
     text += "<option><strong>تعديــل...</strong></option>";
     text += "</select>";
-    //~ text += "<br/> <input  type='text' name='change' />";
-    //~ text += "<input type='submit' value='موافق' id ='changevocalized'/>";
-    //~ text += "<input type='reset' value='إلغاء' id ='cancelvocalized'/>";
-    //~ text += "</form>";
-    // disable others suggestion lists  
-    //$(".txkl").change();
     if (cpt > 1) {
       myword.replaceWith(text);
+
     } else {
       text = "<input type='text' class='txkl'  size='10' id='" + myword.attr('id') +
         "' value='" + myword.text() + "'/>";
@@ -756,20 +769,22 @@ $().ready(function() {
 });
   $('.txkl').live('change', function() {
     if ($(this).val() != "تعديــل...") {
-      var text = "<span class='vocalized' id='" + $(this).attr('id') + "'>" + $(this).val() +
-        "</span>";
+      var item = $("#result").data($(this).attr('id'));
+      //~ var text = "<span class='vocalized' id='" + $(this).attr('id') + "'>" + $(this).val() +
+        //~ "</span>";
+     $
+      var text = "<span class='vocalized' id='" + $(this).attr('id') + "' suggest='" + item.suggest.replace(/;/g, '، ') +
+         "' inflect='معدّل يدويا'rule='معدّل يدويا' link='N/A' >" + $(this).val() + "</span>";
       $(this).replaceWith(text);
     } else // case of editing other choice
     {
-      var list = $("#result").data($(this).attr('id')).split(';');
+      var list = $("#result").data($(this).attr('id')).suggest.split(';');
       text = "<input type='text' class='txkl'  size='10' id='" + $(this).attr('id') +
         "' value='" + list[0] + "'/>";
       $(this).replaceWith(text);
        console.log($(this).text()+"-"+$(this).next().text());
     }
-
-
-  });
+ });
   // spell checking
   $('#spellcheck').click(function() {
     var collocation = 1;
@@ -890,7 +905,6 @@ $().ready(function() {
     var text = $(this).text() + " : " + $(this).attr('inflect')  + "<br/>ق[" + $(this).attr('rule') + "] " + $(this).attr('link') + "<br/>" + $(this).attr('suggest');
     if ($('#result').data("count")>20) {$('#hint').html(text);  $('#hint').show(); $('#small_hint').hide();}
     else  {$('#small_hint').html(text); $('#small_hint').show();$('#hint').hide();}
-
   });
   // change diff 
   $('.vocalized').live("mouseleave", function() {
