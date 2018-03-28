@@ -464,7 +464,7 @@ def tashkeel_text(text, lastmark=True):
     """
     import tashkeel.tashkeel as ArabicVocalizer
     vocalizer = ArabicVocalizer.TashkeelClass()
-    print "lastMark", lastmark
+    #~ print "lastMark", lastmark
     if lastmark == "0":
         vocalizer.disable_last_mark()
     vocalized_text = vocalizer.tashkeel(text)
