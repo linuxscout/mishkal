@@ -1,11 +1,12 @@
 /* strip tashkeel*/
-var CHARCODE_SHADDA = 1617;
-var CHARCODE_SUKOON = 1618;
-var CHARCODE_SUPERSCRIPT_ALIF = 1648;
-var CHARCODE_TATWEEL = 1600;
-var CHARCODE_ALIF = 1575;
+//~ var body = $('body');
 
 function isCharTashkeel(letter) {
+    var CHARCODE_SHADDA = 1617;
+    var CHARCODE_SUKOON = 1618;
+    var CHARCODE_SUPERSCRIPT_ALIF = 1648;
+    var CHARCODE_TATWEEL = 1600;
+    var CHARCODE_ALIF = 1575;
   if (typeof(letter) == "undefined" || letter == null) return false;
   var code = letter.charCodeAt(0);
   //1648 - superscript alif
@@ -150,26 +151,21 @@ layout.run();
 
 
 
-
-
-
-$().ready(function() {
-  $('#btn1').click(function() {
-    $.getJSON(script + "/ajaxGet", {}, function(d) {
-      $("#rnd").text(d.rnd);
-      $("#result").text(d.result);
-      $("#t").text(d.time);
-    });
-  });
-  $('#randomMaqola').click(function() {
+// randomMaqola_handler
+var randomMaqola_handler = function(e) {
+    e.preventDefault()
     $.getJSON("http://maqola.org/site/widget?nolayout", function(d) {
       // $("#InputText").text(d.result+"Taha");
       if (d) document.NewForm.InputText.value = d.body.replace(/<\/?[^>]+(>|$)/g, " ");
       else document.NewForm.InputText.value = "TZA";;
       //"#result").text(d.time);
     });
-  });
-  $('#random').click(function() {
+  }
+
+  
+
+var random_click = function(e) {
+    e.preventDefault()
     $.getJSON(script + "/ajaxGet", {
       text: '',
       action: "RandomText"
@@ -177,8 +173,10 @@ $().ready(function() {
       if (data) document.NewForm.InputText.value = data.result;
       else document.NewForm.InputText.value = "TZA";
     });
-  });
-  $('#stripharakat').click(function() {
+  }
+
+var stripharakat_click = function(e) {
+        e.preventDefault()
     //  $("#result").html("<pre>TATAH\nNTATAH</pre>");
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
@@ -187,8 +185,10 @@ $().ready(function() {
       $("#result").html("<p>" + d.result + "</p>");
       //"#result").text(d.time);
     });
-  });
-  $('#csv2data').click(function() {
+  }
+  
+var csv2data_click = function(e) {
+        e.preventDefault()
     $.getJSON(script + ")s/ajaxGet", {
       text: document.NewForm.InputText.value,
       action: "CsvToData"
@@ -196,9 +196,11 @@ $().ready(function() {
       $("#result").html("<pre>" + d.result + "</pre>");
       //"#result").text(d.time);
     });
-  });
-  //--------------------------------------
-  $('#number').click(function() {
+  }
+
+//--------------------------------------
+var number_click = function(e) {
+      e.preventDefault()
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
       action: "NumberToLetters"
@@ -206,9 +208,12 @@ $().ready(function() {
       $("#result").html("<p>" + d.result + "</p>");
       //"#result").text(d.time);
     });
-  });
+  }
+  
+  
   // extact named enteties 
-  $('#named').click(function() {
+var named_click = function(e) {
+        e.preventDefault()
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
       action: "extractNamed"
@@ -216,9 +221,11 @@ $().ready(function() {
       $("#result").html("<p>" + d.result + "</p>");
       //"#result").text(d.time);
     });
-  });
+  }
+  
   // extact numbers enteties 
-  $('#numbred').click(function() {
+var numbred_click = function(e) {
+        e.preventDefault()
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
       action: "extractNumbered"
@@ -226,10 +233,11 @@ $().ready(function() {
       $("#result").html("<p>" + d.result + "</p>");
       //"#result").text(d.time);
     });
-  });
+  }
 
   // extact enteties 
-  $('#extractEnteties').click(function() {
+var extractEnteties_click = function(e) {
+      e.preventDefault()
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
       action: "extractEnteties"
@@ -237,32 +245,38 @@ $().ready(function() {
       $("#result").html(d.result +"<br/><hr/><span class='coll'>متلازمات</span> <span class='named'>مسميات</span> <span class='number'>معدودات</span> ");
       
     });
-  });
-  //----------Tabs----------------------  
-  $('#more').click(function() {
-    $("#moresection").slideToggle();
-  });
+  }
 
-  $('#vocalize_group').click(function() {
+//----------Tabs----------------------  
+var more_click = function(e) {
+      e.preventDefault()
+    $("#moresection").slideToggle();
+  }
+
+  var vocalize_group_click = function(e) {
+        e.preventDefault()
     $("#vocalizesection").slideToggle();
     $("#moresection").hide();
-  });
+  }
   //Unshape text 
-  $('#unshape').click(function() {
+  var unshape_click = function(e) {
+        e.preventDefault()
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
       action: "Unshape"
     }, function(d) {
       $("#result").html("<p>" + d.result + "</p>");
     });
-  });
+  }
   //move result into input 
-  $('#move').click(function() {
-    $(".txkl").change();
+  var move_click = function(e) {
+        e.preventDefault()
+    $(".txkl").change(e);
     document.NewForm.InputText.value = $("#result").text();
-  });
+  }
   //copy result into clipboard
-  $('#copy').click(function() {
+  var copy_click = function(e) {
+        e.preventDefault()
     $(".txkl").change();
     var $temp = $("<input>");
     $("body").append($temp);
@@ -270,11 +284,12 @@ $().ready(function() {
     document.execCommand("copy");
     $temp.remove();
     //document.NewForm.InputText.value = $("#result").text();
-  });
+  }
 
 
 // morphology analysis by Al-Qalsadi
-  $('#stem').click(function() {
+  var stem_click = function(e) {
+        e.preventDefault()
     $("#loading").slideDown();
     var $table = $('<table/>');
     var table = $table.attr("border", "1")[0];
@@ -342,8 +357,9 @@ $().ready(function() {
       $("#result").append($table);
     });
     $("#loading").slideUp();
-  });
-  $('#tokenize').click(function() {
+  }
+  var tokenize_click = function(e) {
+        e.preventDefault()
     var item;
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
@@ -354,9 +370,10 @@ $().ready(function() {
         $("#result").append(d.result[i] + "<br/>");
       }
     });
-  });
+  }
 // Gramatical Analysis
- $('#synt').click(function() {
+ var synt_click = function(e) {
+       e.preventDefault()
     $("#loading").slideDown();
     var $table = $('<table/>');
     var table = $table.attr("border", "1")[0];
@@ -429,10 +446,11 @@ $().ready(function() {
       $("#result").append($table);
     });
     $("#loading").slideUp();
-  });  
+  }  
   
   // extract chunks from text
-    $('#chunk').click(function() {
+    var chunk_click = function(e) {
+          e.preventDefault()
     var item;
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
@@ -443,10 +461,11 @@ $().ready(function() {
         $("#result").append(d.result[i] + "<br/>");
       }
     });
-  });
+  }
   
     // extract chunks from text
-    $('#bigrams').click(function() {
+    var bigrams_click = function(e) {
+          e.preventDefault()
     var item;
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
@@ -457,9 +476,10 @@ $().ready(function() {
         $("#result").append(d.result[i] + "<br/>");
       }
     });
-  });
+  }
   // inverse order
-  $('#inverse').click(function() {
+  var inverse_click = function(e) {
+        e.preventDefault()
     var item;
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
@@ -470,16 +490,17 @@ $().ready(function() {
         $("#result").append(d.result[i] + "<br/>");
       }
     });
-  });
+  }
   // Ajust an Arabic poetry in two columns  
-  $('#poetry').click(function() {
+  var poetry_click = function(e) {
+        e.preventDefault()
     var $table = $('<table/>');
     var table = $table.attr("border", "0")[0];
     //$table.attr("width", '600');
     $table.addClass('poetryJustifyCSS3');
     //$table.attr( "style",'text-align: justify; text-justify: newspaper; text-kashida-space: 100;”);
     //var headers = ["<tr>", "<th>الصدر</th>", "<th>العجز</th>", "</tr>"].join('');
-    //$table.append(headers);
+    //$table.append(headers);se
     var item;
     $("#result").html("");
     $.getJSON(script + "/ajaxGet", {
@@ -499,33 +520,37 @@ $().ready(function() {
       }
       $("#result").append($table);
     });
-  });
-  $('#romanize').click(function() {
+  }
+  var romanize_click = function(e) {
+        e.preventDefault()
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
       action: "Romanize"
     }, function(d) {
       $("#result").html("<p>" + d.result + "</p>");
     });
-  });
-  $('#contribute').click(function() {
+  }
+  var contribute_click = function(e) {
+        e.preventDefault()
     $.getJSON(script + "/ajaxGet", {
       text: $("#result").text(),
       action: "Contribute"
     }, function(d) {
       alert(d.result);
     });
-  });
+  }
   // normalize text
-  $('#normalize').click(function() {
+  var normalize_click = function(e) {
+        e.preventDefault()
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
       action: "Normalize"
     }, function(d) {
       $("#result").html(d.result);
     });
-  });
-  $('#wordtag').click(function() {
+  }
+  var wordtag_click = function(e) {
+        e.preventDefault()
     var $table = $('<table/>');
     var $div = $('<div/>');
     var div = $div[0];
@@ -561,8 +586,9 @@ $().ready(function() {
       $("#result").append($div);
       $("#result").append($table);
     });
-  });
-  $('#language').click(function() {
+  }
+  var language_click = function(e) {
+        e.preventDefault()
     var $div = $('<div/>');
     var div = $div[0];
     $("#result").html("");
@@ -581,11 +607,12 @@ $().ready(function() {
       }
       $("#result").append($div);
     });
-  });
+  }
 
 
   // generate all affixation form of a word  
-  $('#affixate').click(function() {
+  var affixate_click = function(e) {
+        e.preventDefault()
     var $table = $('<table/>');
     var table = $table.attr("border", "0")[0];
     $table.attr("width", '600');
@@ -613,9 +640,10 @@ $().ready(function() {
       }
       $("#result").append($table);
     });
-  });
+  }
 
-  $('#tashkeel2').click(function() {
+  var tashkeel2_click = function(e) {
+        e.preventDefault()
     $.getJSON(script + "/ajaxGet", {
       text: ocument.NewForm.InputText.value,
       action: "Tashkeel"
@@ -623,8 +651,9 @@ $().ready(function() {
       $("#result").html("<div class=\'tashkeel\'>" + d.result + "</div>");
       $("#contributeSection").show();
     });
-  });
-  $('#reducetashkeel').click(function() {
+  }
+  var reducetashkeel_click = function(e) {
+        e.preventDefault()
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
       action: "ReduceTashkeel"
@@ -632,8 +661,9 @@ $().ready(function() {
       $("#result").html("<div class=\'tashkeel\'>" + d.result + "</div>");
       $("#contributeSection").show();
     });
-  });
-  $('#comparetashkeel').click(function() {
+  }
+  var comparetashkeel_click = function(e) {
+        e.preventDefault()
     $.getJSON(script + "/ajaxGet", {
       text: document.NewForm.InputText.value,
       action: "CompareTashkeel"
@@ -641,16 +671,15 @@ $().ready(function() {
       var table = d.result;
       $("#result").html("<div class=\'tashkeel\'>" + table + "</div>");
     });
-  });
-  $('#showCollocations').click(function() {
+  }
+  var showCollocations_click = function(e) {
+        e.preventDefault()
     $.getJSON(script + "/ajaxGet", {text: document.NewForm.InputText.value,
       action: "showCollocations"
     }, function(d) {$("#result").html(d.result);});
-  });
-  $('.txkl').select(function() {
-    $(".txkl").change();
-  });
-  $('#tashkeel').click(function() {
+  }
+
+  var tashkeel_click = function(e) {
     var collocation = 1;
     var vocalizewWordsEnds = "0";
     if (document.NewForm.LastMark.checked == 1) vocalizewWordsEnds = "1";
@@ -663,10 +692,6 @@ $().ready(function() {
     $("#loading").show();
     $('#loading').data('length', 0);
     
-
-
-
-
     var textlist = new Array();
     for (var i = 0; i < textlistOne.length; i++) {
       if (textlistOne[i] != "") textlist.push(textlistOne[i]);
@@ -736,11 +761,12 @@ $().ready(function() {
       });
     } // end for i intextlist
     $("#contributeSection").show();
-  });
+  }
   
 
-  $('.vocalized').live("click", function() {
-    $(".txkl").change();
+var vocalized_click =function(e) {
+       e.preventDefault();
+    $(".txkl").change(e);
     var myword = $(this);
     var nextword = $(this).next();
     var id = myword.attr('id');
@@ -766,27 +792,11 @@ $().ready(function() {
       myword.replaceWith(text);
     }
     console.log(myword.text()+";;"+nextword.text())
-});
-  $('.txkl').live('change', function() {
-    if ($(this).val() != "تعديــل...") {
-      var item = $("#result").data($(this).attr('id'));
-      //~ var text = "<span class='vocalized' id='" + $(this).attr('id') + "'>" + $(this).val() +
-        //~ "</span>";
-     $
-      var text = "<span class='vocalized' id='" + $(this).attr('id') + "' suggest='" + item.suggest.replace(/;/g, '، ') +
-         "' inflect='معدّل يدويا'rule='معدّل يدويا' link='N/A' >" + $(this).val() + "</span>";
-      $(this).replaceWith(text);
-    } else // case of editing other choice
-    {
-      var list = $("#result").data($(this).attr('id')).suggest.split(';');
-      text = "<input type='text' class='txkl'  size='10' id='" + $(this).attr('id') +
-        "' value='" + list[0] + "'/>";
-      $(this).replaceWith(text);
-       console.log($(this).text()+"-"+$(this).next().text());
-    }
- });
+}
+
+
   // spell checking
-  $('#spellcheck').click(function() {
+  var spellcheck_click = function(e) {
     var collocation = 1;
     var vocalizewWordsEnds = "0";
     if (document.NewForm.LastMark.checked == 1) vocalizewWordsEnds = "1";
@@ -862,13 +872,16 @@ $().ready(function() {
       });
     } // end for i intextlist
     $("#contributeSection").show();
-  });
-  $('.spelled-incorrect').live("click", function() {
-    $(".txkl").change();
+  }
+
+// Handle misspelled words
+  var spelled_incorrect_click = function(e) {
+      e.preventDefault();
+    $(".spld").change(e);
     var myword = $(this);
     var id = myword.attr('id');
     var list = $("#result").data(id).split(';');
-    var text = "<select class='txkl' id='" + id + "'>";
+    var text = "<select class='spld' id='" + id + "'>";
     var cpt = 0;
     for (i in list) {
       if (list[i] != "") {
@@ -883,33 +896,179 @@ $().ready(function() {
     if (cpt > 1) {
       myword.replaceWith(text);
     } else {
-      text = "<input type='text' class='txkl'  size='10' id='" + myword.attr('id') +
+      text = "<input type='text' class='spld'  size='10' id='" + myword.attr('id') +
         "' value='" + myword.text() + "'/>";
       myword.replaceWith(text);
     }
-  });
+  }
+  
+  var spld_change = function(e) {
+      e.preventDefault();
+    if ($(this).val() != "تعديــل...") {
+      var text = "<span id='" + $(this).attr('id') + "'>" + $(this).val() +
+        "</span>";
+      $(this).replaceWith(text);
+    } else // case of editing other choice
+    {
+      var list = $("#result").data($(this).attr('id')).suggest.split(';');
+      var text = "<input type='text' class='spld'  size='10' id='" + $(this).attr('id') +
+        "' value='" + list[0] + "'/>";
+      $(this).replaceWith(text);
+       console.log($(this).text()+"-"+$(this).next().text());
+    }
+ }
+
   // change diff 
-  $('#diff').live("hover", function() {
+var diff_hover = function() {
     var text = $(this).text() + " : " + $(this).attr('original') + "<br/>"+$(this).attr('inflect')  + "<br/>ق[" + $(this).attr('rule') + "] " + $(this).attr('link') ;
     if ($('#result').data("count")>20) {$('#hint').html(text);  $('#hint').show(); $('#small_hint').hide();}
     else  {$('#small_hint').html(text); $('#small_hint').show();$('#hint').hide();}
 
-  });
+  }
   // change diff 
-  $('#diff').live("mouseleave", function() {
+var diff_mouseleave = function() {
     $('#small_hint').html("");
     $('#small_hint').hide();
-  });
+  }
+
+
   // display infos on vocalized  
-  $('.vocalized').live("hover", function(e) {
+var vocalized_hover = function(e) {
+       e.preventDefault();
     var text = $(this).text() + " : " + $(this).attr('inflect')  + "<br/>ق[" + $(this).attr('rule') + "] " + $(this).attr('link') + "<br/>" + $(this).attr('suggest');
     if ($('#result').data("count")>20) {$('#hint').html(text);  $('#hint').show(); $('#small_hint').hide();}
     else  {$('#small_hint').html(text); $('#small_hint').show();$('#hint').hide();}
-  });
+  }
   // change diff 
-  $('.vocalized').live("mouseleave", function() {
+var vocalized_mouseleave = function(e) {
+       e.preventDefault();
     $('#hint').hide("");
     $('#small_hint').hide("");
-  });
+        $(".txkl").change(e);
+  }
+var txkl_mouseleave = function(e) {
+       e.preventDefault();
+        $(".txkl").change(e);
+  }
+
+var txkl_select = function(e) {
+       e.preventDefault();
+    $(".txkl").change(e);
+  }
+  
+    
+var txkl_change = function(e) {
+       e.preventDefault();
+
+    if ($(this).val() != "تعديــل...") {
+      var item = $("#result").data($(this).attr('id'));
+      var text = "<span class='vocalized' id='" + $(this).attr('id') + "' suggest='" + item.suggest.replace(/;/g, '، ') +
+         "' inflect='معدّل يدويا'rule='معدّل يدويا' link='N/A' >" + $(this).val() + "</span>";
+      $(this).replaceWith(text);
+    } else // case of editing other choice
+    {
+      var list = $("#result").data($(this).attr('id')).suggest.split(';');
+      text = "<input type='text' class='txkl'  size='10' id='" + $(this).attr('id') +
+        "' value='" + list[0] + "'/>";
+      $(this).replaceWith(text);
+       //~ console.log($(this).text()+"-"+$(this).next().text());
+    }
+ }
+// ready document
+
+$().ready(function() {
+  //----- click on vocalized---
+  $('.vocalized').live("click", function() {
+    $(".txkl").change();
+    var myword = $(this);
+    var nextword = $(this).next();
+    var id = myword.attr('id');
+    var list = $("#result").data(id).suggest.split(';');
+    //~ var text = "<form><select class='txkl' id='" + id + " size=3'>";
+    var text = "<select class='txkl' id='" + id + "'>";
+    var cpt = 0;
+    for (i in list) {
+      if (list[i] != "") {
+        if (myword.text() != list[i]) text += "<option class='txkl'>" + list[i] + "</option>";
+        else text += "<option class='txkl' selected=" + list[i] + ">" + list[i] + "</option>";
+        cpt += 1;
+      }
+    }
+    text += "<option class='txkl'><strong>تعديــل...</strong></option>";
+    text += "</select>";
+    if (cpt > 1) {
+      myword.replaceWith(text);
+
+    } else {
+      text = "<input type='text' class='txkl'  size='10' id='" + myword.attr('id') +
+        "' value='" + myword.text() + "'/>";
+      myword.replaceWith(text);
+    }
+    console.log(myword.text()+";;"+nextword.text())
+});
+// ----------------- Change suggestions -----------
+  $('.txkl').live('change', function() {
+    if ($(this).val() != "تعديــل...") {
+      var item = $("#result").data($(this).attr('id'));
+      //~ var text = "<span class='vocalized' id='" + $(this).attr('id') + "'>" + $(this).val() +
+        //~ "</span>";
+     $
+      var text = "<span class='vocalized' id='" + $(this).attr('id') + "' suggest='" + item.suggest.replace(/;/g, '، ') +
+         "' inflect='معدّل يدويا'rule='معدّل يدويا' link='N/A' >" + $(this).val() + "</span>";
+      $(this).replaceWith(text);
+    } else // case of editing other choice
+    {
+      var list = $("#result").data($(this).attr('id')).suggest.split(';');
+      text = "<input type='text' class='txkl'  size='10' id='" + $(this).attr('id') +
+        "' value='" + list[0] + "'/>";
+      $(this).replaceWith(text);
+       console.log($(this).text()+"-"+$(this).next().text());
+    }
+ });
+
+
+  $(document).on( 'click', '#randomMaqola', randomMaqola_handler);
+  $(document).on( 'click', '#affixate', affixate_click );
+  $(document).on( 'click', '#bigrams', bigrams_click );
+  $(document).on( 'click', '#chunk', chunk_click );
+  $(document).on( 'click', '#comparetashkeel', comparetashkeel_click );
+  $(document).on( 'click', '#contribute', contribute_click );
+  $(document).on( 'click', '#copy', copy_click );
+  $(document).on( 'click', '#csv2data', csv2data_click );
+  $(document).on( 'click', '#extractEnteties', extractEnteties_click );
+  $(document).on( 'click', '#inverse', inverse_click );
+  $(document).on( 'click', '#language', language_click );
+  $(document).on( 'click', '#more', more_click );
+  $(document).on( 'click', '#move', move_click );
+  $(document).on( 'click', '#named', named_click );
+  $(document).on( 'click', '#normalize', normalize_click );
+  $(document).on( 'click', '#number', number_click );
+  $(document).on( 'click', '#numbred', numbred_click );
+  $(document).on( 'click', '#poetry', poetry_click );
+  $(document).on( 'click', '#random', random_click );
+  $(document).on( 'click', '#reducetashkeel', reducetashkeel_click );
+  $(document).on( 'click', '#showCollocations', showCollocations_click );
+  $(document).on( 'click', '#stripharakat', stripharakat_click );
+  $(document).on( 'click', '#spellcheck', spellcheck_click );
+  $(document).on( 'click', '#synt', synt_click );
+  $(document).on( 'click', '#tashkeel2', tashkeel2_click );
+  $(document).on( 'click', '#tashkeel', tashkeel_click );
+  $(document).on( 'click', '#tokenize', tokenize_click );
+  $(document).on( 'click', '#unshape', unshape_click );
+  $(document).on( 'click', '#vocalize_group', vocalize_group_click );
+  $(document).on( 'click', '#stem', stem_click );
+  $(document).on( 'click', '#wordtag', wordtag_click );
+  $(document).on( 'click', '.spelled-incorrect', spelled_incorrect_click );
+  $(document).on( 'change', '.spld', spld_change );
+  $(document).on( 'mouseleave', '#diff', diff_mouseleave );
+  $(document).on( 'hover', '#diff', diff_hover );
+  //~ $(document).on( 'click', '.vocalized', vocalized_click );
+  $(document).on( 'hover', '.vocalized', vocalized_hover );
+  //~ $(document).on( 'mouseleave', '.vocalized', vocalized_mouseleave );
+  //~ $(document).on( 'mouseleave', '.txkl', txkl_mouseleave );
+  //~ $(document).on( 'focusout', '.vocalized', txkl_mouseleave );
+  //~ $(document).on( 'change', '.txkl', txkl_change );
+  
+  
 });
 

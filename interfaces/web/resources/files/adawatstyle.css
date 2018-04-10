@@ -148,11 +148,21 @@ tbody:nth-child(even) td {
 .diff-all, .named{color:#4BADD1}  /* the word and the last mark*/
 .diff-word, .number{color:#a52a2a}  /* the word is different*/
 .diff-mark, .coll, .collocation{color:#45A8A2;}/* the last mark is different*/
-.tashkeel {
+.tashkeel, .txkl, .vocalized {
+  font-family:ColoredTashkeelFont,  'Droid Arabic Naskh', Amiri,'Traditional Arabic',Sans,Arial;
+ font-size:30px
+}
+/*
+.vocalized {
   font-family:ColoredTashkeelFont,  'Droid Arabic Naskh', Amiri,'Traditional Arabic',Sans,Arial;
  font-size:30px
 }
 .txkl{
+  background-color:#e2e2e2;
+}
+*/
+
+.spld{
   background-color:#e2e2e2
 }
 .spellStyle {font-size:30px}
