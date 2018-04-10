@@ -18,6 +18,7 @@ import re
 import operator
 import os
 import sys
+import string
 sys.path.append("../lib")
 sys.path.append("../")
 import tashaphyne.stemming 
@@ -26,8 +27,7 @@ from spelltools import edits1
 import stem_const 
 import spelltools
 import spelldb
-DICTFILENAME = os.path.join(os.path.dirname(sys.argv[0]), u"data/spellcheck.sqlite")
-#DICTFILENAME = u"data/spellcheck.sqlite"
+DICTFILENAME = os.path.join(os.path.dirname(os.path.realpath(__file__)), u"data/spellcheck.sqlite")
 class spelldict:
     def __init__(self, dictfilename = DICTFILENAME):
         """
@@ -44,6 +44,7 @@ class spelldict:
         self.stemmer.set_prefix_list(stem_const.PREFIX_LIST);
         self.stemmer.set_suffix_list(stem_const.SUFFIX_LIST);
         # The database of spelling
+        self.database = None
         self.database = spelldb.spellDictionary(self.dictfilename) 
 
 
@@ -64,6 +65,11 @@ class spelldict:
         """
         if not word: 
             return True
+        if word.isdigit():
+            return True
+        for c in word:
+            if c in string.punctuation:
+                return True
         # test if the word is previouslly spelled
         # can get True or False
         if word in self.worddict:

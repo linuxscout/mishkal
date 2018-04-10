@@ -19,8 +19,8 @@ sys.path.append("../lib")
 if __name__  ==  '__main__':
   sys.path.append('../')  
 import sqlite3 as sqlite
-FILE_DB_SPELL = os.path.join(os.path.dirname(sys.argv[0]), u"data/spellcheck.sqlite")
-#FILE_DB_SPELL =  u"data/spellcheck.sqlite"
+#~ FILE_DB_SPELL = os.path.join(os.path.dirname(os.path.realpath(__file__)), u"../../data/spellcheck.sqlite")
+FILE_DB_SPELL =  u"data/spellcheck.sqlite"
 import pyarabic.araby as araby
 
 class spellDictionary:
@@ -41,6 +41,7 @@ class spellDictionary:
         # this dict contains all affixes, it will be loaded in the first time,
         # when we ask for a correction
         self.affixdict = {}
+        self.db_connect = None
         # this dict contains a cache for requested words, it will be updaterequested words,7
         # in order to reduce database access
         self.stemdict = {}
