@@ -120,6 +120,22 @@ Files
 * [apps]
   	- mintiq	TTS	a shell script to join mishkla with espeak Text to speech
 
+How does Mishkal work:
+----------------------
+Mishkal use a rule based method to detect relations and diacritics,
+First, it analyzes all morphological cases, it generates all possible diacritized word forms, by detecting all affixes and check it in a dictionary.
+second, It add word frequency to each word.
+The two previous steps are made by support/Qalsadi ( arabic morphological analyzer), the used dictionary is a separated project named 'Arramooz:  arabic dictionnary for morphology".
+Third, we use a syntax analyzer  to detect all possible relations between words. The syntax library is named support/ArAnaSyn. This analyzer is basic for the moment, it use only linear relations between adjacent words.
+
+Forth,  all data generated and relations will be analyzed semantically, to detect semantic relation in order to reduce ambiguity. The use libary is support/asmai ( Arabic semantic analysis). The semantic relations extraction is based on corpus. The used corpus is named "Tashkeela: arabic vocalized texts corpus".
+
+
+In the final stage, The module mishkal/tashkeel tries to select the suitable word in the context,
+it tries to get evidents cases, or more related cases, else, it tries to select more probable case, using some rules like select a stop word by default, or select Mansoub case by default.
+
+The rest of program provides functions to handles interfaces and API with web/desktop or command line
+
 JSON connection API:
 -----------------
 
