@@ -14,6 +14,7 @@ import sys
 sys.path.append('../lib')
 sys.path.append('../')
 import re
+import logging
 import pyarabic.araby as araby
 import tashkeel_const
 import qalsadi.analex
@@ -97,6 +98,10 @@ class TashkeelClass:
         
         # unknown vocalizer for unrecognized words
         self.unknown_vocalizer = unknown_tashkeel.UnknownTashkeel()
+        
+        # configure logging 
+        logging.basicConfig(level=logging.INFO)
+        self.logger = logging.getLogger(__name__)
 
     
     def set_limit(self, limit):
@@ -268,12 +273,10 @@ class TashkeelClass:
         #~ print "tashkeel 9", inputtext.encode('utf8')
         if self.get_enabled_stat_tashkeel():
             inputtext = self.stat_tashkeel(inputtext)
-        #~ print "tashkeel 7", inputtext.encode('utf8')                         
-            #print "statTashkeel", inputtext.encode('utf8')
+            self.logger.debug("stat tashkeel %s", inputtext) 
         #split texts into phrases to treat one phrase in time
         #~texts = self.analyzer.split_into_phrases(inputtext)
         texts = [inputtext, ]
-        #~print u" \n".join(texts).encode('utf8')
         vocalized_text = u""
         previous = None
         output_suggest_list = []
@@ -546,15 +549,16 @@ class TashkeelClass:
             text = re.sub(ur"\s%s\s"%abr, ur" %s " % \
             tashkeel_const.CorrectedTashkeel[abr], text)
         wordlist = self.analyzer.tokenize(text)
-        #~ print "tashkeel 11", len(wordlist)
+
         prevocalized_list = pyarabic.number.pre_tashkeel_number(wordlist)
-        #~ print "tashkeel 12", len(prevocalized_list)
-        #prevocalized_list = wordlist
+        self.logger.debug("pre_tashkeel numbers %s", u" ".join(prevocalized_list))
+
         #Todo ajust prevocalization of named enteties
-        #if len(prevocalized_list) != len(wordlist):
-        #    print "nb", u"+".join(prevocalized_list)
-        #prevocalized_list = pyarabic.named.pretashkeel_named(prevocalized_list)
-        #print "nmd", u"@".join(prevocalized_list)
+        if len(prevocalized_list) != len(wordlist):
+            self.logger.debug("nb %s", u"+".join(prevocalized_list))
+        
+        prevocalized_list = pyarabic.named.pretashkeel_named(prevocalized_list)
+        self.logger.debug("nmd %s", u" ".join(prevocalized_list))
         return u" ".join(prevocalized_list)
 
 
@@ -588,7 +592,7 @@ class TashkeelClass:
         """
         Choose a tashkeel for the current word, according to the previous one.
         A new algorithm
-        @param : list of steming result of the word.
+        @param caselist: list of steming result of the word.
         @type caselist: list of stemmedSynword
         @param : the choosen previous word stemming.
         @type previous_chosen_case:stemmedSynwordhg 
