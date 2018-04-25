@@ -496,11 +496,8 @@ var more_click = function(e) {
         e.preventDefault()
     var $table = $('<table/>');
     var table = $table.attr("border", "0")[0];
-    //$table.attr("width", '600');
-    $table.addClass('poetryJustifyCSS3');
-    //$table.attr( "style",'text-align: justify; text-justify: newspaper; text-kashida-space: 100;”);
-    //var headers = ["<tr>", "<th>الصدر</th>", "<th>العجز</th>", "</tr>"].join('');
-    //$table.append(headers);se
+    //~ $table.addClass('poemtryJustifyCSS3');
+    $table.addClass('poem');
     var item;
     $("#result").html("");
     $.getJSON(script + "/ajaxGet", {
@@ -511,9 +508,11 @@ var more_click = function(e) {
         var tr = document.createElement('tr');
         item = d.result[i];
         var td = document.createElement('td');
+        td.setAttribute('class','poem');
         td.appendChild(document.createTextNode(item[0]));
         tr.appendChild(td);
         td = document.createElement('td');
+        td.setAttribute('class','poem');
         td.appendChild(document.createTextNode(item[1]));
         tr.appendChild(td);
         table.appendChild(tr);

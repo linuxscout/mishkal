@@ -185,3 +185,17 @@ tbody:nth-child(even) td {
 .poetryJustifyCSS3 td:nth-child(2n+1) { padding-left: 1.5em; }
 .poetryJustifyCSS3 td:nth-child(2n+0) { padding-right: 1.5em; }
 
+table.poem  {
+  direction: rtl;
+  margin: auto;
+  width: auto;
+}
+
+table.poem td {
+    padding-left: 3ex;
+    padding-right: 3ex;
+    text-align: justify;
+    text-align-last: justify;
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+}
