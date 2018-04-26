@@ -685,7 +685,10 @@ var more_click = function(e) {
     var inputText = document.NewForm.InputText.value;
     inputText = inputText.replace(/(\.+)/g, "\$1\n");
     // replace all spaces to save it in the output
-    var textlistOne = inputText.split('\n');
+    //~ var textlistOne = inputText.split('\n');
+    // use only one text string, make it like this just for compatibility
+    
+    var textlistOne = inputText.split('######');
    $("#loading").hide();    
     $("#result").html("");
     $("#loading").show();
@@ -732,7 +735,7 @@ var more_click = function(e) {
           } else {
             var pattern = /[-[\]{}()*+?.,،:\\^$|#\s]/;
             if (!pattern.test(item.chosen)) text += " ";
-            var word_to_display = item.chosen;
+            var word_to_display = item.chosen.replace('\n',"<br/>");
             if (document.NewForm.LastMark.checked == 0) word_to_display = item.semi;
             text += "<span class='vocalized' id='" + currentId + "' inflect='" + item.inflect.replace(/:+/g, ', ') +
               "' suggest='" + item.suggest.replace(/;/g, '، ') + "' rule='" + item.rule +
