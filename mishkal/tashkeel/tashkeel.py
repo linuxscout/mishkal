@@ -746,40 +746,40 @@ class TashkeelClass:
                 indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 15)
 
             #select default
-
+        
         if not rule:
-            # select cases with the max frequency
-            # first get max freq
-            maxfreq = 0
-            maxfreq = max([caselist[x].get_freq() for x in indxlist])
-            tmplist = filter(lambda x: caselist[x].get_freq() == maxfreq, indxlist)
+            indxlist, rule = self.__choose_default(indxlist, caselist)
+                                        
+        # select the first case if there one or many
+        chosen_index =  indxlist[0]
+        chosen = caselist[chosen_index]
+        if not rule: rule = 100
+        if debug: print 100,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+         
+        
+        # set the selection rule to dispaly how tahskeel is selected
+        chosen.set_rule(rule)
+        return chosen.get_order() 
+            
 
-            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 31)
-        #~ conditions = [
-        #~ { "rule":30, "cond":[("is_stopword",True), ],} ,
-        #~ { "rule":32, "cond":[("is_noun",True),  ("is_mansoub",True),],} ,
-        #~ { "rule":33, "cond":[("is_verb",True), ("is_passive",False),],} ,
-        #~ { "rule":34, "cond":[("is_verb",True), ("is_marfou3",True),],} ,
-        #~ { "rule":34, "cond":[("is_verb",True), ("is_past",True),],} ,
-        #~ { "rule":35, "cond":[("is_verb",True), ("is3rdperson",True),],} ,
-        #~ { "rule":36, "cond":[("is_verb",True), ("is1stperson",True),],} ,
-        #~ ]
-        #~ if not rule:            
-            #~ for cond in conditions:
-                #~ tmplist = [] 
-                #~ condlist = cond['cond']             
-                #~ for x in indxlist:
-                    #~ # join all tests
-                    #~ criteria = [getattr(caselist[x], k)() == v  for k, v in condlist] 
-                    #print criteria
-                    #~ if reduce(and_, criteria):
-                        #~ tmplist.append(x)
-                #if debug: print rule,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
-                #~ if tmplist:
-                    #~ indxlist = tmplist               
-                    #~ if len(indxlist) == 1 :
-                        #~ rule = cond.get('rule',0)
-                        #~ break
+    def __choose_default(self, indxlist, caselist):
+        """
+        Select default cases when all others methods fail
+        @param caselist: list of steming result of the word.
+        @type caselist: list of stemmedSynword
+        @param indxlist: list of index.
+        @type indxlist: list of integer
+        @return: indexlist and rule.
+        @rtype:( list of integer, integer/False) .
+        """
+        # select cases with the max frequency
+        # first get max freq
+        maxfreq = 0
+        maxfreq = max([caselist[x].get_freq() for x in indxlist])
+        tmplist = filter(lambda x: caselist[x].get_freq() == maxfreq, indxlist)
+
+        indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 31)
+
         if not rule:                
             # exode Dual cases
             # use to avoid dual cases like من الفلاحَين instead of من الفلاحِين
@@ -821,19 +821,8 @@ class TashkeelClass:
             tmplist = filter(lambda x: ( caselist[x].is_verb() and caselist[x].is1stperson()), indxlist)
 
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 38)
-                                        
-        # select the first case if there one or many
-        chosen_index =  indxlist[0]
-        chosen = caselist[chosen_index]
-        if not rule: rule = 100
-        if debug: print 100,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
-         
-        
-        # set the selection rule to dispaly how tahskeel is selected
-        chosen.set_rule(rule)
-        return chosen.get_order() 
-            
-
+                                                
+        return  indxlist, rule
     # new version of choose tashkeel 
     # first we use indexes instead of stemmedsynword object
     #~ def __choose_tashkeel_algo2(self, caselist, previous_chosen_case = None,
