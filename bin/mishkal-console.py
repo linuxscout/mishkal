@@ -256,7 +256,12 @@ def test():
                     print "%0.2f%%\t"%round(lineCorrect*100.00/lineTotal, 2), #line Fully correct
                     print "%0.2f%%\t"%round((lineTotal-lineWLMIncorrect)*100.00/lineTotal, 2), #line Strip correct
                         
-            print result.strip('\n').encode('utf8'),
+            #~ print result.strip('\n').encode('utf8'),
+            if text:
+                print result.strip('\n').encode('utf8'),
+            else:
+                print result.encode('utf8')
+                                
         if progress and not nolimit:
             #~percent = (counter * 100/ limit ) if (counter / limit * 100 >percent) else percent
             sys.stderr.write("\r[%d%%]%d/%d lines    Full %0.2f Strip %0.2f     " %(counter * 100/ limit, counter, limit,
