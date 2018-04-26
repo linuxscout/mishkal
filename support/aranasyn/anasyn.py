@@ -258,15 +258,15 @@ class SyntaxAnalyzer:
                 weight = self.treat_previous_verb(previous, current)
             #~ print "anasyn 13"                
             # a stopword can also be a verb or a noun            
-            if previous.is_stopword():
+            if not weight and previous.is_stopword():
             #~ if previous.is_stopword():
-                #~ print "anasyn 14", weight               
+                #~ print "anasyn 14", weight, previous.get_word()
                 weight = self.treat_previous_stopword(previous, current)
                 #~ print "anasyn 15", weight
             #العدد والمعدود، التمييز
             # quantity case
             #the previous is a number, 
-            elif previous.is_number():
+            if previous.is_number():
                 weight = self.is_number_relation(previous, current)
     
         if weight :
@@ -383,12 +383,12 @@ class SyntaxAnalyzer:
                         weight = sconst.PrimatePredicateMansoubRelation                         
             #~ else:
                 #~ print "adj-2", (u"\t".join([current.get_word(), previous.get_word()])).encode('utf8')
-        if current.is_verb():
+        elif current.is_verb():
             # الجارية فعل والسابق مبتدأ
             if self.compatible_subject_verb(previous, current):
                 # Todo treat the actual word
                 weight = sconst.Rafe3Marfou3Relation 
-        if current.is_confirmation():
+        if not weight and current.is_confirmation():
             weight = sconst.ConfirmationRelation
         #~ print "anasyn", weight
         return weight                
@@ -799,11 +799,12 @@ class SyntaxAnalyzer:
         if current.is_majzoum() or current.is_mansoub():
             return False
         if previous.is_stopword():
+            #~ print "anasyn.py", previous.get_word(), previous.is_pronoun()
             if (previous.is_pronoun() and current.is_verb()):
                 # الضمير مطابق لضمير الفعل
                 if previous.is_pronoun():
                     expected_pronouns = sconst.TABLE_PRONOUN.get(current.get_pronoun(), [])
-                    #~ print "anasyn 4", u"\t".join([previous.get_vocalized(),u', '.join(expected_pronouns)]).encode('utf8')
+                    #~ print "anasyn.py", "anasyn 4", u"\t".join([previous.get_vocalized(),u', '.join(expected_pronouns)]).encode('utf8')
                     if previous.get_original() in expected_pronouns:
                         compatible = True
             #~ print 'anasyn 3', compatible

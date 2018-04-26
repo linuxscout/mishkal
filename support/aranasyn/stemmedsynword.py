@@ -52,28 +52,20 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
             #verbal factor
             self.tag_verbal_factor  = self.__get_verbal_factor()
 
-        #~self.tag_direct_addition =  self._is_direct_addition()
         self.tag_addition =  self._is_addition()                
 
         self.tag_break =  self._is_break() 
-        #~ self.tag_kana_noun = False # اسم كان
-        #~ self.tag_inna_noun = False # اسم إنّ
-        #~self.set_order(order)
         self.forced_word_case = False
         self.syntax =  u""   # used for syntaxique analysis porpos
         self.semantic =  u""  # used for semantic analysis porposes
-        #~self.unvocalized =  u""
-        #~self.unvoriginal =  u""
         self.forced_wordtype = False        
         self.order =  order
         self.next =  {}
         self.previous =  {}
-        # to , specify semantic relations
         self.sem_next =  {}
         self.sem_previous =  {}
         self.score =  0
         self.rule = 0  # rule used to select the current case in vocalization
-        # used to debug purpus
 
     def __del__(self, ):
         """ desctructor """
@@ -117,7 +109,6 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @param order: the order of  the stemmed word in the word case list.
         @tyep order: integer
         """
-        #self.syntax =  ':'.join([self.syntax, 'O%d'%order])
         self.order = order
 
     def get_order(self):
@@ -235,7 +226,6 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @param previous: the previous of  the stemmed word in the word case list.
         @tyep previous: integer
         """
-        #self.syntax =  ':'.join([self.syntax, 'P%d[%d]'%(previous, weight)])
         self.previous[previous] = weight
 
     def get_rule(self):
@@ -676,34 +666,6 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         """
         return self.tag_addition    
 
-    #~ def is_kana_noun(self):
-        #~ """
-        #~ Return True if the word is a  Kana Noun اسم كان منصوب.
-        #~ @return:  is a  Kana Noun.
-        #~ @rtype: True/False
-        #~ """
-        #~ return self.tag_kana_noun
-#~ 
-    #~ def set_kana_noun(self):
-        #~ """
-        #~ Set True to the word to be  Kana Noun اسم كان منصوب.
-        #~ """
-        #~ self.tag_kana_noun =  True
-
-    #~ def is_inna_noun(self):
-        #~ """
-        #~ Return True if the word is a  Inna Noun اسم إنّ مرفوع.
-        #~ @return:  is a  Inna Noun.
-        #~ @rtype: True/False
-        #~ """
-#~ 
-        #~ return self.tag_inna_noun
-#~ 
-    #~ def set_inna_noun(self):
-        #~ """
-        #~ Set True to the word to be  Inna Noun اسم إنّ.
-        #~ """
-        #~ self.tag_inna_noun =  True
 
     def is_verbal_factor(self):
         """
@@ -711,7 +673,6 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @return:  is a  verbal factor.
         @rtype: True/False
         """    
-        #~return bool(self.tag_verbal_factor % 2)
         return bool(self.tag_verbal_factor)
     
     def eq_defined(self, otherword):
@@ -720,12 +681,11 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @return:  equal or not.
         @rtype: True/False
         """          
-        return (not xor(self.is_defined() , otherword.is_defined()) and 
-         not xor(self.is_tanwin() , otherword.is_tanwin()))
+        eq_defnd = not xor(self.is_defined() , otherword.is_defined())
+        eq_tnwn  = not xor(self.is_tanwin() , otherword.is_tanwin())
+        return eq_defnd and eq_tnwn
          
-         #~ or not xor(self.has_encletic() , otherword.is_defined())
-         #~ or not xor(self.is_defined() , otherword.has_encletic())
-         #~ ) 
+         
          
     def eq_case(self, otherword):
         """

@@ -363,7 +363,7 @@ class SynNode:
         @rtype:boolean
         """
         return (self.count["pounct"] and not self.count["stopword"]  and 
-	        not self.count["verb"]  and not self.count["noun"] )
+            not self.count["verb"]  and not self.count["noun"] )
 
     def is_most_verb(self, ):
         """
@@ -472,9 +472,9 @@ class SynNode:
                 
     def __repr__(self):
         text = u"\n'%s':%s, [%s-%s]{V:%d, N:%d, S:%d} " % (
-		    self.__dict__['word'], u', '.join(self.originals), 
-		    self.get_word_type(), self.get_break_type(), self.count["verb"], 
-		    self.count["noun"], self.count["stopword"])
+            self.__dict__['word'], u', '.join(self.originals), 
+            self.get_word_type(), self.get_break_type(), self.count["verb"], 
+            self.count["noun"], self.count["stopword"])
         text += repr(self.syntax_mark)
         return text.encode('utf8') 
 
