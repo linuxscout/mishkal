@@ -1007,55 +1007,6 @@ var txkl_change = function(e) {
 // ready document
 
 $().ready(function() {
-  //----- click on vocalized---
-  /*$('.vocalized').live("click", function() {
-    $(".txkl").change();
-    var myword = $(this);
-    var nextword = $(this).next();
-    var id = myword.attr('id');
-    var list = $("#result").data(id).suggest.split(';');
-    //~ var text = "<form><select class='txkl' id='" + id + " size=3'>";
-    var text = "<select class='txkl' id='" + id + "'>";
-    var cpt = 0;
-    for (i in list) {
-      if (list[i] != "") {
-        if (myword.text() != list[i]) text += "<option class='txkl'>" + list[i] + "</option>";
-        else text += "<option class='txkl' selected=" + list[i] + ">" + list[i] + "</option>";
-        cpt += 1;
-      }
-    }
-    text += "<option class='txkl'><strong>تعديــل...</strong></option>";
-    text += "</select>";
-    if (cpt > 1) {
-      myword.replaceWith(text);
-
-    } else {
-      text = "<input type='text' class='txkl'  size='10' id='" + myword.attr('id') +
-        "' value='" + myword.text() + "'/>";
-      myword.replaceWith(text);
-    }
-    console.log(myword.text()+";;"+nextword.text())
-});
-// ----------------- Change suggestions -----------
-  $('.txkl').live('change', function() {
-    if ($(this).val() != "تعديــل...") {
-      var item = $("#result").data($(this).attr('id'));
-      //~ var text = "<span class='vocalized' id='" + $(this).attr('id') + "'>" + $(this).val() +
-        //~ "</span>";
-     $
-      var text = "<span class='vocalized' id='" + $(this).attr('id') + "' suggest='" + item.suggest.replace(/;/g, '، ') +
-         "' inflect='معدّل يدويا'rule='معدّل يدويا' link='N/A' >" + $(this).val() + "</span>";
-      $(this).replaceWith(text);
-    } else // case of editing other choice
-    {
-      var list = $("#result").data($(this).attr('id')).suggest.split(';');
-      text = "<input type='text' class='txkl'  size='10' id='" + $(this).attr('id') +
-        "' value='" + list[0] + "'/>";
-      $(this).replaceWith(text);
-       console.log($(this).text()+"-"+$(this).next().text());
-    }
- });
-*/
 
   $(document).on( 'click', '#randomMaqola', randomMaqola_handler);
   $(document).on( 'click', '#affixate', affixate_click );
