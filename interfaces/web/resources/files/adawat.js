@@ -774,7 +774,7 @@ var vocalized_click =function(e) {
     var id = myword.attr('id');
     var list = $("#result").data(id).suggest.split(';');
     //~ var text = "<form><select class='txkl' id='" + id + " size=3'>";
-    var text = "<select class='txkl' id='" + id + "'>";
+    var text = "<select class='txkl' id='" + id + "' value='"+myword.text()+"'>";
     var cpt = 0;
     for (i in list) {
       if (list[i] != "") {
@@ -784,6 +784,7 @@ var vocalized_click =function(e) {
       }
     }
     text += "<option><strong>تعديــل...</strong></option>";
+    text += "<option><strong>××إلغاء××</strong></option>";
     text += "</select>";
     if (cpt > 1) {
       myword.replaceWith(text);
@@ -938,8 +939,16 @@ var diff_mouseleave = function() {
 var vocalized_hover = function(e) {
        e.preventDefault();
     var text = $(this).text() + " : " + $(this).attr('inflect')  + "<br/>ق[" + $(this).attr('rule') + "] " + $(this).attr('link') + "<br/>" + $(this).attr('suggest');
-    if ($('#result').data("count")>20) {$('#hint').html(text);  $('#hint').show(); $('#small_hint').hide();}
-    else  {$('#small_hint').html(text); $('#small_hint').show();$('#hint').hide();}
+    if ($('#result').data("count")>20)
+     {$('#hint').html(text); 
+     $('#hint').show();
+     $('#small_hint').hide();
+     }
+    else
+    { $('#small_hint').html(text);
+    $('#small_hint').show();
+    $('#hint').hide();
+    }
   }
   // change diff 
 var vocalized_mouseleave = function(e) {
@@ -958,16 +967,35 @@ var txkl_select = function(e) {
     $(".txkl").change(e);
   }
   
+var txkl_pressed = function(e)
+{
+    e.preventDefault();
+    if ((e.which == 27) || (e.which == 13))
+    {
+      var item = $("#result").data($(this).attr('id'));
+      var text = "<span class='vocalized' id='" + $(this).attr('id') + "' suggest='" + item.suggest.replace(/;/g, '، ') +
+         "' inflect='معدّل يدويا'rule='معدّل يدويا' link='N/A' >" + $(this).attr('value') + "</span>";
+      $(this).replaceWith(text);
+      //~ alert('txkl_pressed');
+    }
+}
     
 var txkl_change = function(e) {
-       e.preventDefault();
+    e.preventDefault();
 
-    if ($(this).val() != "تعديــل...") {
+    if ($(this).val() != "تعديــل..." && ($(this).val() != "××إلغاء××")) {
       var item = $("#result").data($(this).attr('id'));
       var text = "<span class='vocalized' id='" + $(this).attr('id') + "' suggest='" + item.suggest.replace(/;/g, '، ') +
          "' inflect='معدّل يدويا'rule='معدّل يدويا' link='N/A' >" + $(this).val() + "</span>";
       $(this).replaceWith(text);
-    } else // case of editing other choice
+    } else if ($(this).val() == "××إلغاء××")
+    {
+      var item = $("#result").data($(this).attr('id'));
+      var text = "<span class='vocalized' id='" + $(this).attr('id') + "' suggest='" + item.suggest.replace(/;/g, '، ') +
+         "' inflect='معدّل يدويا'rule='معدّل يدويا' link='N/A' >" + $(this).attr('value') + "</span>";
+      $(this).replaceWith(text);
+    }
+    else // case of editing other choice
     {
       var list = $("#result").data($(this).attr('id')).suggest.split(';');
       text = "<input type='text' class='txkl'  size='10' id='" + $(this).attr('id') +
@@ -980,7 +1008,7 @@ var txkl_change = function(e) {
 
 $().ready(function() {
   //----- click on vocalized---
-  $('.vocalized').live("click", function() {
+  /*$('.vocalized').live("click", function() {
     $(".txkl").change();
     var myword = $(this);
     var nextword = $(this).next();
@@ -1027,7 +1055,7 @@ $().ready(function() {
        console.log($(this).text()+"-"+$(this).next().text());
     }
  });
-
+*/
 
   $(document).on( 'click', '#randomMaqola', randomMaqola_handler);
   $(document).on( 'click', '#affixate', affixate_click );
@@ -1063,14 +1091,18 @@ $().ready(function() {
   $(document).on( 'click', '.spelled-incorrect', spelled_incorrect_click );
   $(document).on( 'change', '.spld', spld_change );
   $(document).on( 'mouseleave', '#diff', diff_mouseleave );
-  $(document).on( 'hover', '#diff', diff_hover );
-  //~ $(document).on( 'click', '.vocalized', vocalized_click );
-  $(document).on( 'hover', '.vocalized', vocalized_hover );
+  //~ $(document).on( 'hover', '#diff', diff_hover );
+  $(document).on( 'mouseover', '#diff', diff_hover );
+  $(document).on( 'mouseover', '.vocalized', vocalized_hover );
+  //~ $(document).on( 'hover', '.vocalized', vocalized_hover );
+  
   //~ $(document).on( 'mouseleave', '.vocalized', vocalized_mouseleave );
   //~ $(document).on( 'mouseleave', '.txkl', txkl_mouseleave );
+  //~ $(document).on( 'focusout', '.txkl', txkl_mouseleave );
   //~ $(document).on( 'focusout', '.vocalized', txkl_mouseleave );
-  //~ $(document).on( 'change', '.txkl', txkl_change );
-  
+  $(document).on( 'change', '.txkl', txkl_change );
+  $(document).on( 'keyup', '.txkl', txkl_pressed );
+  $(document).on( 'click', '.vocalized', vocalized_click );
   
 });
 
