@@ -508,4 +508,4 @@ def normalizeLigature(text):
 if __name__=="__main__":
  #generate the Harf Table of Horof features
 	for l in letters:
-		
+		pass

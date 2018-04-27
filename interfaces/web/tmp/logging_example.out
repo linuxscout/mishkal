@@ -29108,3 +29108,1659 @@ INFO:MyTestWebApp:2017-12-21 10:08	Tashkeel2	هي	تسمع		سمعت	تسمعن	
 INFO:MyTestWebApp:2017-12-21 10:08	Tashkeel2	هما مؤ	تسمعا		سمعتا	تسمعان	تسمعان	تسمعا	
 INFO:MyTestWebApp:2017-12-21 10:08	Tashkeel2	هم	يسمعوا		سمعوا	يسمعن	يسمعون	يسمعوا	
 INFO:MyTestWebApp:2017-12-21 10:08	Tashkeel2	هن	يسمعن		سمعن	يسمعنان	يسمعن	يسمعن	
+INFO:MyTestWebApp:2018-03-27 12:11	Tashkeel2	لم يقبض أحد على اللص .
+INFO:MyTestWebApp:2018-03-27 12:29	Tashkeel2	السلام عليكم
+INFO:MyTestWebApp:2018-03-27 12:29	Tashkeel2	 
+INFO:MyTestWebApp:2018-03-27 12:29	Tashkeel2		  ذَرَعتُمُ الجَوَّ أشباراً وأميالا - وجُبتُمُ البَحرَ أعماقاً و أطوالاً 
+INFO:MyTestWebApp:2018-03-27 12:29	Tashkeel2		فَهل نَقَصتُم مِن هُمومِ العَيشِ خَردَلَةً - أو زِدتُم في نَعيمِ العَيشِ مِثقالاً 
+INFO:MyTestWebApp:2018-03-27 12:29	Tashkeel2		صرعى الهواءِ وصرعى الماءِ قَد كَثُروا - وراكِبُ الخيلِ جَرَّ الذَيل مُختالا 
+INFO:MyTestWebApp:2018-03-27 12:29	Tashkeel2		أقسَمتُ لو دَنت الأفلاكُ طائِعَةً - فَنالها المَرءُ لَم يَقنَع بِما نالا   
+INFO:MyTestWebApp:2018-03-27 12:29	Tashkeel2		تَسَنَّمَ القومُ غَربَ الجَوِّ وانطَلَقوا - كأنَّ للقومِ في الأفلاكِ آمالا 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-27 12:35	Tashkeel2	 
+INFO:MyTestWebApp:2018-03-27 12:35	Tashkeel2		  ذَرَعتُمُ الجَوَّ أشباراً وأميالا - وجُبتُمُ البَحرَ أعماقاً و أطوالاً 
+INFO:MyTestWebApp:2018-03-27 12:35	Tashkeel2		فَهل نَقَصتُم مِن هُمومِ العَيشِ خَردَلَةً - أو زِدتُم في نَعيمِ العَيشِ مِثقالاً 
+INFO:MyTestWebApp:2018-03-27 12:35	Tashkeel2		صرعى الهواءِ وصرعى الماءِ قَد كَثُروا - وراكِبُ الخيلِ جَرَّ الذَيل مُختالا 
+INFO:MyTestWebApp:2018-03-27 12:35	Tashkeel2		تَسَنَّمَ القومُ غَربَ الجَوِّ وانطَلَقوا - كأنَّ للقومِ في الأفلاكِ آمالا 
+INFO:MyTestWebApp:2018-03-27 12:35	Tashkeel2		أقسَمتُ لو دَنت الأفلاكُ طائِعَةً - فَنالها المَرءُ لَم يَقنَع بِما نالا   
+INFO:MyTestWebApp:2018-03-27 12:35	Tashkeel2	 
+INFO:MyTestWebApp:2018-03-27 12:35	Tashkeel2		  ذَرَعتُمُ الجَوَّ أشباراً وأميالا - وجُبتُمُ البَحرَ أعماقاً و أطوالاً 
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-27 01:01	Tashkeel2	 
+INFO:MyTestWebApp:2018-03-27 01:01	Tashkeel2		  ذَرَعتُمُ الجَوَّ أشباراً وأميالا - وجُبتُمُ البَحرَ أعماقاً و أطوالاً 
+INFO:MyTestWebApp:2018-03-27 01:03	Tashkeel2	 
+INFO:MyTestWebApp:2018-03-27 01:03	Tashkeel2		  ذَرَعتُمُ الجَوَّ أشباراً وأميالا - وجُبتُمُ البَحرَ أعماقاً و أطوالاً 
+INFO:MyTestWebApp:2018-03-27 01:07	Tashkeel2	 
+INFO:MyTestWebApp:2018-03-27 01:07	Tashkeel2		  ذَرَعتُمُ الجَوَّ أشباراً وأميالا - وجُبتُمُ البَحرَ أعماقاً و أطوالاً 
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (4 working, 6 idle, 0 starting) ave time 0.00sec, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-27 04:37	Tashkeel2	السلام عليكم
+INFO:MyTestWebApp:2018-03-27 04:38	Tashkeel2	 السَّلَاَمَالسَّلَاَمُالسَّلَاَمِالسُّلَّامَالسُّلَّامُالسُّلَّامِالسِّلَامَالسِّلَامُالسِّلَامِتعديــل...
+INFO:MyTestWebApp:2018-03-27 04:38	Tashkeel2	 عَلَيْكُمْ
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (1 working, 9 idle, 0 starting) ave time 0.02sec, max time 0.02sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-27 04:38	Tashkeel2	السلام عليكم
+INFO:MyTestWebApp:2018-03-27 04:55	Tashkeel2	السلام عليكم
+INFO:MyTestWebApp:2018-03-27 04:57	LightStemmer	السلام عليكم
+INFO:MyTestWebApp:2018-03-27 04:57	Tashkeel2	السلام عليكم
+INFO:MyTestWebApp:2018-03-27 04:57	Tashkeel2	السلام عليكم
+INFO:MyTestWebApp:2018-03-27 05:08	Tashkeel2	السلام عليكم
+INFO:MyTestWebApp:2018-03-27 05:09	Tashkeel2	يعتبر رئيس الوزراء العاشر لروسيا
+INFO:MyTestWebApp:2018-03-27 05:10	Tashkeel2	يعتبر رئيس الوزراء العاشر لروسيا
+INFO:MyTestWebApp:2018-03-27 05:10	Tashkeel2	يعتبر رئيس الوزراء  لروسيا
+INFO:MyTestWebApp:2018-03-27 05:11	StripHarakat	 يَعْتَبِرُ رَئِيسُ الْوُزَرَاءِ لِرُوسِيَا
+INFO:MyTestWebApp:2018-03-27 05:11	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 05:20	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-27 05:21	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 05:50	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 05:59	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 06:00	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 06:19	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 06:35	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 06:36	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-27 06:38	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 06:39	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 06:52	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 06:53	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 06:54	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 06:54	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-27 06:58	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 06:58	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 06:59	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 06:59	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:00	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:04	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:10	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:10	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-27 07:11	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:11	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:12	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:15	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:16	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:16	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-27 07:17	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:19	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:19	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:20	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:21	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:26	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-27 07:34	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:34	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:38	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 07:50	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 08:25	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 08:26	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 08:27	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 08:28	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (1 working, 9 idle, 0 starting) ave time 0.05sec, max time 0.05sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-27 09:00	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 09:01	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 09:04	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 09:16	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-27 09:20	Tashkeel2	 يعتبر من رئيس الوزراء لروسيا
+INFO:MyTestWebApp:2018-03-27 09:51	Tashkeel2	يثمر البستان.
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-27 10:01	Tashkeel2	يلعب الغلمان بالكرة.
+INFO:MyTestWebApp:2018-03-27 10:02	Tashkeel2	تصنع الأحذية من الجلد.
+INFO:MyTestWebApp:2018-03-27 10:10	Tashkeel2	تصنع الأحذية من الجلد.
+INFO:MyTestWebApp:2018-03-27 10:40	Tashkeel2	عندما كنت هنا لم أكن سعيدا
+INFO:MyTestWebApp:2018-03-27 11:44	Tashkeel2	عندما كنت هنا لم أكن سعيدا
+INFO:MyTestWebApp:2018-03-27 11:44	Tashkeel2	عندما كنت هنا لم أكن سعيدا
+INFO:MyTestWebApp:2018-03-27 11:45	Tashkeel2	عندما كنت هنا لم أكن سعيدا
+INFO:MyTestWebApp:2018-03-27 11:45	Tashkeel2	عندما كنت هنا لم أكن سعيدا
+INFO:MyTestWebApp:2018-03-27 11:45	Tashkeel2	عندما كنت هنا لم أكن سعيدا
+INFO:MyTestWebApp:2018-03-27 11:45	Tashkeel2	عندما كنت هنا لم أكن سعيدا
+INFO:MyTestWebApp:2018-03-27 11:46	Tashkeel2	عندما كنت هنا لم أكن سعيدا
+INFO:MyTestWebApp:2018-03-27 11:46	Tashkeel2	عندما كنت هنا لم أكن سعيدا
+INFO:MyTestWebApp:2018-03-27 11:46	Tashkeel2	عندما كنت هنا لم أكن سعيدا
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-27 11:46	Tashkeel2	عندما كنت هنا لم أكن سعيدا
+INFO:MyTestWebApp:2018-03-27 11:47	Tashkeel2	عندما كنت هنا لم أكن سعيدا جدا
+INFO:MyTestWebApp:2018-03-28 12:14	Tashkeel2	 أصبحت السيدة هدى قلقة
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-28 01:00	Tashkeel2	 أصبحت السيدة هدى قلقة
+INFO:MyTestWebApp:2018-03-28 01:03	Tashkeel2	 أصبحت السيدة هدى قلقة
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-28 01:04	Tashkeel2	 أصبحت السيدة هدى قلقة
+INFO:MyTestWebApp:2018-03-28 01:05	Tashkeel2	 أصبحت السيدة هدى قلقة
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-28 01:05	Tashkeel2	 أصبحت السيدة هدى قلقة
+INFO:MyTestWebApp:2018-03-28 01:05	Tashkeel2	 أصبحت السيدة هدى قلقة
+INFO:MyTestWebApp:2018-03-28 01:16	Tashkeel2	 أصبحت السيدة هدى قلقة
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-28 09:42	Tashkeel2	 أصبحت السيدة هدى قلقة
+INFO:MyTestWebApp:2018-03-28 09:42	Tashkeel2	 أصبحت السيدة هدى قلقة
+INFO:MyTestWebApp:2018-03-28 12:35	Tashkeel2	السلام عليكم
+اهلا بكم
+كيف حالكم
+INFO:MyTestWebApp:2018-03-28 12:50	Tashkeel2	السلام عليكم
+اهلا بكم
+كيف حالكم
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-28 12:51	Tashkeel2	السلام عليكم
+اهلا بكم
+كيف حالكم
+INFO:MyTestWebApp:2018-03-28 12:52	TashkeelText	السلام عليكم
+اهلا بكم
+كيف حالكم
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-29 10:43	NumberToLetters	152648
+INFO:MyTestWebApp:2018-03-29 10:44	Tashkeel2	152648
+INFO:MyTestWebApp:2018-03-29 10:46	NumberToLetters	152648
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-29 10:51	NumberToLetters	152648
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:1 workers didn't stop properly, and 0 zombies
+INFO:MyTestWebApp:2018-03-29 11:02	NumberToLetters	152648
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-29 02:27	LightStemmer	ربح التاجر الأمين .
+INFO:MyTestWebApp:2018-03-29 02:31	Tashkeel2	ربح التاجر الأمين .
+INFO:MyTestWebApp:2018-03-29 02:32	Tashkeel2	 
+INFO:MyTestWebApp:2018-03-29 02:32	Tashkeel2	  
+INFO:MyTestWebApp:2018-03-29 02:32	Tashkeel2	 ولذلك فلا يَجوزُ مُطلقا جَعلُ أيِّ إنسانٍ فوقَ المُسائَلة، سواءً أَكانَ ربَّ أُسرةٍ، أم طبيبا، أم حاكما أم محكوما.
+INFO:MyTestWebApp:2018-03-29 02:32	Tashkeel2		 صحيح أنَّ هذه العبارةِ لا تَنطَبِقُ بالضرورة على جَميعِ الناسِ، ولكنَّها تُؤكِدُ نَزعَةً بشرية سائدة وواضحة وفي كافةِ شرائحِ المُجتمع.
+INFO:MyTestWebApp:2018-03-29 02:33	StripHarakat	 
+	 صحيح أنَّ هذه العبارةِ لا تَنطَبِقُ بالضرورة على جَميعِ الناسِ، ولكنَّها تُؤكِدُ نَزعَةً بشرية سائدة وواضحة وفي كافةِ شرائحِ المُجتمع. ولذلك فلا يَجوزُ مُطلقا جَعلُ أيِّ إنسانٍ فوقَ المُسائَلة، سواءً أَكانَ ربَّ أُسرةٍ، أم طبيبا، أم حاكما أم محكوما.  
+
+INFO:MyTestWebApp:2018-03-29 02:33	Tashkeel2	 
+INFO:MyTestWebApp:2018-03-29 02:33	Tashkeel2		 صحيح أن هذه العبارة لا تنطبق بالضرورة على جميع الناس، ولكنها تؤكد نزعة بشرية سائدة وواضحة وفي كافة شرائح المجتمع.
+INFO:MyTestWebApp:2018-03-29 02:33	Tashkeel2	 ولذلك فلا يجوز مطلقا جعل أي إنسان فوق المسائلة، سواء أكان رب أسرة، أم طبيبا، أم حاكما أم محكوما.
+INFO:MyTestWebApp:2018-03-29 02:33	Tashkeel2	  
+INFO:MyTestWebApp:2018-03-29 02:36	Tashkeel2	 هنيئا لمن جعل ضميره هو عينُه التى يرى بها غيرَه.
+INFO:MyTestWebApp:2018-03-29 02:36	Tashkeel2	  الكاتب : نبيل جلهوم   عضو عامل برابطة أدباء الشام بلندن.
+INFO:MyTestWebApp:2018-03-29 02:36	Tashkeel2	 
+INFO:MyTestWebApp:2018-03-29 02:39	extractEnteties	 هنيئا لمن جعل ضميره هو عينُه التى يرى بها غيرَه.  الكاتب : نبيل جلهوم   عضو عامل برابطة أدباء الشام بلندن. 
+INFO:MyTestWebApp:2018-03-29 02:52	LightStemmer	 هنيئا لمن جعل ضميره هو عينُه التى يرى بها غيرَه.  الكاتب : نبيل جلهوم   عضو عامل برابطة أدباء الشام بلندن. 
+INFO:MyTestWebApp:2018-03-29 08:33	Tashkeel2	والمسلسل تم إنتاجه عام 2014 وخضع المشاركون فيه لدورات مكثفة في امتطاء الخيل ورماية السهام واستخدام السيف بشكل منتظم لمدة 3 أشهر، بإشراف أشهر المُدربين في تربية الخيل وفنون القتال في كازاخستان، خاصة أنه ممتليء بالإثارة والأحداث التي من شأنها جذب انتباه المشاهدين ».
+INFO:MyTestWebApp:2018-03-29 08:33	Tashkeel2	وفاز «قيامة أرطغرل» بجائزة مهرجان (الفراشة) التركي كأفضل مسلسل لعام 2016، وعُرِضَ لموسمين كاملين على قناة «تي آر تي» التركية، ويتم الآن عرض موسمه الثالث، ودائماً ما يحتل أعلى نسب المشاهدة الأسبوعية والشهرية.
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-30 04:28	SpellCheck	اسلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-30 04:31	SpellCheck	اسلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-30 04:32	SpellCheck	اسلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-30 04:33	SpellCheck	اسلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-30 04:35	SpellCheck	اسلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-30 04:44	SpellCheck	اسلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-30 04:44	SpellCheck	اسلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-30 04:45	SpellCheck	اسلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-30 04:47	SpellCheck	اسلام
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-30 04:52	SpellCheck	اسلام
+INFO:MyTestWebApp:2018-03-30 05:04	SpellCheck	“بشرنا” الرئيس الأمريكي دونالد ترامب بأنه سيسحب قواته الامريكية من سورية في القريب العاجل لان بلاده انفقت في منطقة الشرق الأوسط اكثر من سبعة تريليونات دولار ولم تحصل على شيء في المقابل.
+INFO:MyTestWebApp:2018-03-30 05:04	SpellCheck	الذريعة التي يستخدمها لتبرير هذه الخطوة هي تَمكّن قواته من القضاء على “الدولة الإسلامية”، ولكن الحقيقة مغايرة لذلك تماما، فليس قواته التي هزمت “دولة الخلافة”، وانما تحالف مكون من العديد من الدول الأخرى يصل الى ستين دولة على رأسها روسيا وسورية والعراق وايران وفرنسا وبريطانيا والقائمة تطول.
+INFO:MyTestWebApp:2018-03-30 05:06	SpellCheck	“بشرنا” الرئيس الأمريكي دونالد ترامب بأنه سيسحب قواته الامريكية من سورية في القريب العاجل لان بلاده انفقت في منطقة الشرق الأوسط اكثر من سبعة تريليونات دولار ولم تحصل على شيء في المقابل.
+INFO:MyTestWebApp:2018-03-30 05:06	SpellCheck	الذريعة التي يستخدمها لتبرير هذه الخطوة هي تَمكّن قواته من القضاء على “الدولة الإسلامية”، ولكن الحقيقة مغايرة لذلك تماما، فليس قواته التي هزمت “دولة الخلافة”، وانما تحالف مكون من العديد من الدول الأخرى يصل الى ستين دولة على رأسها روسيا وسورية والعراق وايران وفرنسا وبريطانيا والقائمة تطول.
+INFO:MyTestWebApp:2018-03-30 05:17	SpellCheck	“بشرنا” الرئيس الأمريكي دونالد ترامب بأنه سيسحب قواته الامريكية من سورية في القريب العاجل لان بلاده انفقت في منطقة الشرق الأوسط اكثر من سبعة تريليونات دولار ولم تحصل على شيء في المقابل.
+INFO:MyTestWebApp:2018-03-30 05:17	SpellCheck	الذريعة التي يستخدمها لتبرير هذه الخطوة هي تَمكّن قواته من القضاء على “الدولة الإسلامية”، ولكن الحقيقة مغايرة لذلك تماما، فليس قواته التي هزمت “دولة الخلافة”، وانما تحالف مكون من العديد من الدول الأخرى يصل الى ستين دولة على رأسها روسيا وسورية والعراق وايران وفرنسا وبريطانيا والقائمة تطول.
+INFO:MyTestWebApp:2018-03-30 05:20	SpellCheck	“بشرنا” الرئيس الأمريكي دونالد ترامب بأنه سيسحب قواته الامريكية من سورية في القريب العاجل لان بلاده انفقت في منطقة الشرق الأوسط اكثر من سبعة تريليونات دولار ولم تحصل على شيء في المقابل.
+INFO:MyTestWebApp:2018-03-30 05:20	SpellCheck	الذريعة التي يستخدمها لتبرير هذه الخطوة هي تَمكّن قواته من القضاء على “الدولة الإسلامية”، ولكن الحقيقة مغايرة لذلك تماما، فليس قواته التي هزمت “دولة الخلافة”، وانما تحالف مكون من العديد من الدول الأخرى يصل الى ستين دولة على رأسها روسيا وسورية والعراق وايران وفرنسا وبريطانيا والقائمة تطول.
+INFO:MyTestWebApp:2018-03-30 05:22	SpellCheck	“بشرنا” الرئيس الأمريكي دونالد ترامب بأنه سيسحب قواته الامريكية من سورية في القريب العاجل لان بلاده انفقت في منطقة الشرق الأوسط اكثر من سبعة تريليونات دولار ولم تحصل على شيء في المقابل.
+INFO:MyTestWebApp:2018-03-30 05:22	SpellCheck	الذريعة التي يستخدمها لتبرير هذه الخطوة هي تَمكّن قواته من القضاء على “الدولة الإسلامية”، ولكن الحقيقة مغايرة لذلك تماما، فليس قواته التي هزمت “دولة الخلافة”، وانما تحالف مكون من العديد من الدول الأخرى يصل الى ستين دولة على رأسها روسيا وسورية والعراق وايران وفرنسا وبريطانيا والقائمة تطول.
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-30 05:23	SpellCheck	هناك عدة تفسيرات او احتمالات تقف خلف هذا التوجه للرئيس ترامب:
+INFO:MyTestWebApp:2018-03-30 05:24	SpellCheck	هناك عدة تفسيرات او احتمالات تقف خلف هذا التوجه للرئيس ترامب:
+INFO:MyTestWebApp:2018-03-30 05:25	SpellCheck	هناك عدة تفسيرات او احتمالات تقف خلف هذا التوجه للرئيس ترامب:
+INFO:MyTestWebApp:2018-03-30 05:28	SpellCheck	ان يكون الرئيس الامريكي قرر فعلا تنفيذ سياساته وبرامجه الانتخابية التي اوصلته الى السلطة وعنوانها الابرز الانطواء داخليا، والانسحاب من التدخلات العسكرية الخارجية ووضع مصالح الشعب الأمريكي فوق كل اعتبار وفق شعاره “أمريكا أولا”.
+INFO:MyTestWebApp:2018-03-30 05:29	SpellCheck	     الثالث: حدوث نوع من اتفاق المقايضة بين القوتين العظميين، أي روسيا وامريكا، على “مقايضة ما” بتبادل مناطق النفوذ، أي تترك امريكا سورية لروسيا التي تملك اليد العليا فيها، مقابل صمت الأخيرة على تواجدها في العراق او دول أخرى في المنطقة.
+INFO:MyTestWebApp:2018-03-30 05:29	SpellCheck	    ـ الرابع: توصل إدارة ترامب الى اتفاق مع تركيا لسحب قواتها (الامريكية) المتواجدة في شمال سورية (مناطق كردية) على طول الحدود بين البلدين (سورية وتركيا)، مما يسهل لعملية “غصن الزيتون” التركية التقدم في المنطقة دون أي صدام مع القوات الامريكية.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-30 05:43	SpellCheck	     الثالث: حدوث نوع من اتفاق المقايضة بين القوتين العظميين، أي روسيا وامريكا، على “مقايضة ما” بتبادل مناطق النفوذ، أي تترك امريكا سورية لروسيا التي تملك اليد العليا فيها، مقابل صمت الأخيرة على تواجدها في العراق او دول أخرى في المنطقة.
+INFO:MyTestWebApp:2018-03-30 05:43	SpellCheck	    ـ الرابع: توصل إدارة ترامب الى اتفاق مع تركيا لسحب قواتها (الامريكية) المتواجدة في شمال سورية (مناطق كردية) على طول الحدود بين البلدين (سورية وتركيا)، مما يسهل لعملية “غصن الزيتون” التركية التقدم في المنطقة دون أي صدام مع القوات الامريكية.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-03-30 05:43	SpellCheck	     الثالث: حدوث نوع من اتفاق المقايضة بين القوتين العظميين، أي روسيا وامريكا، على “مقايضة ما” بتبادل مناطق النفوذ، أي تترك امريكا سورية لروسيا التي تملك اليد العليا فيها، مقابل صمت الأخيرة على تواجدها في العراق او دول أخرى في المنطقة.
+INFO:MyTestWebApp:2018-03-30 05:43	SpellCheck	    ـ الرابع: توصل إدارة ترامب الى اتفاق مع تركيا لسحب قواتها (الامريكية) المتواجدة في شمال سورية (مناطق كردية) على طول الحدود بين البلدين (سورية وتركيا)، مما يسهل لعملية “غصن الزيتون” التركية التقدم في المنطقة دون أي صدام مع القوات الامريكية.
+INFO:MyTestWebApp:2018-03-30 07:06	SpellCheck	راهو جاي الجديد ! والهدرة ماراحش تحبس عليه ! استناونا في 1 أفريل.
+INFO:MyTestWebApp:2018-03-30 07:06	SpellCheck	 راح يبان الصح
+INFO:MyTestWebApp:2018-03-30 07:06	SpellCheck	راهو جاي الجديد ! والهدرة ماراحش تحبس عليه ! استناونا في 1 أفريل.
+INFO:MyTestWebApp:2018-03-30 07:06	SpellCheck	 راح يبان الصح
+INFO:MyTestWebApp:2018-03-30 07:10	SpellCheck	راهو جاي الجديد ! والهدرة ماراحش تحبس عليه ! استناونا في 1 أفريل.
+INFO:MyTestWebApp:2018-03-30 07:10	SpellCheck	 راح يبان الصح
+INFO:MyTestWebApp:2018-03-30 07:15	Tashkeel2	أمريكا تسحب قواتها من سورية، للسبب نفسه الذي جعلها تنسحب قبلها من العراق، أي تلقي هزيمة كبرى بعد حرب استنزاف مادية وبشرية لم تستطع تحملها، ولا بد ان الرئيس ترامب التاجر الذي يتعاطى مع الأمور بميزان الربح والخسارة، ويؤمن بلغة الأرقام، اصبح يدرك ان حربا باتت وشيكة ستستهدف قواته في سورية (2000 جندي)، وفي العراق (5500 جندي) ولن تستطيع ادارته الفوز فيها.
+INFO:MyTestWebApp:2018-03-30 08:38	Tashkeel2	أمريكا تسحب قواتها من سورية، للسبب نفسه الذي جعلها تنسحب قبلها من العراق، أي تلقي هزيمة كبرى بعد حرب استنزاف مادية وبشرية لم تستطع تحملها، ولا بد ان الرئيس ترامب التاجر الذي يتعاطى مع الأمور بميزان الربح والخسارة، ويؤمن بلغة الأرقام، اصبح يدرك ان حربا باتت وشيكة ستستهدف قواته في سورية (2000 جندي)، وفي العراق (5500 جندي) ولن تستطيع ادارته الفوز فيها.
+INFO:MyTestWebApp:2018-03-30 08:38	LightStemmer	الذي يعمل السوء
+INFO:MyTestWebApp:2018-03-30 08:39	LightStemmer	الذي عمل السوء
+INFO:MyTestWebApp:2018-03-30 08:39	LightStemmer	الذي يعمل السوء
+INFO:MyTestWebApp:2018-03-30 08:39	LightStemmer	الذي استشكل السوء
+INFO:MyTestWebApp:2018-03-31 09:05	Tashkeel2	تخاض الحروب من الدول لتغيير الخرائط.
+INFO:MyTestWebApp:2018-03-31 09:05	Tashkeel2	 ولكن حروب الفقر تخاض لوضع خريطة التغيير.
+INFO:MyTestWebApp:2018-03-31 11:21	Tashkeel2	في مثل هذه الدقائق في الليل يشعر الإنسان بالوحدة و يودّ كثيراً أن يكون سبباً لحدوث شيء ما !
+INFO:MyTestWebApp:2018-03-31 11:33	Tashkeel2	دريد بن الصمة فارسٌ شجاع شاعر فحل، وجعله محمد بن سلام أول شعراء الفرسان.
+INFO:MyTestWebApp:2018-03-31 11:33	Tashkeel2	 وقد كان أطول الفرسان الشعراء غزواً، وأبعدهم أثراً، وأكثرهم ظفراً، وأيمنهم نقيبةً عند العرب، وأشعرهم دريد بن الصمة.
+INFO:MyTestWebApp:2018-03-31 11:33	Tashkeel2	 قال أبو عبيدة: كان دريد بن الصمة سيد بني جشم وفارسهم وقائدهم وكان مظفراً ميمون النقيبة، وغزا نحو مائة غزاةٍ ما أخفق في واحدة منها، وأدرك الإسلام فلم يسلم، وخرج مع قومه في يوم حنينٍ مظاهراً للمشركين، ولا فضل فيه للحرب، وإنما أخرجوه تيمناً به وليقتبسوا من رأيه، فمنعهم مالك بن عوف من قبول مشورته، وخالفه لئلا يكون له ذكر، فقتل دريد يومئذٍ على شركه.
+INFO:MyTestWebApp:2018-03-31 11:51	Tashkeel2	دريد بن الصمة فارسٌ شجاع شاعر فحل، وجعله محمد بن سلام أول شعراء الفرسان.
+INFO:MyTestWebApp:2018-03-31 11:51	Tashkeel2	 وقد كان أطول الفرسان الشعراء غزواً، وأبعدهم أثراً، وأكثرهم ظفراً، وأيمنهم نقيبةً عند العرب، وأشعرهم دريد بن الصمة.
+INFO:MyTestWebApp:2018-03-31 11:51	Tashkeel2	 قال أبو عبيدة: كان دريد بن الصمة سيد بني جشم وفارسهم وقائدهم وكان مظفراً ميمون النقيبة، وغزا نحو مائة غزاةٍ ما أخفق في واحدة منها، وأدرك الإسلام فلم يسلم، وخرج مع قومه في يوم حنينٍ مظاهراً للمشركين، ولا فضل فيه للحرب، وإنما أخرجوه تيمناً به وليقتبسوا من رأيه، فمنعهم مالك بن عوف من قبول مشورته، وخالفه لئلا يكون له ذكر، فقتل دريد يومئذٍ على شركه.
+INFO:MyTestWebApp:2018-03-31 04:42	Tashkeel2	 وقد كان أطول الفرسان الشعراء غزواً، وأبعدهم أثراً، وأكثرهم ظفراً، وأيمنهم نقيبةً عند العرب، وأشعرهم دريد بن الصمة.
+INFO:MyTestWebApp:2018-03-31 04:42	Tashkeel2	دريد بن الصمة فارسٌ شجاع شاعر فحل، وجعله محمد بن سلام أول شعراء الفرسان.
+INFO:MyTestWebApp:2018-03-31 04:42	Tashkeel2	 قال أبو عبيدة: كان دريد بن الصمة سيد بني جشم وفارسهم وقائدهم وكان مظفراً ميمون النقيبة، وغزا نحو مائة غزاةٍ ما أخفق في واحدة منها، وأدرك الإسلام فلم يسلم، وخرج مع قومه في يوم حنينٍ مظاهراً للمشركين، ولا فضل فيه للحرب، وإنما أخرجوه تيمناً به وليقتبسوا من رأيه، فمنعهم مالك بن عوف من قبول مشورته، وخالفه لئلا يكون له ذكر، فقتل دريد يومئذٍ على شركه.
+INFO:MyTestWebApp:2018-03-31 04:54	Tashkeel2	وخرج مع قومه في يوم حنينٍ مظاهراً للمشركين، ولا فضل فيه للحرب، وإنما أخرجوه تيمناً به وليقتبسوا من رأيه، فمنعهم مالك بن عوف من قبول مشورته، وخالفه لئلا يكون له ذكر، فقتل دريد يومئذٍ على شركه.
+INFO:MyTestWebApp:2018-03-31 05:00	Tashkeel2	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:25	Tashkeel2	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-31 05:25	Tashkeel2	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:27	Tashkeel2	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:29	Tashkeel2	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:30	Tashkeel2	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-31 05:30	Tashkeel2	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:34	Tashkeel2	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:43	Tashkeel2	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:44	Tashkeel2	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:45	Tashkeel2	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-31 05:45	Tashkeel2	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:45	SpellCheck	هل رفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:46	Tashkeel2	هل رننفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:46	SpellCheck	هل رننفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:46	SpellCheck	هل رننفع ولي العهد السعودييي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 05:47	Tashkeel2	هل رننفع ولي العهد السعودييي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 06:10	Tashkeel2	هل نفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 06:42	Tashkeel2	هل نفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 06:43	Tashkeel2	هل نفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 07:01	LightStemmer	هل نفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 07:03	Tashkeel2	هل نفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 07:04	LightStemmer	هل نفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-03-31 07:06	Wordtag	هل نفع ولي العهد السعودي الراية البيضاء وأصبح يبحث عن سبيل للتعايش مع نظام الأسد؟
+INFO:MyTestWebApp:2018-03-31 07:07	Wordtag	عقد مجلس أمناء جائزة محمد بن راشد للغة العربية اجتماعاً بالمبنى الرئيسي لبلدية دبي تم خلاله اختيار الفائزين في الدورة الرابعة للجائزة تمهيداً لتكريمهم في حفل جائزة الشيخ محمد بن راشد للغة العربية بتاريخ 19 من إبريل 2018 والذي يعقد ضمن فعاليات مؤتمر اللغة العربية
+INFO:MyTestWebApp:2018-03-31 07:08	Tashkeel2	عقد مجلس أمناء جائزة محمد بن راشد للغة العربية اجتماعاً بالمبنى الرئيسي لبلدية دبي تم خلاله اختيار الفائزين في الدورة الرابعة للجائزة تمهيداً لتكريمهم في حفل جائزة الشيخ محمد بن راشد للغة العربية بتاريخ 19 من إبريل 2018 والذي يعقد ضمن فعاليات مؤتمر اللغة العربية
+INFO:MyTestWebApp:2018-03-31 07:14	extractEnteties	عقد مجلس أمناء جائزة محمد بن راشد للغة العربية اجتماعاً بالمبنى الرئيسي لبلدية دبي تم خلاله اختيار الفائزين في الدورة الرابعة للجائزة تمهيداً لتكريمهم في حفل جائزة الشيخ محمد بن راشد للغة العربية بتاريخ 19 من إبريل 2018 والذي يعقد ضمن فعاليات مؤتمر اللغة العربية
+INFO:MyTestWebApp:2018-03-31 07:17	Wordtag	عقد مجلس أمناء جائزة محمد بن راشد للغة العربية اجتماعاً بالمبنى الرئيسي لبلدية دبي تم خلاله اختيار الفائزين في الدورة الرابعة للجائزة تمهيداً لتكريمهم في حفل جائزة الشيخ محمد بن راشد للغة العربية بتاريخ 19 من إبريل 2018 والذي يعقد ضمن فعاليات مؤتمر اللغة العربية.
+القناة العاشرة العبرية تزعم ان جيش الاحتلال سحب أمس جثماني شهيدين من منطقة السياج الفاصل شرقي بلدة جحر الديك جنوب شرق غزة ويقول إنه يفحص اذا ما تم زرع عبوات مماثلة ل"عبوة العلم" في المكان
+INFO:MyTestWebApp:2018-03-31 07:17	extractEnteties	عقد مجلس أمناء جائزة محمد بن راشد للغة العربية اجتماعاً بالمبنى الرئيسي لبلدية دبي تم خلاله اختيار الفائزين في الدورة الرابعة للجائزة تمهيداً لتكريمهم في حفل جائزة الشيخ محمد بن راشد للغة العربية بتاريخ 19 من إبريل 2018 والذي يعقد ضمن فعاليات مؤتمر اللغة العربية.
+القناة العاشرة العبرية تزعم ان جيش الاحتلال سحب أمس جثماني شهيدين من منطقة السياج الفاصل شرقي بلدة جحر الديك جنوب شرق غزة ويقول إنه يفحص اذا ما تم زرع عبوات مماثلة ل"عبوة العلم" في المكان
+INFO:MyTestWebApp:2018-03-31 07:24	Tashkeel2	عقد مجلس أمناء جائزة محمد بن راشد للغة العربية اجتماعاً بالمبنى الرئيسي لبلدية دبي تم خلاله اختيار الفائزين في الدورة الرابعة للجائزة تمهيداً لتكريمهم في حفل جائزة الشيخ محمد بن راشد للغة العربية بتاريخ 19 من إبريل 2018 والذي يعقد ضمن فعاليات مؤتمر اللغة العربية.
+INFO:MyTestWebApp:2018-03-31 07:24	Tashkeel2	القناة العاشرة العبرية تزعم ان جيش الاحتلال سحب أمس جثماني شهيدين من منطقة السياج الفاصل شرقي بلدة جحر الديك جنوب شرق غزة ويقول إنه يفحص اذا ما تم زرع عبوات مماثلة ل"عبوة العلم" في المكان
+INFO:MyTestWebApp:2018-03-31 10:47	Tashkeel2	عقد مجلس أمناء جائزة محمد بن راشد للغة العربية اجتماعاً بالمبنى الرئيسي لبلدية دبي تم خلاله اختيار الفائزين في الدورة الرابعة للجائزة تمهيداً لتكريمهم في حفل جائزة الشيخ محمد بن راشد للغة العربية بتاريخ 19 من إبريل 2018 والذي يعقد ضمن فعاليات مؤتمر اللغة العربية.
+INFO:MyTestWebApp:2018-03-31 10:47	Tashkeel2	القناة العاشرة العبرية تزعم ان جيش الاحتلال سحب أمس جثماني شهيدين من منطقة السياج الفاصل شرقي بلدة جحر الديك جنوب شرق غزة ويقول إنه يفحص اذا ما تم زرع عبوات مماثلة ل"عبوة العلم" في المكان
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-05 02:29	LightStemmer	أكل الولد التفاح
+INFO:MyTestWebApp:2018-04-05 02:29	LightStemmer	يأكل الولد التفاح
+INFO:MyTestWebApp:2018-04-05 02:30	LightStemmer	يأكل الولد التفاح
+INFO:MyTestWebApp:2018-04-05 02:31	SpellCheck	يأكل الولد التفاح
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-05 09:34	Tashkeel2	جنى الفلاح القطن .
+INFO:MyTestWebApp:2018-04-05 09:35	LightStemmer	جنى الفلاح القطن .
+INFO:MyTestWebApp:2018-04-05 09:35	Tashkeel2	جنى الفلاح القطن .
+INFO:MyTestWebApp:2018-04-05 09:36	Tashkeel2	جنى الفلاح القطن .
+INFO:MyTestWebApp:2018-04-05 09:36	Tashkeel2	طوت البنت الثوب.
+INFO:MyTestWebApp:2018-04-05 09:36	Tashkeel2	   أكل الولد التفاح
+INFO:MyTestWebApp:2018-04-05 09:38	Tashkeel2	 استفيدوا من عرضنا الترويجي الجديد الذي يسمح لكم باقتناء بطاقات في مكتبتي بأسعار استثنائية :) والاطلاع على مجموعة واسعة من المؤلفات والكتب 📚 بنقرات بسيطة 🖱️ لمدة 12 شهرا 🗓️! 
+INFO:MyTestWebApp:2018-04-05 09:39	Tashkeel2	 استفيدوا من عرضنا الترويجي الجديد الذي يسمح لكم باقتناء بطاقات في مكتبتي بأسعار استثنائية :) والاطلاع على مجموعة واسعة من المؤلفات والكتب بنقرات بسيطة  لمدة 12 شهرا 
+INFO:MyTestWebApp:2018-04-05 10:02	Tashkeel2	كتاب قواعد اللغة الفرنسية لجميع المستويات:
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (1 working, 9 idle, 0 starting) ave time 0.00sec, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-05 10:21	Tashkeel2	كتاب قواعد اللغة الفرنسية لجميع المستويات:
+INFO:MyTestWebApp:2018-04-05 10:42	Tashkeel2	كتاب قواعد اللغة الفرنسية لجميع المستويات:
+INFO:MyTestWebApp:2018-04-05 10:43	Tashkeel2	كتاب قواعد اللغة الفرنسية لجميع المستويات:
+INFO:MyTestWebApp:2018-04-05 10:43	Tashkeel2	كتاب قواعد اللغة الفرنسية لجميع المستويات:
+INFO:MyTestWebApp:2018-04-05 10:44	Tashkeel2	يضحي الشارع مزدحما .
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (4 working, 6 idle, 0 starting) ave time 0.00sec, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-05 10:47	Tashkeel2	سافر والدي.
+INFO:MyTestWebApp:2018-04-05 10:48	Tashkeel2	لا تبلع طعاما قبل أن تجيد مضغه .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-05 10:49	Tashkeel2	نمشي في الحقول.
+INFO:MyTestWebApp:2018-04-05 10:54	Tashkeel2	نمشي في الحقول.
+INFO:MyTestWebApp:2018-04-05 10:54	LightStemmer	نمشي في الحقول.
+INFO:MyTestWebApp:2018-04-05 11:15	Tashkeel2	قم بفعل شيء رائع، فقد يقلدك الناس.
+INFO:MyTestWebApp:2018-04-05 11:15	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-05 11:16	Tashkeel2	 قد يكون الألم في الذراع الأيسر ناتجاً عن أسباب عديدة، بدءاً من الإصابة بشد عضلي وصولاً إلى حدوث أزمة قلبيّة حادة.
+INFO:MyTestWebApp:2018-04-05 11:16	Tashkeel2	 وإليكم في التالي يمكن للعديد من العلامات التي تساعد على تمييز الفرق.
+INFO:MyTestWebApp:2018-04-05 11:16	Tashkeel2	 ألم في الصدر مع ألم في الذراع الايسر.
+INFO:MyTestWebApp:2018-04-05 11:16	Tashkeel2	 قد لا يسبب هذا الألم القلق دائماً إلا إن مزيجاً من ألم أو ثقل في الصدر يرافقه ألم في الذراع الأيسر
+INFO:MyTestWebApp:2018-04-05 11:17	Tashkeel2	 قد يكون الألم في الذراع الأيسر ناتجاً عن أسباب عديدة، بدءاً من الإصابة بشد عضلي وصولاً إلى حدوث أزمة قلبيّة حادة.
+INFO:MyTestWebApp:2018-04-05 11:17	Tashkeel2	 وإليكم في التالي يمكن للعديد من العلامات التي تساعد على تمييز الفرق.
+INFO:MyTestWebApp:2018-04-05 11:17	Tashkeel2	 ألم في الصدر مع ألم في الذراع الايسر.
+INFO:MyTestWebApp:2018-04-05 11:17	Tashkeel2	 قد لا يسبب هذا الألم القلق دائماً إلا إن مزيجاً من ألم أو ثقل في الصدر يرافقه ألم في الذراع الأيسر
+INFO:MyTestWebApp:2018-04-05 11:23	Tashkeel2	شاب فلسطيني يتحدث بقوة من مسيرة العودة الكبرى على حدود غزة مع الاراضي الفلسطينية المحتلة
+INFO:MyTestWebApp:2018-04-05 11:23	Tashkeel2	شاب فلسطيني يتحدث بقوة من مسيرة العودة الكبرى على حدود غزة مع الأراضي الفلسطينية المحتلة
+INFO:MyTestWebApp:2018-04-05 11:23	Tashkeel2	شاب فلسطيني يتحدث بقوة من مسيرة العودة الكبرى على حدود غزة مع الأراضي الفلسطينية المحتلة
+INFO:MyTestWebApp:2018-04-05 11:46	Tashkeel2	شاب فلسطيني يتحدث بقوة من مسيرة العودة الكبرى على حدود غزة مع الأراضي الفلسطينية المحتلة
+INFO:MyTestWebApp:2018-04-05 11:47	Tashkeel2	يمكن أن يحدث ألم الذراع الأيسر للعديد من الأسباب المختلفة، والتي تتدرّج ما بين مجرد إجهادٍ عضليّ بسيط ووصولًا للنوبة القلبية.
+INFO:MyTestWebApp:2018-04-05 11:47	Tashkeel2	 يمكن كذلك أن يحدث الألم نتيجة لمشكلات الجلد والأعصاب والعظام والمفاصل والأوعية الدموية بهذا الذراع.
+INFO:MyTestWebApp:2018-04-05 11:47	Tashkeel2	 لتحديد ما إذا كان ألم ذراعك الأيسر له علاقة بالقلب، فعليك بالنظر في عدد من العوامل التي تُرجّح هذا الافتراض
+INFO:MyTestWebApp:2018-04-05 11:47	Tashkeel2	يمكن أن يحدث ألم الذراع الأيسر للعديد من الأسباب المختلفة، والتي تتدرّج ما بين مجرد إجهادٍ عضليّ بسيط ووصولًا للنوبة القلبية.
+INFO:MyTestWebApp:2018-04-05 11:47	Tashkeel2	 يمكن كذلك أن يحدث الألم نتيجة لمشكلات الجلد والأعصاب والعظام والمفاصل والأوعية الدموية بهذا الذراع.
+INFO:MyTestWebApp:2018-04-05 11:47	Tashkeel2	 لتحديد ما إذا كان ألم ذراعك الأيسر له علاقة بالقلب، فعليك بالنظر في عدد من العوامل التي تُرجّح هذا الافتراض
+INFO:MyTestWebApp:2018-04-05 11:56	Tashkeel2	ولم يكن حضور الشيخ الجليل مفاجأة فحسب بل كان صدمة ليس فقط بالنسبة للبعيدين منه، وإنما أيضا لأنصاره ومتابعيه الذين باغتهم الشيخ وهو يشارك "صوتا وصورة" في افتتاح بطولة البلوت، إحدى بطولات الرياضات الذهنية التي أطلقتها السعودية مؤخرا ضمن مشاريع وأنشطة الترفيه التي أعلنت السعودية أنها ستستثمر فيها 240 مليار ريال (نحو 64 مليار دولار) خلال السنوات العشر المقبلة.
+INFO:MyTestWebApp:2018-04-05 11:59	extractEnteties	ولم يكن حضور الشيخ الجليل مفاجأة فحسب بل كان صدمة ليس فقط بالنسبة للبعيدين منه، وإنما أيضا لأنصاره ومتابعيه الذين باغتهم الشيخ وهو يشارك "صوتا وصورة" في افتتاح بطولة البلوت، إحدى بطولات الرياضات الذهنية التي أطلقتها السعودية مؤخرا ضمن مشاريع وأنشطة الترفيه التي أعلنت السعودية أنها ستستثمر فيها 240 مليار ريال (نحو 64 مليار دولار) خلال السنوات العشر المقبلة.
+INFO:MyTestWebApp:2018-04-06 12:05	Tashkeel2	ولم يكن حضور الشيخ الجليل مفاجأة فحسب بل كان صدمة ليس فقط بالنسبة للبعيدين منه، وإنما أيضا لأنصاره ومتابعيه الذين باغتهم الشيخ وهو يشارك "صوتا وصورة" في افتتاح بطولة البلوت، إحدى بطولات الرياضات الذهنية التي أطلقتها السعودية مؤخرا ضمن مشاريع وأنشطة الترفيه التي أعلنت السعودية أنها ستستثمر فيها 240 مليار ريال (نحو 64 مليار دولار) خلال السنوات العشر المقبلة.
+INFO:MyTestWebApp:2018-04-06 10:58	Tashkeel2	العصفور مسجون في القفص.
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-06 10:59	Tashkeel2	الولد المهذب يحبه أبوه .
+INFO:MyTestWebApp:2018-04-06 11:25	Tashkeel2	الدواة مملوءة .
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (1 working, 9 idle, 0 starting) ave time 0.00sec, max time 0.00sec, killed 0 workers
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (2 working, 8 idle, 0 starting) ave time 0.00sec, max time 0.00sec, killed 0 workers
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (2 working, 8 idle, 0 starting) ave time 0.00sec, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-10 04:20	StripHarakat	سمعت النصيحة.
+INFO:MyTestWebApp:2018-04-10 04:21	StripHarakat	سمعت النصيحة.
+INFO:MyTestWebApp:2018-04-10 04:21	StripHarakat	سمعت النصيحة.
+INFO:MyTestWebApp:2018-04-10 04:21	LightStemmer	سمعت النصيحة.
+INFO:MyTestWebApp:2018-04-10 04:21	StripHarakat	 
+	  وصَلَ إلى البيتِ مُنهَكاً من اﻷلمِ، يَكتُمُ صراخاً يَضجُّ بِه صَدرُهُ ، هَل انتَهى كُلُّ شَيءٍ حَقاً! وَقَفَ في المدخلِ قِبالةَ دَرجِ الطابقِ العُلويِّ مُستَرجِعاً مَشهداً كان يَتكرَّرُ مِراراً كُلما دخلَ إلى المنزلِ مُعلِناً وصولَهُ برنّاتٍ ثلاثٍ مُتتالياتٍ على جرسِ البابِ. 
+	 
+	كان يراها عِندَ سُفرَةِ الدَّرج تُطلُّ عَليهِ بَاسِمَةً ، تَقفُ هُنيهَةً ثُمَّ تَدرُجُ باتجاههِ و ريشَتُها ما تزالُ في يدهِا و أثرُ اﻷلوانِ يُزيّن مَريلتَها، فتلقاهُ و يلقاها بِلهفَةٍ و شَوقٍ ما جَفَّ أو وَهن يوماً طِوالَ سَنواتِ زواجِهِما الاثنتي عشرة، صَعدَ الدرج بِخطىً مُتعبةٍ و دَلفَ إلى الغرفةِ الجانبيةِ التي حَوَّلَتها مُنذُ سَنتَين إلى مَرسمٍ بَعدَ أن كانت مُنذُ أثّثا المنزلَ غُرفةً لِطفلٍ لم يُقَدّرُ لهُ الوجودُ ، كان عِطرُها ما زالَ يَنسَلُّ من أشياءِ المكانِ مُختلطاً بِعبَقِ اﻷلوانِ الزَّيتيةِ. 
+	&#160; 
+	وقفَ عِندَ اللوحةِ اﻷخيرةِ التي ما زالت معلقةً على حاملِ اللوحاتِ ، و التي بها كان قد اكتملَ مشروعُ معرضِها اﻷول ، كانت باقي اللوحات معلّقة على حيطانِ الغرفةِ بعشوائيةٍ مقصودةٍ ، وقعَ نظرهُ على الشريطِ اﻷحمرِ المقصوصِ عندَ مَدخَلِ البابِ و ابتسمَ بألمٍ . 
+	 
+	بالأمس قادَتهُ إلى الغرفةِ مُغمضَ العينين ووضعَت المِقصَّ بيدَهِ ، و باليدِ اﻷخُرى ناوَلَتهُ الشريطَ قائلةً: غداً تُنقلُ اللوحات إلى قاعةِ العرضِ لكن هُنا أعرِضُها لكَ وَحدَكَ ، فادخل يا زائري اﻷهم مُفتتحاً معرضي اﻷول بَعدَ أن افتتحتَ قلبي و سكنتَ فيه للأبد ، 
+	&#160; 
+	أُدخل.. أُدخل و امنن على لوحاتي&#160; من بريقِ عينيكَ لتصيرَ أجمل ، و قبلَ أن تَرفعَ يديَها عَن عينيهِ التي كانت تَبرقُ فَرحاً بِكلماتِها الشَغوفةِ ، طَبعَ قُبلةً على كفّيها ثُمَّ تَركها تَقودُهُ ناحيةَ اليمينِ قائلةً: ابدأ بهذهِ اللوحةِ فَهي الباكورةُ ، مِن هنا تبدأُ الحكايةُ ، 
+	اقرأني لوحةً لوحة. 
+	 
+	كانت اللوحةُ اﻷولى صورةً نِصفيَّةً واضحةَ المعالمِ لامرأةٍ يَظهرُ خَلفَها ظِلُّ رَجُل ، لَمحَ في عينيها مَسحَةَ حُزنٍ ، علّقَ قائلاً: لماذا هي حزينة؟ هي ليست حزينة! ألا ترى الابتسامةَ الظاهرةَ على شفتَيها! مال برأسهِ غيرَ مقتنعٍ. ثُم انتقلَ إلى اللوحةِ التاليةِ كانت لامرأةٍ تَنامُ على أرضيةٍ مبلّلةٍ ملتفة على بعضِها كما الجنينُ في رحمِ اﻷمِّ ، كانَ ظِلُّ الرُجلِ يَظهرُ ضبابياً ، أمعنَ النظرَ في اللوحةِ ثمّ ارتدّ إليها بنظرةٍ عميقةٍ&#160; ، فبادَرتهُ قائلةً : هل أعجبتك؟ رفعَ حاجبيهِ تَعجُباً و لَم يُجب!! 
+	 
+	و انتقلَ بِملامحَ مُتَغَيَّرةً إلى اللوحةِ الثالثةِ، كانت صورةً كاملةً لرجلٍ بِملامحَ جَامدةٍ يَقِفُ مكتوفَ اليدينِ و في طَرَفِ الصُورَةِ تَمتَدُّ إلى أقصاها يد امرأةٍ باتجاهِ الرَّجُلِ ، بدا الوجومُ على وجهِهِ و سألها بِنظرةٍ مُتغيرةٍ: ماذا تستجدي المرأةُ من الرجلِ و هو مستنكفٌ و متكتّفٌ!! ردّت مستنكرةً : إنها لا تستجديهِ بَل تبثهُ شَوقُها و هو الحبيبُ الذي عَرفَ مكانهُ فتدلّل. 
+	 
+	تَركَها و تَابعَ جَولَتهُ على اللوحات فيما&#160; وقفت مكانَها تُفكّر في تعليقاتهِ مُستغربةً عدمَ فهمِهِ قَصدَها و هو الحبيبُ اللبيبُ الذي يَفهمُ عادةً دونَ أن تتكلّمَ أو حتى تشير ، يكفي أن تشعرَ فيَشعُر ، و بينما هي مسترسلةٌ بأفكارهِا ، انتبهت إلى صرخةٍ خرجت من أعماقهِ : كيفَ لم أفهم ! كيفَ كُنتُ غافلاً إلى هذه الدرجة ! كَيف !! 
+	 
+	أصابها الجَزَع و اقتربت منهُ تحاولُ إحاطتهُ بذراعيها ، فانتفضَ من بينِ يديها كطيرٍ جريحٍ ، صرخت باكيةً: باللهِ عليكَ ماذا جرى!! أنظري إلى كلِّ هذه اللوحات ، أتعرفينَ عُنوانُها الرئيسُ !! إنه الحرمان ، الحرمانُ و لا شيءٌ سِواه.. 
+	 
+	صُدِمَت و صَرَخت&#160; صَرخَةً مَكتومَةً ، تابعَ قائلاُ : نَعم لَم أقرأ في كلِّ هذه اللوحات أكثرَ من امرأةٍ محرومةٍ مِن اﻷمومةِ ، جَلسَ على اﻷرضِ مكسورَ الفؤادِ مُنهكاً و أكملَ آسف.. آسف يا حبيبتي لم أستطع رفعَ الحرمان عنكِ ، سامحيني لم أستطع مَنحَكِ الطِفلَ الذي تتمنّينَ من أعماقِ أعماقك ، جَلسَت القرفصاءَ قِبالتَهُ ، وواجهت وَجهَهُ بِدُموعِها و بِجهد قالت: 
+	لم أقصد ذلك أبداً!! صدقني أنت عِندي أغلى من كل غالٍ ، أنت ابني و أبي و زَوجي و حَبيبُ عُمري ، قامَ مُنتفِضاً لا .. لا أتحمّلُ إيذائكِ أكثر و قبلَ أن تَفوهَ بكلمةٍ غادرَ مُسرِعاً.   
+ 
+	 
+	  و ها هو يَعودُ إلى الَمرسمِ الذي باتَ شاهِداً على نِهايةِ قِصَّةِ حُبٌ استثنائيةٍ ، تُوّجَت بِطلاقٍ مَنحَها إياهُ و مَعَهُ مَنحَها فُرصةَ أن تُحقِقَ رَغبَةً دَفينَةً هي نَفسُها لَم تَكن تَعلمُ بأنها ما ماتَت أبداً. 
+	&#160; 
+	ملاحظة : إقرأني لوحةً لوحة ، قصةٌ قصيرةٌ بصوتِ محمود الِمسَلَّمي.   
+
+INFO:MyTestWebApp:2018-04-10 04:22	CompareTashkeel	 
+	  وصَلَ إلى البيتِ مُنهَكاً من اﻷلمِ، يَكتُمُ صراخاً يَضجُّ بِه صَدرُهُ ، هَل انتَهى كُلُّ شَيءٍ حَقاً! وَقَفَ في المدخلِ قِبالةَ دَرجِ الطابقِ العُلويِّ مُستَرجِعاً مَشهداً كان يَتكرَّرُ مِراراً كُلما دخلَ إلى المنزلِ مُعلِناً وصولَهُ برنّاتٍ ثلاثٍ مُتتالياتٍ على جرسِ البابِ. 
+	 
+	كان يراها عِندَ سُفرَةِ الدَّرج تُطلُّ عَليهِ بَاسِمَةً ، تَقفُ هُنيهَةً ثُمَّ تَدرُجُ باتجاههِ و ريشَتُها ما تزالُ في يدهِا و أثرُ اﻷلوانِ يُزيّن مَريلتَها، فتلقاهُ و يلقاها بِلهفَةٍ و شَوقٍ ما جَفَّ أو وَهن يوماً طِوالَ سَنواتِ زواجِهِما الاثنتي عشرة، صَعدَ الدرج بِخطىً مُتعبةٍ و دَلفَ إلى الغرفةِ الجانبيةِ التي حَوَّلَتها مُنذُ سَنتَين إلى مَرسمٍ بَعدَ أن كانت مُنذُ أثّثا المنزلَ غُرفةً لِطفلٍ لم يُقَدّرُ لهُ الوجودُ ، كان عِطرُها ما زالَ يَنسَلُّ من أشياءِ المكانِ مُختلطاً بِعبَقِ اﻷلوانِ الزَّيتيةِ. 
+	&#160; 
+	وقفَ عِندَ اللوحةِ اﻷخيرةِ التي ما زالت معلقةً على حاملِ اللوحاتِ ، و التي بها كان قد اكتملَ مشروعُ معرضِها اﻷول ، كانت باقي اللوحات معلّقة على حيطانِ الغرفةِ بعشوائيةٍ مقصودةٍ ، وقعَ نظرهُ على الشريطِ اﻷحمرِ المقصوصِ عندَ مَدخَلِ البابِ و ابتسمَ بألمٍ . 
+	 
+	بالأمس قادَتهُ إلى الغرفةِ مُغمضَ العينين ووضعَت المِقصَّ بيدَهِ ، و باليدِ اﻷخُرى ناوَلَتهُ الشريطَ قائلةً: غداً تُنقلُ اللوحات إلى قاعةِ العرضِ لكن هُنا أعرِضُها لكَ وَحدَكَ ، فادخل يا زائري اﻷهم مُفتتحاً معرضي اﻷول بَعدَ أن افتتحتَ قلبي و سكنتَ فيه للأبد ، 
+	&#160; 
+	أُدخل.. أُدخل و امنن على لوحاتي&#160; من بريقِ عينيكَ لتصيرَ أجمل ، و قبلَ أن تَرفعَ يديَها عَن عينيهِ التي كانت تَبرقُ فَرحاً بِكلماتِها الشَغوفةِ ، طَبعَ قُبلةً على كفّيها ثُمَّ تَركها تَقودُهُ ناحيةَ اليمينِ قائلةً: ابدأ بهذهِ اللوحةِ فَهي الباكورةُ ، مِن هنا تبدأُ الحكايةُ ، 
+	اقرأني لوحةً لوحة. 
+	 
+	كانت اللوحةُ اﻷولى صورةً نِصفيَّةً واضحةَ المعالمِ لامرأةٍ يَظهرُ خَلفَها ظِلُّ رَجُل ، لَمحَ في عينيها مَسحَةَ حُزنٍ ، علّقَ قائلاً: لماذا هي حزينة؟ هي ليست حزينة! ألا ترى الابتسامةَ الظاهرةَ على شفتَيها! مال برأسهِ غيرَ مقتنعٍ. ثُم انتقلَ إلى اللوحةِ التاليةِ كانت لامرأةٍ تَنامُ على أرضيةٍ مبلّلةٍ ملتفة على بعضِها كما الجنينُ في رحمِ اﻷمِّ ، كانَ ظِلُّ الرُجلِ يَظهرُ ضبابياً ، أمعنَ النظرَ في اللوحةِ ثمّ ارتدّ إليها بنظرةٍ عميقةٍ&#160; ، فبادَرتهُ قائلةً : هل أعجبتك؟ رفعَ حاجبيهِ تَعجُباً و لَم يُجب!! 
+	 
+	و انتقلَ بِملامحَ مُتَغَيَّرةً إلى اللوحةِ الثالثةِ، كانت صورةً كاملةً لرجلٍ بِملامحَ جَامدةٍ يَقِفُ مكتوفَ اليدينِ و في طَرَفِ الصُورَةِ تَمتَدُّ إلى أقصاها يد امرأةٍ باتجاهِ الرَّجُلِ ، بدا الوجومُ على وجهِهِ و سألها بِنظرةٍ مُتغيرةٍ: ماذا تستجدي المرأةُ من الرجلِ و هو مستنكفٌ و متكتّفٌ!! ردّت مستنكرةً : إنها لا تستجديهِ بَل تبثهُ شَوقُها و هو الحبيبُ الذي عَرفَ مكانهُ فتدلّل. 
+	 
+	تَركَها و تَابعَ جَولَتهُ على اللوحات فيما&#160; وقفت مكانَها تُفكّر في تعليقاتهِ مُستغربةً عدمَ فهمِهِ قَصدَها و هو الحبيبُ اللبيبُ الذي يَفهمُ عادةً دونَ أن تتكلّمَ أو حتى تشير ، يكفي أن تشعرَ فيَشعُر ، و بينما هي مسترسلةٌ بأفكارهِا ، انتبهت إلى صرخةٍ خرجت من أعماقهِ : كيفَ لم أفهم ! كيفَ كُنتُ غافلاً إلى هذه الدرجة ! كَيف !! 
+	 
+	أصابها الجَزَع و اقتربت منهُ تحاولُ إحاطتهُ بذراعيها ، فانتفضَ من بينِ يديها كطيرٍ جريحٍ ، صرخت باكيةً: باللهِ عليكَ ماذا جرى!! أنظري إلى كلِّ هذه اللوحات ، أتعرفينَ عُنوانُها الرئيسُ !! إنه الحرمان ، الحرمانُ و لا شيءٌ سِواه.. 
+	 
+	صُدِمَت و صَرَخت&#160; صَرخَةً مَكتومَةً ، تابعَ قائلاُ : نَعم لَم أقرأ في كلِّ هذه اللوحات أكثرَ من امرأةٍ محرومةٍ مِن اﻷمومةِ ، جَلسَ على اﻷرضِ مكسورَ الفؤادِ مُنهكاً و أكملَ آسف.. آسف يا حبيبتي لم أستطع رفعَ الحرمان عنكِ ، سامحيني لم أستطع مَنحَكِ الطِفلَ الذي تتمنّينَ من أعماقِ أعماقك ، جَلسَت القرفصاءَ قِبالتَهُ ، وواجهت وَجهَهُ بِدُموعِها و بِجهد قالت: 
+	لم أقصد ذلك أبداً!! صدقني أنت عِندي أغلى من كل غالٍ ، أنت ابني و أبي و زَوجي و حَبيبُ عُمري ، قامَ مُنتفِضاً لا .. لا أتحمّلُ إيذائكِ أكثر و قبلَ أن تَفوهَ بكلمةٍ غادرَ مُسرِعاً.   
+ 
+	 
+	  و ها هو يَعودُ إلى الَمرسمِ الذي باتَ شاهِداً على نِهايةِ قِصَّةِ حُبٌ استثنائيةٍ ، تُوّجَت بِطلاقٍ مَنحَها إياهُ و مَعَهُ مَنحَها فُرصةَ أن تُحقِقَ رَغبَةً دَفينَةً هي نَفسُها لَم تَكن تَعلمُ بأنها ما ماتَت أبداً. 
+	&#160; 
+	ملاحظة : إقرأني لوحةً لوحة ، قصةٌ قصيرةٌ بصوتِ محمود الِمسَلَّمي.   
+
+INFO:MyTestWebApp:2018-04-10 04:23	StripHarakat	  وصَلَ إلى البيتِ مُنهَكاً من اﻷلمِ، يَكتُمُ صراخاً يَضجُّ بِه صَدرُهُ ، 
+INFO:MyTestWebApp:2018-04-10 04:28	ReduceTashkeel	  وصَلَ إلى البيتِ مُنهَكاً من اﻷلمِ، يَكتُمُ صراخاً يَضجُّ بِه صَدرُهُ ، 
+INFO:MyTestWebApp:2018-04-10 04:28	CompareTashkeel	  وصَلَ إلى البيتِ مُنهَكاً من اﻷلمِ، يَكتُمُ صراخاً يَضجُّ بِه صَدرُهُ ، 
+INFO:MyTestWebApp:2018-04-10 04:28	StripHarakat	 أنفق بلال ولا تخش من ذي العرش إقلالا..عبارات جميلة ليتنا نطبقها على حياتنا ولو باليسير او القليل فما تضعه في يد احدهم ربما كان لديك شيئا تافها لايساوي شيئا لكنه عند الله عظيم كمهر صغير تربيه ليصبح حصاناً كبيراً يافعاً شديداً هذه هي صدقتك عند المولى عز وجل ربما لاتلقي لها بالاً ولكنها في يد من تضعها ربما تفرحه ربما تسعده ربما تفرج بها أزمته وتفك بها كربته وتذكر أن المنادي ينادي كل يوم ( اللهم اعط منفقا خلفاً واللهم اعط ممسكاً تلفا ) وكن من اصحاب الخلف ولاتكن من اصحاب التلف ولو بشق تمرة ولو بأقل القليل فقد دخلت البغي الجنة بسبب خف ماء سقته لكلب يلهث عطشاً وكن من اهل الخير والعطاء ولو بأقل القليل وتذكر أن احب الاعمال الى الله ادومها وإن قل وافضلها صدقة السر وعود اولادك وأهل بيتك عليها فهي شفاء للمرضى ومزيل للهم والغم والكربات وتذكر قول المصطفى عليه الصلاة والسلام ( داوو مرضاكم بالصدقة ) ودمتم بخير .  . . من وحي الحياة بقلم احسان الصالحي 
+INFO:MyTestWebApp:2018-04-10 04:28	RandomText	Zerrouki Taha
+INFO:MyTestWebApp:2018-04-10 04:31	RandomText	Zerrouki Taha
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-10 04:32	extractEnteties	طار الصقر.
+INFO:MyTestWebApp:2018-04-10 04:32	Wordtag	طار الصقر.
+INFO:MyTestWebApp:2018-04-10 04:32	showCollocations	طار الصقر.
+INFO:MyTestWebApp:2018-04-10 04:32	extractNamed	طار الصقر.
+INFO:MyTestWebApp:2018-04-10 04:32	extractNumbered	طار الصقر.
+INFO:MyTestWebApp:2018-04-10 04:32	extractEnteties	 
+	  قال مروان بن أبي حفصة الشاعر:‏ ‏ خرجتُ أريد مَعْنَ بنُ زائدة أمدَحُهُ بقصيدةٍ لي، فَلَقيتُ أعرابياً في الطريق، فسألتُهُ: أين تريد؟‏ ‏ فقال: هذا الملكُ الشيباني (يعني ابن زائدة).‏ ‏ قلت: فما أهديتَ إليه؟‏ ‏ قال: بيتين.‏ ‏ قلت: فقط؟!‏ ‏ قال: إني جمعتُ فيهما ما يَسرُّه.‏ ‏ فقلت: أنشدهُما.‏ ‏ فأنشدني:‏    
+ 
+	  معنُ بن زائدة الذي زِيدتْ بِه -&#160; شرفاً على شرفٍ بنو شيبانِ 
+	إنْ عَدّ أيامَ الفِعال فإنّما -&#160; يوماه يومُ ندىً ويوم طِعانِ    
+ 
+	  وكنتُ قد نظمتُ قصيدتي بهذا الوزن. فقلت للأعرابي:‏ ‏ تأتي رجلاً قد كَثُرَ الشعراءُ ببابهِ بيتينِ اثنين؟!‏ ‏ قال: فما الرأي؟‏ ‏ قلت: تأخذ منّي ما أَمَّلْتَ بهذين البيتين وتعود أدراجك.‏ ‏ قال: فكم تبذل؟‏ ‏ قلت: خمسين درهماً.‏ ‏ قال: لا والله، ولا بالضِّعف.‏ ‏ فلم أزل أرفُقُ بِه حتى بذلتُ له مائة وعشرين درهماً. فأخذها وانصرف.‏ ‏ وأتيتُ معن بن زائدة، فأنشدته قصيدتي بعد أن جعلت البيتين في وسط الشعر. فوالله ما هو إلا أن بلغتُ البيتين فسمعهما، فما تمالك أن خرّ عن فَرْشِه حتى لصق بالأرض. ثم قال:‏ ‏ أعد البيتين.‏ ‏ فأعدتهما. فنادى:‏ ‏ يا غلام، ائتني بكيس فيه ألف دينار وصُبَّها على رأسِه، وأعطه دابةً وبغلاً وعشرين ثوباً من خاصّ كُسْوَتي! ‏    
+
+INFO:MyTestWebApp:2018-04-10 04:32	Wordtag	 
+	  قال مروان بن أبي حفصة الشاعر:‏ ‏ خرجتُ أريد مَعْنَ بنُ زائدة أمدَحُهُ بقصيدةٍ لي، فَلَقيتُ أعرابياً في الطريق، فسألتُهُ: أين تريد؟‏ ‏ فقال: هذا الملكُ الشيباني (يعني ابن زائدة).‏ ‏ قلت: فما أهديتَ إليه؟‏ ‏ قال: بيتين.‏ ‏ قلت: فقط؟!‏ ‏ قال: إني جمعتُ فيهما ما يَسرُّه.‏ ‏ فقلت: أنشدهُما.‏ ‏ فأنشدني:‏    
+ 
+	  معنُ بن زائدة الذي زِيدتْ بِه -&#160; شرفاً على شرفٍ بنو شيبانِ 
+	إنْ عَدّ أيامَ الفِعال فإنّما -&#160; يوماه يومُ ندىً ويوم طِعانِ    
+ 
+	  وكنتُ قد نظمتُ قصيدتي بهذا الوزن. فقلت للأعرابي:‏ ‏ تأتي رجلاً قد كَثُرَ الشعراءُ ببابهِ بيتينِ اثنين؟!‏ ‏ قال: فما الرأي؟‏ ‏ قلت: تأخذ منّي ما أَمَّلْتَ بهذين البيتين وتعود أدراجك.‏ ‏ قال: فكم تبذل؟‏ ‏ قلت: خمسين درهماً.‏ ‏ قال: لا والله، ولا بالضِّعف.‏ ‏ فلم أزل أرفُقُ بِه حتى بذلتُ له مائة وعشرين درهماً. فأخذها وانصرف.‏ ‏ وأتيتُ معن بن زائدة، فأنشدته قصيدتي بعد أن جعلت البيتين في وسط الشعر. فوالله ما هو إلا أن بلغتُ البيتين فسمعهما، فما تمالك أن خرّ عن فَرْشِه حتى لصق بالأرض. ثم قال:‏ ‏ أعد البيتين.‏ ‏ فأعدتهما. فنادى:‏ ‏ يا غلام، ائتني بكيس فيه ألف دينار وصُبَّها على رأسِه، وأعطه دابةً وبغلاً وعشرين ثوباً من خاصّ كُسْوَتي! ‏    
+
+INFO:MyTestWebApp:2018-04-10 04:32	showCollocations	 
+	  قال مروان بن أبي حفصة الشاعر:‏ ‏ خرجتُ أريد مَعْنَ بنُ زائدة أمدَحُهُ بقصيدةٍ لي، فَلَقيتُ أعرابياً في الطريق، فسألتُهُ: أين تريد؟‏ ‏ فقال: هذا الملكُ الشيباني (يعني ابن زائدة).‏ ‏ قلت: فما أهديتَ إليه؟‏ ‏ قال: بيتين.‏ ‏ قلت: فقط؟!‏ ‏ قال: إني جمعتُ فيهما ما يَسرُّه.‏ ‏ فقلت: أنشدهُما.‏ ‏ فأنشدني:‏    
+ 
+	  معنُ بن زائدة الذي زِيدتْ بِه -&#160; شرفاً على شرفٍ بنو شيبانِ 
+	إنْ عَدّ أيامَ الفِعال فإنّما -&#160; يوماه يومُ ندىً ويوم طِعانِ    
+ 
+	  وكنتُ قد نظمتُ قصيدتي بهذا الوزن. فقلت للأعرابي:‏ ‏ تأتي رجلاً قد كَثُرَ الشعراءُ ببابهِ بيتينِ اثنين؟!‏ ‏ قال: فما الرأي؟‏ ‏ قلت: تأخذ منّي ما أَمَّلْتَ بهذين البيتين وتعود أدراجك.‏ ‏ قال: فكم تبذل؟‏ ‏ قلت: خمسين درهماً.‏ ‏ قال: لا والله، ولا بالضِّعف.‏ ‏ فلم أزل أرفُقُ بِه حتى بذلتُ له مائة وعشرين درهماً. فأخذها وانصرف.‏ ‏ وأتيتُ معن بن زائدة، فأنشدته قصيدتي بعد أن جعلت البيتين في وسط الشعر. فوالله ما هو إلا أن بلغتُ البيتين فسمعهما، فما تمالك أن خرّ عن فَرْشِه حتى لصق بالأرض. ثم قال:‏ ‏ أعد البيتين.‏ ‏ فأعدتهما. فنادى:‏ ‏ يا غلام، ائتني بكيس فيه ألف دينار وصُبَّها على رأسِه، وأعطه دابةً وبغلاً وعشرين ثوباً من خاصّ كُسْوَتي! ‏    
+
+INFO:MyTestWebApp:2018-04-10 04:32	extractNamed	 
+	  قال مروان بن أبي حفصة الشاعر:‏ ‏ خرجتُ أريد مَعْنَ بنُ زائدة أمدَحُهُ بقصيدةٍ لي، فَلَقيتُ أعرابياً في الطريق، فسألتُهُ: أين تريد؟‏ ‏ فقال: هذا الملكُ الشيباني (يعني ابن زائدة).‏ ‏ قلت: فما أهديتَ إليه؟‏ ‏ قال: بيتين.‏ ‏ قلت: فقط؟!‏ ‏ قال: إني جمعتُ فيهما ما يَسرُّه.‏ ‏ فقلت: أنشدهُما.‏ ‏ فأنشدني:‏    
+ 
+	  معنُ بن زائدة الذي زِيدتْ بِه -&#160; شرفاً على شرفٍ بنو شيبانِ 
+	إنْ عَدّ أيامَ الفِعال فإنّما -&#160; يوماه يومُ ندىً ويوم طِعانِ    
+ 
+	  وكنتُ قد نظمتُ قصيدتي بهذا الوزن. فقلت للأعرابي:‏ ‏ تأتي رجلاً قد كَثُرَ الشعراءُ ببابهِ بيتينِ اثنين؟!‏ ‏ قال: فما الرأي؟‏ ‏ قلت: تأخذ منّي ما أَمَّلْتَ بهذين البيتين وتعود أدراجك.‏ ‏ قال: فكم تبذل؟‏ ‏ قلت: خمسين درهماً.‏ ‏ قال: لا والله، ولا بالضِّعف.‏ ‏ فلم أزل أرفُقُ بِه حتى بذلتُ له مائة وعشرين درهماً. فأخذها وانصرف.‏ ‏ وأتيتُ معن بن زائدة، فأنشدته قصيدتي بعد أن جعلت البيتين في وسط الشعر. فوالله ما هو إلا أن بلغتُ البيتين فسمعهما، فما تمالك أن خرّ عن فَرْشِه حتى لصق بالأرض. ثم قال:‏ ‏ أعد البيتين.‏ ‏ فأعدتهما. فنادى:‏ ‏ يا غلام، ائتني بكيس فيه ألف دينار وصُبَّها على رأسِه، وأعطه دابةً وبغلاً وعشرين ثوباً من خاصّ كُسْوَتي! ‏    
+
+INFO:MyTestWebApp:2018-04-10 04:32	extractNumbered	 
+	  قال مروان بن أبي حفصة الشاعر:‏ ‏ خرجتُ أريد مَعْنَ بنُ زائدة أمدَحُهُ بقصيدةٍ لي، فَلَقيتُ أعرابياً في الطريق، فسألتُهُ: أين تريد؟‏ ‏ فقال: هذا الملكُ الشيباني (يعني ابن زائدة).‏ ‏ قلت: فما أهديتَ إليه؟‏ ‏ قال: بيتين.‏ ‏ قلت: فقط؟!‏ ‏ قال: إني جمعتُ فيهما ما يَسرُّه.‏ ‏ فقلت: أنشدهُما.‏ ‏ فأنشدني:‏    
+ 
+	  معنُ بن زائدة الذي زِيدتْ بِه -&#160; شرفاً على شرفٍ بنو شيبانِ 
+	إنْ عَدّ أيامَ الفِعال فإنّما -&#160; يوماه يومُ ندىً ويوم طِعانِ    
+ 
+	  وكنتُ قد نظمتُ قصيدتي بهذا الوزن. فقلت للأعرابي:‏ ‏ تأتي رجلاً قد كَثُرَ الشعراءُ ببابهِ بيتينِ اثنين؟!‏ ‏ قال: فما الرأي؟‏ ‏ قلت: تأخذ منّي ما أَمَّلْتَ بهذين البيتين وتعود أدراجك.‏ ‏ قال: فكم تبذل؟‏ ‏ قلت: خمسين درهماً.‏ ‏ قال: لا والله، ولا بالضِّعف.‏ ‏ فلم أزل أرفُقُ بِه حتى بذلتُ له مائة وعشرين درهماً. فأخذها وانصرف.‏ ‏ وأتيتُ معن بن زائدة، فأنشدته قصيدتي بعد أن جعلت البيتين في وسط الشعر. فوالله ما هو إلا أن بلغتُ البيتين فسمعهما، فما تمالك أن خرّ عن فَرْشِه حتى لصق بالأرض. ثم قال:‏ ‏ أعد البيتين.‏ ‏ فأعدتهما. فنادى:‏ ‏ يا غلام، ائتني بكيس فيه ألف دينار وصُبَّها على رأسِه، وأعطه دابةً وبغلاً وعشرين ثوباً من خاصّ كُسْوَتي! ‏    
+
+INFO:MyTestWebApp:2018-04-10 04:32	Tokenize	 
+	  قال مروان بن أبي حفصة الشاعر:‏ ‏ خرجتُ أريد مَعْنَ بنُ زائدة أمدَحُهُ بقصيدةٍ لي، فَلَقيتُ أعرابياً في الطريق، فسألتُهُ: أين تريد؟‏ ‏ فقال: هذا الملكُ الشيباني (يعني ابن زائدة).‏ ‏ قلت: فما أهديتَ إليه؟‏ ‏ قال: بيتين.‏ ‏ قلت: فقط؟!‏ ‏ قال: إني جمعتُ فيهما ما يَسرُّه.‏ ‏ فقلت: أنشدهُما.‏ ‏ فأنشدني:‏    
+ 
+	  معنُ بن زائدة الذي زِيدتْ بِه -&#160; شرفاً على شرفٍ بنو شيبانِ 
+	إنْ عَدّ أيامَ الفِعال فإنّما -&#160; يوماه يومُ ندىً ويوم طِعانِ    
+ 
+	  وكنتُ قد نظمتُ قصيدتي بهذا الوزن. فقلت للأعرابي:‏ ‏ تأتي رجلاً قد كَثُرَ الشعراءُ ببابهِ بيتينِ اثنين؟!‏ ‏ قال: فما الرأي؟‏ ‏ قلت: تأخذ منّي ما أَمَّلْتَ بهذين البيتين وتعود أدراجك.‏ ‏ قال: فكم تبذل؟‏ ‏ قلت: خمسين درهماً.‏ ‏ قال: لا والله، ولا بالضِّعف.‏ ‏ فلم أزل أرفُقُ بِه حتى بذلتُ له مائة وعشرين درهماً. فأخذها وانصرف.‏ ‏ وأتيتُ معن بن زائدة، فأنشدته قصيدتي بعد أن جعلت البيتين في وسط الشعر. فوالله ما هو إلا أن بلغتُ البيتين فسمعهما، فما تمالك أن خرّ عن فَرْشِه حتى لصق بالأرض. ثم قال:‏ ‏ أعد البيتين.‏ ‏ فأعدتهما. فنادى:‏ ‏ يا غلام، ائتني بكيس فيه ألف دينار وصُبَّها على رأسِه، وأعطه دابةً وبغلاً وعشرين ثوباً من خاصّ كُسْوَتي! ‏    
+
+INFO:MyTestWebApp:2018-04-10 04:32	chunk	 
+	  قال مروان بن أبي حفصة الشاعر:‏ ‏ خرجتُ أريد مَعْنَ بنُ زائدة أمدَحُهُ بقصيدةٍ لي، فَلَقيتُ أعرابياً في الطريق، فسألتُهُ: أين تريد؟‏ ‏ فقال: هذا الملكُ الشيباني (يعني ابن زائدة).‏ ‏ قلت: فما أهديتَ إليه؟‏ ‏ قال: بيتين.‏ ‏ قلت: فقط؟!‏ ‏ قال: إني جمعتُ فيهما ما يَسرُّه.‏ ‏ فقلت: أنشدهُما.‏ ‏ فأنشدني:‏    
+ 
+	  معنُ بن زائدة الذي زِيدتْ بِه -&#160; شرفاً على شرفٍ بنو شيبانِ 
+	إنْ عَدّ أيامَ الفِعال فإنّما -&#160; يوماه يومُ ندىً ويوم طِعانِ    
+ 
+	  وكنتُ قد نظمتُ قصيدتي بهذا الوزن. فقلت للأعرابي:‏ ‏ تأتي رجلاً قد كَثُرَ الشعراءُ ببابهِ بيتينِ اثنين؟!‏ ‏ قال: فما الرأي؟‏ ‏ قلت: تأخذ منّي ما أَمَّلْتَ بهذين البيتين وتعود أدراجك.‏ ‏ قال: فكم تبذل؟‏ ‏ قلت: خمسين درهماً.‏ ‏ قال: لا والله، ولا بالضِّعف.‏ ‏ فلم أزل أرفُقُ بِه حتى بذلتُ له مائة وعشرين درهماً. فأخذها وانصرف.‏ ‏ وأتيتُ معن بن زائدة، فأنشدته قصيدتي بعد أن جعلت البيتين في وسط الشعر. فوالله ما هو إلا أن بلغتُ البيتين فسمعهما، فما تمالك أن خرّ عن فَرْشِه حتى لصق بالأرض. ثم قال:‏ ‏ أعد البيتين.‏ ‏ فأعدتهما. فنادى:‏ ‏ يا غلام، ائتني بكيس فيه ألف دينار وصُبَّها على رأسِه، وأعطه دابةً وبغلاً وعشرين ثوباً من خاصّ كُسْوَتي! ‏    
+
+INFO:MyTestWebApp:2018-04-10 04:33	bigrams	 
+	  قال مروان بن أبي حفصة الشاعر:‏ ‏ خرجتُ أريد مَعْنَ بنُ زائدة أمدَحُهُ بقصيدةٍ لي، فَلَقيتُ أعرابياً في الطريق، فسألتُهُ: أين تريد؟‏ ‏ فقال: هذا الملكُ الشيباني (يعني ابن زائدة).‏ ‏ قلت: فما أهديتَ إليه؟‏ ‏ قال: بيتين.‏ ‏ قلت: فقط؟!‏ ‏ قال: إني جمعتُ فيهما ما يَسرُّه.‏ ‏ فقلت: أنشدهُما.‏ ‏ فأنشدني:‏    
+ 
+	  معنُ بن زائدة الذي زِيدتْ بِه -&#160; شرفاً على شرفٍ بنو شيبانِ 
+	إنْ عَدّ أيامَ الفِعال فإنّما -&#160; يوماه يومُ ندىً ويوم طِعانِ    
+ 
+	  وكنتُ قد نظمتُ قصيدتي بهذا الوزن. فقلت للأعرابي:‏ ‏ تأتي رجلاً قد كَثُرَ الشعراءُ ببابهِ بيتينِ اثنين؟!‏ ‏ قال: فما الرأي؟‏ ‏ قلت: تأخذ منّي ما أَمَّلْتَ بهذين البيتين وتعود أدراجك.‏ ‏ قال: فكم تبذل؟‏ ‏ قلت: خمسين درهماً.‏ ‏ قال: لا والله، ولا بالضِّعف.‏ ‏ فلم أزل أرفُقُ بِه حتى بذلتُ له مائة وعشرين درهماً. فأخذها وانصرف.‏ ‏ وأتيتُ معن بن زائدة، فأنشدته قصيدتي بعد أن جعلت البيتين في وسط الشعر. فوالله ما هو إلا أن بلغتُ البيتين فسمعهما، فما تمالك أن خرّ عن فَرْشِه حتى لصق بالأرض. ثم قال:‏ ‏ أعد البيتين.‏ ‏ فأعدتهما. فنادى:‏ ‏ يا غلام، ائتني بكيس فيه ألف دينار وصُبَّها على رأسِه، وأعطه دابةً وبغلاً وعشرين ثوباً من خاصّ كُسْوَتي! ‏    
+
+INFO:MyTestWebApp:2018-04-10 04:33	Affixate	 
+	  قال مروان بن أبي حفصة الشاعر:‏ ‏ خرجتُ أريد مَعْنَ بنُ زائدة أمدَحُهُ بقصيدةٍ لي، فَلَقيتُ أعرابياً في الطريق، فسألتُهُ: أين تريد؟‏ ‏ فقال: هذا الملكُ الشيباني (يعني ابن زائدة).‏ ‏ قلت: فما أهديتَ إليه؟‏ ‏ قال: بيتين.‏ ‏ قلت: فقط؟!‏ ‏ قال: إني جمعتُ فيهما ما يَسرُّه.‏ ‏ فقلت: أنشدهُما.‏ ‏ فأنشدني:‏    
+ 
+	  معنُ بن زائدة الذي زِيدتْ بِه -&#160; شرفاً على شرفٍ بنو شيبانِ 
+	إنْ عَدّ أيامَ الفِعال فإنّما -&#160; يوماه يومُ ندىً ويوم طِعانِ    
+ 
+	  وكنتُ قد نظمتُ قصيدتي بهذا الوزن. فقلت للأعرابي:‏ ‏ تأتي رجلاً قد كَثُرَ الشعراءُ ببابهِ بيتينِ اثنين؟!‏ ‏ قال: فما الرأي؟‏ ‏ قلت: تأخذ منّي ما أَمَّلْتَ بهذين البيتين وتعود أدراجك.‏ ‏ قال: فكم تبذل؟‏ ‏ قلت: خمسين درهماً.‏ ‏ قال: لا والله، ولا بالضِّعف.‏ ‏ فلم أزل أرفُقُ بِه حتى بذلتُ له مائة وعشرين درهماً. فأخذها وانصرف.‏ ‏ وأتيتُ معن بن زائدة، فأنشدته قصيدتي بعد أن جعلت البيتين في وسط الشعر. فوالله ما هو إلا أن بلغتُ البيتين فسمعهما، فما تمالك أن خرّ عن فَرْشِه حتى لصق بالأرض. ثم قال:‏ ‏ أعد البيتين.‏ ‏ فأعدتهما. فنادى:‏ ‏ يا غلام، ائتني بكيس فيه ألف دينار وصُبَّها على رأسِه، وأعطه دابةً وبغلاً وعشرين ثوباً من خاصّ كُسْوَتي! ‏    
+
+INFO:MyTestWebApp:2018-04-10 04:33	Normalize	 
+	  قال مروان بن أبي حفصة الشاعر:‏ ‏ خرجتُ أريد مَعْنَ بنُ زائدة أمدَحُهُ بقصيدةٍ لي، فَلَقيتُ أعرابياً في الطريق، فسألتُهُ: أين تريد؟‏ ‏ فقال: هذا الملكُ الشيباني (يعني ابن زائدة).‏ ‏ قلت: فما أهديتَ إليه؟‏ ‏ قال: بيتين.‏ ‏ قلت: فقط؟!‏ ‏ قال: إني جمعتُ فيهما ما يَسرُّه.‏ ‏ فقلت: أنشدهُما.‏ ‏ فأنشدني:‏    
+ 
+	  معنُ بن زائدة الذي زِيدتْ بِه -&#160; شرفاً على شرفٍ بنو شيبانِ 
+	إنْ عَدّ أيامَ الفِعال فإنّما -&#160; يوماه يومُ ندىً ويوم طِعانِ    
+ 
+	  وكنتُ قد نظمتُ قصيدتي بهذا الوزن. فقلت للأعرابي:‏ ‏ تأتي رجلاً قد كَثُرَ الشعراءُ ببابهِ بيتينِ اثنين؟!‏ ‏ قال: فما الرأي؟‏ ‏ قلت: تأخذ منّي ما أَمَّلْتَ بهذين البيتين وتعود أدراجك.‏ ‏ قال: فكم تبذل؟‏ ‏ قلت: خمسين درهماً.‏ ‏ قال: لا والله، ولا بالضِّعف.‏ ‏ فلم أزل أرفُقُ بِه حتى بذلتُ له مائة وعشرين درهماً. فأخذها وانصرف.‏ ‏ وأتيتُ معن بن زائدة، فأنشدته قصيدتي بعد أن جعلت البيتين في وسط الشعر. فوالله ما هو إلا أن بلغتُ البيتين فسمعهما، فما تمالك أن خرّ عن فَرْشِه حتى لصق بالأرض. ثم قال:‏ ‏ أعد البيتين.‏ ‏ فأعدتهما. فنادى:‏ ‏ يا غلام، ائتني بكيس فيه ألف دينار وصُبَّها على رأسِه، وأعطه دابةً وبغلاً وعشرين ثوباً من خاصّ كُسْوَتي! ‏    
+
+INFO:MyTestWebApp:2018-04-10 04:33	Language	 
+	  قال مروان بن أبي حفصة الشاعر:‏ ‏ خرجتُ أريد مَعْنَ بنُ زائدة أمدَحُهُ بقصيدةٍ لي، فَلَقيتُ أعرابياً في الطريق، فسألتُهُ: أين تريد؟‏ ‏ فقال: هذا الملكُ الشيباني (يعني ابن زائدة).‏ ‏ قلت: فما أهديتَ إليه؟‏ ‏ قال: بيتين.‏ ‏ قلت: فقط؟!‏ ‏ قال: إني جمعتُ فيهما ما يَسرُّه.‏ ‏ فقلت: أنشدهُما.‏ ‏ فأنشدني:‏    
+ 
+	  معنُ بن زائدة الذي زِيدتْ بِه -&#160; شرفاً على شرفٍ بنو شيبانِ 
+	إنْ عَدّ أيامَ الفِعال فإنّما -&#160; يوماه يومُ ندىً ويوم طِعانِ    
+ 
+	  وكنتُ قد نظمتُ قصيدتي بهذا الوزن. فقلت للأعرابي:‏ ‏ تأتي رجلاً قد كَثُرَ الشعراءُ ببابهِ بيتينِ اثنين؟!‏ ‏ قال: فما الرأي؟‏ ‏ قلت: تأخذ منّي ما أَمَّلْتَ بهذين البيتين وتعود أدراجك.‏ ‏ قال: فكم تبذل؟‏ ‏ قلت: خمسين درهماً.‏ ‏ قال: لا والله، ولا بالضِّعف.‏ ‏ فلم أزل أرفُقُ بِه حتى بذلتُ له مائة وعشرين درهماً. فأخذها وانصرف.‏ ‏ وأتيتُ معن بن زائدة، فأنشدته قصيدتي بعد أن جعلت البيتين في وسط الشعر. فوالله ما هو إلا أن بلغتُ البيتين فسمعهما، فما تمالك أن خرّ عن فَرْشِه حتى لصق بالأرض. ثم قال:‏ ‏ أعد البيتين.‏ ‏ فأعدتهما. فنادى:‏ ‏ يا غلام، ائتني بكيس فيه ألف دينار وصُبَّها على رأسِه، وأعطه دابةً وبغلاً وعشرين ثوباً من خاصّ كُسْوَتي! ‏    
+
+INFO:MyTestWebApp:2018-04-10 04:34	NumberToLetters	1234
+INFO:MyTestWebApp:2018-04-10 04:35	Inverse	1234
+INFO:MyTestWebApp:2018-04-10 04:35	RandomText	Zerrouki Taha
+INFO:MyTestWebApp:2018-04-10 04:35	RandomText	Zerrouki Taha
+INFO:MyTestWebApp:2018-04-10 04:35	RandomText	Zerrouki Taha
+INFO:MyTestWebApp:2018-04-10 04:35	RandomText	Zerrouki Taha
+INFO:MyTestWebApp:2018-04-10 04:35	Unshape	الكلب ينام في البستان.
+INFO:MyTestWebApp:2018-04-10 04:35	Poetry	الكلب ينام في البستان.
+INFO:MyTestWebApp:2018-04-10 04:35	Inverse	الكلب ينام في البستان.
+INFO:MyTestWebApp:2018-04-10 04:36	Poetry	الكلب ينام في البستان.
+INFO:MyTestWebApp:2018-04-10 04:36	Unshape	الكلب ينام في البستان.
+INFO:MyTestWebApp:2018-04-10 04:36	Poetry	الكلب ينام في البستان.
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-10 04:38	LightStemmer	الكلب ينام في البستان.
+INFO:MyTestWebApp:2018-04-10 04:38	SpellCheck	الكلب ينام في البستان.
+INFO:MyTestWebApp:2018-04-10 04:39	SpellCheck	الكلب ينامك في البستان.
+INFO:MyTestWebApp:2018-04-10 04:41	Tashkeel2	الكلب ينام في البستان.
+INFO:MyTestWebApp:2018-04-10 04:41	extractEnteties	الكلب ينام في البستان.
+INFO:MyTestWebApp:2018-04-10 04:54	SpellCheck	الكلب ينام في البستان.
+INFO:MyTestWebApp:2018-04-10 04:54	SpellCheck	الكلب يننام في البستان.
+INFO:MyTestWebApp:2018-04-10 04:57	SpellCheck	الكلب يننام في البستتان.
+INFO:MyTestWebApp:2018-04-10 04:57	SpellCheck	الكلب يننام في البستتان.
+INFO:MyTestWebApp:2018-04-10 04:58	CompareTashkeel	الكلب يننام في البستتان.
+INFO:MyTestWebApp:2018-04-10 05:00	CompareTashkeel	الكلب ينام في البستان.
+INFO:MyTestWebApp:2018-04-10 05:00	RandomText	Zerrouki Taha
+INFO:MyTestWebApp:2018-04-10 05:00	SpellCheck	صار البرد قارسا .
+INFO:MyTestWebApp:2018-04-10 05:00	RandomText	Zerrouki Taha
+INFO:MyTestWebApp:2018-04-10 05:00	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:00	SpellCheck		 قال المُؤرِّخُ الشهير ابنُ الكلبي : إنّ أوّلَ من بنى مدينةَ دِمَشق هو دِمشاقُ بن قاني، وسمّاها باسمِه.
+INFO:MyTestWebApp:2018-04-10 05:00	SpellCheck	 وقال آخرون إنّما سُمّيت بدمشق بن ارم بن سام بن نوح وهو أخٌ لفِلِسطين وإيليا وحِمص والأردن، بنى كُلُّ واحدٍ مَوضعا فسُمي باسمه.
+INFO:MyTestWebApp:2018-04-10 05:00	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:00	SpellCheck		وقيل أنها سُمّيت دمشق بالرومية وأنّ أصل اسمها دوماسكس ومعناهُ مِسكٌ مُضاعف، وذلك لِطيبِها وكَثرَةِ أزهارِها، ولا يَزالُ هذا الاسمُ يُستَعملُ في الإنجليزية.
+INFO:MyTestWebApp:2018-04-10 05:00	SpellCheck	 وذكرَ ياقوتُ الحَمويُّ أنّها مُشتَقةٌ مِن الدَمشَقَة وهي الإسراعُ، لأنَّهم أسرعوا في بِنائِها.
+INFO:MyTestWebApp:2018-04-10 05:00	SpellCheck	  
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (1 working, 9 idle, 0 starting) ave time 0.37sec, max time 0.37sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-10 05:09	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:09	SpellCheck		 قال المُؤرِّخُ الشهير ابنُ الكلبي : إنّ أوّلَ من بنى مدينةَ دِمَشق هو دِمشاقُ بن قاني، وسمّاها باسمِه.
+INFO:MyTestWebApp:2018-04-10 05:09	SpellCheck	 وقال آخرون إنّما سُمّيت بدمشق بن ارم بن سام بن نوح وهو أخٌ لفِلِسطين وإيليا وحِمص والأردن، بنى كُلُّ واحدٍ مَوضعا فسُمي باسمه.
+INFO:MyTestWebApp:2018-04-10 05:09	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:09	SpellCheck		وقيل أنها سُمّيت دمشق بالرومية وأنّ أصل اسمها دوماسكس ومعناهُ مِسكٌ مُضاعف، وذلك لِطيبِها وكَثرَةِ أزهارِها، ولا يَزالُ هذا الاسمُ يُستَعملُ في الإنجليزية.
+INFO:MyTestWebApp:2018-04-10 05:09	SpellCheck	 وذكرَ ياقوتُ الحَمويُّ أنّها مُشتَقةٌ مِن الدَمشَقَة وهي الإسراعُ، لأنَّهم أسرعوا في بِنائِها.
+INFO:MyTestWebApp:2018-04-10 05:09	SpellCheck	  
+INFO:MyTestWebApp:2018-04-10 05:10	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:10	SpellCheck		 قال المُؤرِّخُ الشهير ابنُ الكلبي : إنّ أوّلَ من بنى مدينةَ دِمَشق هو دِمشاقُ بن قاني، وسمّاها باسمِه.
+INFO:MyTestWebApp:2018-04-10 05:10	SpellCheck	 وقال آخرون إنّما سُمّيت بدمشق بن ارم بن سام بن نوح وهو أخٌ لفِلِسطين وإيليا وحِمص والأردن، بنى كُلُّ واحدٍ مَوضعا فسُمي باسمه.
+INFO:MyTestWebApp:2018-04-10 05:10	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:11	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:11	SpellCheck	 وقال آخرون إنّما سُمّيت بدمشق بن ارم بن سام بن نوح وهو أخٌ لفِلِسطين وإيليا وحِمص والأردن، بنى كُلُّ واحدٍ مَوضعا فسُمي باسمه.
+INFO:MyTestWebApp:2018-04-10 05:11	SpellCheck		 قال المُؤرِّخُ الشهير ابنُ الكلبي : إنّ أوّلَ من بنى مدينةَ دِمَشق هو دِمشاقُ بن قاني، وسمّاها باسمِه.
+INFO:MyTestWebApp:2018-04-10 05:11	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:17	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:17	SpellCheck	 وقال آخرون إنّما سُمّيت بدمشق بن ارم بن سام بن نوح وهو أخٌ لفِلِسطين وإيليا وحِمص والأردن، بنى كُلُّ واحدٍ مَوضعا فسُمي باسمه.
+INFO:MyTestWebApp:2018-04-10 05:17	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:17	SpellCheck		 قال المُؤرِّخُ الشهير ابنُ الكلبي : إنّ أوّلَ من بنى مدينةَ دِمَشق هو دِمشاقُ بن قاني، وسمّاها باسمِه.
+INFO:MyTestWebApp:2018-04-10 05:18	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:18	SpellCheck		 قال المُؤرِّخُ الشهير ابنُ الكلبي : إنّ أوّلَ من بنى مدينةَ دِمَشق هو دِمشاقُ بن قاني، وسمّاها باسمِه.
+INFO:MyTestWebApp:2018-04-10 05:18	SpellCheck	 وقال آخرون إنّما سُمّيت بدمشق بن ارم بن سام بن نوح وهو أخٌ لفِلِسطين وإيليا وحِمص والأردن، بنى كُلُّ واحدٍ مَوضعا فسُمي باسمه.
+INFO:MyTestWebApp:2018-04-10 05:18	SpellCheck	 
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-10 05:18	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:18	SpellCheck		 قال المُؤرِّخُ الشهير ابنُ الكلبي : إنّ أوّلَ من بنى مدينةَ دِمَشق هو دِمشاقُ بن قاني، وسمّاها باسمِه.
+INFO:MyTestWebApp:2018-04-10 05:18	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 05:18	SpellCheck	 وقال آخرون إنّما سُمّيت بدمشق بن ارم بن سام بن نوح وهو أخٌ لفِلِسطين وإيليا وحِمص والأردن، بنى كُلُّ واحدٍ مَوضعا فسُمي باسمه.
+INFO:MyTestWebApp:2018-04-10 05:59	SpellCheck	  قال المُؤرِّخُ الشهير ابنُ الكلبي : إنّ أوّلَ من بنى مدينةَ دِمَشق هو دِمشاقُ بن قاني، وسمّاها باسمِه.
+INFO:MyTestWebApp:2018-04-10 05:59	SpellCheck	 وقال آخرون إنّما سُمّيت بدمشق بن ارم بن سام بن نوح وهو أخٌ لفِلِسطين وإيليا وحِمص والأردن، بنى كُلُّ واحدٍ مَوضعا فسُمي باسمه.
+INFO:MyTestWebApp:2018-04-10 05:59	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 06:03	SpellCheck	  قال المُؤرِّخُ الشهير ابنُ الكلبي : إنّ أوّلَ من بنى مدينةَ دِمَشق هو دِمشاقُ بن قاني، وسمّاها باسمِه.
+INFO:MyTestWebApp:2018-04-10 06:03	SpellCheck	 وقال آخرون إنّما سُمّيت بدمشق بن ارم بن سام بن نوح وهو أخٌ لفِلِسطين وإيليا وحِمص والأردن، بنى كُلُّ واحدٍ مَوضعا فسُمي باسمه.
+INFO:MyTestWebApp:2018-04-10 06:03	SpellCheck	 
+INFO:MyTestWebApp:2018-04-10 06:12	Tashkeel2	 وقال آخرون إنّما سُمّيت بدمشق بن ارم بن سام بن نوح وهو أخٌ لفِلِسطين وإيليا وحِمص والأردن، بنى كُلُّ واحدٍ مَوضعا فسُمي باسمه.
+INFO:MyTestWebApp:2018-04-10 06:12	Tashkeel2	  قال المُؤرِّخُ الشهير ابنُ الكلبي : إنّ أوّلَ من بنى مدينةَ دِمَشق هو دِمشاقُ بن قاني، وسمّاها باسمِه.
+INFO:MyTestWebApp:2018-04-10 06:12	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 06:13	RandomText	Zerrouki Taha
+INFO:MyTestWebApp:2018-04-10 06:13	Tashkeel2	جرى الكلب.
+INFO:MyTestWebApp:2018-04-10 06:13	RandomText	Zerrouki Taha
+INFO:MyTestWebApp:2018-04-10 06:13	Tashkeel2	لا يجوز للإنسان أن يجلس في مجرى الهواء .
+INFO:MyTestWebApp:2018-04-10 06:16	Tashkeel2	لا يجوز للإنسان أن يجلس في مجرى الهواء .
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (1 working, 9 idle, 0 starting) ave time 0.00sec, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-10 06:19	Tashkeel2	لا يجوز للإنسان أن يجلس في مجرى الهواء .
+INFO:MyTestWebApp:2018-04-10 06:21	Tashkeel2	لا يجوز للإنسان أن يجلس في مجرى الهواء .
+INFO:MyTestWebApp:2018-04-10 06:22	Tashkeel2	لا يجوز للإنسان أن يجلس في مجرى الهواء .
+INFO:MyTestWebApp:2018-04-10 06:34	Tashkeel2	لا يجوز للإنسان أن يجلس في مجرى الهواء .
+INFO:MyTestWebApp:2018-04-10 06:35	Tashkeel2	لا يجوز للإنسان أن يجلس في مجرى الهواء .
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-10 06:38	Tashkeel2	لا يجوز للإنسان أن يجلس في مجرى الهواء .
+INFO:MyTestWebApp:2018-04-10 06:48	Tashkeel2	لا يجوز للإنسان أن يجلس في مجرى الهواء .
+INFO:MyTestWebApp:2018-04-10 07:08	Tashkeel2	لا يجوز للإنسان أن يجلس في مجرى الهواء .
+INFO:MyTestWebApp:2018-04-10 07:21	Tashkeel2	يقرأ سعيد في الضوء الضعيف .
+INFO:MyTestWebApp:2018-04-10 07:32	Tashkeel2	لا تشرب الماء الكدر .
+INFO:MyTestWebApp:2018-04-10 07:36	Tashkeel2	يشتري التاجر القطن.
+INFO:MyTestWebApp:2018-04-10 07:38	Tashkeel2	جرى الكلب.
+INFO:MyTestWebApp:2018-04-10 08:10	Tashkeel2	جرى الكلب.
+INFO:MyTestWebApp:2018-04-10 08:15	Tashkeel2	قطعت الحبل بالسكين.
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		 أبياتٌ مُختارة مِن&#160; مُعَلَّقةِ زُهيرُ بنُ أبي سُلمى 
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (2 working, 8 idle, 0 starting) ave time 0.02sec, max time 0.03sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		سَئِمْتُ تَكَالِيْفَ الحَيَاةِ وَمَنْ يَعِشُ - ثَمَانِينَ حَوْلاً لا أَبَا لَكَ يَسْأَمِ 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		وأَعْلَمُ مَا فِي الْيَوْمِ وَالأَمْسِ قَبْلَهُ - وَلكِنَّنِي عَنْ عِلْمِ مَا فِي غَدٍ عَمِ 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		وَمَنْ هَابَ أَسْبَابَ المَنَايَا يَنَلْنَهُ - وَإِنْ يَرْقَ أَسْبَابَ السَّمَاءِ بِسُلَّمِ 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		وَمَنْ يَجْعَلِ المَعْرُوفَ فِي غَيْرِ أَهْلِهِ - يَكُنْ حَمْدُهُ ذَماً عَلَيْهِ وَيَنْدَمِ 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		وَمَنْ لَمْ يَذُدْ عَنْ حَوْضِهِ بِسِلاحِهِ - يُهَدَّمْ وَمَنْ لا يَظْلِمْ النَّاسَ يُظْلَمِ 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		وَمَهْمَا تَكُنْ عِنْدَ امْرِئٍ مَنْ خَلِيقَةٍ - وَإِنْ خَالَهَا تَخْفَى عَلَى النَّاسِ تُعْلَمِ 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		وَكَائن تَرَى مِنْ صَامِتٍ لَكَ مُعْجِبٍ - زِيَادَتُهُ أَو نَقْصُهُ فِي التَّكَلُّمِ 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		&#160; 
+INFO:MyTestWebApp:2018-04-10 08:17	Tashkeel2		لِسَانُ الفَتَى نِصْفٌ وَنِصْفٌ فُؤَادُهُ - فَلَمْ يَبْقَ إَلا صُورَةُ اللَّحْمِ وَالدَّمِ  
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		 أبياتٌ مُختارة مِن&#160; مُعَلَّقةِ زُهيرُ بنُ أبي سُلمى 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		سَئِمْتُ تَكَالِيْفَ الحَيَاةِ وَمَنْ يَعِشُ - ثَمَانِينَ حَوْلاً لا أَبَا لَكَ يَسْأَمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		وَمَنْ هَابَ أَسْبَابَ المَنَايَا يَنَلْنَهُ - وَإِنْ يَرْقَ أَسْبَابَ السَّمَاءِ بِسُلَّمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		وأَعْلَمُ مَا فِي الْيَوْمِ وَالأَمْسِ قَبْلَهُ - وَلكِنَّنِي عَنْ عِلْمِ مَا فِي غَدٍ عَمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		وَمَنْ يَجْعَلِ المَعْرُوفَ فِي غَيْرِ أَهْلِهِ - يَكُنْ حَمْدُهُ ذَماً عَلَيْهِ وَيَنْدَمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		وَمَنْ لَمْ يَذُدْ عَنْ حَوْضِهِ بِسِلاحِهِ - يُهَدَّمْ وَمَنْ لا يَظْلِمْ النَّاسَ يُظْلَمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		وَمَهْمَا تَكُنْ عِنْدَ امْرِئٍ مَنْ خَلِيقَةٍ - وَإِنْ خَالَهَا تَخْفَى عَلَى النَّاسِ تُعْلَمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		وَكَائن تَرَى مِنْ صَامِتٍ لَكَ مُعْجِبٍ - زِيَادَتُهُ أَو نَقْصُهُ فِي التَّكَلُّمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		لِسَانُ الفَتَى نِصْفٌ وَنِصْفٌ فُؤَادُهُ - فَلَمْ يَبْقَ إَلا صُورَةُ اللَّحْمِ وَالدَّمِ  
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		&#160; 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		 أبياتٌ مُختارة مِن&#160; مُعَلَّقةِ زُهيرُ بنُ أبي سُلمى 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		سَئِمْتُ تَكَالِيْفَ الحَيَاةِ وَمَنْ يَعِشُ - ثَمَانِينَ حَوْلاً لا أَبَا لَكَ يَسْأَمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		وأَعْلَمُ مَا فِي الْيَوْمِ وَالأَمْسِ قَبْلَهُ - وَلكِنَّنِي عَنْ عِلْمِ مَا فِي غَدٍ عَمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		وَمَنْ هَابَ أَسْبَابَ المَنَايَا يَنَلْنَهُ - وَإِنْ يَرْقَ أَسْبَابَ السَّمَاءِ بِسُلَّمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		وَمَنْ يَجْعَلِ المَعْرُوفَ فِي غَيْرِ أَهْلِهِ - يَكُنْ حَمْدُهُ ذَماً عَلَيْهِ وَيَنْدَمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		وَمَنْ لَمْ يَذُدْ عَنْ حَوْضِهِ بِسِلاحِهِ - يُهَدَّمْ وَمَنْ لا يَظْلِمْ النَّاسَ يُظْلَمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		وَمَهْمَا تَكُنْ عِنْدَ امْرِئٍ مَنْ خَلِيقَةٍ - وَإِنْ خَالَهَا تَخْفَى عَلَى النَّاسِ تُعْلَمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		وَكَائن تَرَى مِنْ صَامِتٍ لَكَ مُعْجِبٍ - زِيَادَتُهُ أَو نَقْصُهُ فِي التَّكَلُّمِ 
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		لِسَانُ الفَتَى نِصْفٌ وَنِصْفٌ فُؤَادُهُ - فَلَمْ يَبْقَ إَلا صُورَةُ اللَّحْمِ وَالدَّمِ  
+INFO:MyTestWebApp:2018-04-10 08:19	Tashkeel2		&#160; 
+INFO:MyTestWebApp:2018-04-10 08:20	StripHarakat	 
+	 أبياتٌ مُختارة مِن&#160; مُعَلَّقةِ زُهيرُ بنُ أبي سُلمى 
+	 
+	سَئِمْتُ تَكَالِيْفَ الحَيَاةِ وَمَنْ يَعِشُ - ثَمَانِينَ حَوْلاً لا أَبَا لَكَ يَسْأَمِ 
+	وأَعْلَمُ مَا فِي الْيَوْمِ وَالأَمْسِ قَبْلَهُ - وَلكِنَّنِي عَنْ عِلْمِ مَا فِي غَدٍ عَمِ 
+	... 
+	وَمَنْ هَابَ أَسْبَابَ المَنَايَا يَنَلْنَهُ - وَإِنْ يَرْقَ أَسْبَابَ السَّمَاءِ بِسُلَّمِ 
+	... 
+	وَمَنْ يَجْعَلِ المَعْرُوفَ فِي غَيْرِ أَهْلِهِ - يَكُنْ حَمْدُهُ ذَماً عَلَيْهِ وَيَنْدَمِ 
+	... 
+	وَمَنْ لَمْ يَذُدْ عَنْ حَوْضِهِ بِسِلاحِهِ - يُهَدَّمْ وَمَنْ لا يَظْلِمْ النَّاسَ يُظْلَمِ 
+	... 
+	وَمَهْمَا تَكُنْ عِنْدَ امْرِئٍ مَنْ خَلِيقَةٍ - وَإِنْ خَالَهَا تَخْفَى عَلَى النَّاسِ تُعْلَمِ 
+	... 
+	وَكَائن تَرَى مِنْ صَامِتٍ لَكَ مُعْجِبٍ - زِيَادَتُهُ أَو نَقْصُهُ فِي التَّكَلُّمِ 
+	لِسَانُ الفَتَى نِصْفٌ وَنِصْفٌ فُؤَادُهُ - فَلَمْ يَبْقَ إَلا صُورَةُ اللَّحْمِ وَالدَّمِ  
+	&#160; 
+
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		 أبيات مختارة من  معلقة زهير بن أبي سلمى 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		سئمت تكاليف الحياة ومن يعش - ثمانين حولا لا أبا لك يسأم 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		وأعلم ما في اليوم والأمس قبله - ولكنني عن علم ما في غد عم 
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (5 working, 5 idle, 0 starting) ave time 0.02sec, max time 0.06sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		ومن هاب أسباب المنايا ينلنه - وإن يرق أسباب السماء بسلم 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		ومن يجعل المعروف في غير أهله - يكن حمده ذما عليه ويندم 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		ومن لم يذد عن حوضه بسلاحه - يهدم ومن لا يظلم الناس يظلم 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		ومهما تكن عند امرئ من خليقة - وإن خالها تخفى على الناس تعلم 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		لسان الفتى نصف ونصف فؤاده - فلم يبق إلا صورة اللحم والدم  
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		وكائن ترى من صامت لك معجب - زيادته أو نقصه في التكلم 
+INFO:MyTestWebApp:2018-04-10 08:20	Tashkeel2		  
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		 أبيات مختارة من  معلقة زهير بن أبي سلمى 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		ومن هاب أسباب المنايا ينلنه - وإن يرق أسباب السماء بسلم 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		وأعلم ما في اليوم والأمس قبله - ولكنني عن علم ما في غد عم 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		سئمت تكاليف الحياة ومن يعش - ثمانين حولا لا أبا لك يسأم 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		ومن يجعل المعروف في غير أهله - يكن حمده ذما عليه ويندم 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		ومن لم يذد عن حوضه بسلاحه - يهدم ومن لا يظلم الناس يظلم 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		ومهما تكن عند امرئ من خليقة - وإن خالها تخفى على الناس تعلم 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		...
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		وكائن ترى من صامت لك معجب - زيادته أو نقصه في التكلم 
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		لسان الفتى نصف ونصف فؤاده - فلم يبق إلا صورة اللحم والدم  
+INFO:MyTestWebApp:2018-04-10 08:26	Tashkeel2		  
+INFO:MyTestWebApp:2018-04-10 08:28	SpellCheck	سلللم تابع للي
+INFO:MyTestWebApp:2018-04-10 08:28	Tashkeel2	سلللم تابع للي
+INFO:MyTestWebApp:2018-04-10 08:29	SpellCheck	سلللم تابع للي
+INFO:MyTestWebApp:2018-04-10 08:32	Tashkeel2	سلللم تابع للي
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-10 08:32	Tashkeel2	سلللم تابع للي
+INFO:MyTestWebApp:2018-04-10 08:33	Tashkeel2	سلللم تابع للي
+INFO:MyTestWebApp:2018-04-10 08:34	Tashkeel2	سلللم تابع للي
+INFO:MyTestWebApp:2018-04-10 08:34	Tashkeel2	سلللم تابع للي
+INFO:MyTestWebApp:2018-04-10 08:35	Tashkeel2	سلللم تابع للي
+INFO:MyTestWebApp:2018-04-10 08:36	Tashkeel2	سلللم تابع للي
+INFO:MyTestWebApp:2018-04-10 08:38	Tashkeel2	سلللم تابع للي
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-10 09:23	Tashkeel2	سلللم تابع للي
+INFO:MyTestWebApp:2018-04-10 09:38	Tashkeel2	سلللم تابع للي
+INFO:MyTestWebApp:2018-04-10 10:40	Tashkeel2	وقدّم الحريري في الرابع من تشرين الثاني/نوفمبر استقالته بشكل مفاجئ من الرياض، واتهم حزب الله وايران بـ”السيطرة” على لبنان في خطوة يُعتقد انها اتت بضغط من ولي العهد السعودي.
+INFO:MyTestWebApp:2018-04-25 02:11	Wordtag	طبخت المرأة الطعام.
+INFO:MyTestWebApp:2018-04-25 02:12	StripHarakat	 ذكر الإدريسي في كتابه ( نزهة المشتاق في اختراق الآفاق ) عن سلام الترجمان في رحلته المشهورة إلى سدِّ يأجوج ومأجوج : " ثم سرنا إلى حصون بالقرب من الجبل الذي في شعبة السد وذلك في ستة أيام ، وفي تلك الحصون قوم يتكلمون بالعربية والفارسبة ، وهناك مدينة يدعى ملكها خاقان بن أدكش ، وأهلها مسلمون لهم مساجد ومكاتب ، فسألونا من أين أقبلنا ، فأخبرناهم أنّا رُسل أمير المؤمنين الواثق بالله ، فعجبوا منا ومن قولنا أمير المؤمنين!! ثم سألونا عن أمير المؤمنين : أشيخٌ هو أم شاب ؟!! فقلنا : شاب ، فعجبوا أيضا. ثم قالوا : وأين يكون ؟!! قلنا : هو بالعراق بمدينة سُرَّ من رأى. فعجبوا أيضا من ذلك ، وقالوا : ما سمعنا هذا قط. فسألناهم عن إسلامهم من أين وصلهم ومن علمه لهم ؟!! فقالوا : وصل إلينا منذ أعوام كثيرة رجل راكب على دابة طويلة العنق طويلة اليدين والرجلين ، لها في موضع صلبها حدبة ، " فعلمنا أنهم يصفون الجمل " قالوا : فنزل بنا وكلمنا بكلام فهمناه ، ثم علمنا شرائع الإسلام فقبلناها ، وعلمنا أيضا القرآن ومعانيه فتعلمناه وحفظناه " . فرضي الله عن الصحابةِ والتابعين من جابوا آفاف الأرض شرقا وغربا يمتطون دوابهم لنشر دين رب العالمين ..     لا تنسوا عبدالله " ياقوت " من صالح الدعاء . تابعوني على فيسبوك : ياقوت هداه الله 
+INFO:MyTestWebApp:2018-04-25 02:12	Wordtag	 ذكر الإدريسي في كتابه ( نزهة المشتاق في اختراق الآفاق ) عن سلام الترجمان في رحلته المشهورة إلى سد يأجوج ومأجوج : " ثم سرنا إلى حصون بالقرب من الجبل الذي في شعبة السد وذلك في ستة أيام ، وفي تلك الحصون قوم يتكلمون بالعربية والفارسبة ، وهناك مدينة يدعى ملكها خاقان بن أدكش ، وأهلها مسلمون لهم مساجد ومكاتب ، فسألونا من أين أقبلنا ، فأخبرناهم أنا رسل أمير المؤمنين الواثق بالله ، فعجبوا منا ومن قولنا أمير المؤمنين!! ثم سألونا عن أمير المؤمنين : أشيخ هو أم شاب ؟!! فقلنا : شاب ، فعجبوا أيضا. ثم قالوا : وأين يكون ؟!! قلنا : هو بالعراق بمدينة سر من رأى. فعجبوا أيضا من ذلك ، وقالوا : ما سمعنا هذا قط. فسألناهم عن إسلامهم من أين وصلهم ومن علمه لهم ؟!! فقالوا : وصل إلينا منذ أعوام كثيرة رجل راكب على دابة طويلة العنق طويلة اليدين والرجلين ، لها في موضع صلبها حدبة ، " فعلمنا أنهم يصفون الجمل " قالوا : فنزل بنا وكلمنا بكلام فهمناه ، ثم علمنا شرائع الإسلام فقبلناها ، وعلمنا أيضا القرآن ومعانيه فتعلمناه وحفظناه " . فرضي الله عن الصحابة والتابعين من جابوا آفاف الأرض شرقا وغربا يمتطون دوابهم لنشر دين رب العالمين ..     لا تنسوا عبدالله " ياقوت " من صالح الدعاء . تابعوني على فيسبوك : ياقوت هداه الله 
+INFO:MyTestWebApp:2018-04-25 02:19	StripHarakat	 
+	 أنا الذي نَظَرَ الأعمى إلى أَدَبي ... وأسمَعَتْ كَلِماتي مَنْ بِهِ صَمَمُ 
+	أَنامُ مَلءَ جُفوني عَن شوارِدِها ... ويسهرُ الخلقُ جَرّاها وَيَختصِمُ 
+	الخَيلُ واللّيلُُ والبَيداءُ تَعرِفُني ... والسّيفُ والرّمحُ والقِرطَاسُ والقَلَمُ   
+ 
+	 
+	 لا أظنُّ أن شاعراً أو أديباً أتقن الافتخارَ  بإنجازاتهِ بمثلِ ما افتخرَ المُتَنبي بنفسهِ في هذه الأبيات، سواءٌ في التاريخ العربي أو حتى العالمي. ماذا نسمي ذلك، ثقةً بالنفس؟ أم غروراً؟ في حالة المتنبي تحديدا، من الصعب جدا البَتُّ في هذا السؤال ... 
+	ولا يفوتُنا أنْ نّذكرَ أنَّ البيتَ الثالثَ في تلك الأبيات كان سبباً رئيسياً في موته.   
+
+INFO:MyTestWebApp:2018-04-25 02:19	Wordtag	 
+	 أنا الذي نظر الأعمى إلى أدبي ... وأسمعت كلماتي من به صمم 
+	أنام ملء جفوني عن شواردها ... ويسهر الخلق جراها ويختصم 
+	الخيل والليل والبيداء تعرفني ... والسيف والرمح والقرطاس والقلم   
+ 
+	 
+	 لا أظن أن شاعرا أو أديبا أتقن الافتخار  بإنجازاته بمثل ما افتخر المتنبي بنفسه في هذه الأبيات، سواء في التاريخ العربي أو حتى العالمي. ماذا نسمي ذلك، ثقة بالنفس؟ أم غرورا؟ في حالة المتنبي تحديدا، من الصعب جدا البت في هذا السؤال ... 
+	ولا يفوتنا أن نذكر أن البيت الثالث في تلك الأبيات كان سببا رئيسيا في موته.   
+
+INFO:MyTestWebApp:2018-04-25 02:20	StripHarakat	 الزمانُ ... النجيب   سيــأتي زمانُ فتيُّ نجيبْ ... بعون الإلهِ السـمِيعِ المجيبْ     ويخضرُّ عُودِيَ، والمكرماتُ ... يَلُذنَ بشعبٍ طَهُورٍ نسيبْ     أقامَ الحضارةَ في كل صقعٍ ... وأعطى الهدايةَ كلَّ الدروبْ     فمنْ ضلَّ ضلَّ عَزوفاً جَهولاً ... وعاشَ الحياةَ رهينَ الذنوبْ     •	* * * * * *     سيأتي زمانُ رؤوفُ رحيمُ ... وتنهارُ جدرانُ حِقدٍ رهيبْ     وتأتي إلينا الطيورُ الثكالى ... يزاوِجْنَ أُنساً ورَوْضاً مَهيبْ     وينثُرْنَ في أرضِنا دندناتٍ ... ويهتِفْنَ : عاشَ النداءُ الحبيبْ     تباركتَ يا ربَّنا فانتشلْنا ... من الذلِّ واكسِرْ شَبَاةَ الصليبْ     •	* * * * *     سيأتي زمانُ ينيرُ الليالي ... وينهضُ شعبُ زكيُّ أريبْ     ويملأ أفقَ الفضاءِ رعودُ ... ويهتزُّ حبلُ الدعيِّ الكذوبْ     ويسقطُ عن عرشه كلُّ خِبِّ ... ويصرخ بالكفر صوت رعيبْ:     أنا الموتُ أقبضُكم لا أبالي ... فقد جاءَ موعدكم من قريبْ     •	* * * * *     سيأتي زمانُ تُدَكُّ قِلاعُ ... بناها الطغاةُ لصُنْعِ الكروبْ     ويشقى رجالُ تمادَوْا خِداعاً ... وظنوا الهدايةَ قتلَ الشعوبْ     فأسرف هَذا بوأدِ الرجالِ ... وأسرف ذاكَ بكَيْلِ الخطُوبْ     فهاتِ الحديدَ المحَمَّى لنمضي ... لهذا وذاك ونكوي الجُنوبْ     •	* * * * *     سيأتي زمانُ تخرُّ الليالي ... على قدميه وتُطوى الرُّيُوبْ     ويبزغ فجرُ بديعُ المحيَّا ... ويَفتََرُّ ثغرُ وطَرْفُ هَيوبْ     ويرجع للحيِّ أهلُ وصحبُ ... وأشواقُ عُمْرٍ وطفلُ لَعوبْ     وتبتلعُ الأرضُ كلَّ الأفاعي ... ويَنْبَتُّ حبلُ الخنا والعُيوبْ     * * * * * *     سيأتي بحوْل الإلهِ زمانُ ... تجوسُ العدالةُ كلَّ القلوبْ     وينكشفُ الستْرُ عن كلَّ وغدٍ ... وتُبْلى السرائرُ في كُلِّ ذِيبْ     ويصحو نيامُ أطالوا الرقود ... على الرَّضْفِ واستعمرتْهُم كُروبْ     وينهزِمُ الشِّركُ والمشركون ... ويأتي زمانُ فتيُّ نجيبْ      ـ للشاعر : مروان كجك ـ رحمه الله ـ  ------------------------------------------------------------------- 
+INFO:MyTestWebApp:2018-04-25 02:20	Wordtag	 الزمان ... النجيب   سيــأتي زمان فتي نجيب ... بعون الإله السـميع المجيب     ويخضر عودي، والمكرمات ... يلذن بشعب طهور نسيب     أقام الحضارة في كل صقع ... وأعطى الهداية كل الدروب     فمن ضل ضل عزوفا جهولا ... وعاش الحياة رهين الذنوب     •	* * * * * *     سيأتي زمان رؤوف رحيم ... وتنهار جدران حقد رهيب     وتأتي إلينا الطيور الثكالى ... يزاوجن أنسا وروضا مهيب     وينثرن في أرضنا دندنات ... ويهتفن : عاش النداء الحبيب     تباركت يا ربنا فانتشلنا ... من الذل واكسر شباة الصليب     •	* * * * *     سيأتي زمان ينير الليالي ... وينهض شعب زكي أريب     ويملأ أفق الفضاء رعود ... ويهتز حبل الدعي الكذوب     ويسقط عن عرشه كل خب ... ويصرخ بالكفر صوت رعيب:     أنا الموت أقبضكم لا أبالي ... فقد جاء موعدكم من قريب     •	* * * * *     سيأتي زمان تدك قلاع ... بناها الطغاة لصنع الكروب     ويشقى رجال تمادوا خداعا ... وظنوا الهداية قتل الشعوب     فأسرف هذا بوأد الرجال ... وأسرف ذاك بكيل الخطوب     فهات الحديد المحمى لنمضي ... لهذا وذاك ونكوي الجنوب     •	* * * * *     سيأتي زمان تخر الليالي ... على قدميه وتطوى الريوب     ويبزغ فجر بديع المحيا ... ويفتر ثغر وطرف هيوب     ويرجع للحي أهل وصحب ... وأشواق عمر وطفل لعوب     وتبتلع الأرض كل الأفاعي ... وينبت حبل الخنا والعيوب     * * * * * *     سيأتي بحول الإله زمان ... تجوس العدالة كل القلوب     وينكشف الستر عن كل وغد ... وتبلى السرائر في كل ذيب     ويصحو نيام أطالوا الرقود ... على الرضف واستعمرتهم كروب     وينهزم الشرك والمشركون ... ويأتي زمان فتي نجيب      ـ للشاعر : مروان كجك ـ رحمه الله ـ  ------------------------------------------------------------------- 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 08:59	Poetry	ضحكَتْ إليَّ وجوهُها وعيونها 	* ووجدتُ في أنفاسها رَيّاكِ
+لم أدرِ ما طيب العناق على الهوى 	 *حتى ترفق ساعدي فطواكِ
+وتأوّدَتْ أعطافُ بانِك في يدي 	 *واحمرَّ من خَفَريهما خدّاكِ
+ودخلتُ في ليلين: فرعك والدجى 	* ولثمتُ كالصبح المنوَّر فاكِ
+وتعطلتْ لغة الكلام وخاطبت		عينيّ في لغة الهوى عيناكِ
+INFO:MyTestWebApp:2018-04-25 09:00	Unshape	ضحكَتْ إليَّ وجوهُها وعيونها* ووجدتُ في أنفاسها رَيّاكِ
+لم أدرِ ما طيب العناق على الهوى * حتى ترفق ساعدي فطواكِ
+INFO:MyTestWebApp:2018-04-25 09:00	Poetry	ضحكَتْ إليَّ وجوهُها وعيونها* ووجدتُ في أنفاسها رَيّاكِ
+لم أدرِ ما طيب العناق على الهوى * حتى ترفق ساعدي فطواكِ
+INFO:MyTestWebApp:2018-04-25 09:00	Poetry	ضحكَتْ إليَّ وجوهُها وعيونها * ووجدتُ في أنفاسها رَيّاكِ
+لم أدرِ ما طيب العناق على الهوى *  حتى ترفق ساعدي فطواكِ
+INFO:MyTestWebApp:2018-04-25 09:00	Poetry	ضحكَتْ إليَّ وجوهُها وعيونها * ووجدتُ في أنفاسها رَيّاكِ
+لم أدرِ ما طيب العناق على الهوى *  حتى ترفق ساعدي فطواكِ
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 09:01	Poetry	ضحكَتْ إليَّ وجوهُها وعيونها * ووجدتُ في أنفاسها رَيّاكِ
+لم أدرِ ما طيب العناق على الهوى *  حتى ترفق ساعدي فطواكِ
+
+INFO:MyTestWebApp:2018-04-25 09:01	Poetry	ضحكَتْ إليَّ وجوهُها وعيونها * ووجدتُ في أنفاسها رَيّاكِ
+لم أدرِ ما طيب العناق على الهوى *  حتى ترفق ساعدي فطواكِ
+
+INFO:MyTestWebApp:2018-04-25 09:01	Poetry	ضحكَتْ إليَّ وجوهُها وعيونها 	ووجدتُ في أنفاسها رَيّاكِ
+لم أدرِ ما طيب العناق على الهوى 	حتى ترفق ساعدي فطواكِ
+وتأوّدَتْ أعطافُ بانِك في يدي 	واحمرَّ من خَفَريهما خدّاكِ
+ودخلتُ في ليلين: فرعك والدجى 	ولثمتُ كالصبح المنوَّر فاكِ
+وتعطلتْ لغة الكلام وخاطبت		عينيّ في لغة الهوى عيناكِ
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 09:09	Poetry	ضحكَتْ إليَّ وجوهُها وعيونها 	ووجدتُ في أنفاسها رَيّاكِ
+لم أدرِ ما طيب العناق على الهوى 	حتى ترفق ساعدي فطواكِ
+وتأوّدَتْ أعطافُ بانِك في يدي 	واحمرَّ من خَفَريهما خدّاكِ
+ودخلتُ في ليلين: فرعك والدجى 	ولثمتُ كالصبح المنوَّر فاكِ
+وتعطلتْ لغة الكلام وخاطبت		عينيّ في لغة الهوى عيناكِ
+
+INFO:MyTestWebApp:2018-04-25 09:09	Poetry	ضحكَتْ إليَّ وجوهُها وعيونها 	ووجدتُ في أنفاسها رَيّاكِ
+لم أدرِ ما طيب العناق على الهوى 	حتى ترفق ساعدي فطواكِ
+وتأوّدَتْ أعطافُ بانِك في يدي 	واحمرَّ من خَفَريهما خدّاكِ
+ودخلتُ في ليلين: فرعك والدجى 	ولثمتُ كالصبح المنوَّر فاكِ
+وتعطلتْ لغة الكلام وخاطبت		عينيّ في لغة الهوى عيناكِ
+
+INFO:MyTestWebApp:2018-04-25 09:12	Poetry	ضحكَتْ إليَّ وجوهُها وعيونها 	ووجدتُ في أنفاسها رَيّاكِ
+لم أدرِ ما طيب العناق على الهوى 	حتى ترفق ساعدي فطواكِ
+وتأوّدَتْ أعطافُ بانِك في يدي 	واحمرَّ من خَفَريهما خدّاكِ
+ودخلتُ في ليلين: فرعك والدجى 	ولثمتُ كالصبح المنوَّر فاكِ
+وتعطلتْ لغة الكلام وخاطبت		عينيّ في لغة الهوى عيناكِ
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 10:18	LightStemmer	ضحكَتْ إليَّ وجوهُها وعيونها 	ووجدتُ في أنفاسها رَيّاكِ
+لم أدرِ ما طيب العناق على الهوى 	حتى ترفق ساعدي فطواكِ
+وتأوّدَتْ أعطافُ بانِك في يدي 	واحمرَّ من خَفَريهما خدّاكِ
+ودخلتُ في ليلين: فرعك والدجى 	ولثمتُ كالصبح المنوَّر فاكِ
+وتعطلتْ لغة الكلام وخاطبت		عينيّ في لغة الهوى عيناكِ
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 01:09	LightStemmer	الذي رضي
+INFO:MyTestWebApp:2018-04-25 01:16	LightStemmer	الذي رضي.
+التي رضيت.
+INFO:MyTestWebApp:2018-04-25 01:16	Tashkeel2	الذي رضي.
+INFO:MyTestWebApp:2018-04-25 01:16	Tashkeel2	التي رضيت.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 01:18	LightStemmer	الذي رضي.
+التي رضيت.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 01:20	LightStemmer	الذي رضي.
+التي رضيت.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 01:23	LightStemmer	الذي رضي.
+التي رضيت.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 01:24	LightStemmer	الذي رضي.
+التي رضيت.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 01:25	LightStemmer	الذي رضي.
+التي رضيت.
+INFO:MyTestWebApp:2018-04-25 01:25	Tashkeel2	الذي رضي.
+INFO:MyTestWebApp:2018-04-25 01:25	Tashkeel2	التي رضيت.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 01:26	LightStemmer	الذي رضي.
+التي رضيت.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 01:30	LightStemmer	الذي رضي.
+التي رضيت.
+INFO:MyTestWebApp:2018-04-25 06:29	Tashkeel2	الذي رضي.
+INFO:MyTestWebApp:2018-04-25 06:29	Tashkeel2	التي رضيت.
+INFO:MyTestWebApp:2018-04-25 06:30	LightStemmer	الذي رضي.
+التي رضيت.
+INFO:MyTestWebApp:2018-04-25 07:23	Tashkeel2	الذي رضي.
+INFO:MyTestWebApp:2018-04-25 07:23	Tashkeel2	التي رضيت.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 11:53	Tashkeel2	الذي رضي.
+INFO:MyTestWebApp:2018-04-25 11:53	Tashkeel2	التي رضيت.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 11:54	Tashkeel2	الذي رضي.
+INFO:MyTestWebApp:2018-04-25 11:54	Tashkeel2	التي رضيت.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-25 11:54	Tashkeel2	الذي رضي.
+INFO:MyTestWebApp:2018-04-25 11:54	Tashkeel2	التي رضيت.
+INFO:MyTestWebApp:2018-04-25 11:55	Tashkeel2	 يا ليلُ هـَلْ أنتَ مُعيني في لوعَتي وعَـذابي ؟   وهَلْ محنـة الشقاء جعلتك تبـادر بسؤالي  !!   تلتقي في خَنَسِ الليل أهات النفوس لتحتمـي  بظلامي ..
+INFO:MyTestWebApp:2018-04-25 11:55	Tashkeel2	  تتلوى بلوعة الأحزان ثم ترسل الأنـات في أرجـائي  ..
+INFO:MyTestWebApp:2018-04-25 11:55	Tashkeel2	 وإذا جاء صُبْـحٌ تناسوا ولا حياةَ لمن تنــادي ..
+INFO:MyTestWebApp:2018-04-25 11:55	Tashkeel2	  ــــــــــ ضياء ابراهيم 
+INFO:MyTestWebApp:2018-04-26 12:32	CompareTashkeel	فإن قيل : فَأَنْتُمْ تَقُولُونَ : إنَّ لَبَنَ الْكَافِرَةِ نَجِسٌ بِلاَ شَكٍّ وَأَنْتُمْ تُجِيزُونَ مَعَ ذَلِكَ اسْتِرْضَاعَ الْكَافِرَةِ
+قلنا : لأََنَّ اللَّهَ تَعَالَى أَبَاحَ لَنَا نِكَاحَ الْكِتَابِيَّةِ , وَأَوْجَبَ عَلَى الأُُمِّ رَضَاعَ وَلَدِهَا , وَقَدْ عَلِمَ اللَّهُ تَعَالَى أَنَّهُ سَيَكُونُ لَنَا أَوْلاَدٌ مِنْهُنَّ : {وَمَا كَانَ رَبُّكَ نَسِيًّا }. إِلاَّ أَنَّنَا نَقُولُ : إنَّ غَيْرَ الْكِتَابِيَّةِ لاَ يَحِلُّ لَنَا اسْتِرْضَاعُهَا ; لأََنَّهَا لَيْسَتْ مِمَّا أُبِيحَ لَنَا اتِّخَاذُهُنَّ أَزْوَاجًا وَطَلَبُ الْوَلَدِ مِنْهُنَّ فَبَقِيَ لَبَنُهَا عَلَى النَّجَاسَةِ جُمْلَةً , وَبِاَللَّهِ تَعَالَى التَّوْفِيقُ.
+INFO:MyTestWebApp:2018-04-26 12:37	Wordtag	قد علم
+INFO:MyTestWebApp:2018-04-26 12:37	Wordtag	وقد علم
+INFO:MyTestWebApp:2018-04-26 12:38	StripHarakat	فإن قيل : فَأَنْتُمْ تَقُولُونَ : إنَّ لَبَنَ الْكَافِرَةِ نَجِسٌ بِلاَ شَكٍّ وَأَنْتُمْ تُجِيزُونَ مَعَ ذَلِكَ اسْتِرْضَاعَ الْكَافِرَةِ
+قلنا : لأََنَّ اللَّهَ تَعَالَى أَبَاحَ لَنَا نِكَاحَ الْكِتَابِيَّةِ , وَأَوْجَبَ عَلَى الأُُمِّ رَضَاعَ وَلَدِهَا , وَقَدْ عَلِمَ اللَّهُ تَعَالَى أَنَّهُ سَيَكُونُ لَنَا أَوْلاَدٌ مِنْهُنَّ : {وَمَا كَانَ رَبُّكَ نَسِيًّا }. إِلاَّ أَنَّنَا نَقُولُ : إنَّ غَيْرَ الْكِتَابِيَّةِ لاَ يَحِلُّ لَنَا اسْتِرْضَاعُهَا ; لأََنَّهَا لَيْسَتْ مِمَّا أُبِيحَ لَنَا اتِّخَاذُهُنَّ أَزْوَاجًا وَطَلَبُ الْوَلَدِ مِنْهُنَّ فَبَقِيَ لَبَنُهَا عَلَى النَّجَاسَةِ جُمْلَةً , وَبِاَللَّهِ تَعَالَى التَّوْفِيقُ.
+INFO:MyTestWebApp:2018-04-26 12:38	Wordtag	فإن قيل : فأنتم تقولون : إن لبن الكافرة نجس بلا شك وأنتم تجيزون مع ذلك استرضاع الكافرة
+قلنا : لأن الله تعالى أباح لنا نكاح الكتابية , وأوجب على الأم رضاع ولدها , وقد علم الله تعالى أنه سيكون لنا أولاد منهن : {وما كان ربك نسيا }. إلا أننا نقول : إن غير الكتابية لا يحل لنا استرضاعها ; لأنها ليست مما أبيح لنا اتخاذهن أزواجا وطلب الولد منهن فبقي لبنها على النجاسة جملة , وبالله تعالى التوفيق.
+INFO:MyTestWebApp:2018-04-26 12:39	LightStemmer	وقد علم 
+INFO:MyTestWebApp:2018-04-26 12:40	LightStemmer	قد علم 
+INFO:MyTestWebApp:2018-04-26 12:43	CompareTashkeel	وَحُكِيَ أَنَّ سُلَيْمَانَ بْنَ دَاوُد عَلَيْهِمَا السَّلَامُ ، مَرَّ بِعُصْفُورٍ يَدُورُ حَوْلَ عُصْفُورَةٍ فَقَالَ لِأَصْحَابِهِ : هَلْ تَدْرُونَ مَا يَقُولُ لَهَا ؟ قَالُوا : لَا يَا نَبِيَّ اللَّهِ .
+قَالَ : إنَّهُ يَخْطُبُهَا لِنَفْسِهِ وَيَقُولُ لَهَا زَوِّجِينِي نَفْسَك أُسْكِنُكِ أَيَّ غُرَفِ دِمَشْقَ شِئْتِ .
+وَقَالَ سُلَيْمَانُ : كَذَبَ الْعُصْفُورُ فَإِنَّ غُرَفَ دِمَشْقَ مَبْنِيَّةٌ بِالصُّخُورِ لَا يَقْدِرُ أَنْ يُسْكِنَهَا هُنَاكَ ، وَلَكِنْ كُلُّ خَاطِبٍ كَاذِبٌ .
+INFO:MyTestWebApp:2018-04-26 12:52	LightStemmer	فقال لأصحابه
+INFO:MyTestWebApp:2018-04-26 12:53	LightStemmer	عَصْفُورَةٍ فَقَالٍ لِأَصْحَابِهِ 
+INFO:MyTestWebApp:2018-04-26 12:53	StripHarakat	عَصْفُورَةٍ فَقَالٍ لِأَصْحَابِهِ 
+INFO:MyTestWebApp:2018-04-26 12:53	LightStemmer	عصفورة فقال لأصحابه 
+INFO:MyTestWebApp:2018-04-26 12:55	StripHarakat	 مَرَّ بِعُصْفُورٍ يَدُورُ حَوْلَ عُصْفُورَةٍ فَقَالَ لِأَصْحَابِهِ 
+INFO:MyTestWebApp:2018-04-26 12:55	LightStemmer	 مر بعصفور يدور حول عصفورة فقال لأصحابه 
+INFO:MyTestWebApp:2018-04-26 12:59	Tashkeel2	 مر بعصفور يدور حول عصفورة فقال لأصحابه 
+INFO:MyTestWebApp:2018-04-26 01:00	LightStemmer	 مر بعصفور يدور حول عصفورة فقال لأصحابه 
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2		 كتب الطالب : ( حاكمنا مكتأبا يمسي 
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2		و حزينا لضياع القدس ) .
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2		صاح الأستاذ به: كلا … إنك لم تستوعب درسي .
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2		  ارفع حاكمنا يا ولدي 
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2		و ضع الهمزة فوق ( الكرسي ) .
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2		هتف الطالب : هل تقصدني … أم تقصد عنترة العبسي ؟! 
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2		دع غيري يستوعب هذا 
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2		أستوعب ماذا ؟! و لماذا ؟! 
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2		واتركني أستوعب نفسي .
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-26 10:19	Tashkeel2		هل درسك أغلى من رأسي ؟!  
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2	 
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (1 working, 9 idle, 0 starting) ave time 0.02sec, max time 0.02sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2		 كتب الطالب : ( حاكمنا مكتأبا يمسي 
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2		و حزينا لضياع القدس ) .
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2		صاح الأستاذ به: كلا … إنك لم تستوعب درسي .
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2		  ارفع حاكمنا يا ولدي 
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2		و ضع الهمزة فوق ( الكرسي ) .
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2		هتف الطالب : هل تقصدني … أم تقصد عنترة العبسي ؟! 
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2		أستوعب ماذا ؟! و لماذا ؟! 
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2		دع غيري يستوعب هذا 
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2		واتركني أستوعب نفسي .
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2	 
+INFO:MyTestWebApp:2018-04-26 10:23	Tashkeel2		هل درسك أغلى من رأسي ؟!  
+INFO:MyTestWebApp:2018-04-26 10:31	Tashkeel2	 
+	 كتب الطالب : ( حاكمنا مكتأبا يمسي 
+	و حزينا لضياع القدس ) .
+ 
+	صاح الأستاذ به: كلا … إنك لم تستوعب درسي .
+ 
+	  ارفع حاكمنا يا ولدي 
+	و ضع الهمزة فوق ( الكرسي ) .
+ 
+	هتف الطالب : هل تقصدني … أم تقصد عنترة العبسي ؟! 
+	أستوعب ماذا ؟! و لماذا ؟! 
+	دع غيري يستوعب هذا 
+	واتركني أستوعب نفسي .
+ 
+	هل درسك أغلى من رأسي ؟!  
+
+INFO:MyTestWebApp:2018-04-26 10:48	Tashkeel2	وَحُكِيَ أَنَّ سُلَيْمَانَ بْنَ دَاوُد عَلَيْهِمَا السَّلَامُ ، مَرَّ بِعُصْفُورٍ يَدُورُ حَوْلَ عُصْفُورَةٍ فَقَالَ لِأَصْحَابِهِ : هَلْ تَدْرُونَ مَا يَقُولُ لَهَا ؟ قَالُوا : لَا يَا نَبِيَّ اللَّهِ .
+INFO:MyTestWebApp:2018-04-26 10:48	Tashkeel2	قَالَ : إنَّهُ يَخْطُبُهَا لِنَفْسِهِ وَيَقُولُ لَهَا زَوِّجِينِي نَفْسَك أُسْكِنُكِ أَيَّ غُرَفِ دِمَشْقَ شِئْتِ .
+INFO:MyTestWebApp:2018-04-26 10:48	Tashkeel2	وَقَالَ سُلَيْمَانُ : كَذَبَ الْعُصْفُورُ فَإِنَّ غُرَفَ دِمَشْقَ مَبْنِيَّةٌ بِالصُّخُورِ لَا يَقْدِرُ أَنْ يُسْكِنَهَا هُنَاكَ ، وَلَكِنْ كُلُّ خَاطِبٍ كَاذِبٌ .
+INFO:MyTestWebApp:2018-04-26 10:55	Tashkeel2	جريت في
+ ميدان فسيح .
+
+INFO:MyTestWebApp:2018-04-26 10:56	Tashkeel2	جريت في
+ ميدان فسيح .
+
+INFO:MyTestWebApp:2018-04-26 10:56	Tashkeel2	جريت في
+ ميدان فسيح .
+
+INFO:MyTestWebApp:2018-04-26 10:56	Tashkeel2	جريت في
+ ميدان فسيح .
+
+INFO:MyTestWebApp:2018-04-26 10:56	Tashkeel2	جريت في
+ ميدان فسيح .
+
+INFO:MyTestWebApp:2018-04-26 11:01	Tashkeel2	جريت في
+ ميدان فسيح .
+
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-26 11:01	Tashkeel2	جريت في
+ ميدان فسيح .
+
+INFO:MyTestWebApp:2018-04-26 11:03	Tashkeel2	وَحُكِيَ أَنَّ سُلَيْمَانَ بْنَ دَاوُد عَلَيْهِمَا السَّلَامُ ، مَرَّ بِعُصْفُورٍ يَدُورُ حَوْلَ عُصْفُورَةٍ فَقَالَ لِأَصْحَابِهِ : هَلْ تَدْرُونَ مَا يَقُولُ لَهَا ؟ قَالُوا : لَا يَا نَبِيَّ اللَّهِ .
+INFO:MyTestWebApp:2018-04-26 11:03	Tashkeel2	قَالَ : إنَّهُ يَخْطُبُهَا لِنَفْسِهِ وَيَقُولُ لَهَا زَوِّجِينِي نَفْسَك أُسْكِنُكِ أَيَّ غُرَفِ دِمَشْقَ شِئْتِ .
+INFO:MyTestWebApp:2018-04-26 11:03	Tashkeel2	وَقَالَ سُلَيْمَانُ : كَذَبَ الْعُصْفُورُ فَإِنَّ غُرَفَ دِمَشْقَ مَبْنِيَّةٌ بِالصُّخُورِ لَا يَقْدِرُ أَنْ يُسْكِنَهَا هُنَاكَ ، وَلَكِنْ كُلُّ خَاطِبٍ كَاذِبٌ .
+INFO:MyTestWebApp:2018-04-26 11:04	Tashkeel2	وَحُكِيَ أَنَّ سُلَيْمَانَ بْنَ دَاوُد عَلَيْهِمَا السَّلَامُ ، مَرَّ بِعُصْفُورٍ يَدُورُ حَوْلَ عُصْفُورَةٍ فَقَالَ لِأَصْحَابِهِ : هَلْ تَدْرُونَ مَا يَقُولُ لَهَا ؟ قَالُوا : لَا يَا نَبِيَّ اللَّهِ .
+
+قَالَ : إنَّهُ يَخْطُبُهَا لِنَفْسِهِ وَيَقُولُ لَهَا زَوِّجِينِي نَفْسَك أُسْكِنُكِ أَيَّ غُرَفِ دِمَشْقَ شِئْتِ .
+
+وَقَالَ سُلَيْمَانُ : كَذَبَ الْعُصْفُورُ فَإِنَّ غُرَفَ دِمَشْقَ مَبْنِيَّةٌ بِالصُّخُورِ لَا يَقْدِرُ أَنْ يُسْكِنَهَا هُنَاكَ ، وَلَكِنْ كُلُّ خَاطِبٍ كَاذِبٌ .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-26 11:05	Tashkeel2	وَحُكِيَ أَنَّ سُلَيْمَانَ بْنَ دَاوُد عَلَيْهِمَا السَّلَامُ ، مَرَّ بِعُصْفُورٍ يَدُورُ حَوْلَ عُصْفُورَةٍ فَقَالَ لِأَصْحَابِهِ : هَلْ تَدْرُونَ مَا يَقُولُ لَهَا ؟ قَالُوا : لَا يَا نَبِيَّ اللَّهِ .
+
+قَالَ : إنَّهُ يَخْطُبُهَا لِنَفْسِهِ وَيَقُولُ لَهَا زَوِّجِينِي نَفْسَك أُسْكِنُكِ أَيَّ غُرَفِ دِمَشْقَ شِئْتِ .
+
+وَقَالَ سُلَيْمَانُ : كَذَبَ الْعُصْفُورُ فَإِنَّ غُرَفَ دِمَشْقَ مَبْنِيَّةٌ بِالصُّخُورِ لَا يَقْدِرُ أَنْ يُسْكِنَهَا هُنَاكَ ، وَلَكِنْ كُلُّ خَاطِبٍ كَاذِبٌ .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-26 11:40	Tashkeel2	اترك ترك تركني اتركني 
+INFO:MyTestWebApp:2018-04-26 11:41	Tashkeel2	اترك ترك تركني اتركني اقبلني
+INFO:MyTestWebApp:2018-04-26 11:41	Tashkeel2	اترك ترك تركني اتركني اقبلني سامحني 
+INFO:MyTestWebApp:2018-04-26 11:42	Tashkeel2	اترك ترك تركني اتركني اقبلني سامِحني 
+INFO:MyTestWebApp:2018-04-26 11:42	Tashkeel2	اترك ترك تركني اتركني اقبلني سامِحني 
+اسمع اسمعني 
+INFO:MyTestWebApp:2018-04-26 11:42	Tashkeel2	اترك ترك يترك
+اسمع اسمعني اترك 
+INFO:MyTestWebApp:2018-04-26 11:43	LightStemmer	اترك ترك يترك
+اسمع اسمعني اترك 
+INFO:MyTestWebApp:2018-04-26 11:50	Tashkeel2	اترك ترك يترك
+اسمع اسمعني اترك 
+INFO:MyTestWebApp:2018-04-26 11:50	Tashkeel2	اترك ترك يترك
+اسمع اسمعني اتركني 
+INFO:MyTestWebApp:2018-04-26 12:02	Tashkeel2	مر بعصفور جميل.
+
+INFO:MyTestWebApp:2018-04-26 12:02	LightStemmer	مر بعصفور جميل.
+INFO:MyTestWebApp:2018-04-26 12:15	Tashkeel2	يطير الذباب.
+
+INFO:MyTestWebApp:2018-04-26 12:16	Tashkeel2	الثعلب يأكل الدجاج.
+
+INFO:MyTestWebApp:2018-04-26 12:17	Tashkeel2	القط ألوف .
+
+INFO:MyTestWebApp:2018-04-26 12:17	Tashkeel2	القط ألوف .
+
+INFO:MyTestWebApp:2018-04-26 12:18	Tashkeel2	القط ألوف .
+
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-26 12:18	Tashkeel2	نزل من السماء مطر غزير .
+
+INFO:MyTestWebApp:2018-04-26 12:21	Tashkeel2	نزل من السماء مطر غزير .
+
+INFO:MyTestWebApp:2018-04-26 12:24	Tashkeel2	الكلب ينام في البستان.
+
+INFO:MyTestWebApp:2018-04-26 12:24	Tashkeel2	   لَيسَت النائِحةُ الثكلى كالنائحةِ المُستأجَرة  النائحة هي الباكية المولولة على فقيدها، أي: المرأة التي يموت لها قريب عزيز عليها فهي تبكي بمرارة وحسرة على فقده.
+  أما النائحة المستأجرة: فهي المرأة التي امتهنت النياحة للتكسب، فهي تأتي إلى أهل الميت لتعدد مناقبه وتولول وسط النساء لتضفي جواً من الحزن والأسى وتهيج المفجوعات، وتأخذ على ذلك مالاً، وهذه العادة السيئة كانت سائدة في الجاهلية ثم جاء الإسلام وحرمها ونهى عنها.
+  ويُضربُ هذا المثل للتدليل على أن صاحب الحاجة يفوق تعبيره و اهتمامه بأي شخص قد يأتي (مستأجرا) أو بديلا عنه.
+    
+INFO:MyTestWebApp:2018-04-26 12:25	Tashkeel2	   لَيسَت النائِحةُ الثكلى كالنائحةِ المُستأجَرة  النائحة هي الباكية المولولة على فقيدها، أي: المرأة التي يموت لها قريب عزيز عليها فهي تبكي بمرارة وحسرة على فقده.
+  أما النائحة المستأجرة: فهي المرأة التي امتهنت النياحة للتكسب، فهي تأتي إلى أهل الميت لتعدد مناقبه وتولول وسط النساء لتضفي جواً من الحزن والأسى وتهيج المفجوعات، وتأخذ على ذلك مالاً، وهذه العادة السيئة كانت سائدة في الجاهلية ثم جاء الإسلام وحرمها ونهى عنها.
+  ويُضربُ هذا المثل للتدليل على أن صاحب الحاجة يفوق تعبيره و اهتمامه بأي شخص قد يأتي (مستأجرا) أو بديلا عنه.
+    
+INFO:MyTestWebApp:2018-04-26 12:40	Tashkeel2	   لَيسَت النائِحةُ الثكلى كالنائحةِ المُستأجَرة  النائحة هي الباكية المولولة على فقيدها، أي: المرأة التي يموت لها قريب عزيز عليها فهي تبكي بمرارة وحسرة على فقده.
+  أما النائحة المستأجرة: فهي المرأة التي امتهنت النياحة للتكسب، فهي تأتي إلى أهل الميت لتعدد مناقبه وتولول وسط النساء لتضفي جواً من الحزن والأسى وتهيج المفجوعات، وتأخذ على ذلك مالاً، وهذه العادة السيئة كانت سائدة في الجاهلية ثم جاء الإسلام وحرمها ونهى عنها.
+  ويُضربُ هذا المثل للتدليل على أن صاحب الحاجة يفوق تعبيره و اهتمامه بأي شخص قد يأتي (مستأجرا) أو بديلا عنه.
+    
+INFO:MyTestWebApp:2018-04-26 12:49	Tashkeel2	   لَيسَت النائِحةُ الثكلى كالنائحةِ المُستأجَرة  النائحة هي الباكية المولولة على فقيدها، أي: المرأة التي يموت لها قريب عزيز عليها فهي تبكي بمرارة وحسرة على فقده.
+  أما النائحة المستأجرة: فهي المرأة التي امتهنت النياحة للتكسب، فهي تأتي إلى أهل الميت لتعدد مناقبه وتولول وسط النساء لتضفي جواً من الحزن والأسى وتهيج المفجوعات، وتأخذ على ذلك مالاً، وهذه العادة السيئة كانت سائدة في الجاهلية ثم جاء الإسلام وحرمها ونهى عنها.
+  ويُضربُ هذا المثل للتدليل على أن صاحب الحاجة يفوق تعبيره و اهتمامه بأي شخص قد يأتي (مستأجرا) أو بديلا عنه.
+    
+INFO:MyTestWebApp:2018-04-26 12:49	Tashkeel2	   لَيسَت النائِحةُ الثكلى كالنائحةِ المُستأجَرة  النائحة هي الباكية المولولة على فقيدها، أي: المرأة التي يموت لها قريب عزيز عليها فهي تبكي بمرارة وحسرة على فقده.
+  أما النائحة المستأجرة: فهي المرأة التي امتهنت النياحة للتكسب، فهي تأتي إلى أهل الميت لتعدد مناقبه وتولول وسط النساء لتضفي جواً من الحزن والأسى وتهيج المفجوعات، وتأخذ على ذلك مالاً، وهذه العادة السيئة كانت سائدة في الجاهلية ثم جاء الإسلام وحرمها ونهى عنها.
+  ويُضربُ هذا المثل للتدليل على أن صاحب الحاجة يفوق تعبيره و اهتمامه بأي شخص قد يأتي (مستأجرا) أو بديلا عنه.
+    
+INFO:MyTestWebApp:2018-04-26 12:51	Tashkeel2	   لَيسَت النائِحةُ الثكلى كالنائحةِ المُستأجَرة  النائحة هي الباكية المولولة على فقيدها، أي: المرأة التي يموت لها قريب عزيز عليها فهي تبكي بمرارة وحسرة على فقده.
+  أما النائحة المستأجرة: فهي المرأة التي امتهنت النياحة للتكسب، فهي تأتي إلى أهل الميت لتعدد مناقبه وتولول وسط النساء لتضفي جواً من الحزن والأسى وتهيج المفجوعات، وتأخذ على ذلك مالاً، وهذه العادة السيئة كانت سائدة في الجاهلية ثم جاء الإسلام وحرمها ونهى عنها.
+  ويُضربُ هذا المثل للتدليل على أن صاحب الحاجة يفوق تعبيره و اهتمامه بأي شخص قد يأتي (مستأجرا) أو بديلا عنه.
+    
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-26 12:57	Tashkeel2	   لَيسَت النائِحةُ الثكلى كالنائحةِ المُستأجَرة  النائحة هي الباكية المولولة على فقيدها، أي: المرأة التي يموت لها قريب عزيز عليها فهي تبكي بمرارة وحسرة على فقده.
+  أما النائحة المستأجرة: فهي المرأة التي امتهنت النياحة للتكسب، فهي تأتي إلى أهل الميت لتعدد مناقبه وتولول وسط النساء لتضفي جواً من الحزن والأسى وتهيج المفجوعات، وتأخذ على ذلك مالاً، وهذه العادة السيئة كانت سائدة في الجاهلية ثم جاء الإسلام وحرمها ونهى عنها.
+  ويُضربُ هذا المثل للتدليل على أن صاحب الحاجة يفوق تعبيره و اهتمامه بأي شخص قد يأتي (مستأجرا) أو بديلا عنه.
+    
+INFO:MyTestWebApp:2018-04-26 12:57	Tashkeel2	مر بعصفور جميل.
+
+INFO:MyTestWebApp:2018-04-26 12:57	Tashkeel2	مر بعصفور جميل.
+
+INFO:MyTestWebApp:2018-04-26 12:59	Tashkeel2	مر بعصفور جميل.
+
+INFO:MyTestWebApp:2018-04-26 01:01	Tashkeel2	مر بعصفور جميل.
+
+INFO:MyTestWebApp:2018-04-26 01:03	Tashkeel2	مر بعصفور جميل.
+
+INFO:MyTestWebApp:2018-04-26 01:09	Tashkeel2	مر بعصفور جميل.
+
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-26 01:09	Tashkeel2	مر بعصفور جميل.
+
+INFO:MyTestWebApp:2018-04-26 01:10	Tashkeel2	مر بعصفور جميل.
+
+INFO:MyTestWebApp:2018-04-26 01:11	Tashkeel2	مر بعصفور جميل.
+
+INFO:MyTestWebApp:2018-04-26 01:11	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:12	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:13	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:15	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:15	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:15	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:paste.httpserver.ThreadPool:kill_hung_threads status: 10 threads (0 working, 10 idle, 0 starting) ave time N/A, max time 0.00sec, killed 0 workers
+INFO:MyTestWebApp:2018-04-26 01:17	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:21	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:24	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:25	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:25	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:26	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:28	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:30	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:30	Tashkeel2	مر بعصفور جميل.
+يستعملممم
+INFO:MyTestWebApp:2018-04-26 01:31	CompareTashkeel	مر بعصفور جميل.يستعملممم
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-26 04:13	Tashkeel2	تجري السفينة على الماء.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-26 04:15	Tashkeel2	أنطق بالصدق.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-26 10:40	Tashkeel2	مر بعصعصفور جميل
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-26 10:43	Tashkeel2	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:44	Tashkeel2	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:46	Tashkeel2	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:47	LightStemmer	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	extractEnteties	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	Wordtag	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	extractNumbered	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	chunk	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	Poetry	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	Unshape	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	LightStemmer	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	SpellCheck	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	CompareTashkeel	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	ReduceTashkeel	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	StripHarakat	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	LightStemmer	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:55	Tashkeel2	مر بعصعصفور جميل
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-26 10:56	Tashkeel2	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:56	LightStemmer	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 10:56	SpellCheck	مر بعصعصفور جميل
+INFO:MyTestWebApp:2018-04-26 11:47	Tashkeel2	مر بعصعصفور جميل
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 01:12	Tashkeel2	الفقير محتاج .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 01:15	Tashkeel2	الفقير محتاج .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 01:18	Tashkeel2	الفقير محتاج .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 01:19	Tashkeel2	الحجرة مظلمة .
+
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp
+INFO:tashkeel.tashkeel:Cache Path cache /home/zerrouki/.qalsadiCache
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 04:37	CompareTashkeel	ينزل المطر من السماء .
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:MyTestWebApp:2018-04-27 04:39	CompareTashkeel	ينزل المطر من السماء .
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 04:51	Tashkeel2	ينزل المطر من السماء .
+
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:MyTestWebApp:2018-04-27 04:51	CompareTashkeel	ينزل المطر من السماء .
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:MyTestWebApp:2018-04-27 04:51	ReduceTashkeel	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص أوسَعُ الناسِ دُنيا ولَه مِن المالِ مالا يُنتَهي إلى عَدِّه ولايُوقَفُ على حَدِّه وبَلَغَ مِن جده أنَّه قال تَمَنَيتُ أنْ أخسرَ ولو مَرَّة فَقيلَ له اشتَرِ التمرَ مِن الكوفة وبِعهُ في البصرة وكان بالبَصرة نخيل كثيرة وتَمرُها مُتَوَفِّرٌ بِكَثرة وكانت الكوفة قَليلَةُ التمر، ففعل ذلك فاتفَقَ أنَّ نَخلَ البصرة لَم يَحمِل في ذلك العام فربح من بيعه تمر الكوفة ربحاَ واسعاً. فسُبحانَ المُعطي.  
+
+INFO:MyTestWebApp:2018-04-27 04:51	chunk	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص أوسَعُ الناسِ دُنيا ولَه مِن المالِ مالا يُنتَهي إلى عَدِّه ولايُوقَفُ على حَدِّه وبَلَغَ مِن جده أنَّه قال تَمَنَيتُ أنْ أخسرَ ولو مَرَّة فَقيلَ له اشتَرِ التمرَ مِن الكوفة وبِعهُ في البصرة وكان بالبَصرة نخيل كثيرة وتَمرُها مُتَوَفِّرٌ بِكَثرة وكانت الكوفة قَليلَةُ التمر، ففعل ذلك فاتفَقَ أنَّ نَخلَ البصرة لَم يَحمِل في ذلك العام فربح من بيعه تمر الكوفة ربحاَ واسعاً. فسُبحانَ المُعطي.  
+
+INFO:MyTestWebApp:2018-04-27 04:52	Wordtag	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص أوسَعُ الناسِ دُنيا ولَه مِن المالِ مالا يُنتَهي إلى عَدِّه ولايُوقَفُ على حَدِّه وبَلَغَ مِن جده أنَّه قال تَمَنَيتُ أنْ أخسرَ ولو مَرَّة فَقيلَ له اشتَرِ التمرَ مِن الكوفة وبِعهُ في البصرة وكان بالبَصرة نخيل كثيرة وتَمرُها مُتَوَفِّرٌ بِكَثرة وكانت الكوفة قَليلَةُ التمر، ففعل ذلك فاتفَقَ أنَّ نَخلَ البصرة لَم يَحمِل في ذلك العام فربح من بيعه تمر الكوفة ربحاَ واسعاً. فسُبحانَ المُعطي.  
+
+INFO:MyTestWebApp:2018-04-27 04:52	chunk	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص أوسَعُ الناسِ دُنيا ولَه مِن المالِ مالا يُنتَهي إلى عَدِّه ولايُوقَفُ على حَدِّه وبَلَغَ مِن جده أنَّه قال تَمَنَيتُ أنْ أخسرَ ولو مَرَّة فَقيلَ له اشتَرِ التمرَ مِن الكوفة وبِعهُ في البصرة وكان بالبَصرة نخيل كثيرة وتَمرُها مُتَوَفِّرٌ بِكَثرة وكانت الكوفة قَليلَةُ التمر، ففعل ذلك فاتفَقَ أنَّ نَخلَ البصرة لَم يَحمِل في ذلك العام فربح من بيعه تمر الكوفة ربحاَ واسعاً. فسُبحانَ المُعطي.  
+
+INFO:MyTestWebApp:2018-04-27 04:53	CompareTashkeel	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص أوسَعُ الناسِ دُنيا ولَه مِن المالِ مالا يُنتَهي إلى عَدِّه ولايُوقَفُ على حَدِّه وبَلَغَ مِن جده أنَّه قال تَمَنَيتُ أنْ أخسرَ ولو مَرَّة فَقيلَ له اشتَرِ التمرَ مِن الكوفة وبِعهُ في البصرة وكان بالبَصرة نخيل كثيرة وتَمرُها مُتَوَفِّرٌ بِكَثرة وكانت الكوفة قَليلَةُ التمر، ففعل ذلك فاتفَقَ أنَّ نَخلَ البصرة لَم يَحمِل في ذلك العام فربح من بيعه تمر الكوفة ربحاَ واسعاً. فسُبحانَ المُعطي.  
+
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 05:14	Tashkeel2	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق.
+ وكان ابن الجصاص أوسَعُ الناسِ دُنيا ولَه مِن المالِ مالا يُنتَهي إلى عَدِّه ولايُوقَفُ على حَدِّه وبَلَغَ مِن جده أنَّه قال تَمَنَيتُ أنْ أخسرَ ولو مَرَّة فَقيلَ له اشتَرِ التمرَ مِن الكوفة وبِعهُ في البصرة وكان بالبَصرة نخيل كثيرة وتَمرُها مُتَوَفِّرٌ بِكَثرة وكانت الكوفة قَليلَةُ التمر، ففعل ذلك فاتفَقَ أنَّ نَخلَ البصرة لَم يَحمِل في ذلك العام فربح من بيعه تمر الكوفة ربحاَ واسعاً.
+ فسُبحانَ المُعطي.
+  
+
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:MyTestWebApp:2018-04-27 05:15	Tashkeel2	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق.
+ وكان ابن الجصاص أوسَعُ الناسِ دُنيا ولَه مِن المالِ مالا يُنتَهي إلى عَدِّه ولايُوقَفُ على حَدِّه وبَلَغَ مِن جده أنَّه قال تَمَنَيتُ أنْ أخسرَ ولو مَرَّة فَقيلَ له اشتَرِ التمرَ مِن الكوفة وبِعهُ في البصرة وكان بالبَصرة نخيل كثيرة وتَمرُها مُتَوَفِّرٌ بِكَثرة وكانت الكوفة قَليلَةُ التمر، ففعل ذلك فاتفَقَ أنَّ نَخلَ البصرة لَم يَحمِل في ذلك العام فربح من بيعه تمر الكوفة ربحاَ واسعاً.
+ فسُبحانَ المُعطي.
+  
+
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 05:16	Tashkeel2	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق.
+ وكان ابن الجصاص أوسَعُ الناسِ دُنيا ولَه مِن المالِ مالا يُنتَهي إلى عَدِّه ولايُوقَفُ على حَدِّه وبَلَغَ مِن جده أنَّه قال تَمَنَيتُ أنْ أخسرَ ولو مَرَّة فَقيلَ له اشتَرِ التمرَ مِن الكوفة وبِعهُ في البصرة وكان بالبَصرة نخيل كثيرة وتَمرُها مُتَوَفِّرٌ بِكَثرة وكانت الكوفة قَليلَةُ التمر، ففعل ذلك فاتفَقَ أنَّ نَخلَ البصرة لَم يَحمِل في ذلك العام فربح من بيعه تمر الكوفة ربحاَ واسعاً.
+ فسُبحانَ المُعطي.
+  
+
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 05:16	CompareTashkeel	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص أوسَعُ الناسِ دُنيا ولَه مِن المالِ مالا يُنتَهي إلى عَدِّه ولايُوقَفُ على حَدِّه وبَلَغَ مِن جده أنَّه قال تَمَنَيتُ أنْ أخسرَ ولو مَرَّة فَقيلَ له اشتَرِ التمرَ مِن الكوفة وبِعهُ في البصرة وكان بالبَصرة نخيل كثيرة وتَمرُها مُتَوَفِّرٌ بِكَثرة وكانت الكوفة قَليلَةُ التمر، ففعل ذلك فاتفَقَ أنَّ نَخلَ البصرة لَم يَحمِل في ذلك العام فربح من بيعه تمر الكوفة ربحاَ واسعاً. فسُبحانَ المُعطي.  
+
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 05:16	CompareTashkeel	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 05:17	chunk	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 05:19	chunk	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:MyTestWebApp:2018-04-27 05:19	chunk	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 05:25	Tashkeel2	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق.
+ وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 05:28	Tashkeel2	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق.
+ وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 05:30	Tashkeel2	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق.
+ وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 05:31	CompareTashkeel	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 05:31	chunk	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 05:36	Tashkeel2	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق.
+ وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 05:36	CompareTashkeel	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:04	Tashkeel2	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق.
+ وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:04	LightStemmer	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:MyTestWebApp:2018-04-27 06:05	CompareTashkeel	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:05	LightStemmer	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 06:24	Tashkeel2	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق.
+ وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 06:25	Tashkeel2	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق.
+ وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:27	Tashkeel2	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق.
+ وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:27	LightStemmer	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:MyTestWebApp:2018-04-27 06:28	CompareTashkeel	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:28	ReduceTashkeel	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:MyTestWebApp:2018-04-27 06:30	CompareTashkeel	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:31	LightStemmer	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:MyTestWebApp:2018-04-27 06:31	Tashkeel2	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق.
+ وكان ابن الجصاص 
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:31	chunk	 
+	 كان المعتضد إذا رأى ابنَ الجصاص قال : هذا أحمقٌ مرزوق. وكان ابن الجصاص 
+INFO:MyTestWebApp:2018-04-27 06:43	Tashkeel2	 
+	 كان المعتضد
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:43	LightStemmer	 
+	 كان المعتضد
+INFO:MyTestWebApp:2018-04-27 06:43	LightStemmer	 كان المعتضد
+INFO:MyTestWebApp:2018-04-27 06:43	Tashkeel2	 كان المعتضد
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:44	Tashkeel2	 كان المعتضد
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:44	Tashkeel2	 كان المعتضد
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:44	Tashkeel2	 كان المعتضدون
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:44	Tashkeel2	 كان المعتضدونة
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:44	Tashkeel2	 كان السابق هنا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:44	Tashkeel2	 كان السابق هنا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:44	Tashkeel2	 كان السابق هنا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:45	Tashkeel2	 كان السابق هنا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:45	StripHarakat	رَبِيْــع مُتأخّر يَأتِــيْ بِمَــا
+INFO:MyTestWebApp:2018-04-27 06:45	Tashkeel2	ربيــع متأخر يأتــي بمــا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:45	Tashkeel2	ربيــع متأخر يأتــي بمــا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 06:47	Tashkeel2	ربيــع متأخر يأتــي بمــا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 06:47	Tashkeel2	ربيــع متأخر يأتــي بمــا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 06:48	Tashkeel2	ربيــع متأخر يأتــي بمــا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 06:49	Tashkeel2	ربيــع متأخر يأتــي بمــا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 07:13	Tashkeel2	ربيــع متأخر يأتــي بمــا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 07:47	Tashkeel2	ربيــع متأخر يأتــي بمــا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 07:55	Tashkeel2	ربيــع متأخر يأتــي بمــا
+INFO:tashkeel.tashkeel:Cache Path interfaces/web/../../core/../tmp/
+INFO:tashkeel.tashkeel:Cache Path cache interfaces/web/../../core/../tmp/.qalsadiCache
+INFO:tashkeel.tashkeel:Cache Path cache syntax interfaces/web/../../core/../tmp/.thaalabCache
+INFO:tashkeel.tashkeel:Cache Path cache anasem interfaces/web/../../core/../tmp/.thaalabCache
+INFO:MyTestWebApp:2018-04-27 07:55	LightStemmer	ربيــع متأخر يأتــي بمــا
+INFO:MyTestWebApp:2018-04-27 07:55	LightStemmer	ربيــع متأخر يأتــي بمــا
+INFO:MyTestWebApp:2018-04-27 07:55	chunk	ربيــع متأخر يأتــي بمــا
+INFO:MyTestWebApp:2018-04-27 09:00	LightStemmer	ربيــع متأخر يأتــي بمــا
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 09:02	Tashkeel2	ربيــع متأخر يأتــي بمــا
+INFO:MyTestWebApp:2018-04-27 09:03	Tashkeel2	ربيــع متأخر يأتــي بمــا
+INFO:MyTestWebApp:2018-04-27 09:03	Tashkeel2	ربيــع متأخر يأتــي بمــا تشتهيه
+INFO:MyTestWebApp:2018-04-27 09:07	Tashkeel2	ربيــع متأخر يأتــي بمــا تشتهيه
+INFO:MyTestWebApp:2018-04-27 09:07	LightStemmer	ربيــع متأخر يأتــي بمــا تشتهيه
+INFO:MyTestWebApp:2018-04-27 09:07	SpellCheck	ربيــع متأخر يأتــي بمــا تشتهيه
+INFO:MyTestWebApp:2018-04-27 09:07	LightStemmer	ربيــع متأخر يأتــي بمــا تشتهيه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 09:22	Tashkeel2	ربيــع متأخر يأتــي بمــا تشتهيه
+INFO:MyTestWebApp:2018-04-27 09:27	CompareTashkeel	ربيــع متأخر يأتــي بمــا تشتهيه
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-27 09:43	Tashkeel2	ربيــع متأخر يأتــي بمــا تشتهيه

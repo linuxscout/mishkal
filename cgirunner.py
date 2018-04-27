@@ -1,10 +1,9 @@
 #!/usr/bin/python
-import cgitb
-
 import os.path
+import cgitb
 cgitb.enable(logdir=os.path.join(
-			os.path.dirname(__file__), 'LOGS'),
-		    display=False, format='html',)
+            os.path.dirname(__file__), 'tmp/logs'),
+            display=True, format='html',)
 import os, sys
 
 def run_with_cgi(application):

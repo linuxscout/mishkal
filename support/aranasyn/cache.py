@@ -25,7 +25,6 @@ from CodernityDB.hash_index import HashIndex
 from hashlib import md5
 from pyarabic.arabrepr import arepr
 
-DB_PATH = os.path.join(os.path.expanduser('~'), '.thaalabCache')
 
 class WithAIndex(HashIndex):
 
@@ -51,7 +50,8 @@ class cache :
     """
         cache for word morphological analysis
     """
-    def __init__(self, filepath=False):
+    DB_PATH = os.path.join(os.path.expanduser('~'), '.thaalabCache')
+    def __init__(self, cache_path=False):
         """
         Create Analex Cache
         """
@@ -62,7 +62,10 @@ class cache :
             base = sys.prefix
         else: # otherwise this is a regular python script
             base = os.path.dirname(os.path.realpath(__file__))
-        file_path = DB_PATH
+        if not cache_path:
+            file_path = self.DB_PATH
+        else:
+            file_path = os.path.join(os.path.dirname(cache_path), '.thaalabCache')
         
         self.cache={};
         self.db = Database(file_path)
@@ -83,6 +86,7 @@ class cache :
 
     def update(self):
         """update data base """
+        #~ pass
         for word in self.cache:
             self.add_checked(word, self.cache[word])        
 
@@ -171,6 +175,7 @@ class cache :
 
     def display_all(self):
         """ display all contents of data base """
+        #~ pass
         print "aranasyn.cache: dislay all records in Thaalib Database """
         for curr in self.db.all('a', with_doc=True):
             print curr['doc']['a'], arepr(curr['doc']['d'])

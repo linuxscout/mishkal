@@ -36,12 +36,12 @@ class SemanticAnalyzer:
         Arabic Semantic analyzer
     """
 
-    def __init__(self):
+    def __init__(self, cache_path=False):
         
         self.semdict = semdictionary.SemanticDictionary()
         
         # a NoSql database for ferquent relationship between lexical words.
-        self.syncache = aranasyn.cache.cache()
+        self.syncache = aranasyn.cache.cache(cache_path)
         
     def analyze(self, detailed_stemming_dict):
         """

@@ -21,11 +21,7 @@ from CodernityDB.hash_index import HashIndex
 from hashlib import md5
 import pyarabic.arabrepr as arabrepr
 arabicRepr = arabrepr.ArabicRepr()
-#DB_PATH = '/var/qalsadiCache'import os
-DB_PATH = os.path.join(os.path.expanduser('~'), '.qalsadiCache')
-
-#DB_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data/qalsadiCache')
-
+import os
 
 class WithAIndex(HashIndex):
     """ hache with Index Class """
@@ -56,7 +52,7 @@ class Cache(object):
         cache for word morphological analysis
     """
 
-    def __init__(self, ):
+    def __init__(self, db_path_cache=):
         """
         Create Analex Cache
         """

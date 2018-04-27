@@ -37,7 +37,12 @@ class TashkeelClass:
     """
         Arabic Tashkeel Class
     """
-    def __init__(self):
+    def __init__(self, mycache_path=False):
+        # configure logging 
+        logging.basicConfig(level=logging.INFO)
+        self.logger = logging.getLogger(__name__)
+        #~ self.logger.info("Cache Path %s"%mycache_path)
+
         # to display internal messages for debugging
         #~debug = False
         # limit of words to vocalize, default value is 1000 words.
@@ -78,17 +83,23 @@ class TashkeelClass:
         self.allow_syntax_last_mark = True 
 
         # lexical analyzer
-        self.analyzer = qalsadi.analex.Analex()
+        self.analyzer = qalsadi.analex.Analex(cache_path = mycache_path)
+        #~ self.logger.info("Cache Path cache %s"%self.analyzer.cache.DB_PATH)
+        #~ self.logger.info("Cache Path cache %s"%self.analyzer.cache.db.path)
         #~ self.analyzer.disable_allow_cache_use()
         self.analyzer.enable_allow_cache_use()
 
         # syntaxic analyzer
-        self.anasynt = aranasyn.anasyn.SyntaxAnalyzer()
+        self.anasynt = aranasyn.anasyn.SyntaxAnalyzer(cache_path = mycache_path)
+        #~ self.logger.info("Cache Path cache syntax %s"%self.anasynt.cache.db.path)
+        
         # to disable the training when do Tashkeel
         self.syntax_train_enabled = False
         
         # semantic analyzer
-        self.anasem = asmai.anasem.SemanticAnalyzer()        
+        self.anasem = asmai.anasem.SemanticAnalyzer(cache_path = mycache_path)
+        #~ self.logger.info("Cache Path cache anasem %s"%self.anasem.syncache.db.path)
+       
         #set the lexical analzer debugging
         self.analyzer.set_debug(debug)
         #set the lexical analzer  word limit
@@ -99,9 +110,6 @@ class TashkeelClass:
         # unknown vocalizer for unrecognized words
         self.unknown_vocalizer = unknown_tashkeel.UnknownTashkeel()
         
-        # configure logging 
-        logging.basicConfig(level=logging.INFO)
-        self.logger = logging.getLogger(__name__)
 
     
     def set_limit(self, limit):
@@ -138,6 +146,7 @@ class TashkeelClass:
         disable the morphological use of cache.
         """
         self.analyzer.disable_allow_cache_use()
+        self.anasynt.disable_allow_cache_use()
 
     def get_enabled_stat_tashkeel(self):
         """

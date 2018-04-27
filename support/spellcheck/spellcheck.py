@@ -26,7 +26,7 @@ class SpellcheckClass:
         Arabic Spellcheck Class
     """
 
-    def __init__(self):
+    def __init__(self, cache_path=False):
         # to display internal messages for debugging
         debug=False;
         # limit of words to vocalize, default value is 1000 words.
@@ -53,7 +53,7 @@ class SpellcheckClass:
         # default value is True, can be disabled for debuging porpus        
         self.enabledSemanticAnalysis= True;
         # lexical analyzer
-        self.analyzer=qalsadi.analex.Analex()
+        self.analyzer=qalsadi.analex.Analex(cache_path)
 
         #speller based on yaraspell
         self.speller = yaraspell.spelldict.spelldict()

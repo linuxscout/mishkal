@@ -14,11 +14,8 @@
 Adaat, arabic tools interface
 """
 import sys,os
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../support/'))
-#sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal/lib/'))
-sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal'))
-#sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../lib/web'))
-#sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../support/'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../mishkal'))
 import random
 import pyarabic.araby  as araby # arabic words general functions
 import pyarabic.number
@@ -233,7 +230,8 @@ def full_stemmer(text, lastmark):
     result = []
     debug = False
     limit = 100
-    analyzer = qalsadi.analex.Analex()
+    cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
+    analyzer = qalsadi.analex.Analex(cache_path=cpath)
     if lastmark == "0" or not lastmark:
         analyzer.disable_syntax_lastmark()
 
@@ -241,6 +239,7 @@ def full_stemmer(text, lastmark):
     anasem = asmai.anasem.SemanticAnalyzer()    
     analyzer.set_debug(debug)
     analyzer.set_limit(limit)
+    analyzer.disable_allow_cache_use()    
     mode = 'all'
     result = analyzer.check_text(text)
     #~result, synodelist = anasynt.analyze(result)
@@ -463,7 +462,8 @@ def tashkeel_text(text, lastmark=True):
     Tashkeel text without suggestions
     """
     import tashkeel.tashkeel as ArabicVocalizer
-    vocalizer = ArabicVocalizer.TashkeelClass()
+    cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
+    vocalizer = ArabicVocalizer.TashkeelClass(mycache_path=cpath)
     #~ print "lastMark", lastmark
     if lastmark == "0":
         vocalizer.disable_last_mark()
@@ -673,12 +673,12 @@ def tashkeel2(text, lastmark):
     Tashkeel text with suggestions
     """
     import tashkeel.tashkeel as ArabicVocalizer
-    vocalizer = ArabicVocalizer.TashkeelClass()
-    #print (u"lastMark %s"%lastmark).encode('utf8')
+    cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
+    vocalizer = ArabicVocalizer.TashkeelClass(mycache_path = cpath)
+    #~ vocalizer.disable_cache()
     if lastmark == "0" or not lastmark:
         vocalizer.disable_last_mark()    
     vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(text)
-    #print vocalized_dict
     return vocalized_dict
     
 def spellcheck(text):
@@ -686,7 +686,8 @@ def spellcheck(text):
     Spellcheck a text
     """
     import spellcheck.spellcheck as ArabicSpellchecker
-    vocalizer = ArabicSpellchecker.SpellcheckClass()
+    cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
+    vocalizer = ArabicSpellchecker.SpellcheckClass(cpath)
     #print (u"lastMark %s"%lastmark).encode('utf8')
     vocalized_dict = vocalizer.spellcheckOuputHtmlSuggest(text)
     return vocalized_dict
@@ -699,8 +700,11 @@ def compare_tashkeel(text):
     # the entred text is vocalized correctly
     correct_text = text.strip()
     text = araby.strip_tashkeel(text.strip())
-    vocalizer = ArabicVocalizer.TashkeelClass()
+    cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
+    vocalizer = ArabicVocalizer.TashkeelClass(mycache_path=cpath)
     #~vocalized_text = vocalizer.tashkeel(text)
+    #~ vocalizer.disable_cache()
+
     vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(text)
     
     # compare voalized text with a correct text
@@ -769,7 +773,8 @@ def assistanttashkeel(text):
     get tashkeel with suggestions
     """
     import tashkeel.tashkeel as ArabicVocalizer
-    vocalizer = ArabicVocalizer.TashkeelClass()
+    cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
+    vocalizer = ArabicVocalizer.TashkeelClass(mycache_path=cpath)
     vocalized_text = vocalizer.assistanttashkeel(text)
     return vocalized_text
 def random_text():
@@ -786,9 +791,10 @@ def chunksplit(text):
     import qalsadi.analex
     import aranasyn.anasyn
     # lexical analyzer
-    morphanalyzer = qalsadi.analex.Analex()
+    cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
+    morphanalyzer = qalsadi.analex.Analex(cache_path=cpath)
     # syntaxic analyzer
-    anasynt = aranasyn.anasyn.SyntaxAnalyzer();    
+    anasynt = aranasyn.anasyn.SyntaxAnalyzer(cache_path=cpath);    
     #~ line =  araby.strip_tashkeel(line);
     #morpholigical analysis of text
     detailled_stem =  morphanalyzer.check_text(text);

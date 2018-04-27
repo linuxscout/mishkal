@@ -32,14 +32,14 @@ class SyntaxAnalyzer:
     """
         Arabic Syntax analyzer
     """
-    def __init__(self):
+    def __init__(self, cache_path=False):
         self.wordtagger = wordtag.WordTagger()
         ## Cache for relations betwwen words
         # I will use it for traning for extracting relations between original words
         self.syntax_train_enabled = False
         #~ self.syntax_train_enabled = True
         #file to use as cache in NoSQL format
-        self.cache = cache.cache()
+        self.cache = cache.cache(cache_path)
         # structure will be:
         # { "original-word":{
         # "nextoriginalword":{relation1:frequncy, relation2:frequency2},},
@@ -52,7 +52,7 @@ class SyntaxAnalyzer:
             self.cache.update()
             self.cache.display_all()
         pass
-        
+    
     def add_cache_relation(self, previous, current, relation):
         """
         Add relation between previous and current with realtion code
@@ -970,6 +970,18 @@ class SyntaxAnalyzer:
             if tmplist:
                 grammar_list = tmplist
         return True              
+    def enable_allow_cache_use(self):
+        """
+        Allow the anasyntax to use Cache to reduce calcul.
+        """
+        self.syntax_train_enabled = True
+
+    def disable_allow_cache_use(self):
+        """
+        Not allow the anasyntax to use Cache to reduce calcul.
+        """
+        self.syntax_train_enabled = False
+        
     def decode(self, stemmed_synwordlistlist):
         """
         Decode objects result from analysis. helps to display result.

@@ -24,7 +24,7 @@ class UnknownTashkeel:
     """
     def __init__(self):
         pass
-    def lookup(self, word)
+    def lookup(self, word):
         """
         return a vocalized form of an unknown word, from a word list
         """

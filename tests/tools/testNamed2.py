@@ -22,7 +22,7 @@ def phraseSplit(text):
 	@return: list of clauses
 	@rtype: list of unicode
 	"""
-	list_word=;
+	list_word=[];
 	return list_word;
 	
 def usage():
