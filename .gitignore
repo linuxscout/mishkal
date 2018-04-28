@@ -1,0 +1,8 @@
+*.pyc
+tests/*
+tmp/*
+/support/asmai/data/tosql2.py
+/support/asmai/data/tosql3-masdar.py
+/support/asmai/data/tosql3-masdarpy
+/support/asmai/data/tosql3.py
+/support/asmai/data/txt.sql
