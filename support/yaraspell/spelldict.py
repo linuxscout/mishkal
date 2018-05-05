@@ -14,6 +14,12 @@
 """
     Arabic spell checker Class 
 """
+from __future__ import (
+            absolute_import,
+                print_function,
+                    unicode_literals,
+                        division,
+                            )
 import re
 import operator
 import os
@@ -24,9 +30,9 @@ sys.path.append("../")
 import tashaphyne.stemming 
 import pyarabic.araby as araby
 from spelltools import edits1
-import stem_const 
-import spelltools
-import spelldb
+from . import stem_const 
+from . import spelltools
+from . import spelldb
 DICTFILENAME = os.path.join(os.path.dirname(os.path.realpath(__file__)), u"data/spellcheck.sqlite")
 class spelldict:
     def __init__(self, dictfilename = DICTFILENAME):
