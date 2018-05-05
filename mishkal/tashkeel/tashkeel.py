@@ -27,6 +27,7 @@ import pyarabic.named
 import unknown_tashkeel
 from operator import and_
 from itertools import izip, count
+import mysam.tagmaker
 
 # This global constant is used todefine where the vocazlizer don't vocalized uncertain words' ends
 UNCERTAIN_TASHKEEL = False
@@ -40,6 +41,7 @@ class TashkeelClass:
     def __init__(self, mycache_path=False):
         # configure logging 
         logging.basicConfig(level=logging.INFO)
+        #~ logging.basicConfig(level=logging.DEBUG)
         self.logger = logging.getLogger(__name__)
         #~ self.logger.info("Cache Path %s"%mycache_path)
 
@@ -347,21 +349,8 @@ class TashkeelClass:
                 previous_chosen_relation = current_chosen_relation 
                 #~ current_chosen_relation = previous.get_next_relation(current_chosen_case_index)
                 
-                #~print current_chosen_case_index, len(detailled_syntax[current_index]), current_index
-                # ajust tanwin case
-                # if previous and previous.canhave_tanwin() and not 
-                # self.anasynt.is_related(previous, current_chosen):
-                    # vocalized_text += "1"
-                    # _chosen_list[len(_chosen_list)-1].ajust_tanwin() 
-                # o ajust relation between words
-                # if the actual word is transparent don't change the previous
-                # add this to Sytaxic Analyser
                 current_chosen = word_cases_list[current_chosen_case_index]
-                #~ if not current_chosen.is_transparent():
-                    #~ previous_index = current_index 
-                    #~ previous_case_index = current_chosen_case_index 
-                    #~ previous = current_chosen
-                #~ if not current_chosen.is_transparent():
+
                 previous_index = current_index 
                 previous_case_index = current_chosen_case_index 
                 previous = current_chosen
@@ -370,37 +359,25 @@ class TashkeelClass:
                 # create a suggest list
                 #~ suggest = [item.get_vocalized() for item in word_cases_list]
                 suggest = current_synode.get_vocalizeds()
-                #~for item in word_cases_list:
-                    #~# ITEM IS A stemmedSynWord instance
-                    #~voc = item.get_vocalized()
-                    #~suggest.append(voc)
-                    # if item.canhave_tanwin():
-                        # # يمكن لهذا أن يولد صيغا جديدة بها تنوي
-                        # # في بعض الحالات قد لا يكون شيئا جديدا 
- # # نقارنه مع الكلمة السابقة منوّنة
-# ومن ثمّ نقرر إضافتها أولا
-                        # item.ajust_tanwin()
-                        # vocTnwn = item.get_vocalized()
-                        # if vocTnwn! = voc:
-                            # suggest.append(vocTnwn)
-                #~ suggest = list(set(suggest))
-                #~ suggest.sort()
                 suggests_list.append(suggest)
         output_suggest_list = []
         #create texts from chosen cases
         privous_order = -1
         previous = -1
-        #~ print "tashkeel 1.0", len(_chosen_list)        
         for i, current_chosen in enumerate(_chosen_list):
             voc_word = _chosen_list[i].get_vocalized()
             if not voc_word:
                 voc_word = _chosen_list[i].get_word()
-            #print "uuu", _chosen_list[i].get_semivocalized().encode('utf8')
-            #print _chosen_list[i]
-            #print "**", voc_word.encode('utf8')
             semivocalized = _chosen_list[i].get_semivocalized()
             #word without inflection mark
             inflect = u":".join([_chosen_list[i].get_type() , _chosen_list[i].get_tags_to_display()] ) 
+            # Create a special tag
+            mytagmaker  = mysam.tagmaker.tagMaker()
+            mytagmaker.encode(_chosen_list[i].get_tags().split(':'))
+            mytagmaker.encode(_chosen_list[i].get_type().split(':'))
+            self.logger.info("TaharZe Tags to display '%s' and tagmaker =='%s'", _chosen_list[i].get_tags(),str(mytagmaker)) 
+
+            inflect = u"[%s]{%s}"%(str(mytagmaker), mytagmaker.inflect()) +"<br/>"+ inflect;
             if previous >= 0:
                 relation = _chosen_list[i].get_previous_relation(_chosen_list[previous].get_order())
             else: 
@@ -645,11 +622,80 @@ class TashkeelClass:
             indxlist = sorted(indxlist, key=lambda x:caselist[x].get_freq())
         # initial cases
         if not rule and (not previous or previous.is_initial()):
-            tmplist = filter(lambda x: (caselist[x].is_stopword() or
-                     (caselist[x].is_marfou3() and not caselist[x].is_passive())
-                     or caselist[x].is_past() ), indxlist)
-            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, rule)
+            # choose the initial case
+            indxlist, rule = self.__choose_initial(indxlist, caselist,  next_chosen_indexes, next_node)
             # and lets other methode to choices by semantic and syntaxic
+        if not rule:
+            indxlist, rule = self.__choose_cases(indxlist, caselist, previous, next_chosen_indexes, next_node, previous_chosen_relation)
+
+
+            #select default
+        
+        if not rule:
+            indxlist, rule = self.__choose_default(indxlist, caselist)
+                                        
+        # select the first case if there one or many
+        chosen_index =  indxlist[0]
+        chosen = caselist[chosen_index]
+        if not rule: rule = 100
+        if debug: print 100,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
+         
+        
+        # set the selection rule to dispaly how tahskeel is selected
+        chosen.set_rule(rule)
+        return chosen.get_order() 
+            
+    def __choose_initial(self, indxlist, caselist, next_chosen_indexes, next_node):
+        """
+        Select the initial case to start a sentence 
+        @param caselist: list of steming result of the word.
+        @type caselist: list of stemmedSynword
+        @param indxlist: list of index.
+        @type indxlist: list of integer
+        @return: indexlist and rule.
+        @rtype:( list of integer, integer/False) .
+        """
+        rule = False
+        # select more words with relations
+        if not rule and self.get_enabled_semantic_analysis():
+            # one semantic relations from next
+            tmplist = filter(lambda x: caselist[x].has_sem_next(next_chosen_indexes), indxlist)
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 6)
+        #~ if not rule:           
+            #~ tmplist = filter(lambda x:  caselist[x].is_stopword() and caselist[x].has_next(next_chosen_indexes) , indxlist)
+
+            #~ indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 10)
+        if not rule and self.get_enabled_syntaxic_analysis():
+            # select all cases with syntaxic relations
+            tmplist = filter(lambda x: caselist[x].has_next(next_chosen_indexes), indxlist)
+
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 14)
+        #~ if not rule:
+            #~ # select all cases with tanwin
+            #~ if (next_node and next_node.is_break()) or not next_node:
+                #~ tmplist = filter(lambda x: caselist[x].is_tanwin() or not caselist[x].is_noun() , indxlist)
+
+                #~ indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 15)
+ 
+        # choose default for initial
+        tmplist = filter(lambda x: (caselist[x].is_stopword() or
+                 (caselist[x].is_marfou3() and not caselist[x].is_passive())
+                 or caselist[x].is_past() ), indxlist)
+        indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 200)
+        
+        return  indxlist, rule
+    def __choose_cases(self, indxlist, caselist, previous, next_chosen_indexes, next_node, previous_chosen_relation):
+        """
+        Select the case  in the middle, when it is possible
+        @param caselist: list of steming result of the word.
+        @type caselist: list of stemmedSynword
+        @param indxlist: list of index.
+        @type indxlist: list of integer
+        @return: indexlist and rule.
+        @rtype:( list of integer, integer/False) .
+        """
+        rule = 0 
             # select all cases with semantic relations
         if not rule and self.get_enabled_semantic_analysis():            
             tmplist = filter(lambda x: self.anasem.is_related(previous, caselist[x]) or caselist[x].has_sem_next(next_chosen_indexes), indxlist)
@@ -754,23 +800,8 @@ class TashkeelClass:
 
                 indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 15)
 
-            #select default
-        
-        if not rule:
-            indxlist, rule = self.__choose_default(indxlist, caselist)
-                                        
-        # select the first case if there one or many
-        chosen_index =  indxlist[0]
-        chosen = caselist[chosen_index]
-        if not rule: rule = 100
-        if debug: print 100,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
-         
-        
-        # set the selection rule to dispaly how tahskeel is selected
-        chosen.set_rule(rule)
-        return chosen.get_order() 
-            
-
+        return  indxlist, rule
+    
     def __choose_default(self, indxlist, caselist):
         """
         Select default cases when all others methods fail
