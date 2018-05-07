@@ -1,36 +1,294 @@
 #! /usr/bin/python
-from distutils.core import setup
-from glob import glob
+from setuptools import setup
 import sys
-sys.path.append("lib");
+sys.path.append("support");
+sys.path.append("support/yaraspell");
+sys.path.append("interfaces/web/lib");
+sys.path.append("interfaces/web/lib/paste");
+sys.path.append("interfaces/web/lib/simlejson");
+sys.path.append("interfaces/web/lib/okasha2");
+sys.path.append("interfaces/web");
+sys.path.append("interfaces/gui");
+sys.path.append("mishkal");
 import py2exe
-setup(name='Mishkal Softwares', version='0.2',
-      description='Mishkal Softwares',
+MyDataFiles = [
+
+('data', ['./data/randomtext.txt']),
+
+('docs', [
+	'./docs/AUTHORS.txt',
+	'./docs/ChangeLog.txt',
+	'./docs/COPYING.txt',
+	'./docs/HowTo.odt',
+	'./docs/Ideas.odt',
+	'./docs/ideas.txt',
+	'./docs/README.txt',
+	'./docs/THANKS.txt',
+	'./docs/TODO.txt',
+	'./docs/VERSION.txt',
+]),
+
+('docs/html/images',
+	['./docs/html/images/adawatstyle.css',
+	'./docs/html/images/gotashkeel.png',
+	'./docs/html/images/mishkal.png',
+	'./docs/html/images/mishkal_alpha_smpl.png',
+	'./docs/html/images/mixkal.jpg',
+	]
+),
+
+
+# ('interfaces/',[]),
+# ('interfaces/gui/',[]),
+# ('interfaces/gui/ar',
+('ar',
+	[
+	'./interfaces/gui/ar/about.html',
+	'./interfaces/gui/ar/help_body.html',
+	# './interfaces/gui/ar/images',
+	'./interfaces/gui/ar/projects.html',
+	'./interfaces/gui/ar/style.css',
+	]
+),
+
+# ('interfaces/gui/ar/images',
+('ar/images',
+	[
+	'./interfaces/gui/ar/images/alef_wasla.png',
+	'./interfaces/gui/ar/images/animation.png',
+	'./interfaces/gui/ar/images/appicon.ico',
+	'./interfaces/gui/ar/images/appicon.png',
+	'./interfaces/gui/ar/images/copy.png',
+	'./interfaces/gui/ar/images/cut.png',
+	'./interfaces/gui/ar/images/damma.png',
+	'./interfaces/gui/ar/images/dammatan.png',
+	'./interfaces/gui/ar/images/exit.png',
+	'./interfaces/gui/ar/images/fatha.png',
+	'./interfaces/gui/ar/images/fathatan.png',
+	'./interfaces/gui/ar/images/font.png',
+	'./interfaces/gui/ar/images/gaf.png',
+	'./interfaces/gui/ar/images/help.jpg',
+	'./interfaces/gui/ar/images/icon.png',
+	'./interfaces/gui/ar/images/ix.ico',
+	'./interfaces/gui/ar/images/ixn.ico',
+	'./interfaces/gui/ar/images/kasra.png',
+	'./interfaces/gui/ar/images/kasratan.png',
+	'./interfaces/gui/ar/images/logo.png',
+	'./interfaces/gui/ar/images/new.png',
+	'./interfaces/gui/ar/images/open.png',
+	'./interfaces/gui/ar/images/paste.png',
+	'./interfaces/gui/ar/images/peh.png',
+	'./interfaces/gui/ar/images/preview.png',
+	'./interfaces/gui/ar/images/print.png',
+	'./interfaces/gui/ar/images/qutrub.ico',
+	'./interfaces/gui/ar/images/save.png',
+	'./interfaces/gui/ar/images/shadda.png',
+	'./interfaces/gui/ar/images/smallalef.png',
+	'./interfaces/gui/ar/images/sukun.png',
+	# './interfaces/gui/ar/images/svg',
+	'./interfaces/gui/ar/images/tatweel.png',
+	'./interfaces/gui/ar/images/text-speak.png',
+	'./interfaces/gui/ar/images/weblogo.ico',
+	'./interfaces/gui/ar/images/zoomin.png',
+	'./interfaces/gui/ar/images/zoomout.png',
+	'./interfaces/gui/ar/images/zwj.png',
+	'./interfaces/gui/ar/images/zwnj.png',
+
+	],
+),
+# ('interfaces/gui/gui/',[]),
+# ('interfaces/gui/gui/ar',
+('gui/ar',
+	[
+	'./interfaces/gui/gui/ar/about.html',
+	'./interfaces/gui/gui/ar/help_body.html',
+	# './interfaces/gui/gui/ar/images',
+	'./interfaces/gui/gui/ar/projects.html',
+	'./interfaces/gui/gui/ar/style.css',
+	]
+),
+# ('interfaces/gui/gui/ar/images',
+('gui/ar/images',
+	['./interfaces/gui/gui/ar/images/alef_wasla.png',
+	'./interfaces/gui/gui/ar/images/animation.png',
+	'./interfaces/gui/gui/ar/images/appicon.ico',
+	'./interfaces/gui/gui/ar/images/appicon.png',
+	'./interfaces/gui/gui/ar/images/copy.png',
+	'./interfaces/gui/gui/ar/images/cut.png',
+	'./interfaces/gui/gui/ar/images/damma.png',
+	'./interfaces/gui/gui/ar/images/dammatan.png',
+	'./interfaces/gui/gui/ar/images/exit.png',
+	'./interfaces/gui/gui/ar/images/fatha.png',
+	'./interfaces/gui/gui/ar/images/fathatan.png',
+	'./interfaces/gui/gui/ar/images/font.png',
+	'./interfaces/gui/gui/ar/images/gaf.png',
+	'./interfaces/gui/gui/ar/images/help.jpg',
+	'./interfaces/gui/gui/ar/images/icon.png',
+	'./interfaces/gui/gui/ar/images/ix.ico',
+	'./interfaces/gui/gui/ar/images/ixn.ico',
+	'./interfaces/gui/gui/ar/images/kasra.png',
+	'./interfaces/gui/gui/ar/images/kasratan.png',
+	'./interfaces/gui/gui/ar/images/logo.png',
+	'./interfaces/gui/gui/ar/images/new.png',
+	'./interfaces/gui/gui/ar/images/open.png',
+	'./interfaces/gui/gui/ar/images/paste.png',
+	'./interfaces/gui/gui/ar/images/peh.png',
+	'./interfaces/gui/gui/ar/images/preview.png',
+	'./interfaces/gui/gui/ar/images/print.png',
+	'./interfaces/gui/gui/ar/images/qutrub.ico',
+	'./interfaces/gui/gui/ar/images/save.png',
+	'./interfaces/gui/gui/ar/images/shadda.png',
+	'./interfaces/gui/gui/ar/images/smallalef.png',
+	'./interfaces/gui/gui/ar/images/sukun.png',
+	# './interfaces/gui/gui/ar/images/svg',
+	'./interfaces/gui/gui/ar/images/tatweel.png',
+	'./interfaces/gui/gui/ar/images/text-speak.png',
+	# './interfaces/gui/gui/ar/images/txt',
+	'./interfaces/gui/gui/ar/images/weblogo.ico',
+	'./interfaces/gui/gui/ar/images/zoomin.png',
+	'./interfaces/gui/gui/ar/images/zoomout.png',
+	'./interfaces/gui/gui/ar/images/zwj.png',
+	'./interfaces/gui/gui/ar/images/zwnj.png',
+	]
+),
+	
+
+
+# ('',[]),
+# ('resources/',[]),
+('tmp',[]),
+
+('resources/errorPages',
+	[
+	'./interfaces/web/resources/errorPages/400.shtml',
+	'./interfaces/web/resources/errorPages/404.shtml',
+	'./interfaces/web/resources/errorPages/500.shtml',
+	# './interfaces/web/resources/errorPages/images',
+	'./interfaces/web/resources/errorPages/Index.html',
+	'./interfaces/web/resources/errorPages/logo.png',
+	'./interfaces/web/resources/errorPages/images/logo.png',
+	],
+),
+('resources/errorPages/images',
+	['./interfaces/web/resources/errorPages/images/logo.png',
+	],
+),
+
+
+('resources/files',
+	[
+	'./interfaces/web/resources/files/adawat.js',
+	'./interfaces/web/resources/files/adawatstyle.css',
+	'./interfaces/web/resources/files/cytoscape.min.js',
+	'./interfaces/web/resources/files/favicon1.png',
+	'./interfaces/web/resources/files/jquery-1.7.1.min.js',
+	'./interfaces/web/resources/files/jquery-3.3.1.min.js',
+	'./interfaces/web/resources/files/jquery.min.js',
+	'./interfaces/web/resources/files/logo-icon.png',
+	'./interfaces/web/resources/files/logo.png',
+	# './interfaces/web/resources/files/xzero-rtl',
+	],
+),
+('resources/files/fonts',
+	['./interfaces/web/resources/files/fonts/amiri-quran-colored.eot',
+	'./interfaces/web/resources/files/fonts/amiri-quran-colored.ttf',
+	'./interfaces/web/resources/files/fonts/amiri-quran-colored.woff',
+	'./interfaces/web/resources/files/fonts/DroidNaskh-Regular-Colored.ttf',
+	'./interfaces/web/resources/files/fonts/DroidNaskh-Regular-Colored.woff',
+	'./interfaces/web/resources/files/fonts/KacstOne.eot',
+	'./interfaces/web/resources/files/fonts/KacstOne.otf',
+	'./interfaces/web/resources/files/fonts/KacstOne.svg',
+	'./interfaces/web/resources/files/fonts/KacstOne.ttf',
+	'./interfaces/web/resources/files/fonts/KacstOne.woff',
+	'./interfaces/web/resources/files/fonts/KacstOneColored.ttf',
+	'./interfaces/web/resources/files/fonts/SimpleNaskhi-colores.ttf',
+	]
+), 
+('resources/files/images',
+	['./interfaces/web/resources/files/images/adawat.png',
+	'./interfaces/web/resources/files/images/ayaspell.png',
+	'./interfaces/web/resources/files/images/dreamdevdz.jpeg',
+	'./interfaces/web/resources/files/images/main167-750x402.jpg',
+	'./interfaces/web/resources/files/images/pyarabic.png',
+	'./interfaces/web/resources/files/images/qutrub.jpg',
+	'./interfaces/web/resources/files/images/radif.png',
+	'./interfaces/web/resources/files/images/tashaphyne.png',
+
+	]
+),
+('resources/files/samples',
+	[
+	'./interfaces/web/resources/files/samples/gotashkeel.png',
+	'./interfaces/web/resources/files/samples/mishkal.png',
+	'./interfaces/web/resources/files/samples/mishkal_alpha_smpl.png',
+	'./interfaces/web/resources/files/samples/mixkal.jpg',
+	]
+),
+## Todo
+# ('resources/files/xzero-rtl',[]),
+('resources/files/xzero-rtl/css',
+	[
+	'./interfaces/web/resources/files/xzero-rtl/css/bootstrap-arabic-theme.css',
+	'./interfaces/web/resources/files/xzero-rtl/css/bootstrap-arabic-theme.css.map',
+	'./interfaces/web/resources/files/xzero-rtl/css/bootstrap-arabic-theme.min.css',
+	'./interfaces/web/resources/files/xzero-rtl/css/bootstrap-arabic.css',
+	'./interfaces/web/resources/files/xzero-rtl/css/bootstrap-arabic.css.map',
+	'./interfaces/web/resources/files/xzero-rtl/css/bootstrap-arabic.min.css',
+	]
+),
+('resources/files/xzero-rtl/fonts',
+	[
+	'./interfaces/web/resources/files/xzero-rtl/fonts/glyphicons-halflings-regular.eot',
+	'./interfaces/web/resources/files/xzero-rtl/fonts/glyphicons-halflings-regular.svg',
+	'./interfaces/web/resources/files/xzero-rtl/fonts/glyphicons-halflings-regular.ttf',
+	'./interfaces/web/resources/files/xzero-rtl/fonts/glyphicons-halflings-regular.woff',
+	]
+),
+('resources/files/xzero-rtl/js',
+	[
+	'./interfaces/web/resources/files/xzero-rtl/js/bootstrap-arabic.js',
+	'./interfaces/web/resources/files/xzero-rtl/js/bootstrap-arabic.min.js',
+	]
+),
+('./interfaces/web/resources/templates',
+	[ './interfaces/web/resources/templates/carousel.html',
+	'./interfaces/web/resources/templates/contact.html',
+	'./interfaces/web/resources/templates/doc.html',
+	'./interfaces/web/resources/templates/download.html',
+	'./interfaces/web/resources/templates/main.html',
+	'./interfaces/web/resources/templates/projects.html',
+	],
+),
+
+]; # end MyDataFiles
+setup(name='Mishkal Software', version='1.5',
+      description='Mishkal Software',
       author='Taha Zerrouki',
       author_email='taha.zerrouki@gmail.com',
-      url='http://tashkeel.qutrub.org/',
+      url='http://tahadz.com/mishkal',
       license='GPL',
 	 windows = [
         {
-            "script": "mishkal-gui.py",
-            "icon_resources": [(1, "./ar/images/ix.ico")],
+            "script": "interfaces/gui/mishkal-gui.py",
+            "icon_resources": [(1, "./interfaces/gui/ar/images/ix.ico")],
 			
         }],
 	console = [
 		
         {
-            "script": "mishkal-console.py",
-            "icon_resources": [(1, "./ar/images/ixn.ico")],
+            "script": "bin/mishkal-console.py",
+            "icon_resources": [(1, "./interfaces/gui/ar/images/ixn.ico")],
 			
         }		
 ,
         {
-            "script": "mishkal-webserver.py",
-            "icon_resources": [(1, "./ar/images/weblogo.ico")],
+            "script": "interfaces/web/mishkal-webserver.py",
+            "icon_resources": [(1, "./interfaces/gui/ar/images/weblogo.ico")],
 			
         }				
     ],
-
+		# to avoid zipped file
+		zipfile=None,
       classifiers=[
           'Development Status :: 5 - Beta',
           'Intended Audience :: End Users/Desktop',
@@ -47,157 +305,6 @@ setup(name='Mishkal Softwares', version='0.2',
                       }
 					}, 
  
-      data_files=[
-	  #images
-	  # ('images',[
-	  # './images/logo.png','./images/sma.ico',]),
-		#data
-	  ('data',  [  './data/randomtext.txt',
-					'./data/collocations.sqlite',
-					# r'./lib/qalsadi/data/*.sqlite',
-					'./lib/arramooz/data/arabicdictionary.sqlite',					
-					'./lib/arramooz/data/stopwords.sqlite',
-					'./lib/arramooz/data/wordfreq.sqlite',
-			]
-    	),
-		#data
-	  #('aranalex/data',  [  './aranalex/data/verbs.sqlite',   ]  ),
-
-	  #docs
-	  ('docs',
-	   [
-	   # r'./docs/*.*',
-	   './docs/AUTHORS.txt',
-		'./docs/THANKS.txt',
-		'./docs/ChangeLog.txt',
-		'./docs/COPYING.txt',
-		'./docs/README.txt',
-		'./docs/TODO.txt',
-		'./docs/VERSION.txt',		
-	   ]
-       ),  
-	   
-	  ('ar',
-	   [ #r'./ar/*.*',
-	   './ar/style.css',
-	   './ar/projects.html',
-       './ar/about.html',
-       './ar/help_body.html'
-	   ]
-       ),
-	  ('ar/images',
-	  [	  #r'./ar/images/*.*',
-	   './ar/images/alef_wasla.png',
-	'./ar/images/animation.png',
-	'./ar/images/appicon.ico',
-	'./ar/images/appicon.png',
-	'./ar/images/copy.png',
-	'./ar/images/cut.png',
-	'./ar/images/damma.png',
-	'./ar/images/dammatan.png',
-	'./ar/images/exit.png',
-	'./ar/images/fatha.png',
-	'./ar/images/fathatan.png',
-	'./ar/images/font.png',
-	'./ar/images/gaf.png',
-	'./ar/images/help.jpg',
-	'./ar/images/icon.png',
-	'./ar/images/kasra.png',
-	'./ar/images/kasratan.png',
-	'./ar/images/logo.png',
-	'./ar/images/new.png',
-	'./ar/images/open.png',
-	'./ar/images/paste.png',
-	'./ar/images/peh.png',
-	'./ar/images/preview.png',
-	'./ar/images/print.png',
-	'./ar/images/qutrub.ico',
-	'./ar/images/save.png',
-	'./ar/images/shadda.png',
-	'./ar/images/smallalef.PNG',
-	'./ar/images/sukun.png',
-	'./ar/images/tatweel.PNG',
-	'./ar/images/text-speak.png',
-	'./ar/images/Thumbs.db',
-	'./ar/images/zoomin.png',
-	'./ar/images/zoomout.png',
-	'./ar/images/zwj.png',
-	'./ar/images/zwnj.png',
-
-	])
-	,
-	
-	
-		  #resources/
-	  # ('resources',
-	   # [,
-	   # ]
-       # ),  
-	   
-	  #resources/templates
-	  ('resources/templates',
-	   ['./resources/templates/500.html',
-		'./resources/templates/contact.html',
-		'./resources/templates/doc.html',
-		'./resources/templates/download.html',
-		'./resources/templates/link.html',
-		'./resources/templates/log.html',
-		'./resources/templates/main.html',
-		'./resources/templates/projects.html',
-		'./resources/templates/whoisqutrub.html',
-	   ]
-       ),  
-	   
-	  #resources/files
-	  ('resources/files',
-	   ['resources/files/adawat.js',
-		'resources/files/adawat.png',
-		'resources/files/adawatstyle.css',
-		'resources/files/f.png',
-		'resources/files/favicon.png',
-		'resources/files/get_ffx.png',
-		'resources/files/jquery-1.7.1.min.js',
-		'resources/files/jquery.history.min.js',
-		'resources/files/jquery.min.js',
-		'resources/files/loading.gif',
-		'resources/files/logo.png',
-		'resources/files/logverb.txt',
-		'resources/files/qamoos.css',
-		'resources/files/qamoos.js',
-		'resources/files/style.css',
-	   ]
-       ),  		   
-	   
-	  #resources/images
-	  ('resources/files/images',
-	   ['resources/files/images/ActiveMenuButton.png',
-		'resources/files/images/ActiveMenuButtonAnchor.png',
-		'resources/files/images/ArticleCenter.png',
-		'resources/files/images/ArticleCorners.png',
-		'resources/files/images/ArticleHorizontal.png',
-		'resources/files/images/ArticleVertical.png',
-		'resources/files/images/BackgroundGradient.png',
-		'resources/files/images/BlockCenter.png',
-		'resources/files/images/BlockCorners.png',
-		'resources/files/images/BlockHeader.png',
-		'resources/files/images/BlockHeaderAnchor.png',
-		'resources/files/images/BlockHorizontal.png',
-		'resources/files/images/BlockVertical.png',
-		'resources/files/images/BorderCenter.png',
-		'resources/files/images/BorderCorners.png',
-		'resources/files/images/BorderHorizontal.png',
-		'resources/files/images/BorderVertical.png',
-		'resources/files/images/Button.png',
-		'resources/files/images/ButtonAnchor.png',
-		'resources/files/images/Footer.png',
-		'resources/files/images/Header.png',
-		'resources/files/images/MenuBar.png',
-		'resources/files/images/MenuButton.png',
-		'resources/files/images/MenuButtonAnchor.png',
-	   ]
-       ),  		   
-	   
-	# end datafiles
-	  ] 
+      data_files=MyDataFiles,
 	 #end setup
  )
