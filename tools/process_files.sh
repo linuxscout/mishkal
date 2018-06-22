@@ -1,5 +1,3 @@
-isLauncher=true
-
 function get_diacritics {
     # change the path to mishkal-console.py according to your system 
     mishkal_py="../bin/mishkal-console.py"
