@@ -30764,3 +30764,1400 @@ INFO:paste.httpserver.ThreadPool:All workers stopped
 INFO:paste.httpserver.ThreadPool:Shutting down threadpool
 INFO:paste.httpserver.ThreadPool:All workers stopped
 INFO:MyTestWebApp:2018-04-27 09:43	Tashkeel2	ربيــع متأخر يأتــي بمــا تشتهيه
+INFO:MyTestWebApp:2018-04-30 10:47	Tashkeel2	نظرت في كتاب مفيد .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-30 10:49	Tashkeel2	نظرت في كتاب مفيد .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-30 10:51	Tashkeel2	تنضج الفاكهة .
+
+INFO:MyTestWebApp:2018-04-30 10:52	Tashkeel2	أكل الولد الفاكهة .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-30 10:56	Tashkeel2	أكل الولد الفاكهة .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-30 10:58	Tashkeel2	أكل الولد الفاكهة .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-30 11:00	Tashkeel2	أكل الولد الفاكهة .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-30 11:00	Tashkeel2	أكل الولد الفاكهة .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-30 11:01	Tashkeel2	أكل الولد الفاكهة .
+
+INFO:MyTestWebApp:2018-04-30 11:01	Tashkeel2	أكل الولد الفاكهة .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-30 11:12	Tashkeel2	أكل الولد الفاكهة .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-30 11:13	Tashkeel2	أكل الولد الفاكهة .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-30 11:13	Tashkeel2	أكل الولد الفاكهة .
+
+INFO:MyTestWebApp:2018-04-30 11:13	Tashkeel2	أكل الولد الفاكهة .
+
+INFO:MyTestWebApp:2018-04-30 11:14	LightStemmer	أكل الولد الفاكهة .
+INFO:MyTestWebApp:2018-04-30 11:14	Tashkeel2	ضرب الولد الفاكهة .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-04-30 11:37	Tashkeel2	ضرب الولد الفاكهة .
+
+INFO:MyTestWebApp:2018-04-30 11:57	Tashkeel2	أراد أن يلعب الكرة
+INFO:MyTestWebApp:2018-04-30 11:57	LightStemmer	أراد أن يلعب الكرة
+INFO:MyTestWebApp:2018-04-30 11:57	Tashkeel2	فهم أن يلعب الكرة
+INFO:MyTestWebApp:2018-04-30 11:57	LightStemmer	فهم أن يلعب الكرة
+INFO:MyTestWebApp:2018-04-30 11:58	Tashkeel2	كاد أن يلعب الكرة
+INFO:MyTestWebApp:2018-04-30 11:58	Tashkeel2	قال أن يلعب الكرة
+INFO:MyTestWebApp:2018-04-30 01:59	LightStemmer	قال أن يلعب الكرة
+INFO:MyTestWebApp:2018-04-30 02:01	Tashkeel2	قال أن يلعب الكرة
+INFO:MyTestWebApp:2018-04-30 02:02	Tashkeel2	الولدد يلعب الكرة
+INFO:MyTestWebApp:2018-04-30 02:02	Tashkeel2	الولد يلعب الكرة
+INFO:MyTestWebApp:2018-04-30 02:03	Tashkeel2	الولد يلعب الكرة
+INFO:MyTestWebApp:2018-04-30 02:03	Tashkeel2	الولد يلعب الكرة
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-01 11:03	Tashkeel2	الولد يلعب الكرة
+INFO:MyTestWebApp:2018-05-01 11:03	Tashkeel2	الولد يلعب الكرة
+INFO:MyTestWebApp:2018-05-01 11:03	Tashkeel2	 قال الجاحظ : " كان عندنا حارس من علوج الجبل يُكنَّى أبا خُزيمة ، فقلت لأصحابنا: هل لكم في مسألة هذا الحارس عن سبب كنيته ، فلعلَّ الله أن يفيد من هذا الشيخ علما وإن كان في ظاهر الرأي غير مأمولٍ ولا مطمع!! وهذه الكنية كنية زرارة بن عدس ، وكنية خازم بن خزيمة ، وكنية حمزة بن أدرك ، وكنية فلان وفلان ، وكل هؤلاء إما قائدٍ متبوع ، وإما سيدٍ مُطاع ، فمن أين وقع هذا العلج الألكن على هذه الكنية!! فقلت يوما - وقد خطر على بالي : كيف اكتنى هذا العلج الألكن بأبي خزيمة ؟!! ثمّ رأيته فقلت له: هذه الكنية كنّاك بها إنسان أو كنّيتَ بها نفسك ؟!! قال: لا ، ولكني كنّيتَ بها نفسي!! قلت : خبّرني عنك ، أكان أبوك يسمّى خزيمة ؟!! قال: لا.
+ قلت: فجدّك أو عمك أو خالك ؟!! قال: لا.
+ قلت: فلك ابن يسمّى خزيمة ؟!! قال: لا.
+ قلت: فكان لك مولّى يسمى خزيمة ؟!! قال: لا.
+ قلت: فكان في قريتك رجل صالح أو فقيه يسمى خزيمة ؟!! قال: لا.
+ قلت: فلِمَ اكتنيت بأبي خزيمة ، وأنت علج ألكن ، وأنت فقير ، وأنت حارس ؟!! قال: هكذا اشتهيت.
+ قلت: فلأي شيء اشتهيت هذه الكنية من بين جميع الكنى ؟!! قال: ما يدريني.
+ قلت: فتبيعها السّاعة بدينار ، وتسكتني بأيّ كنية شئت ؟!! قال: لا والله ، ولا بالدّنيا وما فيها!!     لا تنسوا عبدالله " ياقوت " من صالح الدعاء .
+  تابعوني على فيسبوك : ياقوت هداه الله    
+INFO:MyTestWebApp:2018-05-02 12:34	Tashkeel2	ألبس ثيابي.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 12:44	Tashkeel2	ألبس ثيابي.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 12:45	Tashkeel2	يربح التاجر.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 12:45	Tashkeel2	يربح التاجر.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 12:46	Tashkeel2	قطف محمد زهرة.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 12:47	Tashkeel2	قطف محمد زهرة.
+
+INFO:MyTestWebApp:2018-05-02 12:47	Tashkeel2	يحصد الفلاح القمح.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 12:48	Tashkeel2	يحصد الفلاح القمح.
+
+INFO:MyTestWebApp:2018-05-02 12:48	Tashkeel2	يحصد الفلاح القمح.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 12:49	Tashkeel2	يحصد الفلاح القمح.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 12:54	Tashkeel2	يحصد الفلاح القمح.
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 12:59	Tashkeel2	أرى في الجو سحابا كثيفا .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 01:01	Tashkeel2	أرى في الجو سحابا كثيفا .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 01:03	Tashkeel2	أرى في الجو سحابا كثيفا .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 01:09	Tashkeel2	البرد قارس .
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 01:11	Tashkeel2	البرد قارس .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'ت;ع;ر;ي;ف;:;:;م;ر;ف;و;ع;:;م;ت;ح;ر;ك;:;ي;ن;و;ن;:;:;:' and tagmaker =='---;----;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':;:;م;ر;ف;و;ع;:;م;ت;ح;ر;ك;:;ت;ن;و;ي;ن;:;:;:' and tagmaker =='---;----;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'ن;ق;ط;ة;:;b;r;e;a;k;:;:' and tagmaker =='---;----;----;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 01:13	Tashkeel2	البرد قارس .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='---;----;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مرفوع:متحرك:تنوين:::' and tagmaker =='---;----;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 01:14	Tashkeel2	يؤلمني أن تعذب الحيوان .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هو::مفعول به:y:' and tagmaker =='---;----;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف نصب:مبني:ناصب:' and tagmaker =='---;--B-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المنصوب:هي:::y:' and tagmaker =='---;----;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='---;--U-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;---I'
+INFO:MyTestWebApp:2018-05-02 01:16	Tashkeel2	يؤلمني أن تعذب الحيوان .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هو::مفعول به:y:' and tagmaker =='---;----;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف نصب:مبني:ناصب:' and tagmaker =='---;--B-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المنصوب:هي:::y:' and tagmaker =='---;----;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='---;--U-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;---I'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 02:14	Tashkeel2	الأم تطعم أولادها.
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='---;--U-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي:::y:' and tagmaker =='---;F1U-;----;--pI'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مرفوع:متحرك:ينون:::' and tagmaker =='---;--U-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;---I'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 02:15	Tashkeel2	الأم تطعم أولادها.
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='---;--U-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي:::y:' and tagmaker =='---;F1U-;----;--fI'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مرفوع:متحرك:ينون:::' and tagmaker =='---;--U-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;---I'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 02:18	Tashkeel2	ظلت العاملة مشتغلة .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'الماضي المعلوم:هي:::n:' and tagmaker =='---;F1--;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مؤنث:مرفوع:متحرك:ينون:::' and tagmaker =='---;F-U-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مؤنث:مرفوع:متحرك:تنوين:::' and tagmaker =='---;F-U-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;---I'
+INFO:MyTestWebApp:2018-05-02 02:19	Tashkeel2	يكثر النخل في البساتين المثمرة .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هو:::n:' and tagmaker =='---;M1U-;----;--fI'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='---;--U-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:الأسماء الخمسة:مبني:جار:' and tagmaker =='N--;--B-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='---;--I-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مؤنث:مجرور:متحرك:ينون:::' and tagmaker =='---;F-I-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;---I'
+INFO:MyTestWebApp:2018-05-02 02:21	Tashkeel2	يكثر النخل في البساتين المثمرة .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هو:::n:' and tagmaker =='---;M1U-;----;--fI'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='---;--U-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:الأسماء الخمسة:مبني:جار:' and tagmaker =='N--;--B-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='---;--I-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مؤنث:مجرور:متحرك:ينون:::' and tagmaker =='---;F-I-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;---I'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 02:21	Tashkeel2	يكثر النخل في البساتين المثمرة .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هو:::n:' and tagmaker =='---;M1U-;----;--fI'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='---;--U-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:الأسماء الخمسة:مبني:جار:' and tagmaker =='N--;--B-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='---;--I-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مؤنث:مجرور:متحرك:ينون:::' and tagmaker =='---;F-I-;----;---I'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;---I'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 02:37	Tashkeel2	يكثر النخل في البساتين المثمرة .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هو:::n:' and tagmaker =='---;M1U-;----;--fH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='---;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:الأسماء الخمسة:مبني:جار:' and tagmaker =='N--;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='---;--I-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مؤنث:مجرور:متحرك:ينون:::' and tagmaker =='---;F-I-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 02:49	Tashkeel2	يكثر النخل في البساتين المثمرة .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هو:::n:' and tagmaker =='---;M1U-;----;-afH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='---;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:الأسماء الخمسة:مبني:جار:' and tagmaker =='N--;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='---;--I-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مؤنث:مجرور:متحرك:ينون:::' and tagmaker =='---;F-I-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:MyTestWebApp:2018-05-02 02:53	LightStemmer	يكثر النخل في البساتين المثمرة .
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 02:54	Tashkeel2	يكثر النخل في البساتين المثمرة .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هو:::n:' and tagmaker =='V--;M1U-;----;-afH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:الأسماء الخمسة:مبني:جار:' and tagmaker =='N--;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مؤنث:مجرور:متحرك:ينون:::' and tagmaker =='N--;F-I-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:MyTestWebApp:2018-05-02 02:55	Tashkeel2	جرى الحصان.
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'الماضي المعلوم:هو:::n:' and tagmaker =='V--;M1--;----;-a-H'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 02:55	Tashkeel2	جرى الحصان.
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'الماضي المعلوم:هو:::n:' and tagmaker =='V-0;M1--;----;-a-H'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 02:57	Tashkeel2	الماء رائق .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 02:58	Tashkeel2	إن تقرب من النار تشعر بحرارتها .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:إن و أخواتها:مبني:ناصب:' and tagmaker =='---;--B-;----;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 02:58	Tashkeel2	إن تقرب من النار تشعر بحرارتها .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:إن و أخواتها:مبني:ناصب:' and tagmaker =='---;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::منصوب:متحرك:ينون:::' and tagmaker =='NM-;--A-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف جر:مبني:جار:مدخل مشكول:' and tagmaker =='---;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي:::y:' and tagmaker =='V-1;F1U-;----;-afH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'جر:مضاف:مجرور:متحرك:ينون:::' and tagmaker =='NM-;--I-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 02:59	Tashkeel2	تصنع الأحذية من الجلد.
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي:::y:' and tagmaker =='V-1;F1U-;----;-afH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف جر:مبني:جار:مدخل مشكول:' and tagmaker =='---;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='NM-;--I-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:MyTestWebApp:2018-05-02 03:00	Tashkeel2	تصنع الأحذية من جلده.
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي:::y:' and tagmaker =='V-1;F1U-;----;-afH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='NM-;--I-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 03:00	Tashkeel2	تصنع الأحذية من جلده.
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي:::y:' and tagmaker =='V-1;F1U-;----;-afH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='NM-;--I-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 03:09	Tashkeel2	تصنع الأحذية من جلده.
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي:::y:' and tagmaker =='V-1;F1U-;----;-afH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='NM-;--I-;---H;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:MyTestWebApp:2018-05-02 03:10	Tashkeel2	تصنعه الأحذية من جلده.
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي::مفعول به:y:' and tagmaker =='V-1;F1U-;---H;-afH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='NM-;--I-;---H;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:MyTestWebApp:2018-05-02 05:08	Tashkeel2	تصنعه الأحذية من جلده.
+
+INFO:MyTestWebApp:2018-05-02 05:08	Tashkeel2	تصنعه الأحذية من جلده.
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي::مفعول به:y:' and tagmaker =='V-1;F1U-;---H;-afH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='NM-;--I-;---H;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي::مفعول به:y:' and tagmaker =='V-1;F1U-;---H;-afH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='NM-;--I-;---H;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:MyTestWebApp:2018-05-02 05:17	Tashkeel2	ألبس ثيابي.
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'استفهام::مرفوع:متحرك:ينون:::' and tagmaker =='NM-;--U-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;---H;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 05:19	Tashkeel2	تصبح الغرفة نظيفة .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي:::n:' and tagmaker =='V-0;F1U-;----;-afH'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 05:19	Tashkeel2	تصبح الغرفة نظيفة .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي:::n:' and tagmaker =='V-0;F1U-;----;-afH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مؤنث:منصوب:متحرك:ينون:::' and tagmaker =='N--;F-A-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:MyTestWebApp:2018-05-02 05:19	Tashkeel2	تصبح غرفتها نظيفة .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هي:::n:' and tagmaker =='V-0;F1U-;----;-afH'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;---H;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مؤنث:منصوب:متحرك:ينون:::' and tagmaker =='N--;F-A-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;----;----'
+INFO:MyTestWebApp:2018-05-02 05:20	Tashkeel2	البنت في غرفتها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:الأسماء الخمسة:مبني:جار:' and tagmaker =='N--;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;---H;----'
+INFO:MyTestWebApp:2018-05-02 05:20	Tashkeel2	البنت في غرفتها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:الأسماء الخمسة:مبني:جار:' and tagmaker =='N--;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;---H;----'
+INFO:MyTestWebApp:2018-05-02 05:21	Tashkeel2	البنت في مجلسها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:الأسماء الخمسة:مبني:جار:' and tagmaker =='N--;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;---H;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 07:15	Tashkeel2	البنت في مجلسها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:الأسماء الخمسة:مبني:جار:' and tagmaker =='N--;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;---H;----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-02 08:53	Tashkeel2	البنت في مجلسها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L-;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:الأسماء الخمسة:مبني:جار:' and tagmaker =='N--;--B-;----;----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;---H;----'
+INFO:MyTestWebApp:2018-05-07 12:16	LightStemmer	الكلب يركض وراء صاحبه.
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-05-29 08:33	Tashkeel2	صباح الخير، يا أولاد, كيف حالكم 
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:ظرف زمان:مبني:جار:' and tagmaker =='N--;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'فاصلة:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::منصوب:متحرك:ينون::' and tagmaker =='N--;--A-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مجرور:متحرك:تنوين:::' and tagmaker =='N--;--I-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'فاصلة:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:اسم الاستفهام:مبني::' and tagmaker =='N--;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;---H-;-----'
+INFO:MyTestWebApp:2018-05-29 08:33	Tashkeel2	صباح الخير، يا أولاد, كيف حالكم? 
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:ظرف زمان:مبني:جار:' and tagmaker =='N--;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'فاصلة:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::منصوب:متحرك:ينون::' and tagmaker =='N--;--A-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مجرور:متحرك:تنوين:::' and tagmaker =='N--;--I-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'فاصلة:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:اسم الاستفهام:مبني::' and tagmaker =='N--;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'استفهام:break::' and tagmaker =='---;----;-----;-----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-06-03 10:31	LightStemmer	لن يعود الغائب .
+INFO:MyTestWebApp:2018-06-03 10:39	Tashkeel2	يتساءلون
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هم:::n:' and tagmaker =='V-0;M3U-;-----;-afH-'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2018-06-03 10:39	LightStemmer	يتساءلون
+
+INFO:MyTestWebApp:2018-06-03 10:46	Tashkeel2	أنلزمكموها
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2018-06-03 10:46	LightStemmer	أنلزمكموها
+
+INFO:MyTestWebApp:2018-06-03 10:47	Tashkeel2	أنلزمكموها
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2018-06-03 10:47	LightStemmer	أنلزمكموها
+
+INFO:MyTestWebApp:2018-06-03 10:48	Tashkeel2	ف
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف ابجدي:حرف ابجدي:مبني::' and tagmaker =='---;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2018-06-03 10:48	LightStemmer	ف
+
+INFO:MyTestWebApp:2018-07-21 12:44	LightStemmer	فانتظرتها
+INFO:MyTestWebApp:2018-07-21 12:50	LightStemmer	فينتظرتها
+INFO:MyTestWebApp:2018-07-21 12:50	LightStemmer	يقول
+INFO:MyTestWebApp:2018-07-21 12:51	LightStemmer	يقول قيل 
+INFO:MyTestWebApp:2018-07-21 12:53	LightStemmer	يرم
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-09-21 12:11	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 12:12	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 12:15	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 12:15	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 12:16	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 12:18	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 05:06	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 05:06	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 05:07	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 05:07	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 05:08	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 05:10	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 06:18	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 06:29	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 06:30	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 06:31	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 06:31	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 06:31	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 06:42	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 06:43	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 06:44	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 06:44	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 07:08	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:MyTestWebApp:2018-09-21 07:09	Tashkeel2	السلام عليكم
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;---H-;-----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-09-23 06:58	Tashkeel2	السلام عليكم ورحمة الله
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::مدخل مشكول:' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف::حرف:حرف جر:مبني:جار:مدخل مشكول:' and tagmaker =='---;--B-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'عطف:::مرفوع:متحرك:ينون:::مدخل مشكول:' and tagmaker =='NM-;--U-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مجرور:متحرك:ينون:::مدخل مشكول:' and tagmaker =='N--;--I-;-----;-----'
+INFO:MyTestWebApp:2018-09-28 12:02	chunk	يرغب التاجر في أن يربح .
+INFO:MyTestWebApp:2018-09-28 06:04	Tashkeel2	يرغب التاجر في أن يربح .
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هو:::n:' and tagmaker =='V-0;M1U-;-----;-afH-'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:إن و أخواتها:مبني:ناصب:مدخل مشكول:' and tagmaker =='---;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المعلوم:هو:::n:' and tagmaker =='V-0;M1U-;-----;-afH-'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2018-09-28 06:15	Tashkeel2	 شهد تاريخ مصر الإسلامي حقبتي ردة كبيرتين على مستوى النظام السياسي- الردة العبيدية ( ٩٦٩ - ١١٧١ م ) - حقبة الردة العلمانية ( ١٧٩٨ حتى اليوم )     لا تنسوا عبدالله " ياقوت " من صالح الدعاء    
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'الماضي المعلوم:هو:::y:' and tagmaker =='V-1;M1--;-----;-a-H-'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مرفوع:متحرك:ينون:::' and tagmaker =='N--;--U-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:مؤنث:منصوب:متحرك:ينون:::' and tagmaker =='N--;F-A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مؤنث:منصوب:متحرك:ينون:::' and tagmaker =='NM-;F-A-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مثنى:مجرور:لايضاف:::' and tagmaker =='N--;-2I-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='NM-;--I-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'مطة:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مؤنث:منصوب:متحرك:ينون:::' and tagmaker =='NM-;F-A-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مؤنث:منصوب:متحرك:منسوب:ينون:::' and tagmaker =='N--;F-A-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'قوس::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'عدد::' and tagmaker =='D--;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'مطة:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'عدد::' and tagmaker =='D--;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف ابجدي:حرف ابجدي:مبني::' and tagmaker =='---;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'قوس::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مؤنث:منصوب:متحرك:ينون:::' and tagmaker =='N--;F-A-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مؤنث:مجرور:متحرك:ينون:::' and tagmaker =='NM-;F-I-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مؤنث:مجرور:متحرك:ينون:::' and tagmaker =='N--;F-I-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'قوس::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'عدد::' and tagmaker =='D--;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'قوس::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:ناهية:مبني:جازم:' and tagmaker =='---;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'المضارع المجزوم:أنتم:::y:' and tagmaker =='V-1;M30-;-----;-afY-'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::منصوب:متحرك:ينون::' and tagmaker =='N--;--A-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تنصيص مزدوج:شفاف::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تنصيص مزدوج:شفاف::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::حرف:حرف جر:مبني:جار:' and tagmaker =='---;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='NM-;--I-;--L--;-----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-10-06 12:14	Tashkeel2	بعد امتناع وشدة التعب.
+
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':::اسم:ظرف زمان:مبني:جار:' and tagmaker =='N--;--B-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::مجرور:متحرك:تنوين:::' and tagmaker =='NM-;--I-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'عطف:::مجرور:متحرك:ينون:::' and tagmaker =='NM-;--I-;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'تعريف::مجرور:متحرك:ينون:::' and tagmaker =='N--;--I-;--L--;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'نقطة:break::' and tagmaker =='---;----;-----;-----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2018-12-14 04:53	Unshape	الولد يلعب بالكرة.
+INFO:MyTestWebApp:2018-12-14 04:53	Unshape	ﺔﻴﻌﻴﺒﻄﻟا ﺔﻴﺑﺮﻌﻟا ﻰﻠﻋ ﺔﻴﻘﻴﺒﻄﺗ تﻼﻴﻠﺤﺗ : ﺔﻴﺑﻮﺳﺎﺤﻟا ﺔﻧوﺪﻤﻟا تﺎﻳﻮﻐﻟ
+INFO:MyTestWebApp:2018-12-14 04:56	Unshape	نوتملا تايناسل ةيساسأ اياضق
+INFO:MyTestWebApp:2018-12-14 04:56	Unshape	ايجولوطنألاو ةللادلا ملع
+INFO:MyTestWebApp:2018-12-14 04:57	Unshape	يف ءلاملإا ةيبرعلا ةباتكلا ماظن
+INFO:MyTestWebApp:2018-12-14 04:58	Unshape	ةيبرعلا فورحلا ةموظنم 34
+INFO:MyTestWebApp:2018-12-14 04:58	Unshape	ةيبرعلا لاعفلا فيرصتل برطق جمانرب ةطسبم ةديدج ةيمزراوخ
+INFO:MyTestWebApp:2019-01-31 09:43	Tashkeel2	غطائها غطاؤها غطاءها
+أبناؤها
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2019-01-31 09:44	Tashkeel2	غطائها غطاؤها غطاءها
+أبناؤها دفئها دفؤها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2019-01-31 09:44	Tashkeel2	غطائها غطاؤها غطاءها
+أبناؤها دفئها دفئها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:MyTestWebApp:2019-01-31 09:44	Tashkeel2	غطائها غطاؤها غطاءها
+أبناؤها دفئها دفئها  دفؤها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2019-01-31 09:47	Tashkeel2	غطائها غطاؤها غطاءها
+أبناؤها دفئها دفئها  دفؤها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2019-01-31 09:48	LightStemmer	غطائها غطاؤها غطاءها
+أبناؤها دفئها دفئها  دفؤها 
+INFO:MyTestWebApp:2019-01-31 10:47	Tashkeel2	غطائها غطاؤها غطاءها
+أبناؤها دفئها دفئها  دفؤها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2019-01-31 11:04	Tashkeel2	غطائها غطاؤها غطاءها
+أبناؤها دفئها دفئها  دفؤها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2019-01-31 11:05	Tashkeel2	غطائها غطاؤها غطاءها
+أبناؤها دفئها دفئها  دفؤها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2019-01-31 11:06	Tashkeel2	غطائها غطاؤها غطاءها
+أبناؤها دفئها دفئها  دفؤها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2019-01-31 11:17	Tashkeel2	غطائها غطاؤها غطاءها
+أبناؤها دفئها دفئها  دفؤها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:MyTestWebApp:2019-01-31 11:18	Tashkeel2	غطائها غطاؤها غطاءها
+أبناؤها دفئها دفئها  دفؤها 
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display 'سطر جديد:newline:break::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display ':مضاف:منصوب:متحرك:ينون:::' and tagmaker =='N--;--A-;---H-;-----'
+INFO:tashkeel.tashkeel:TaharZe Tags to display '::' and tagmaker =='---;----;-----;-----'
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2019-02-02 11:55	StripHarakat	#الكلمة
+أَنَّ
+إِنَّ
+عَلًّ
+كَأَنَّ
+لَعَلَّ
+لَكِنَّ
+لَيْتَ
+ثَنَا
+بَيْدَ
+سِوَى
+غَيْرَ
+لاسِيَّمَا
+أُولَئِكَ
+أُولَئِكُمْ
+أُولَاءِ
+أُولَالِكَ
+تَانِ
+تَانِكَ
+تِلْكَ
+تِلْكُمْ
+تِلْكُمَا
+تِهِ
+تِي
+تَيْنِ
+تَيْنِكَ
+ثَمَّ
+ثَمَّةَ
+ذَا
+ذَاكَ
+ذَانِ
+ذَانِكَ
+ذَلِكَ
+ذَلِكُمْ
+ذَلَكُمَا
+ذَلِكُنَّ
+ذِهِ
+ذَوَا
+ذَوَاتَا
+ذَوَاتَيْ
+ذَوُو
+ذَوِي
+ذِي
+ذَيْنِ
+ذَيْنِكَ
+كَذَلِكَ
+هَؤُلَاءِ
+هَاتَانِ
+هَاتِهِ
+هَاتِي
+هَاتَيْنِ
+هَاهُنَا
+هَذَا
+هَذَانِ
+هَذِهِ
+هَذِي
+هَذَيْنِ
+هَكَذَا
+هُنَا
+هُنَاكَ
+هُنَالِكَ
+أَيُّ
+إِذْ
+إِذَا
+اِبْنُ
+بَعْضُ
+تُجَاهَ
+تِلْقَاءَ
+جَمِيعَ
+حَسْبُ
+حَيْثُ
+سُبْحَانَ
+سِوَى
+شِبْهُ
+شَطْرَ
+كُلُّ
+لَعَمْرُ
+لَمَّا
+مِثْلُ
+مَعَ
+مَعَاذَ
+نَحْوَ
+مَتَى
+أَنَّى
+أَيُّ
+أَيَّانَ
+أَيْنَ
+بِكَمْ
+بِمَا
+بِمَاذَا
+بِمَنْ
+كَمْ
+كَيْفَ
+مَا
+مَاذَا
+مَتَى
+مِمَّا
+مِمَّنْ
+مَنْ
+أَنَّى
+أَيُّ
+أَيَّانَ
+أَيْنَ
+أَيْنَمَا
+حَيْثُمَا
+كَيْفَمَا
+مَا
+مَتَى
+مَنْ
+مَهْمَا
+أَقَلُّ
+أَكْثَرُ
+إذاً
+آهاً
+بَسّْ
+حَايْ
+صَهْ
+صَهٍ 
+طَاقْ
+طَقْ
+عَدَسْ
+كِخْ
+نَخْ
+هَجْ
+وَا
+وَاهاً
+وَيْ
+آمِينَ
+آهٍ
+أُفٍّ
+أُفٍّ
+أَمَامَكَ
+أَوَّهْ
+إِلَيْكَ
+إِلَيْكُمْ
+إِلَيْكُمَا
+إِلَيْكُنَّ
+إيهِ
+بخٍ
+بَسْ
+بُطْآنَ
+بَلْهَ
+حَذَارِ
+حَيَّ
+دُونَكَ
+رُوَيْدَكَ
+سُرْعَانَ
+شَتَّانَ
+عَلَيْكَ
+مَكَانَكَ
+مَكَانَكِ
+مَكَانَكُمْ
+مَكَانَكُمَا
+مَكَانَكُنَّ
+مَهْ
+هَا
+هَاؤُمُ
+هَاكَ
+هَلُمَّ
+هَيَّا
+هِيتَ
+هَيْهَاتَ
+وَا
+وَرَاءَكَ
+وُشْكَانَ
+وَيْكَأَنَّ
+أَيُّ
+الْأَلَاءُ
+الْأُلَى
+الَّتِي
+الَّذِي
+الَّذِينَ
+الْلَائِي
+الْلَاتِي
+الْلَتَانِ
+الْلَتَيَّا
+الْلَتَيْنِ
+الْلَذَانِ
+الْلَذَيْنِ
+الْلَوَاتِي
+ذَا
+ذَاتُ
+مَا
+مَنْ
+أَبُ 
+أَبَا
+أَبُو 
+أَبِي
+أَخُ
+أَخَا
+أَخُو
+أَخِي
+حَمُ
+حَمَا
+حَمُو
+حَمِي
+ذَا
+ذُو
+ذِي
+فَا
+فُو
+فِي
+لَنْ
+لَوْ
+لَوْلَا
+لَوْمَا
+نَعَمْ
+بِئْسَ
+حَبَّذَا
+سَاءَ
+سَاءَمَا
+نِعْمَ
+نِعِمّا
+إِنْ
+لَا
+لَاتَ
+مَا
+أي
+حَتَّى
+كَيْ
+أَجْمَعَ
+جَمِيعَ
+عَامَّةَ
+عَيْنَ
+كُلَّ
+كِلَا
+كِلَاهُمَا
+كِلْتَا
+كِلَيْكُمَا
+كِلَيْهِمَا
+نَفْسُ
+ء
+آ
+أ
+أ
+ؤ
+ئ
+ب
+ة
+ت
+ث
+ج
+ح
+خ
+د
+ذ
+ر
+ز
+س
+ش
+ص
+ض
+ط
+ظ
+ع
+غ
+ف
+ق
+ك
+ل
+م
+ن
+ه
+و
+ى
+ي
+إلّا
+حَاشَا
+خَلَا
+عَدَا
+لَكِنْ
+فِيمَ
+فِيمَا
+هَلْ
+سَوْفَ
+هَلّا
+قَدْ
+إِمَّا
+كَأَنَّمَا
+كَمَا
+لِكَيْ
+لِكَيْلَا
+إِلَى
+بِلَا
+حَتَّى
+رُبَّ
+عَلَى
+عَنْ
+فِي
+مُذْ
+مِنْ
+مُنْذُ
+عَمَّا
+إِنْ
+لَمْ
+لَمَّا
+أَجَلْ
+إِذَنْ
+إِي
+بَلَى
+جَلَلْ
+جَيْرِ
+كَلَّا
+إَذْمَا
+إِنْ
+لَئِنْ
+أَمَّا
+أَلَا
+أَمَا
+أَمْ
+أَوْ
+بَلْ
+ثُمَّ
+وَ
+أَيَا
+هَيَا
+أَنْ
+لِئَلَّا
+بِكَ
+بِكُمْ
+بِكُمَا
+بِكُنَّ
+بِنَا
+بِهِ
+بِهَا
+بِي
+لَكَ
+لَكُمْ
+لَكُمَا
+لَكُنَّ
+لَنَا
+لَهُ
+لَهَا
+لِي
+أَنَا 
+أَنْتَ 
+أَنْتِ 
+أَنْتُمْ 
+أَنْتُمَا 
+أَنْتُنَّ 
+نَحْنُ 
+هُمْ 
+هُمَا 
+هُنَّ 
+هُوَ 
+هِي 
+إِيَّاكَ
+إِيَّاكِ
+إِيَّاكُمْ
+إِيَّاكُمَا
+إِيَّاكُنَّ
+إِيَّانَا
+إِيَّاهُ
+إِيَّاهَا
+إِيَّاهُمْ
+إِيَّاهُمَا
+إِيَّاهُنَّ
+إِيَّايَ
+بِدُونِ
+دُونَ
+رَيْثَ
+عِنْدَ
+عِنْدَمَا
+عِوَضَ
+قَبْلَ
+قَطُّ
+كُلَّمَا
+لَدُنْ
+لَدَى
+لَمَّا
+آنَاءَ
+آنِفًا
+أَبَدًا
+أَثْنَاءَ
+أَصْلًا
+أَمَدَ
+أَمْسِ
+أَوَّلَ
+أَيَّانَ
+إِذْ
+الْآنَ
+بَعْدَ
+تَارَةً
+حِينَ
+زَمَانَ
+سَاعَةَ
+شَهْرَ
+صَبَاحَ
+ضَحْوَةً
+غَدًا
+غَدَاةَ
+غُرُوبَ
+لَحْظَةَ
+لَيْلَ
+مُذْ
+مَرَّةً
+مَسَاءَ
+مُنْذُ
+وَقْتَ
+يَوْمَئِذٍ
+خِلَالَ
+أَسْفَلَ
+أَعْلَى
+أَمَامَ
+أَيْنَ
+إِزَاءَ
+بَيْنَ
+تَحْتَ
+ثَمَّ
+جَنْبَ
+جَنُوبَ
+حَوَالَى
+حَوْلَ
+خَلْفَ
+خَلْفَ
+شَرْقَ
+شَمَالَ
+ضِمْنَ
+غَرْبَ
+فَوْقَ
+نَحوَ
+يَمِينَ
+طَالَمَا
+قَلَّمَا
+أَخَذَ
+أَقْبَلَ
+أَنْشَأَ
+أَوْشَكَ
+ابْتَدَأَ
+اِخْلَوْلَقَ
+اِنْبَرَى
+جَعَلَ
+حَرَى
+شَرَعَ
+طَفِقَ
+عَسَى
+عَلِقَ
+قَامَ
+كَادَ
+كَرِبَ
+لَازَالَتْ
+هَبَّ
+إِنَّمَا
+لَكِنَّمَا
+آضَ
+أَصْبَحَ
+أَضْحَى
+أَمْسَى
+اِرْتَدَّ
+اِسْتَحَالَ
+اِنْقَلَبَ
+بَاتَ
+تَبَدَّلَ
+تَحَوَّلَ
+حَارَ
+رَاحَ
+رَجَعَ
+صَارَ
+ظَلَّ
+عَادَ
+غَدَا
+كَانَ
+لَسْتَ
+لَسْتُ
+لَسْتِ
+لَسْتُم
+لَسْتُمَا
+لَسْتُنَّ
+لَسْنَ
+لَسْنَا
+لَيْسَ
+لَيْسَا
+لَيْسَتْ
+لَيْسَتَا
+لَيْسُوا
+مَااِنْفَكَّ
+مَابَرِحَ
+مَادَامَ
+مَازَالَ
+مَافَتِئَ
+بِضْعَ
+ذَيْتَ
+فُلَانٌ
+كَأَيٍّ
+كَأَيَّنَ
+كَأَيْنَ
+كَذَا
+كَمْ
+كَيْتَ
+لَا
+لَا
+فَقَطْ
+وَ
+بْن
+إِلَّا
+أَيْضًا
+بَيْنَمَا
+لَا
+جِدًّا
+
+INFO:MyTestWebApp:2019-02-02 01:22	StripHarakat	لَازِلْتُ
+لَازِلْنَا
+لَازِلْتَ
+لَازِلْتِ
+لَازِلْتُمَا
+لَازِلْتُمَا
+لَازِلْتُم
+لَازِلْتُنَّ
+لَازَالَا
+لَازَالَتَا
+لَازَالُوا
+لَازِلْنَ
+
+INFO:MyTestWebApp:2019-02-02 01:41	StripHarakat	مَازِلْنَا
+مَازِلْتَ
+مَازِلْتِ
+مَازِلْتُمَا
+مَازِلْتُمَا
+مَازِلْتُم
+مَازِلْتُنَّ
+مَازَالَا
+مَازَالَتَا
+مَازَالُوا
+مَازِلْنَ
+مَادُمْتُ
+مَادُمْنَا
+مَادُمْتَ
+مَادُمْتِ
+مَادُمْتُمَا
+مَادُمْتُمَا
+مَادُمْتُم
+مَادُمْتُنَّ
+مَادَامَتْ
+مَادَامَا
+مَادَامَتَا
+مَادَامُوا
+مَادُمْنَ
+مَابَرِحْتُ
+مَابَرِحْنَا
+مَابَرِحْتَ
+مَابَرِحْتِ
+مَابَرِحْتُمَا
+مَابَرِحْتُمَا
+مَابَرِحْتُم
+مَابَرِحْتُنَّ
+مَابَرِحَتْ
+مَابَرِحَا
+مَابَرِحَتَا
+مَابَرِحُوا
+مَابَرِحْنَ
+مَافَتِئْتُ
+مَافَتِئْنَا
+مَافَتِئْتَ
+مَافَتِئْتِ
+مَافَتِئْتُمَا
+مَافَتِئْتُمَا
+مَافَتِئْتُم
+مَافَتِئْتُنَّ
+مَافَتِئَتْ
+مَافَتِئَا
+مَافَتِئَتَا
+مَافَتِئُوا
+مَافَتِئْنَ
+مَااِنْفَكَكْتُ
+مَااِنْفَكَكْنَا
+مَااِنْفَكَكْتَ
+مَااِنْفَكَكْتِ
+مَااِنْفَكَكْتُمَا
+مَااِنْفَكَكْتُمَا
+مَااِنْفَكَكْتُم
+مَااِنْفَكَكْتُنَّ
+مَااِنْفَكَّتْ
+مَااِنْفَكَّا
+مَااِنْفَكَّتَا
+مَااِنْفَكُّوا
+مَااِنْفَكَكْنَ
+
+
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:MyTestWebApp:2019-02-20 10:33	extractEnteties	 
+	 دَخلَ يَزيدُ بن منصور الحِميَري على المهدي و بَشّارُ بن بُردٍ بَينَ يَديهَ يُنشِدُهُ قَصيدةً امتَدَحَهُ بِها، فَلمّا فَرغَ مِن شِعرِه أقبَلَ عليهِ يَزيدُ وكانت فيه غَفلَةٌ فقال : يا شَيخُ ما صِناعَتُكَ ؟ 
+	فقال بشار : أثقُبُ اللؤلؤ .فَضِحِكَ المَهديُ ثُمَّ قال لِبشار : أغرُب وَيلَك أتَتَنادُرُ على خالي ؟ 
+	فقال بشار : ما أصنع به ؟ يَرى شيخاً أعمى يُنشِدُ الخليفةَ شِعراً ويسألُهُ عَن صِناعَتِه!؟  
+
+INFO:MyTestWebApp:2019-02-20 10:35	extractEnteties	 لمَّا وَلِيَ عمر بن عبد العزيز الخلافة ردَّ المظالم والقطائع . وكان سليمان بن عبدالملك قد أمر لعنبسة بن سعيد بن العاص بعشرين ألف دينار ، فدارت في الدواوين حتى انتهت إلى ديوان الختم ، فلم يبقَ إلا قبضُها ، فتـُوُفَّيَ سليمان قبل أن يقبضها . وكان عنبسة صديقًا لعمر بن عبدالعزيز ، فغدا يريد كلام عمر فيما أمر له به سليمان ، فوجد بني أمية حضورًا بباب عمر ، يريدون الإذن عليه ليكلّموه في أمورهم ، فلما رأوا عنبسة قالوا : ننظر ما يصنعُ به قبل أن نكلّمه ، وقالوا : أَعلِم أميرَ المؤمنين مكاننا ، وأعلمنا ما يصنعُ بك في أمورك . فدخل عنبسة على عمر ، فقال له : يا أميرَ المؤمنين ، إن أميرَ المؤمنين سليمان قد كان أمر لي بعشرين ألف دينار ، حتى انتهت إلى ديوان الختم ، ولم يبقَ إلا قبضها ، فتوفي على ذالك ، وأميرُ المؤمنين أولى باستتمام الصنيعة عندي ، وما بيني وبينه أعظمُ مما كان بيني وبين أمير المؤمنين سليمان . فقال له عمر : كم ذالك ؟!! قال : عشرون ألف دينار . قال عمر : عشرون ألف دينار تـُغني أربعةَ آلاف بيتٍ من المسلمين وأدفعها إلى رجل واحد!! والله ما لي إلى ذالك من سبيل . قال عنبسة : فرمَيتُ بالكتاب الذي في الصّك . فقال عمر : لا عليك أن يكونَ معك ، فلعله أن يأتيَك مَن هو أجرأُ على هذا المال مني فيأمرَ لك بها . قال عنبسة : فأخذته تبرُّكًا برأيه . وقلت له : يا أمير المؤمنين ، فما بال جَبَل الورس ؟!! - وكان جبل الورس قطيعةً لعمر بن عبدالعزيز - فقال عمر : ذكَّرتني الطّعنَ وكنت ناسيًا!! يا غلام : هاتِ ذالك القفص ، فأُتي يقفص من جريد فيه قطائع بني عبد العزيز ، فقال : يا غلام ، اقرأ عليّ ، فكلما قرأ قطيعة قال : شُقّها ، حتى لم يبقَ في القفص شيءٌ إلّا شقّه!! . قال عنبسة : فخرجتُ إلى بني أُميّة ، وهم وقوف بالباب ، فأعلمتُهم ما كان من ذالك ، فقالوا : ليس بعد هذا شيء ، ارجع إليه فاسأله أن يأذنَ لنا أن نلحق بالبُلدان . فرجعت إليه فقلت : يا أميرَ المؤمنين ، إن قومك بالباب يسأَلونك أن تـُجري عليهم ما كان مَن قبلك يُجري عليهم ، فقال عمر : والله ما هذا المال لي ، وما إلى ذالك من سبيل . قلت : يا أميرَ المؤمنين ، فيسألونك أن تَأذنَ لهم يضربون في البُلدان . قال : ما شاءوا ، ذالك لهم ، وقد أذنت لهم . قلت : وأنا أيضًا ؟!! قال : وأنت أيضًا قد أذِنتُ لك ، ولكني أرى لك أن تقيمَ فإنك رجلٌ كثير النّقد!! ، وأنا أبيعُ تركةَ سليمان ، فعلّلك أن تشتري منها ما يكون لك في ربحه عِوَضٌ مما فاتك . فأقمت تبرّكًا برأيه ، فابتعت من تركةِ سليمان بمائة ألف ، فخرجتُ بها إلى العراق فبعتُها بمائتي ألف وحبست الصكّ . فلما تُوفّيَ عمر وولَي يزيد بن عبدالملك أتيته بكتاب سليمان فأنفذ لي ما كان فيه .     لا تنسوا عبدالله " ياقوت " من صالح الدعاء . تابعوني على فيسبوك : ياقوت الفرزدقي    
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
+INFO:paste.httpserver.ThreadPool:Shutting down threadpool
+INFO:paste.httpserver.ThreadPool:All workers stopped
