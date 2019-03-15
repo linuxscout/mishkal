@@ -1,6 +1,7 @@
 *.pyc
 tests/*
 tmp/*
+/interfaces/web/tmp/*
 /support/asmai/data/tosql2.py
 /support/asmai/data/tosql3-masdar.py
 /support/asmai/data/tosql3-masdarpy

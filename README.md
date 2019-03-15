@@ -22,7 +22,24 @@ Download  |[sourceforge](http://mishkal.sourceforge.net)
 Feedbacks  |[Comments](http://tahadz.com/mishkal/contact)
 Accounts  |[@Facebook](https://www.facebook.com/mishkalarabic) [@Twitter](https://twitter.com/linuxscout)  [@Sourceforge](http://sourceforge.net/projectsmishkal/)
 
-        
+Setup
+=====
+
+### Debian/Ubuntu Linux
+
+1. Install necessary packages:
+
+```
+sudo apt install git python-pip
+python -m pip install pyarabic arramooz-pysqlite qalsadi tashaphyne mysam-tagmanager
+```
+
+2. Clone mishkal project from GitHub:
+
+```
+git clone https://github.com/linuxscout/mishkal.git
+```
+
 Usage
 =====
 ### Windows :
