@@ -5,8 +5,7 @@ import getopt
 import os
 import sys
 import os.path
-import re
-from glob import glob
+import tashkeel.tashkeel as ArabicVocalizer
 
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
@@ -33,6 +32,7 @@ def usage():
     print(u"\t[-h | --help]                  outputs this usage message")
     print(u"\t[-v | --version]               program version")
     print(u"\t[-p | --progress]              display progress status")
+    print(u"\t[-a | --verbose]               enable verbosity")
     print(u"\n\t* Tashkeel Actions\n\t-------------------")
     print(u"\t[-r | --reduced]               Reduced Tashkeel.")
     print(u"\t[-s | --strip]                 Strip tashkeel (remove harakat).")
@@ -62,6 +62,7 @@ def grabargs():
         "strip_tashkeel": False,
         "reducedTashkeel": False,
         "progress": False,
+        "verbose": False,
         "train": False,
         "nocache": False,
         "text": ""
@@ -72,10 +73,10 @@ def grabargs():
     try:
         opts, args = getopt.getopt(
             sys.argv[1:],
-            "hVtgcpixsmnrv:f:o:l:",
+            "hVtgcpaixsmnrv:f:o:l:",
             [
                 "help", "version", "stat", "compare",
-                "reduced", "strip", "syntax", "progress", "semantic",
+                "reduced", "strip", "syntax", "progress", "verbose", "semantic",
                 "ignore", "nocache", "train", "limit = ", "file = ", "out = "
             ],
         )
@@ -107,6 +108,8 @@ def grabargs():
             options["disableStatistic"] = True
         if o in ("-p", "--progress"):
             options["progress"] = True
+        if o in ("-a", "--verbose"):
+            options["verbose"] = True
         if o in ("-g", "--train"):
             options["train"] = True
         if o in ("-l", "--limit"):
@@ -128,9 +131,6 @@ def grabargs():
     return (options)
 
 
-import tashkeel.tashkeel as ArabicVocalizer
-
-
 def test():
     options = grabargs()
 
@@ -147,6 +147,7 @@ def test():
     limit = options['limit']
     compare = options['compare']
     progress = options['progress']
+    verbose = options['verbose']
     enable_syn_train = options['train']
 
     # filename = "samples/randomtext.txt"
@@ -168,7 +169,6 @@ def test():
     else:
         lines = text.split('\n')
     # all things are well, import library
-    import core.adaat
     import pyarabic.araby as araby
 
     counter = 1
@@ -195,6 +195,9 @@ def test():
         if enable_syn_train:
             vocalizer.enable_syn_train()
             # print("mishkal-console, vocalizer.anasynt.syntax_train_enabled", vocalizer.anasynt.syntax_train_enabled)
+        # if verbose option, then activate logger in ArabicVocalizer
+        if verbose:
+            vocalizer.enable_verbose()
 
     # vocalizer.disableShowCollocationMark()
     # print("show delimiter", vocalizer.collo.showDelimiter)
@@ -206,18 +209,13 @@ def test():
     correct = 0
     incorrect = 0
     total = 0
-    totLetters = 0
     LettersError = 0
     WLMIncorrect = 0
-    percent = 0
     if compare:
         # display stats for the current line
         print("id\tfully Correct\tStrip Correct\tfully WER\tStrip WER\tLER\tTotal\tline Fully correct\tline Strip correct\tLine")
 
     while line and counter <= limit:
-        # commented out the following condition as the convention of skipping lines prepended with '#' is arbitrary
-
-        # if not line.startswith('# '):
         line = line.strip()
         lineCorrect = 0
         lineWLMIncorrect = 0
@@ -298,7 +296,8 @@ def test():
             print(result.strip('\n').encode('utf8'),)
         else:
             result_line = result.encode('utf8')
-            print(result_line)
+            if verbose:
+                print(result_line)
             # add line and new line to output file
             outfile.write(result_line)
             outfile.write("\n")
