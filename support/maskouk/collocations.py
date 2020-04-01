@@ -281,7 +281,7 @@ class CollocationClass:
         taglist =[]
         vocalized_list=[]
         for word in wordlist:
-            if not self.collo_cache.has_key(word):
+            if not word in self.collo_cache:
                 # get all collocations starting with word
                 result = self.is_collocated_word(word)
                 # result is False or a list of collocations
@@ -425,18 +425,18 @@ def mainly():
     #~import re
     for i in range(1):
         newlist = collo.lookup(wordlist)
-        print i, u'\t'.join(newlist).encode('utf8')
+        print(i, u'\t'.join(newlist).encode('utf8'))
     inputtext = words
     for k in cconst.GENERAL_COLLOCATIONS.keys():
-        print k.encode('utf8'), \
-        cconst.GENERAL_COLLOCATIONS[k].get('v', '').encode('utf8')
+        print(k.encode('utf8'), \
+        cconst.GENERAL_COLLOCATIONS[k].get('v', '').encode('utf8'))
         if k in inputtext:
-            print  'ok'
+            print( 'ok')
         inputtext = re.sub( k, cconst.GENERAL_COLLOCATIONS[k].get('v', ''),
          inputtext )
 
     #~ txt  = collo.lookup4long_collocations(words)
-    print "long collo, ", inputtext.encode('utf8')    
+    print("long collo, ", inputtext.encode('utf8')    )
     
     
 #Class test

@@ -14,7 +14,7 @@ import sys
 sys.path.append('../lib')
 sys.path.append('../')
 import re
-import unknown_const
+from . import unknown_const
 import pyarabic.araby as araby
 #debug = True
 debug = False
@@ -29,7 +29,7 @@ class UnknownTashkeel:
         return a vocalized form of an unknown word, from a word list
         """
         return unknown_const.Table.get(word, vocalize_foreign(word))
-		
+        
 def vocalize_foreign(word):
     """
     vocalize a foreign names written in arabic

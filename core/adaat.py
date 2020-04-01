@@ -13,6 +13,8 @@
 """
 Adaat, arabic tools interface
 """
+from __future__ import (absolute_import, division,
+                        print_function, unicode_literals)
 import sys,os
 sys.path.append(os.path.join(os.path.dirname(__file__), '../support/'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../mishkal'))
@@ -179,17 +181,17 @@ def romanize(text, code = "ISO"):
     if ArabicRomanizationTable.has_key(code):
         for k in text:
             if ArabicRomanizationTable[code].has_key(k):
-                print "1"
+                print("1")
                 if explicated:
                     textcoded += "("+k+")"
-                    print "2"
+                    print("2")
                 textcoded += ArabicRomanizationTable[code][k]
-                print "3"
+                print("3")
             else:
                 textcoded += "*"
     else:
         textcoded = text
-        print "4"
+        print("4")
     return textcoded
 
 def number2letters(text):
@@ -288,7 +290,10 @@ def affixate(text):
     generate all affixed froms from a word
     """
     word_list = token_text(text)
-    import generate
+    try:
+        import generate
+    except ImportError:
+        from . import generate
     if len(word_list) == 0:
         return u''
     else:
@@ -719,14 +724,14 @@ def compare_tashkeel(text):
     for txt in texts:
         list1 += vocalizer.analyzer.tokenize(txt)
     list2 = vocalized_dict
-    print u"\t".join(list1).encode('utf8')
+    print(u"\t".join(list1).encode('utf8'))
     correct = 0
     incorrect = 0
     total = len(list1)
     if len(list1)!= len(list2):
-        print "lists haven't the same length", len(list1), len(list2)
+        print("lists haven't the same length", len(list1), len(list2))
         for i in range(min(len(list1), len(list2))):
-            print (u"'%s'\t'%s'"%(list1[i], list2[i].get('chosen',''))).encode("utf8")
+            print((u"'%s'\t'%s'"%(list1[i], list2[i].get('chosen',''))).encode("utf8"))
         sys.exit()
     else:
         for i in range(total):
@@ -781,7 +786,10 @@ def random_text():
     """
     get random text for tests
     """    
-    import randtext
+    try:
+        import randtext
+    except ImportError:
+        from . import randtext
     
     return random.choice(randtext.textlist)
 def chunksplit(text):

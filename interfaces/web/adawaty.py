@@ -26,6 +26,8 @@ Copyright © 2009, Muayyad Alsadi <alsadi@ojuba.org>
     The Latest version of the license can be found on
     "http://waqf.ojuba.org/license"
 """
+from __future__ import (absolute_import, division,
+                        print_function, unicode_literals)
 import sys
 
 import os
@@ -102,6 +104,7 @@ class webApp(baseWebApp):
         "footer":footer,      
 #      'mode':self.mode, 'version':'0.1.0'
         }
+
     @expose(percentTemplate,["body_help.html"])
     def help(self, rq, *args):
         return {
@@ -112,11 +115,11 @@ class webApp(baseWebApp):
         this is an example of using ajax/json
         to test it visit http://localhost:8080/ajaxGet"
         """
-        text=rq.q.getfirst('text','Zerrouki Taha').decode('utf-8')
-        action=rq.q.getfirst('action','DoNothing').decode('utf-8')
-        order=rq.q.getfirst('order','0').decode('utf-8')
+        text=rq.q.getfirst('text','Zerrouki Taha')#.decode('utf-8')
+        action=rq.q.getfirst('action','DoNothing')#.decode('utf-8')
+        order=rq.q.getfirst('order','0')#.decode('utf-8')
         options={};
-        options['lastmark']=rq.q.getfirst('lastmark','0').decode('utf-8')       
+        options['lastmark']=rq.q.getfirst('lastmark','0')#.decode('utf-8')       
         #print order.encode('utf8');
         self.writelog(text,action);
         #Handle contribute cases

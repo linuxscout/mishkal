@@ -1,13 +1,21 @@
 #! /usr/bin/python2
 # -*- coding: UTF-8 -*-
-
-import getopt
+from __future__ import (
+    absolute_import,
+    print_function,
+    unicode_literals,
+    division,
+    )
 import os
-import sys
 import os.path
+import sys
+if sys.version_info.major < 3:
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
 import re
+import getopt
 from glob import glob
-
+from io import open
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
 # ~ sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../support/'))
@@ -27,7 +35,7 @@ def usage():
     # "Display usage options"
     print(u"(C) CopyLeft 2012, %s" % AuthorName)
     print(u"Usage: %s -f filename [OPTIONS]" % scriptname)
-    print(u"       %s 'السلام عليكم' [OPTIONS]\n" % scriptname).encode('utf8')
+    print(u"       %s 'السلام عليكم' [OPTIONS]\n" % scriptname)#.encode('utf8')
     print(u"\t[-f | --file = filename]       input file to %s" % scriptname)
     print(u"\t[-o | --outfile = filename]    output file to write vocalized text to, '$FILENAME (Tashkeel).txt' by default")
     print(u"\t[-h | --help]                  outputs this usage message")
@@ -157,7 +165,7 @@ def test():
 
     if not text:
         try:
-            myfile = open(filename)
+            myfile = open(filename, encoding='utf8')
             print("input file:", filename)
             if not outfilename:
                 outfilename = filename + " (Tashkeel).txt"
@@ -197,7 +205,7 @@ def test():
     # nolimit = True
     nolimit = False
     if not text:
-        line = (myfile.readline()).decode('utf8')
+        line = (myfile.readline())#.decode('utf8')
     else:
         if len(lines) > 0:
             line = lines[0]
@@ -288,10 +296,10 @@ def test():
 
             # ~ print result.strip('\n').encode('utf8'),
             if text:
-                print result.strip('\n').encode('utf8'),
+                print(result.strip('\n'), end="")
             else:
-                result_line = result.encode('utf8')
-                print result_line
+                result_line = result
+                print(result_line)
                 # add line and new line to output file
                 outfile.write(result_line)
                 outfile.write("\n")
@@ -305,12 +313,11 @@ def test():
                     round((total - WLMIncorrect) * 100.00 / total, 2)  # Strip Correct
                 )
             )
-            # ~sys.stderr.write("treatment of "+line.encode('utf8'))
             sys.stderr.flush()
 
         # get the next line
         if not text:
-            line = (myfile.readline()).decode('utf8')
+            line = (myfile.readline())
         else:
             if counter < len(lines):
                 line = lines[counter]

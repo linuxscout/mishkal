@@ -24,7 +24,10 @@ from PyQt4.Qt import QTextOption
 from PyQt4.Qt import Qt
 from PyQt4.QtCore import pyqtSignal
 
-import customdictionary
+try:
+    import customdictionary
+except:
+    from . import customdictionary
 
 
 
@@ -55,8 +58,8 @@ class myspeller:
         if self.dict.has_key(key):
             return self.dict[key];
         return [];
-    def __del__():
-        del (self.custom_dict)
+    def __del__(self,):
+        del(self.custom_dict)
 class SpellTextEdit(QPlainTextEdit):
  
     def __init__(self, *args):
@@ -171,7 +174,7 @@ class SpellTextEdit(QPlainTextEdit):
         """
         Add non vocalized words with user vocalization into a dictionary to be used as feed back
         """
-        print "Added word", text.encode('utf8')
+        print("Added word", text.encode('utf8'))
         self.dict.custom_dict.add(text)
     
     def correctWord(self, word):
@@ -194,7 +197,10 @@ class SpellAction(QAction):
     A special QAction that returns the text in a signal.
     '''
  
-    correct = pyqtSignal(unicode)
+    try:
+        correct = pyqtSignal(unicode)
+    except:
+        correct = pyqtSignal(str)        
  
     def __init__(self, *args):
         QAction.__init__(self, *args)

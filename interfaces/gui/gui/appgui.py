@@ -5,15 +5,22 @@
 #      by: PyQt4 UI code generator 4.5.4
 #
 # WARNING! All changes made in this file will be lost!
+from __future__ import (absolute_import, division,
+                        print_function, unicode_literals)
 import random
 import PyQt4.QtCore
 import PyQt4.QtGui
+try:
+    from PyQt4.QtCore import QString
+except ImportError:
+    QString = str
+    unicode=str    
 import time
 ##from PyQt4 import QtCore, QtGui
 #from core.scoutgame_main import *
 import core.adaat
-from setting import *
-from spelling import *
+from .setting import *
+from .spelling import *
 #cONSTANT
 myAPPLICATION_NAME=u"مشكال: تشكيل النصوص العربية"
 PWD = os.path.dirname(sys.argv[0])
@@ -115,7 +122,7 @@ class Ui_MainWindow(object):
         for i in range(len(self.tab_lexique)):
             name=self.tab_lexique[i]["name"]
 ##            print name;
-            self.CBLexique.addItem(QtCore.QString())
+            self.CBLexique.addItem(QString())
             self.CBLexique.setItemText(i,self.tab_lexique[i]["title"])
 ##        self.CBLexique.addItem(QtCore.QString())
 ##        self.CBLexique.addItem(QtCore.QString())
@@ -140,9 +147,9 @@ class Ui_MainWindow(object):
 
         self.CBLanguage= QtGui.QComboBox(self.centralwidget)
         self.CBLanguage.setObjectName("CBLanguage")
-        self.CBLanguage.addItem(QtCore.QString())
-        self.CBLanguage.addItem(QtCore.QString())
-        self.CBLanguage.addItem(QtCore.QString())
+        self.CBLanguage.addItem(QString())
+        self.CBLanguage.addItem(QString())
+        self.CBLanguage.addItem(QString())
         self.CBLanguage.hide();
 ##        self.gridLayout_5.addWidget(self.CBLanguage, 0, 2, 1, 1)
 
@@ -496,7 +503,11 @@ class Ui_MainWindow(object):
         self.MainWindow.setWindowIcon(icon)
 #create a Progressbar
         self.singleProgress = QtGui.QProgressBar(self.centralwidget)
-        self.singleProgress.setProperty("value", QtCore.QVariant(0))
+        try:
+            self.singleProgress.setProperty("value", QtCore.QVariant(0))
+        except TypeError:
+            self.singleProgress.setProperty("value", 0)
+
         self.singleProgress.setObjectName("singleProgress")
         #self.gridLayout.addWidget(self.singleProgress, 0 ,2, 3, 0)
         #self.singleProgress.hide();
@@ -542,7 +553,7 @@ class Ui_MainWindow(object):
         Callback for calls from the thread that need to be executed in the
         main thread.
         """
-        exec code
+        exec(code)
 
 
     def threadDone(self):
@@ -575,7 +586,7 @@ class Ui_MainWindow(object):
         vocalizedTextDict = core.adaat.DoAction(text,action,options);
         vocalizedText = u"";
         for itemD in vocalizedTextDict:
-            if itemD.has_key('chosen'):
+            if  'chosen' in itemD:
 
                 #~vocalizedText+=" "+itemD['chosen'];
                 if itemD['chosen'][0] in u"-[\]{}()*+?.,،:\^$|#\s\n،":
@@ -717,7 +728,7 @@ class Ui_MainWindow(object):
         pass;
 
     def print_result(self):
-        if self.result.has_key("HTML"):
+        if "HTML" in self.result:
             data=QtCore.QFile("ar/style.css");
             if (data.open(QtCore.QFile.ReadOnly)):
                 mySTYLE_SHEET=QtCore.QTextStream(data).readAll();
@@ -758,15 +769,31 @@ body {
 
     def readSettings(self):
         settings = QtCore.QSettings("Arabeyes.org", "Qutrub")
-        family=settings.value("font_base_family", QtCore.QVariant(QtCore.QString("Traditional Arabic"))).toString()
-        size,ok=settings.value("font_base_size", QtCore.QVariant(12)).toInt();
+        try:
+            family=settings.value("font_base_family", QtCore.QVariant(QString("Traditional Arabic"))).toString()
+        except TypeError:
+            family = str(settings.value("font_base_family", "Traditional Arabic"))
+        try:
+            size,ok=settings.value("font_base_size", QtCore.QVariant(12)).toInt();
+        except TypeError:
+            size = settings.value("font_base_size", 12)
+            size = int(size)
+            ok = bool(size)
+            
         if not ok:size=12;
-        bold=settings.value("font_base_bold", QtCore.QVariant(True)).toBool()
+        try:
+            bold=settings.value("font_base_bold", QtCore.QVariant(True)).toBool()
+        except TypeError:
+            bold= bool(settings.value("font_base_bold", True))
         self.font_result.setFamily(family)
         self.font_result.setPointSize(size)
         self.font_result.setBold(bold)
         #read of dictsetting options
-        dictsetting,ok=settings.value("DictSetting", QtCore.QVariant(1)).toInt();
+        try:
+            dictsetting,ok = settings.value("DictSetting", QtCore.QVariant(1)).toInt();
+        except TypeError:
+            dictsetting = settings.value("DictSetting", 1);
+            ok = bool(dictsetting)
         if not ok:dictsetting=1;
 
         self.BDictOption=dictsetting;
@@ -907,7 +934,7 @@ body {
             if extention.lower() in ('html','txt','xml','csv'):
                 display_format=extention.upper();
             #Add text generation
-                if not self.result.has_key(extention.upper()):
+                if  extention.upper() not in self.result:
                     QtGui.QMessageBox.warning(self.centralwidget,U"خطأ",
                                 u"لاشيء يمكن تصديره")
                     return None;
@@ -928,13 +955,21 @@ body {
             except:
                 QtGui.QMessageBox.warning(self.centralwidget,U"خطأ",
                                 u"لا يمكن حفظ الملف %s"%filename)
-
+    def to_string(self, word):
+        """ used to keep legacy between py2 and 3"""
+        try: # version 2
+            if not word.isEmpty():
+                word = unicode(word)
+            else:
+                word = ""
+        except:
+            pass
+        return word
     def display_result(self,arg=""):
 
         word = self.ResultVocalized.toPlainText();
-        if not word.isEmpty():
-
-            word=unicode(word);
+        word = self.to_string(word)
+        if word:            
             word = word.strip(' ');
             
             reducedTashkeel=(self.BReducedVocalization.checkState()!=0);
@@ -947,7 +982,8 @@ body {
 
     def display_resultActions(self,action="DoNothing"):
         text = self.ResultVocalized.toPlainText();
-        if not text.isEmpty():
+        text = self.to_string(text)
+        if text:
             # do actions
             #action=self.CBHaraka.currentText();
             #print action.encode('utf8')
@@ -957,7 +993,8 @@ body {
     def display_resultRemove2(self):
 
         word = self.ResultVocalized.toPlainText();
-        if not word.isEmpty():
+        word = self.to_string(word)        
+        if word:
             word=unicode(word);
             word = word.strip(' ');
             self.result["HTML"]=araby.strip_tashkeel(word);
@@ -976,7 +1013,8 @@ body {
             self.correctWord(araby.strip_tashkeel(originaltext))
         else:
             word = self.ResultVocalized.toPlainText();
-            if not word.isEmpty():
+            word = self.to_string(word)
+            if word:
                 word=unicode(word);
                 word = word.strip(' ');
                 self.result["HTML"]=araby.strip_tashkeel(word);
@@ -995,7 +1033,7 @@ body {
 
 
     def display_result_in_tab(self):
-        if  self.result.has_key("HTML"):
+        if  "HTML" in self.result:
             #text="<html><body dir='rtl'>"+self.result["HTML"]+"</body></html>"
             text=self.result["HTML"]			
             #print text.encode('utf8');
@@ -1083,4 +1121,7 @@ def load_lexique():
     return tab_lexique;
 
 
-import app_rc
+try:
+    import app_rc
+except:
+    from . import app_rc

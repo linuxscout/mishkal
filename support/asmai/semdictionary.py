@@ -50,12 +50,12 @@ class SemanticDictionary:
                 self.db_connect.row_factory = sqlite.Row 
                 self.cursor = self.db_connect.cursor()
             except  IOError:
-                print "Fatal Error Can't find the database file", file_path
+                print("Fatal Error Can't find the database file", file_path)
                 if __name__  ==  '__main__':
                     sys.exit();
         else:
-            print u" ".join(["Inexistant File", file_path, " current dir ", 
-            os.curdir]).encode('utf8')
+            print(u" ".join(["Inexistant File", file_path, " current dir ", 
+            os.curdir]).encode('utf8'))
             if __name__  ==  '__main__':
                 sys.exit();            
 
@@ -149,7 +149,7 @@ class SemanticDictionary:
                     return idlist[0]
             
         except  sqlite.OperationalError:
-            print "degat",  primate_word.encode('utf8')
+            print("degat",  primate_word.encode('utf8'))
             return ('','') 
         return ('','') 
     def lookup(self, primate_word, second_word):
@@ -227,6 +227,6 @@ def mainly():
             #~ print (u" ".join(result)).encode('utf8')
             print (u" ".join(words)).encode('utf8'), result
         else:
-            print "No result", (u" ".join(words)).encode('utf8')
+            print ("No result", (u" ".join(words)).encode('utf8'))
 if __name__  ==  '__main__':
     mainly()

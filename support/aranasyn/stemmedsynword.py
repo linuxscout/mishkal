@@ -186,7 +186,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @param next: the next of  the stemmed word in the word case list.
         @tyep next: integer
         """
-        return self.next.keys()
+        return list(self.next.keys())
 
     def has_next(self, nextw = None):
         """
@@ -244,7 +244,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         """
         get all privous word list of relations.
         """
-        return self.previous.keys()
+        return list(self.previous.keys())
     def get_previous_relation(self, previous_order):
         """
         get the previous relation between the current case and the previous given by order
@@ -278,7 +278,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @param next: the next of  the stemmed word in the word case list.
         @tyep next: integer
         """
-        return self.sem_next.keys()
+        return list(self.sem_next.keys())
 
     def has_sem_previous(self):
         """
@@ -295,6 +295,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         """
         if not nextw:
             return self.sem_next != {}
+        #print("has_sem_next", self.sem_next.keys(), nextw)
         return bool(set(self.sem_next.keys()).intersection(nextw))
 
     def add_sem_previous(self, previous, weight = 1):
@@ -314,7 +315,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         the word case list.
         @tyep previous: integer
         """
-        return self.sem_previous.keys()
+        return list(self.sem_previous.keys())
     def forced_case(self):
         """
         Add a new tag to syntax field as foced case
@@ -839,7 +840,7 @@ def mainly():
     """
     main test
     """
-    print "test"
+    print("test")
     rdict = {}
     rdict =  {"word": u"الحياة", # input word
             "vocalized": u"الْحَيَاةُ",
@@ -864,9 +865,9 @@ def mainly():
             }
     rdict = stemmedword.StemmedWord(rdict)
     stmwrd = StemmedSynWord(rdict)    
-    print stmwrd.get_dict()
-    print stmwrd.is_initial()
-    print stmwrd
+    print(stmwrd.get_dict())
+    print(stmwrd.is_initial())
+    print(stmwrd)
 if __name__ == "__main__":
     mainly()
     syn_const.NOMINAL_FACTOR_LIST

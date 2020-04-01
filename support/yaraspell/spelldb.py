@@ -62,11 +62,11 @@ class spellDictionary:
                 self.db_connect.row_factory  =  sqlite.Row                 
                 self.cursor  =  self.db_connect.cursor()
             except IOError:
-                print "Fatal Error Can't find the database file", self.file_path
+                print("Fatal Error Can't find the database file", self.file_path)
 
         else:
-            print u" ".join(["Inexistant File", self.file_path, " current dir ",
-             os.curdir]).encode('utf8')
+            print(u" ".join(["Inexistant File", self.file_path, " current dir ",
+             os.curdir]).encode('utf8'))
             sys.exit()
     def __del__(self):
         """
@@ -83,7 +83,7 @@ class spellDictionary:
         try:
             self.cursor.execute(sql)
         except sqlite.OperationalError:
-            print "Fatal Error can't execute query: file: %s"%self.file_path
+            print("Fatal Error can't execute query: file: %s"%self.file_path)
             return []
         if self.cursor:
             # get one row 
@@ -100,7 +100,7 @@ class spellDictionary:
         try:
             self.cursor.execute(sql)
         except sqlite.OperationalError:
-            print "Fatal Error can't execute query: file: %s on costum"%self.file_path
+            print("Fatal Error can't execute query: file: %s on costum"%self.file_path)
             return []
         if self.cursor:
             # get one row 
@@ -142,7 +142,7 @@ class spellDictionary:
             try:
                 self.cursor.execute(sql2)
             except sqlite.OperationalError:
-                print "Fatal Error can't execute query: file: %s"%self.file_path
+                print("Fatal Error can't execute query: file: %s"%self.file_path)
                 return []
             if self.cursor:
                 # get one row 
@@ -181,7 +181,7 @@ def mainly():
     stemlist = [u"كلب", u'كلم', ]    
     for stem, aff in zip(stemlist, afflist):
         test = sp.lookup(stem, aff)
-        print u"\t".join(["affix", aff, stem, str(test)]).encode('utf8')
+        print(u"\t".join(["affix", aff, stem, str(test)]).encode('utf8'))
    
 #Class test
 if __name__  ==  '__main__':

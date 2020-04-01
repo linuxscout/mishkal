@@ -6,9 +6,14 @@
 #      by: PyQt4 UI code generator 4.5.4
 #
 # WARNING! All changes made in this file will be lost!
-
+from __future__ import (absolute_import, division,
+                        print_function, unicode_literals)
 from PyQt4 import QtCore, QtGui
-
+try:
+    from PyQt4.QtCore import QString
+except ImportError:
+    QString = str
+    unicode=str
 RightToLeft=1;
 DefaultFont = QtGui.QFont()
 DefaultFont.setFamily("Traditional Arabic")
@@ -62,7 +67,7 @@ class Ui_Dialog(object):
         self.CBLanguage = QtGui.QComboBox(Dialog)
         self.CBLanguage.setEnabled(False)
         self.CBLanguage.setObjectName("CBLanguage")
-        self.CBLanguage.addItem(QtCore.QString())
+        self.CBLanguage.addItem(QString())
         self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.CBLanguage)
 ##        self.BDictSetting = QtGui.QCheckBox(Dialog)
 ##        self.BDictSetting.setChecked(True)
@@ -109,24 +114,40 @@ class Ui_Dialog(object):
 
     def readSettings(self):
         settings = QtCore.QSettings("Arabeyes.org", "Qutrub")
-        family=settings.value("font_base_family", QtCore.QVariant(QtCore.QString("Traditional Arabic"))).toString()
-        size,ok=settings.value("font_base_size", QtCore.QVariant(12)).toInt();
+        try:
+            family=settings.value("font_base_family", QtCore.QVariant(QString("Traditional Arabic"))).toString()
+            size,ok=settings.value("font_base_size", QtCore.QVariant(12)).toInt();
+            bold=settings.value("font_base_bold", QtCore.QVariant(True)).toBool()
+            dictsetting,ok=settings.value("DictSetting", QtCore.QVariant(1)).toInt();
+        except TypeError:
+            family=settings.value("font_base_family", "Traditional Arabic")
+            size=settings.value("font_base_size", "12")
+            size= int(size)
+            ok = bool(size)
+            bold=settings.value("font_base_bold", True)
+            bold = bool(bold)
+            dictsetting =settings.value("DictSetting", "1")
+            dictsetting = int(dictsetting)
         if not ok:size=12;
-        bold=settings.value("font_base_bold", QtCore.QVariant(True)).toBool()
         self.font_result.setFamily(family)
         self.font_result.setPointSize(size)
         self.font_result.setBold(bold)
         #read of dictsetting options
-        dictsetting,ok=settings.value("DictSetting", QtCore.QVariant(1)).toInt();
+        
         if not ok:dictsetting=1;
 
 ##        self.BDictSetting.setCheckState(dictsetting);
 
     def writeSettings(self):
         settings = QtCore.QSettings("Arabeyes.org", "Qutrub")
-        settings.setValue("font_base_family", QtCore.QVariant(self.font_result.family()))
-        settings.setValue("font_base_size", QtCore.QVariant(self.font_result.pointSize()))
-        settings.setValue("font_base_bold", QtCore.QVariant(self.font_result.bold()))
+        try:
+            settings.setValue("font_base_family", QtCore.QVariant(self.font_result.family()))
+            settings.setValue("font_base_size", QtCore.QVariant(self.font_result.pointSize()))
+            settings.setValue("font_base_bold", QtCore.QVariant(self.font_result.bold()))
+        except:
+            settings.setValue("font_base_family", self.font_result.family())
+            settings.setValue("font_base_size", self.font_result.pointSize())
+            settings.setValue("font_base_bold", self.font_result.bold())
         #write of dictsetting options
 ##        settings.setValue("DictSetting", QtCore.QVariant(self.BDictSetting.checkState()));
 

@@ -552,14 +552,14 @@ def mainly():
     normsource = normalize(source)
     normlist = [normalize(word) for word in words]
     for word in words:
-        print u"\t".join([word, normalize(word)]).encode("utf8")
+        print(u"\t".join([word, normalize(word)]).encode("utf8"))
     words_dist = [(x, phonetic_distance(source,x)) for x in words]
     for word in words:
-        print u"\t".join([word, str(phonetic_distance(source,word))]).encode("utf8")
+        print(u"\t".join([word, str(phonetic_distance(source,word))]).encode("utf8"))
     condidates = sorted(words, key=lambda x: phonetic_distance(source,x))
-    print "-- ordred by phonetic ------------- "
-    print u"\t".join(condidates)
+    print("-- ordred by phonetic ------------- ")
+    print(u"\t".join(condidates))
     condidates = filter(lambda w: normalize(w) == normsource, words)
-    print "condidates", u"\t".join(condidates).encode('utf8')
+    print("condidates", u"\t".join(condidates).encode('utf8'))
 if __name__ == "__main__":
     mainly()

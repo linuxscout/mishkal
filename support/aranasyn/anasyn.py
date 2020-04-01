@@ -80,7 +80,7 @@ class SyntaxAnalyzer:
         # in order to add syntaxic proprities
         for stemming_list in detailed_stemming_dict:
             tmplist = [stemmedsynword.StemmedSynWord(
-                stemming_list[order], order) for order in range(len(stemming_list))]
+                stemming_list[order], order) for order in list(range(len(stemming_list)))]
             # if there is just one, we select it
             if not tmplist:
                 tmplist = [stemmedsynword.StemmedSynWord(stemming_list[0]),]
@@ -109,18 +109,18 @@ class SyntaxAnalyzer:
         pre_node = None
         previous_index = False        
         # study the relations between words stemmings
-        for current_index, (stemmedsynwordlist, current_node)  in  enumerate(zip(stemmedsynwordlistlist,synnode_list) ):
+        for current_index, (stemmedsynwordlist, current_node)  in  list(enumerate(zip(stemmedsynwordlistlist,synnode_list))):
             #index used to handle stmd position
             if current_index + 1 < len(synnode_list) : 
                 next_node = synnode_list[current_index+1]
             else:
                 next_node = None            
-            for current_case_index, stmword in enumerate(stemmedsynwordlist):
+            for current_case_index, stmword in list(enumerate(stemmedsynwordlist)):
                 if  not current_index :  # the initial case
                     # the initial case
                     stmword = self.bigram_analyze(None, stmword )[1]
                 else:
-                    for previous_case_index, previous in enumerate(stemmedsynwordlistlist[previous_index]):
+                    for previous_case_index, previous in list(enumerate(stemmedsynwordlistlist[previous_index])):
                         previous, stmword = self.bigram_analyze(previous, stmword, previous_case_index, current_case_index, pre_node, next_node)
 
             # خاصية الشفافية يجب أن تعالج في مستوى آخر وليس في مستوى حالات الكلمة
@@ -144,10 +144,10 @@ class SyntaxAnalyzer:
                 number = int(float(previous.get_word()))
             except ValueError:
                 number = 0
-            if number  % 100 in range(3,10) or number % 100 == 0:
+            if number  % 100 in list(range(3,10)) or number % 100 == 0:
                 if current.is_majrour():
                     weight = sconst.JarMajrourRelation
-            elif  number % 100 in range(11,99) or number % 100 == 0:
+            elif  number % 100 in list(range(11,99)) or number % 100 == 0:
                 if current.is_mansoub():
                     weight = sconst.NasebMansoubRelation 
         return weight
@@ -1028,7 +1028,7 @@ def mainly():
     result = analyzer.check_text(text)
     result = anasynt.analyze(result)
     # the result contains objects
-    print repr(result)
+    print(repr(result))
     #~ text2display = anasynt.display(result)
     #~ print text2display.encode('utf8')
 if __name__ == "__main__":
