@@ -25,7 +25,9 @@ ALLOW_DEBUG = False
 import sys, os, os.path, time, re
 try: import json
 except ImportError: import simplejson as json
-
+import six
+unicode = six.text_type
+basestring = six.string_types
 #import json # for templates
 try:
     import urlparse # for parsing query string
@@ -42,7 +44,6 @@ try:
     from utils import fromFs, toFs
 except ImportError:
     from .utils import fromFs, toFs
-    unicode = str # python3
 
 try:
     from cStringIO import StringIO
@@ -269,11 +270,15 @@ class expose:
       if cookies: h=map(lambda c: ('Set-Cookie',c),cookies.split('\n'))
       else: h=[]
       rq.start_response(rs, [('content-type', rq.response.contentType)]+h+list(map(lambda k: (k,rq.response.headers[k]),rq.response.headers)))
-      if type(r)==unicode: 
+      if type(r) == unicode:
+          #print("unicode")
           return (r.encode('utf8'),)
-      elif isinstance(r, basestring): 
-          return (r,)
-      return r
+      elif isinstance(r, basestring):
+          #print("base string")
+          return (r.encode('utf8'),)
+      else:
+        #print("default")
+        return r
     return wrapper
 
 def formatTemplate(rq, v, bfn=None):

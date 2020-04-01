@@ -18,13 +18,16 @@ Copyright © 2009, Muayyad Alsadi <alsadi@ojuba.org>
 """
 import sys, time, hashlib, random
 import bisect
+from six import string_types # basestring
+from six import text_type # unicode
+unicode = text_type
+basestring=string_types
 from itertools import groupby
 
 try: 
     from itertools import imap
 except ImportError: #python 3
     imap = map
-    unicode=str
     
 
 import re
