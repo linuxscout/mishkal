@@ -34,11 +34,12 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
     """
     def __init__(self, result_dict = None, order = -1):
         # ToDo
-        # copy the super class attributes to curesult_dictrrent classe
-        #stemmedword.stemmedWord.__init__(self, result_dict.get_dict())
+        # copy the super class attributes to result_dict classe
+        #~ stemmedword.StemmedWord.__init__(self, result_dict.get_dict())
+        #~ stemmedword.StemmedWord.__init__(self, result_dict.__dict__)
         
         if result_dict: 
-            self.__dict__ = result_dict.__dict__.copy()
+            self.__dict__ = result_dict.__dict__#.copy()
             self.unvocalized =  araby.strip_tashkeel(self.vocalized)
             self.unvoriginal =  araby.strip_tashkeel(self.original)
         self.tag_verbal_factor  =   0
