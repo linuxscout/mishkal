@@ -47,7 +47,7 @@ class TashkeelClass:
         # configure logging 
         #logging.basicConfig(level=logging.CRITICAL)
         #logging.basicConfig(level=logging.INFO)        
-        logging.basicConfig(level=logging.DEBUG)
+        logging.basicConfig(level=logging.ERROR)
         self.logger = logging.getLogger(__name__)
         #~ self.logger.info("Cache Path %s"%mycache_path)
 
