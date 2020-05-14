@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding=utf-8 -*-
 import sys
 from bottle import Bottle, run
 from bottle import static_file

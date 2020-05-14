@@ -15,16 +15,39 @@ Adaat, arabic tools interface
 """
 from __future__ import (absolute_import, division,
                         print_function, unicode_literals)
-import sys,os
+import sys
+import os
+import re
+import random
+from collections import Counter
+
 sys.path.append(os.path.join(os.path.dirname(__file__), '../support/'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../mishkal'))
-import random
+
+
 import pyarabic.araby  as araby # arabic words general functions
 import pyarabic.number
+import pyarabic.named
+import pyarabic.unshape
 
 import tashaphyne.stemming 
-import re
-#~import pyarabic.number
+try:
+    import generate
+except ImportError:
+    from . import generate
+
+import qalsadi.analex 
+import asmai.anasem 
+import aranasyn.anasyn as arasyn      
+import naftawayh.wordtag
+import tashkeel.tashkeel as ArabicVocalizer
+import maskouk.collocations as colloc 
+try:
+    import randtext
+except ImportError:
+    from . import randtext
+    
+
 def DoAction(text, action, options = {}):
     """
     do action by name
@@ -62,7 +85,6 @@ def DoAction(text, action, options = {}):
     elif action == "Poetry":
         return justify_poetry(text)
     elif action == "Unshape":
-        import pyarabic.unshape
         return pyarabic.unshape.unshaping_text(text)
     elif action == "Affixate":
         return affixate(text)
@@ -226,9 +248,7 @@ def full_stemmer(text, lastmark):
     """
     morphological analysis
     """
-    import qalsadi.analex 
-    import asmai.anasem 
-    import aranasyn.anasyn as arasyn    
+  
     result = []
     debug = False
     limit = 100
@@ -290,10 +310,6 @@ def affixate(text):
     generate all affixed froms from a word
     """
     word_list = token_text(text)
-    try:
-        import generate
-    except ImportError:
-        from . import generate
     if len(word_list) == 0:
         return u''
     else:
@@ -307,7 +323,6 @@ def wordtag(text):
     """
     word tagginginto noun, verb, tool
     """
-    import naftawayh.wordtag
     tagger = naftawayh.wordtag.WordTagger()
     word_list = token_text(text)
 
@@ -466,7 +481,6 @@ def tashkeel_text(text, lastmark=True):
     """
     Tashkeel text without suggestions
     """
-    import tashkeel.tashkeel as ArabicVocalizer
     cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
     vocalizer = ArabicVocalizer.TashkeelClass(mycache_path=cpath)
     #~ print "lastMark", lastmark
@@ -498,7 +512,6 @@ def show_collocations(text):
     vocalized_text = vocalizer.stat_tashkeel(text)
     return vocalized_text
     """
-    import maskouk.collocations as colloc 
     coll = colloc.CollocationClass(True)
     text = coll.lookup4long_collocations(text)
     wordlist = araby.tokenize(text)
@@ -528,7 +541,6 @@ def extractNamed(text):
     >>> extractNamed(u"قال خالد بن رافع  حدثني أحمد بن عنبر عن خاله")
     ("خالد بن رافع"، "أحمد بن عنبر ")
     """
-    import pyarabic.named
     wordlist = araby.tokenize(text)
     taglist = pyarabic.named.detect_named(wordlist)
 
@@ -556,9 +568,7 @@ def extract_enteties(text):
     @return : the text have enteties phrases quoted
     @rtype: unicode
     """
-    import pyarabic.number
-    import pyarabic.named
-    import maskouk.collocations as colloc 
+
     coll = colloc.CollocationClass(True)
     wordlist = araby.tokenize(text)
     taglist_nb = pyarabic.number.detect_numbers(wordlist)
@@ -609,9 +619,6 @@ def extract_enteties2(text):
     @return : the text have enteties phrases quoted
     @rtype: unicode
     """
-    import pyarabic.number
-    import pyarabic.named
-    import maskouk.collocations as colloc 
     coll = colloc.CollocationClass(True)
     wordlist = araby.tokenize(text)
     taglist_nb = pyarabic.number.detect_numbers(wordlist)
@@ -654,7 +661,6 @@ def extractNumbered(text):
     >>> extractNumber(u"وجدت خمسمئة وثلاثة وعشرين دينارا")
     وجدت خمسمئة وثلاثة وعشرين دينارا ")
     """
-    import pyarabic.number
     wordlist = araby.tokenize(text)
     taglist = pyarabic.number.detect_numbers(wordlist)
     # return phrases
@@ -677,7 +683,7 @@ def tashkeel2(text, lastmark):
     """
     Tashkeel text with suggestions
     """
-    import tashkeel.tashkeel as ArabicVocalizer
+    #~ import tashkeel.tashkeel as ArabicVocalizer
     cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
     vocalizer = ArabicVocalizer.TashkeelClass(mycache_path = cpath)
     #~ vocalizer.disable_cache()
@@ -701,7 +707,7 @@ def compare_tashkeel(text):
     """
     Compare tashkeel between vocalized text and automatic vocalized text
     """
-    import tashkeel.tashkeel as ArabicVocalizer
+    #~ import tashkeel.tashkeel as ArabicVocalizer
     # the entred text is vocalized correctly
     correct_text = text.strip()
     text = araby.strip_tashkeel(text.strip())
@@ -777,7 +783,7 @@ def assistanttashkeel(text):
     """
     get tashkeel with suggestions
     """
-    import tashkeel.tashkeel as ArabicVocalizer
+    #~ import tashkeel.tashkeel as ArabicVocalizer
     cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
     vocalizer = ArabicVocalizer.TashkeelClass(mycache_path=cpath)
     vocalized_text = vocalizer.assistanttashkeel(text)
@@ -786,18 +792,13 @@ def random_text():
     """
     get random text for tests
     """    
-    try:
-        import randtext
-    except ImportError:
-        from . import randtext
+
     
     return random.choice(randtext.textlist)
 def chunksplit(text):
     """
     split text into chunks
     """
-    import qalsadi.analex
-    import aranasyn.anasyn
     # lexical analyzer
     cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
     morphanalyzer = qalsadi.analex.Analex(cache_path=cpath)
@@ -840,8 +841,6 @@ def bigrams(text):
     """
     split text into bigrams
     """
-    import pyarabic.araby as araby
-    from collections import Counter
     # tokenize texts
     words = araby.tokenize(text)
     bigramslist = []
