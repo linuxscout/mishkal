@@ -7,3 +7,6 @@ repr==0.3.1
 tashaphyne==0.3.1
 arramooz-pysqlite==0.1
 qalsadi>=0.2
+mysam-tagmanager==0.1
+alyahmor==0.1
+future==0.18.2
