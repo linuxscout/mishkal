@@ -130,7 +130,8 @@ def grabargs():
 
     utfargs = []
     for a in args:
-        utfargs.append(a.decode('utf8'))
+        #~ utfargs.append(a.decode('utf8'))
+        utfargs.append(a)
     options["text"] = u' '.join(utfargs)
 
     # if text: print text.encode('utf8')
@@ -324,7 +325,7 @@ def test():
             else:
                 line = None
     else:
-        print("Done")
+        pass #print("Done")
 
 
 if __name__ == '__main__':

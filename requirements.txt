@@ -10,3 +10,4 @@ qalsadi>=0.2
 mysam-tagmanager==0.1
 alyahmor==0.1
 future==0.18.2
+git+git://github.com/cr0hn/CodernityDB3.git
