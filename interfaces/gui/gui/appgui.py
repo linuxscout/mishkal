@@ -530,7 +530,7 @@ class Ui_MainWindow(PyQt5.QtWidgets.QWidget):
         # self.ACopy.setEnabled(False)
         self.APrint.setEnabled(False)
         # #self.APrintPreview.setEnabled(False)
-       # # self.APagesetup.setEnabled(False)
+        # # self.APagesetup.setEnabled(False)
         # self.AZoomIn.setEnabled(False)
         # self.AZoomOut.setEnabled(False)
 
