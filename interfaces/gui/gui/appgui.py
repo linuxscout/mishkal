@@ -8,22 +8,41 @@
 from __future__ import (absolute_import, division,
                         print_function, unicode_literals)
 import random
-import PyQt4.QtCore
-import PyQt4.QtGui
+
+#~ import PyQt4.QtCore
+#~ import PyQt4.QtGui
+
+#~ try:
+    #~ from PyQt4.QtCore import QString
+#~ except ImportError:
+    #~ QString = str
+    #~ unicode=str    
+#~ import time
+
+import PyQt5.QtCore
+import PyQt5.QtGui
+import PyQt5.QtWidgets
+import PyQt5.QtPrintSupport
+from PyQt5.QtWidgets import QSizePolicy
+from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QGridLayout
+from PyQt5.QtWidgets import QDialog
+from PyQt5.QtWidgets import QDialogButtonBox
+
 try:
-    from PyQt4.QtCore import QString
+    from PyQt5.QtCore import QString
 except ImportError:
     QString = str
     unicode=str    
 import time
-##from PyQt4 import QtCore, QtGui
-#from core.scoutgame_main import *
+
 import core.adaat
 from .setting import *
 from .spelling import *
+
 #cONSTANT
 myAPPLICATION_NAME=u"مشكال: تشكيل النصوص العربية"
-PWD = os.path.dirname(sys.argv[0])
+PWD = os.path.dirname(__file__)
 
 
 class WorkThread(QtCore.QThread):
@@ -52,8 +71,8 @@ class WorkThread(QtCore.QThread):
             self.target(*self.args)
 
 
-	
-class Ui_MainWindow(object):
+    
+class Ui_MainWindow(PyQt5.QtWidgets.QWidget):
     font_base=None;
     font_result=None;
     result={}
@@ -83,38 +102,38 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
         MainWindow.resize(789, 593)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.MinimumExpanding, QtGui.QSizePolicy.MinimumExpanding)
+        sizePolicy = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
-        self.centralwidget = QtGui.QWidget(MainWindow)
+        self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.gridLayout_3 = QtGui.QGridLayout(self.centralwidget)
+        self.gridLayout_3 = QGridLayout(self.centralwidget)
         self.gridLayout_3.setObjectName("gridLayout_3")
-##        self.Label = QtGui.QLabel(self.centralwidget)
+##        self.Label = PyQt5.QtWidgets.QLabel(self.centralwidget)
 ##        self.Label.setObjectName("Label")
 ##        self.gridLayout_3.addWidget(self.Label, 1, 1, 1, 1)
-##        self.Label_2 = QtGui.QLabel(self.centralwidget)
+##        self.Label_2 = PyQt5.QtWidgets.QLabel(self.centralwidget)
 ##        self.Label_2.setObjectName("Label_2")
 ##        self.gridLayout_3.addWidget(self.Label_2, 2, 1, 1, 1)
-        self.gridLayout = QtGui.QGridLayout()
+        self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
-        self.gridLayout_4 = QtGui.QGridLayout()
+        self.gridLayout_4 = QGridLayout()
         self.gridLayout_4.setObjectName("gridLayout_4")
-        self.horizontalLayout_6 = QtGui.QHBoxLayout()
+        self.horizontalLayout_6 = PyQt5.QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.gridLayout_5 = QtGui.QGridLayout()
+        self.gridLayout_5 = QGridLayout()
         self.gridLayout_5.setObjectName("gridLayout_5")
-        #self.TSearch = QtGui.QLineEdit(self.centralwidget)
+        #self.TSearch = PyQt5.QtWidgets.QLineEdit(self.centralwidget)
         #self.TSearch.setEnabled(True)
         #self.TSearch.setMaximumSize(QtCore.QSize(500, 40))
 
         #self.TSearch.setFont(self.font_result)
         #self.TSearch.setObjectName("TSearch")
         #self.gridLayout_5.addWidget(self.TSearch, 0, 0, 1, 1)
-        self.CBLexique = QtGui.QComboBox(self.centralwidget)
-        self.CBLexique.hide();		
+        self.CBLexique = PyQt5.QtWidgets.QComboBox(self.centralwidget)
+        self.CBLexique.hide();      
         self.CBLexique.setObjectName("CBLexique")
 
 # add lexique
@@ -130,14 +149,14 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addWidget(self.CBLexique, 0, 5, 1, 1)
 
 #Explication option
-        self.BLastMarkVocalization= QtGui.QCheckBox(self.centralwidget)
+        self.BLastMarkVocalization= PyQt5.QtWidgets.QCheckBox(self.centralwidget)
         self.BLastMarkVocalization.setObjectName("BLastMarkVocalization")
         self.BLastMarkVocalization.setText(u"تشكيل أواخر الكلمات")
         self.BLastMarkVocalization.setCheckState(Qt.Checked);
         self.gridLayout_5.addWidget(self.BLastMarkVocalization, 0, 2, 1, 1)
 
 #Explication option
-        self.BReducedVocalization= QtGui.QCheckBox(self.centralwidget)
+        self.BReducedVocalization= PyQt5.QtWidgets.QCheckBox(self.centralwidget)
         self.BReducedVocalization.setObjectName("BReducedVocalization")
         self.BReducedVocalization.setText(u"تشكيل مُختزَل")
 
@@ -145,7 +164,7 @@ class Ui_MainWindow(object):
 
 # langige choice"
 
-        self.CBLanguage= QtGui.QComboBox(self.centralwidget)
+        self.CBLanguage= PyQt5.QtWidgets.QComboBox(self.centralwidget)
         self.CBLanguage.setObjectName("CBLanguage")
         self.CBLanguage.addItem(QString())
         self.CBLanguage.addItem(QString())
@@ -155,7 +174,7 @@ class Ui_MainWindow(object):
 
 
 
-        self.BVocalize = QtGui.QPushButton(self.centralwidget)
+        self.BVocalize = PyQt5.QtWidgets.QPushButton(self.centralwidget)
 
         self.BVocalize.setFont(self.font_base)
         self.BVocalize.setObjectName("BVocalize")
@@ -163,14 +182,14 @@ class Ui_MainWindow(object):
 
 
         #Add remove tashkeel Button
-        self.BRemoveTashkeel = QtGui.QPushButton(self.centralwidget)
+        self.BRemoveTashkeel = PyQt5.QtWidgets.QPushButton(self.centralwidget)
 
         self.BRemoveTashkeel.setFont(self.font_base)
         self.BRemoveTashkeel.setObjectName("BRemoveTashkeel")
         self.gridLayout_5.addWidget(self.BRemoveTashkeel, 0, 3, 1, 1)
 
         #Add random text tashkeel Button
-        self.BRandomText = QtGui.QPushButton(self.centralwidget)
+        self.BRandomText = PyQt5.QtWidgets.QPushButton(self.centralwidget)
 
         self.BRandomText.setFont(self.font_base)
         self.BRandomText.setObjectName("BRandomText")
@@ -179,28 +198,28 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.addLayout(self.gridLayout_5)
         self.gridLayout_4.addLayout(self.horizontalLayout_6, 1, 0, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_4, 0, 0, 1, 1)
-        self.TabVoice = QtGui.QTabWidget(self.centralwidget)
+        self.TabVoice = PyQt5.QtWidgets.QTabWidget(self.centralwidget)
         self.TabVoice.setFont(self.font_base)
         self.TabVoice.setObjectName("TabVoice")
-        self.TabResult = QtGui.QWidget()
+        self.TabResult = QWidget()
         self.TabResult.setObjectName("TabResult")
-        self.gridLayout_2 = QtGui.QGridLayout(self.TabResult)
+        self.gridLayout_2 = QGridLayout(self.TabResult)
         self.gridLayout_2.setObjectName("gridLayout_2")
 
 
 
 
 # Vocalized Result
-        self.TabResultVocalized = QtGui.QWidget()
+        self.TabResultVocalized = QWidget()
         self.TabResultVocalized.setObjectName("TabResultVocalized")
-        #self.ResultVocalized = QtGui.QTextEdit(self.centralwidget)
+        #self.ResultVocalized = PyQt5.QtWidgets.QTextEdit(self.centralwidget)
         self.ResultVocalized = SpellTextEdit(self.centralwidget)
         self.ResultVocalized.setObjectName("ResultVocalized")
         self.ResultVocalized.setPlainText("text")
         self.ResultVocalized.setFont(self.font_result)
         self.ResultVocalized.setLayoutDirection(RightToLeft)
 
-        self.gridLayout_2Codepoint = QtGui.QGridLayout(self.TabResultVocalized)
+        self.gridLayout_2Codepoint = QGridLayout(self.TabResultVocalized)
         self.gridLayout_2Codepoint.setObjectName("gridLayout_2Codepoint")
         self.gridLayout_2Codepoint.addWidget(self.ResultVocalized, 0, 0, 1, 1)
         self.TabVoice.addTab(self.TabResultVocalized, "")
@@ -213,80 +232,80 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.TabVoice, 1, 0, 1, 1)
         self.gridLayout_3.addLayout(self.gridLayout, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtGui.QStatusBar(MainWindow)
+        self.statusbar = PyQt5.QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-        self.menubar = QtGui.QMenuBar(MainWindow)
+        self.menubar = PyQt5.QtWidgets.QMenuBar(MainWindow)
         self.menubar.setLayoutDirection(RightToLeft)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 789, 21))
         self.menubar.setObjectName("menubar")
-        self.menu = QtGui.QMenu(self.menubar)
+        self.menu = PyQt5.QtWidgets.QMenu(self.menubar)
         self.menu.setObjectName("menu")
-##        self.menu_6 = QtGui.QMenu(self.menu)
+##        self.menu_6 = PyQt5.QtWidgets.QMenu(self.menu)
 ##        self.menu_6.setObjectName("menu_6")
-        self.menu_2 = QtGui.QMenu(self.menubar)
+        self.menu_2 = PyQt5.QtWidgets.QMenu(self.menubar)
         self.menu_2.setObjectName("menu_2")
-        self.menu_3 = QtGui.QMenu(self.menubar)
+        self.menu_3 = PyQt5.QtWidgets.QMenu(self.menubar)
         self.menu_3.setObjectName("menu_3")
-        self.menu_4 = QtGui.QMenu(self.menubar)
+        self.menu_4 = PyQt5.QtWidgets.QMenu(self.menubar)
         self.menu_4.setObjectName("menu_4")
-        self.menu_5 = QtGui.QMenu(self.menubar)
+        self.menu_5 = PyQt5.QtWidgets.QMenu(self.menubar)
         self.menu_5.setObjectName("menu_5")
-        self.menu_insert = QtGui.QMenu(self.menubar)
-        self.menu_insert.setObjectName("menu_insert")		
-        self.menu_tashkeel = QtGui.QMenu(self.menubar)
-        self.menu_tashkeel.setObjectName("menu_tashkeel")	
-        self.menu_convert = QtGui.QMenu(self.menubar)
-        self.menu_convert.setObjectName("menu_convert")			
+        self.menu_insert = PyQt5.QtWidgets.QMenu(self.menubar)
+        self.menu_insert.setObjectName("menu_insert")       
+        self.menu_tashkeel = PyQt5.QtWidgets.QMenu(self.menubar)
+        self.menu_tashkeel.setObjectName("menu_tashkeel")   
+        self.menu_convert = PyQt5.QtWidgets.QMenu(self.menubar)
+        self.menu_convert.setObjectName("menu_convert")         
         MainWindow.setMenuBar(self.menubar)
-        self.toolBar = QtGui.QToolBar(MainWindow)
+        self.toolBar = PyQt5.QtWidgets.QToolBar(MainWindow)
         self.toolBar.setObjectName("toolBar")
         MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
 
         # open file action
         # import or Open dialog
-        self.AImport = QtGui.QAction(MainWindow)
+        self.AImport = PyQt5.QtWidgets.QAction(MainWindow)
         self.AImport.setObjectName("AImport")
 
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/open.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.AImport.setIcon(icon)
         # export text 
-        self.AExport = QtGui.QAction(MainWindow)
+        self.AExport = PyQt5.QtWidgets.QAction(MainWindow)
         self.AExport.setObjectName("AExport")
-        self.AExit = QtGui.QAction(MainWindow)
+        self.AExit = PyQt5.QtWidgets.QAction(MainWindow)
         self.AExit.setObjectName("AExit")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/save.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.AExport.setIcon(icon)
-        self.AFont = QtGui.QAction(MainWindow)
+        self.AFont = PyQt5.QtWidgets.QAction(MainWindow)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/font.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.AFont.setIcon(icon)
         self.AFont.setObjectName("AFont")
-        self.AZoomIn = QtGui.QAction(MainWindow)
+        self.AZoomIn = PyQt5.QtWidgets.QAction(MainWindow)
         self.AZoomIn.setObjectName("AZoomin")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/zoomin.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.AZoomIn.setIcon(icon)
-        self.AZoomOut = QtGui.QAction(MainWindow)
+        self.AZoomOut = PyQt5.QtWidgets.QAction(MainWindow)
         self.AZoomOut.setObjectName("AZoomOut")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/zoomout.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.AZoomOut.setIcon(icon)		
-        self.AAbout = QtGui.QAction(MainWindow)
+        self.AZoomOut.setIcon(icon)     
+        self.AAbout = PyQt5.QtWidgets.QAction(MainWindow)
         self.AAbout.setObjectName("AAbout")
-        self.AManual = QtGui.QAction(MainWindow)
+        self.AManual = PyQt5.QtWidgets.QAction(MainWindow)
         self.AManual.setObjectName("AManual")
-        self.ACopy = QtGui.QAction(MainWindow)
+        self.ACopy = PyQt5.QtWidgets.QAction(MainWindow)
         self.ACopy.setObjectName("ACopy")
         icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/copy.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ACopy.setIcon(icon)
-        self.AWhoisqutrub = QtGui.QAction(MainWindow)
+        self.AWhoisqutrub = PyQt5.QtWidgets.QAction(MainWindow)
         self.AWhoisqutrub.setObjectName("AWhoisqutrub")
-        self.ASetting = QtGui.QAction(MainWindow)
+        self.ASetting = PyQt5.QtWidgets.QAction(MainWindow)
         self.ASetting.setObjectName("ASetting")
-        self.APrint = QtGui.QAction(MainWindow)
+        self.APrint = PyQt5.QtWidgets.QAction(MainWindow)
         self.APrint.setObjectName("APrint")
         icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, 'ar/images/print.png')), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.APrint.setIcon(icon)
@@ -309,7 +328,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menu_2.menuAction())
         self.menubar.addAction(self.menu_insert.menuAction())
         self.menubar.addAction(self.menu_tashkeel.menuAction())
-        self.menubar.addAction(self.menu_convert.menuAction())		
+        self.menubar.addAction(self.menu_convert.menuAction())      
         self.menubar.addAction(self.menu_5.menuAction())
         self.menubar.addAction(self.menu_3.menuAction())
 
@@ -329,11 +348,11 @@ class Ui_MainWindow(object):
 #tool bar
         self.toolBar.addAction(self.AFont)
         self.toolBar.addAction(self.ACopy)
-        self.toolBar.addAction(self.AImport)		
+        self.toolBar.addAction(self.AImport)        
         self.toolBar.addAction(self.AExport)
         self.toolBar.addAction(self.APrint)
 
-		
+        
 #ToDo 2
 ##        self.toolBar.addAction(self.APrintPreview)
         self.toolBar.addAction(self.AZoomIn)
@@ -364,18 +383,22 @@ class Ui_MainWindow(object):
         }    
         # =imagesName.keys()
         i=0;
-        for actualSymbol in SymboleToInsert.keys():
-            TablesInsertActions.append(QtGui.QAction(MainWindow))
+        for actualSymbol in SymboleToInsert:
+            TablesInsertActions.append(PyQt5.QtWidgets.QAction(MainWindow))
             TablesInsertActions[i].setObjectName("AInsert"+str(i))
             label= SymboleToInsert[actualSymbol].get('label', 'missedlabel');
-            TablesInsertActions[i].setText(QtGui.QApplication.translate("MainWindow", label, None, QtGui.QApplication.UnicodeUTF8))
+            TablesInsertActions[i].setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", label, None))
 
             icon = QtGui.QIcon()
             icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, "ar/images/%s.png"%SymboleToInsert[actualSymbol].get('image', 'missedimage'))), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             TablesInsertActions[i].setIcon(icon)
             #--------Insert
             self.toolBar.addAction(TablesInsertActions[i])
-            QtCore.QObject.connect(TablesInsertActions[i], QtCore.SIGNAL("triggered()"), lambda text=actualSymbol: self.insert(text))
+            #~ print("actual symbole", actualSymbol)
+            #~ QtCore.QObject.connect(TablesInsertActions[i], QtCore.SIGNAL("triggered()"), lambda text=actualSymbol: self.insert(text))
+            #~ TablesInsertActions[i].triggered.connect(lambda text=actualSymbol: self.insert(text))
+            TablesInsertActions[i].triggered.connect(lambda checked, text=actualSymbol: self.insert(text))
+
             self.menu_insert.addAction(TablesInsertActions[i])
             i+=1;
         #-----------------------------
@@ -417,17 +440,18 @@ class Ui_MainWindow(object):
         TablesTreatActions=[]
         i=0;
         for key in  TableActions.keys():
-            TablesTreatActions.append(QtGui.QAction(MainWindow))
+            TablesTreatActions.append(PyQt5.QtWidgets.QAction(MainWindow))
             TablesTreatActions[i].setObjectName("A"+key)
             name=TableActions[key]['label'];
-            TablesTreatActions[i].setText(QtGui.QApplication.translate("MainWindow", name, None, QtGui.QApplication.UnicodeUTF8))
+            TablesTreatActions[i].setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", name, None))#))#, ))
             imagename=TableActions[key]['image'];
             icon = QtGui.QIcon()
             icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, "ar/images%s.png"%imagename)), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             TablesTreatActions[i].setIcon(icon)
             #--------Treat
             action=key;
-            QtCore.QObject.connect(TablesTreatActions[i], QtCore.SIGNAL("triggered()"), lambda text=action: self.display_resultActions(text))
+            #~ QtCore.QObject.connect(TablesTreatActions[i], QtCore.SIGNAL("triggered()"), lambda text=action: self.display_resultActions(text))
+            TablesTreatActions[i].triggered.connect(lambda cheched, text=action: self.display_resultActions(text))
 
             if TableActions[key]['class']=='convert':
                 self.menu_convert.addAction(TablesTreatActions[i])
@@ -444,34 +468,53 @@ class Ui_MainWindow(object):
 
         self.ResultVocalized.setPlainText(u"تشكيل النصوص العربية");
 
-        QtCore.QObject.connect(self.BVocalize, QtCore.SIGNAL("clicked()"), self.doHeavyLifting);#self.display_result)
-        QtCore.QObject.connect(self.BRemoveTashkeel, QtCore.SIGNAL("clicked()"), self.display_resultRemove)
-        QtCore.QObject.connect(self.BRandomText, QtCore.SIGNAL("clicked()"), self.randomText)
+        #~ QtCore.QObject.connect(self.BVocalize, QtCore.SIGNAL("clicked()"), self.doHeavyLifting);#self.display_result)
+        #~ QtCore.QObject.connect(self.BRemoveTashkeel, QtCore.SIGNAL("clicked()"), self.display_resultRemove)
+        #~ QtCore.QObject.connect(self.BRandomText, QtCore.SIGNAL("clicked()"), self.randomText)
 
-        # QtCore.QObject.connect(self.ARandomText, QtCore.SIGNAL("triggered()"), self.randomText)
+        #~ # QtCore.QObject.connect(self.ARandomText, QtCore.SIGNAL("triggered()"), self.randomText)
 
-        # QtCore.QObject.connect(self.CBLanguage, QtCore.SIGNAL("activated(int)"), self.change_language)
-        #QtCore.QObject.connect(self.CBLexique, QtCore.SIGNAL("activated(int)"), self.display_result)
+        #~ # QtCore.QObject.connect(self.CBLanguage, QtCore.SIGNAL("activated(int)"), self.change_language)
+        #~ #QtCore.QObject.connect(self.CBLexique, QtCore.SIGNAL("activated(int)"), self.display_result)
 
-        QtCore.QObject.connect(self.AExit, QtCore.SIGNAL("triggered()"), MainWindow.close)
-        QtCore.QObject.connect(self.APrint, QtCore.SIGNAL("triggered()"), self.print_result)
+        #~ QtCore.QObject.connect(self.AExit, QtCore.SIGNAL("triggered()"), MainWindow.close)
+        #~ QtCore.QObject.connect(self.APrint, QtCore.SIGNAL("triggered()"), self.print_result)
 
-        ##QtCore.QObject.connect(self.APrintPreview, QtCore.SIGNAL("triggered()"), self.print_preview)
-        QtCore.QObject.connect(self.AFont, QtCore.SIGNAL("triggered()"), self.change_font)
-        QtCore.QObject.connect(self.AAbout, QtCore.SIGNAL("triggered()"), self.about)
-        QtCore.QObject.connect(self.AWhoisqutrub, QtCore.SIGNAL("triggered()"), self.whoisqutrub)
-        QtCore.QObject.connect(self.AManual, QtCore.SIGNAL("triggered()"), self.manual)
-        QtCore.QObject.connect(self.AImport, QtCore.SIGNAL("triggered()"), self.open_file)
+        #~ ##QtCore.QObject.connect(self.APrintPreview, QtCore.SIGNAL("triggered()"), self.print_preview)
+        #~ QtCore.QObject.connect(self.AFont, QtCore.SIGNAL("triggered()"), self.change_font)
+        #~ QtCore.QObject.connect(self.AAbout, QtCore.SIGNAL("triggered()"), self.about)
+        #~ QtCore.QObject.connect(self.AWhoisqutrub, QtCore.SIGNAL("triggered()"), self.whoisqutrub)
+        #~ QtCore.QObject.connect(self.AManual, QtCore.SIGNAL("triggered()"), self.manual)
+        #~ QtCore.QObject.connect(self.AImport, QtCore.SIGNAL("triggered()"), self.open_file)
 
-        QtCore.QObject.connect(self.AExport, QtCore.SIGNAL("triggered()"), self.save_result)
-        QtCore.QObject.connect(self.AZoomIn, QtCore.SIGNAL("triggered()"), self.zoomin)
-        QtCore.QObject.connect(self.AZoomOut, QtCore.SIGNAL("triggered()"), self.zoomout)
+        #~ QtCore.QObject.connect(self.AExport, QtCore.SIGNAL("triggered()"), self.save_result)
+        #~ QtCore.QObject.connect(self.AZoomIn, QtCore.SIGNAL("triggered()"), self.zoomin)
+        #~ QtCore.QObject.connect(self.AZoomOut, QtCore.SIGNAL("triggered()"), self.zoomout)
 
         
-        QtCore.QObject.connect(self.ASetting, QtCore.SIGNAL("triggered()"), self.set_setting)
-        #QtCore.QObject.connect(self.APagesetup, QtCore.SIGNAL("triggered()"), self.page_setup)
-        QtCore.QObject.connect(self.ACopy, QtCore.SIGNAL("triggered()"), self.set_copy)
+        #~ QtCore.QObject.connect(self.ASetting, QtCore.SIGNAL("triggered()"), self.set_setting)
+        #~ #QtCore.QObject.connect(self.APagesetup, QtCore.SIGNAL("triggered()"), self.page_setup)
+        #~ QtCore.QObject.connect(self.ACopy, QtCore.SIGNAL("triggered()"), self.set_copy)
+        self.BVocalize.clicked.connect(self.doHeavyLifting);#self.display_result)
+        self.BRemoveTashkeel.clicked.connect(self.display_resultRemove)
+        self.BRandomText.clicked.connect(self.randomText)
 
+        self.AExit.triggered.connect(MainWindow.close)
+        self.APrint.triggered.connect(self.print_result)
+
+        self.AFont.triggered.connect(self.change_font)
+        self.AAbout.triggered.connect(self.about)
+        self.AWhoisqutrub.triggered.connect(self.whoisqutrub)
+        self.AManual.triggered.connect(self.manual)
+        self.AImport.triggered.connect(self.open_file)
+
+        self.AExport.triggered.connect(self.save_result)
+        self.AZoomIn.triggered.connect(self.zoomin)
+        self.AZoomOut.triggered.connect(self.zoomout)
+
+        self.ASetting.triggered.connect(self.set_setting)
+
+        self.ACopy.triggered.connect(self.set_copy)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         #---------
 # Menu Right to Left
@@ -494,7 +537,8 @@ class Ui_MainWindow(object):
 
         self.result={};
         self.TabVoice.show();
-        QtCore.QObject.connect(self.AExit, QtCore.SIGNAL("toggled(bool)"), MainWindow.close)
+        #~ QtCore.QObject.connect(self.AExit, QtCore.SIGNAL("toggled(bool)"), MainWindow.close)
+        self.AExit.toggled.connect(MainWindow.close)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         self.readSettings();
         self.applySettings();
@@ -502,7 +546,7 @@ class Ui_MainWindow(object):
         icon.addPixmap(QtGui.QPixmap(os.path.join(PWD, "ar/images/appicon.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.MainWindow.setWindowIcon(icon)
 #create a Progressbar
-        self.singleProgress = QtGui.QProgressBar(self.centralwidget)
+        self.singleProgress = PyQt5.QtWidgets.QProgressBar(self.centralwidget)
         try:
             self.singleProgress.setProperty("value", QtCore.QVariant(0))
         except TypeError:
@@ -513,14 +557,15 @@ class Ui_MainWindow(object):
         #self.singleProgress.hide();
         self.mytimer = QtCore.QTimer()
         # # constant timer
-        QtCore.QObject.connect(self.mytimer, QtCore.SIGNAL("timeout()"), self.singleUpdate)
+        #~ QtCore.QObject.connect(self.mytimer, QtCore.SIGNAL("timeout()"), self.singleUpdate)
+        self.mytimer.timeout.connect(self.singleUpdate)
 
 #end create a Progressbar
 
-        self.progressDialog=QtGui.QDialog(self.centralwidget)
+        self.progressDialog=QDialog(self.centralwidget)
         self.progressDialog.setObjectName("ProgressDialog")
         self.progressDialog.setWindowTitle(u'يُشَكِّلُ...')
-        self.gridLayoutPD = QtGui.QGridLayout(self.progressDialog)
+        self.gridLayoutPD = QGridLayout(self.progressDialog)
         self.gridLayoutPD.setObjectName("gridLayout")
         self.gridLayoutPD.addWidget(self.singleProgress, 0, 0, 1, 1)
         self.progressDialog.setLayoutDirection(RightToLeft);
@@ -539,12 +584,15 @@ class Ui_MainWindow(object):
         self.singleProgress.setValue(1)
         self.progressDialog.show();
         self.mytimer.start(1000);
-        QtGui.QApplication.setOverrideCursor(
-            QtGui.QCursor(QtCore.Qt.WaitCursor))
+        PyQt5.QtWidgets.QApplication.setOverrideCursor(
+        QtGui.QCursor(QtCore.Qt.WaitCursor))
         self.thread = WorkThread(target=self.display_result)
-        QtCore.QObject.connect(self.thread, QtCore.SIGNAL("mainThread"),
-                     self.mainThread)
-        QtCore.QObject.connect(self.thread, QtCore.SIGNAL("finished()"), self.threadDone)
+        #~ QtCore.QObject.connect(self.thread, QtCore.SIGNAL("mainThread"),
+                     #~ self.mainThread)
+
+        #~ self.thread.mainThread.connect(self.mainThread)
+        #~ QtCore.QObject.connect(self.thread, QtCore.SIGNAL("finished()"), self.threadDone)
+        self.thread.finished.connect(self.threadDone)
 
         self.thread.start()
 
@@ -569,15 +617,15 @@ class Ui_MainWindow(object):
         self.display_result_in_tab()
         self.progressDialog.hide();
         #self.display_result_in_tab()
-        QtGui.QApplication.restoreOverrideCursor()
+        PyQt5.QtWidgets.QApplication.restoreOverrideCursor()
         RightToLeft=1;
-        msgBox=QtGui.QMessageBox(self.centralwidget);
-        msgBox.setWindowTitle(QtGui.QApplication.translate("MainWindow", "مشكال", None, QtGui.QApplication.UnicodeUTF8));
+        msgBox=PyQt5.QtWidgets.QMessageBox(self.centralwidget);
+        msgBox.setWindowTitle(PyQt5.QtWidgets.QApplication.translate("MainWindow", "مشكال", None))#, ));
         msgBox.setText(u"انتهى التشكيل");
         msgBox.setLayoutDirection(RightToLeft);
-        msgBox.setStandardButtons(QtGui.QMessageBox.Ok);
-        msgBox.setDefaultButton(QtGui.QMessageBox.Ok);
-        msgBox.exec_();	
+        msgBox.setStandardButtons(PyQt5.QtWidgets.QMessageBox.Ok);
+        msgBox.setDefaultButton(PyQt5.QtWidgets.QMessageBox.Ok);
+        msgBox.exec_(); 
 
 
     def convert_text(self,text, partialVocalization=False, lastMarkTashkeel=False):
@@ -621,59 +669,59 @@ class Ui_MainWindow(object):
         self.singleProgress.setValue(val)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", myAPPLICATION_NAME, None, QtGui.QApplication.UnicodeUTF8))
-##        self.Label.setText(QtGui.QApplication.translate("MainWindow", ",", None, QtGui.QApplication.UnicodeUTF8))
-##        self.Label_2.setText(QtGui.QApplication.translate("MainWindow", ",", None, QtGui.QApplication.UnicodeUTF8))
-        #self.TSearch.setToolTip(QtGui.QApplication.translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        MainWindow.setWindowTitle(PyQt5.QtWidgets.QApplication.translate("MainWindow", myAPPLICATION_NAME, None))#))#, ))
+##        self.Label.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", ",", None))#, ))
+##        self.Label_2.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", ",", None))#, ))
+        #self.TSearch.setToolTip(PyQt5.QtWidgets.QApplication.translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 # "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 # "p, li { white-space: pre-wrap; }\n""</style></head><body style=\" font-family:\'KacstOne\'; font-size:16pt; font-weight:600; font-style:normal;\">\n"
 # "<p dir=\'rtl\' style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px;\">1-اكتب الجملة</p>\n"
 # "<p dir=\'rtl\' style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px;\">3- اختر الترميز</p>\n"
-# "<p dir=\'rtl\' style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px;\">4-اضغط على ترميز</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
-##        self.CBLexique.setItemText(0, QtGui.QApplication.translate("MainWindow", "دليل الموارد والوسائل العامة", None, QtGui.QApplication.UnicodeUTF8))
-        self.CBLanguage.setItemText(0, QtGui.QApplication.translate("MainWindow", "العربية", None, QtGui.QApplication.UnicodeUTF8))
-        self.CBLanguage.setItemText(1, QtGui.QApplication.translate("MainWindow", "فرنسية", None, QtGui.QApplication.UnicodeUTF8))
-        self.CBLanguage.setItemText(2, QtGui.QApplication.translate("MainWindow", "إنجليزية", None, QtGui.QApplication.UnicodeUTF8))
-        self.BVocalize.setToolTip(QtGui.QApplication.translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+# "<p dir=\'rtl\' style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px;\">4-اضغط على ترميز</p></body></html>", None))#, ))
+##        self.CBLexique.setItemText(0, PyQt5.QtWidgets.QApplication.translate("MainWindow", "دليل الموارد والوسائل العامة", None))#, ))
+        self.CBLanguage.setItemText(0, PyQt5.QtWidgets.QApplication.translate("MainWindow", "العربية", None))#))#, ))
+        self.CBLanguage.setItemText(1, PyQt5.QtWidgets.QApplication.translate("MainWindow", "فرنسية", None))#))#, ))
+        self.CBLanguage.setItemText(2, PyQt5.QtWidgets.QApplication.translate("MainWindow", "إنجليزية", None))#))#, ))
+        self.BVocalize.setToolTip(PyQt5.QtWidgets.QApplication.translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'ae_AlMateen\'; font-size:18pt; font-weight:600; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">ابحث</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
-        self.BVocalize.setText(QtGui.QApplication.translate("MainWindow", "تشكيل", None, QtGui.QApplication.UnicodeUTF8))
-        self.BRemoveTashkeel.setText(QtGui.QApplication.translate("MainWindow", "حذف التشكيل", None, QtGui.QApplication.UnicodeUTF8))
-        self.BRandomText.setText(QtGui.QApplication.translate("MainWindow", "نص عشوائي", None, QtGui.QApplication.UnicodeUTF8))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">ابحث</p></body></html>", None))#, ))
+        self.BVocalize.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "تشكيل", None))#))#, ))
+        self.BRemoveTashkeel.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "حذف التشكيل", None))#))#, ))
+        self.BRandomText.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "نص عشوائي", None)) #))#, ))
 
-##        self.TabActiveResult.horizontalHeaderItem(0).setText(QtGui.QApplication.translate("MainWindow", "العربية", None, QtGui.QApplication.UnicodeUTF8))
-##        self.TabActiveResult.horizontalHeaderItem(1).setText(QtGui.QApplication.translate("MainWindow", "الفرنسية", None, QtGui.QApplication.UnicodeUTF8))
-##        self.TabActiveResult.horizontalHeaderItem(2).setText(QtGui.QApplication.translate("MainWindow", "الإنجليزية", None, QtGui.QApplication.UnicodeUTF8))
+##        self.TabActiveResult.horizontalHeaderItem(0).setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "العربية", None))#, ))
+##        self.TabActiveResult.horizontalHeaderItem(1).setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "الفرنسية", None))#, ))
+##        self.TabActiveResult.horizontalHeaderItem(2).setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "الإنجليزية", None))#, ))
        
-        self.TabVoice.setTabText(self.TabVoice.indexOf(self.TabResultVocalized), QtGui.QApplication.translate("MainWindow", "التشكيل", None, QtGui.QApplication.UnicodeUTF8))
-        #self.TabVoice.setTabText(self.TabVoice.indexOf(self.TabHelpVocalized), QtGui.QApplication.translate("MainWindow", "الشرح", None, QtGui.QApplication.UnicodeUTF8))
-        self.menu.setTitle(QtGui.QApplication.translate("MainWindow", "ملف", None, QtGui.QApplication.UnicodeUTF8))
-##        self.menu_6.setTitle(QtGui.QApplication.translate("MainWindow", "معاينة قبل الطباعة", None, QtGui.QApplication.UnicodeUTF8))
-        self.menu_2.setTitle(QtGui.QApplication.translate("MainWindow", "عرض", None, QtGui.QApplication.UnicodeUTF8))
-        self.menu_3.setTitle(QtGui.QApplication.translate("MainWindow", "مساعدة", None, QtGui.QApplication.UnicodeUTF8))
-        self.menu_4.setTitle(QtGui.QApplication.translate("MainWindow", "تحرير", None, QtGui.QApplication.UnicodeUTF8))
-        self.menu_5.setTitle(QtGui.QApplication.translate("MainWindow", "أدوات", None, QtGui.QApplication.UnicodeUTF8))
-        self.menu_insert.setTitle(QtGui.QApplication.translate("MainWindow", "إدراج", None, QtGui.QApplication.UnicodeUTF8))
-        self.menu_tashkeel.setTitle(QtGui.QApplication.translate("MainWindow", "تشكيل", None, QtGui.QApplication.UnicodeUTF8))
-        self.menu_convert.setTitle(QtGui.QApplication.translate("MainWindow", "تحويل", None, QtGui.QApplication.UnicodeUTF8))		
+        self.TabVoice.setTabText(self.TabVoice.indexOf(self.TabResultVocalized), PyQt5.QtWidgets.QApplication.translate("MainWindow", "التشكيل", None))#))#, ))
+        #self.TabVoice.setTabText(self.TabVoice.indexOf(self.TabHelpVocalized), PyQt5.QtWidgets.QApplication.translate("MainWindow", "الشرح", None))#, ))
+        self.menu.setTitle(PyQt5.QtWidgets.QApplication.translate("MainWindow", "ملف", None))#, ))
+##        self.menu_6.setTitle(PyQt5.QtWidgets.QApplication.translate("MainWindow", "معاينة قبل الطباعة", None))#, ))
+        self.menu_2.setTitle(PyQt5.QtWidgets.QApplication.translate("MainWindow", "عرض", None))#, ))
+        self.menu_3.setTitle(PyQt5.QtWidgets.QApplication.translate("MainWindow", "مساعدة", None))#, ))
+        self.menu_4.setTitle(PyQt5.QtWidgets.QApplication.translate("MainWindow", "تحرير", None))#, ))
+        self.menu_5.setTitle(PyQt5.QtWidgets.QApplication.translate("MainWindow", "أدوات", None))#, ))
+        self.menu_insert.setTitle(PyQt5.QtWidgets.QApplication.translate("MainWindow", "إدراج", None))#, ))
+        self.menu_tashkeel.setTitle(PyQt5.QtWidgets.QApplication.translate("MainWindow", "تشكيل", None))#, ))
+        self.menu_convert.setTitle(PyQt5.QtWidgets.QApplication.translate("MainWindow", "تحويل", None))#, ))       
 
-        self.toolBar.setWindowTitle(QtGui.QApplication.translate("MainWindow", "toolBar", None, QtGui.QApplication.UnicodeUTF8))
-        self.AExport.setText(QtGui.QApplication.translate("MainWindow", "ت&صدير", None, QtGui.QApplication.UnicodeUTF8))
-        self.AImport.setText(QtGui.QApplication.translate("MainWindow", "فتح", None, QtGui.QApplication.UnicodeUTF8))
+        self.toolBar.setWindowTitle(PyQt5.QtWidgets.QApplication.translate("MainWindow", "toolBar", None))#, ))
+        self.AExport.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "ت&صدير", None))#, ))
+        self.AImport.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "فتح", None))#, ))
 
-        self.AExit.setText(QtGui.QApplication.translate("MainWindow", "&خروج", None, QtGui.QApplication.UnicodeUTF8))
-        self.AFont.setText(QtGui.QApplication.translate("MainWindow", "خط", None, QtGui.QApplication.UnicodeUTF8))
-        self.AAbout.setText(QtGui.QApplication.translate("MainWindow", "حول البرنامج", None, QtGui.QApplication.UnicodeUTF8))
-        self.AZoomIn.setText(QtGui.QApplication.translate("MainWindow", "تكبير", None, QtGui.QApplication.UnicodeUTF8))
-        self.AZoomOut.setText(QtGui.QApplication.translate("MainWindow","تصغير" , None, QtGui.QApplication.UnicodeUTF8))
-        self.AManual.setText(QtGui.QApplication.translate("MainWindow", "دليل الاستعمال", None, QtGui.QApplication.UnicodeUTF8))
-        self.ACopy.setText(QtGui.QApplication.translate("MainWindow", "نسخ", None, QtGui.QApplication.UnicodeUTF8))
-        self.AWhoisqutrub.setText(QtGui.QApplication.translate("MainWindow", "عن مشاريعنا", None, QtGui.QApplication.UnicodeUTF8))
-        self.ASetting.setText(QtGui.QApplication.translate("MainWindow", "تفضيلات", None, QtGui.QApplication.UnicodeUTF8))
-        self.APrint.setText(QtGui.QApplication.translate("MainWindow", "طباعة...", None, QtGui.QApplication.UnicodeUTF8))
-##        self.APageSetup.setText(QtGui.QApplication.translate("MainWindow", "إعداد الصفحة", None, QtGui.QApplication.UnicodeUTF8))
+        self.AExit.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "&خروج", None))#, ))
+        self.AFont.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "خط", None))#, ))
+        self.AAbout.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "حول البرنامج", None))#, ))
+        self.AZoomIn.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "تكبير", None))#, ))
+        self.AZoomOut.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow","تصغير" , None))#, ))
+        self.AManual.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "دليل الاستعمال", None))#, ))
+        self.ACopy.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "نسخ", None))#, ))
+        self.AWhoisqutrub.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "عن مشاريعنا", None))#, ))
+        self.ASetting.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "تفضيلات", None))#, ))
+        self.APrint.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "طباعة...", None))#, ))
+##        self.APageSetup.setText(PyQt5.QtWidgets.QApplication.translate("MainWindow", "إعداد الصفحة", None))#, ))
 
 
 
@@ -698,7 +746,7 @@ class Ui_MainWindow(object):
         self.TSettingFontResult.update()
 ##        self.centralwidget.update();
     def change_font(self):
-        newfont,ok = QtGui.QFontDialog.getFont(self.font_result);
+        newfont,ok = PyQt5.QtWidgets.QFontDialog.getFont(self.font_result);
         if ok:
             self.font_result=newfont;
             self.ResultVocalized.setFont(self.font_result)
@@ -736,32 +784,32 @@ class Ui_MainWindow(object):
             else:
                 mySTYLE_SHEET=u"""
 body {
-	direction: rtl;
-	font-family: Traditional Arabic, "Times New Roman";
-	font-size: 16pt;
+    direction: rtl;
+    font-family: Traditional Arabic, "Times New Roman";
+    font-size: 16pt;
 }
 """
-            document = QtGui.QTextDocument("")
+            document = PyQt5.QtGui.QTextDocument("")
             document.setDefaultStyleSheet(mySTYLE_SHEET)
             self.result["HTML"]=u"<html dir=rtl><body dir='rtl'>"+self.result["HTML"]+"</body></html>"
             document.setHtml(self.result["HTML"]);
-            printer = QtGui.QPrinter()
+            printer = PyQt5.QtPrintSupport.QPrinter()
 
-            dlg = QtGui.QPrintDialog(printer, self.centralwidget)
-            if dlg.exec_() != QtGui.QDialog.Accepted:
+            dlg = PyQt5.QtPrintSupport.QPrintDialog(printer, self.centralwidget)
+            if dlg.exec_() != QDialog.Accepted:
                 return
             self.ResultVocalized.print_(printer)
 
         else:
-            QtGui.QMessageBox.warning(self.centralwidget,U"خطأ",
+            PyQt5.QtWidgets.QMessageBox.warning(self.centralwidget,U"خطأ",
                                 u"لا شيء يمكن طبعه.")
 
 
     def set_setting(self):
-        init_Dialog=QtGui.QDialog(self.centralwidget)
+        init_Dialog=QDialog(self.centralwidget)
         Dialog=Ui_Dialog();
         Dialog.setupUi(init_Dialog);
-        if init_Dialog.exec_() == QtGui.QDialog.Accepted:
+        if init_Dialog.exec_() == QDialog.Accepted:
             self.readSettings();
             self.applySettings();
 
@@ -770,11 +818,13 @@ body {
     def readSettings(self):
         settings = QtCore.QSettings("Arabeyes.org", "Qutrub")
         try:
-            family=settings.value("font_base_family", QtCore.QVariant(QString("Traditional Arabic"))).toString()
+            #~ family=settings.value("font_base_family", QtCore.QVariant(QString("Traditional Arabic"))).toString()
+            family=settings.value("font_base_family", QtCore.QVariant(QString("Traditional Arabic")))#.toString()
         except TypeError:
             family = str(settings.value("font_base_family", "Traditional Arabic"))
         try:
-            size,ok=settings.value("font_base_size", QtCore.QVariant(12)).toInt();
+            #~ size,ok=settings.value("font_base_size", QtCore.QVariant(12)).toInt();
+            size,ok = int(settings.value("font_base_size", QtCore.QVariant(12)));
         except TypeError:
             size = settings.value("font_base_size", 12)
             size = int(size)
@@ -782,7 +832,8 @@ body {
             
         if not ok:size=12;
         try:
-            bold=settings.value("font_base_bold", QtCore.QVariant(True)).toBool()
+            #~ bold=settings.value("font_base_bold", QtCore.QVariant(True)).toBool()
+            bold = bool(settings.value("font_base_bold", QtCore.QVariant(True)))
         except TypeError:
             bold= bool(settings.value("font_base_bold", True))
         self.font_result.setFamily(family)
@@ -790,7 +841,8 @@ body {
         self.font_result.setBold(bold)
         #read of dictsetting options
         try:
-            dictsetting,ok = settings.value("DictSetting", QtCore.QVariant(1)).toInt();
+            #~ dictsetting,ok = settings.value("DictSetting", QtCore.QVariant(1)).toInt();
+            dictsetting,ok = int(settings.value("DictSetting", QtCore.QVariant(1)))
         except TypeError:
             dictsetting = settings.value("DictSetting", 1);
             ok = bool(dictsetting)
@@ -803,15 +855,18 @@ body {
         self.retranslateUi(self.MainWindow)
 
     def page_setup(self):
-        QtGui.QMessageBox.warning(self.centralwidget,U"عذرا",
+        PyQt5.QtWidgets.QMessageBox.warning(self.centralwidget,U"عذرا",
                                 u"غير متوفر حاليا")
 
 
     def whoisqutrub(self):
         RightToLeft=1;
-        msgBox=QtGui.QMessageBox(self.centralwidget);
-        msgBox.setWindowTitle(u"عن البرنامج");	
-        data=QtCore.QFile("ar/projects.html");
+        msgBox=PyQt5.QtWidgets.QMessageBox(self.centralwidget);
+        msgBox.setWindowTitle(u"عن البرنامج");
+        filepath = os.path.join(PWD,"ar/projects.html")
+        #~ print(filepath)
+        data = QtCore.QFile(filepath);  
+        #~ data=QtCore.QFile("ar/projects.html");
         if (data.open(QtCore.QFile.ReadOnly)):
             textstream=QtCore.QTextStream(data);
             textstream.setCodec("UTF-8");
@@ -822,13 +877,16 @@ body {
 
         msgBox.setText(text);
         msgBox.setLayoutDirection(RightToLeft);
-        msgBox.setStandardButtons(QtGui.QMessageBox.Ok);
-        msgBox.setDefaultButton(QtGui.QMessageBox.Ok);
+        msgBox.setStandardButtons(PyQt5.QtWidgets.QMessageBox.Ok);
+        msgBox.setDefaultButton(PyQt5.QtWidgets.QMessageBox.Ok);
         msgBox.exec_();
 
 
     def manual(self):
-        data=QtCore.QFile("ar/help_body.html");
+        filepath = os.path.join(PWD,"ar/help_body.html")
+        #~ print(filepath)
+        data = QtCore.QFile(filepath);        
+        #~ data=QtCore.QFile("ar/help_body.html");
         if (data.open(QtCore.QFile.ReadOnly)):
             textstream=QtCore.QTextStream(data);
             textstream.setCodec("UTF-8");
@@ -836,24 +894,25 @@ body {
         else:
             text=u"لا يمكن فتح ملف المساعدة"
 
-        Dialog=QtGui.QDialog(self.centralwidget)
+        Dialog=QDialog(self.centralwidget)
 
         Dialog.setObjectName("Dialog")
         Dialog.resize(480, 480)
         Dialog.setWindowTitle(u'دليل الاستعمال')
-        gridLayout = QtGui.QGridLayout(Dialog)
+        gridLayout = QGridLayout(Dialog)
         gridLayout.setObjectName("gridLayout")
-        textBrowser = QtGui.QTextBrowser(Dialog)
+        textBrowser = PyQt5.QtWidgets.QTextBrowser(Dialog)
         textBrowser.setObjectName("textBrowser")
         gridLayout.addWidget(textBrowser, 0, 0, 1, 1)
-        buttonBox = QtGui.QDialogButtonBox(Dialog)
+        buttonBox = QDialogButtonBox(Dialog)
         buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Ok)
+        buttonBox.setStandardButtons(QDialogButtonBox.Ok)
         buttonBox.setObjectName("buttonBox")
         gridLayout.addWidget(buttonBox, 1, 0, 1, 1)
 
 
-        QtCore.QObject.connect(buttonBox, QtCore.SIGNAL("accepted()"), Dialog.accept)
+        #~ QtCore.QObject.connect(buttonBox, QtCore.SIGNAL("accepted()"), Dialog.accept)
+        buttonBox.accepted.connect(Dialog.accept)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
         text2=unicode(text)
         textBrowser.setText(text2)
@@ -863,11 +922,12 @@ body {
 
     def about(self):
         RightToLeft=1;
-        msgBox=QtGui.QMessageBox(self.centralwidget);
+        msgBox=PyQt5.QtWidgets.QMessageBox(self.centralwidget);
         msgBox.setWindowTitle(u"عن البرنامج");
 ##          msgBox.setTextFormat(QrCore.QRichText);
-
-        data=QtCore.QFile("ar/about.html");
+        filepath = os.path.join(PWD,"ar/about.html")
+        #~ print(filepath)
+        data = QtCore.QFile(filepath);
         if (data.open(QtCore.QFile.ReadOnly)):
             textstream=QtCore.QTextStream(data);
             textstream.setCodec("UTF-8");
@@ -879,19 +939,19 @@ body {
 """
         msgBox.setText(text_about);
         msgBox.setLayoutDirection(RightToLeft);
-        msgBox.setStandardButtons(QtGui.QMessageBox.Ok);
+        msgBox.setStandardButtons(PyQt5.QtWidgets.QMessageBox.Ok);
         msgBox.setIconPixmap(QtGui.QPixmap(os.path.join(PWD, "ar/images/logo.png")));
-        msgBox.setDefaultButton(QtGui.QMessageBox.Ok);
+        msgBox.setDefaultButton(PyQt5.QtWidgets.QMessageBox.Ok);
         msgBox.exec_();
     def open_file(self):
         """
         Open file and load it to input Text edit
         """
         display_format='TEXT';
-        filename = QtGui.QFileDialog.getOpenFileName(self.centralwidget,
-        QtGui.QApplication.translate("MainWindow", "فتح ملف", None, QtGui.QApplication.UnicodeUTF8),"untitled","Text file (*.txt);;Text Unicode comma separeted format file (*.csv);;HTML file (*.html)");
+        filename, x = PyQt5.QtWidgets.QFileDialog.getOpenFileName(self.centralwidget,
+        PyQt5.QtWidgets.QApplication.translate("MainWindow", "فتح ملف", None),"untitled","Text file (*.txt);;Text Unicode comma separeted format file (*.csv);;HTML file (*.html)");
         if filename:
-            filename=unicode(filename)
+            #~ filename=unicode(filename)
             tuple=filename.split(".");
             if len(tuple)>=2:
                 extention=tuple.pop();
@@ -903,9 +963,9 @@ body {
                 display_format=extention.upper();
             #Add text generation
             try:
-                file_opened=open(filename,'r');
+                file_opened=open(filename,'r', encoding='utf8');
                 if file_opened:
-                    text=file_opened.read().decode('utf8')
+                    text=file_opened.read()#.decode('utf8')
                     if display_format=='HTML':
                         self.ResultVocalized.setPlainText(u'');
                         self.ResultVocalized.appendHtml(text);
@@ -913,17 +973,17 @@ body {
                         self.ResultVocalized.setPlainText(text);
                     file_opened.close();
                 else:
-                    QtGui.QMessageBox.warning(self.centralwidget,QtGui.QApplication.translate("MainWindow", "خطأ", None, QtGui.QApplication.UnicodeUTF8),
-                                QtGui.QApplication.translate("MainWindow", "لا يمكن فتح الملف %1", None, QtGui.QApplication.UnicodeUTF8).arg(filename))
+                    PyQt5.QtWidgets.QMessageBox.warning(self.centralwidget,PyQt5.QtWidgets.QApplication.translate("MainWindow", "خطأ", None),# ),
+                                PyQt5.QtWidgets.QApplication.translate("MainWindow", "لا يمكن فتح الملف %s"%filename, None))
             except:
-                QtGui.QMessageBox.warning(self.centralwidget,QtGui.QApplication.translate("MainWindow", "خطأ", None, QtGui.QApplication.UnicodeUTF8),
-                                QtGui.QApplication.translate("MainWindow", "لا يمكن فتح الملف %1", None, QtGui.QApplication.UnicodeUTF8).arg(filename))
+                PyQt5.QtWidgets.QMessageBox.warning(self.centralwidget,PyQt5.QtWidgets.QApplication.translate("MainWindow", "خطأ", None, ),
+                                PyQt5.QtWidgets.QApplication.translate("MainWindow", "لا يمكن فتح الملف %s"%filename, None))
 
     def save_result(self):
-        filename = QtGui.QFileDialog.getSaveFileName(self.centralwidget,
+        filename, x = PyQt5.QtWidgets.QFileDialog.getSaveFileName(self.centralwidget,
         u"حفظ ملف","untitled","HTML document (*.html *.htm);;Text file (*.txt);;Text Unicode comma separeted format file (*.csv);;XML file (*.xml)");
         if filename:
-            filename=unicode(filename)
+            #~ filename=unicode(filename)
             tuple=filename.split(".");
             if len(tuple)>=2:
                 extention=tuple.pop();
@@ -935,25 +995,25 @@ body {
                 display_format=extention.upper();
             #Add text generation
                 if  extention.upper() not in self.result:
-                    QtGui.QMessageBox.warning(self.centralwidget,U"خطأ",
+                    PyQt5.QtWidgets.QMessageBox.warning(self.centralwidget,U"خطأ",
                                 u"لاشيء يمكن تصديره")
                     return None;
                 text+=self.result[extention.upper()];
             else:
-                QtGui.QMessageBox.warning(self.centralwidget,U"خطأ",
+                PyQt5.QtWidgets.QMessageBox.warning(self.centralwidget,U"خطأ",
                                 u"اسم ملف غير مناسب %s"%filename)
             try:
                 file_saved=open(filename,'w+');
                 if file_saved:
-                    file_saved.write(text.encode("utf8"));
+                    file_saved.write(text)#.encode("utf8"));
                     file_saved.flush();
                     file_saved.close();
 
                 else:
-                    QtGui.QMessageBox.warning(self.centralwidget,U"خطأ",
+                    PyQt5.QtWidgets.QMessageBox.warning(self.centralwidget,U"خطأ",
                                 u"لا يمكن فتح الملف %s"%filename)
             except:
-                QtGui.QMessageBox.warning(self.centralwidget,U"خطأ",
+                PyQt5.QtWidgets.QMessageBox.warning(self.centralwidget,U"خطأ",
                                 u"لا يمكن حفظ الملف %s"%filename)
     def to_string(self, word):
         """ used to keep legacy between py2 and 3"""
@@ -973,7 +1033,7 @@ body {
             word = word.strip(' ');
             
             reducedTashkeel=(self.BReducedVocalization.checkState()!=0);
-            lastMarkTashkeel=(self.BLastMarkVocalization.checkState()!=0);	
+            lastMarkTashkeel=(self.BLastMarkVocalization.checkState()!=0);  
 
             result=self.convert_text(word, reducedTashkeel, lastMarkTashkeel)
 
@@ -1035,7 +1095,7 @@ body {
     def display_result_in_tab(self):
         if  "HTML" in self.result:
             #text="<html><body dir='rtl'>"+self.result["HTML"]+"</body></html>"
-            text=self.result["HTML"]			
+            text=self.result["HTML"]            
             #print text.encode('utf8');
             self.ResultVocalized.setPlainText(text)
 
@@ -1071,13 +1131,13 @@ body {
 
             self.centralwidget.update();
         else:
-            QtGui.QMessageBox.warning(self.centralwidget,U"خطأ",
+            PyQt5.QtWidgets.QMessageBox.warning(self.centralwidget,U"خطأ",
                             u"لا نتائج  ")
     def progressDialog2(self):
-        progressDialog=QtGui.QDialog(self.centralwidget)
+        progressDialog=QDialog(self.centralwidget)
         progressDialog.setObjectName("ProgressDialog")
         progressDialog.setWindowTitle(u'يُشَكِّلُ...')
-        gridLayoutPD = QtGui.QGridLayout(progressDialog)
+        gridLayoutPD = QGridLayout(progressDialog)
         gridLayoutPD.setObjectName("gridLayout")
         gridLayoutPD.addWidget(self.singleProgress, 0, 0, 1, 1)
         progressDialog.setLayoutDirection(RightToLeft);
@@ -1096,8 +1156,9 @@ body {
             text=u"لا يمكن فتح ملف النصوص العشوائية"
             self.ResultVocalized.setPlainText(text);
     def insert(self, text=araby.FATHA):
-        cursor=self.ResultVocalized.textCursor();
-        cursor.insertText(text);			
+        #~ print("text", text)
+        cursor = self.ResultVocalized.textCursor();
+        cursor.insertText(str(text));            
 
 def display_language(lang):
     if lang=="arabic":
