@@ -1,4 +1,4 @@
-pyarabic>=0.6.2
+pyarabic>=0.6.7
 CodernityDB==0.4.2
 libqutrub>=1.0
 naftawayh>=0.2
