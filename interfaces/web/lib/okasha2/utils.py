@@ -18,10 +18,23 @@ Copyright © 2009, Muayyad Alsadi <alsadi@ojuba.org>
 """
 import sys, time, hashlib, random
 import bisect
-from itertools import groupby,imap
+from six import string_types # basestring
+from six import text_type # unicode
+unicode = text_type
+basestring=string_types
+from itertools import groupby
+
+try: 
+    from itertools import imap
+except ImportError: #python 3
+    imap = map
+    
+
 import re
 
-dD_re=re.compile(ur'(\d+|\D+)')
+dD_re=re.compile(u'(\d+|\D+)')
+
+    
 
 def stringOrFloat(s):
   try: return float(s)
@@ -37,7 +50,7 @@ def fromFs(filenameblob):
   """
   recives a blob encoded in filesystem encoding and convert it into a unicode object
   """
-  if type(filenameblob)!=unicode:
+  if type(filenameblob) != unicode:
   	return filenameblob.decode(sys.getfilesystemencoding())
   return filenameblob
 

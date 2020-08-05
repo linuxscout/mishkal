@@ -1,20 +1,29 @@
 #! /usr/bin/python2
 # -*- coding: UTF-8 -*-
-
-import getopt
+from __future__ import (
+    absolute_import,
+    print_function,
+    unicode_literals,
+    division,
+    )
 import os
-import sys
 import os.path
-import tashkeel.tashkeel as ArabicVocalizer
+
+import sys
+if sys.version_info.major < 3:
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+import re
+import getopt
+from glob import glob
+from io import open
 
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
-# ~ sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../support/'))
-# ~ sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal'))
-# ~ sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../'))  # used for core
 sys.path.append(os.path.join(base_dir, '../support/'))
 sys.path.append(os.path.join(base_dir, '../mishkal'))
 sys.path.append(os.path.join(base_dir, '../'))  # used for core
+import tashkeel.tashkeel as ArabicVocalizer
 
 scriptname = os.path.splitext(base_dir)[0]
 
@@ -26,7 +35,7 @@ def usage():
     # "Display usage options"
     print(u"(C) CopyLeft 2012, %s" % AuthorName)
     print(u"Usage: %s -f filename [OPTIONS]" % scriptname)
-    print(u"       %s 'السلام عليكم' [OPTIONS]\n" % scriptname).encode('utf8')
+    print(u"       %s 'السلام عليكم' [OPTIONS]\n" % scriptname)#.encode('utf8')
     print(u"\t[-f | --file = filename]       input file to %s" % scriptname)
     print(u"\t[-o | --outfile = filename]    output file to write vocalized text to, '$FILENAME (Tashkeel).txt' by default")
     print(u"\t[-h | --help]                  outputs this usage message")
@@ -124,7 +133,8 @@ def grabargs():
 
     utfargs = []
     for a in args:
-        utfargs.append(a.decode('utf8'))
+        #~ utfargs.append(a.decode('utf8'))
+        utfargs.append(a)
     options["text"] = u' '.join(utfargs)
 
     # if text: print(text.encode('utf8'))
@@ -157,7 +167,7 @@ def test():
 
     if not text:
         try:
-            myfile = open(filename)
+            myfile = open(filename, encoding='utf8')
             print("input file:", filename)
             if not outfilename:
                 outfilename = filename + " (Tashkeel).txt"
@@ -202,7 +212,7 @@ def test():
     # vocalizer.disableShowCollocationMark()
     # print("show delimiter", vocalizer.collo.showDelimiter)
     if not text:
-        line = (myfile.readline()).decode('utf8')
+        line = (myfile.readline())#.decode('utf8')
     else:
         if len(lines) > 0:
             line = lines[0]
@@ -290,12 +300,11 @@ def test():
                 print(
                     "%0.2f%%\t" % round((lineTotal - lineWLMIncorrect) * 100.00 / lineTotal, 2)
                 )  # line Strip correct
-
-        # ~ print(result.strip('\n').encode('utf8'))
+        
         if text:
-            print(result.strip('\n').encode('utf8'),)
+            print(result.strip('\n'), end='')
         else:
-            result_line = result.encode('utf8')
+            result_line = result
             if verbose:
                 print(result_line)
             # add line and new line to output file
@@ -311,19 +320,18 @@ def test():
                     round((total - WLMIncorrect) * 100.00 / total, 2)  # Strip Correct
                 )
             )
-            # ~sys.stderr.write("treatment of "+line.encode('utf8'))
             sys.stderr.flush()
 
         # get the next line
         if not text:
-            line = (myfile.readline()).decode('utf8')
+            line = (myfile.readline())
         else:
             if counter < len(lines):
                 line = lines[counter]
             else:
                 line = None
     else:
-        print("Done")
+        pass #print("Done")
 
 
 if __name__ == '__main__':

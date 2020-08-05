@@ -4,7 +4,8 @@
 import re
 import sys
 sys.path.append('../lib/')
-import pyarabic.araby as araby 
+import pyarabic.araby as araby
+from io import open
 class CustomizedDictionary:
     """
     Class of customized words added by users for unrecognized word"""
@@ -14,11 +15,12 @@ class CustomizedDictionary:
         self.cdfile = False
         try:
             #~if os.path.exists(self.filename):
-            self.cdfile = open(self.filename, "a+")
+            self.cdfile = open(self.filename, "a+", encoding="utf8")
         except: 
-            print "loading: Can't open custom dictionary"                
+            print("loading: Can't open custom dictionary")                
         if self.cdfile:
-            line = (self.cdfile.readline()).decode('utf8')
+            line = self.cdfile.readline()
+            #line = (self.cdfile.readline()).decode('utf8')            
             while line:
                 items = line.strip("\n").split("\t");
                 if len(items)>=2:
@@ -58,20 +60,22 @@ class CustomizedDictionary:
             self.cdfile.write(text.encode('utf8'))
             self.cdfile.close()            
         except:
-            print "updating:can't update cutom dictionary'"
+            print("updating:can't update cutom dictionary'")
+
     def __del__(self,):
         """
         When the object is deleted, update dictionnary
         """
-        print "deleting custom dictionary"
+        print("deleting custom dictionary")
         try:
-            self.cdfile = open(self.filename, "w")
+            self.cdfile = open(self.filename, "w", encoding="utf8")
             for  word_nm in self.dictio:
                 text = u"%s\t%s\n"%(word_nm, u':'.join(self.dictio[word_nm]))
-                self.cdfile.write(text.encode('utf8'))
+                self.cdfile.write(text)
+                #self.cdfile.write(text.encode('utf8'))
             self.cdfile.close()
         except:
-            print "closing: Can't open dictionary file for update'"
+            print("closing: Can't open dictionary file for update'")
         #~for  word_nm in self.dictio:
             #~text = u"%s\t%s"%(word_nm, u':'.join(self.dictio[word_nm]))
             #~self.cdfile.write(text)
@@ -83,4 +87,4 @@ if __name__ == '__main__':
     cd.add(u"سلامً")
     cd.add(u"سُلام")
     cd.add(u"عبيِرٌ")
-    print cd.lookup(u'سلام')
+    print(cd.lookup(u'سلام'))

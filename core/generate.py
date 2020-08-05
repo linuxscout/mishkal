@@ -33,7 +33,7 @@ def generate_allforms(word,has_pronouns=True,has_jonction=True,has_preposition=T
 					temp.append(pr+"-"+w);
 	mylist+=temp;
 	temp=[];
- 	if has_jonction :
+	if has_jonction :
 		for w in mylist:
 #			temp.append(w)
 			for jo in jonction:

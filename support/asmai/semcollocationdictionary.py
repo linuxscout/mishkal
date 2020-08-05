@@ -38,7 +38,7 @@ class semCollocationDictionary:
 		# vocalized: 0		0: vocalized
 		#unvocalized: 1		1: unvocalized
 		#
-		for k in self.attribIndex.keys():
+		for k in list(self.attribIndex.keys()):
 			v=self.attribIndex[k];
 			self.attribNumIndex[v]=k;
 		self.tableName=tableName;

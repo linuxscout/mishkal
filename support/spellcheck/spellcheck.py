@@ -10,13 +10,18 @@
 # Copyright:   (c) Taha Zerrouki 2011
 # Licence:     GPL
 #-------------------------------------------------------------------------------
+from __future__ import (absolute_import, division,
+                        print_function, unicode_literals)
 import sys
 sys.path.append('../lib');
 sys.path.append('../');
 import re
 import pyarabic.araby as araby
 import pyarabic.arabrepr as arabRepr
-import spellcheck_const
+try:
+    import spellcheck_const
+except ImportError:
+    from . import spellcheck_const
 import qalsadi.analex
 import yaraspell.spelldict 
 # to debug program
@@ -373,7 +378,7 @@ class SpellcheckClass:
 
 
 if __name__=="__main__":
-    print "test";
+    print("test")
     myrepr=arabRepr.ArabicRepr();
     speller=SpellcheckClass();
     text=u" اللغه العربيه"
@@ -382,4 +387,4 @@ if __name__=="__main__":
     for itemd in voc:
         if itemd.get('suggest','') !='':
             for sug in itemd.get('suggest','').split(';'):
-                print sug.encode('utf8'),'\t', araby.is_arabicword(sug)
+                print(sug.encode('utf8'),'\t', araby.is_arabicword(sug))

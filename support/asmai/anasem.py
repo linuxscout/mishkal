@@ -16,13 +16,14 @@
 import sys
 sys.path.append('../')
 sys.path.append('../lib')
-import  asmai.sem_const_light as sem_const
-import semdictionary 
+from . import  sem_const_light as sem_const
+from . import semdictionary 
 #~ import  asmai.sem_const_heavy as sem_const
-import  aranasyn.anasyn
-import  aranasyn.syn_const as syc
+import aranasyn.anasyn
+import aranasyn.syn_const as syc
 
-import  aranasyn.cache
+import aranasyn.cache
+import logging
 debug  =  False
 #debug  =  True
 PRIMATE_RELATION_LIST = [
@@ -42,6 +43,8 @@ class SemanticAnalyzer:
         
         # a NoSql database for ferquent relationship between lexical words.
         self.syncache = aranasyn.cache.cache(cache_path)
+        logging.basicConfig(level=logging.NOTSET)
+        self.logger = logging.getLogger(__name__)        
         
     def analyze(self, detailed_stemming_dict):
         """
@@ -157,7 +160,7 @@ class SemanticAnalyzer:
             # Choose predifined syntaxique semantique relation                                                      
             syn_relat_dict_invertd = self.syncache.is_related(current.get_original(), 
                                                       previous.get_original())
-            if debug: print "anasem"
+            if debug: print("anasem")
             if debug: print(u" ".join([previous.get_original(), current.get_original(), str(syn_relation), repr(syn_relat_dict)])).encode('utf8') 
             if syn_relat_dict:
                 # if syntax relation exists in the given dict, ok , there is a relation
@@ -268,7 +271,7 @@ class SemanticAnalyzer:
         if relation and confirmed:
             # add to the previous a pointer to the next word order.
             # N for next
-            if debug: print "anasem:r relation",relation, "confirmed", confirmed 
+            if debug: print("anasem:r relation",relation, "confirmed", confirmed )
             previous.add_sem_next(current_position, relation)
             # add to the current word case a pointer to the previous word order.
             #p for previous
@@ -301,7 +304,7 @@ class SemanticAnalyzer:
         if sem_const.SEM_RELATION_TABLE.get(preorigin, []):
             relation = sem_const.SEM_RELATION_TABLE[preorigin].get(curorigin, '')
         else:
-            print "are_sem_related", (u" + ".join([preorigin, curorigin])).encode('utf8')
+            print("are_sem_related", (u" + ".join([preorigin, curorigin])).encode('utf8'))
 
             for key in sem_const.SEM_DERIVATION_TABLE:
                 #~ print "1"
@@ -325,7 +328,7 @@ class SemanticAnalyzer:
                         break
                     else: 
                         relation = ''
-        print relation
+        print(relation)
         if relation == '':
             return False
         else: 
@@ -389,6 +392,11 @@ class SemanticAnalyzer:
         @return: return if the two words are related syntaxicly.
         @rtype: boolean
         """
+        if previous:
+            self.logger.debug("pr-ordr: %d, pr-next %s", previous.get_order(), repr(previous.get_sem_next()))
+        if current:
+            self.logger.debug("cr-ordr: %d, cr-prvs %s", current.get_order(), repr(current.get_sem_previous()))
+
         return (( previous and  current ) and 
         previous.get_order() in current.get_sem_previous() 
         and current.get_order() in previous.get_sem_next()
@@ -446,7 +454,7 @@ def mainly():
     # the result contains objets
     #print repr(result)
     text2display  = anasynt.display(result)
-    print text2display.encode('utf8')
+    print(text2display.encode('utf8'))
 
 if __name__  ==  "__main__":
     mainly()

@@ -9,15 +9,15 @@
 
     <title>مشكال النصوص العربية</title>
     <meta charset="UTF-8">
-    <link href="%(script)s/_files/favicon1.png" rel="icon" type="image/png">
-    <link href="%(script)s/_files/adawatstyle.css" rel="stylesheet">
-    <!-- <link href="%(script)s/_files/xzero-rtl/css/bootstrap-arabic.reduced.css" rel="stylesheet">  -->
-    <link href="%(script)s/_files/xzero-rtl/css/bootstrap-arabic.min.css" rel="stylesheet">
+    <link href="/_files/favicon1.png" rel="icon" type="image/png">
+    <link href="/_files/adawatstyle.css" rel="stylesheet">
+    <!-- <link href="/_files/xzero-rtl/css/bootstrap-arabic.reduced.css" rel="stylesheet">  -->
+    <link href="/_files/xzero-rtl/css/bootstrap-arabic.min.css" rel="stylesheet">
 <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 -->
 <!--
-    <link href="%(script)s/_files/bootstrap-rtl.min.css" rel="stylesheet">
+    <link href="/_files/bootstrap-rtl.min.css" rel="stylesheet">
 -->
 
 
@@ -34,7 +34,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-                    <a class="navbar-brand" href="/mishkal/main"><img alt="مشكال: تشكيل النصوص العربية" height="120px" src="%(script)s/_files/logo.png" style='float:right; margin-top:-20px;'> </a>
+                    <a class="navbar-brand" href="/mishkal/main"><img alt="مشكال: تشكيل النصوص العربية" height="120px" src="/_files/logo.png" style='float:right; margin-top:-20px;'> </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="myNavbar2">
@@ -97,7 +97,7 @@
 
                         </ul>
                     </div>
-                    <textarea id="InputText" class="form-control" name="InputText" cols="90" rows="3">%(DefaultText)s</textarea>
+                    <textarea id="InputText" class="form-control" name="InputText" cols="90" rows="3">{{DefaultText}}</textarea>
 
                     <div class='form-inline'>
                         <a class="btn btn-success" id="tashkeel" title='تشكيل النص'>تشكيل</a>
@@ -190,13 +190,14 @@
 
                 </form>
                 <!--<section class="bg-danger text-white"> أضفنا زرا لتسهيل النسخ</section>-->
-                <output id="result" class="form-control" width=100%%>%(ResultText)s</output>
+                <output id="result" class="form-control" width=100%%>{{ResultText}}</output>
                 <section class="bg-info" id="small_hint"></section>
             </div>
 
             <div class="col-md-3 column">
+
                 <progress id='loading'></progress>
-               <div class="panel panel-default">
+ <!--              <div class="panel panel-default">
                <div class="panel-heading"> ادعم مشكال</div>
                <div class="panel-body">
 <a href="https://www.patreon.com/bePatron?u=23679540" data-patreon-widget-type="become-patron-button">ادعمنا على باتريون</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
@@ -209,6 +210,7 @@
 </form>
 
 </div>
+-->
 </div>
                 <section class="bg-info" id="hint"></section>
 
@@ -256,38 +258,38 @@
 
     <div class="row imagetiles">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <a href="http://ayaspell.sf.net"><img src="%(script)s/_files/images/ayaspell.png" alt="التدقيق الإملائي" class="img-responsive"></a>
+                            <a href="http://ayaspell.sf.net"><img src="/_files/images/ayaspell.png" alt="التدقيق الإملائي" class="img-responsive"></a>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <a href="http://qutrub.arabeyes.org"><img src="%(script)s/_files/images/qutrub.jpg" alt="قطرب " class="img-responsive"></a>
+            <a href="http://qutrub.arabeyes.org"><img src="/_files/images/qutrub.jpg" alt="قطرب " class="img-responsive"></a>
             </div>
         </div>
         <div class="row imagetiles">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <a href="http://adawat.sf.net"><img src="%(script)s/_files/images/adawat.png" alt="أدوات" class="img-responsive"></a>
+        <a href="http://adawat.sf.net"><img src="/_files/images/adawat.png" alt="أدوات" class="img-responsive"></a>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <a href="http://radif.sf.net"> <img src="%(script)s/_files/images/radif.png" alt="الرديف" class="img-responsive"></a>
+        <a href="http://radif.sf.net"> <img src="/_files/images/radif.png" alt="الرديف" class="img-responsive"></a>
 
         </div>
     </div>
         <div class="row imagetiles">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <a href="http://pypi.python.org/pypi/PyArabic/"><img src="%(script)s/_files/images/pyarabic.png" alt="مكتبة بيثون العربية" class="img-responsive"></a>
+        <a href="http://pypi.python.org/pypi/PyArabic/"><img src="/_files/images/pyarabic.png" alt="مكتبة بيثون العربية" class="img-responsive"></a>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <a href="http://pypi.python.org/pypi/Tashaphyne/"><img src="%(script)s/_files/images/tashaphyne.png" alt="التحليل الصرفي" class="img-responsive"></a>
+        <a href="http://pypi.python.org/pypi/Tashaphyne/"><img src="/_files/images/tashaphyne.png" alt="التحليل الصرفي" class="img-responsive"></a>
 
         </div>
     </div>
 </div>
 <!--
-                            <a href="http://qutrub.arabeyes.org"><img src="%(script)s/_files/images/qutrub.jpg" alt="قطرب"></a>
-                            <a href="http://adawat.sf.net"><img src="%(script)s/_files/images/adawat.png" alt="أدوات"></a>
-                            <a href="http://radif.sf.net"> <img src="%(script)s/_files/images/radif.png" alt="الرديف"></a>
-                            <a href="http://ayaspell.sf.net"><img src="%(script)s/_files/images/ayaspell.png" alt="التدقيق الإملائي"></a>
-                            <a href="http://pypi.python.org/pypi/PyArabic/"><img src="%(script)s/_files/images/pyarabic.png" alt="مكتبة بيثون العربية"></a>
-                            <a href="http://pypi.python.org/pypi/Tashaphyne/"><img src="%(script)s/_files/images/tashaphyne.png" alt="التحليل الصرفي"></a>
+                            <a href="http://qutrub.arabeyes.org"><img src="/_files/images/qutrub.jpg" alt="قطرب"></a>
+                            <a href="http://adawat.sf.net"><img src="/_files/images/adawat.png" alt="أدوات"></a>
+                            <a href="http://radif.sf.net"> <img src="/_files/images/radif.png" alt="الرديف"></a>
+                            <a href="http://ayaspell.sf.net"><img src="/_files/images/ayaspell.png" alt="التدقيق الإملائي"></a>
+                            <a href="http://pypi.python.org/pypi/PyArabic/"><img src="/_files/images/pyarabic.png" alt="مكتبة بيثون العربية"></a>
+                            <a href="http://pypi.python.org/pypi/Tashaphyne/"><img src="/_files/images/tashaphyne.png" alt="التحليل الصرفي"></a>
 -->
                         </div>
                     </div>
@@ -305,7 +307,7 @@
 -->
 <!--
   <div class="media-right">
-    <img src="%(script)s/_files/images/dreamdevdz.png" class="media-object" style="width:100px">
+    <img src="/_files/images/dreamdevdz.png" class="media-object" style="width:100px">
   </div>
   <div class="media-body">
     <h4 class="media-heading">الاس</h4>
@@ -316,7 +318,7 @@
 <!--
 </div>
 -->
-                            <br/> الاستضافة بدعم من شركة <a href="https://dreamdev.dz/"> DreamDev.dz<span class="glyphicon glyphicon-globe"></span><br/><img src="%(script)s/_files/images/dreamdevdz.png" style="width:100px"></a>
+                            <br/> الاستضافة بدعم من شركة <a href="https://dreamdev.dz/"> DreamDev.dz<span class="glyphicon glyphicon-globe"></span><br/><img src="/_files/images/dreamdevdz.png" style="width:100px"></a>
 
                         </div>
                     </div>
@@ -358,16 +360,20 @@
         </div>
     </section>
     <script>
-        var script = "%(script)s";
+        //~ var script = "%(script)s";
+        var script = "";
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!--<script  src="%(script)s/_files/jquery-3.3.1.min.js"></script>-->
+    <!--<script  src="/_files/jquery-3.3.1.min.js"></script>-->
 
-    <script async src="%(script)s/_files/xzero-rtl/js/bootstrap-arabic.min.js"></script>
+    <script async src="/_files/xzero-rtl/js/bootstrap-arabic.min.js"></script>
 
-    <script async src="%(script)s/_files/cytoscape.min.js"></script>
+    <script async src="/_files/cytoscape.min.js"></script>
     
-    <script async src="%(script)s/_files/adawat.min.js"></script>
+<!--
+    <script async src="/_files/adawat.min.js"></script>
+-->
+    <script async src="/_files/adawat.js"></script>
     </span>
 </body>
 

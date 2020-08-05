@@ -17,16 +17,18 @@ if __name__ == "__main__":
     import sys
     sys.path.append('../lib')
     sys.path.append('../')
+
+from operator import xor
+
 import pyarabic.araby as araby
-import aranasyn.syn_const  as sconst
-#~ import qalsadi.stemmedword as stemmedword
-import aranasyn.synnode
-import aranasyn.stemmedsynword as stemmedsynword
 import naftawayh.wordtag as wordtag
 from pyarabic.arabrepr import arepr 
+
+import aranasyn.syn_const  as sconst
+import aranasyn.synnode
+import aranasyn.stemmedsynword as stemmedsynword
 import aranasyn.cache as cache
-#from operator import and_
-from operator import xor
+
 
 class SyntaxAnalyzer:
     """
@@ -79,16 +81,15 @@ class SyntaxAnalyzer:
         # convert objects from stemmedWord to stemmedSynWord 
         # in order to add syntaxic proprities
         for stemming_list in detailed_stemming_dict:
-            tmplist = [stemmedsynword.StemmedSynWord(
-                stemming_list[order], order) for order in range(len(stemming_list))]
+            tmplist = [stemmedsynword.StemmedSynWord(stemming_list[order], order) 
+                        for order in range(len(stemming_list))]
             # if there is just one, we select it
             if not tmplist:
                 tmplist = [stemmedsynword.StemmedSynWord(stemming_list[0]),]
             stemmedsynwordlistlist.append(tmplist)
             #create the synode object from tmplist
             synnode_list.append(aranasyn.synnode.SynNode(tmplist))
-        stemmedsynwordlistlist, synnode_list = self.study_syntax_by_synode(
-                stemmedsynwordlistlist, synnode_list)
+        stemmedsynwordlistlist, synnode_list = self.study_syntax_by_synode(stemmedsynwordlistlist, synnode_list)
         return stemmedsynwordlistlist, synnode_list
 
     def study_syntax_by_synode(self, stemmedsynwordlistlist, synnode_list):
@@ -109,7 +110,7 @@ class SyntaxAnalyzer:
         pre_node = None
         previous_index = False        
         # study the relations between words stemmings
-        for current_index, (stemmedsynwordlist, current_node)  in  enumerate(zip(stemmedsynwordlistlist,synnode_list) ):
+        for current_index, (stemmedsynwordlist, current_node)  in  enumerate(list(zip(stemmedsynwordlistlist,synnode_list))):
             #index used to handle stmd position
             if current_index + 1 < len(synnode_list) : 
                 next_node = synnode_list[current_index+1]
@@ -144,10 +145,10 @@ class SyntaxAnalyzer:
                 number = int(float(previous.get_word()))
             except ValueError:
                 number = 0
-            if number  % 100 in range(3,10) or number % 100 == 0:
+            if number  % 100 in list(range(3,10)) or number % 100 == 0:
                 if current.is_majrour():
                     weight = sconst.JarMajrourRelation
-            elif  number % 100 in range(11,99) or number % 100 == 0:
+            elif  number % 100 in list(range(11,99)) or number % 100 == 0:
                 if current.is_mansoub():
                     weight = sconst.NasebMansoubRelation 
         return weight
@@ -997,6 +998,7 @@ class SyntaxAnalyzer:
                 tmplist.append(item.get_dict())
             new_result.append(tmplist)
         return  new_result
+
     def display (self, stemmed_synwordlistlist):
         """
         display objects result from analysis
@@ -1009,28 +1011,31 @@ class SyntaxAnalyzer:
             for item in rlist:
                 text += u'\n\t\t{'
                 stmword = item.__dict__
-                for key in stmword.keys():
+                for key in sorted(stmword.keys()):
                     text += u"\n\t\tu'%s' = u'%s'," % (key, stmword[key])
                 text += u'\n\t\t}'
             text += u'\n\t]'
         text += u'\n]'
-        return text
+        return text        
 def mainly():
     """
     main test
     """
     # #test syn
-    text = u"سمع"
+    text = u"إلى البيت"
     import qalsadi.analex
     result = []
     analyzer = qalsadi.analex.Analex()
     anasynt = SyntaxAnalyzer()
     result = analyzer.check_text(text)
-    result = anasynt.analyze(result)
+    result, synodelist  = anasynt.analyze(result)
     # the result contains objects
-    print repr(result)
-    #~ text2display = anasynt.display(result)
-    #~ print text2display.encode('utf8')
+    text2display = anasynt.display(result)
+    try:
+        print(str(text2display))
+    except UnicodeEncodeError:
+        print(text2display.encode('utf8'))
+        
 if __name__ == "__main__":
     mainly()
 

@@ -20,8 +20,12 @@ if __name__=="__main__":
 
 import sys
 import os
-from CodernityDB.database import Database
-from CodernityDB.hash_index import HashIndex
+if sys.version_info[0] < 3:
+    from CodernityDB.database import Database
+    from CodernityDB.hash_index import HashIndex
+else:
+    from CodernityDB3.database import Database
+    from CodernityDB3.hash_index import HashIndex
 from hashlib import md5
 from pyarabic.arabrepr import arepr
 
@@ -176,9 +180,9 @@ class cache :
     def display_all(self):
         """ display all contents of data base """
         #~ pass
-        print "aranasyn.cache: dislay all records in Thaalib Database """
+        print("aranasyn.cache: dislay all records in Thaalib Database """)
         for curr in self.db.all('a', with_doc=True):
-            print curr['doc']['a'], arepr(curr['doc']['d'])
+            print(curr['doc']['a'], arepr(curr['doc']['d']))
         
 def mainly():
     mycache = cache()

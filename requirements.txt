@@ -1,4 +1,4 @@
-pyarabic>=0.6.2
+pyarabic>=0.6.7
 CodernityDB==0.4.2
 libqutrub>=1.0
 naftawayh>=0.2
@@ -7,3 +7,7 @@ repr==0.3.1
 tashaphyne==0.3.1
 arramooz-pysqlite==0.1
 qalsadi>=0.2
+mysam-tagmanager==0.1
+alyahmor==0.1
+future==0.18.2
+git+git://github.com/cr0hn/CodernityDB3.git

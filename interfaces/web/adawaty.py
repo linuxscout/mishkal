@@ -26,13 +26,18 @@ Copyright © 2009, Muayyad Alsadi <alsadi@ojuba.org>
     The Latest version of the license can be found on
     "http://waqf.ojuba.org/license"
 """
+from __future__ import (absolute_import, division,
+                        print_function, 
+unicode_literals)
 import sys
 
 import os
 import os.path
 import re
 from glob import glob
-
+import six
+unicode = six.text_type
+basestring = six.string_types
 
 #~ sys.path.append(os.path.join(__file__, '../../support/'))
 #~ sys.path.append(os.path.join(__file__, '../../mishkal'))
@@ -102,6 +107,7 @@ class webApp(baseWebApp):
         "footer":footer,      
 #      'mode':self.mode, 'version':'0.1.0'
         }
+
     @expose(percentTemplate,["body_help.html"])
     def help(self, rq, *args):
         return {
@@ -112,17 +118,20 @@ class webApp(baseWebApp):
         this is an example of using ajax/json
         to test it visit http://localhost:8080/ajaxGet"
         """
-        text=rq.q.getfirst('text','Zerrouki Taha').decode('utf-8')
-        action=rq.q.getfirst('action','DoNothing').decode('utf-8')
-        order=rq.q.getfirst('order','0').decode('utf-8')
-        options={};
-        options['lastmark']=rq.q.getfirst('lastmark','0').decode('utf-8')       
-        #print order.encode('utf8');
+        text = rq.q.getfirst('text','Zerrouki Taha')
+        action = rq.q.getfirst('action','DoNothing')
+        order = rq.q.getfirst('order','0')
+        options = {};
+        options['lastmark']=rq.q.getfirst('lastmark','0')       
+        if sys.version_info[0] < 3:
+           text = text.decode('utf-8')
+           options['lastmark']  = options['lastmark'].decode('utf8')
+
         self.writelog(text,action);
         #Handle contribute cases
         if action=="Contribute":
             return {'result':u"شكرا جزيلا على مساهمتك."}
-        resulttext=core.adaat.DoAction(text,action, options)
+        resulttext = core.adaat.DoAction(text ,action, options)
         # self.writelog(repr(resulttext),"ResultText");
         # we choose to avoid logging results
         # self.writelog(resulttext,"ResultText");       
@@ -190,6 +199,6 @@ class webApp(baseWebApp):
         @type text: object
         """
         timelog=datetime.datetime.now().strftime("%Y-%m-%d %I:%M");
-        textlog=u"\t".join([timelog,action, text]);
+        textlog=u"\t".join([timelog, action, text]);
         self._logger.info(textlog);
 

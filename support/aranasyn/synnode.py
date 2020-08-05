@@ -15,6 +15,12 @@
 synNode represents the regrouped data resulted from the 
 morpholocigal analysis
 """
+from __future__ import (
+    absolute_import,
+    print_function,
+    unicode_literals,
+    division,
+    )
 if __name__ == "__main__":
     import sys
     sys.path.append('../lib')
@@ -22,7 +28,7 @@ if __name__ == "__main__":
 def ispunct(word):
     return word in u'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~،؟'
 
-import syn_const
+from . import syn_const
 
 class SynNode:
     """
@@ -35,7 +41,7 @@ class SynNode:
         """
         self.case_count = len(case_list)
         #~""" the number of syntaxtical cases """
-
+        #~ print("case_list", len(case_list))
         self.word = ''
         #~""" The unstemmed word """
         self.previous_nodes = {}
@@ -89,7 +95,8 @@ class SynNode:
         self.sem_nexts = {} # generate dict for whole list of cases
         # the semantic nexts of cases after semantic analysis
         
-        self.chosen_indexes = range(len(case_list))
+        self.chosen_indexes = list(range(len(case_list)))
+        #~ print("chosen indexes", self.chosen_indexes, len(self.chosen_indexes), len(case_list))
         # used to choose specific cases 
                                 
         #~""" The list of original words"""
@@ -99,7 +106,7 @@ class SynNode:
         for case in case_list:
             #extract originals lists
             idx = case.get_order()
-            if self.originals.has_key(case.get_original()):
+            if case.get_original() in self.originals:
                 self.originals[case.get_original()].append(idx)
             else:
                 self.originals[case.get_original()] = [idx, ]
@@ -263,7 +270,7 @@ class SynNode:
         @return: the given original.
         @rtype: unicode string
         """
-        return self.originals.keys()
+        return list(self.originals.keys())
     def get_vocalizeds(self, ):
         """
         Get the vocalized forms of the input word
@@ -474,9 +481,10 @@ class SynNode:
         text = u"\n'%s':%s, [%s-%s]{V:%d, N:%d, S:%d} " % (
             self.__dict__['word'], u', '.join(self.originals), 
             self.get_word_type(), self.get_break_type(), self.count["verb"], 
-            self.count["noun"], self.count["stopword"])
+            self.count["noun"], self.count["stopword"], )
         text += repr(self.syntax_mark)
-        return text.encode('utf8') 
+        text += "Indexes : "+ repr(self.chosen_indexes)
+        return text
 
 if __name__ == "__main__":
-    print "Syn Node module"
+    print( "Syn Node module")

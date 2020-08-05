@@ -52,7 +52,7 @@ class collocationDictionary:
             self.dbConnect.row_factory = sqlite.Row                 
             self.cursor = self.dbConnect.cursor()
         except:
-            print "Fatal Error Can't find the database file", FILE_DB
+            print("Fatal Error Can't find the database file", FILE_DB)
 
             
     def __del__(self):
@@ -123,7 +123,7 @@ class collocationDictionary:
                 for row in self.cursor:
                         return  row[attnum]
         except:
-            print "error in request getattribut by id";
+            print("error in request getattribut by id")
             return False;                    
         return False;
 
@@ -173,10 +173,10 @@ u'note':5,
     mydict=collocationDictionary('collocations', Collocation_DICTIONARY_INDEX);
     wordlist=[u"صلاة الفجر", u'كرة القدم',u"دولة قطر"]
     for word in wordlist:
-        print "jjjjjjjj"
+        print("jjjjjjjj")
         idlist=mydict.lookup(word);
-        print idlist;
+        print(idlist)
         for id in idlist:
-            print mydict.getAttribById(id, u'vocalized').encode('utf8');
+            print(mydict.getAttribById(id, u'vocalized').encode('utf8'))
             myentry= mydict.getEntryById(id);
-            print repr(myentry);
+            print(repr(myentry))

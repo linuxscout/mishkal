@@ -14,7 +14,7 @@ import sys
 import re
 import logging
 import pyarabic.araby as araby
-import tashkeel_const
+from . import tashkeel_const
 import qalsadi.analex
 import aranasyn.anasyn
 import aranasyn.syn_const
@@ -22,10 +22,15 @@ import asmai.anasem
 import maskouk.collocations as coll
 import pyarabic.number
 import pyarabic.named
-import unknown_tashkeel
 from operator import and_
-from itertools import izip, count
+#~ from itertools import izip, count
+#~ from builtins import zip
+#~ from builtins import filter
+izip=zip
+from itertools import count
 import mysam.tagmaker
+from . import unknown_tashkeel
+
 
 sys.path.append('../lib')
 sys.path.append('../')
@@ -42,9 +47,9 @@ class TashkeelClass:
         Arabic Tashkeel Class
     """
     def __init__(self, mycache_path=False):
-        # configure logging
-        logging.basicConfig(level=logging.INFO)
-        # ~ logging.basicConfig(level=logging.DEBUG)
+        # configure logging       
+        logging.basicConfig(level=logging.ERROR)
+
         self.logger = logging.getLogger(__name__)
         # ~ self.logger.info("Cache Path %s"%mycache_path)
 
@@ -93,24 +98,27 @@ class TashkeelClass:
         self.allow_syntax_last_mark = True
 
         # lexical analyzer
+
         self.analyzer = qalsadi.analex.Analex(cache_path=mycache_path)
-        # ~ self.logger.info("Cache Path cache %s"%self.analyzer.cache.DB_PATH)
-        # ~ self.logger.info("Cache Path cache %s"%self.analyzer.cache.db.path)
-        # ~ self.analyzer.disable_allow_cache_use()
-        self.analyzer.enable_allow_cache_use()
+        #~ self.logger.info("Cache Path cache %s"%self.analyzer.cache.DB_PATH)
+        #~ self.logger.info("Cache Path cache %s"%self.analyzer.cache.db.path)
+        self.analyzer.disable_allow_cache_use()
+        #~ self.analyzer.enable_allow_cache_use()
 
         # syntaxic analyzer
-        self.anasynt = aranasyn.anasyn.SyntaxAnalyzer(cache_path=mycache_path)
-        # ~ self.logger.info("Cache Path cache syntax %s"%self.anasynt.cache.db.path)
+        self.anasynt = aranasyn.anasyn.SyntaxAnalyzer(cache_path = mycache_path)
+        self.anasynt.disable_allow_cache_use()
+        
+        #~ self.logger.info("Cache Path cache syntax %s"%self.anasynt.cache.db.path)
+        
 
         # to disable the training when do Tashkeel
         self.syntax_train_enabled = False
 
         # semantic analyzer
-        self.anasem = asmai.anasem.SemanticAnalyzer(cache_path=mycache_path)
-        # ~ self.logger.info("Cache Path cache anasem %s"%self.anasem.syncache.db.path)
-
-        # set the lexical analzer debugging
+        self.anasem = asmai.anasem.SemanticAnalyzer(cache_path = mycache_path)
+        #self.anasem.disable_allow_cache_use()
+        
         self.analyzer.set_debug(debug)
         # set the lexical analzer  word limit
         self.analyzer.set_limit(self.limit)
@@ -284,17 +292,31 @@ class TashkeelClass:
         """
         result = []
         result = self.analyzer.check_text(text)
-        # ~ print "tashkeel6", len(result), len(araby.tokenize(text)), text.encode('utf8')
 
+        #~ print "tashkeel6", len(result), len(araby.tokenize(text)), text.encode('utf8')
+        for syndl in  result:
+            self.logger.debug("Syn len before syntax: %s",repr(len(syndl)))            
         if self.get_enabled_syntaxic_analysis():
             result, synodelist = self.anasynt.analyze(result)
-            # in this stpe we can't do semantic analysis without
+            #for synd in synodelist:
+                #self.logger.debug(u"33 %s", repr(synd))
+            # in this stpe we can't do semantic analysis without 
             # syntaxic analysis
             # we think it's can be done,
             # To do: do semantic analysis without syntaxic one
+            for syndl in  result:
+                self.logger.debug("Syn len: %s",repr(len(syndl)))            
+                
+                for synd in syndl:
+                    self.logger.debug("Syn sem next before: %s",repr(synd.get_sem_next()))
+                    self.logger.debug("Syn next before: %s",repr(synd.get_next()))            
             if self.get_enabled_semantic_analysis():
                 result = self.anasem.analyze(result)
-        # ~ print "tashkeel5", len(result), len(synodelist)
+
+            for syndl in  result:
+                for synd in syndl:
+                    self.logger.debug("Syn sem next: %s",repr(synd.get_sem_next()))
+                    self.logger.debug("Syn next: %s",repr(synd.get_next()))                 
         return result, synodelist
 
     def tashkeel(self, inputtext, suggestion=False, format_display='text'):
@@ -325,6 +347,11 @@ class TashkeelClass:
         for text in texts:
             # morpholigical analysis of text
             detailled_syntax, synodelist = self.full_stemmer(text)
+            #self.logger.debug("List of synodes List **********")
+            #for syno in synodelist:
+                #self.logger.debug("Synode : %s",repr(syno))
+
+                                     
             previous = None
             next_node = None
             pre_node = None
@@ -332,15 +359,16 @@ class TashkeelClass:
             previous_case_index = False
             previous_chosen_relation = False
             # reduce cases
-            # ~ print "tashkeel 4", len(detailled_syntax), len(synodelist)
-            for current_index, word_cases_list, current_synode in izip(count(), detailled_syntax, synodelist):
-                # ~ word_cases_list = detailled_syntax[current_index]
-                if current_index - 1 >= 0:
-                    pre_node = synodelist[current_index - 1]
+     
+            self.logger.debug("List of synodes **********")
+            for current_index, word_cases_list, current_synode  in list(izip(count(),detailled_syntax, synodelist)):
+                #~ word_cases_list = detailled_syntax[current_index]
+                if current_index - 1 >= 0 :
+                    pre_node = synodelist[current_index-1]
                 else:
                     pre_node = None
-                if current_index + 1 < len(detailled_syntax):
-                    next_node = synodelist[current_index + 1]
+                if current_index + 1 < len(detailled_syntax) : 
+                    next_node = synodelist[current_index+1]
                 else:
                     next_node = None
 
@@ -353,11 +381,12 @@ class TashkeelClass:
                 )
 
             # choose tashkeel
-            # ~ print "tashkeel3", len(detailled_syntax), len(synodelist)
-            for current_index, word_cases_list, current_synode in izip(count(), detailled_syntax, synodelist):
-                # ~ word_cases_list = detailled_syntax[current_index]
-                if current_index - 1 >= 0:
-                    pre_node = synodelist[current_index - 1]
+
+            for current_index, word_cases_list, current_synode  in list(izip(count(),detailled_syntax, synodelist)):
+                #~ word_cases_list = detailled_syntax[current_index]
+                if current_index - 1 >= 0 :
+                    pre_node = synodelist[current_index-1]
+
                 else:
                     pre_node = None
                 if current_index + 1 < len(detailled_syntax):
@@ -483,19 +512,20 @@ class TashkeelClass:
         @rtype: unicode
         """
         # min = > mina
-        text = re.sub(ur'\sمِنْ\s+ا', u' مِنَ ا', text)
+        text = re.sub(u'\sمِنْ\s+ا', u' مِنَ ا', text)
         # man = > mani
-        text = re.sub(ur'\sمَنْ\s+ا', u' مَنِ ا', text)
-        # An = > ani
-        text = re.sub(ur'\sعَنْ\s+ا', u' عَنِ ا', text)
-        # sukun + alef = > kasra +alef
-        text = re.sub(ur'\s%s\s+ا' % araby.SUKUN, u' %s ا' % araby.KASRA, text)
-        # ~ text = re.sub(ur'\s%s\s+ا'%araby.SUKUN, u' %s ا' % araby.SUKUN, text)
-        # ajust pounctuation
-        text = re.sub(ur" ([.?!,:)”—]($| ))", ur"\1", text)
-        # binu = > bin
+
+        text = re.sub(u'\sمَنْ\s+ا', u' مَنِ ا', text)
+        #An = > ani
+        text = re.sub(u'\sعَنْ\s+ا', u' عَنِ ا', text)
+        #sukun + alef = > kasra +alef
+        text = re.sub(u'\s%s\s+ا'%araby.SUKUN, u' %s ا' % araby.KASRA, text)
+        #~ text = re.sub(ur'\s%s\s+ا'%araby.SUKUN, u' %s ا' % araby.SUKUN, text)
+        #ajust pounctuation
+        text = re.sub(u" ([.?!, :)”—]($| ))", u"\1", text)
+        #binu = > bin 
         # temporary, to be analysed by syntaxical analyzer
-        text = re.sub(ur'\sبْنُ\s', u' بْن ', text)
+        text = re.sub(u'\sبْنُ\s', u' بْن ', text)        
         # # # اختصارات مثل حدثنا إلى ثنا وه تكثر في كتب التراث
         # text = re.sub(ur'\seثِنَا\s', u' ثَنَا ', text)
         return text
@@ -509,10 +539,11 @@ class TashkeelClass:
         @return: _suggest_list.
         @rtype: list of dict of unicode
         """
-        for i in range(len(_suggest_list) - 1):
-            if i + 1 < len(_suggest_list) and
-            _suggest_list[i + 1].has_key('chosen') and
-            _suggest_list[i + 1]['chosen'].startswith(araby.ALEF):
+
+        for i in range(len(_suggest_list)-1):
+            if i+1 < len(_suggest_list) and  "chosen" in _suggest_list[i+1] \
+            and _suggest_list[i+1]['chosen'].startswith(araby.ALEF):
+
                 if _suggest_list[i]['chosen'] in (u'مَنْ', u'مِنْ', u'عَنْ'):
                         if _suggest_list[i]['chosen'] == u'مِنْ':
                             _suggest_list[i]['chosen'] = u'مِنَ'
@@ -573,11 +604,9 @@ class TashkeelClass:
         """
         # get the word list
         # اختصارات مثل حدثنا إلى ثنا وه تكثر في كتب التراث
-        for abr in tashkeel_const.CorrectedTashkeel.keys():
-            text = re.sub(
-                ur"\s%s\s" % abr, ur" %s " % tashkeel_const.CorrectedTashkeel[abr],
-                text
-            )
+        for abr in list(tashkeel_const.CorrectedTashkeel.keys()):
+            text = re.sub(u"\s%s\s"%abr, u" %s " % \
+            tashkeel_const.CorrectedTashkeel[abr], text)
         wordlist = self.analyzer.tokenize(text)
 
         prevocalized_list = pyarabic.number.pre_tashkeel_number(wordlist)
@@ -631,13 +660,12 @@ class TashkeelClass:
         @return: the choosen stemming of the current word.
         @rtype:stemmedSynword.
         """
-
         chosen = None
         chosen_index = False
         rule = 0
         previous = previous_chosen_case
         if previous:
-            pre_relation = 0  # _chosen_list[i].get_previous_relation(_chosen_list[previous].get_order());
+            pre_relation = 0
         else:
             pre_relation = 0
         if next_node:
@@ -653,7 +681,6 @@ class TashkeelClass:
         # get the chosen indexes from the current synode
         # which allow to handle previous and nexts and make other analysis
         indxlist = current_synode.get_chosen_indexes()
-
         # get all the indexes in the current cases list
         tmplist = []
         if len(indxlist) == 1:
@@ -669,24 +696,28 @@ class TashkeelClass:
         # initial cases
         if not rule and (not previous or previous.is_initial()):
             # choose the initial case
-            indxlist, rule = self.__choose_initial(indxlist, caselist, next_chosen_indexes, next_node)
+            indxlist, rule = self.__choose_initial(indxlist, caselist,  next_chosen_indexes, next_node)
+            self.logger.debug("2:%s", repr(indxlist))
+
             # and lets other methode to choices by semantic and syntaxic
         if not rule:
+            self.logger.debug("2-1:%s", repr(indxlist))
             indxlist, rule = self.__choose_cases(indxlist, caselist, previous, next_chosen_indexes, next_node, previous_chosen_relation)
-            # select default
-
+            self.logger.debug("3: %s", repr(indxlist))
+        #~ return 0        
+        #select default
         if not rule:
             indxlist, rule = self.__choose_default(indxlist, caselist)
+            self.logger.debug("4: %s",  repr(indxlist))
 
         # select the first case if there one or many
         chosen_index = indxlist[0]
         chosen = caselist[chosen_index]
-        if not rule:
-            rule = 100
-        if debug:
-            print(100, rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8'))
-
-
+        if not rule: rule = 100
+        if debug: 
+            self.logger.debug("100: %d %s", rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]))
+         
+        
         # set the selection rule to dispaly how tahskeel is selected
         chosen.set_rule(rule)
         return chosen.get_order()
@@ -705,37 +736,39 @@ class TashkeelClass:
         # select more words with relations
         if not rule and self.get_enabled_semantic_analysis():
             # one semantic relations from next
-            tmplist = filter(lambda x: caselist[x].has_sem_next(next_chosen_indexes), indxlist)
+            self.logger.debug("10 %s", repr(indxlist))
+            #~ tmplist = list(filter(lambda x: caselist[x].has_sem_next(next_chosen_indexes), indxlist))
+            tmplist = [x for x in indxlist if caselist[x].has_sem_next(next_chosen_indexes)]
+            indxlist, rule = _get_indexlist_and_rule(list(tmplist), indxlist, caselist, 6)
+            self.logger.debug("11 %s", repr(tmplist))
+            self.logger.debug("11 %s", repr(indxlist))
 
-            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 6)
-        # ~ if not rule:
-            # ~ tmplist = filter(lambda x:  caselist[x].is_stopword() and caselist[x].has_next(next_chosen_indexes) , indxlist)
-
-            # ~ indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 10)
         if not rule and self.get_enabled_syntaxic_analysis():
             # select all cases with syntaxic relations
-            tmplist = filter(lambda x: caselist[x].has_next(next_chosen_indexes), indxlist)
+            self.logger.debug("12a %s next_chosen", repr(next_chosen_indexes))
+            for x in indxlist:
+                self.logger.debug("12b [%d] : %s nexts",x, caselist[x].get_next())
+                self.logger.debug("12b [%d] : %s nexts",x, repr(caselist[x].next))
+            self.logger.debug("12e %s indxlist", repr(indxlist))               
+            #tmplist = list(filter(lambda x: caselist[x].has_next(next_chosen_indexes), indxlist))
+            tmplist = [x for x in indxlist if caselist[x].has_next(next_chosen_indexes)]
 
+            self.logger.debug("12c %s indxlist", repr(tmplist))
+            
+            
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 14)
-        # ~ if not rule:
-            # ~ # select all cases with tanwin
-            # ~ if (next_node and next_node.is_break()) or not next_node:
-                # ~ tmplist = filter(lambda x: caselist[x].is_tanwin() or not caselist[x].is_noun() , indxlist)
-
-                # ~ indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 15)
+            self.logger.debug("12 %s indxlist", repr(indxlist))
 
         # choose default for initial
-        tmplist = filter(
-            lambda x: (
-                caselist[x].is_stopword() or
-                (caselist[x].is_marfou3() and not caselist[x].is_passive()) or
-                caselist[x].is_past()
-            ),
-            indxlist
-        )
-        indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 200)
 
-        return indxlist, rule
+        tmplist = list(filter(lambda x: (caselist[x].is_stopword() or
+                 (caselist[x].is_marfou3() and not caselist[x].is_passive())
+                 or caselist[x].is_past() ), indxlist))
+        self.logger.debug("13 %s", repr(indxlist))
+        indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 200)
+        
+        return  indxlist, rule
+
 
     def __choose_cases(self, indxlist, caselist, previous, next_chosen_indexes, next_node, previous_chosen_relation):
         """
@@ -749,48 +782,62 @@ class TashkeelClass:
         """
         rule = 0
             # select all cases with semantic relations
-        if not rule and self.get_enabled_semantic_analysis():
-            tmplist = filter(lambda x: self.anasem.is_related(previous, caselist[x]) or caselist[x].has_sem_next(next_chosen_indexes), indxlist)
+        if not rule and self.get_enabled_semantic_analysis(): 
+            self.logger.debug("14-a %s", repr(indxlist))
 
+
+            tmplist = list(filter(lambda x: self.anasem.is_related(previous, caselist[x]) or caselist[x].has_sem_next(next_chosen_indexes), indxlist))
+
+            #tmplist = list(tmplist)
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, rule)
-
+            self.logger.debug("14-b %s", repr(indxlist))
             # two semantic relations
-            tmplist = filter(lambda x: self.anasem.is_related(previous, caselist[x]) and caselist[x].has_sem_next(next_chosen_indexes), indxlist)
-
+            tmplist = list(filter(lambda x: self.anasem.is_related(previous, caselist[x]) and caselist[x].has_sem_next(next_chosen_indexes), indxlist))
+            #tmplist = list(tmplist)
+            self.logger.debug("14-c %s", repr(indxlist))
+            
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 4)
 
 
             # one semantic relations from previous
-            tmplist = filter(lambda x: self.anasem.is_related(previous, caselist[x]) and caselist[x].has_next(next_chosen_indexes), indxlist)
+            tmplist = list(filter(lambda x: self.anasem.is_related(previous, caselist[x]) and caselist[x].has_next(next_chosen_indexes), indxlist))
+            #tmplist = list(tmplist)
+            self.logger.debug("15 %s", repr(indxlist))            
 
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 5)
 
 
             # one semantic relations from next
-            tmplist = filter(lambda x: self.anasynt.is_related(previous, caselist[x]) and caselist[x].has_sem_next(next_chosen_indexes), indxlist)
-
+            tmplist = list(filter(lambda x: self.anasynt.is_related(previous, caselist[x]) and caselist[x].has_sem_next(next_chosen_indexes), indxlist))
+            #tmplist = list(tmplist)
+            self.logger.debug("16 %s", repr(indxlist))            
+            
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 6)
 
             # select stopword
         if not rule:
-            tmplist = filter(lambda x: caselist[x].is_stopword(), indxlist)
+            tmplist = list(filter(lambda x:  caselist[x].is_stopword(), indxlist))
+            #tmplist = list(tmplist)
 
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 3)
+            self.logger.debug("16 %s", repr(indxlist))            
 
             # syntaxic
             # select stopword
 
-        if not rule:
-            tmplist = filter(
-                lambda x: caselist[x].is_stopword() and (
-                    self.anasynt.is_related(previous, caselist[x]) and caselist[x].has_next(next_chosen_indexes)
-                ),
-                indxlist)
-
+        if not rule:           
+            tmplist = list(filter(lambda x:  caselist[x].is_stopword() and (self.anasynt.is_related(previous, caselist[x])
+                                     and caselist[x].has_next(next_chosen_indexes)) , indxlist))
+            #tmplist = list(tmplist)
+            self.logger.debug("17 %s", repr(indxlist))            
+            
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 41)
 
-        if not rule:
-            tmplist = filter(lambda x: caselist[x].is_stopword() and caselist[x].has_next(next_chosen_indexes), indxlist)
+        if not rule:           
+            tmplist = list(filter(lambda x:  caselist[x].is_stopword() and caselist[x].has_next(next_chosen_indexes) , indxlist))
+            #tmplist = list(tmplist)
+            self.logger.debug("18 %s", repr(indxlist))            
+            
 
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 10)
 
@@ -805,22 +852,28 @@ class TashkeelClass:
             # get all the indexes in the current cases list
         if not rule and self.get_enabled_syntaxic_analysis():
             # select all cases with syntaxic relations
-            tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and caselist[x].has_next(next_chosen_indexes)), indxlist)
-
+            tmplist = list(filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and caselist[x].has_next(next_chosen_indexes)), indxlist))
+            #tmplist = list(tmplist)
+            self.logger.debug("19 %s", repr(indxlist))            
+            
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 11)
-
-        if not rule and self.get_enabled_syntaxic_analysis():
-            tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x])), indxlist)
-
-
+        if not rule and  self.get_enabled_syntaxic_analysis():
+            tmplist = list(filter(lambda x: (self.anasynt.is_related(previous, caselist[x])), indxlist))
+           
+            #tmplist = list(tmplist)
+            self.logger.debug("20 %s", repr(indxlist))            
+            
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 12)
         #
-        if not rule and self.get_enabled_syntaxic_analysis():
-            tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and self.anasynt.are_compatible_relations(previous_chosen_relation, previous.get_next_relation(x))), indxlist)
-
+        if not rule and  self.get_enabled_syntaxic_analysis():
+            tmplist = list(filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and self.anasynt.are_compatible_relations(previous_chosen_relation, previous.get_next_relation(x)) ), indxlist))
+            #tmplist = list(tmplist)
+            self.logger.debug("21 %s", repr(indxlist))            
+            
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 13)
         # select only compatible relations with previous relations
         # reduces cases if the previous chosen relation is not compatible with actual relations
+
 
         # like قال هذا الرجل،
         # قال هذا
@@ -829,29 +882,38 @@ class TashkeelClass:
         # ~ هذا الرجل
         # ~ must be raf3 substitution
 
-        if not rule and self.get_enabled_syntaxic_analysis():
-            tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and self.anasynt.are_compatible_relations(previous_chosen_relation, previous.get_next_relation(x))), indxlist)
+        if not rule and  self.get_enabled_syntaxic_analysis():
+            tmplist = list(filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and self.anasynt.are_compatible_relations(previous_chosen_relation, previous.get_next_relation(x)) ), indxlist))
+            #tmplist = list(tmplist)
 
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 13)
+            self.logger.debug("22 %s", repr(indxlist))            
 
             # Default cases selection
             # get all the indexes in the current cases list
         if not rule and self.get_enabled_syntaxic_analysis():
             # select all cases with syntaxic relations
-            tmplist = filter(lambda x: caselist[x].has_next(next_chosen_indexes), indxlist)
-
+            tmplist = list(filter(lambda x: caselist[x].has_next(next_chosen_indexes), indxlist))
+            #tmplist = list(tmplist)
+            self.logger.debug("23 %s", repr(indxlist))            
+            
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 14)
         # Get relations of non mansoub with a has_previous
         # Previlege relations of Raf3 or Jar than the Nasb if there are many relations
         if not rule and self.get_enabled_syntaxic_analysis():
             # select all cases with syntaxic relations
-            tmplist = filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and caselist[x].is_noun() and not caselist[x].is_mansoub()), indxlist)
-
-            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 17)
+            tmplist = list(filter(lambda x: (self.anasynt.is_related(previous, caselist[x]) and caselist[x].is_noun() and not caselist[x].is_mansoub()), indxlist))
+            #tmplist = list(tmplist)
+            self.logger.debug("24 %s", repr(indxlist))            
+            
+            indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 17)        
         if not rule:
             # select all cases with tanwin
             if (next_node and next_node.is_break()) or not next_node:
-                tmplist = filter(lambda x: caselist[x].is_tanwin() or not caselist[x].is_noun(), indxlist)
+                tmplist = list(filter(lambda x: caselist[x].is_tanwin() or not caselist[x].is_noun() , indxlist))
+                #tmplist = list(tmplist)
+                self.logger.debug("25 %s", repr(indxlist))            
+                
 
                 indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 15)
 
@@ -870,21 +932,24 @@ class TashkeelClass:
         # select cases with the max frequency
         # first get max freq
         maxfreq = 0
+            
         maxfreq = max([caselist[x].get_freq() for x in indxlist])
-        tmplist = filter(lambda x: caselist[x].get_freq() == maxfreq, indxlist)
-
+        tmplist = list(filter(lambda x: caselist[x].get_freq() == maxfreq, indxlist))
+        #tmplist = list(tmplist)                 
         indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 31)
 
         if not rule:
             # exode Dual cases
             # use to avoid dual cases like من الفلاحَين instead of من الفلاحِين
-            tmplist = filter(lambda x: (caselist[x].is_noun() and not caselist[x].is_dual()), indxlist)
+            tmplist = list(filter(lambda x: ( caselist[x].is_noun() and  not caselist[x].is_dual()), indxlist))
+            #tmplist = list(tmplist)                 
 
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 32)
 
         if not rule:
             # select mansoub noun
-            tmplist = filter(lambda x: (caselist[x].is_noun() and caselist[x].is_mansoub()), indxlist)
+            tmplist = list(filter(lambda x: ( caselist[x].is_noun() and  caselist[x].is_mansoub()), indxlist))
+            #tmplist = list(tmplist)                 
 
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 33)
 
@@ -896,25 +961,26 @@ class TashkeelClass:
 
         if not rule:
             # select active voice
-            tmplist = filter(lambda x: (caselist[x].is_verb() and not caselist[x].is_passive()), indxlist)
+            tmplist = list(filter(lambda x: ( caselist[x].is_verb() and not caselist[x].is_passive()), indxlist))
+            #tmplist = list(tmplist)  
 
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 35)
 
         if not rule:
             # select present marfou3 or past
-            tmplist = filter(lambda x: (caselist[x].is_verb() and (caselist[x].is_marfou3() or caselist[x].is_past())), indxlist)
+            tmplist = list(filter(lambda x: ( caselist[x].is_verb() and (caselist[x].is_marfou3() or caselist[x].is_past())), indxlist))
 
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 36)
         if not rule:
             # select 3rd person
-            tmplist = filter(lambda x: (caselist[x].is_verb() and caselist[x].is3rdperson()), indxlist)
+            tmplist = list(filter(lambda x: ( caselist[x].is_verb() and caselist[x].is3rdperson()), indxlist))
 
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 37)
 
         if not rule:
             # select 1st person
-            tmplist = filter(lambda x: (caselist[x].is_verb() and caselist[x].is1stperson()), indxlist)
-
+            tmplist = list(filter(lambda x: ( caselist[x].is_verb() and caselist[x].is1stperson()), indxlist))
+            #tmplist = list(tmplist) 
             indxlist, rule = _get_indexlist_and_rule(tmplist, indxlist, caselist, 38)
 
         return indxlist, rule
@@ -977,28 +1043,17 @@ class TashkeelClass:
 
         # select stopword
         if next_node:
+           
+            tmplist = list(filter(lambda x:  caselist[x].is_stopword() and (caselist[x].has_next(next_chosen_indexes) 
+                        ), indxlist))
 
-            tmplist = filter(lambda x: caselist[x].is_stopword() and (caselist[x].has_next(next_chosen_indexes)), indxlist)
-            # ~ tmplist = filter(lambda x:  caselist[x].is_stopword() and (caselist[x].has_next(next_chosen_indexes)
-                        # ~ or caselist[x].has_previous()), indxlist)
             # if indexes list is empty, the current indexes list is reloaded, and no change
             if tmplist:
                 indxlist = tmplist
-                if len(indxlist) == 1:
-                    rule = 3
-            if debug:
-                print(3, rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8'))
+                if len(indxlist) == 1 : rule = 3
+            if debug: print(3,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8'))
+ 
 
-            # get all the indexes in the current cases list
-        # ~ if not rule and self.get_enabled_syntaxic_analysis():
-            # ~ # select all cases with syntaxic relations
-            # ~ tmplist = filter(lambda x: caselist[x].has_next(next_chosen_indexes) or caselist[x].has_previous(), indxlist)
-            # ~ # if indexes list is empty, the current indexes list is reloaded, and no change
-            # ~ if tmplist:
-                # ~ indxlist = tmplist
-                # ~ if len(indxlist) == 1: rule = 13
-            # ~ if debug: print 13,rule, u", ".join([caselist[x].get_vocalized() for x in indxlist]).encode('utf8')
-                    # ~
         # reduce the list of cases
         current_synode.set_chosen_indexes(indxlist)
 
@@ -1010,17 +1065,14 @@ def _get_indexlist_and_rule(tmplist, indexlist, caselist, rule):
     if the indexlist has one element, the rule is applyed
     """
     debug = False
-    # ~ debug = True
-    # ~ if tmplist is not empty, change indexlist,
-
     if tmplist:
         indexlist = tmplist
 
     # ~ if the indexlist has one element, the rule is applied
     applied_rule = rule if len(indexlist) == 1 else 0
-    # if debug, display the
-    if debug:
-        print("choose tashkeel", rule, applied_rule, u", ".join([caselist[x].get_vocalized() for x in indexlist]).encode('utf8'))
+    # if debug, display the 
+    if debug: 
+        print("choose tashkeel", rule,applied_rule, u", ".join([caselist[x].get_vocalized() for x in indexlist]).encode('utf8'))
     return indexlist, applied_rule
 
 
@@ -1035,7 +1087,5 @@ def mainly():
     text = u"يعبد الله تطلع الشمس"
     voc = vocalizer.tashkeel(text)
     print(voc.encode('utf8'))
-
-
 if __name__ == "__main__":
     mainly()

@@ -34,11 +34,12 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
     """
     def __init__(self, result_dict = None, order = -1):
         # ToDo
-        # copy the super class attributes to curesult_dictrrent classe
-        #stemmedword.stemmedWord.__init__(self, result_dict.get_dict())
+        # copy the super class attributes to result_dict classe
+        #~ stemmedword.StemmedWord.__init__(self, result_dict.get_dict())
+        #~ stemmedword.StemmedWord.__init__(self, result_dict.__dict__)
         
         if result_dict: 
-            self.__dict__ = result_dict.__dict__.copy()
+            self.__dict__ = result_dict.__dict__#.copy()
             self.unvocalized =  araby.strip_tashkeel(self.vocalized)
             self.unvoriginal =  araby.strip_tashkeel(self.original)
         self.tag_verbal_factor  =   0
@@ -186,7 +187,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @param next: the next of  the stemmed word in the word case list.
         @tyep next: integer
         """
-        return self.next.keys()
+        return list(self.next.keys())
 
     def has_next(self, nextw = None):
         """
@@ -244,7 +245,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         """
         get all privous word list of relations.
         """
-        return self.previous.keys()
+        return list(self.previous.keys())
     def get_previous_relation(self, previous_order):
         """
         get the previous relation between the current case and the previous given by order
@@ -278,7 +279,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @param next: the next of  the stemmed word in the word case list.
         @tyep next: integer
         """
-        return self.sem_next.keys()
+        return list(self.sem_next.keys())
 
     def has_sem_previous(self):
         """
@@ -295,6 +296,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         """
         if not nextw:
             return self.sem_next != {}
+        #print("has_sem_next", self.sem_next.keys(), nextw)
         return bool(set(self.sem_next.keys()).intersection(nextw))
 
     def add_sem_previous(self, previous, weight = 1):
@@ -314,7 +316,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         the word case list.
         @tyep previous: integer
         """
-        return self.sem_previous.keys()
+        return list(self.sem_previous.keys())
     def forced_case(self):
         """
         Add a new tag to syntax field as foced case
@@ -839,7 +841,7 @@ def mainly():
     """
     main test
     """
-    print "test"
+    print("test")
     rdict = {}
     rdict =  {"word": u"الحياة", # input word
             "vocalized": u"الْحَيَاةُ",
@@ -864,9 +866,9 @@ def mainly():
             }
     rdict = stemmedword.StemmedWord(rdict)
     stmwrd = StemmedSynWord(rdict)    
-    print stmwrd.get_dict()
-    print stmwrd.is_initial()
-    print stmwrd
+    print(stmwrd.get_dict())
+    print(stmwrd.is_initial())
+    print(stmwrd)
 if __name__ == "__main__":
     mainly()
     syn_const.NOMINAL_FACTOR_LIST

@@ -8,23 +8,27 @@ __docformat__ = 'restructuredtext en'
 import re
 import sys
 
-import pyarabic.araby as araby 
 #import enchant
 import os
-from PyQt4.Qt import QAction
-from PyQt4.Qt import QApplication
-from PyQt4.Qt import QEvent
-from PyQt4.Qt import QMenu
-from PyQt4.Qt import QMouseEvent
-from PyQt4.Qt import QPlainTextEdit
-from PyQt4.Qt import QSyntaxHighlighter
-from PyQt4.Qt import QTextCharFormat
-from PyQt4.Qt import QTextCursor
-from PyQt4.Qt import QTextOption
-from PyQt4.Qt import Qt
-from PyQt4.QtCore import pyqtSignal
+from PyQt5.Qt import QAction
+from PyQt5.Qt import QApplication
+from PyQt5.Qt import QEvent
+from PyQt5.Qt import QMenu
+from PyQt5.Qt import QMouseEvent
+from PyQt5.Qt import QPlainTextEdit
+from PyQt5.Qt import QSyntaxHighlighter
+from PyQt5.Qt import QTextCharFormat
+from PyQt5.Qt import QTextCursor
+from PyQt5.Qt import QTextOption
+from PyQt5.Qt import Qt
+from PyQt5.QtCore import pyqtSignal
 
-import customdictionary
+import pyarabic.araby as araby 
+
+try:
+    import customdictionary
+except:
+    from . import customdictionary
 
 
 
@@ -34,7 +38,7 @@ class myspeller:
         self.custom_dict = customdictionary.CustomizedDictionary();
     def check(self, word):
         key = araby.strip_tashkeel(word);
-        if self.dict.has_key(key):
+        if key in self.dict:
             return True;
         else:
             return False;
@@ -52,11 +56,11 @@ class myspeller:
             self.dict[araby.strip_tashkeel(word)]=suggestList;
     def suggest(self, word):
         key=araby.strip_tashkeel(word)
-        if self.dict.has_key(key):
+        if key in self.dict:
             return self.dict[key];
         return [];
-    def __del__():
-        del (self.custom_dict)
+    def __del__(self,):
+        del(self.custom_dict)
 class SpellTextEdit(QPlainTextEdit):
  
     def __init__(self, *args):
@@ -100,7 +104,8 @@ class SpellTextEdit(QPlainTextEdit):
             #~text = (unicode(self.textCursor().selectedText()))
             #this is a workaround for QT bug when double click selects Arabic punctuation marks
             # plus the word in the text editor see https://bugreports.qt-project.org/browse/QTBUG-42397
-            originaltext = unicode(self.textCursor().selectedText())
+            #~ originaltext = unicode(self.textCursor().selectedText())
+            originaltext = self.textCursor().selectedText()
             
             arabicmarks = [u'؟',u'،',u'؛',u'“',u'”',u'‘',u'’']
             holder = originaltext[-1]
@@ -109,11 +114,11 @@ class SpellTextEdit(QPlainTextEdit):
             else:
                 self.pretxt=''
             text = originaltext.strip(u'؟،؛“”‘’')   
-
+            spell_menu = QMenu(u'المزيد...')
+            spell_menu.setLayoutDirection(RightToLeft)
             # the word is aleady analyzed         
             if self.dict.check(text):
-                spell_menu = QMenu(u'المزيد...')
-                spell_menu.setLayoutDirection(RightToLeft)
+
                 suggests = self.dict.suggest(text)
                 for word in suggests[:10]:
                     action = SpellAction(word, spell_menu)
@@ -171,7 +176,7 @@ class SpellTextEdit(QPlainTextEdit):
         """
         Add non vocalized words with user vocalization into a dictionary to be used as feed back
         """
-        print "Added word", text.encode('utf8')
+        print("Added word", text.encode('utf8'))
         self.dict.custom_dict.add(text)
     
     def correctWord(self, word):
@@ -194,13 +199,15 @@ class SpellAction(QAction):
     A special QAction that returns the text in a signal.
     '''
  
-    correct = pyqtSignal(unicode)
+    try:
+        correct = pyqtSignal(unicode)
+    except:
+        correct = pyqtSignal(str)        
  
     def __init__(self, *args):
         QAction.__init__(self, *args)
  
-        self.triggered.connect(lambda x: self.correct.emit(
-            unicode(self.text())))
+        self.triggered.connect(lambda x: self.correct.emit(self.text()))
 
             
  

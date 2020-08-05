@@ -1,6 +1,7 @@
 #! /usr/bin/python
 # -*- coding: UTF-8 -*-
-
+from __future__ import (absolute_import, division,
+                        print_function, unicode_literals)
 import sys
 import os.path
 import re
@@ -35,7 +36,10 @@ def test():
 	  logger=myLogger
     );
     # for options see http://pythonpaste.org/modules/httpserver.html
-    httpserver.serve(app, host='0.0.0.0', port='8080')
+    try:
+        httpserver.serve(app, host='0.0.0.0', port='8080')
+    except:
+        httpserver.serve(app, host='0.0.0.0', port='8081')        
 
 if __name__ == '__main__':
 	test();

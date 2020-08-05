@@ -16,22 +16,43 @@ Copyright © 2009, Muayyad Alsadi <alsadi@ojuba.org>
     "http://waqf.ojuba.org/license"
 
 """
+from __future__ import (absolute_import,
+                        division,
+                        print_function, 
+                        unicode_literals,
+                        )
 ALLOW_DEBUG = False
 import sys, os, os.path, time, re
 try: import json
 except ImportError: import simplejson as json
-
+import six
+unicode = six.text_type
+basestring = six.string_types
 #import json # for templates
-import urlparse # for parsing query string
+try:
+    import urlparse # for parsing query string
+except ImportError:
+    import urllib.parse as urlparse
+
 from cgi import escape, FieldStorage # for html escaping
 from operator import attrgetter # for OkashaFields
-from Cookie import SimpleCookie # in python 3.0 it's from http.cookies import SimpleCookie
-from utils import fromFs, toFs
+try:
+    from Cookie import SimpleCookie # in python 3.0 it's from http.cookies import SimpleCookie
+except ImportError:
+    from http.cookies import SimpleCookie
+try:
+    from utils import fromFs, toFs
+except ImportError:
+    from .utils import fromFs, toFs
 
 try:
     from cStringIO import StringIO
 except ImportError:
-    from StringIO import StringIO
+    try:
+        from StringIO import StringIO
+    except:
+        from io import StringIO
+from io import open
 
 #import urllib # to be used for quote and unquote
 
@@ -59,7 +80,8 @@ forbiddenException=lambda *a,**kw: webAppBaseException(403,*a,**kw)
 fileNotFoundException=lambda *a,**kw: webAppBaseException(404,*a,**kw)
 def redirectException(location,*a,**kw):
   e=webAppBaseException(302,*a,**kw)
-  if type(location)==unicode: l=location.encode('utf-8')
+  if type(location)==unicode:
+      l=location.encode('utf-8')
   else: l=location
   e.kw['location']=l
   return e
@@ -77,14 +99,16 @@ class Response:
     """
     sets or replace a cookies with key and value, and sets its expire time in seconds since now (if given)
     """
-    if isinstance(value,unicode): value=value.encode('utf8')
+    if isinstance(value,unicode): 
+        value=value.encode('utf8')
     self.cookies[key]=value
     if t!=None:
       # TODO: is this the right way of setting both expires and max-age
       self.cookies[key]['expires']=time.strftime("%a, %d %b %Y %H:%M:%S UTC", time.gmtime(time.time()+t))
       if t>0: self.cookies[key]['max-age']=t
     if path==None: path=self.rq.script+'/'
-    if isinstance(path,unicode): path=path.encode('utf8')
+    if isinstance(path,unicode): 
+        path=path.encode('utf8')
     self.cookies[key]['path']=path
     if domain!=None:  self.cookies[key]['domain']=domain
     if comment!=None:  self.cookies[key]['comment']=comment
@@ -185,14 +209,14 @@ class Request:
     self.response=Response(self)
     # FIXME: find a way to simplify decoding query strings into unicode
     qs=environ.get('QUERY_STRING','')
-    if environ.has_key('wsgi.input'):
+    if 'wsgi.input' in environ:
       self.q=OkashaFields(fp=environ['wsgi.input'],environ=environ)
     else: self.q=OkashaFields(fp=StringIO(''),environ=environ)
 
     try: self.cookies=SimpleCookie(environ.get('HTTP_COOKIE','')) # cookies['key'].value
     except: self.cookies=SimpleCookie('')
 
-    if environ.has_key('PATH_INFO'):
+    if 'PATH_INFO' in environ:
       self.uri=environ['PATH_INFO'] # can be / or /view
     else: self.uri="/";
     if type(self.uri)!=unicode:
@@ -245,10 +269,16 @@ class expose:
       cookies=rq.response.cookies.output(header="")
       if cookies: h=map(lambda c: ('Set-Cookie',c),cookies.split('\n'))
       else: h=[]
-      rq.start_response(rs, [('content-type', rq.response.contentType)]+h+map(lambda k: (k,rq.response.headers[k]),rq.response.headers))
-      if type(r)==unicode: return (r.encode('utf8'),)
-      elif isinstance(r, basestring): return (r,)
-      return r
+      rq.start_response(rs, [('content-type', rq.response.contentType)]+h+list(map(lambda k: (k,rq.response.headers[k]),rq.response.headers)))
+      if type(r) == unicode:
+          #print("unicode")
+          return (r.encode('utf8'),)
+      elif isinstance(r, basestring):
+          #print("base string")
+          return (r.encode('utf8'),)
+      else:
+        #print("default")
+        return r
     return wrapper
 
 def formatTemplate(rq, v, bfn=None):
@@ -259,7 +289,8 @@ def formatTemplate(rq, v, bfn=None):
   if not os.path.isdir(d): raise fileNotFoundException()
   if not bfn: bfn='root.html'
   fn=os.path.join(d, bfn)
-  try: tmp=open(fn,'rt').read().decode('utf-8')
+  #try: tmp=open(fn,'rt').read()
+  try: tmp=open(fn,'rt', encoding='utf8').read().decode('utf8')
   except IOError: raise fileNotFoundException()
   except:
     rq.webapp._logger.debug('template error fn=[%s]' % fn)
@@ -285,7 +316,8 @@ def percentTemplate(rq, v, bfn=None):
   fn=os.path.join(d, bfn)
   #rq.webapp._logger.info('template uses fn=[%s]' % fn)
 
-  try: tmp=open(fn,'r').read().decode('utf-8')
+  #try: tmp=open(fn,'r').read().decode('utf8')
+  try: tmp=open(fn,'r', encoding='utf8').read()
   except IOError: raise fileNotFoundException()
   except:
     rq.webapp._logger.debug('template error fn=[%s]' % fn)
@@ -350,11 +382,13 @@ class baseWebApp:
     for k in redirectBaseUrls:
       self._redirectBaseUrls[self._tailingSlash(k)]=self._tailingSlash(redirectBaseUrls[k])
     self._staticBaseDirKeys=self._staticBaseDir.keys()
-    self._staticBaseDirKeys.sort()
-    self._staticBaseDirKeys.reverse() # so it's from longer to shorter
+    #self._staticBaseDirKeys.sort()
+    sorted(self._staticBaseDirKeys, reverse=True)
+    #self._staticBaseDirKeys.reverse() # so it's from longer to shorter
     self._redirectBaseUrlsKeys=self._redirectBaseUrls.keys()
-    self._redirectBaseUrlsKeys.sort()
-    self._redirectBaseUrlsKeys.reverse()
+    sorted(self._redirectBaseUrlsKeys, reverse=True)
+    #self._redirectBaseUrlsKeys.sort()
+    #self._redirectBaseUrlsKeys.reverse()
 
   def _tailingOsSlash(self, s):
     if not s.endswith(os.sep): return s+os.sep
@@ -386,7 +420,11 @@ class baseWebApp:
     rq.start_response(rs, [
       ('content-type', 'text/plain'),
       ('Location', e.kw['location'])]+h)
-    return ("Redirect to "+ e.kw['location'],)
+    #return ("Redirect to "+ e.kw['location'],)
+    try:
+        return ("Redirect to "+ e.kw['location'],)
+    except:
+        return ("Redirect to "+ e.kw['location'].decode(),) 
 
 # you may customize exceptions like this
 #  @expose(response=404,contentType='text/plain; charset=utf-8')
@@ -426,7 +464,7 @@ class baseWebApp:
         if not os.path.abspath(fn).startswith(bfn):
           return self._handleException(rq, forbiddenException())
         try: return self.__serveStatic(rq, fn)
-        except webAppBaseException , e:
+        except webAppBaseException as e:
           return self._handleException(rq, e)
     # check if we need to serve redirect
     for k in self._redirectBaseUrlsKeys:
@@ -443,7 +481,7 @@ class baseWebApp:
       f=self._root
       a=rq.uriList
     try: r=f(rq, *a)
-    except webAppBaseException , e:
+    except webAppBaseException as e:
       return self._handleException(rq, e)
     return r
 
