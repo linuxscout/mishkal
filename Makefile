@@ -24,3 +24,10 @@ test2l:
 	python2 bin/mishkal-console.py -c -l 2 -f tests/samples/phrases.txt >tests/output/test2.csv
 test3l:
 	python3 bin/mishkal-console.py -c -l 2 -f tests/samples/phrases.txt >tests/output/test3.csv
+
+server:
+	python3 interfaces/web/mishkal-bottle.py
+gui:
+	python3 interfaces/gui/mishkal-gui.py
+console:
+	python3 bin/mishkal-console.py
