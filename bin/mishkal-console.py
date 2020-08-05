@@ -8,6 +8,7 @@ from __future__ import (
     )
 import os
 import os.path
+
 import sys
 if sys.version_info.major < 3:
     reload(sys)
@@ -17,13 +18,12 @@ import getopt
 from glob import glob
 from io import open
 
+
 base_dir = os.path.dirname(os.path.realpath(__file__))
-# ~ sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../support/'))
-# ~ sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../mishkal'))
-# ~ sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../'))  # used for core
 sys.path.append(os.path.join(base_dir, '../support/'))
 sys.path.append(os.path.join(base_dir, '../mishkal'))
 sys.path.append(os.path.join(base_dir, '../'))  # used for core
+import tashkeel.tashkeel as ArabicVocalizer
 
 scriptname = os.path.splitext(base_dir)[0]
 
@@ -41,6 +41,7 @@ def usage():
     print(u"\t[-h | --help]                  outputs this usage message")
     print(u"\t[-v | --version]               program version")
     print(u"\t[-p | --progress]              display progress status")
+    print(u"\t[-a | --verbose]               enable verbosity")
     print(u"\n\t* Tashkeel Actions\n\t-------------------")
     print(u"\t[-r | --reduced]               Reduced Tashkeel.")
     print(u"\t[-s | --strip]                 Strip tashkeel (remove harakat).")
@@ -49,7 +50,7 @@ def usage():
     print(u"\t[-l | --limit]                 vocalize only a limited number of line")
     print(u"\t[-x | --syntax]                disable syntaxic analysis")
     print(u"\t[-m | --semantic]              disable semantic analysis")
-    print(u"\t[-g | --train]                 enable tranining option")
+    print(u"\t[-g | --train]                 enable training option")
     print(u"\t[-i | --ignore]                ignore the last Mark on output words.")
     print(u"\t[-t | --stat]                  disable statistic tashkeel")
     print(u"\r\nThis program is licensed under the GPL License\n")
@@ -70,6 +71,7 @@ def grabargs():
         "strip_tashkeel": False,
         "reducedTashkeel": False,
         "progress": False,
+        "verbose": False,
         "train": False,
         "nocache": False,
         "text": ""
@@ -80,10 +82,10 @@ def grabargs():
     try:
         opts, args = getopt.getopt(
             sys.argv[1:],
-            "hVtgcpixsmnrv:f:o:l:",
+            "hVtgcpaixsmnrv:f:o:l:",
             [
                 "help", "version", "stat", "compare",
-                "reduced", "strip", "syntax", "progress", "semantic",
+                "reduced", "strip", "syntax", "progress", "verbose", "semantic",
                 "ignore", "nocache", "train", "limit = ", "file = ", "out = "
             ],
         )
@@ -115,6 +117,8 @@ def grabargs():
             options["disableStatistic"] = True
         if o in ("-p", "--progress"):
             options["progress"] = True
+        if o in ("-a", "--verbose"):
+            options["verbose"] = True
         if o in ("-g", "--train"):
             options["train"] = True
         if o in ("-l", "--limit"):
@@ -122,7 +126,6 @@ def grabargs():
                 options["limit"] = int(val)
             except:
                 options["limit"] = 0
-
         if o in ("-f", "--file"):
             options["fname"] = val
         if o in ("-o", "--outfile"):
@@ -134,11 +137,8 @@ def grabargs():
         utfargs.append(a)
     options["text"] = u' '.join(utfargs)
 
-    # if text: print text.encode('utf8')
+    # if text: print(text.encode('utf8'))
     return (options)
-
-
-import tashkeel.tashkeel as ArabicVocalizer
 
 
 def test():
@@ -157,6 +157,7 @@ def test():
     limit = options['limit']
     compare = options['compare']
     progress = options['progress']
+    verbose = options['verbose']
     enable_syn_train = options['train']
 
     # filename = "samples/randomtext.txt"
@@ -178,17 +179,21 @@ def test():
     else:
         lines = text.split('\n')
     # all things are well, import library
-    import core.adaat
     import pyarabic.araby as araby
 
     counter = 1
     if not limit:
-        limit = 100000000
+        # count lines in files if filename, otherwise count lines in text
+        if filename:
+            with open(filename) as f:
+                limit = sum(1 for line in f)
+        else:
+            limit = len(lines)
     if not strip_tashkeel:
         vocalizer = ArabicVocalizer.TashkeelClass()
         if nocache:
             vocalizer.disable_cache()
-            # print "nocache"
+            # print("nocache")
         if ignore:
             vocalizer.disable_last_mark()
         if disableSemantic:
@@ -199,12 +204,13 @@ def test():
             vocalizer.disable_stat_tashkeel()
         if enable_syn_train:
             vocalizer.enable_syn_train()
-            # print "mishkal-console, vocalizer.anasynt.syntax_train_enabled", vocalizer.anasynt.syntax_train_enabled
+            # print("mishkal-console, vocalizer.anasynt.syntax_train_enabled", vocalizer.anasynt.syntax_train_enabled)
+        # if verbose option, then activate logger in ArabicVocalizer
+        if verbose:
+            vocalizer.enable_verbose()
 
     # vocalizer.disableShowCollocationMark()
-    # print "show delimiter", vocalizer.collo.showDelimiter
-    # nolimit = True
-    nolimit = False
+    # print("show delimiter", vocalizer.collo.showDelimiter)
     if not text:
         line = (myfile.readline())#.decode('utf8')
     else:
@@ -213,99 +219,99 @@ def test():
     correct = 0
     incorrect = 0
     total = 0
-    totLetters = 0
     LettersError = 0
     WLMIncorrect = 0
-    percent = 0
     if compare:
-        # dispaly stats for the current line
+        # display stats for the current line
         print("id\tfully Correct\tStrip Correct\tfully WER\tStrip WER\tLER\tTotal\tline Fully correct\tline Strip correct\tLine")
 
-    while line and (nolimit or counter <= limit):
-        if not line.startswith('# '):
-            line = line.strip()
-            lineCorrect = 0
-            lineWLMIncorrect = 0
-            if strip_tashkeel:
-                result = araby.strip_tashkeel(line)
-            else:    # vocalize line by line
-                if not compare:
-                    result = vocalizer.tashkeel(line)
-                if compare:
-                    inputVocalizedLine = line
-                    inputlist = vocalizer.analyzer.tokenize(inputVocalizedLine)
-                    inputUnvocalizedLine = araby.strip_tashkeel(line)
-                    vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(inputUnvocalizedLine)
-
-
-                    # stemmer = tashaphyne.stemming.ArabicLightStemmer()
-                    # ~texts = vocalizer.analyzer.split_into_phrases(inputVocalizedLine)
-                    # ~inputlist = []
-                    # ~for txt in texts:
-                        # ~inputlist += vocalizer.analyzer.text_tokenize(txt)
-                    outputlist = [x.get("chosen", '') for x in vocalized_dict]
-                    result = u" ".join(outputlist)
-                    outputlistsemi = [x.get("semi", '') for x in vocalized_dict]
-                    total += len(inputlist)
-                    lineTotal = len(inputlist)
-                    if len(inputlist) != len(outputlist):
-                        print("lists haven't the same length")
-                        print(len(inputlist), len(outputlist))
-                        print(u"# ".join(inputlist).encode('utf8'))
-                        print(u"# ".join(outputlist).encode('utf8'))
-                    else:
-                        for inword, outword, outsemiword in zip(inputlist, outputlist, outputlistsemi):
-                            simi = araby.vocalized_similarity(inword, outword)
-                            if simi < 0:
-                                LettersError += -simi
-                                incorrect += 1
-                                # evaluation without last haraka
-                                simi2 = araby.vocalized_similarity(inword, outsemiword)
-                                if simi2 < 0:
-                                    WLMIncorrect += 1
-                                    lineWLMIncorrect += 1
-                            else:
-                                correct += 1
-                                lineCorrect += 1
-
-            # compare resultLine and vocalizedLine
-            if reducedTashkeel:
-                result = araby.reduceTashkeel(result)
-            # print result.encode('utf8')
-            counter += 1
-
-            # display stat for every line
+    while line and counter <= limit:
+        line = line.strip()
+        lineCorrect = 0
+        lineWLMIncorrect = 0
+        if strip_tashkeel:
+            result = araby.strip_tashkeel(line)
+        else:    # vocalize line by line
+            if not compare:
+                result = vocalizer.tashkeel(line)
+                # error without these three lines, but unsure what information Full and Strip counts bring
+                inputVocalizedLine = line
+                inputlist = vocalizer.analyzer.tokenize(inputVocalizedLine)
+                total += len(inputlist)
             if compare:
-                print(
-                    "%d\t%0.2f%%\t%0.2f%%\t%d\t%d\t%d\t%d\t" % (
-                        counter - 1,  # id
-                        round(correct * 100.00 / total, 2),  # fully Correct
-                        round((total - WLMIncorrect) * 100.00 / total, 2),  # Strip Correct
-                        incorrect,  # fully WER
-                        WLMIncorrect,  # Strip WER
-                        LettersError,  # LER
-                        total  # Total
-                    )
+                inputVocalizedLine = line
+                inputlist = vocalizer.analyzer.tokenize(inputVocalizedLine)
+                inputUnvocalizedLine = araby.strip_tashkeel(line)
+                vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(inputUnvocalizedLine)
+
+                # stemmer = tashaphyne.stemming.ArabicLightStemmer()
+                # ~texts = vocalizer.analyzer.split_into_phrases(inputVocalizedLine)
+                # ~inputlist = []
+                # ~for txt in texts:
+                    # ~inputlist += vocalizer.analyzer.text_tokenize(txt)
+                outputlist = [x.get("chosen", '') for x in vocalized_dict]
+                result = u" ".join(outputlist)
+                outputlistsemi = [x.get("semi", '') for x in vocalized_dict]
+                total += len(inputlist)
+                lineTotal = len(inputlist)
+                if len(inputlist) != len(outputlist):
+                    print("lists haven't the same length")
+                    print(len(inputlist), len(outputlist))
+                    print(u"# ".join(inputlist).encode('utf8'))
+                    print(u"# ".join(outputlist).encode('utf8'))
+                else:
+                    for inword, outword, outsemiword in zip(inputlist, outputlist, outputlistsemi):
+                        simi = araby.vocalized_similarity(inword, outword)
+                        if simi < 0:
+                            LettersError += -simi
+                            incorrect += 1
+                            # evaluation without last haraka
+                            simi2 = araby.vocalized_similarity(inword, outsemiword)
+                            if simi2 < 0:
+                                WLMIncorrect += 1
+                                lineWLMIncorrect += 1
+                        else:
+                            correct += 1
+                            lineCorrect += 1
+
+        # compare resultLine and vocalizedLine
+        if reducedTashkeel:
+            result = araby.reduceTashkeel(result)
+        # print(result.encode('utf8'))
+        counter += 1
+
+        # display stat for every line
+        if compare:
+            print(
+                "%d\t%0.2f%%\t%0.2f%%\t%d\t%d\t%d\t%d\t" % (
+                    counter - 1,  # id
+                    round(correct * 100.00 / total, 2),  # fully Correct
+                    round((total - WLMIncorrect) * 100.00 / total, 2),  # Strip Correct
+                    incorrect,  # fully WER
+                    WLMIncorrect,  # Strip WER
+                    LettersError,  # LER
+                    total  # Total
                 )
-                if lineTotal:
-                    print(
-                        "%0.2f%%\t" % round(lineCorrect * 100.00 / lineTotal, 2)
-                    )  # line Fully correct
-                    print(
-                        "%0.2f%%\t" % round((lineTotal - lineWLMIncorrect) * 100.00 / lineTotal, 2)
-                    )  # line Strip correct
-
-            # ~ print result.strip('\n').encode('utf8'),
-            if text:
-                print(result.strip('\n'), end="")
-            else:
-                result_line = result
+            )
+            if lineTotal:
+                print(
+                    "%0.2f%%\t" % round(lineCorrect * 100.00 / lineTotal, 2)
+                )  # line Fully correct
+                print(
+                    "%0.2f%%\t" % round((lineTotal - lineWLMIncorrect) * 100.00 / lineTotal, 2)
+                )  # line Strip correct
+        
+        if text:
+            print(result.strip('\n'), end='')
+        else:
+            result_line = result
+            if verbose:
                 print(result_line)
-                # add line and new line to output file
-                outfile.write(result_line)
-                outfile.write("\n")
+            # add line and new line to output file
+            outfile.write(result_line)
+            outfile.write("\n")
 
-        if progress and not nolimit:
+        if progress:
             # ~percent = (counter * 100/ limit ) if (counter / limit * 100 >percent) else percent
             sys.stderr.write(
                 "\r[%d%%]%d/%d lines    Full %0.2f Strip %0.2f     " % (
