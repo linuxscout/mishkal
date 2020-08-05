@@ -17,9 +17,9 @@ date=$(shell date +'%y.%m.%d-%H:%M')
 doc:
 	epydoc -v --config epydoc.conf
 test2:
-	python2 bin/mishkal-console.py -c -f tests/samples/phrases.txt >tests/output/test2.csv
+	python2 bin/mishkal-console.py --progress -c -f tests/samples/phrases.txt >tests/output/test2.csv
 test3:
-	python3 bin/mishkal-console.py -c -f tests/samples/phrases.txt >tests/output/test3.csv
+	python3 bin/mishkal-console.py --progress -c -f tests/samples/phrases.txt >tests/output/test3.csv
 test2l:
 	python2 bin/mishkal-console.py -c -l 2 -f tests/samples/phrases.txt >tests/output/test2.csv
 test3l:

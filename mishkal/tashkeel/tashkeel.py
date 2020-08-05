@@ -49,12 +49,8 @@ class TashkeelClass:
     def __init__(self, mycache_path=False):
         # configure logging       
         logging.basicConfig(level=logging.ERROR)
-
         self.logger = logging.getLogger(__name__)
-        # ~ self.logger.info("Cache Path %s"%mycache_path)
 
-        # to display internal messages for debugging
-        # ~debug = False
         # limit of words to vocalize, default value is 1000 words.
         self.limit = 1000
 
@@ -109,9 +105,6 @@ class TashkeelClass:
         self.anasynt = aranasyn.anasyn.SyntaxAnalyzer(cache_path = mycache_path)
         self.anasynt.disable_allow_cache_use()
         
-        #~ self.logger.info("Cache Path cache syntax %s"%self.anasynt.cache.db.path)
-        
-
         # to disable the training when do Tashkeel
         self.syntax_train_enabled = False
 
@@ -122,6 +115,7 @@ class TashkeelClass:
         self.analyzer.set_debug(debug)
         # set the lexical analzer  word limit
         self.analyzer.set_limit(self.limit)
+
         # collocations dictionary for statistical tashkeel
         self.collo = coll.CollocationClass(self.enabled_show_collocation_mark)
 
@@ -437,6 +431,7 @@ class TashkeelClass:
             mytagmaker = mysam.tagmaker.tagMaker()
             mytagmaker.encode(_chosen_list[i].get_tags().split(':'))
             mytagmaker.encode(_chosen_list[i].get_type().split(':'))
+            #~ print(_chosen_list[i].get_tags().split(':'))
             if self.enabled_verbose:
                 self.logger.info("TaharZe Tags to display '%s' and tagmaker =='%s'", _chosen_list[i].get_tags(), str(mytagmaker))
 

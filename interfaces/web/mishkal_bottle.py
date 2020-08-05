@@ -10,6 +10,8 @@ from bottle import request
 from bottle import response
 from bottle import TEMPLATE_PATH
 
+import datetime
+import logging
 import json
 import os.path
 sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../../'))
@@ -19,6 +21,27 @@ xpath = os.path.join(os.path.dirname(sys.argv[0]), 'views')
 print("xpath", xpath)
 TEMPLATE_PATH.insert(0, xpath)
 
+#----------------------------------
+# define logger
+# prepare logging 
+#---------------------------------
+d = os.path.dirname(sys.argv[0])
+LOG_FILENAME = os.path.join(d,u'tmp','logging_mishkal.out')
+logging.basicConfig(filename = LOG_FILENAME,level=logging.INFO,)
+myLogger = logging.getLogger('Mishkal')
+h = logging.StreamHandler() # in production use WatchedFileHandler or RotatingFileHandler
+h.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
+myLogger.addHandler(h)
+myLogger.setLevel(logging.INFO) # in production use logging.INFO
+#~ myLogger.setLevel(logging.DEBUG) # in production use logg
+def writelog(text,action):
+    """
+    @param text: an object to be logged
+    @type text: object
+    """
+    timelog = datetime.datetime.now().strftime("%Y-%m-%d %I:%M");
+    textlog = u"\t".join([timelog, action, text]);
+    myLogger.info(textlog);
 #------------------
 # resources files
 #------------------
@@ -90,8 +113,8 @@ def ajaxget():
        text = text.decode('utf-8')
        options['lastmark']  = options['lastmark'].decode('utf8')
 
-    #self.writelog(text,action);
-        #Handle contribute cases
+    writelog(text,action);
+    #Handle contribute cases
     if action=="Contribute":
         return {'result':u"شكرا جزيلا على مساهمتك."}
     resulttext = core.adaat.DoAction(text ,action, options)
@@ -137,9 +160,10 @@ from bottle import error
 @app.error(404)
 def error404(error):
     return 'Nothing here, sorry'
-try:
-    run(app, server="paste", host='127.0.0.1', port=8080, debug=True)
-except:
-    run(app, server="paste", host='127.0.0.1', port=8082, debug=True)    
+if __name__ == '__main__':
+    try:
+        run(app, server="paste", host='127.0.0.1', port=8080, debug=True)
+    except:
+        run(app, server="paste", host='127.0.0.1', port=8082, debug=True)    
 
 
