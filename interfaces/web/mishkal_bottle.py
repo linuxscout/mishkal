@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding=utf-8 -*-
 import sys
 from bottle import Bottle, run
@@ -17,9 +17,10 @@ import os.path
 sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), '../../'))
 import core.adaat
 app = Bottle()
-xpath = os.path.join(os.path.dirname(sys.argv[0]), 'views')
-print("xpath", xpath)
-TEMPLATE_PATH.insert(0, xpath)
+#~ xpath = os.path.join(os.path.dirname(__file__), 'views')
+xpath = os.path.dirname(os.path.realpath(__file__))
+#~ print("xpath", xpath)
+TEMPLATE_PATH.insert(0, os.path.join(xpath, "views"))
 
 #----------------------------------
 # define logger
@@ -33,69 +34,70 @@ h = logging.StreamHandler() # in production use WatchedFileHandler or RotatingFi
 h.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
 myLogger.addHandler(h)
 myLogger.setLevel(logging.INFO) # in production use logging.INFO
-#~ myLogger.setLevel(logging.DEBUG) # in production use logg
+
+
 def writelog(text,action):
     """
     @param text: an object to be logged
     @type text: object
     """
+    pass;
     timelog = datetime.datetime.now().strftime("%Y-%m-%d %I:%M");
     textlog = u"\t".join([timelog, action, text]);
-    myLogger.info(textlog);
+    #~ myLogger.info(textlog);
 #------------------
 # resources files
 #------------------
 @app.route('/_files/fonts/<filename>')
 def send_image(filename):
-    path = os.path.join(os.path.dirname(sys.argv[0]),'./resources/files/fonts' ) 
+    path = os.path.join(xpath,'./resources/files/fonts' ) 
     return static_file(filename, root= path)
+
 @app.route('/_files/xzero-rtl/css/<filename>')
 def send_image(filename):
-    #~ return static_file(filename, root=)
-    path = os.path.join(os.path.dirname(sys.argv[0]),'./resources/files/xzero-rtl/css' ) 
+    path = os.path.join(xpath,'./resources/files/xzero-rtl/css' ) 
     return static_file(filename, root= path)
 
 @app.route('/_files/xzero-rtl/js/<filename>')
 def send_image(filename):
-    #~ return static_file(filename, root='./resources/files/xzero-rtl/js')
-    path = os.path.join(os.path.dirname(sys.argv[0]), './resources/files/xzero-rtl/js') 
+    path = os.path.join(xpath, './resources/files/xzero-rtl/js') 
     return static_file(filename, root= path)
 
 @app.route('/_files/xzero-rtl/fonts/<filename>')
 def send_image(filename):
-    #~ return static_file(filename, root='./resources/files/xzero-rtl/fonts')
-    path = os.path.join(os.path.dirname(sys.argv[0]),'./resources/files/xzero-rtl/fonts' ) 
+    path = os.path.join(xpath,'./resources/files/xzero-rtl/fonts' ) 
     return static_file(filename, root= path)
-
 
 @app.route('/_files/samples/<filename:re:.*\.(png|jpg|jpeg)>')
 def send_image(filename):
-    #~ return static_file(filename, root='./resources/files/samples', mimetype='image/png')
-    path = os.path.join(os.path.dirname(sys.argv[0]), './resources/files/samples' ) 
+    path = os.path.join(xpath, './resources/files/samples' ) 
+    writelog("path", path)
     return static_file(filename, root= path,  mimetype='image/png')
+
 
 @app.route('/_files/images/<filename:re:.*\.(png|jpg|jpeg)>')
 def send_image(filename):
-    #~ return static_file(filename, root='./resources/files/images', mimetype='image/png')
-    path = os.path.join(os.path.dirname(sys.argv[0]),'./resources/files/images') 
+    path = os.path.join(xpath,'./resources/files/images') 
     return static_file(filename, root= path, mimetype='image/png')
 
 @app.route('/_files/<filename>')
 def send_image(filename):
-    #~ return static_file(filename, root='./resources/files')
-    path = os.path.join(os.path.dirname(sys.argv[0]),'./resources/files' ) 
+    path = os.path.join(xpath,'./resources/files' ) 
     return static_file(filename, root= path)
 
 
 #---------------
 # Adawats
 #---------------
-@app.route('/mishkal/main')
-@app.route('/mishkal/index')
+@app.route('/')
+@app.route('/main')
+@app.route('/index')
+#~ @view(os.path.join(xpath, 'views/main2'))
 @view('main2')
 def main():
     return {'DefaultText':core.adaat.random_text(),
-      'ResultText':u"السلام عليكم",}
+      'ResultText':u"السلام عليكم",
+      }
 
 @app.route('/ajaxGet')
 @app.route('/mishkal/ajaxGet')
@@ -139,7 +141,7 @@ def ajaxget():
 @app.route('/mishkal/<filename>')
 def server_static(filename):
     if filename in ("doc", "projects", "contact", "download","index"):
-        path = os.path.join(os.path.dirname(sys.argv[0]),'./resources/static/') 
+        path = os.path.join(xpath,'./resources/static/') 
         return static_file(filename+".html", root=path)
     else:
         return "<h2>Page Not found</h2>"
