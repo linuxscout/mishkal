@@ -16,4 +16,7 @@ tmp/*
 /support/yaraspell/txt2
 /tools/txt
 /interfaces/web/resources/templates/main.2.html
-/txt
+/
+build/
+dist/
+mishkal.egg-info/
