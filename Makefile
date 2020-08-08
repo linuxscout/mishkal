@@ -31,3 +31,24 @@ gui:
 	python3 interfaces/gui/mishkal-gui.py
 console:
 	python3 bin/mishkal-console.py
+
+
+md2rst:
+	pandoc -s -r markdown -w rst README.md -o README.rst
+md2html:
+	pandoc -s -r markdown -w html README.md -o README.html
+	
+wheel:
+	sudo python setup.py bdist_wheel
+wheel3:
+	sudo python3 setup.py bdist_wheel
+sdist:
+	sudo python3 setup.py sdist
+sdist2:
+	sudo python setup.py sdist
+upload:
+	echo "use twine upload dist/mishkal-0.1.tar.gz"
+install:
+	sudo python setup.py install
+install3:
+	sudo python3 setup.py install
