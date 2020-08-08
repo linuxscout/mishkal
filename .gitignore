@@ -2,25 +2,16 @@
 tests/*
 tmp/*
 /interfaces/web/tmp/*
-/support/asmai/data/tosql2.py
-/support/asmai/data/tosql3-masdar.py
-/support/asmai/data/tosql3-masdarpy
-/support/asmai/data/tosql3.py
-/support/asmai/data/txt.sql
+/support/asmai/
+/support/aranasyn/
+/support/archive/
 /interfaces/web/resources/files/fonts.tar.gz
-/support/aranasyn/doc/Kalmasoft - Part of Speech Tagset.htm
-/support/aranasyn/doc/Kalmasoft - Part of Speech Tagset_files/bootstrap.css
-/support/aranasyn/doc/Kalmasoft - Part of Speech Tagset_files/bootstrap.js
-/support/aranasyn/doc/Kalmasoft - Part of Speech Tagset_files/jquery.js
-/support/aranasyn/doc/Kalmasoft - Part of Speech Tagset_files/kalmastyle.css
-/support/aranasyn/doc/Kalmasoft - Part of Speech Tagset_files/minilogo.png
 /support/spellcheck/~/tmp/qalsadiCache/_indexes/00id.py
 /support/spellcheck/~/tmp/qalsadiCache/_indexes/01a.py
 /support/spellcheck/~/tmp/qalsadiCache/a_buck
 /support/spellcheck/~/tmp/qalsadiCache/a_stor
 /support/spellcheck/~/tmp/qalsadiCache/id_buck
 /support/spellcheck/~/tmp/qalsadiCache/id_stor
-/support/tagmanager/txt
 /support/yaraspell/txt
 /support/yaraspell/txt2
 /tools/txt

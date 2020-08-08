@@ -16,8 +16,8 @@ import logging
 import pyarabic.araby as araby
 from . import tashkeel_const
 import qalsadi.analex
-import aranasyn.anasyn
-import aranasyn.syn_const
+import sylajone.anasyn
+import sylajone.syn_const
 import asmai.anasem
 import maskouk.collocations as coll
 import pyarabic.number
@@ -102,7 +102,7 @@ class TashkeelClass:
         #~ self.analyzer.enable_allow_cache_use()
 
         # syntaxic analyzer
-        self.anasynt = aranasyn.anasyn.SyntaxAnalyzer(cache_path = mycache_path)
+        self.anasynt = sylajone.anasyn.SyntaxAnalyzer(cache_path = mycache_path)
         self.anasynt.disable_allow_cache_use()
         
         # to disable the training when do Tashkeel
@@ -441,7 +441,7 @@ class TashkeelClass:
             else:
                 relation = 0
             # get the title of relation
-            relation = aranasyn.syn_const.DISPLAY_RELATION.get(relation, "")
+            relation = sylajone.syn_const.DISPLAY_RELATION.get(relation, "")
             # get the rule number
             selection_rule = _chosen_list[i].get_rule()
             # ToDo

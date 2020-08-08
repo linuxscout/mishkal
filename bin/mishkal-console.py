@@ -21,6 +21,7 @@ from io import open
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(base_dir, '../support/'))
+sys.path.append(os.path.join(base_dir, '../support/'))
 sys.path.append(os.path.join(base_dir, '../mishkal'))
 sys.path.append(os.path.join(base_dir, '../'))  # used for core
 import tashkeel.tashkeel as ArabicVocalizer
@@ -332,6 +333,8 @@ def test():
                 line = None
     else:
         pass #print("Done")
+    if progress:
+        sys.stderr.write("\n")
 
 
 if __name__ == '__main__':

@@ -26,7 +26,7 @@ test3l:
 	python3 bin/mishkal-console.py -c -l 2 -f tests/samples/phrases.txt >tests/output/test3.csv
 
 server:
-	python3 interfaces/web/mishkal-bottle.py
+	python3 interfaces/web/mishkal_bottle.py
 gui:
 	python3 interfaces/gui/mishkal-gui.py
 console:
