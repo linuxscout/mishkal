@@ -146,6 +146,25 @@ Console (linux/windows)
 
     This program is licensed under the GPL License
 
+Library
+~~~~~~~
+
+.. code:: shell
+
+    pip install mishkal
+
+example:
+^^^^^^^^
+
+.. code:: python
+
+    >>> import mishkal.tashkeel
+    >>> vocalizer = mishkal.tashkeel.TashkeelClass()
+    >>> text = u"تطلع الشمس صباحا"
+    >>> vocalizer.tashkeel(text)
+    ' تَطْلُعُ الشَّمْسُ صَبَاحًا'
+    >>> 
+
 JSON connection API التشكيل عن بعد
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -247,3 +266,4 @@ Featured Posts
    اليراع <https://tahadz.wordpress.com/2012/01/07/mishkaldesktop/>`__
 -  تعرّف على مشاريع “تحدّث” .. مشاريعٌ للغةٍ عظيمة `محمد هاني
    صباغ <http://www.arageek.com/tech/2014/11/28/tahdz-new-services-for-arabic-writing.html>`__
+

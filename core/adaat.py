@@ -22,7 +22,8 @@ import random
 from collections import Counter
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '../support/'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '../mishkal'))
+#~ sys.path.append(os.path.join(os.path.dirname(__file__), '../mishkal'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
 
 
 import pyarabic.araby  as araby # arabic words general functions
@@ -38,9 +39,9 @@ except ImportError:
 
 import qalsadi.analex 
 import asmai.anasem 
-import aranasyn.anasyn as arasyn      
+import sylajone.anasyn as arasyn      
 import naftawayh.wordtag
-import tashkeel.tashkeel as ArabicVocalizer
+import mishkal.tashkeel as ArabicVocalizer
 import maskouk.collocations as colloc 
 try:
     import randtext
@@ -507,11 +508,6 @@ def show_collocations(text):
     @return : the text have collocations quoted
     @rtype: unicode
     """
-    """import tashkeel.tashkeel as ArabicVocalizer    
-    vocalizer = ArabicVocalizer.TashkeelClass()
-    vocalized_text = vocalizer.stat_tashkeel(text)
-    return vocalized_text
-    """
     coll = colloc.CollocationClass(True)
     text = coll.lookup4long_collocations(text)
     wordlist = araby.tokenize(text)
@@ -683,7 +679,6 @@ def tashkeel2(text, lastmark):
     """
     Tashkeel text with suggestions
     """
-    #~ import tashkeel.tashkeel as ArabicVocalizer
     cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
     vocalizer = ArabicVocalizer.TashkeelClass(mycache_path = cpath)
     #~ vocalizer.disable_cache()
@@ -707,7 +702,6 @@ def compare_tashkeel(text):
     """
     Compare tashkeel between vocalized text and automatic vocalized text
     """
-    #~ import tashkeel.tashkeel as ArabicVocalizer
     # the entred text is vocalized correctly
     correct_text = text.strip()
     text = araby.strip_tashkeel(text.strip())
@@ -783,7 +777,6 @@ def assistanttashkeel(text):
     """
     get tashkeel with suggestions
     """
-    #~ import tashkeel.tashkeel as ArabicVocalizer
     cpath = os.path.join(os.path.dirname(__file__), '../tmp/')
     vocalizer = ArabicVocalizer.TashkeelClass(mycache_path=cpath)
     vocalized_text = vocalizer.assistanttashkeel(text)

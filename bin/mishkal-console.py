@@ -20,11 +20,11 @@ from io import open
 
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(os.path.join(base_dir, '../support/'))
-sys.path.append(os.path.join(base_dir, '../support/'))
-sys.path.append(os.path.join(base_dir, '../mishkal'))
+#~ sys.path.append(os.path.join(base_dir, '../support/'))
+#~ sys.path.append(os.path.join(base_dir, '../support/'))
+#~ sys.path.append(os.path.join(base_dir, '../mishkal'))
 sys.path.append(os.path.join(base_dir, '../'))  # used for core
-import tashkeel.tashkeel as ArabicVocalizer
+import mishkal.tashkeel as ArabicVocalizer
 
 scriptname = os.path.splitext(base_dir)[0]
 

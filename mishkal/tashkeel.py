@@ -13,8 +13,9 @@
 import sys
 import re
 import logging
+from operator import and_
+
 import pyarabic.araby as araby
-from . import tashkeel_const
 import qalsadi.analex
 import sylajone.anasyn
 import sylajone.syn_const
@@ -22,15 +23,14 @@ import asmai.anasem
 import maskouk.collocations as coll
 import pyarabic.number
 import pyarabic.named
-from operator import and_
-#~ from itertools import izip, count
-#~ from builtins import zip
-#~ from builtins import filter
+
 izip=zip
 from itertools import count
 import mysam.tagmaker
 from . import unknown_tashkeel
-
+from . import tashkeel_const
+#~ import unknown_tashkeel
+#~ import tashkeel_const
 
 sys.path.append('../lib')
 sys.path.append('../')

@@ -124,7 +124,19 @@ Usage: bin/mishal-console.py  -f filename [OPTIONS]
 
 This program is licensed under the GPL License
 ```
-
+### Library
+```shell
+pip install mishkal
+```
+#### example:
+```python
+>>> import mishkal.tashkeel
+>>> vocalizer = mishkal.tashkeel.TashkeelClass()
+>>> text = u"تطلع الشمس صباحا"
+>>> vocalizer.tashkeel(text)
+' تَطْلُعُ الشَّمْسُ صَبَاحًا'
+>>> 
+```
 ### JSON connection API التشكيل عن بعد
 
 
