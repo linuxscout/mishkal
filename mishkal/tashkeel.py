@@ -165,6 +165,13 @@ class TashkeelClass:
         """
         self.analyzer.disable_allow_cache_use()
         self.anasynt.disable_allow_cache_use()
+    
+    def enable_cache(self):
+        """
+        enable the morphological use of cache.
+        """
+        self.analyzer.enable_allow_cache_use()
+        self.anasynt.enable_allow_cache_use()
 
     def get_enabled_stat_tashkeel(self):
         """

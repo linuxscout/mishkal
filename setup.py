@@ -9,7 +9,7 @@ def readme():
     with open('README.rst', encoding="utf8") as f:
         return f.read()
 
-setup (name='mishkal', version='0.1',
+setup (name='mishkal', version='0.3',
       description="Mishkal: Arabic text diacritization library for Python",
       long_description = readme(),      
 
@@ -19,7 +19,18 @@ setup (name='mishkal', version='0.1',
       license='GPL',
       package_dir={'mishkal': 'mishkal'},
       packages=['mishkal'],
-      install_requires=[ 'pyarabic>=0.6.2',
+      install_requires=["libqutrub>=1.0",
+            "naftawayh>=0.2",
+            "pyarabic>=0.6.2",
+            "tashaphyne>=0.3.1",
+            "arramooz-pysqlite>=0.1",
+            "qalsadi>=0.2",
+            "mysam-tagmanager>=0.1",
+            "alyahmor>=0.1",
+            "asmai>=0.1",
+            "sylajone>=0.1",
+            "maskouk-pysqlite>=0.1",
+            'pickledb>=0.9.0',
       ],         
       include_package_data=True,
       package_data = {

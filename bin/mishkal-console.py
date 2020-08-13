@@ -74,7 +74,7 @@ def grabargs():
         "progress": False,
         "verbose": False,
         "train": False,
-        "nocache": False,
+        "cache": False,
         "text": ""
     }
     if not sys.argv[1:]:
@@ -87,7 +87,7 @@ def grabargs():
             [
                 "help", "version", "stat", "compare",
                 "reduced", "strip", "syntax", "progress", "verbose", "semantic",
-                "ignore", "nocache", "train", "limit = ", "file = ", "out = "
+                "ignore", "cache", "train", "limit = ", "file = ", "out = "
             ],
         )
     except getopt.GetoptError:
@@ -110,8 +110,8 @@ def grabargs():
             options["disableSemantic"] = True
         if o in ("-i", "--ignore"):
             options["ignore"] = True
-        if o in ("-n", "--nocache"):
-            options["nocache"] = True
+        if o in ("-n", "--cache"):
+            options["cache"] = True
         if o in ("-c", "--compare"):
             options["compare"] = True
         if o in ("-t", "--stat"):
@@ -149,7 +149,7 @@ def test():
     outfilename = options['ofname']
     text = options['text']
     strip_tashkeel = options['strip_tashkeel']
-    nocache = options['nocache']
+    cache = options['cache']
     reducedTashkeel = options['reducedTashkeel']
     disableSyntax = options['disableSyntax']
     disableSemantic = options['disableSemantic']
@@ -192,9 +192,9 @@ def test():
             limit = len(lines)
     if not strip_tashkeel:
         vocalizer = ArabicVocalizer.TashkeelClass()
-        if nocache:
-            vocalizer.disable_cache()
-            # print("nocache")
+        if cache:
+            vocalizer.enable_cache()
+            sys.stderr.write(" Mishka use a cache")
         if ignore:
             vocalizer.disable_last_mark()
         if disableSemantic:

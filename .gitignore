@@ -6,12 +6,7 @@ tmp/*
 /support/aranasyn/
 /support/archive/
 /interfaces/web/resources/files/fonts.tar.gz
-/support/spellcheck/~/tmp/qalsadiCache/_indexes/00id.py
-/support/spellcheck/~/tmp/qalsadiCache/_indexes/01a.py
-/support/spellcheck/~/tmp/qalsadiCache/a_buck
-/support/spellcheck/~/tmp/qalsadiCache/a_stor
-/support/spellcheck/~/tmp/qalsadiCache/id_buck
-/support/spellcheck/~/tmp/qalsadiCache/id_stor
+/support/spellcheck/~/*
 /support/yaraspell/txt
 /support/yaraspell/txt2
 /tools/txt
@@ -20,3 +15,4 @@ tmp/*
 build/
 dist/
 mishkal.egg-info/
+mypythonenv/
