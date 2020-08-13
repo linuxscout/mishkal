@@ -9,7 +9,7 @@ def readme():
     with open('README.rst', encoding="utf8") as f:
         return f.read()
 
-setup (name='mishkal', version='0.3',
+setup (name='mishkal', version='0.4',
       description="Mishkal: Arabic text diacritization library for Python",
       long_description = readme(),      
 
