@@ -1,1 +1,0 @@
-python mishkal\testNamed.py -f samples\vocalized\rndlines.txt >output\named.rnd.txt 

@@ -45,7 +45,7 @@ def grabargs():
     parser.add_argument("-l", dest="limit", type=int, nargs='?',default = 1000,
                         help="Limit line to treat", metavar="LIMIT")
 
-    parser.add_argument("-p", dest="progress", type=bool, nargs='?',default = False, const = True,
+    parser.add_argument("--progress", dest="progress", type=bool, nargs='?',default = False, const = True,
                         help="show progress bar", metavar="PROGRESS")
     parser.add_argument("-a",  dest="verbose", type=bool, nargs='?', default = False, const = True,
                         help="enable verbosity", metavar="VERBOSE") 
