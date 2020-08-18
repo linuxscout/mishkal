@@ -34,7 +34,10 @@ def grabargs():
     # add file name to import and filename to export
     
     parser.add_argument("-f", dest="filename", required=False,
-    help="input file to vocalize", metavar="FILE")
+        help="input file to vocalize", metavar="FILE")
+    
+    parser.add_argument("--compareto", dest="compareto", required=False,
+        help="input file to be compared with filename", metavar="compareto")
     parser.add_argument("-t", dest="text", required=False,
     help="input text to convert", metavar="TEXT")
     parser.add_argument("-c", dest="command", nargs='?',default="", metavar="COMMAND",
@@ -63,7 +66,9 @@ def grabargs():
     parser.add_argument("--stat", dest="stat", type=bool, nargs='?',default = False, const = True,
                         help="disable statistic tashkeel", metavar="STAT")                         
     parser.add_argument("--cache", dest="cache", type=bool, nargs='?',default = False, const = True,
-                        help="enable Cache use for tashkeel", metavar="CACHE")                         
+                        help="enable Cache use for tashkeel", metavar="CACHE")
+    parser.add_argument("--eval", dest="evaluation", type=bool, nargs='?',default = False, const = True,
+                        help="enable progressive evaluation", metavar="EVAL") 
     args = parser.parse_args()
     return args
     
@@ -110,15 +115,24 @@ class Tashkeel_console:
          'LER', 'Total', 'line Fully correct', 
          'line Strip correct', 'Line']
         print("\t".join(columns))
-    def compare(self, line, vocalized_dict):
-        inputVocalizedLine = line
-        inputlist = araby.tokenize(inputVocalizedLine)
-        #~ inputUnvocalizedLine = araby.strip_tashkeel(line)
-        #~ vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(inputUnvocalizedLine)
+    def compare(self, baseline, vocalized_output):
+        """
+        compare base line with automatic vocalized result
+        """
+        inputVocalizedLine = baseline
         
-        outputlist = [x.get("chosen", '') for x in vocalized_dict]
-        result = u" ".join(outputlist)
-        outputlistsemi = [x.get("semi", '') for x in vocalized_dict]
+        inputlist = araby.tokenize(inputVocalizedLine)
+        if type(vocalized_output) == list:
+            outputlist = [x.get("chosen", '') for x in vocalized_output]
+            result = vocalized_output
+            outputlistsemi = [x.get("semi", '') for x in vocalized_output]
+        elif type(vocalized_output) == str:
+            outputlist =   araby.tokenize(vocalized_output)
+            outputlistsemi = [araby.strip_lastharaka(x) for x in outputlist] 
+        else:
+            print("Incompatible  vocaluzed output, must be dict or string", type(vocalized_output), vocalized_output)
+            sys.exit()
+            
         self.total += len(inputlist)
         self.lineTotal = len(inputlist)
         if len(inputlist) != len(outputlist):
@@ -150,11 +164,12 @@ class Tashkeel_console:
                 self.WLMIncorrect,  # Strip WER
                 self.LettersError,  # LER
                 self.total  # Total
-            )
+            ), end="",
         )
         if self.lineTotal:
             print(
                 "%0.2f%%\t" % round(self.lineCorrect * 100.00 / self.lineTotal, 2)
+            , end="",
             )  # line Fully correct
             print(
                 "%0.2f%%\t" % round((self.lineTotal - self.lineWLMIncorrect) * 100.00 / self.lineTotal, 2)
@@ -169,6 +184,9 @@ def test():
     args = grabargs()
 
     filename = args.filename
+    filename2 = args.compareto # used for comparison
+    if filename2:
+        compare = True
     outfilename = args.outfile
     text = args.text
     if not text and not filename:
@@ -177,13 +195,10 @@ def test():
     # tashkeel command
     command = args.command
     strip_tashkeel = False
-    compare = False
     reducedTashkeel = False
     commandTashkeel = False
     if command == "strip":
         strip_tashkeel = True
-    elif command == "compare":
-        compare = True
     elif command == "reduce":
         reducedTashkeel = True
     else:
@@ -200,6 +215,7 @@ def test():
     disableSemantic = args.semantic
     disableStat = args.stat
     enable_syn_train = args.train
+    evaluation = args.evaluation
 
     # Open file
     if not text:
@@ -215,6 +231,14 @@ def test():
             sys.exit()
     else:
         lines = text.split('\n')
+    if compare and filename2 :
+        try:
+            myfile2 = open(filename2, encoding='utf8')
+            print("input file2:", filename2)
+        except:
+            print(" Can't Open the given File ", filename2)
+            sys.exit()        
+        
     # all things are well, import library
 
     myconsole = Tashkeel_console()
@@ -251,8 +275,10 @@ def test():
     else:
         if len(lines) > 0:
             line = lines[0]
-
+        # get the next line to compare
     if compare:
+        line_base = myfile2.readline().strip()
+    if evaluation:
         myconsole.header()
 
 
@@ -262,11 +288,17 @@ def test():
         myconsole.lineWLMIncorrect = 0
         if strip_tashkeel:
             result = araby.strip_tashkeel(line)
+        elif compare:
+            myconsole.compare(line_base, line)
+            myconsole.display_line_stat()
+            result = line
+            print("base :", line_base)
+            print("input:", line)
         #~ else:    # vocalize line by line
-        elif not compare:
+        elif not evaluation:
             result = vocalizer.tashkeel(line)
             myconsole.total += len(araby.tokenize(line))
-        elif compare:
+        elif evaluation:
             inputUnvocalizedLine = araby.strip_tashkeel(line)
             vocalized_dict = vocalizer.tashkeel_ouput_html_suggest(inputUnvocalizedLine)
             outputlist = [x.get("chosen", '') for x in vocalized_dict]
@@ -301,6 +333,11 @@ def test():
                 line = lines[counter]
             else:
                 line = None
+        # get the next line to compare
+        if compare:
+            line_base = myfile2.readline().strip()
+        
+
         myconsole.counter += 1
     if progress:
         myconsole.footer()

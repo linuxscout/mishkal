@@ -50,23 +50,23 @@ install3:
 test2l:limit=-l 2
 test2 test2l:
 	# test on python 2
-	python2 bin/mishkal-console.py --progress ${limit} -c -f tests/samples/phrases.txt >tests/output/test2.csv
+	python2 bin/mishkal-console.py --progress ${limit} --eval -f tests/samples/phrases.txt >tests/output/test2.csv
 test3l:limit=-l 2
 test3 test3l:
-	python3 bin/mishkal-console.py --progress ${limit} -c -f tests/samples/phrases.txt >tests/output/test3.csv
+	python3 bin/mishkal-console.py --progress ${limit} --eval -f tests/samples/phrases.txt >tests/output/test3.csv
 profile3:
-	python3 -m cProfile -o tests/output/phrases.profile  bin/mishkal-console.py --progress -c -f tests/samples/phrases.txt >tests/output/test3.csv
+	python3 -m cProfile -o tests/output/phrases.profile  bin/mishkal-console.py --progress --eval -f tests/samples/phrases.txt >tests/output/test3.csv
 
 
 # eval
 #~FILE="adab.txt"
 #FILE="rndlines.txt"
 jazeera:FILE="aljazeera.txt"
-jazeera:limit=5
+jazeera:limit=10
 #~ jazeera:profiler=-m cProfile  -o output/mishkal.profile
 jazeera:profiler=-m cProfile 
 jazeera:
-	cd tests;python3  ${profiler} ../bin/mishkal-console.py --cache --progress -c -l ${limit} -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt
+	cd tests;python3  ${profiler} ../bin/mishkal-console.py --cache --progress --eval -l ${limit} -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt
 	echo "make archive" 
 	cd tests;cp output/compare/rndlines.11.txt  output/compare/L${date}.txt
 	echo "save stats"
@@ -77,3 +77,9 @@ jazeera:
 	sed "N;s/\n//g" -i /tmp/lines.tmp
 	cd tests;cat /tmp/lines.tmp>> output/compare/file.stats
 	cd tests;tail -n 3 output/compare/file.stats
+
+compare:FILE=phrases.txt
+compare:limit=10
+compare:
+	cd tests;python3  ../bin/mishkal-console.py  --progress --eval -l ${limit} -f samples/${FILE} --compareto samples/${FILE} >output/compare/compare.txt
+
