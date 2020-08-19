@@ -21,6 +21,7 @@ base_dir = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(base_dir, '../'))  # used for core
 import pyarabic.araby as araby
 import mishkal.tashkeel as ArabicVocalizer
+import tashkeel_console
 scriptname = os.path.splitext(base_dir)[0]
 
 scriptversion = '0.2'
@@ -70,7 +71,7 @@ def grabargs():
     args = parser.parse_args()
     return args
     
-class Tashkeel_console:
+class Tashkeel_console2:
     def __init__(self,):
         self.correct = 0
         self.incorrect = 0
@@ -154,6 +155,7 @@ class Tashkeel_console:
                 else:
                     self.correct += 1
                     self.lineCorrect += 1
+        self.counter += 1
     def display_line_stat(self,):
         print(
             "%d\t%0.2f%%\t%0.2f%%\t%d\t%d\t%d\t%d\t" % (
@@ -241,7 +243,7 @@ def test():
         
     # all things are well, import library
 
-    myconsole = Tashkeel_console()
+    myconsole = tashkeel_console.Tashkeel_console()
     #~ myconsole.counter = 1
     myconsole.limit = limit
     if not limit:
@@ -284,8 +286,8 @@ def test():
 
     while line and myconsole.counter <= limit:
         line = line.strip()
-        myconsole.lineCorrect = 0
-        myconsole.lineWLMIncorrect = 0
+        #~ myconsole.lineCorrect = 0
+        #~ myconsole.lineWLMIncorrect = 0
         if strip_tashkeel:
             result = araby.strip_tashkeel(line)
         elif compare:
@@ -323,7 +325,7 @@ def test():
 
         if progress:
             # show progress bar
-            myconsole.show_progress(compare)
+            myconsole.progress(compare)
 
         # get the next line
         if not text:
