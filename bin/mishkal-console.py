@@ -14,8 +14,6 @@ if sys.version_info.major < 3:
     reload(sys)
     sys.setdefaultencoding('utf-8')
 import re
-import getopt
-from glob import glob
 from io import open
 
 
@@ -119,6 +117,8 @@ class Tashkeel_console:
         """
         compare base line with automatic vocalized result
         """
+        myconsole.lineCorrect = 0
+        myconsole.lineWLMIncorrect = 0        
         inputVocalizedLine = baseline
         
         inputlist = araby.tokenize(inputVocalizedLine)
