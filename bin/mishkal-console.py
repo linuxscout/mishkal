@@ -189,6 +189,8 @@ def test():
     filename2 = args.compareto # used for comparison
     if filename2:
         compare = True
+    else:
+        compare = False
     outfilename = args.outfile
     text = args.text
     if not text and not filename:

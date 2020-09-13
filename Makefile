@@ -62,11 +62,12 @@ profile3:
 #~FILE="adab.txt"
 #FILE="rndlines.txt"
 jazeera:FILE="aljazeera.txt"
-jazeera:limit=10
+jazeera:limit=500
 #~ jazeera:profiler=-m cProfile  -o output/mishkal.profile
 jazeera:profiler=-m cProfile 
 jazeera:
-	cd tests;python3  ${profiler} ../bin/mishkal-console.py --cache --progress --eval -l ${limit} -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt
+#~ 	cd tests;python3  ${profiler} ../bin/mishkal-console.py --cache --progress --eval -l ${limit} -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt
+	cd tests;python3  ${profiler} ../bin/mishkal-console.py --progress --eval -l ${limit} -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt
 	echo "make archive" 
 	cd tests;cp output/compare/rndlines.11.txt  output/compare/L${date}.txt
 	echo "save stats"
