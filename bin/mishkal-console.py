@@ -234,7 +234,7 @@ def test():
             print(" Can't Open the given File ", filename)
             sys.exit()
     else:
-        lines = text.split('\n')
+        lines = text.strip().split('\n')
     if compare and filename2 :
         try:
             myfile2 = open(filename2, encoding='utf8')
@@ -329,6 +329,7 @@ def test():
             # show progress bar
             myconsole.progress(compare)
 
+        myconsole.counter += 1
         # get the next line
         if not text:
             line = (myfile.readline())
@@ -340,9 +341,7 @@ def test():
         # get the next line to compare
         if compare:
             line_base = myfile2.readline().strip()
-        
 
-        myconsole.counter += 1
     if progress:
         myconsole.footer()
 
