@@ -333,8 +333,8 @@ def test():
         if not text:
             line = (myfile.readline())
         else:
-            if counter < len(lines):
-                line = lines[counter]
+            if myconsole.counter < len(lines):
+                line = lines[myconsole.counter]
             else:
                 line = None
         # get the next line to compare
