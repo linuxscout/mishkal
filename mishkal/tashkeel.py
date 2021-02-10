@@ -26,7 +26,7 @@ import pyarabic.named
 
 izip=zip
 from itertools import count
-import mysam.tagmaker
+import mysam.tagcoder
 from . import unknown_tashkeel
 from . import tashkeel_const
 #~ import unknown_tashkeel
@@ -345,6 +345,7 @@ class TashkeelClass:
         output_suggest_list = []
         _chosen_list = []
         suggests_list = []
+        mytagmaker = mysam.tagcoder.tagCoder()        
         for text in texts:
             # morpholigical analysis of text
             detailled_syntax, synodelist = self.full_stemmer(text)
@@ -435,9 +436,11 @@ class TashkeelClass:
             # word without inflection mark
             inflect = u":".join([_chosen_list[i].get_type(), _chosen_list[i].get_tags_to_display()])
             # Create a special tag
-            mytagmaker = mysam.tagmaker.tagMaker()
-            mytagmaker.encode(_chosen_list[i].get_tags().split(':'))
-            mytagmaker.encode(_chosen_list[i].get_type().split(':'))
+            tagslist = _chosen_list[i].get_tags().split(':')
+            tagslist.extend(_chosen_list[i].get_type().split(':'))
+            mytagmaker.encode(tagslist)
+            # ~ mytagmaker.encode(_chosen_list[i].get_tags().split(':'))
+            # ~ mytagmaker.encode(_chosen_list[i].get_type().split(':'))
             #~ print(_chosen_list[i].get_tags().split(':'))
             if self.enabled_verbose:
                 self.logger.info("TaharZe Tags to display '%s' and tagmaker =='%s'", _chosen_list[i].get_tags(), str(mytagmaker))
