@@ -312,7 +312,7 @@ def test():
             myconsole.display_line_stat()
         # compare resultLine and vocalizedLine
         if reducedTashkeel:
-            result = araby.reduceTashkeel(result)
+            result = araby.reduce_tashkeel(result)
 
 
         if text:
