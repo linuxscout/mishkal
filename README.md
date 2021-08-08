@@ -2,8 +2,14 @@
 
   Mishkal Arabic text vocalization software  مشكال لتشكيل النصوص العربية
 
+[![GitHub stars](https://img.shields.io/github/stars/linuxscout/mishkal?logo=github)](https://github.com/linuxscout/mishkal/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/linuxscout/mishkal)](https://github.com/linuxscout/mishkal/network)
+![GitHub contributors](https://img.shields.io/github/contributors-anon/linuxscout/mishkal?logo=github)
+[![GitHub issues](https://img.shields.io/github/issues/linuxscout/mishkal)](https://github.com/linuxscout/mishkal/issues)
 [![downloads]( https://img.shields.io/sourceforge/dt/mishkal.svg)](http://sourceforge.org/projects/mishkal)
 [![downloads]( https://img.shields.io/sourceforge/dm/mishkal.svg)](http://sourceforge.org/projects/mishkal)
+[![GitHub license](https://img.shields.io/github/license/linuxscout/mishkal)](https://github.com/linuxscout/mishkal/blob/master/LICENSE)
+
 
   Developpers:  Taha Zerrouki: http://tahadz.com
     taha dot zerrouki at gmail dot com
@@ -24,8 +30,26 @@ Download  |[sourceforge](http://mishkal.sourceforge.net)
 Feedbacks  |[Comments](http://tahadz.com/mishkal/contact)
 Accounts  |[@Facebook](https://www.facebook.com/mishkalarabic) [@Twitter](https://twitter.com/linuxscout)  [@Sourceforge](http://sourceforge.net/projectsmishkal/)
 
+## Table of Contents
+- [Citation](#Citation)
+- [Install](#Install)
+  - [Python lib](#Python-lib)
+  - [Install from github](#Install-from-github)
+- [Requirments](#Requirments)
+- [Usage]()
+  - [GUI](#GUI)
+  - [Web server (linux, windows)](#Web-server-(linux,windows))
+  - [Console (linux/windows)](Console-(linux/windows))
+  - [Library](#Library)
+- [Example](#Example)
+- [JSON connection API التشكيل عن بعد](#JSON-connection-API-التشكيل-عن-بعد)
+- [How does Mishkal work](#How-does-Mishkal-work)
+- [Featured Posts](#Featured-Posts)
 
 ## Citation
+
+**Please**, if you want to cite this software use the following citation
+
 ```bibtex
 @thesis{zerrouki2020adawat,
 author = {Taha Zerrouki},
@@ -56,7 +80,7 @@ git clone https://github.com/linuxscout/mishkal.git
 ```
 pip install -r miskal/requirements.txt
 ```
-#### requirments
+## Requirments
     - pyarabic  : basic arabic library
     - sylajone  : aranasyn syntaxical analyzer
     - arramooz  : arabic morphological dictionary
@@ -124,11 +148,7 @@ Usage: bin/mishal-console.py  -f filename [OPTIONS]
 
 This program is licensed under the GPL License
 ```
-### Library
-```shell
-pip install mishkal
-```
-#### example:
+#### Example:
 ```python
 >>> import mishkal.tashkeel
 >>> vocalizer = mishkal.tashkeel.TashkeelClass()
