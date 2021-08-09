@@ -83,4 +83,5 @@ compare:FILE=phrases.txt
 compare:limit=10
 compare:
 	cd tests;python3  ../bin/mishkal-console.py  --progress --eval -l ${limit} -f samples/${FILE} --compareto samples/${FILE} >output/compare/compare.txt
-
+exe-gui:
+	pyinstaller  mishkal-gui.spec 
