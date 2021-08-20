@@ -1,0 +1,7 @@
+abstract: Mishkal is an arabic text vocalization software.
+authors:
+  - family-names: Zerrouki
+    given-names: Taha
+cff-version: 1.0.0
+message: If you use this software, please cite it using these metadata.
+title: Towards An Open Platform For Arabic Language Processing
