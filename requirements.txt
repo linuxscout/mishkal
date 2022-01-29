@@ -10,3 +10,4 @@ asmai>=0.1
 sylajone>=0.1
 maskouk-pysqlite>=0.1
 pickledb>=0.9.0
+codernitydb3==0.6.0
