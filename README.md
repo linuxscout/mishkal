@@ -236,7 +236,6 @@ The rest of program provides functions to handles interfaces and API with web/de
 
 
 
-*  “مشكال” لتشكيل النصوص العربية بإحترافية  [كمال فودة](http://www.prameg2day.com/?p=5194)
 *  كيفية شكيل الحروف والكلمات أو حتى نصوص باللغة العربية في ثواني من خلال متصفحك-  [رضا بوربعة](http://www.th3professional.com/2015/09/blog-post_36.html)
 *  خدمة عربية جديدة : تشكيل النصوص العربية [Sam Hamou](http://3-arabi.blogspot.com/2015/05/mishkal-arabic-3arabi.html)
 *  إطلاق الإصدار التجريبي برنامج مشكال لتشكيل النصوص العربية
