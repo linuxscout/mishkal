@@ -76,17 +76,17 @@ class WSGIRequest(object):
     specified by the client.
 
     The class variable ``defaults`` specifies default values for
-    ``charset``, ``errors``, and ``langauge``. These can be overridden for the
+    ``charset``, ``errors``, and ``language``. These can be overridden for the
     current request via the registry.
-        
+
     The ``language`` default value is considered the fallback during i18n
     translations to ensure in odd cases that mixed languages don't occur should
     the ``language`` file contain the string but not another language in the
     accepted languages list. The ``language`` value only applies when getting
     a list of accepted languages from the HTTP Accept header.
-    
+
     This behavior is duplicated from Aquarium, and may seem strange but is
-    very useful. Normally, everything in the code is in "en-us".  However, 
+    very useful. Normally, everything in the code is in "en-us".  However,
     the "en-us" translation catalog is usually empty.  If the user requests
     ``["en-us", "zh-cn"]`` and a translation isn't found for a string in
     "en-us", you don't want gettext to fallback to "zh-cn".  You want it to 
