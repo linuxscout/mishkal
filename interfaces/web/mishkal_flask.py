@@ -153,17 +153,9 @@ def ajax(lang="ar"):
     options = dict(request.args)
 
     resulttext = adaat.DoAction(text, action, options)
-    # ~ results = prepare_result(resulttext, text, action, options,"ajax")
     results = {'result':resulttext, 'order':0}
-    print("resultText", type(resulttext))
-    # ~ return json.dumps(results)
     return jsonify(results)
-    # ~ response = app.response_class(
-        # ~ response=json.dumps(results),
-        # ~ status=200,
-        # ~ mimetype='application/json'
-    # ~ )
-    # ~ return response
+
 
 
 

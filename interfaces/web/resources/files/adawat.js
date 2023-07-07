@@ -710,6 +710,9 @@ var more_click = function(e) {
         lastmark: vocalizewWordsEnds
       }, function(d) {
         console.log(d);
+        console.log(d.order);
+        console.log(d.result);
+        console.log(d.result[0].chosen);
         // Grammar graph 
         //draw_graph();
         var text = "";
@@ -719,6 +722,7 @@ var more_click = function(e) {
           
           item = d.result[i];
           var currentId = id * 100 + i;
+          console.log(item.chosen);
           if (item.chosen.indexOf("~~") >= 0) { // handle collocations
             openColocation = 0;
             text += "</span><span class='collocation' title='دقّق تشكيل هذه العبارة'>" +
@@ -749,19 +753,21 @@ var more_click = function(e) {
         $("#result").html($("#result").html() + "<div class=\'tashkeel\'>" + text +
           "</div>");
         // dela dot, to count the phrase executed
-        $("#loading").html($("#loading").html().replace('.', ''));
-        if ($("#loading").html().indexOf('.') < 0) { // if no dot, the work is terminated
-          // redraw the text result with order
-          var ordredtext = "";
-          for (var j = 0; j < $("#loading").data('length'); j++) {
-            ordredtext += $("#loading").data(j.toString());
-          }
-            $('#result').data("count",d.result.length);
-            $('#result').html("<div class=\'tashkeel\'>" + ordredtext + "</div>");
-            $("#loading").hide();
-        }
+        //~ $("#loading").html($("#loading").html().replace('.', ''));
+        //~ if ($("#loading").html().indexOf('.') < 0) { // if no dot, the work is terminated
+          //~ // redraw the text result with order
+          //~ var ordredtext = "";
+          //~ for (var j = 0; j < $("#loading").data('length'); j++) {
+            //~ ordredtext += $("#loading").data(j.toString());
+          //~ }
+          //~ console.log("oder");
+            //~ $('#result').data("count",d.result.length);
+            //~ $('#result').html("<div class=\'tashkeel\'>" + ordredtext + "</div>");
+            //~ $("#loading").hide();
+        //~ }
       });
     } // end for i intextlist
+       $("#loading").hide(); 
     $("#contributeSection").show();
   }
   
