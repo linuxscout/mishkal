@@ -258,8 +258,8 @@ def full_stemmer(text, lastmark):
     if lastmark == "0" or not lastmark:
         analyzer.disable_syntax_lastmark()
 
-    anasynt = arasyn.SyntaxAnalyzer()
-    anasem = asmai.anasem.SemanticAnalyzer()    
+    anasynt = arasyn.SyntaxAnalyzer(cache_path=cpath)
+    anasem = asmai.anasem.SemanticAnalyzer(cache_path=cpath)    
     analyzer.set_debug(debug)
     analyzer.set_limit(limit)
     analyzer.disable_allow_cache_use()    

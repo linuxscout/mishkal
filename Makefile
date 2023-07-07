@@ -19,6 +19,8 @@ doc:
 # run
 server:
 	python3 interfaces/web/mishkal_bottle.py
+flask:
+	python3 interfaces/web/mishkal_flask.py
 gui:
 	python3 interfaces/gui/mishkal-gui.py
 console:
@@ -31,18 +33,12 @@ md2html:
 	pandoc -s -r markdown -w html README.md -o README.html
 	
 wheel:
-	sudo python setup.py bdist_wheel
-wheel3:
 	sudo python3 setup.py bdist_wheel
 sdist:
 	sudo python3 setup.py sdist
-sdist2:
-	sudo python setup.py sdist
 upload:
 	echo "use twine upload dist/mishkal-0.1.tar.gz"
 install:
-	sudo python setup.py install
-install3:
 	sudo python3 setup.py install
 
 
@@ -54,7 +50,7 @@ test2 test2l:
 test3l:limit=-l 2
 test3 test3l:
 	python3 bin/mishkal-console.py --progress ${limit} --eval -f tests/samples/phrases.txt >tests/output/test3.csv
-profile3:
+profile:
 	python3 -m cProfile -o tests/output/phrases.profile  bin/mishkal-console.py --progress --eval -f tests/samples/phrases.txt >tests/output/test3.csv
 
 
@@ -74,8 +70,8 @@ jazeera:
 	cd tests;date >> output/compare/file.stats  
 #~ 	cd tests;grep "function calls" -2 -h output/compare/rndlines.11.txt | sed 's/^.*function .* in //g;s/:\*.*$//g' | sed 'N;s/\n//g' >> output/compare/file.stats
 	cd tests;grep "function calls" -h output/compare/rndlines.11.txt > /tmp/lines.tmp
-	sed "s/^.*function .* in //g;s/:\*.*$$//g" -i /tmp/lines.tmp
-	sed "N;s/\n//g" -i /tmp/lines.tmp
+#~ 	sed "s/^.*function .* in //g;s/:\*.*$$//g" -i /tmp/lines.tmp
+#~ 	sed "N;s/\n//g" -i /tmp/lines.tmp
 	cd tests;cat /tmp/lines.tmp>> output/compare/file.stats
 	cd tests;tail -n 3 output/compare/file.stats
 
