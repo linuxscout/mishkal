@@ -16,3 +16,5 @@ build/
 dist/
 mishkal.egg-info/
 mypythonenv/
+/.idea/
+/myenv/

@@ -1,0 +1,5 @@
+flask>=3.1.1
+flask_cors>=6.0.1
+Flask_Minify>=0.50
+Paste>=3.10.1
+bottle>=0.13.4

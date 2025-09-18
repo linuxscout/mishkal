@@ -1,83 +1,133 @@
-#/usr/bin/sh
-# Build Mishkal Package
+#!/usr/bin/make -f
+# ----------------------------------------
+# Mishkal Makefile - Arabic Diacritizer
+# https://github.com/linuxscout/mishkal
+# ----------------------------------------
+
+.PHONY: default all clean backup run console flask gui server \
+		build sdist wheel upload install \
+		test2 test3 test2l test3l profile \
+		jazeera compare \
+		md2rst md2html doc exe-gui help
+
+PYTHON=python3
+DATE=$(shell date +'%y.%m.%d-%H:%M')
+
+# ----------------------------------------
+# Default
+# ----------------------------------------
 default: all
-# Clean build files
+
+all:
+	@echo "Build all components - placeholder"
+
 clean:
-	
-backup: 
-	
-#create all files 
-all: 
+	@echo "Cleaning build artifacts..."
+	rm -rf build dist *.egg-info
+	find . -type f -name "*.pyc" -delete
+	find . -type d -name "__pycache__" -exec rm -rf {} +
 
-# Publish to github
-publish:
-	git push origin master 
+backup:
+	@echo "Backup logic placeholder"
 
-date=$(shell date +'%y.%m.%d-%H:%M')
-doc:
-	epydoc -v --config epydoc.conf
-# run
+# ----------------------------------------
+# Run interfaces
+# ----------------------------------------
 server:
-	python3 interfaces/web/mishkal_bottle.py
-flask:
-	python3 interfaces/web/mishkal_flask.py
-gui:
-	python3 interfaces/gui/mishkal-gui.py
-console:
-	python3 bin/mishkal-console.py
+	$(PYTHON) interfaces/web/mishkal_bottle.py
 
-#build
+flask:
+	$(PYTHON) interfaces/web/mishkal_flask.py
+
+gui:
+	$(PYTHON) interfaces/gui/mishkal-gui.py
+
+console:
+	$(PYTHON) bin/mishkal-console.py
+
+# ----------------------------------------
+# Build and Packaging
+# ----------------------------------------
 md2rst:
 	pandoc -s -r markdown -w rst README.md -o README.rst
+
 md2html:
 	pandoc -s -r markdown -w html README.md -o README.html
-	
-wheel:
-	sudo python3 setup.py bdist_wheel
+
 sdist:
-	sudo python3 setup.py sdist
+	$(PYTHON) setup.py sdist
+
+wheel:
+	$(PYTHON) setup.py bdist_wheel
+
 upload:
+	@echo "Uploading with twine..."
 	echo "use twine upload dist/mishkal-0.1.tar.gz"
+
 install:
-	sudo python3 setup.py install
+	$(PYTHON) setup.py install
 
-
-# tests
-test2l:limit=-l 2
+# ----------------------------------------
+# Testing
+# ----------------------------------------
+test2l: limit=-l 2
 test2 test2l:
-	# test on python 2
-	python2 bin/mishkal-console.py --progress ${limit} --eval -f tests/samples/phrases.txt >tests/output/test2.csv
-test3l:limit=-l 2
+	python2 bin/mishkal-console.py --progress $(limit) --eval -f tests/samples/phrases.txt > tests/output/test2.csv
+
+test3l: limit=-l 2
 test3 test3l:
-	python3 bin/mishkal-console.py --progress ${limit} --eval -f tests/samples/phrases.txt >tests/output/test3.csv
+	$(PYTHON) bin/mishkal-console.py --progress $(limit) --eval -f tests/samples/phrases.txt > tests/output/test3.csv
+
 profile:
-	python3 -m cProfile -o tests/output/phrases.profile  bin/mishkal-console.py --progress --eval -f tests/samples/phrases.txt >tests/output/test3.csv
+	$(PYTHON) -m cProfile -o tests/output/phrases.profile bin/mishkal-console.py --progress --eval -f tests/samples/phrases.txt > tests/output/test3.csv
 
-
-# eval
-#~FILE="adab.txt"
-#FILE="rndlines.txt"
-jazeera:FILE="aljazeera.txt"
-jazeera:limit=500
-#~ jazeera:profiler=-m cProfile  -o output/mishkal.profile
-jazeera:profiler=-m cProfile 
+# ----------------------------------------
+# Evaluation and comparison
+# ----------------------------------------
+jazeera: FILE="aljazeera.txt" limit=2000 profiler=-m cProfile
 jazeera:
-#~ 	cd tests;python3  ${profiler} ../bin/mishkal-console.py --cache --progress --eval -l ${limit} -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt
-	cd tests;python3  ${profiler} ../bin/mishkal-console.py --progress --eval -l ${limit} -f samples/vocalized/${FILE} >output/compare/rndlines.11.txt
-	echo "make archive" 
-	cd tests;cp output/compare/rndlines.11.txt  output/compare/L${date}.txt
-	echo "save stats"
-	cd tests;date >> output/compare/file.stats  
-#~ 	cd tests;grep "function calls" -2 -h output/compare/rndlines.11.txt | sed 's/^.*function .* in //g;s/:\*.*$//g' | sed 'N;s/\n//g' >> output/compare/file.stats
-	cd tests;grep "function calls" -h output/compare/rndlines.11.txt > /tmp/lines.tmp
-#~ 	sed "s/^.*function .* in //g;s/:\*.*$$//g" -i /tmp/lines.tmp
-#~ 	sed "N;s/\n//g" -i /tmp/lines.tmp
-	cd tests;cat /tmp/lines.tmp>> output/compare/file.stats
-	cd tests;tail -n 3 output/compare/file.stats
+	cd tests; $(PYTHON) $(profiler) ../bin/mishkal-console.py --progress --eval -l $(limit) -f samples/vocalized/$(FILE) > output/compare/rndlines.11.txt
+	cd tests; cp output/compare/rndlines.11.txt output/compare/L$(DATE).txt
+	cd tests; date >> output/compare/file.stats
+	cd tests; head -n 3 output/compare/rndlines.11.txt > /tmp/lines.tmp
+	cd tests; grep "function calls" --no-filename --before-context=2 output/compare/rndlines.11.txt >> /tmp/lines.tmp
+	cd tests; cat /tmp/lines.tmp >> output/compare/file.stats
+	cd tests; tail -n 6 output/compare/file.stats
 
-compare:FILE=phrases.txt
-compare:limit=10
+compare: FILE=phrases.txt limit=10
 compare:
-	cd tests;python3  ../bin/mishkal-console.py  --progress --eval -l ${limit} -f samples/${FILE} --compareto samples/${FILE} >output/compare/compare.txt
+	cd tests;$(PYTHON) ../bin/mishkal-console.py --progress --eval -l $(limit) -f samples/$(FILE) --compareto samples/$(FILE) > output/compare/compare.txt
+
+nemlar2: FILE=nemlar.txt limit=1000
+nemlar2:
+	cd tests;$(PYTHON) ../bin/mishkal-console.py --progress --eval -l $(limit) -f samples/$(FILE) --compareto samples/$(FILE) > output/compare/compare.txt
+
+# ----------------------------------------
+# Executable GUI using PyInstaller
+# ----------------------------------------
 exe-gui:
-	pyinstaller  mishkal-gui.spec 
+	pyinstaller mishkal-gui.spec
+
+# ----------------------------------------
+# Docs (if epydoc used)
+# ----------------------------------------
+doc:
+	epydoc -v --config epydoc.conf
+
+# ----------------------------------------
+# Help message
+# ----------------------------------------
+help:
+	@echo "Mishkal Makefile Targets:"
+	@echo "  run / server / flask / gui / console - Run interfaces"
+	@echo "  build / sdist / wheel / upload / install - Packaging"
+	@echo "  test2 / test3 / profile / jazeera / compare - Testing and Evaluation"
+	@echo "  clean / backup / help"
+
+nemlar:
+	cd tests && $(PYTHON) nemlar_eval.py samples/Nemlar --csv output/results.csv  --limit 50
+
+nemlar2: FILE=nemlar.txt
+nemlar2:limit=1000
+nemlar2:
+	cd tests && $(PYTHON) ../bin/mishkal-console.py --progress --eval -l $(limit) -f samples/$(FILE) > output/compare/compare.txt
