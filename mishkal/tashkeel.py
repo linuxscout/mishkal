@@ -51,8 +51,8 @@ class TashkeelClass:
         logging.basicConfig(level=logging.ERROR)
         self.logger = logging.getLogger(__name__)
 
-        # limit of words to vocalize, default value is 1000 words.
-        self.limit = 1000
+        # limit of words to vocalize, default value is 20000 words.
+        self.limit = 20000
 
         #  set the option value to enable the Last mark on vocalize
         # words in output
@@ -528,11 +528,42 @@ class TashkeelClass:
         #~ text = re.sub(ur'\s%s\s+ا'%araby.SUKUN, u' %s ا' % araby.SUKUN, text)
         #ajust pounctuation
         text = re.sub(u" ([.?!, :)”—]($| ))", u"\1", text)
-        #binu = > bin 
+        #binu = > bin
         # temporary, to be analysed by syntaxical analyzer
-        text = re.sub(u'\sبْنُ\s', u' بْن ', text)        
+        text = re.sub(u'\sبْنُ\s', u' بْن ', text)
         # # # اختصارات مثل حدثنا إلى ثنا وه تكثر في كتب التراث
         # text = re.sub(ur'\seثِنَا\s', u' ثَنَا ', text)
+
+        # remove duplicate diacritical marks (e.g., doubled sukun, kasra, etc.)
+        # these originate from affix constant tables in alyahmor that contain
+        # doubled marks like كَالْْ (double sukun) and َتَانِِ (double kasra)
+        text = re.sub(u'([\u064B-\u0652])\\1+', u'\\1', text)
+
+        # remove impossible vowel+sukun combinations on hamza characters
+        # a letter cannot have both a vowel (fatha/damma/kasra) and sukun
+        # simultaneously; keep only the vowel mark
+        text = re.sub(u'([\u0621\u0623\u0625\u0626])([\u064E-\u0650])\u0652',
+                       u'\\1\\2', text)
+
+        # correct spurious shadda on function words that never take it
+        # عَلَّى does not exist; the preposition is always عَلَى
+        text = re.sub(u'عَلَّى', u'عَلَى', text)
+        # إِلَّى does not exist; the preposition is always إِلَى
+        text = re.sub(u'إِلَّى', u'إِلَى', text)
+
+        # sun letter assimilation (الإدغام الشمسي):
+        # after the definite article ال, sun letters must carry shadda
+        # because the lam assimilates into them. E.g., الشمس = الشَّمس
+        # Match الْ followed by a sun letter that lacks shadda
+        sun_letters = u'تثدذرزسشصضطظلن'
+        _harakat = u'\u064B\u064C\u064D\u064E\u064F\u0650\u0651\u0652'
+        text = re.sub(
+            u'ال%s([%s])(?![%s]?%s)' % (
+                araby.SUKUN, sun_letters, _harakat, araby.SHADDA),
+            lambda m: u'ال' + m.group(1) + araby.SHADDA,
+            text
+        )
+
         return text
 
     def ajust_vocalized_suggestion(self, _suggest_list):

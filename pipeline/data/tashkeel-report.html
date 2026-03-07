@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tashkeel Pipeline Analysis Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg: #0b0b11;
+    --bg2: #13131d;
+    --bg3: #1a1a2a;
+    --border: #252540;
+    --text: #e0ddd8;
+    --muted: #7a7a90;
+    --gold: #d4a853;
+    --blue: #4a9eff;
+    --green: #34d399;
+    --red: #f87171;
+    --purple: #a78bfa;
+    --rose: #fb7185;
+    --orange: #fb923c;
+    --cyan: #22d3ee;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6; }
+.container { max-width:1100px; margin:0 auto; padding:2rem 1.5rem; }
+header { text-align:center; padding-bottom:2rem; margin-bottom:2rem; border-bottom:1px solid var(--border); }
+h1 { font-size:2.2rem; color:var(--gold); font-weight:700; margin-bottom:0.3rem; }
+.subtitle { color:var(--muted); font-size:0.95rem; }
+.timestamp { color:var(--muted); font-size:0.8rem; margin-top:0.5rem; }
+
+/* Language toggle */
+.lang-toggle { display:flex; justify-content:center; gap:0; margin:1rem 0; }
+.lang-btn { background:var(--bg3); border:1px solid var(--border); color:var(--muted); padding:0.4rem 1rem; font-size:0.8rem; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.2s; }
+.lang-btn:first-child { border-radius:6px 0 0 6px; }
+.lang-btn:last-child { border-radius:0 6px 6px 0; }
+.lang-btn.active { background:var(--gold); color:var(--bg); border-color:var(--gold); font-weight:600; }
+.lang-btn:hover:not(.active) { background:var(--border); color:var(--text); }
+
+/* Language visibility */
+body.lang-mode-en .lang-ar { display:none !important; }
+body.lang-mode-ar .lang-en { display:none !important; }
+body.lang-mode-both .lang-ar { display:block; font-family:'Tajawal',sans-serif; direction:rtl; color:var(--muted); font-size:0.85em; margin-top:0.15em; }
+body.lang-mode-both .lang-en { display:block; }
+/* Inline bilingual for short labels */
+body.lang-mode-both .hero-label .lang-ar,
+body.lang-mode-both .tl-label .lang-ar,
+body.lang-mode-both .tl-detail .lang-ar,
+body.lang-mode-both .col-label .lang-ar,
+body.lang-mode-both .badge .lang-ar,
+body.lang-mode-both .rule-name .lang-ar,
+body.lang-mode-both .bucket-label .lang-ar,
+body.lang-mode-both .note-label .lang-ar,
+body.lang-mode-both th .lang-ar,
+body.lang-mode-both td .lang-ar { display:block; }
+
+/* AR-only mode: switch fonts and direction for non-poem text */
+body.lang-mode-ar { direction:rtl; font-family:'Tajawal',sans-serif; }
+body.lang-mode-ar h1 { font-family:'Amiri',serif; }
+body.lang-mode-ar th { text-align:right; }
+body.lang-mode-ar .rule-count { text-align:left; }
+body.lang-mode-ar .histo-count { text-align:left; }
+body.lang-mode-ar .bucket-count { text-align:left; }
+body.lang-mode-ar .note-count { text-align:left; }
+
+/* Hero stats */
+.hero-stats { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:1rem; margin:2rem 0; }
+.hero-stat { background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:1.2rem; text-align:center; }
+.hero-val { font-size:2rem; font-weight:700; }
+.hero-label { font-size:0.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:0.2rem; }
+
+section { margin-bottom:2.5rem; }
+h2 { font-size:1.4rem; color:var(--gold); margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
+h3 { font-size:1.1rem; color:var(--text); margin-bottom:0.8rem; }
+
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(480px,1fr)); gap:1.5rem; }
+.card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:1.5rem; }
+
+table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+th { text-align:left; color:var(--muted); font-weight:500; padding:0.6rem 0.8rem; border-bottom:1px solid var(--border); }
+td { padding:0.5rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.04); }
+.sev-high { color:var(--red); font-weight:600; }
+.sev-med { color:var(--orange); }
+.sev-low { color:var(--muted); }
+
+.badge { display:inline-block; font-size:0.7rem; padding:0.15rem 0.5rem; border-radius:4px; font-weight:600; }
+.fix-yes { background:rgba(52,211,153,0.15); color:var(--green); }
+.fix-no { background:rgba(248,113,113,0.1); color:var(--red); }
+.badge-builtin { background:rgba(74,158,255,0.15); color:var(--blue); }
+.badge-learned { background:rgba(167,139,250,0.15); color:var(--purple); }
+
+.rule-row, .bucket-row, .note-row, .histo-row { display:flex; align-items:center; gap:0.8rem; margin-bottom:0.5rem; }
+.rule-name { width:220px; font-size:0.85rem; flex-shrink:0; }
+.rule-bar-track, .bucket-track, .note-track, .histo-track { flex:1; height:20px; background:var(--bg3); border-radius:4px; overflow:hidden; }
+.rule-bar { height:100%; background:linear-gradient(90deg,var(--blue),var(--purple)); border-radius:4px; transition:width 0.6s; }
+.rule-count { width:130px; text-align:right; font-size:0.85rem; color:var(--muted); flex-shrink:0; }
+.bucket-label { width:120px; font-size:0.85rem; flex-shrink:0; }
+.bucket-bar { height:100%; background:linear-gradient(90deg,var(--green),var(--cyan)); border-radius:4px; }
+.bucket-count { width:80px; text-align:right; font-size:0.85rem; color:var(--muted); }
+.note-label { width:150px; font-size:0.85rem; flex-shrink:0; }
+.note-bar { height:100%; background:linear-gradient(90deg,var(--orange),var(--rose)); border-radius:4px; }
+.note-count { width:80px; text-align:right; font-size:0.85rem; color:var(--muted); }
+.histo-label { width:40px; font-size:0.85rem; flex-shrink:0; }
+.histo-bar { height:100%; background:linear-gradient(90deg,var(--gold),var(--orange)); border-radius:4px; }
+.histo-count { width:40px; text-align:right; font-size:0.85rem; color:var(--muted); }
+
+.timeline { display:flex; gap:0; margin:1rem 0; position:relative; }
+.timeline::before { content:''; position:absolute; top:22px; left:24px; right:24px; height:2px; background:var(--border); z-index:0; }
+.tl-step { flex:1; text-align:center; position:relative; z-index:1; }
+.tl-dot { width:14px; height:14px; border-radius:50%; margin:16px auto 8px; }
+.tl-dot.done { background:var(--green); }
+.tl-label { font-size:0.75rem; color:var(--muted); }
+.tl-detail { font-size:0.7rem; color:var(--text); margin-top:2px; }
+
+.sample-card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; margin-bottom:1.5rem; overflow:hidden; }
+.sample-header { padding:1rem 1.2rem; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.poet-tag { color:var(--purple); font-size:0.9rem; }
+.sample-compare { display:grid; grid-template-columns:1fr 1fr; }
+.sample-col { padding:1rem 1.2rem; }
+.sample-col:first-child { border-right:1px solid var(--border); }
+.col-label { font-size:0.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem; }
+.poem-text { font-family:'Amiri',serif; font-size:1.15rem; line-height:2.2; direction:rtl; text-align:right; }
+.raw-text { color:var(--muted); }
+.final-text { color:var(--text); }
+.bayt { display:flex; justify-content:center; gap:1rem; }
+.sadr { flex:1; text-align:left; }
+.ajz { flex:1; text-align:right; }
+.sep { color:var(--gold); opacity:0.3; flex-shrink:0; }
+.muted { color:var(--muted); }
+
+footer { text-align:center; padding:2rem 0; border-top:1px solid var(--border); color:var(--muted); font-size:0.8rem; }
+
+@media(max-width:768px) {
+    .card-grid { grid-template-columns:1fr; }
+    .sample-compare { grid-template-columns:1fr; }
+    .sample-col:first-child { border-right:none; border-bottom:1px solid var(--border); }
+    .rule-name { width:140px; font-size:0.75rem; }
+    .hero-stats { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body class="lang-mode-en">
+<div class="container">
+    <header>
+        <h1><span class="lang-en">Tashkeel Pipeline Report</span><span class="lang-ar">تقرير مسار التشكيل (Tashkeel Pipeline)</span></h1>
+        <p class="subtitle"><span class="lang-en">Arabic Diacritization Analysis — Mishkal NLP + Post-Processing</span><span class="lang-ar">تحليل التشكيل العربي — Mishkal للمعالجة اللغوية + المعالجة اللاحقة</span></p>
+        <p class="timestamp"><span class="lang-en">Generated</span><span class="lang-ar">أُنشئ بتاريخ</span> 2026-03-07 02:00</p>
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="both">Both</button>
+            <button class="lang-btn" data-lang="ar">العربية</button>
+        </div>
+    </header>
+
+    <div class="hero-stats">
+        <div class="hero-stat">
+            <div class="hero-val" style="color:var(--gold)">83,377</div>
+            <div class="hero-label"><span class="lang-en">Poems Processed</span><span class="lang-ar">القصائد المعالَجة</span></div>
+        </div>
+        <div class="hero-stat">
+            <div class="hero-val" style="color:var(--green)">3.4<span style="font-size:1rem;color:var(--muted)">/5</span></div>
+            <div class="hero-label"><span class="lang-en">Quality Score</span><span class="lang-ar">درجة الجودة</span></div>
+        </div>
+        <div class="hero-stat">
+            <div class="hero-val" style="color:var(--blue)">62.7%</div>
+            <div class="hero-label"><span class="lang-en">Line-End Coverage</span><span class="lang-ar">تغطية أواخر الأسطر</span></div>
+        </div>
+        <div class="hero-stat">
+            <div class="hero-val" style="color:var(--purple)">0.79</div>
+            <div class="hero-label"><span class="lang-en">Mark Density</span><span class="lang-ar">كثافة العلامات</span></div>
+        </div>
+        <div class="hero-stat">
+            <div class="hero-val" style="color:var(--cyan)">90%</div>
+            <div class="hero-label"><span class="lang-en">Rhyme Correct</span><span class="lang-ar">صحة القافية</span></div>
+        </div>
+        <div class="hero-stat">
+            <div class="hero-val" style="color:var(--orange)">8</div>
+            <div class="hero-label"><span class="lang-en">Fix Rules Applied</span><span class="lang-ar">قواعد الإصلاح المطبَّقة</span></div>
+        </div>
+    </div>
+
+    <section>
+        <h2><span class="lang-en">Pipeline Execution</span><span class="lang-ar">تنفيذ مسار المعالجة (Pipeline)</span></h2>
+        <div class="timeline">
+            <div class="tl-step"><div class="tl-dot done"></div><div class="tl-label"><span class="lang-en">Export</span><span class="lang-ar">تصدير</span></div><div class="tl-detail"><span class="lang-en">84,329 raw</span><span class="lang-ar">84,329 خام</span></div></div>
+            <div class="tl-step"><div class="tl-dot done"></div><div class="tl-label"><span class="lang-en">Diacritize</span><span class="lang-ar">تشكيل</span></div><div class="tl-detail">4115s / 4.4/s</div></div>
+            <div class="tl-step"><div class="tl-dot done"></div><div class="tl-label"><span class="lang-en">Audit</span><span class="lang-ar">تدقيق</span></div><div class="tl-detail"><span class="lang-en">11 patterns</span><span class="lang-ar">11 نمطًا</span></div></div>
+            <div class="tl-step"><div class="tl-dot done"></div><div class="tl-label"><span class="lang-en">Review</span><span class="lang-ar">مراجعة</span></div><div class="tl-detail"><span class="lang-en">204 poems</span><span class="lang-ar">204 قصيدة</span></div></div>
+            <div class="tl-step"><div class="tl-dot done"></div><div class="tl-label"><span class="lang-en">Post-Process</span><span class="lang-ar">معالجة لاحقة</span></div><div class="tl-detail"><span class="lang-en">128s / 8 rules</span><span class="lang-ar">128 ثانية / 8 قواعد</span></div></div>
+            <div class="tl-step"><div class="tl-dot done"></div><div class="tl-label"><span class="lang-en">Upload</span><span class="lang-ar">رفع</span></div><div class="tl-detail"><span class="lang-en">83,377 rows</span><span class="lang-ar">83,377 سجلًّا</span></div></div>
+        </div>
+    </section>
+
+    <div class="card-grid">
+        <div class="card">
+            <h3><span class="lang-en">Arabic Quality Review (204 poems)</span><span class="lang-ar">مراجعة جودة التشكيل العربي (204 قصيدة)</span></h3>
+            <div class="hero-stats" style="margin:0.5rem 0">
+                <div class="hero-stat" style="padding:0.8rem">
+                    <div class="hero-val" style="font-size:1.5rem;color:var(--green)">3.75</div>
+                    <div class="hero-label"><span class="lang-en">Naturalness</span><span class="lang-ar">الطبيعية</span></div>
+                </div>
+                <div class="hero-stat" style="padding:0.8rem">
+                    <div class="hero-val" style="font-size:1.5rem;color:var(--orange)">2.97</div>
+                    <div class="hero-label"><span class="lang-en">Grammar</span><span class="lang-ar">القواعد النحوية</span></div>
+                </div>
+            </div>
+            <h3 style="margin-top:1rem"><span class="lang-en">Overall Score Distribution</span><span class="lang-ar">توزيع الدرجات الإجمالي</span></h3>
+            
+        <div class="histo-row">
+            <span class="histo-label">1/5</span>
+            <div class="histo-track"><div class="histo-bar" style="width:5.607476635514018%"></div></div>
+            <span class="histo-count">6</span>
+        </div>
+        <div class="histo-row">
+            <span class="histo-label">2/5</span>
+            <div class="histo-track"><div class="histo-bar" style="width:14.953271028037381%"></div></div>
+            <span class="histo-count">16</span>
+        </div>
+        <div class="histo-row">
+            <span class="histo-label">3/5</span>
+            <div class="histo-track"><div class="histo-bar" style="width:70.09345794392523%"></div></div>
+            <span class="histo-count">75</span>
+        </div>
+        <div class="histo-row">
+            <span class="histo-label">4/5</span>
+            <div class="histo-track"><div class="histo-bar" style="width:100.0%"></div></div>
+            <span class="histo-count">107</span>
+        </div>
+        <div class="histo-row">
+            <span class="histo-label">5/5</span>
+            <div class="histo-track"><div class="histo-bar" style="width:0.0%"></div></div>
+            <span class="histo-count">0</span>
+        </div>
+        </div>
+        <div class="card">
+            <h3><span class="lang-en">Issue Frequency (in 204-poem sample)</span><span class="lang-ar">تكرار المشكلات (في عيّنة من 204 قصيدة)</span></h3>
+            
+        <div class="note-row">
+            <span class="note-label"><span class="lang-en">ya-nisba</span><span class="lang-ar">ياء النسبة (ya-nisba)</span></span>
+            <div class="note-track"><div class="note-bar" style="width:100.0%"></div></div>
+            <span class="note-count">114/204</span>
+        </div>
+        <div class="note-row">
+            <span class="note-label"><span class="lang-en">hamza+sukun</span><span class="lang-ar">همزة + سكون (hamza+sukun)</span></span>
+            <div class="note-track"><div class="note-bar" style="width:39.473684210526315%"></div></div>
+            <span class="note-count">45/204</span>
+        </div>
+        <div class="note-row">
+            <span class="note-label"><span class="lang-en">acceptable</span><span class="lang-ar">مقبول</span></span>
+            <div class="note-track"><div class="note-bar" style="width:38.59649122807017%"></div></div>
+            <span class="note-count">44/204</span>
+        </div>
+        <div class="note-row">
+            <span class="note-label"><span class="lang-en">spurious-shadda</span><span class="lang-ar">شدّة زائدة (spurious-shadda)</span></span>
+            <div class="note-track"><div class="note-bar" style="width:25.438596491228072%"></div></div>
+            <span class="note-count">29/204</span>
+        </div>
+        <div class="note-row">
+            <span class="note-label"><span class="lang-en">truncated</span><span class="lang-ar">بتر النص (truncated)</span></span>
+            <div class="note-track"><div class="note-bar" style="width:19.298245614035086%"></div></div>
+            <span class="note-count">22/204</span>
+        </div>
+        <div class="note-row">
+            <span class="note-label"><span class="lang-en">inconsistent-rhyme</span><span class="lang-ar">قافية غير متّسقة (inconsistent-rhyme)</span></span>
+            <div class="note-track"><div class="note-bar" style="width:17.543859649122805%"></div></div>
+            <span class="note-count">20/204</span>
+        </div>
+        <div class="note-row">
+            <span class="note-label"><span class="lang-en">letter-corruption</span><span class="lang-ar">تلف الحروف (letter-corruption)</span></span>
+            <div class="note-track"><div class="note-bar" style="width:11.403508771929824%"></div></div>
+            <span class="note-count">13/204</span>
+        </div>
+        <div class="note-row">
+            <span class="note-label"><span class="lang-en">under-diacritized</span><span class="lang-ar">نقص في التشكيل (under-diacritized)</span></span>
+            <div class="note-track"><div class="note-bar" style="width:5.263157894736842%"></div></div>
+            <span class="note-count">6/204</span>
+        </div>
+        <div class="note-row">
+            <span class="note-label"><span class="lang-en">low-density</span><span class="lang-ar">كثافة منخفضة (low-density)</span></span>
+            <div class="note-track"><div class="note-bar" style="width:4.385964912280701%"></div></div>
+            <span class="note-count">5/204</span>
+        </div>
+            <h3 style="margin-top:1.5rem"><span class="lang-en">Poem Length Distribution</span><span class="lang-ar">توزيع أطوال القصائد</span></h3>
+        <div class="bucket-row">
+            <span class="bucket-label"><span class="lang-en">tiny (0-500)</span><span class="lang-ar">صغير جدًّا (0–500)</span></span>
+            <div class="bucket-track"><div class="bucket-bar" style="width:100.0%"></div></div>
+            <span class="bucket-count">51,380</span>
+        </div>
+        <div class="bucket-row">
+            <span class="bucket-label"><span class="lang-en">small (500-1K)</span><span class="lang-ar">صغير (500–1 ألف)</span></span>
+            <div class="bucket-track"><div class="bucket-bar" style="width:25.632541845075906%"></div></div>
+            <span class="bucket-count">13,170</span>
+        </div>
+        <div class="bucket-row">
+            <span class="bucket-label"><span class="lang-en">medium (1K-2K)</span><span class="lang-ar">متوسط (1–2 ألف)</span></span>
+            <div class="bucket-track"><div class="bucket-bar" style="width:17.565200467107825%"></div></div>
+            <span class="bucket-count">9,025</span>
+        </div>
+        <div class="bucket-row">
+            <span class="bucket-label"><span class="lang-en">large (2K-3.5K)</span><span class="lang-ar">كبير (2–3.5 ألف)</span></span>
+            <div class="bucket-track"><div class="bucket-bar" style="width:10.842740365901129%"></div></div>
+            <span class="bucket-count">5,571</span>
+        </div>
+        <div class="bucket-row">
+            <span class="bucket-label"><span class="lang-en">xlarge (3.5K+)</span><span class="lang-ar">كبير جدًّا (3.5 ألف+)</span></span>
+            <div class="bucket-track"><div class="bucket-bar" style="width:8.234721681588168%"></div></div>
+            <span class="bucket-count">4,231</span>
+        </div>
+        </div>
+    </div>
+
+    <section>
+        <h2><span class="lang-en">Post-Processing Rules Impact</span><span class="lang-ar">أثر قواعد المعالجة اللاحقة</span></h2>
+        <p style="color:var(--muted);font-size:0.85rem;margin-bottom:1rem">
+            <span class="lang-en">Poems fixed per rule out of 83,377 total. 3 built-in rules + 5 learned from Arabic quality review agent.</span><span class="lang-ar">القصائد المُصلَحة لكل قاعدة من أصل 83,377 قصيدة. 3 قواعد مدمَجة + 5 مكتسَبة من وكيل مراجعة الجودة العربية.</span>
+        </p>
+        
+        <div class="rule-row">
+            <div class="rule-name"><span class="lang-en">normalize whitespace</span><span class="lang-ar">تسوية المسافات البيضاء</span> <span class="badge badge-builtin"><span class="lang-en">built-in</span><span class="lang-ar">مدمَج</span></span></div>
+            <div class="rule-bar-track"><div class="rule-bar" style="width:100.0%"></div></div>
+            <div class="rule-count">83,376 (100.0%)</div>
+        </div>
+        <div class="rule-row">
+            <div class="rule-name"><span class="lang-en">deduplicate marks</span><span class="lang-ar">إزالة العلامات المكرّرة</span> <span class="badge badge-builtin"><span class="lang-en">built-in</span><span class="lang-ar">مدمَج</span></span></div>
+            <div class="rule-bar-track"><div class="rule-bar" style="width:43.09153713298791%"></div></div>
+            <div class="rule-count">35,928 (43.1%)</div>
+        </div>
+        <div class="rule-row">
+            <div class="rule-name"><span class="lang-en">impossible hamza sukun</span><span class="lang-ar">همزة وسكون مستحيلان</span> <span class="badge badge-learned"><span class="lang-en">learned</span><span class="lang-ar">مكتسَب</span></span></div>
+            <div class="rule-bar-track"><div class="rule-bar" style="width:28.479418537708696%"></div></div>
+            <div class="rule-count">23,745 (28.5%)</div>
+        </div>
+        <div class="rule-row">
+            <div class="rule-name"><span class="lang-en">spurious shadda function words</span><span class="lang-ar">شدّة زائدة على أدوات الربط</span> <span class="badge badge-learned"><span class="lang-en">learned</span><span class="lang-ar">مكتسَب</span></span></div>
+            <div class="rule-bar-track"><div class="rule-bar" style="width:23.791018998272882%"></div></div>
+            <div class="rule-count">19,836 (23.8%)</div>
+        </div>
+        <div class="rule-row">
+            <div class="rule-name"><span class="lang-en">ya possessive nisba</span><span class="lang-ar">ياء الملكية والنسبة</span> <span class="badge badge-learned"><span class="lang-en">learned</span><span class="lang-ar">مكتسَب</span></span></div>
+            <div class="rule-bar-track"><div class="rule-bar" style="width:53.48541546728075%"></div></div>
+            <div class="rule-count">44,594 (53.5%)</div>
+        </div>
+        <div class="rule-row">
+            <div class="rule-name"><span class="lang-en">alif lam article</span><span class="lang-ar">أداة التعريف (الـ)</span> <span class="badge badge-learned"><span class="lang-en">learned</span><span class="lang-ar">مكتسَب</span></span></div>
+            <div class="rule-bar-track"><div class="rule-bar" style="width:5.48599117251967%"></div></div>
+            <div class="rule-count">4,574 (5.5%)</div>
+        </div>
+        <div class="rule-row">
+            <div class="rule-name"><span class="lang-en">sun letter assimilation</span><span class="lang-ar">إدغام الحروف الشمسية</span> <span class="badge badge-learned"><span class="lang-en">learned</span><span class="lang-ar">مكتسَب</span></span></div>
+            <div class="rule-bar-track"><div class="rule-bar" style="width:2.669833045480714%"></div></div>
+            <div class="rule-count">2,226 (2.7%)</div>
+        </div>
+        <div class="rule-row">
+            <div class="rule-name"><span class="lang-en">line ending tashkeel</span><span class="lang-ar">تشكيل أواخر الأسطر</span> <span class="badge badge-builtin"><span class="lang-en">built-in</span><span class="lang-ar">مدمَج</span></span></div>
+            <div class="rule-bar-track"><div class="rule-bar" style="width:30.864997121473802%"></div></div>
+            <div class="rule-count">25,734 (30.9%)</div>
+        </div>
+    </section>
+
+    <section>
+        <h2><span class="lang-en">Automated Audit Results</span><span class="lang-ar">نتائج التدقيق الآلي</span></h2>
+        <div class="card">
+            <table>
+                <thead><tr><th><span class="lang-en">Issue</span><span class="lang-ar">المشكلة</span></th><th><span class="lang-en">Poems</span><span class="lang-ar">القصائد</span></th><th><span class="lang-en">% of Total</span><span class="lang-ar">% من الإجمالي</span></th></tr></thead>
+                <tbody><tr><td><span class="lang-en">content mismatch</span><span class="lang-ar">عدم تطابق المحتوى</span></td><td>83,377</td><td>100.0%</td></tr><tr><td><span class="lang-en">line ending tashkeel</span><span class="lang-ar">تشكيل أواخر الأسطر</span></td><td>70,720</td><td>84.8%</td></tr><tr><td><span class="lang-en">empty hemistich</span><span class="lang-ar">شطر فارغ</span></td><td>285</td><td>0.3%</td></tr><tr><td><span class="lang-en">zero tashkeel hemistichs</span><span class="lang-ar">أشطر بلا تشكيل</span></td><td>213</td><td>0.3%</td></tr><tr><td><span class="lang-en">imbalanced hemistichs</span><span class="lang-ar">أشطر غير متوازنة</span></td><td>69</td><td>0.1%</td></tr><tr><td><span class="lang-en">duplicate marks</span><span class="lang-ar">علامات مكرّرة</span></td><td>1</td><td>0.0%</td></tr></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <h2><span class="lang-en">Identified Error Patterns (from Arabic Review)</span><span class="lang-ar">أنماط الأخطاء المكتشَفة (من المراجعة العربية)</span></h2>
+        <div class="card">
+            <table>
+                <thead><tr><th><span class="lang-en">Pattern</span><span class="lang-ar">النمط</span></th><th><span class="lang-en">Severity</span><span class="lang-ar">الخطورة</span></th><th><span class="lang-en">Status</span><span class="lang-ar">الحالة</span></th><th><span class="lang-en">Frequency</span><span class="lang-ar">التكرار</span></th></tr></thead>
+                <tbody>
+        <tr>
+            <td><strong><span class="lang-en">spurious_shadda_on_function_words</span><span class="lang-ar">شدّة زائدة على أدوات الربط (spurious_shadda_on_function_words)</span></strong></td>
+            <td class="sev-high"><span class="lang-en">high</span><span class="lang-ar">مرتفعة</span></td>
+            <td><span class="badge fix-yes"><span class="lang-en">Fixable</span><span class="lang-ar">قابل للإصلاح</span></span></td>
+            <td><span class="lang-en">Affects ~14% of poems (29/204). Most affected words: على (23 instances), لم (11), قد (9), كما (5), حين (4).</span></td>
+        </tr>
+        <tr>
+            <td><strong><span class="lang-en">ya_possessive_to_nisba_corruption</span><span class="lang-ar">تلف ياء الملكية إلى ياء النسبة (ya_possessive_to_nisba_corruption)</span></strong></td>
+            <td class="sev-high"><span class="lang-en">high</span><span class="lang-ar">مرتفعة</span></td>
+            <td><span class="badge fix-yes"><span class="lang-en">Fixable</span><span class="lang-ar">قابل للإصلاح</span></span></td>
+            <td><span class="lang-en">Affects 55.4% of poems (113/204). ~493 individual word occurrences across all poems. Most affected: قلبي (16), علي (18), مني (12), أني (8), يدي (6), نفسي (5).</span></td>
+        </tr>
+        <tr>
+            <td><strong><span class="lang-en">impossible_hamza_kasra_sukun</span><span class="lang-ar">همزة وكسرة وسكون مستحيلة (impossible_hamza_kasra_sukun)</span></strong></td>
+            <td class="sev-high"><span class="lang-en">high</span><span class="lang-ar">مرتفعة</span></td>
+            <td><span class="badge fix-yes"><span class="lang-en">Fixable</span><span class="lang-ar">قابل للإصلاح</span></span></td>
+            <td><span class="lang-en">Affects 22.1% of poems (45/204). 113 total occurrences. Most common: إذا (28), إن (23), أن (12), إلا (9).</span><span class="lang-ar">تؤثر في 22.1% من القصائد (45/204). 113 ظهورًا إجماليًّا. الأكثر شيوعًا: إذا (28)، إن (23)، أن (12)، إلا (9).</span></td>
+        </tr>
+        <tr>
+            <td><strong><span class="lang-en">poem_truncation</span><span class="lang-ar">بتر القصيدة (poem_truncation)</span></strong></td>
+            <td class="sev-high"><span class="lang-en">high</span><span class="lang-ar">مرتفعة</span></td>
+            <td><span class="badge fix-no"><span class="lang-en">Not fixable</span><span class="lang-ar">غير قابل للإصلاح</span></span></td>
+            <td><span class="lang-en">Affects 10.8% of poems (22/204). Lost content ranges from 161 to 1018 characters.</span><span class="lang-ar">يؤثر في 10.8% من القصائد (22/204). يتراوح المحتوى المفقود بين 161 و1018 حرفًا.</span></td>
+        </tr>
+        <tr>
+            <td><strong><span class="lang-en">spurious_shadda_general</span><span class="lang-ar">شدّة زائدة عامة (spurious_shadda_general)</span></strong></td>
+            <td class="sev-high"><span class="lang-en">high</span><span class="lang-ar">مرتفعة</span></td>
+            <td><span class="badge fix-no"><span class="lang-en">Not fixable</span><span class="lang-ar">غير قابل للإصلاح</span></span></td>
+            <td><span class="lang-en">Affects ~35% of poems (71/204 have dramatically more shaddas). Approximately 2926 spurious shaddas total.</span><span class="lang-ar">تؤثر في نحو 35% من القصائد (71/204 تحتوي على شدّات أكثر بكثير). نحو 2926 شدّة زائدة إجمالًا.</span></td>
+        </tr>
+        <tr>
+            <td><strong><span class="lang-en">missing_hemistich_final_tashkeel</span><span class="lang-ar">تشكيل مفقود في آخر الشطر (missing_hemistich_final_tashkeel)</span></strong></td>
+            <td class="sev-med"><span class="lang-en">medium</span><span class="lang-ar">متوسطة</span></td>
+            <td><span class="badge fix-yes"><span class="lang-en">Fixable</span><span class="lang-ar">قابل للإصلاح</span></span></td>
+            <td><span class="lang-en">1889 out of 5003 hemistichs (37.8%) have missing final marks.</span><span class="lang-ar">1889 من أصل 5003 أشطر (37.8%) تفتقر إلى علامات نهائية.</span></td>
+        </tr>
+        <tr>
+            <td><strong><span class="lang-en">alif_lam_article_corruption</span><span class="lang-ar">تلف أداة التعريف (alif_lam_article_corruption)</span></strong></td>
+            <td class="sev-med"><span class="lang-en">medium</span><span class="lang-ar">متوسطة</span></td>
+            <td><span class="badge fix-yes"><span class="lang-en">Fixable</span><span class="lang-ar">قابل للإصلاح</span></span></td>
+            <td><span class="lang-en">20 occurrences across 5 poems.</span><span class="lang-ar">20 ظهورًا عبر 5 قصائد.</span></td>
+        </tr>
+        <tr>
+            <td><strong><span class="lang-en">sun_letter_assimilation_missing</span><span class="lang-ar">إدغام شمسي مفقود (sun_letter_assimilation_missing)</span></strong></td>
+            <td class="sev-med"><span class="lang-en">medium</span><span class="lang-ar">متوسطة</span></td>
+            <td><span class="badge fix-yes"><span class="lang-en">Fixable</span><span class="lang-ar">قابل للإصلاح</span></span></td>
+            <td><span class="lang-en">231 missing assimilations detected out of 1571 sun letter article occurrences (14.7%).</span><span class="lang-ar">231 إدغامًا مفقودًا من أصل 1571 ظهورًا للحروف الشمسية مع أداة التعريف (14.7%).</span></td>
+        </tr>
+        <tr>
+            <td><strong><span class="lang-en">baad_verb_preposition_confusion</span><span class="lang-ar">خلط بين الفعل وحرف الجر (baad_verb_preposition_confusion)</span></strong></td>
+            <td class="sev-low"><span class="lang-en">low</span><span class="lang-ar">منخفضة</span></td>
+            <td><span class="badge fix-no"><span class="lang-en">Not fixable</span><span class="lang-ar">غير قابل للإصلاح</span></span></td>
+            <td><span class="lang-en">7 occurrences across the sample.</span><span class="lang-ar">7 حالات عبر العيّنة.</span></td>
+        </tr>
+        <tr>
+            <td><strong><span class="lang-en">letter_corruption_non_truncation</span><span class="lang-ar">تلف حروف بدون بتر (letter_corruption_non_truncation)</span></strong></td>
+            <td class="sev-med"><span class="lang-en">medium</span><span class="lang-ar">متوسطة</span></td>
+            <td><span class="badge fix-no"><span class="lang-en">Not fixable</span><span class="lang-ar">غير قابل للإصلاح</span></span></td>
+            <td><span class="lang-en">35 poems (17.2%) have some form of bare text mismatch.</span><span class="lang-ar">35 قصيدة (17.2%) تحتوي على شكل من أشكال عدم تطابق النص الخام.</span></td>
+        </tr>
+        <tr>
+            <td><strong><span class="lang-en">shadda_tanween_word_ending</span><span class="lang-ar">شدّة وتنوين في آخر الكلمة (shadda_tanween_word_ending)</span></strong></td>
+            <td class="sev-med"><span class="lang-en">medium</span><span class="lang-ar">متوسطة</span></td>
+            <td><span class="badge fix-yes"><span class="lang-en">Fixable</span><span class="lang-ar">قابل للإصلاح</span></span></td>
+            <td><span class="lang-en">Appears in ~20% of poems. Most affected words: قلبي, لقد, من, لعمري, يدي, نفسي.</span><span class="lang-ar">تظهر في نحو 20% من القصائد. أكثر الكلمات تأثرًا: قلبي، لقد، من، لعمري، يدي، نفسي.</span></td>
+        </tr></tbody>
+            </table>
+        </div>
+    </section>
+
+    
+        <section>
+            <h2><span class="lang-en">Before / After Samples</span><span class="lang-ar">عيّنات قبل وبعد المعالجة</span></h2>
+            
+            <div class="sample-card">
+                <div class="sample-header">
+                    <strong>لا يفقدن خيركم مجالسكم</strong>
+                    <span class="poet-tag">أبو العلاء المعري</span>
+                </div>
+                <div class="sample-compare">
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">Before (raw)</span><span class="lang-ar">قبل (خام)</span></div>
+                        <div class="poem-text raw-text"><div class="bayt"><span class="sadr">لا يَفقِدَن خَيرَكُم مُجالِسُكُم</span><span class="sep">&loz;</span><span class="ajz">وَلا تَكونوا كَأَنَّكُم سَبَخُ</span></div>
+<div class="bayt"><span class="sadr">وَلا كَقَومٍ حَديثُ يَومِهِمُ</span><span class="sep">&loz;</span><span class="ajz">ما أَكَلوا أَمسَهُم وَما طَبَخوا</span></div></div>
+                    </div>
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">After (final)</span><span class="lang-ar">بعد (نهائي)</span></div>
+                        <div class="poem-text final-text"><div class="bayt"><span class="sadr">لَا يَفْقِدَنَّ خَيْرَكُمْ مُجَالِسُكُمْ</span><span class="sep">&loz;</span><span class="ajz">وَلا تَكَوَّنُوا كَأَنَّكُم سَبَخُ</span></div>
+<div class="bayt"><span class="sadr">وَلا كَقَوْمٍ حَديثُ يَوْمِهِمُ</span><span class="sep">&loz;</span><span class="ajz">مَا أَكَلُوا أَمْسَهُمْ وَمَا طَبَّخُوا</span></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sample-card">
+                <div class="sample-header">
+                    <strong>أرى الأيام تفعل كل نكر</strong>
+                    <span class="poet-tag">أبو العلاء المعري</span>
+                </div>
+                <div class="sample-compare">
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">Before (raw)</span><span class="lang-ar">قبل (خام)</span></div>
+                        <div class="poem-text raw-text"><div class="bayt"><span class="sadr">أَرى الأَيّامَ تَفعَلُ كُلَّ نُكرٍ</span><span class="sep">&loz;</span><span class="ajz">فَما أَنا في العَجائِبِ مُستَزيدُ</span></div>
+<div class="bayt"><span class="sadr">أَلَيسَ قُرَيشُكُم قَتَلَت حُسَيناً</span><span class="sep">&loz;</span><span class="ajz">وَصارَ عَلى خِلافَتِكُم يَزيدُ</span></div></div>
+                    </div>
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">After (final)</span><span class="lang-ar">بعد (نهائي)</span></div>
+                        <div class="poem-text final-text"><div class="bayt"><span class="sadr">أَرَى الْأَيَّامَ تَفْعَلُ كُلَّ نُكْرٍ</span><span class="sep">&loz;</span><span class="ajz">فَمًا أَنَا فِي الْعَجَائِبِ مُسْتَزِيدُ</span></div>
+<div class="bayt"><span class="sadr">أَلَيِسَ قُرَيْشُكُمْ قَتَلَتْ حُسَيناً</span><span class="sep">&loz;</span><span class="ajz">وَصَارَ عَلَّى خِلَاَفَتِكُمْ يَزِيدُ</span></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sample-card">
+                <div class="sample-header">
+                    <strong>زائر زارني فهاج خيالا</strong>
+                    <span class="poet-tag">أبو تمام</span>
+                </div>
+                <div class="sample-compare">
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">Before (raw)</span><span class="lang-ar">قبل (خام)</span></div>
+                        <div class="poem-text raw-text"><div class="bayt"><span class="sadr">زائِرٌ زارَني فَهاجَ خَيالا</span><span class="sep">&loz;</span><span class="ajz">كُنتُ لَولاهُ أَسوَأَ الناسِ حالا</span></div>
+<div class="bayt"><span class="sadr">فَتَمَتَّعتُ مِن غَزالٍ وَحاشى</span><span class="sep">&loz;</span><span class="ajz">ذَلِكَ الشَخصَ أَن يَكونَ غَزالا</span></div>
+<div class="bayt"><span class="sadr">كَيفَ أَرجو لِقاءَ ساكِنِ بَغدا</span><span class="sep">&loz;</span><span class="ajz">دَ بِمِصرٍ لَقَد رَجَوتُ ضَلالا</span></div>
+<div class="bayt"><span class="sadr">مَثَّلَتهُ المُنى لِعَيني وَفِكري</span><span class="sep">&loz;</span><span class="ajz">وَلِقَلبي حَتّى قَبِلتُ المُحالا</span></div>
+<div class="bayt"><span class="sadr">ما أَراني أَراكَ نَصبَ خَيالٍ</span><span class="sep">&loz;</span><span class="ajz">طارِقٍ أَو يَصيرَ جِسمي خَيالا</span></div></div>
+                    </div>
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">After (final)</span><span class="lang-ar">بعد (نهائي)</span></div>
+                        <div class="poem-text final-text"><div class="bayt"><span class="sadr">زَائِرٌ زَارَنِي فَهَاجَ خَيَالَا</span><span class="sep">&loz;</span><span class="ajz">كُنتُ لَوَلَّاهُ أَسْوَأَ النَّاسِ حَالًا</span></div>
+<div class="bayt"><span class="sadr">فَتَمَتَّعْتُ مِنْ غَزَالٍ وَحَاشَى</span><span class="sep">&loz;</span><span class="ajz">ذَلِكَ الشَّخْصَ أَن يَكْوُنَّ غَزَالًا</span></div>
+<div class="bayt"><span class="sadr">كَيَّفَ أَرْجُو لِقَاءَ سَاكِنِ بَغدَا</span><span class="sep">&loz;</span><span class="ajz">دَ بِمِصْرٍ لَقَدَْ رَجَوْتُ ضَلَاَلًا</span></div>
+<div class="bayt"><span class="sadr">مَثَّلَتْهُ الْمُنَى لِعَيْنِي وَفِكْرِيٌّ</span><span class="sep">&loz;</span><span class="ajz">وَلِقَلْبِي حَتَّى قَبِلْتُ الْمُحَالَا</span></div>
+<div class="bayt"><span class="sadr">مَا أَرَانِي أَرَاكَ نَصَبَ خَيَالٍ</span><span class="sep">&loz;</span><span class="ajz">طَارِقٍ أَوِّ يَصِيرَ جِسْمُي خَيَّالًا</span></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sample-card">
+                <div class="sample-header">
+                    <strong>ظبي يتيه بورده في خده</strong>
+                    <span class="poet-tag">أبو تمام</span>
+                </div>
+                <div class="sample-compare">
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">Before (raw)</span><span class="lang-ar">قبل (خام)</span></div>
+                        <div class="poem-text raw-text"><div class="bayt"><span class="sadr">ظَبيٌ يَتيهُ بِوِردِهِ في خَدِّهِ</span><span class="sep">&loz;</span><span class="ajz">خَدٌّ عَلَيهِ غَلائِلٌ مِن وَردِهِ</span></div>
+<div class="bayt"><span class="sadr">ما كُنتُ أَحسِبُ أَنَّ لي مُستَمتَعاً</span><span class="sep">&loz;</span><span class="ajz">في قُربِهِ حَتّى بُليتُ بِبُعدِهِ</span></div>
+<div class="bayt"><span class="sadr">لا شَيءَ أَحسَنُ مِنهُ لَيلَةَ وَصِلنا</span><span class="sep">&loz;</span><span class="ajz">وَقَد اِتَخَذتُ مَخَدَّةً مِن خَدِّهِ</span></div>
+<div class="bayt"><span class="sadr">وَفَمي عَلى فَمِهِ يُسامِرُ ريقَهُ</span><span class="sep">&loz;</span><span class="ajz">وَيَدي تَنَزَّهُ في حَدائِقِ جِلدِهِ</span></div></div>
+                    </div>
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">After (final)</span><span class="lang-ar">بعد (نهائي)</span></div>
+                        <div class="poem-text final-text"><div class="bayt"><span class="sadr">ظَبْي يَتِيهُ بِوِرْدِهِ فِي خَدِّهِ</span><span class="sep">&loz;</span><span class="ajz">خَدٌّ عَلَّيْهِ غَلَائِلٌ مِنْ وَرَدِّهِ</span></div>
+<div class="bayt"><span class="sadr">مَا كُنتُ أَحْسِبُ أَنَّ لِي مُستَمتَعاً</span><span class="sep">&loz;</span><span class="ajz">فِي قُرْبِهِ حَتَّى بُلِيتُ بِبُعْدِهِ</span></div>
+<div class="bayt"><span class="sadr">لَا شَيْءَ أَحَسَنُ مِنْهُ لَيْلَةَ وَصِلَّنَا</span><span class="sep">&loz;</span><span class="ajz">وَقَدَْ اِتَّخَذْتُ مَخَدَّةً مِنْ خَدِّهِ</span></div>
+<div class="bayt"><span class="sadr">وَفَمَي عَلَّى فَمِهِ يُسَامِرُ رَيِّقَهُ</span><span class="sep">&loz;</span><span class="ajz">وَيَدَي تَنَزَّهُ فِي حَدَائِقِ جِلْدِهِ</span></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sample-card">
+                <div class="sample-header">
+                    <strong>قناتي على ما تعهدان صليبة</strong>
+                    <span class="poet-tag">أبو فراس الحمداني</span>
+                </div>
+                <div class="sample-compare">
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">Before (raw)</span><span class="lang-ar">قبل (خام)</span></div>
+                        <div class="poem-text raw-text"><div class="bayt"><span class="sadr">قَناتي عَلى ما تَعهَدانِ صَليبَةٌ</span><span class="sep">&loz;</span><span class="ajz">وَعودي عَلى ماتَعلَمانِ صَليبُ</span></div>
+<div class="bayt"><span class="sadr">صَبورٌ عَلى طَيِّ الزَمانِ وَنَشرِهِ</span><span class="sep">&loz;</span><span class="ajz">وَإِن ظَهَرَت لِلدَهرِ فِيَّ نُدوبُ</span></div>
+<div class="bayt"><span class="sadr">وَإِنَّ فَتىً لَم يَكسِرِ الأَسرُ قَلبَهُ</span><span class="sep">&loz;</span><span class="ajz">وَخَوضُ المَنايا جِدَّهُ لَنَجيبُ</span></div></div>
+                    </div>
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">After (final)</span><span class="lang-ar">بعد (نهائي)</span></div>
+                        <div class="poem-text final-text"><div class="bayt"><span class="sadr">قَنَاتُي عَلَّى مَا تَعْهَدَانِ صَلِيبَةٌ</span><span class="sep">&loz;</span><span class="ajz">وَعُودِي عَلَّى ماتَعلَمانِ صَلِيبُ</span></div>
+<div class="bayt"><span class="sadr">صَبُورٌ عَلَّى طَي الزَّمَانِ وَنَشْرِهِ</span><span class="sep">&loz;</span><span class="ajz">وَإِن ظَهَرَتْ لِلدَّهْرِ فِي نُدُوبُ</span></div>
+<div class="bayt"><span class="sadr">وَإِنَّ فَتَى لَمَّ يَكْسِرْ الْأَسْرُ قَلْبَهُ</span><span class="sep">&loz;</span><span class="ajz">وَخَوْضُ الْمَنَايَا جِدَّهُ لَنَجِيبُ</span></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sample-card">
+                <div class="sample-header">
+                    <strong>الحزن مجتمع والصبر مفترق</strong>
+                    <span class="poet-tag">أبو فراس الحمداني</span>
+                </div>
+                <div class="sample-compare">
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">Before (raw)</span><span class="lang-ar">قبل (خام)</span></div>
+                        <div class="poem-text raw-text"><div class="bayt"><span class="sadr">الحُزنُ مُجتَمِعٌ وَالصَبرُ مُفتَرِقُ</span><span class="sep">&loz;</span><span class="ajz">وَالحُبُّ مُختَلِفٌ عِندي وَمُتَّفِقُ</span></div>
+<div class="bayt"><span class="sadr">وَلي إِذا كُلَّ عَينٍ نامَ صاحِبُها</span><span class="sep">&loz;</span><span class="ajz">عَينٌ تَحالَفَ فيها الدَمعُ وَالأَرَقُ</span></div>
+<div class="bayt"><span class="sadr">لَولاكِ يا ظَبيَةَ الإِنسِ الَّتي نَظَرَت</span><span class="sep">&loz;</span><span class="ajz">لَما وَصَلنَ إِلى مَكروهِيَ الحَدَقُ</span></div>
+<div class="bayt"><span class="sadr">لَكِن نَظَرتُ وَقَد سارَ الخَليطُ ضُحىً</span><span class="sep">&loz;</span><span class="ajz">بِناظِرٍ كُلُّ حُسنٍ مِنهُ مُستَرَقُ</span></div></div>
+                    </div>
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">After (final)</span><span class="lang-ar">بعد (نهائي)</span></div>
+                        <div class="poem-text final-text"><div class="bayt"><span class="sadr">الْحُزْنُ مُجْتَمِعٌ وَالصَّبْرُ مُفْتَرِقُ</span><span class="sep">&loz;</span><span class="ajz">وَالْحُبُّ مُخْتَلِفٌ عِندِي وَمُتَّفِقُ</span></div>
+<div class="bayt"><span class="sadr">وَلِيَ إِذَا كُلَّ عَيْنٍ نامَ صَاحِبُهَا</span><span class="sep">&loz;</span><span class="ajz">عَيْنٌ تَحَالَفَ فِيهَا الدَّمْعُ وَالْأَرَقُ</span></div>
+<div class="bayt"><span class="sadr">لَوَلَّاكِ يَا ظَبْيَةَ الْإِنْسِ الَّتي نَظَرَتْ</span><span class="sep">&loz;</span><span class="ajz">لَمَّا وَصَلْنَ إِلَى مَكْرُوهِي الْحَدَقُ</span></div>
+<div class="bayt"><span class="sadr">لَكِنَ نَظَرْتُ وَقَدَْ سَارَّ الْخَلِيطُ ضُحَى</span><span class="sep">&loz;</span><span class="ajz">بِنَاظِرٍ كُلُّ حُسْنٍ مِنْهُ مُسْتَرَقُّ</span></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sample-card">
+                <div class="sample-header">
+                    <strong>قد هجرت النديم والندمانا</strong>
+                    <span class="poet-tag">أبو نواس</span>
+                </div>
+                <div class="sample-compare">
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">Before (raw)</span><span class="lang-ar">قبل (خام)</span></div>
+                        <div class="poem-text raw-text"><div class="bayt"><span class="sadr">قَد هَجَرتُ النَديمَ وَالنُدمانا</span><span class="sep">&loz;</span><span class="ajz">وَتَمَتَّعتُ ما كَفاني زَمانا</span></div>
+<div class="bayt"><span class="sadr">وَأَبى لي خَليفَةُ اللَهِ إِلّا</span><span class="sep">&loz;</span><span class="ajz">عَزفَ نَفسي فَقَد عَزَفتُ أَوانا</span></div>
+<div class="bayt"><span class="sadr">وَلَقَد طالَ ما أَبَيتُ عَلَيهِ</span><span class="sep">&loz;</span><span class="ajz">في أُمورٍ خَلَعتُ فيها العِنانا</span></div>
+<div class="bayt"><span class="sadr">وَغَزالٍ عاطَيتُهُ الراحَ حَتّى</span><span class="sep">&loz;</span><span class="ajz">فَتَّرَت مِنهُ مُقلَةً وَلِسانا</span></div>
+<div class="bayt"><span class="sadr">قالَ لا تُسكِرَنَّني بِحَياتي</span><span class="sep">&loz;</span><span class="ajz">قُلتُ لا بُدَّ أَن تُرى سَكرانا</span></div>
+<div class="bayt"><span class="sadr">إِنَّ لي حاجَةٌ إِلَيكَ إِذا نِم</span><span class="sep">&loz;</span><span class="ajz">تَ فَإِن شِئتَ فَاِقضِها يَقظانا</span></div>
+<div class="bayt"><span class="sadr">فَتَلَكّا تَلَكِّياً في اِنخِناثٍ</span><span class="sep">&loz;</span><span class="ajz">ثُمَّ أَصغى لِما أَرَدتُ فَكانا</span></div></div>
+                    </div>
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">After (final)</span><span class="lang-ar">بعد (نهائي)</span></div>
+                        <div class="poem-text final-text"><div class="bayt"><span class="sadr">قَدَْ هَجَرْتُ النَّدِيمَ وَالنُدمانا</span><span class="sep">&loz;</span><span class="ajz">وَتَمَتَّعْتُ مَا كَفَانِي زَمَانَا</span></div>
+<div class="bayt"><span class="sadr">وَأَبَى لِي خَلِيفَةُ اللهِ إِلَّا</span><span class="sep">&loz;</span><span class="ajz">عَزَفَ نَفْسِي فَقَدُْ عَزَفْتُ أوَانًا</span></div>
+<div class="bayt"><span class="sadr">وَلَقَدَْ طَالَ مَا أَبَيْتُ عَلَّيْهِ</span><span class="sep">&loz;</span><span class="ajz">فِي أُمُورٍ خَلَعْتُ فِيهَا العِنانا</span></div>
+<div class="bayt"><span class="sadr">وَغَزَالٍ عَاطَيَتُهُ الرَّاحَ حَتَّى</span><span class="sep">&loz;</span><span class="ajz">فَتَّرَتْ مِنْهُ مُقِلَّةً وَلِسَانًا</span></div>
+<div class="bayt"><span class="sadr">قَالَ لَا تُسْكِرَنَّنِي بِحَيَاتِي</span><span class="sep">&loz;</span><span class="ajz">قُلْتُ لَا بُدَّ أَن تُرَى سَكْرَاُنَا</span></div>
+<div class="bayt"><span class="sadr">إِنَّ لِي حَاجَةٌ إِلَيكَ إِذَا نِمْ</span><span class="sep">&loz;</span><span class="ajz">تَ فَإِن شِئْتَ فَاِقْضِهَا يَقِظَانَا</span></div>
+<div class="bayt"><span class="sadr">فَتَلَكَّا تَلَكِّياً فِي اِنخِناثٍ</span><span class="sep">&loz;</span><span class="ajz">ثُمَّ أَصْغَى لِمَا أَرَدْتُ فَكَّانَا</span></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sample-card">
+                <div class="sample-header">
+                    <strong>قد رفعنا البزاق مذ شهرين</strong>
+                    <span class="poet-tag">أبو نواس</span>
+                </div>
+                <div class="sample-compare">
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">Before (raw)</span><span class="lang-ar">قبل (خام)</span></div>
+                        <div class="poem-text raw-text"><div class="bayt"><span class="sadr">قَد رَفَعنا البِزاقَ مُذ شَهرَينِ</span><span class="sep">&loz;</span><span class="ajz">إِذ كَفانا نَداوَةَ الخِصيَينِ</span></div>
+<div class="bayt"><span class="sadr">اِبنُ عَمِّ النَبِيِّ هَذا إِمامٌ</span><span class="sep">&loz;</span><span class="ajz">لا عَدِمناهُ قُدوَةَ الثَقَلَينِ</span></div>
+<div class="bayt"><span class="sadr">يا بُغاةَ الخِصيانِ لا تَحذَروهُ</span><span class="sep">&loz;</span><span class="ajz">وَاِعفِصوهُم بَقِيَّةَ العَصرَينِ</span></div></div>
+                    </div>
+                    <div class="sample-col">
+                        <div class="col-label"><span class="lang-en">After (final)</span><span class="lang-ar">بعد (نهائي)</span></div>
+                        <div class="poem-text final-text"><div class="bayt"><span class="sadr">قَدَْ رَفَعَنَا البِزاقَ مُذَ شَهْرَيْنِ</span><span class="sep">&loz;</span><span class="ajz">إِذ كَفَانَا نَداوَةَ الخِصيَينِ</span></div>
+<div class="bayt"><span class="sadr">اِبْنُ عَمِّ النَّبِيِّ هَذَّا إمَامٌ</span><span class="sep">&loz;</span><span class="ajz">لَا عَدِمْنَاهُ قُدْوَةَ الثَّقَلَيْنِ</span></div>
+<div class="bayt"><span class="sadr">يَا بُغَاةَ الْخِصْيَانِ لَا تَحْذَرُوهُ</span><span class="sep">&loz;</span><span class="ajz">وَاِعْفِصُوهُمْ بَقِيَّةَ الْعَصْرَيْنِ</span></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <footer>
+        <span class="lang-en">Tashkeel Pipeline Report — Mishkal NLP + PyArabic + 5 agent-learned post-processing rules</span><span class="lang-ar">تقرير مسار التشكيل — Mishkal للمعالجة اللغوية + PyArabic + 5 قواعد معالجة لاحقة مكتسَبة من الوكيل</span>
+        <br><span class="lang-en">Pipeline: Export → Diacritize (4 workers) → Audit → Arabic Review (204 poems) → Post-Process (8 rules) → Upload (6 parallel connections)</span><span class="lang-ar">المسار: تصدير ← تشكيل (4 عمّال) ← تدقيق ← مراجعة عربية (204 قصيدة) ← معالجة لاحقة (8 قواعد) ← رفع (6 اتصالات متوازية)</span>
+    </footer>
+</div>
+<script>
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        document.body.className = 'lang-mode-' + lang;
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        // Adjust html dir for AR mode
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+    });
+});
+</script>
+</body>
+</html>

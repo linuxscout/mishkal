@@ -1,0 +1,1733 @@
+{
+  "summary": {
+    "avg_naturalness": 3.75,
+    "avg_i3rab": 2.97,
+    "avg_overall": 3.39,
+    "total_reviewed": 204,
+    "rhyme_correct_pct": 90.2
+  },
+  "patterns": [
+    {
+      "name": "spurious_shadda_on_function_words",
+      "description": "Mishkal adds spurious shadda to common function words that should never have shadda: على (11.9%), لم (9.6%), قد (9.8%), كما (12.8%), حين (20%). For example, عَلَّى instead of عَلَى, لَمَّ instead of لَمْ, قَدٍّ instead of قَدْ.",
+      "frequency": "Affects ~14% of poems (29/204). Most affected words: على (23 instances), لم (11), قد (9), كما (5), حين (4).",
+      "severity": "high",
+      "fixable": true,
+      "fix_description": "For each function word (على, لم, قد, كما, حين, بعد), strip any shadda from the word when it appears as a standalone token. Use regex: replace عَلَّى with عَلَى, لَمَّ (followed by space) with لَمْ, etc."
+    },
+    {
+      "name": "ya_possessive_to_nisba_corruption",
+      "description": "Mishkal converts first-person possessive ya suffix (ي) to a nisba-like doubled ya (يّ) with shadda on the ya, often adding tanween. Examples: قَلْبِيٌّ instead of قَلْبِي, مِنِّيُّ instead of مِنِّي, نَفْسِيٌّ instead of نَفْسِي, لَعَمْرِيٍّ instead of لَعَمْرِي.",
+      "frequency": "Affects 55.4% of poems (113/204). ~493 individual word occurrences across all poems. Most affected: قلبي (16), علي (18), مني (12), أني (8), يدي (6), نفسي (5).",
+      "severity": "high",
+      "fixable": true,
+      "fix_description": "For words ending in ي preceded by shadda (يّ), where the base word is a common noun/pronoun + possessive ya pattern, remove the shadda and any trailing tanween. Match pattern: [Arabic]يّ[tanween]? at word boundary -> [Arabic]ي. Must exclude legitimate nisba adjectives."
+    },
+    {
+      "name": "impossible_hamza_kasra_sukun",
+      "description": "Mishkal produces an impossible combination of kasra followed by sukun on hamza-alef (إِْ or أَْ). This is phonologically impossible and creates garbled text. Affects words like إذا, إن, إلا, أن, أنا.",
+      "frequency": "Affects 22.1% of poems (45/204). 113 total occurrences. Most common: إذا (28), إن (23), أن (12), إلا (9).",
+      "severity": "high",
+      "fixable": true,
+      "fix_description": "Remove the sukun that follows kasra on hamza letters. Regex: replace إِْ with إِ and أَْ with أَ. The sukun after a short vowel on these letters is always an error."
+    },
+    {
+      "name": "poem_truncation",
+      "description": "Mishkal truncates long poems, cutting off content beyond approximately 1400-1450 bare characters. The diacritized output loses the ending verses of the poem entirely.",
+      "frequency": "Affects 10.8% of poems (22/204). Lost content ranges from 161 to 1018 characters.",
+      "severity": "high",
+      "fixable": false,
+      "fix_description": "Not fixable by postprocessing. Requires re-diacritizing truncated poems with smaller chunks fed to Mishkal, or increasing Mishkal's character limit. Could split long poems at hemistich boundaries and process in segments."
+    },
+    {
+      "name": "spurious_shadda_general",
+      "description": "Mishkal roughly doubles the number of shaddas compared to the original text. Total shaddas go from 2930 in raw to 5856 in diacritized (~50% are spurious). Affected common words include: الدهر, الناس, أن, إلا, لما, لقد, كنت, الزمان, الذي.",
+      "frequency": "Affects ~35% of poems (71/204 have dramatically more shaddas). Approximately 2926 spurious shaddas total.",
+      "severity": "high",
+      "fixable": false,
+      "fix_description": "Partially fixable for known patterns (function words). General case requires comparing with original text and removing shaddas that were not in the raw input, but this risks removing legitimate corrections. Best approached by maintaining a whitelist of words that legitimately gain shadda during diacritization."
+    },
+    {
+      "name": "missing_hemistich_final_tashkeel",
+      "description": "37.8% of hemistich endings lack a final diacritical mark on the last Arabic letter. This is critical for poetry as the qafiya (rhyme) and i3rab depend on correct final vowels.",
+      "frequency": "1889 out of 5003 hemistichs (37.8%) have missing final marks.",
+      "severity": "medium",
+      "fixable": true,
+      "fix_description": "Already partially handled by the existing fix_line_ending_tashkeel_parallel function. Can be improved by using rhyme scheme detection to infer the correct final vowel from other hemistichs in the same poem."
+    },
+    {
+      "name": "alif_lam_article_corruption",
+      "description": "The definite article ال gets corrupted to اُلْ (with damma on alef and sukun on lam) when preceded by wa (و) or other conjunctions. Example: واُلْصُفَا instead of وَالصَّفَا.",
+      "frequency": "20 occurrences across 5 poems.",
+      "severity": "medium",
+      "fixable": true,
+      "fix_description": "Replace اُلْ preceded by وَ or فَ with الْ (restoring proper alif-lam article form). Regex: (وَ|فَ)اُلْ -> \\1الْ"
+    },
+    {
+      "name": "sun_letter_assimilation_missing",
+      "description": "In some cases, sun letter assimilation (idgham shamsi) is not applied when the definite article ال is followed by a sun letter. The lam should assimilate and the sun letter should have shadda, but some instances have الْ + sun letter without shadda.",
+      "frequency": "231 missing assimilations detected out of 1571 sun letter article occurrences (14.7%).",
+      "severity": "medium",
+      "fixable": true,
+      "fix_description": "When الْ is followed by a sun letter (ت ث د ذ ر ز س ش ص ض ط ظ ن ل), remove sukun from lam and add shadda to the sun letter. Pattern: الْ[sun_letter] -> ال[sun_letter]ّ"
+    },
+    {
+      "name": "baad_verb_preposition_confusion",
+      "description": "Mishkal diacritizes the preposition بَعْدَ (after) as the verb بَعُدَ (became distant) in some contexts where it is clearly a preposition.",
+      "frequency": "7 occurrences across the sample.",
+      "severity": "low",
+      "fixable": false,
+      "fix_description": "Context-dependent disambiguation. Would require sentence-level analysis to determine if بعد is used as a preposition (followed by noun/pronoun) or as a verb."
+    },
+    {
+      "name": "letter_corruption_non_truncation",
+      "description": "Some poems have character-level differences between raw and diacritized text that are not due to truncation. The bare (undiacritized) text differs, suggesting Mishkal altered, added, or removed characters.",
+      "frequency": "35 poems (17.2%) have some form of bare text mismatch.",
+      "severity": "medium",
+      "fixable": false,
+      "fix_description": "Would require character-level alignment between raw and diacritized text to detect and revert letter changes. Complex to automate reliably."
+    },
+    {
+      "name": "shadda_tanween_word_ending",
+      "description": "Some words incorrectly end with both shadda and tanween (e.g., قَلْبِيٌّ, لَعَمْرِيٍّ). This is usually a byproduct of the ya-nisba corruption pattern but also affects other words like لَقَدٍّ, تَعَدٍّ.",
+      "frequency": "Appears in ~20% of poems. Most affected words: قلبي, لقد, من, لعمري, يدي, نفسي.",
+      "severity": "medium",
+      "fixable": true,
+      "fix_description": "For words that should not end with shadda+tanween, strip the trailing shadda+tanween combination. This overlaps with the ya-nisba fix but also covers non-ya words like لقد, تعد, etc."
+    }
+  ],
+  "per_poem_scores": [
+    {
+      "id": 930,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x11"
+    },
+    {
+      "id": 992,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 1604,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x2"
+    },
+    {
+      "id": 2014,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 3808,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "spurious-shadda-func x2"
+    },
+    {
+      "id": 4011,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 4262,
+      "naturalness": 2,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "under-diacritized (0.33)"
+    },
+    {
+      "id": 4403,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 4643,
+      "naturalness": 4,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "spurious-shadda-func x3; ya-nisba x6"
+    },
+    {
+      "id": 4853,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x4"
+    },
+    {
+      "id": 4966,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x2"
+    },
+    {
+      "id": 5064,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": false,
+      "overall": 3,
+      "notes": "hamza+sukun x2; ya-nisba x2; inconsistent rhyme"
+    },
+    {
+      "id": 5228,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x1; spurious-shadda-func x2"
+    },
+    {
+      "id": 5405,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 5597,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 6083,
+      "naturalness": 2,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "under-diacritized (0.32)"
+    },
+    {
+      "id": 6116,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 7136,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 8094,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 9205,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 9253,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 10276,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "letter corruption"
+    },
+    {
+      "id": 10633,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x4"
+    },
+    {
+      "id": 10954,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x3"
+    },
+    {
+      "id": 11298,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x1"
+    },
+    {
+      "id": 11340,
+      "naturalness": 3,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "low density (0.60)"
+    },
+    {
+      "id": 11599,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 13235,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x22"
+    },
+    {
+      "id": 14753,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x6"
+    },
+    {
+      "id": 14793,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x1"
+    },
+    {
+      "id": 15069,
+      "naturalness": 2,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "under-diacritized (0.49)"
+    },
+    {
+      "id": 15163,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "spurious-shadda-func x1"
+    },
+    {
+      "id": 15496,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 16562,
+      "naturalness": 4,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "letter corruption; hamza+sukun x4; ya-nisba x6"
+    },
+    {
+      "id": 16611,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x1; spurious-shadda-func x1; ya-nisba x1"
+    },
+    {
+      "id": 17395,
+      "naturalness": 3,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "low density (0.62)"
+    },
+    {
+      "id": 17416,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": false,
+      "overall": 3,
+      "notes": "inconsistent rhyme"
+    },
+    {
+      "id": 17988,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": false,
+      "overall": 3,
+      "notes": "ya-nisba x1; inconsistent rhyme"
+    },
+    {
+      "id": 18282,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 18359,
+      "naturalness": 4,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "spurious-shadda-func x1; ya-nisba x4"
+    },
+    {
+      "id": 20007,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 20416,
+      "naturalness": 4,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x3; spurious-shadda-func x3; ya-nisba x2"
+    },
+    {
+      "id": 20567,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x1; spurious-shadda-func x2; ya-nisba x1"
+    },
+    {
+      "id": 20756,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x2"
+    },
+    {
+      "id": 21240,
+      "naturalness": 4,
+      "i3rab": 1,
+      "rhyme": false,
+      "overall": 2,
+      "notes": "spurious-shadda-func x1; ya-nisba x10; inconsistent rhyme"
+    },
+    {
+      "id": 21345,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": false,
+      "overall": 3,
+      "notes": "ya-nisba x1; inconsistent rhyme"
+    },
+    {
+      "id": 21828,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x7"
+    },
+    {
+      "id": 22006,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 22188,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x2"
+    },
+    {
+      "id": 22338,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x8"
+    },
+    {
+      "id": 22388,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x7"
+    },
+    {
+      "id": 22602,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "letter corruption"
+    },
+    {
+      "id": 23520,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x6"
+    },
+    {
+      "id": 24283,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 24667,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 26343,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 26910,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": false,
+      "overall": 3,
+      "notes": "hamza+sukun x2; inconsistent rhyme"
+    },
+    {
+      "id": 27060,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 27104,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x4"
+    },
+    {
+      "id": 28268,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 2,
+      "notes": "truncated; spurious-shadda-func x1; ya-nisba x3"
+    },
+    {
+      "id": 30322,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x1"
+    },
+    {
+      "id": 31106,
+      "naturalness": 4,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x6; spurious-shadda-func x1; ya-nisba x2"
+    },
+    {
+      "id": 31109,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "letter corruption; ya-nisba x10"
+    },
+    {
+      "id": 31749,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "letter corruption"
+    },
+    {
+      "id": 31904,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 32387,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x2"
+    },
+    {
+      "id": 32844,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 33029,
+      "naturalness": 4,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x1; spurious-shadda-func x1; ya-nisba x6"
+    },
+    {
+      "id": 33535,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 34789,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x4"
+    },
+    {
+      "id": 35548,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "letter corruption; ya-nisba x1"
+    },
+    {
+      "id": 36197,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": false,
+      "overall": 1,
+      "notes": "truncated; ya-nisba x9; inconsistent rhyme"
+    },
+    {
+      "id": 36226,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x8"
+    },
+    {
+      "id": 36398,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x4"
+    },
+    {
+      "id": 36536,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": false,
+      "overall": 1,
+      "notes": "truncated; ya-nisba x6; inconsistent rhyme"
+    },
+    {
+      "id": 36568,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x2"
+    },
+    {
+      "id": 37133,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x6"
+    },
+    {
+      "id": 37791,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "letter corruption; ya-nisba x13"
+    },
+    {
+      "id": 39196,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 40051,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 40441,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x7"
+    },
+    {
+      "id": 41134,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x5"
+    },
+    {
+      "id": 41701,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "spurious-shadda-func x1; ya-nisba x3"
+    },
+    {
+      "id": 41720,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x2; ya-nisba x3"
+    },
+    {
+      "id": 42481,
+      "naturalness": 3,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "low density (0.55)"
+    },
+    {
+      "id": 42812,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 43041,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 43192,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x3"
+    },
+    {
+      "id": 43460,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 44012,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x1"
+    },
+    {
+      "id": 44198,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "letter corruption; ya-nisba x6"
+    },
+    {
+      "id": 44258,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x4"
+    },
+    {
+      "id": 44801,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x4; ya-nisba x1"
+    },
+    {
+      "id": 44921,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 44976,
+      "naturalness": 3,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "low density (0.59)"
+    },
+    {
+      "id": 45053,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 45687,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x5; spurious-shadda-func x2"
+    },
+    {
+      "id": 46178,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x3"
+    },
+    {
+      "id": 46472,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x2"
+    },
+    {
+      "id": 47414,
+      "naturalness": 4,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x3; spurious-shadda-func x5; ya-nisba x2"
+    },
+    {
+      "id": 47549,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x17"
+    },
+    {
+      "id": 47620,
+      "naturalness": 3,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x2; spurious-shadda-func x2; ya-nisba x4"
+    },
+    {
+      "id": 47640,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 48580,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x4"
+    },
+    {
+      "id": 48867,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "letter corruption; ya-nisba x6"
+    },
+    {
+      "id": 49104,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 49402,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 49566,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "spurious-shadda-func x1"
+    },
+    {
+      "id": 50083,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 50172,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": false,
+      "overall": 1,
+      "notes": "truncated; ya-nisba x12; inconsistent rhyme"
+    },
+    {
+      "id": 50173,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": false,
+      "overall": 1,
+      "notes": "truncated; ya-nisba x6; inconsistent rhyme"
+    },
+    {
+      "id": 51233,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x1; ya-nisba x2"
+    },
+    {
+      "id": 51425,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x3; spurious-shadda-func x1"
+    },
+    {
+      "id": 51972,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x1; ya-nisba x1"
+    },
+    {
+      "id": 52299,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x14"
+    },
+    {
+      "id": 52624,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x6"
+    },
+    {
+      "id": 52944,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x4"
+    },
+    {
+      "id": 53557,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 53661,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x6"
+    },
+    {
+      "id": 53801,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 53944,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x1; spurious-shadda-func x1"
+    },
+    {
+      "id": 54013,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 54051,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 56398,
+      "naturalness": 4,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x5; spurious-shadda-func x3; ya-nisba x2"
+    },
+    {
+      "id": 57072,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x3; ya-nisba x1"
+    },
+    {
+      "id": 58184,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 59069,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 59505,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x2"
+    },
+    {
+      "id": 59908,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 60057,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x1"
+    },
+    {
+      "id": 60437,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x2"
+    },
+    {
+      "id": 60544,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 60669,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x1"
+    },
+    {
+      "id": 60682,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": false,
+      "overall": 3,
+      "notes": "letter corruption; ya-nisba x10; inconsistent rhyme"
+    },
+    {
+      "id": 60937,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": false,
+      "overall": 1,
+      "notes": "truncated; ya-nisba x8; inconsistent rhyme"
+    },
+    {
+      "id": 61258,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": false,
+      "overall": 1,
+      "notes": "truncated; ya-nisba x12; inconsistent rhyme"
+    },
+    {
+      "id": 61436,
+      "naturalness": 4,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x9; spurious-shadda-func x1; ya-nisba x1"
+    },
+    {
+      "id": 61896,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x4"
+    },
+    {
+      "id": 61918,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x5"
+    },
+    {
+      "id": 62012,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x1"
+    },
+    {
+      "id": 62108,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x6"
+    },
+    {
+      "id": 62331,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x6"
+    },
+    {
+      "id": 62834,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x1; spurious-shadda-func x1"
+    },
+    {
+      "id": 62926,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x2; ya-nisba x1"
+    },
+    {
+      "id": 63003,
+      "naturalness": 4,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x8; spurious-shadda-func x1; ya-nisba x6"
+    },
+    {
+      "id": 63391,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x2"
+    },
+    {
+      "id": 63392,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 63395,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "spurious-shadda-func x1"
+    },
+    {
+      "id": 63396,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 63398,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x1"
+    },
+    {
+      "id": 63468,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x2"
+    },
+    {
+      "id": 63676,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x3"
+    },
+    {
+      "id": 63702,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "letter corruption; ya-nisba x1"
+    },
+    {
+      "id": 63820,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x9"
+    },
+    {
+      "id": 63961,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x1; spurious-shadda-func x1"
+    },
+    {
+      "id": 65790,
+      "naturalness": 3,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x4; spurious-shadda-func x8; ya-nisba x7"
+    },
+    {
+      "id": 66582,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x2"
+    },
+    {
+      "id": 67145,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": false,
+      "overall": 3,
+      "notes": "ya-nisba x8; inconsistent rhyme"
+    },
+    {
+      "id": 67271,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 67383,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 67472,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x1"
+    },
+    {
+      "id": 67555,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 68439,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 69339,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 71572,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "letter corruption"
+    },
+    {
+      "id": 71651,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x2"
+    },
+    {
+      "id": 71980,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 71981,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 72732,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": false,
+      "overall": 3,
+      "notes": "ya-nisba x4; inconsistent rhyme"
+    },
+    {
+      "id": 72760,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 74352,
+      "naturalness": 4,
+      "i3rab": 1,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "spurious-shadda-func x1; ya-nisba x5"
+    },
+    {
+      "id": 74668,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": false,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x2; inconsistent rhyme"
+    },
+    {
+      "id": 74694,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 75043,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x4"
+    },
+    {
+      "id": 75048,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x1"
+    },
+    {
+      "id": 75185,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 75610,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x2"
+    },
+    {
+      "id": 75932,
+      "naturalness": 2,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "under-diacritized (0.41)"
+    },
+    {
+      "id": 76346,
+      "naturalness": 2,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "under-diacritized (0.47)"
+    },
+    {
+      "id": 76386,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 76402,
+      "naturalness": 2,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "under-diacritized (0.42)"
+    },
+    {
+      "id": 76433,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 76749,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x3"
+    },
+    {
+      "id": 77403,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x7"
+    },
+    {
+      "id": 78020,
+      "naturalness": 3,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x5"
+    },
+    {
+      "id": 78291,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x2"
+    },
+    {
+      "id": 78768,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 79384,
+      "naturalness": 3,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "low density (0.62)"
+    },
+    {
+      "id": 79496,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": false,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x1; inconsistent rhyme"
+    },
+    {
+      "id": 79937,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x2; spurious-shadda-func x2; ya-nisba x2"
+    },
+    {
+      "id": 80013,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "hamza+sukun x4; spurious-shadda-func x1"
+    },
+    {
+      "id": 80261,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 81008,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 81292,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 82113,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "ya-nisba x1"
+    },
+    {
+      "id": 82337,
+      "naturalness": 3,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "truncated"
+    },
+    {
+      "id": 82410,
+      "naturalness": 3,
+      "i3rab": 3,
+      "rhyme": false,
+      "overall": 2,
+      "notes": "truncated; ya-nisba x1; inconsistent rhyme"
+    },
+    {
+      "id": 82501,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x8"
+    },
+    {
+      "id": 82730,
+      "naturalness": 4,
+      "i3rab": 4,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "acceptable"
+    },
+    {
+      "id": 82792,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": true,
+      "overall": 4,
+      "notes": "hamza+sukun x4"
+    },
+    {
+      "id": 82975,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": false,
+      "overall": 3,
+      "notes": "ya-nisba x1; inconsistent rhyme"
+    },
+    {
+      "id": 84633,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "ya-nisba x4"
+    },
+    {
+      "id": 85336,
+      "naturalness": 4,
+      "i3rab": 2,
+      "rhyme": true,
+      "overall": 3,
+      "notes": "letter corruption; ya-nisba x8"
+    },
+    {
+      "id": 85344,
+      "naturalness": 4,
+      "i3rab": 3,
+      "rhyme": false,
+      "overall": 3,
+      "notes": "ya-nisba x3; inconsistent rhyme"
+    }
+  ]
+}
