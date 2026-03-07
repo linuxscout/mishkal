@@ -39,32 +39,32 @@ def vocalize_foreign(word):
     @return: the vocalized word
     @rtype: unicode
     """
-    marks =[]
+    marks = []
     previous = ""
     for c in word:
         if previous and not previous == araby.ALEF:
-            #--------- add Harakat before letter
-            if  c in (araby.ALEF, araby.ALEF_MAKSURA, araby.TEH_MARBUTA,):
+            #--------- adjust Harakat of previous letter based on current
+            if c in (araby.ALEF, araby.ALEF_MAKSURA, araby.TEH_MARBUTA,):
                 marks.pop()
                 marks.append(araby.FATHA)
             elif c in (araby.WAW, araby.WAW_HAMZA):
                 marks.pop()
                 marks.append(araby.DAMMA)
-            elif  c in( araby.YEH , araby.YEH_HAMZA ):
+            elif c in (araby.YEH, araby.YEH_HAMZA):
                 marks.pop()
                 marks.append(araby.KASRA)
-        #--------- add Harakat before letter
-        if c in (araby.ALEF_HAMZA_BELOW):
-                marks.append(araby.KASRA)
+        #--------- add Harakat for current letter
+        if c in (araby.ALEF_HAMZA_BELOW,):
+            marks.append(araby.KASRA)
         elif previous in (araby.ALEF_HAMZA_BELOW, araby.ALEF_HAMZA_ABOVE):
-                marks.append(araby.SUKUN)
+            marks.append(araby.SUKUN)
         elif previous in (araby.ALEF, araby.YEH, araby.WAW):
-                if c == araby.YEH_HAMZA : 
-                    marks.append(araby.KASRA)
-        else:
+            if c == araby.YEH_HAMZA:
+                marks.append(araby.KASRA)
+            else:
                 marks.append(araby.NOT_DEF_HARAKA)
-        previous = c        
-    #print len(word) ,len(marks)
-    #print marks
+        else:
+            marks.append(araby.NOT_DEF_HARAKA)
+        previous = c
     return araby.joint(word, u"".join(marks))
           
