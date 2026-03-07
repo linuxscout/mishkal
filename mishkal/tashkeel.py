@@ -545,6 +545,12 @@ class TashkeelClass:
         text = re.sub(u'([\u0621\u0623\u0625\u0626])([\u064E-\u0650])\u0652',
                        u'\\1\\2', text)
 
+        # correct spurious shadda on function words that never take it
+        # عَلَّى does not exist; the preposition is always عَلَى
+        text = re.sub(u'عَلَّى', u'عَلَى', text)
+        # إِلَّى does not exist; the preposition is always إِلَى
+        text = re.sub(u'إِلَّى', u'إِلَى', text)
+
         return text
 
     def ajust_vocalized_suggestion(self, _suggest_list):
