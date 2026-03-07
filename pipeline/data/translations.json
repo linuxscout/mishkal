@@ -1,0 +1,451 @@
+{
+  "page_title": {
+    "en": "Tashkeel Pipeline Report",
+    "ar": "تقرير مسار التشكيل (Tashkeel Pipeline)"
+  },
+  "subtitle": {
+    "en": "Arabic Diacritization Analysis — Mishkal NLP + Post-Processing",
+    "ar": "تحليل التشكيل العربي — Mishkal للمعالجة اللغوية + المعالجة اللاحقة"
+  },
+  "timestamp_prefix": {
+    "en": "Generated",
+    "ar": "أُنشئ بتاريخ"
+  },
+
+  "hero_poems_processed": {
+    "en": "Poems Processed",
+    "ar": "القصائد المعالَجة"
+  },
+  "hero_quality_score": {
+    "en": "Quality Score",
+    "ar": "درجة الجودة"
+  },
+  "hero_line_end_coverage": {
+    "en": "Line-End Coverage",
+    "ar": "تغطية أواخر الأسطر"
+  },
+  "hero_mark_density": {
+    "en": "Mark Density",
+    "ar": "كثافة العلامات"
+  },
+  "hero_rhyme_correct": {
+    "en": "Rhyme Correct",
+    "ar": "صحة القافية"
+  },
+  "hero_fix_rules_applied": {
+    "en": "Fix Rules Applied",
+    "ar": "قواعد الإصلاح المطبَّقة"
+  },
+
+  "section_pipeline": {
+    "en": "Pipeline Execution",
+    "ar": "تنفيذ مسار المعالجة (Pipeline)"
+  },
+  "pipeline_export": {
+    "en": "Export",
+    "ar": "تصدير"
+  },
+  "pipeline_export_detail": {
+    "en": "84,329 raw",
+    "ar": "84,329 خام"
+  },
+  "pipeline_diacritize": {
+    "en": "Diacritize",
+    "ar": "تشكيل"
+  },
+  "pipeline_audit": {
+    "en": "Audit",
+    "ar": "تدقيق"
+  },
+  "pipeline_audit_detail": {
+    "en": "11 patterns",
+    "ar": "11 نمطًا"
+  },
+  "pipeline_review": {
+    "en": "Review",
+    "ar": "مراجعة"
+  },
+  "pipeline_review_detail": {
+    "en": "204 poems",
+    "ar": "204 قصيدة"
+  },
+  "pipeline_postprocess": {
+    "en": "Post-Process",
+    "ar": "معالجة لاحقة"
+  },
+  "pipeline_postprocess_detail": {
+    "en": "128s / 8 rules",
+    "ar": "128 ثانية / 8 قواعد"
+  },
+  "pipeline_upload": {
+    "en": "Upload",
+    "ar": "رفع"
+  },
+  "pipeline_upload_detail": {
+    "en": "83,377 rows",
+    "ar": "83,377 سجلًّا"
+  },
+
+  "section_quality_review": {
+    "en": "Arabic Quality Review (204 poems)",
+    "ar": "مراجعة جودة التشكيل العربي (204 قصيدة)"
+  },
+  "quality_naturalness": {
+    "en": "Naturalness",
+    "ar": "الطبيعية"
+  },
+  "quality_grammar": {
+    "en": "Grammar",
+    "ar": "القواعد النحوية"
+  },
+  "quality_overall_score_distribution": {
+    "en": "Overall Score Distribution",
+    "ar": "توزيع الدرجات الإجمالي"
+  },
+
+  "section_issue_frequency": {
+    "en": "Issue Frequency (in 204-poem sample)",
+    "ar": "تكرار المشكلات (في عيّنة من 204 قصيدة)"
+  },
+  "issue_ya_nisba": {
+    "en": "ya-nisba",
+    "ar": "ياء النسبة (ya-nisba)"
+  },
+  "issue_hamza_sukun": {
+    "en": "hamza+sukun",
+    "ar": "همزة + سكون (hamza+sukun)"
+  },
+  "issue_acceptable": {
+    "en": "acceptable",
+    "ar": "مقبول"
+  },
+  "issue_spurious_shadda": {
+    "en": "spurious-shadda",
+    "ar": "شدّة زائدة (spurious-shadda)"
+  },
+  "issue_truncated": {
+    "en": "truncated",
+    "ar": "بتر النص (truncated)"
+  },
+  "issue_inconsistent_rhyme": {
+    "en": "inconsistent-rhyme",
+    "ar": "قافية غير متّسقة (inconsistent-rhyme)"
+  },
+  "issue_letter_corruption": {
+    "en": "letter-corruption",
+    "ar": "تلف الحروف (letter-corruption)"
+  },
+  "issue_under_diacritized": {
+    "en": "under-diacritized",
+    "ar": "نقص في التشكيل (under-diacritized)"
+  },
+  "issue_low_density": {
+    "en": "low-density",
+    "ar": "كثافة منخفضة (low-density)"
+  },
+
+  "section_poem_length_distribution": {
+    "en": "Poem Length Distribution",
+    "ar": "توزيع أطوال القصائد"
+  },
+  "bucket_tiny": {
+    "en": "tiny (0-500)",
+    "ar": "صغير جدًّا (0–500)"
+  },
+  "bucket_small": {
+    "en": "small (500-1K)",
+    "ar": "صغير (500–1 ألف)"
+  },
+  "bucket_medium": {
+    "en": "medium (1K-2K)",
+    "ar": "متوسط (1–2 ألف)"
+  },
+  "bucket_large": {
+    "en": "large (2K-3.5K)",
+    "ar": "كبير (2–3.5 ألف)"
+  },
+  "bucket_xlarge": {
+    "en": "xlarge (3.5K+)",
+    "ar": "كبير جدًّا (3.5 ألف+)"
+  },
+
+  "section_postprocessing_rules": {
+    "en": "Post-Processing Rules Impact",
+    "ar": "أثر قواعد المعالجة اللاحقة"
+  },
+  "postprocessing_description": {
+    "en": "Poems fixed per rule out of 83,377 total. 3 built-in rules + 5 learned from Arabic quality review agent.",
+    "ar": "القصائد المُصلَحة لكل قاعدة من أصل 83,377 قصيدة. 3 قواعد مدمَجة + 5 مكتسَبة من وكيل مراجعة الجودة العربية."
+  },
+  "rule_normalize_whitespace": {
+    "en": "normalize whitespace",
+    "ar": "تسوية المسافات البيضاء"
+  },
+  "rule_deduplicate_marks": {
+    "en": "deduplicate marks",
+    "ar": "إزالة العلامات المكرّرة"
+  },
+  "rule_impossible_hamza_sukun": {
+    "en": "impossible hamza sukun",
+    "ar": "همزة وسكون مستحيلان"
+  },
+  "rule_spurious_shadda_function_words": {
+    "en": "spurious shadda function words",
+    "ar": "شدّة زائدة على أدوات الربط"
+  },
+  "rule_ya_possessive_nisba": {
+    "en": "ya possessive nisba",
+    "ar": "ياء الملكية والنسبة"
+  },
+  "rule_alif_lam_article": {
+    "en": "alif lam article",
+    "ar": "أداة التعريف (الـ)"
+  },
+  "rule_sun_letter_assimilation": {
+    "en": "sun letter assimilation",
+    "ar": "إدغام الحروف الشمسية"
+  },
+  "rule_line_ending_tashkeel": {
+    "en": "line ending tashkeel",
+    "ar": "تشكيل أواخر الأسطر"
+  },
+  "badge_builtin": {
+    "en": "built-in",
+    "ar": "مدمَج"
+  },
+  "badge_learned": {
+    "en": "learned",
+    "ar": "مكتسَب"
+  },
+
+  "section_audit_results": {
+    "en": "Automated Audit Results",
+    "ar": "نتائج التدقيق الآلي"
+  },
+  "table_header_issue": {
+    "en": "Issue",
+    "ar": "المشكلة"
+  },
+  "table_header_poems": {
+    "en": "Poems",
+    "ar": "القصائد"
+  },
+  "table_header_percent_of_total": {
+    "en": "% of Total",
+    "ar": "% من الإجمالي"
+  },
+  "audit_content_mismatch": {
+    "en": "content mismatch",
+    "ar": "عدم تطابق المحتوى"
+  },
+  "audit_line_ending_tashkeel": {
+    "en": "line ending tashkeel",
+    "ar": "تشكيل أواخر الأسطر"
+  },
+  "audit_empty_hemistich": {
+    "en": "empty hemistich",
+    "ar": "شطر فارغ"
+  },
+  "audit_zero_tashkeel_hemistichs": {
+    "en": "zero tashkeel hemistichs",
+    "ar": "أشطر بلا تشكيل"
+  },
+  "audit_imbalanced_hemistichs": {
+    "en": "imbalanced hemistichs",
+    "ar": "أشطر غير متوازنة"
+  },
+  "audit_duplicate_marks": {
+    "en": "duplicate marks",
+    "ar": "علامات مكرّرة"
+  },
+
+  "section_error_patterns": {
+    "en": "Identified Error Patterns (from Arabic Review)",
+    "ar": "أنماط الأخطاء المكتشَفة (من المراجعة العربية)"
+  },
+  "table_header_pattern": {
+    "en": "Pattern",
+    "ar": "النمط"
+  },
+  "table_header_severity": {
+    "en": "Severity",
+    "ar": "الخطورة"
+  },
+  "table_header_status": {
+    "en": "Status",
+    "ar": "الحالة"
+  },
+  "table_header_frequency": {
+    "en": "Frequency",
+    "ar": "التكرار"
+  },
+  "severity_high": {
+    "en": "high",
+    "ar": "مرتفعة"
+  },
+  "severity_medium": {
+    "en": "medium",
+    "ar": "متوسطة"
+  },
+  "severity_low": {
+    "en": "low",
+    "ar": "منخفضة"
+  },
+  "badge_fixable": {
+    "en": "Fixable",
+    "ar": "قابل للإصلاح"
+  },
+  "badge_not_fixable": {
+    "en": "Not fixable",
+    "ar": "غير قابل للإصلاح"
+  },
+
+  "pattern_spurious_shadda_on_function_words": {
+    "en": "spurious_shadda_on_function_words",
+    "ar": "شدّة زائدة على أدوات الربط (spurious_shadda_on_function_words)"
+  },
+  "pattern_ya_possessive_to_nisba_corruption": {
+    "en": "ya_possessive_to_nisba_corruption",
+    "ar": "تلف ياء الملكية إلى ياء النسبة (ya_possessive_to_nisba_corruption)"
+  },
+  "pattern_impossible_hamza_kasra_sukun": {
+    "en": "impossible_hamza_kasra_sukun",
+    "ar": "همزة وكسرة وسكون مستحيلة (impossible_hamza_kasra_sukun)"
+  },
+  "pattern_poem_truncation": {
+    "en": "poem_truncation",
+    "ar": "بتر القصيدة (poem_truncation)"
+  },
+  "pattern_spurious_shadda_general": {
+    "en": "spurious_shadda_general",
+    "ar": "شدّة زائدة عامة (spurious_shadda_general)"
+  },
+  "pattern_missing_hemistich_final_tashkeel": {
+    "en": "missing_hemistich_final_tashkeel",
+    "ar": "تشكيل مفقود في آخر الشطر (missing_hemistich_final_tashkeel)"
+  },
+  "pattern_alif_lam_article_corruption": {
+    "en": "alif_lam_article_corruption",
+    "ar": "تلف أداة التعريف (alif_lam_article_corruption)"
+  },
+  "pattern_sun_letter_assimilation_missing": {
+    "en": "sun_letter_assimilation_missing",
+    "ar": "إدغام شمسي مفقود (sun_letter_assimilation_missing)"
+  },
+  "pattern_baad_verb_preposition_confusion": {
+    "en": "baad_verb_preposition_confusion",
+    "ar": "خلط بين الفعل وحرف الجر (baad_verb_preposition_confusion)"
+  },
+  "pattern_letter_corruption_non_truncation": {
+    "en": "letter_corruption_non_truncation",
+    "ar": "تلف حروف بدون بتر (letter_corruption_non_truncation)"
+  },
+  "pattern_shadda_tanween_word_ending": {
+    "en": "shadda_tanween_word_ending",
+    "ar": "شدّة وتنوين في آخر الكلمة (shadda_tanween_word_ending)"
+  },
+
+  "freq_detail_spurious_shadda_function_words": {
+    "en": "Affects ~14% of poems (29/204). Most affected words: على (23 instances), لم (11), قد (9), كما (5), حين (4).",
+    "ar": "تؤثر في نحو 14% من القصائد (29/204). أكثر الكلمات تأثرًا: على (23 حالة)، لم (11)، قد (9)، كما (5)، حين (4)."
+  },
+  "freq_detail_ya_possessive_to_nisba": {
+    "en": "Affects 55.4% of poems (113/204). ~493 individual word occurrences across all poems. Most affected: قلبي (16), علي (18), مني (12), أني (8), يدي (6), نفسي (5).",
+    "ar": "تؤثر في 55.4% من القصائد (113/204). نحو 493 ظهورًا فرديًّا عبر جميع القصائد. أكثر الكلمات تأثرًا: قلبي (16)، علي (18)، مني (12)، أني (8)، يدي (6)، نفسي (5)."
+  },
+  "freq_detail_impossible_hamza_kasra_sukun": {
+    "en": "Affects 22.1% of poems (45/204). 113 total occurrences. Most common: إذا (28), إن (23), أن (12), إلا (9).",
+    "ar": "تؤثر في 22.1% من القصائد (45/204). 113 ظهورًا إجماليًّا. الأكثر شيوعًا: إذا (28)، إن (23)، أن (12)، إلا (9)."
+  },
+  "freq_detail_poem_truncation": {
+    "en": "Affects 10.8% of poems (22/204). Lost content ranges from 161 to 1018 characters.",
+    "ar": "يؤثر في 10.8% من القصائد (22/204). يتراوح المحتوى المفقود بين 161 و1018 حرفًا."
+  },
+  "freq_detail_spurious_shadda_general": {
+    "en": "Affects ~35% of poems (71/204 have dramatically more shaddas). Approximately 2926 spurious shaddas total.",
+    "ar": "تؤثر في نحو 35% من القصائد (71/204 تحتوي على شدّات أكثر بكثير). نحو 2926 شدّة زائدة إجمالًا."
+  },
+  "freq_detail_missing_hemistich_final_tashkeel": {
+    "en": "1889 out of 5003 hemistichs (37.8%) have missing final marks.",
+    "ar": "1889 من أصل 5003 أشطر (37.8%) تفتقر إلى علامات نهائية."
+  },
+  "freq_detail_alif_lam_article_corruption": {
+    "en": "20 occurrences across 5 poems.",
+    "ar": "20 ظهورًا عبر 5 قصائد."
+  },
+  "freq_detail_sun_letter_assimilation_missing": {
+    "en": "231 missing assimilations detected out of 1571 sun letter article occurrences (14.7%).",
+    "ar": "231 إدغامًا مفقودًا من أصل 1571 ظهورًا للحروف الشمسية مع أداة التعريف (14.7%)."
+  },
+  "freq_detail_baad_verb_preposition_confusion": {
+    "en": "7 occurrences across the sample.",
+    "ar": "7 حالات عبر العيّنة."
+  },
+  "freq_detail_letter_corruption_non_truncation": {
+    "en": "35 poems (17.2%) have some form of bare text mismatch.",
+    "ar": "35 قصيدة (17.2%) تحتوي على شكل من أشكال عدم تطابق النص الخام."
+  },
+  "freq_detail_shadda_tanween_word_ending": {
+    "en": "Appears in ~20% of poems. Most affected words: قلبي, لقد, من, لعمري, يدي, نفسي.",
+    "ar": "تظهر في نحو 20% من القصائد. أكثر الكلمات تأثرًا: قلبي، لقد، من، لعمري، يدي، نفسي."
+  },
+
+  "section_before_after_samples": {
+    "en": "Before / After Samples",
+    "ar": "عيّنات قبل وبعد المعالجة"
+  },
+  "col_label_before_raw": {
+    "en": "Before (raw)",
+    "ar": "قبل (خام)"
+  },
+  "col_label_after_final": {
+    "en": "After (final)",
+    "ar": "بعد (نهائي)"
+  },
+
+  "footer_line1": {
+    "en": "Tashkeel Pipeline Report — Mishkal NLP + PyArabic + 5 agent-learned post-processing rules",
+    "ar": "تقرير مسار التشكيل — Mishkal للمعالجة اللغوية + PyArabic + 5 قواعد معالجة لاحقة مكتسَبة من الوكيل"
+  },
+  "footer_line2": {
+    "en": "Pipeline: Export → Diacritize (4 workers) → Audit → Arabic Review (204 poems) → Post-Process (8 rules) → Upload (6 parallel connections)",
+    "ar": "المسار: تصدير ← تشكيل (4 عمّال) ← تدقيق ← مراجعة عربية (204 قصيدة) ← معالجة لاحقة (8 قواعد) ← رفع (6 اتصالات متوازية)"
+  },
+
+  "unit_seconds": {
+    "en": "s",
+    "ar": "ث"
+  },
+  "unit_per_second": {
+    "en": "/s",
+    "ar": "/ث"
+  },
+  "unit_rows": {
+    "en": "rows",
+    "ar": "سجل"
+  },
+  "unit_raw": {
+    "en": "raw",
+    "ar": "خام"
+  },
+  "unit_patterns": {
+    "en": "patterns",
+    "ar": "أنماط"
+  },
+  "unit_poems": {
+    "en": "poems",
+    "ar": "قصيدة"
+  },
+  "unit_rules": {
+    "en": "rules",
+    "ar": "قواعد"
+  },
+  "unit_workers": {
+    "en": "workers",
+    "ar": "عمّال"
+  },
+  "unit_parallel_connections": {
+    "en": "parallel connections",
+    "ar": "اتصالات متوازية"
+  }
+}

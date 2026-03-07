@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tashkeel Pipeline Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-stage: #1a1a2e;
+            --border: #2a2a3e;
+            --text-primary: #e8e6e3;
+            --text-secondary: #9a9aaa;
+            --text-muted: #6a6a7a;
+            --accent-gold: #d4a853;
+            --accent-blue: #4a9eff;
+            --accent-green: #4ade80;
+            --accent-purple: #a78bfa;
+            --accent-rose: #fb7185;
+            --stage-1: #f59e0b;
+            --stage-2: #ef4444;
+            --stage-3: #3b82f6;
+            --stage-4: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.8;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pipeline-legend {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            direction: ltr;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .poem-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .poem-card:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .poem-header {
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.05), transparent);
+        }
+
+        .poem-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .poet-name {
+            font-size: 0.95rem;
+            color: var(--accent-purple);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .pipeline-stages {
+            padding: 1.5rem;
+        }
+
+        .stage {
+            margin-bottom: 0.5rem;
+        }
+
+        .stage-label {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.6rem;
+            direction: ltr;
+        }
+
+        .stage-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .stage:nth-child(1) .stage-number { background: var(--stage-1); }
+        .stage:nth-child(3) .stage-number { background: var(--stage-2); }
+        .stage:nth-child(5) .stage-number { background: var(--stage-3); }
+        .stage:nth-child(7) .stage-number { background: var(--stage-4); }
+
+        .stage-name {
+            font-family: 'Amiri', serif;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .stage-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .poem-text {
+            background: var(--bg-stage);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            font-family: 'Amiri', serif;
+            font-size: 1.25rem;
+            line-height: 2.2;
+            border-right: 3px solid transparent;
+            direction: rtl;
+        }
+
+        .poem-text.original { border-right-color: var(--stage-1); }
+        .poem-text.stripped { border-right-color: var(--stage-2); }
+        .poem-text.mishkal { border-right-color: var(--stage-3); }
+        .poem-text.final { border-right-color: var(--stage-4); }
+
+        .bayt {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 1.5rem;
+            padding: 0.3rem 0;
+        }
+
+        .sadr, .ajz {
+            flex: 1;
+            text-align: center;
+        }
+
+        .sadr {
+            text-align: left;
+        }
+
+        .ajz {
+            text-align: right;
+        }
+
+        .sep {
+            color: var(--accent-gold);
+            opacity: 0.4;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .stage-arrow {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            padding: 0.3rem 0;
+            opacity: 0.4;
+        }
+
+        .missing {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            direction: ltr;
+        }
+
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        /* Collapsible stages */
+        .toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.2);
+            color: var(--accent-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-family: 'Tajawal', sans-serif;
+            margin-bottom: 1rem;
+            direction: ltr;
+        }
+
+        .toggle-btn:hover {
+            background: rgba(74, 158, 255, 0.2);
+        }
+
+        .intermediate-stages {
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+        }
+
+        .intermediate-stages.collapsed {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .intermediate-stages.expanded {
+            max-height: 2000px;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .poem-text { font-size: 1.1rem; }
+            .bayt {
+                flex-direction: column;
+                gap: 0;
+            }
+            .sadr, .ajz {
+                text-align: center;
+            }
+            .sep { display: none; }
+            .stats-bar { gap: 1rem; }
+            .poem-header {
+                flex-direction: column;
+                gap: 0.3rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>خطوات التشكيل</h1>
+            <p class="subtitle">Tashkeel Pipeline: Before & After Showcase</p>
+            <div class="stats-bar">
+                <div class="stat">
+                    <div class="stat-value">83,377</div>
+                    <div class="stat-label">Poems Processed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Post-Processing Rules</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">62.7%</div>
+                    <div class="stat-label">Line-Ending Coverage</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">3.39/5</div>
+                    <div class="stat-label">Quality Score</div>
+                </div>
+            </div>
+            <div class="pipeline-legend">
+                <div class="legend-item"><div class="legend-dot" style="background:var(--stage-1)"></div> Original</div>
+                <div class="legend-item"><div class="legend-dot" style="background:var(--stage-2)"></div> Stripped</div>
+                <div class="legend-item"><div class="legend-dot" style="background:var(--stage-3)"></div> Mishkal Output</div>
+                <div class="legend-item"><div class="legend-dot" style="background:var(--stage-4)"></div> Post-Processed</div>
+            </div>
+        </header>
+
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">لا يفقدن خيركم مجالسكم</h3>
+                <span class="poet-name">أبو العلاء المعري</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">لا يَفقِدَن خَيرَكُم مُجالِسُكُم</span><span class="sep">✦</span><span class="ajz">وَلا تَكونوا كَأَنَّكُم سَبَخُ</span></div>
+<div class="bayt"><span class="sadr">وَلا كَقَومٍ حَديثُ يَومِهِمُ</span><span class="sep">✦</span><span class="ajz">ما أَكَلوا أَمسَهُم وَما طَبَخوا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">لا يفقدن خيركم مجالسكم</span><span class="sep">✦</span><span class="ajz">ولا تكونوا كأنكم سبخ</span></div>
+<div class="bayt"><span class="sadr">ولا كقوم حديث يومهم</span><span class="sep">✦</span><span class="ajz">ما أكلوا أمسهم وما طبخوا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">لَا يَفْقِدَنَّ خَيْرَكُمْ مُجَالِسُكُمْ</span><span class="sep">✦</span><span class="ajz">وَلا تَكَوَّنُوا كَأَْنَّكُم سَبَخُ</span></div>
+<div class="bayt"><span class="sadr">وَلا كَقَوْمٍ حَديثُ يَوْمِهِمُ</span><span class="sep">✦</span><span class="ajz">مَا أَكَلُوا أَمْسَهُمْ وَمَا طَبَّخُوا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">لَا يَفْقِدَنَّ خَيْرَكُمْ مُجَالِسُكُمْ</span><span class="sep">✦</span><span class="ajz">وَلا تَكَوَّنُوا كَأَنَّكُم سَبَخُ</span></div>
+<div class="bayt"><span class="sadr">وَلا كَقَوْمٍ حَديثُ يَوْمِهِمُ</span><span class="sep">✦</span><span class="ajz">مَا أَكَلُوا أَمْسَهُمْ وَمَا طَبَّخُوا</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">أرى الأيام تفعل كل نكر</h3>
+                <span class="poet-name">أبو العلاء المعري</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">أَرى الأَيّامَ تَفعَلُ كُلَّ نُكرٍ</span><span class="sep">✦</span><span class="ajz">فَما أَنا في العَجائِبِ مُستَزيدُ</span></div>
+<div class="bayt"><span class="sadr">أَلَيسَ قُرَيشُكُم قَتَلَت حُسَيناً</span><span class="sep">✦</span><span class="ajz">وَصارَ عَلى خِلافَتِكُم يَزيدُ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">أرى الأيام تفعل كل نكر</span><span class="sep">✦</span><span class="ajz">فما أنا في العجائب مستزيد</span></div>
+<div class="bayt"><span class="sadr">أليس قريشكم قتلت حسينا</span><span class="sep">✦</span><span class="ajz">وصار على خلافتكم يزيد</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">أَرَى الْأَيَّامَ تَفْعَلُ كُلَّ نُكْرٍ</span><span class="sep">✦</span><span class="ajz">فَمًا أَْنَا فِي الْعَجَائِبِ مُسْتَزِيدُ</span></div>
+<div class="bayt"><span class="sadr">أَلَيِسَ قُرَيْشُكُمْ قَتَلَتْ حُسَيناً</span><span class="sep">✦</span><span class="ajz">وَصَارَ عَلَّى خِلَاَفَتِكُمْ يَزِيدُ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">أَرَى الْأَيَّامَ تَفْعَلُ كُلَّ نُكْرٍ</span><span class="sep">✦</span><span class="ajz">فَمًا أَنَا فِي الْعَجَائِبِ مُسْتَزِيدُ</span></div>
+<div class="bayt"><span class="sadr">أَلَيِسَ قُرَيْشُكُمْ قَتَلَتْ حُسَيناً</span><span class="sep">✦</span><span class="ajz">وَصَارَ عَلَّى خِلَاَفَتِكُمْ يَزِيدُ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">زائر زارني فهاج خيالا</h3>
+                <span class="poet-name">أبو تمام</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">زائِرٌ زارَني فَهاجَ خَيالا</span><span class="sep">✦</span><span class="ajz">كُنتُ لَولاهُ أَسوَأَ الناسِ حالا</span></div>
+<div class="bayt"><span class="sadr">فَتَمَتَّعتُ مِن غَزالٍ وَحاشى</span><span class="sep">✦</span><span class="ajz">ذَلِكَ الشَخصَ أَن يَكونَ غَزالا</span></div>
+<div class="bayt"><span class="sadr">كَيفَ أَرجو لِقاءَ ساكِنِ بَغدا</span><span class="sep">✦</span><span class="ajz">دَ بِمِصرٍ لَقَد رَجَوتُ ضَلالا</span></div>
+<div class="bayt"><span class="sadr">مَثَّلَتهُ المُنى لِعَيني وَفِكري</span><span class="sep">✦</span><span class="ajz">وَلِقَلبي حَتّى قَبِلتُ المُحالا</span></div>
+<div class="bayt"><span class="sadr">ما أَراني أَراكَ نَصبَ خَيالٍ</span><span class="sep">✦</span><span class="ajz">طارِقٍ أَو يَصيرَ جِسمي خَيالا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">زائر زارني فهاج خيالا</span><span class="sep">✦</span><span class="ajz">كنت لولاه أسوأ الناس حالا</span></div>
+<div class="bayt"><span class="sadr">فتمتعت من غزال وحاشى</span><span class="sep">✦</span><span class="ajz">ذلك الشخص أن يكون غزالا</span></div>
+<div class="bayt"><span class="sadr">كيف أرجو لقاء ساكن بغدا</span><span class="sep">✦</span><span class="ajz">د بمصر لقد رجوت ضلالا</span></div>
+<div class="bayt"><span class="sadr">مثلته المنى لعيني وفكري</span><span class="sep">✦</span><span class="ajz">ولقلبي حتى قبلت المحالا</span></div>
+<div class="bayt"><span class="sadr">ما أراني أراك نصب خيال</span><span class="sep">✦</span><span class="ajz">طارق أو يصير جسمي خيالا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">زَائِرٌ زَارَنِي فَهَاجَ خَيَالَا</span><span class="sep">✦</span><span class="ajz">كُنتُ لَوَلَّاهُ أَسْوَأَ النَّاسِ حَالًا</span></div>
+<div class="bayt"><span class="sadr">فَتَمَتَّعْتُ مِنْ غَزَالٍ وَحَاشَى</span><span class="sep">✦</span><span class="ajz">ذَلِكَ الشَّخْصَ أَْن يَكْوُنَّ غَزَالًا</span></div>
+<div class="bayt"><span class="sadr">كَيَّفَ أَرْجُو لِقَاءَ سَاكِنِ بَغدَا</span><span class="sep">✦</span><span class="ajz">دَ بِمِصْرٍ لَقَدَّ رَجَوْتُ ضَلَاَلًا</span></div>
+<div class="bayt"><span class="sadr">مَثَّلَتْهُ الْمُنَى لِعَيْنِيٍّ وَفِكْرِيِّ</span><span class="sep">✦</span><span class="ajz">وَلِقَلْبِيَّ حَتَّى قَبِلْتُ الْمُحَالَا</span></div>
+<div class="bayt"><span class="sadr">مَا أَرَانِي أَرَاكَ نَصَبَ خَيَالٍ</span><span class="sep">✦</span><span class="ajz">طَارِقٍ أَوِّ يَصِيرَ جِسْمُي خَيَّالًا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">زَائِرٌ زَارَنِي فَهَاجَ خَيَالَا</span><span class="sep">✦</span><span class="ajz">كُنتُ لَوَلَّاهُ أَسْوَأَ النَّاسِ حَالًا</span></div>
+<div class="bayt"><span class="sadr">فَتَمَتَّعْتُ مِنْ غَزَالٍ وَحَاشَى</span><span class="sep">✦</span><span class="ajz">ذَلِكَ الشَّخْصَ أَن يَكْوُنَّ غَزَالًا</span></div>
+<div class="bayt"><span class="sadr">كَيَّفَ أَرْجُو لِقَاءَ سَاكِنِ بَغدَا</span><span class="sep">✦</span><span class="ajz">دَ بِمِصْرٍ لَقَدَْ رَجَوْتُ ضَلَاَلًا</span></div>
+<div class="bayt"><span class="sadr">مَثَّلَتْهُ الْمُنَى لِعَيْنِي وَفِكْرِيٌّ</span><span class="sep">✦</span><span class="ajz">وَلِقَلْبِي حَتَّى قَبِلْتُ الْمُحَالَا</span></div>
+<div class="bayt"><span class="sadr">مَا أَرَانِي أَرَاكَ نَصَبَ خَيَالٍ</span><span class="sep">✦</span><span class="ajz">طَارِقٍ أَوِّ يَصِيرَ جِسْمُي خَيَّالًا</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">ظبي يتيه بورده في خده</h3>
+                <span class="poet-name">أبو تمام</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">ظَبيٌ يَتيهُ بِوِردِهِ في خَدِّهِ</span><span class="sep">✦</span><span class="ajz">خَدٌّ عَلَيهِ غَلائِلٌ مِن وَردِهِ</span></div>
+<div class="bayt"><span class="sadr">ما كُنتُ أَحسِبُ أَنَّ لي مُستَمتَعاً</span><span class="sep">✦</span><span class="ajz">في قُربِهِ حَتّى بُليتُ بِبُعدِهِ</span></div>
+<div class="bayt"><span class="sadr">لا شَيءَ أَحسَنُ مِنهُ لَيلَةَ وَصِلنا</span><span class="sep">✦</span><span class="ajz">وَقَد اِتَخَذتُ مَخَدَّةً مِن خَدِّهِ</span></div>
+<div class="bayt"><span class="sadr">وَفَمي عَلى فَمِهِ يُسامِرُ ريقَهُ</span><span class="sep">✦</span><span class="ajz">وَيَدي تَنَزَّهُ في حَدائِقِ جِلدِهِ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">ظبي يتيه بورده في خده</span><span class="sep">✦</span><span class="ajz">خد عليه غلائل من ورده</span></div>
+<div class="bayt"><span class="sadr">ما كنت أحسب أن لي مستمتعا</span><span class="sep">✦</span><span class="ajz">في قربه حتى بليت ببعده</span></div>
+<div class="bayt"><span class="sadr">لا شيء أحسن منه ليلة وصلنا</span><span class="sep">✦</span><span class="ajz">وقد اتخذت مخدة من خده</span></div>
+<div class="bayt"><span class="sadr">وفمي على فمه يسامر ريقه</span><span class="sep">✦</span><span class="ajz">ويدي تنزه في حدائق جلده</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">ظَبْي يَتِيهُ بِوِرْدِهِ فِي خَدِّهِ</span><span class="sep">✦</span><span class="ajz">خَدٌّ عَلَّيْهِ غَلَائِِلٌ مِنْ وَرَدِّهِ</span></div>
+<div class="bayt"><span class="sadr">مَا كُنتُ أَحْسِبُ أَْنَّ لِي مُستَمتَعاً</span><span class="sep">✦</span><span class="ajz">فِي قُرْبِهِ حَتَّى بُلِيتُ بِبُعْدِهِ</span></div>
+<div class="bayt"><span class="sadr">لَا شَيْءَ أَحَسَنُ مِنْهُ لَيْلَةَ وَصِلَّنَا</span><span class="sep">✦</span><span class="ajz">وَقَدَّ اِتَّخَذْتُ مَخَدََّةً مِنْ خَدِّهِ</span></div>
+<div class="bayt"><span class="sadr">وَفَمَي عَلَّى فَمِهِ يُسَامِرُ رَيِّقَهُ</span><span class="sep">✦</span><span class="ajz">وَيَدَي تَنَزَّهُ فِي حَدَائِقِ جِلْدِهِ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">ظَبْي يَتِيهُ بِوِرْدِهِ فِي خَدِّهِ</span><span class="sep">✦</span><span class="ajz">خَدٌّ عَلَّيْهِ غَلَائِلٌ مِنْ وَرَدِّهِ</span></div>
+<div class="bayt"><span class="sadr">مَا كُنتُ أَحْسِبُ أَنَّ لِي مُستَمتَعاً</span><span class="sep">✦</span><span class="ajz">فِي قُرْبِهِ حَتَّى بُلِيتُ بِبُعْدِهِ</span></div>
+<div class="bayt"><span class="sadr">لَا شَيْءَ أَحَسَنُ مِنْهُ لَيْلَةَ وَصِلَّنَا</span><span class="sep">✦</span><span class="ajz">وَقَدَْ اِتَّخَذْتُ مَخَدَّةً مِنْ خَدِّهِ</span></div>
+<div class="bayt"><span class="sadr">وَفَمَي عَلَّى فَمِهِ يُسَامِرُ رَيِّقَهُ</span><span class="sep">✦</span><span class="ajz">وَيَدَي تَنَزَّهُ فِي حَدَائِقِ جِلْدِهِ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">قناتي على ما تعهدان صليبة</h3>
+                <span class="poet-name">أبو فراس الحمداني</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">قَناتي عَلى ما تَعهَدانِ صَليبَةٌ</span><span class="sep">✦</span><span class="ajz">وَعودي عَلى ماتَعلَمانِ صَليبُ</span></div>
+<div class="bayt"><span class="sadr">صَبورٌ عَلى طَيِّ الزَمانِ وَنَشرِهِ</span><span class="sep">✦</span><span class="ajz">وَإِن ظَهَرَت لِلدَهرِ فِيَّ نُدوبُ</span></div>
+<div class="bayt"><span class="sadr">وَإِنَّ فَتىً لَم يَكسِرِ الأَسرُ قَلبَهُ</span><span class="sep">✦</span><span class="ajz">وَخَوضُ المَنايا جِدَّهُ لَنَجيبُ</span></div>
+<div class="bayt"><span class="sadr"></span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">قناتي على ما تعهدان صليبة</span><span class="sep">✦</span><span class="ajz">وعودي على ماتعلمان صليب</span></div>
+<div class="bayt"><span class="sadr">صبور على طي الزمان ونشره</span><span class="sep">✦</span><span class="ajz">وإن ظهرت للدهر في ندوب</span></div>
+<div class="bayt"><span class="sadr">وإن فتى لم يكسر الأسر قلبه</span><span class="sep">✦</span><span class="ajz">وخوض المنايا جده لنجيب</span></div>
+<div class="bayt"><span class="sadr"></span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">قَنَاتُي عَلَّى مَا تَعْهَدَانِ صَلِيبَةٌ</span><span class="sep">✦</span><span class="ajz">وَعُودِي عَلَّى ماتَعلَمانِ صَلِيبُ</span></div>
+<div class="bayt"><span class="sadr">صَبُورٌ عَلَّى طَيِّ الزَّمَانِ وَنَشْرِهِ</span><span class="sep">✦</span><span class="ajz">وَإِن ظَهَرَتْ لِلدَّهْرِ فِيَّ نُدُوبُ</span></div>
+<div class="bayt"><span class="sadr">وَإِنَّ فَتَى لَمَّ يَكْسِرْ الْأَسْرُ قَلْبَهُ</span><span class="sep">✦</span><span class="ajz">وَخَوْضُ الْمَنَايَا جِدَّهُ لَنَجِيبُ</span></div>
+<div class="bayt"><span class="sadr"></span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">قَنَاتُي عَلَّى مَا تَعْهَدَانِ صَلِيبَةٌ</span><span class="sep">✦</span><span class="ajz">وَعُودِي عَلَّى ماتَعلَمانِ صَلِيبُ</span></div>
+<div class="bayt"><span class="sadr">صَبُورٌ عَلَّى طَي الزَّمَانِ وَنَشْرِهِ</span><span class="sep">✦</span><span class="ajz">وَإِن ظَهَرَتْ لِلدَّهْرِ فِي نُدُوبُ</span></div>
+<div class="bayt"><span class="sadr">وَإِنَّ فَتَى لَمَّ يَكْسِرْ الْأَسْرُ قَلْبَهُ</span><span class="sep">✦</span><span class="ajz">وَخَوْضُ الْمَنَايَا جِدَّهُ لَنَجِيبُ</span></div>
+<div class="bayt"><span class="sadr"></span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">الحزن مجتمع والصبر مفترق</h3>
+                <span class="poet-name">أبو فراس الحمداني</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">الحُزنُ مُجتَمِعٌ وَالصَبرُ مُفتَرِقُ</span><span class="sep">✦</span><span class="ajz">وَالحُبُّ مُختَلِفٌ عِندي وَمُتَّفِقُ</span></div>
+<div class="bayt"><span class="sadr">وَلي إِذا كُلَّ عَينٍ نامَ صاحِبُها</span><span class="sep">✦</span><span class="ajz">عَينٌ تَحالَفَ فيها الدَمعُ وَالأَرَقُ</span></div>
+<div class="bayt"><span class="sadr">لَولاكِ يا ظَبيَةَ الإِنسِ الَّتي نَظَرَت</span><span class="sep">✦</span><span class="ajz">لَما وَصَلنَ إِلى مَكروهِيَ الحَدَقُ</span></div>
+<div class="bayt"><span class="sadr">لَكِن نَظَرتُ وَقَد سارَ الخَليطُ ضُحىً</span><span class="sep">✦</span><span class="ajz">بِناظِرٍ كُلُّ حُسنٍ مِنهُ مُستَرَقُ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">الحزن مجتمع والصبر مفترق</span><span class="sep">✦</span><span class="ajz">والحب مختلف عندي ومتفق</span></div>
+<div class="bayt"><span class="sadr">ولي إذا كل عين نام صاحبها</span><span class="sep">✦</span><span class="ajz">عين تحالف فيها الدمع والأرق</span></div>
+<div class="bayt"><span class="sadr">لولاك يا ظبية الإنس التي نظرت</span><span class="sep">✦</span><span class="ajz">لما وصلن إلى مكروهي الحدق</span></div>
+<div class="bayt"><span class="sadr">لكن نظرت وقد سار الخليط ضحى</span><span class="sep">✦</span><span class="ajz">بناظر كل حسن منه مسترق</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">الْحُزْنُ مُجْتَمِعٌ وَالصَّبْرُ مُفْتَرِقُ</span><span class="sep">✦</span><span class="ajz">وَالْحُبُّ مُخْتَلِفٌ عِندِي وَمُتَّفِقُ</span></div>
+<div class="bayt"><span class="sadr">وَلِيَ إِِْذَا كُلَّ عَيْنٍ نامَ صَاحِبُهَا</span><span class="sep">✦</span><span class="ajz">عَيْنٌ تَحَالَفَ فِيهَا الدَّمْعُ وَالْأَرَقُ</span></div>
+<div class="bayt"><span class="sadr">لَوَلَّاكِ يَا ظَبْيَةَ الْإِنْسِ الَّتي نَظَرَتْ</span><span class="sep">✦</span><span class="ajz">لَمَّا وَصَلْنَ إِِْلَى مَكْرُوهِيَّ الْحَدَقُ</span></div>
+<div class="bayt"><span class="sadr">لَكِنَ نَظَرْتُ وَقَدَّ سَارَّ الْخَلِيطُ ضُحَى</span><span class="sep">✦</span><span class="ajz">بِنَاظِرٍ كُلُّ حُسْنٍ مِنْهُ مُسْتَرَقُّ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">الْحُزْنُ مُجْتَمِعٌ وَالصَّبْرُ مُفْتَرِقُ</span><span class="sep">✦</span><span class="ajz">وَالْحُبُّ مُخْتَلِفٌ عِندِي وَمُتَّفِقُ</span></div>
+<div class="bayt"><span class="sadr">وَلِيَ إِذَا كُلَّ عَيْنٍ نامَ صَاحِبُهَا</span><span class="sep">✦</span><span class="ajz">عَيْنٌ تَحَالَفَ فِيهَا الدَّمْعُ وَالْأَرَقُ</span></div>
+<div class="bayt"><span class="sadr">لَوَلَّاكِ يَا ظَبْيَةَ الْإِنْسِ الَّتي نَظَرَتْ</span><span class="sep">✦</span><span class="ajz">لَمَّا وَصَلْنَ إِلَى مَكْرُوهِي الْحَدَقُ</span></div>
+<div class="bayt"><span class="sadr">لَكِنَ نَظَرْتُ وَقَدَْ سَارَّ الْخَلِيطُ ضُحَى</span><span class="sep">✦</span><span class="ajz">بِنَاظِرٍ كُلُّ حُسْنٍ مِنْهُ مُسْتَرَقُّ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">قد هجرت النديم والندمانا</h3>
+                <span class="poet-name">أبو نواس</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">قَد هَجَرتُ النَديمَ وَالنُدمانا</span><span class="sep">✦</span><span class="ajz">وَتَمَتَّعتُ ما كَفاني زَمانا</span></div>
+<div class="bayt"><span class="sadr">وَأَبى لي خَليفَةُ اللَهِ إِلّا</span><span class="sep">✦</span><span class="ajz">عَزفَ نَفسي فَقَد عَزَفتُ أَوانا</span></div>
+<div class="bayt"><span class="sadr">وَلَقَد طالَ ما أَبَيتُ عَلَيهِ</span><span class="sep">✦</span><span class="ajz">في أُمورٍ خَلَعتُ فيها العِنانا</span></div>
+<div class="bayt"><span class="sadr">وَغَزالٍ عاطَيتُهُ الراحَ حَتّى</span><span class="sep">✦</span><span class="ajz">فَتَّرَت مِنهُ مُقلَةً وَلِسانا</span></div>
+<div class="bayt"><span class="sadr">قالَ لا تُسكِرَنَّني بِحَياتي</span><span class="sep">✦</span><span class="ajz">قُلتُ لا بُدَّ أَن تُرى سَكرانا</span></div>
+<div class="bayt"><span class="sadr">إِنَّ لي حاجَةٌ إِلَيكَ إِذا نِم</span><span class="sep">✦</span><span class="ajz">تَ فَإِن شِئتَ فَاِقضِها يَقظانا</span></div>
+<div class="bayt"><span class="sadr">فَتَلَكّا تَلَكِّياً في اِنخِناثٍ</span><span class="sep">✦</span><span class="ajz">ثُمَّ أَصغى لِما أَرَدتُ فَكانا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">قد هجرت النديم والندمانا</span><span class="sep">✦</span><span class="ajz">وتمتعت ما كفاني زمانا</span></div>
+<div class="bayt"><span class="sadr">وأبى لي خليفة الله إلا</span><span class="sep">✦</span><span class="ajz">عزف نفسي فقد عزفت أوانا</span></div>
+<div class="bayt"><span class="sadr">ولقد طال ما أبيت عليه</span><span class="sep">✦</span><span class="ajz">في أمور خلعت فيها العنانا</span></div>
+<div class="bayt"><span class="sadr">وغزال عاطيته الراح حتى</span><span class="sep">✦</span><span class="ajz">فترت منه مقلة ولسانا</span></div>
+<div class="bayt"><span class="sadr">قال لا تسكرنني بحياتي</span><span class="sep">✦</span><span class="ajz">قلت لا بد أن ترى سكرانا</span></div>
+<div class="bayt"><span class="sadr">إن لي حاجة إليك إذا نم</span><span class="sep">✦</span><span class="ajz">ت فإن شئت فاقضها يقظانا</span></div>
+<div class="bayt"><span class="sadr">فتلكا تلكيا في انخناث</span><span class="sep">✦</span><span class="ajz">ثم أصغى لما أردت فكانا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">قَدَّ هَجَرْتُ النَّدِيمَ وَالنُدمانا</span><span class="sep">✦</span><span class="ajz">وَتَمَتَّعْتُ مَا كَفَانِي زَمَانَا</span></div>
+<div class="bayt"><span class="sadr">وَأَبَى لِي خَلِيفَةُ اللهِ إِِْلَّا</span><span class="sep">✦</span><span class="ajz">عَزَفَ نَفْسِيٌّ فَقَدُّ عَزَفْتُ أوَانًا</span></div>
+<div class="bayt"><span class="sadr">وَلََقَدَّ طَالَ مَا أَبَيْتُ عَلَّيْهِ</span><span class="sep">✦</span><span class="ajz">فِي أُمُورٍ خَلَعْتُ فِيهَا العِنانا</span></div>
+<div class="bayt"><span class="sadr">وَغَزَالٍ عَاطَيَتُهُ الرَّاحَ حَتَّى</span><span class="sep">✦</span><span class="ajz">فَتَّرَتْ مِنْهُ مُقِلَّةً وَلِسَانًا</span></div>
+<div class="bayt"><span class="sadr">قَالَ لَا تُسْكِرَنَّنِي بِحَيَاتِي</span><span class="sep">✦</span><span class="ajz">قُلْتُ لَا بُدَّ أَْن تُرَى سَكْرَاُنَا</span></div>
+<div class="bayt"><span class="sadr">إِِْنَّ لِي حَاجَةٌ إِلَيكَ إِِْذَا نِمْ</span><span class="sep">✦</span><span class="ajz">تَ فَإِِْن شِئْتَ فَاِقْضِهَا يَقِظَانَا</span></div>
+<div class="bayt"><span class="sadr">فَتَلَكَّا تَلَكِّياً فِي اِنخِناثٍ</span><span class="sep">✦</span><span class="ajz">ثُمَّ أَصْغَى لِمَا أَرَدْتُ فَكَّانَا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">قَدَْ هَجَرْتُ النَّدِيمَ وَالنُدمانا</span><span class="sep">✦</span><span class="ajz">وَتَمَتَّعْتُ مَا كَفَانِي زَمَانَا</span></div>
+<div class="bayt"><span class="sadr">وَأَبَى لِي خَلِيفَةُ اللهِ إِلَّا</span><span class="sep">✦</span><span class="ajz">عَزَفَ نَفْسِي فَقَدُْ عَزَفْتُ أوَانًا</span></div>
+<div class="bayt"><span class="sadr">وَلَقَدَْ طَالَ مَا أَبَيْتُ عَلَّيْهِ</span><span class="sep">✦</span><span class="ajz">فِي أُمُورٍ خَلَعْتُ فِيهَا العِنانا</span></div>
+<div class="bayt"><span class="sadr">وَغَزَالٍ عَاطَيَتُهُ الرَّاحَ حَتَّى</span><span class="sep">✦</span><span class="ajz">فَتَّرَتْ مِنْهُ مُقِلَّةً وَلِسَانًا</span></div>
+<div class="bayt"><span class="sadr">قَالَ لَا تُسْكِرَنَّنِي بِحَيَاتِي</span><span class="sep">✦</span><span class="ajz">قُلْتُ لَا بُدَّ أَن تُرَى سَكْرَاُنَا</span></div>
+<div class="bayt"><span class="sadr">إِنَّ لِي حَاجَةٌ إِلَيكَ إِذَا نِمْ</span><span class="sep">✦</span><span class="ajz">تَ فَإِن شِئْتَ فَاِقْضِهَا يَقِظَانَا</span></div>
+<div class="bayt"><span class="sadr">فَتَلَكَّا تَلَكِّياً فِي اِنخِناثٍ</span><span class="sep">✦</span><span class="ajz">ثُمَّ أَصْغَى لِمَا أَرَدْتُ فَكَّانَا</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">قد رفعنا البزاق مذ شهرين</h3>
+                <span class="poet-name">أبو نواس</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">قَد رَفَعنا البِزاقَ مُذ شَهرَينِ</span><span class="sep">✦</span><span class="ajz">إِذ كَفانا نَداوَةَ الخِصيَينِ</span></div>
+<div class="bayt"><span class="sadr">اِبنُ عَمِّ النَبِيِّ هَذا إِمامٌ</span><span class="sep">✦</span><span class="ajz">لا عَدِمناهُ قُدوَةَ الثَقَلَينِ</span></div>
+<div class="bayt"><span class="sadr">يا بُغاةَ الخِصيانِ لا تَحذَروهُ</span><span class="sep">✦</span><span class="ajz">وَاِعفِصوهُم بَقِيَّةَ العَصرَينِ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">قد رفعنا البزاق مذ شهرين</span><span class="sep">✦</span><span class="ajz">إذ كفانا نداوة الخصيين</span></div>
+<div class="bayt"><span class="sadr">ابن عم النبي هذا إمام</span><span class="sep">✦</span><span class="ajz">لا عدمناه قدوة الثقلين</span></div>
+<div class="bayt"><span class="sadr">يا بغاة الخصيان لا تحذروه</span><span class="sep">✦</span><span class="ajz">واعفصوهم بقية العصرين</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">قَدَّ رَفَعَنَا البِزاقَ مُذَ شَهْرَيْنِ</span><span class="sep">✦</span><span class="ajz">إِِْذ كَفَانَا نَداوَةَ الخِصيَينِ</span></div>
+<div class="bayt"><span class="sadr">اِبْنُ عَمِّ النَّبِيِّ هَذَّا إمَامٌ</span><span class="sep">✦</span><span class="ajz">لَا عَدِمْنَاهُ قُدْوَةَ الثَّقَلَيْنِ</span></div>
+<div class="bayt"><span class="sadr">يَا بُغَاةَ الْخِصْيَانِ لَا تَحْذَرُوهُ</span><span class="sep">✦</span><span class="ajz">وَاِعْفِصُوهُمْ بَقِيَّةَ الْعَصْرَيْنِ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">قَدَْ رَفَعَنَا البِزاقَ مُذَ شَهْرَيْنِ</span><span class="sep">✦</span><span class="ajz">إِذ كَفَانَا نَداوَةَ الخِصيَينِ</span></div>
+<div class="bayt"><span class="sadr">اِبْنُ عَمِّ النَّبِيِّ هَذَّا إمَامٌ</span><span class="sep">✦</span><span class="ajz">لَا عَدِمْنَاهُ قُدْوَةَ الثَّقَلَيْنِ</span></div>
+<div class="bayt"><span class="sadr">يَا بُغَاةَ الْخِصْيَانِ لَا تَحْذَرُوهُ</span><span class="sep">✦</span><span class="ajz">وَاِعْفِصُوهُمْ بَقِيَّةَ الْعَصْرَيْنِ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">إن شئت تعرف حالتي</h3>
+                <span class="poet-name">أحمد شوقي</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">إن شئت تعرف حالتي فانظر إلى</span><span class="sep">✦</span><span class="ajz">داري فإن السر عند الدار</span></div>
+<div class="bayt"><span class="sadr">تُنبيك عن كدري وعن صفوي بما</span><span class="sep">✦</span><span class="ajz">تبديه من ظُلمَ ومن أنوار</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">إن شئت تعرف حالتي فانظر إلى</span><span class="sep">✦</span><span class="ajz">داري فإن السر عند الدار</span></div>
+<div class="bayt"><span class="sadr">تنبيك عن كدري وعن صفوي بما</span><span class="sep">✦</span><span class="ajz">تبديه من ظلم ومن أنوار</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">إِن شِئْتُ تَعْرُفُ حَالَتَي فَاُنْظُرْ إِلَى</span><span class="sep">✦</span><span class="ajz">دَارِيٌّ فإِنّ السِّرِّ عِنْد الدَّارِ</span></div>
+<div class="bayt"><span class="sadr">تُنبيك عَن كَدَرِيٍّ وعَن صَفْوِيٍّ بِمَا</span><span class="sep">✦</span><span class="ajz">تُبْدِيهِ مَن ظُلِّمَ ومِن أَنْوَارٍ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">إِن شِئْتُ تَعْرُفُ حَالَتَي فَاُنْظُرْ إِلَى</span><span class="sep">✦</span><span class="ajz">دَارِي فإِنّ السِّرِّ عِنْد الدَّارِ</span></div>
+<div class="bayt"><span class="sadr">تُنبيك عَن كَدَرِي وعَن صَفْوِي بِمَا</span><span class="sep">✦</span><span class="ajz">تُبْدِيهِ مَن ظُلِّمَ ومِن أَنْوَارٍ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">غورست رب السمكة</h3>
+                <span class="poet-name">أحمد شوقي</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">غورست رب السمكة</span><span class="sep">✦</span><span class="ajz">ذاك بشير البركة</span></div>
+<div class="bayt"><span class="sadr">سحبتها بالرفق فهـ</span><span class="sep">✦</span><span class="ajz">ـى أَمَة ممتلكه</span></div>
+<div class="bayt"><span class="sadr">إن كنت قد حفظتها</span><span class="sep">✦</span><span class="ajz">ولم تزل في حركه</span></div>
+<div class="bayt"><span class="sadr">ابعث لسلمان ومطرا</span><span class="sep">✦</span><span class="ajz">ن بها مشتركه</span></div>
+<div class="bayt"><span class="sadr">فإنها مُصلِحة</span><span class="sep">✦</span><span class="ajz">للمعد المرتبكه</span></div>
+<div class="bayt"><span class="sadr">كلاهما معدته</span><span class="sep">✦</span><span class="ajz">تأخذ شكل الشبكه</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">غورست رب السمكة</span><span class="sep">✦</span><span class="ajz">ذاك بشير البركة</span></div>
+<div class="bayt"><span class="sadr">سحبتها بالرفق فهـ</span><span class="sep">✦</span><span class="ajz">ـى أمة ممتلكه</span></div>
+<div class="bayt"><span class="sadr">إن كنت قد حفظتها</span><span class="sep">✦</span><span class="ajz">ولم تزل في حركه</span></div>
+<div class="bayt"><span class="sadr">ابعث لسلمان ومطرا</span><span class="sep">✦</span><span class="ajz">ن بها مشتركه</span></div>
+<div class="bayt"><span class="sadr">فإنها مصلحة</span><span class="sep">✦</span><span class="ajz">للمعد المرتبكه</span></div>
+<div class="bayt"><span class="sadr">كلاهما معدته</span><span class="sep">✦</span><span class="ajz">تأخذ شكل الشبكه</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">غورست رُبّ السَّمَكَةِ</span><span class="sep">✦</span><span class="ajz">ذَاك بَشيرُ الْبَرَكَةِ</span></div>
+<div class="bayt"><span class="sadr">سَحَبَتْهَا بِالرِّفْقِ فُهْ</span><span class="sep">✦</span><span class="ajz">ى أمَةَ مُمْتَلَكِهِ</span></div>
+<div class="bayt"><span class="sadr">إِن كَنَّتْ قَد حَفِظَتْهَا</span><span class="sep">✦</span><span class="ajz">ولَم تُزِلْ فِي حَرَّكَهُ</span></div>
+<div class="bayt"><span class="sadr">اِبْعَثْ لِسُلَّمَانِ وَمَطَرَا</span><span class="sep">✦</span><span class="ajz">ن بِهَا مُشْتَرَكِهِ</span></div>
+<div class="bayt"><span class="sadr">فإِنّهَا مُصَلِّحَةَ</span><span class="sep">✦</span><span class="ajz">لِلْمُعَدَّ المرتبكه</span></div>
+<div class="bayt"><span class="sadr">كِلَاهُمَا مُعَدَّتَهُ</span><span class="sep">✦</span><span class="ajz">تَأْخُذُ شَكْلُ الشَّبَكَهْ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">غورست رُبّ السَّمَكَةِ</span><span class="sep">✦</span><span class="ajz">ذَاك بَشيرُ الْبَرَكَةِ</span></div>
+<div class="bayt"><span class="sadr">سَحَبَتْهَا بِالرِّفْقِ فُهْ</span><span class="sep">✦</span><span class="ajz">ى أمَةَ مُمْتَلَكِهِ</span></div>
+<div class="bayt"><span class="sadr">إِن كَنَّتْ قَد حَفِظَتْهَا</span><span class="sep">✦</span><span class="ajz">ولَم تُزِلْ فِي حَرَّكَهُ</span></div>
+<div class="bayt"><span class="sadr">اِبْعَثْ لِسُلَّمَانِ وَمَطَرَا</span><span class="sep">✦</span><span class="ajz">ن بِهَا مُشْتَرَكِهِ</span></div>
+<div class="bayt"><span class="sadr">فإِنّهَا مُصَلِّحَةَ</span><span class="sep">✦</span><span class="ajz">لِلْمُعَدَّ المرتبكه</span></div>
+<div class="bayt"><span class="sadr">كِلَاهُمَا مُعَدَّتَهُ</span><span class="sep">✦</span><span class="ajz">تَأْخُذُ شَكْلُ الشَّبَكَهْ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">نفسي تقيك ووالداي كلاهما</h3>
+                <span class="poet-name">البحتري</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">نَفسي تَقيكَ وَوالِدايَ كِلاهُما</span><span class="sep">✦</span><span class="ajz">وَجَميعُ مَن وَلَدا مِنَ الأَسواءِ</span></div>
+<div class="bayt"><span class="sadr">ثِقَلُ الخَراجِ عَلَيَّ دَينٌ مُؤلِمٌ</span><span class="sep">✦</span><span class="ajz">وَلَدَيكَ مِمّا أَشتَكيهِ دَوائي</span></div>
+<div class="bayt"><span class="sadr">أَنتَ الطَبيبُ لِداءِ جُرحي وَالَّذي</span><span class="sep">✦</span><span class="ajz">بِدَوائِهِ لا شَكَّ أَدفَعُ دائي</span></div>
+<div class="bayt"><span class="sadr">وَالوَعدُ فيهِ مِنكَ لي مُتَقَدِّمٌ</span><span class="sep">✦</span><span class="ajz">فَاِمنُن عَلَيَّ بِأَن تُخِفَّ أَدائي</span></div>
+<div class="bayt"><span class="sadr">إِنَّ البَقِيَّةَ مِن خَراجي قَدرُها</span><span class="sep">✦</span><span class="ajz">ما إِن يَكونُ لَدَيكَ قَدرَ غَداءِ</span></div>
+<div class="bayt"><span class="sadr">فَاِمنُن عَلَيَّ بِصَومِ يَومٍ واحِدٍ</span><span class="sep">✦</span><span class="ajz">وَاِجعَل غَداءَكَ لي فَفيهِ غَنائي</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">نفسي تقيك ووالداي كلاهما</span><span class="sep">✦</span><span class="ajz">وجميع من ولدا من الأسواء</span></div>
+<div class="bayt"><span class="sadr">ثقل الخراج علي دين مؤلم</span><span class="sep">✦</span><span class="ajz">ولديك مما أشتكيه دوائي</span></div>
+<div class="bayt"><span class="sadr">أنت الطبيب لداء جرحي والذي</span><span class="sep">✦</span><span class="ajz">بدوائه لا شك أدفع دائي</span></div>
+<div class="bayt"><span class="sadr">والوعد فيه منك لي متقدم</span><span class="sep">✦</span><span class="ajz">فامنن علي بأن تخف أدائي</span></div>
+<div class="bayt"><span class="sadr">إن البقية من خراجي قدرها</span><span class="sep">✦</span><span class="ajz">ما إن يكون لديك قدر غداء</span></div>
+<div class="bayt"><span class="sadr">فامنن علي بصوم يوم واحد</span><span class="sep">✦</span><span class="ajz">واجعل غداءك لي ففيه غنائي</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">نَفْسُي تَقِيُّكَ وَوَالِدَاي كِلَاهُمَا</span><span class="sep">✦</span><span class="ajz">وَجَمِيعُ مَنٍّ وَلَدًا مِنَ الْأَسْوَاءِ</span></div>
+<div class="bayt"><span class="sadr">ثِقَلُ الْخَرَاجِ عَلَيَّ دَيْنٌ مُؤْلِمٌ</span><span class="sep">✦</span><span class="ajz">وَلَدَيْكَ مِمَّا أَشتَكيهِ دَوَائِيَّ</span></div>
+<div class="bayt"><span class="sadr">أَنَتَ الطَّبِيبُ لِدَاءِ جُرْحِي وَالَّذي</span><span class="sep">✦</span><span class="ajz">بِدَوَائِهِ لَا شَكَّ أَدْفَعُ دَائِيَّ</span></div>
+<div class="bayt"><span class="sadr">وَالْوَعْدُ فيهِ مِنْكَ لِي مُتَقَدِّمٌ</span><span class="sep">✦</span><span class="ajz">فَاِمْنُنَّ عَلَيَّ بِأَْن تُخِفَّ أَدَائِيُّ</span></div>
+<div class="bayt"><span class="sadr">إِِْنَّ الْبَقِيَّةَ مِنْ خَرَاجَي قَدْرُهَا</span><span class="sep">✦</span><span class="ajz">مَا إِِْن يَكونُ لَدَيكَ قَدْرَ غَدَاءِ</span></div>
+<div class="bayt"><span class="sadr">فَاِمْنُنَّ عَلَيَّ بِصَوْمِ يَوْمٍ وَاحِدٍ</span><span class="sep">✦</span><span class="ajz">وَاِجْعَلْ غَدَاءَكَ لِي فَفيهِ غَنَائِيٌّ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">نَفْسُي تَقِيُّكَ وَوَالِدَاي كِلَاهُمَا</span><span class="sep">✦</span><span class="ajz">وَجَمِيعُ مَنٍّ وَلَدًا مِنَ الْأَسْوَاءِ</span></div>
+<div class="bayt"><span class="sadr">ثِقَلُ الْخَرَاجِ عَلَيَّ دَيْنٌ مُؤْلِمٌ</span><span class="sep">✦</span><span class="ajz">وَلَدَيْكَ مِمَّا أَشتَكيهِ دَوَائِيٌّ</span></div>
+<div class="bayt"><span class="sadr">أَنَتَ الطَّبِيبُ لِدَاءِ جُرْحِي وَالَّذي</span><span class="sep">✦</span><span class="ajz">بِدَوَائِهِ لَا شَكَّ أَدْفَعُ دَائِيٌّ</span></div>
+<div class="bayt"><span class="sadr">وَالْوَعْدُ فيهِ مِنْكَ لِي مُتَقَدِْمٌ</span><span class="sep">✦</span><span class="ajz">فَاِمْنُنَّ عَلَيَّ بِأَن تُخِفَّ أَدَائِيٌّ</span></div>
+<div class="bayt"><span class="sadr">إِنَّ الْبَقِيَّةَ مِنْ خَرَاجَي قَدْرُهَا</span><span class="sep">✦</span><span class="ajz">مَا إِن يَكونُ لَدَيكَ قَدْرَ غَدَاءِ</span></div>
+<div class="bayt"><span class="sadr">فَاِمْنُنَّ عَلَيَّ بِصَوْمِ يَوْمٍ وَاحِدٍ</span><span class="sep">✦</span><span class="ajz">وَاِجْعَلْ غَدَاءَكَ لِي فَفيهِ غَنَائِيٌّ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">لعمرك ما العجب العاجب</h3>
+                <span class="poet-name">البحتري</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">لَعَمرُكَ ما العَجَبُ العاجِبُ</span><span class="sep">✦</span><span class="ajz">سِوى غَنَوِيٍّ لَهُ حاجِبُ</span></div>
+<div class="bayt"><span class="sadr">وَمَوتِ الحُقوقِ فَلا يائِسٌ</span><span class="sep">✦</span><span class="ajz">يَرُدُّ غُلامىً وَلا راغِبُ</span></div>
+<div class="bayt"><span class="sadr">وَلَولا اِبنُ عَمروٍ وَتَسويفُهُ</span><span class="sep">✦</span><span class="ajz">لَما غَرَّني الأَمَلُ الكاذِبُ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">لعمرك ما العجب العاجب</span><span class="sep">✦</span><span class="ajz">سوى غنوي له حاجب</span></div>
+<div class="bayt"><span class="sadr">وموت الحقوق فلا يائس</span><span class="sep">✦</span><span class="ajz">يرد غلامى ولا راغب</span></div>
+<div class="bayt"><span class="sadr">ولولا ابن عمرو وتسويفه</span><span class="sep">✦</span><span class="ajz">لما غرني الأمل الكاذب</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">لَعَمْرُكَ مَا الْعَجَبُ العاجِبُ</span><span class="sep">✦</span><span class="ajz">سِوى غَنَوِيٍّ لَهُ حَاجِبُ</span></div>
+<div class="bayt"><span class="sadr">وَمَوْتِ الْحُقوقِ فَلَّا يَائِسٌ</span><span class="sep">✦</span><span class="ajz">يَرُدُّ غُلامىً وَلا رَاغِبُ</span></div>
+<div class="bayt"><span class="sadr">وَلَولا اِبْنُ عَمْروٍ وَتَسْوِيفُهُ</span><span class="sep">✦</span><span class="ajz">لَمَّا غَرَّنِي الْأَمَلُ الْكَاذِبُ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">لَعَمْرُكَ مَا الْعَجَبُ العاجِبُ</span><span class="sep">✦</span><span class="ajz">سِوى غَنَوِي لَهُ حَاجِبُ</span></div>
+<div class="bayt"><span class="sadr">وَمَوْتِ الْحُقوقِ فَلَّا يَائِسٌ</span><span class="sep">✦</span><span class="ajz">يَرُدُّ غُلامىً وَلا رَاغِبُ</span></div>
+<div class="bayt"><span class="sadr">وَلَولا اِبْنُ عَمْروٍ وَتَسْوِيفُهُ</span><span class="sep">✦</span><span class="ajz">لَمَّا غَرَّنِي الْأَمَلُ الْكَاذِبُ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">إذا لم تجد ما يبتر الفقر قاعدا</h3>
+                <span class="poet-name">المتنبي</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">إِذا لَم تَجِد ما يَبتُرُ الفَقرَ قاعِداً</span><span class="sep">✦</span><span class="ajz">فَقُم وَاِطلُبِ الشَيءَ الَّذي يَبتُرُ العُمرا</span></div>
+<div class="bayt"><span class="sadr">هُما خَلَّتانِ ثَروَةٌ أَو مَنِيَّةٌ</span><span class="sep">✦</span><span class="ajz">لَعَلَّكَ أَن تُبقي بِواحِدَةٍ ذِكرا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">إذا لم تجد ما يبتر الفقر قاعدا</span><span class="sep">✦</span><span class="ajz">فقم واطلب الشيء الذي يبتر العمرا</span></div>
+<div class="bayt"><span class="sadr">هما خلتان ثروة أو منية</span><span class="sep">✦</span><span class="ajz">لعلك أن تبقي بواحدة ذكرا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">إِِْذَا لَمَّ تَجِدُ مَا يَبْتُرُ الْفَقْرَ قَاعِدًا</span><span class="sep">✦</span><span class="ajz">فَقُمْ وَاِطلُبِ الشَّيْءَ الَّذي يَبْتُرُ الْعُمْرَا</span></div>
+<div class="bayt"><span class="sadr">هُمَّا خَلَّتَانِ ثَرْوَةٌ أَوِّ مَنِيَّةٌ</span><span class="sep">✦</span><span class="ajz">لَعَلَّكَ أَْن تُبُقِّيَ بِوَاحِدَةٍ ذِكْرًا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">إِذَا لَمَّ تَجِدُ مَا يَبْتُرُ الْفَقْرَ قَاعِدًا</span><span class="sep">✦</span><span class="ajz">فَقُمْ وَاِطلُبِ الشَّيْءَ الَّذي يَبْتُرُ الْعُمْرَا</span></div>
+<div class="bayt"><span class="sadr">هُمَّا خَلَّتَانِ ثَرْوَةٌ أَوِّ مَنِيَّةٌ</span><span class="sep">✦</span><span class="ajz">لَعَلَّكَ أَن تُبُقِّيَ بِوَاحِدَةٍ ذِكْرًا</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">لا عدم المشيع المشيع</h3>
+                <span class="poet-name">المتنبي</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">لا عَدِمَ المُشَيِّعَ المُشَيَّعُ</span><span class="sep">✦</span><span class="ajz">لَيتَ الرِياحَ صَنَّعٌ ما تَصنَعُ</span></div>
+<div class="bayt"><span class="sadr">بَكَرنَ ضَرّا وَبَكَرتَ تَنفَعُ</span><span class="sep">✦</span><span class="ajz">وَسَجسَجٌ أَنتَ وَهُنَّ زَعزَعُ</span></div>
+<div class="bayt"><span class="sadr">وَواحِدٌ أَنتَ وَهُنَّ أَربَعُ</span><span class="sep">✦</span><span class="ajz">وَأَنتَ نَبعٌ وَالمُلوكُ خِروَعُ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">لا عدم المشيع المشيع</span><span class="sep">✦</span><span class="ajz">ليت الرياح صنع ما تصنع</span></div>
+<div class="bayt"><span class="sadr">بكرن ضرا وبكرت تنفع</span><span class="sep">✦</span><span class="ajz">وسجسج أنت وهن زعزع</span></div>
+<div class="bayt"><span class="sadr">وواحد أنت وهن أربع</span><span class="sep">✦</span><span class="ajz">وأنت نبع والملوك خروع</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">لَا عَدِمَ الْمُشَيِّعَ الْمُشَيَّعُ</span><span class="sep">✦</span><span class="ajz">لَيتَ الرِّيَاحَ صَنَّعٌ مَا تَصْنَعُ</span></div>
+<div class="bayt"><span class="sadr">بَكَرْنَ ضَرًّا وَبَكَرْتَ تَنْفَعُ</span><span class="sep">✦</span><span class="ajz">وَسَجسَجٌ أَنَتَ وَهُنَّ زَعْزَعُ</span></div>
+<div class="bayt"><span class="sadr">وَاحِدٌ أَنَتَ وَهُنَّ أَرْبَعُ</span><span class="sep">✦</span><span class="ajz">وَأَنَتَ نَبْعٌ وَالْمُلُوكُ خِرْوَعُ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">لَا عَدِمَ الْمُشَيِّعَ الْمُشَيَّعُ</span><span class="sep">✦</span><span class="ajz">لَيتَ الرِّيَاحَ صَنَّعٌ مَا تَصْنَعُ</span></div>
+<div class="bayt"><span class="sadr">بَكَرْنَ ضَرًّا وَبَكَرْتَ تَنْفَعُ</span><span class="sep">✦</span><span class="ajz">وَسَجسَجٌ أَنَتَ وَهُنَّ زَعْزَعُ</span></div>
+<div class="bayt"><span class="sadr">وَاحِدٌ أَنَتَ وَهُنَّ أَرْبَعُ</span><span class="sep">✦</span><span class="ajz">وَأَنَتَ نَبْعٌ وَالْمُلُوكُ خِرْوَعُ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">إن بني عوف ابتنوا حسب</h3>
+                <span class="poet-name">امرؤ القيس</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">إِنَّ بَني عَوفَ اِبتَنوا حَسَباً</span><span class="sep">✦</span><span class="ajz">ضَيَّعَهُ الدُخلُلونَ إِذ غَدَروا</span></div>
+<div class="bayt"><span class="sadr">أَدّوا إِلى جارِهِم خَفارَتِهِ</span><span class="sep">✦</span><span class="ajz">وَلَم يَضَع بِالمَغيبِ مَن نَصَروا</span></div>
+<div class="bayt"><span class="sadr">لَم يَفعَلوا فِعلَ آلِ حَنظَلَةٍ</span><span class="sep">✦</span><span class="ajz">إِنَّهُم جيرِ بِئسَ ما اِئتَمَروا</span></div>
+<div class="bayt"><span class="sadr">لا حِميَرِيٌّ وَفى وَلا عُدَسٌ</span><span class="sep">✦</span><span class="ajz">وَلا اِستُ عيرٍ يَحُكُّها الثَفَرُ</span></div>
+<div class="bayt"><span class="sadr">لَكِن عُوَيرٌ وَفى بِذِمَّتِهِ</span><span class="sep">✦</span><span class="ajz">لا عُوَرٌ شانُهُ وَلا قِصَرُ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">إن بني عوف ابتنوا حسبا</span><span class="sep">✦</span><span class="ajz">ضيعه الدخللون إذ غدروا</span></div>
+<div class="bayt"><span class="sadr">أدوا إلى جارهم خفارته</span><span class="sep">✦</span><span class="ajz">ولم يضع بالمغيب من نصروا</span></div>
+<div class="bayt"><span class="sadr">لم يفعلوا فعل آل حنظلة</span><span class="sep">✦</span><span class="ajz">إنهم جير بئس ما ائتمروا</span></div>
+<div class="bayt"><span class="sadr">لا حميري وفى ولا عدس</span><span class="sep">✦</span><span class="ajz">ولا است عير يحكها الثفر</span></div>
+<div class="bayt"><span class="sadr">لكن عوير وفى بذمته</span><span class="sep">✦</span><span class="ajz">لا عور شانه ولا قصر</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">إِِْنّ بَنِي عَوْفَ اِبْتَنَوْا حَسَبًا</span><span class="sep">✦</span><span class="ajz">ضَيَّعَهُ الدُخلُلونَ إِِْذ غَدَرُوا</span></div>
+<div class="bayt"><span class="sadr">أَدَّوْا إِِْلَى جَارِهِمْ خَفارَتِهِ</span><span class="sep">✦</span><span class="ajz">وَلَمَّ يَضَعُ بِالْمَغِيبِ مَنَّ نَصَرُوا</span></div>
+<div class="bayt"><span class="sadr">لَمَّ يَفْعَلُوا فِعْلَ آلِ حَنْظَلَةٍ</span><span class="sep">✦</span><span class="ajz">إِِْنّهُم جَيِّرْ بِئْسَ مَا اِئْتَمَرُوا</span></div>
+<div class="bayt"><span class="sadr">لَا حِميَرِيٌّ وَفَى وَلا عُدَسٌ</span><span class="sep">✦</span><span class="ajz">وَلا اِسْتُ عِيرٍ يَحُكُّهَا الثَّفَرُ</span></div>
+<div class="bayt"><span class="sadr">لَكِنَ عُوَيرٌ وَفَى بِذِمَّتِهِ</span><span class="sep">✦</span><span class="ajz">لَا عُوَرٌ شانُهُ وَلا قِصَرُ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">إِنّ بَنِي عَوْفَ اِبْتَنَوْا حَسَبًا</span><span class="sep">✦</span><span class="ajz">ضَيَّعَهُ الدُخلُلونَ إِذ غَدَرُوا</span></div>
+<div class="bayt"><span class="sadr">أَدَّوْا إِلَى جَارِهِمْ خَفارَتِهِ</span><span class="sep">✦</span><span class="ajz">وَلَمَّ يَضَعُ بِالْمَغِيبِ مَنَّ نَصَرُوا</span></div>
+<div class="bayt"><span class="sadr">لَمَّ يَفْعَلُوا فِعْلَ آلِ حَنْظَلَةٍ</span><span class="sep">✦</span><span class="ajz">إِنّهُم جَيِّرْ بِئْسَ مَا اِئْتَمَرُوا</span></div>
+<div class="bayt"><span class="sadr">لَا حِميَرِي وَفَى وَلا عُدَسٌ</span><span class="sep">✦</span><span class="ajz">وَلا اِسْتُ عِيرٍ يَحُكُّهَا الثَّفَرُ</span></div>
+<div class="bayt"><span class="sadr">لَكِنَ عُوَيرٌ وَفَى بِذِمَّتِهِ</span><span class="sep">✦</span><span class="ajz">لَا عُوَرٌ شانُهُ وَلا قِصَرُ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">أبعد الحارث الملك بن عمرو</h3>
+                <span class="poet-name">امرؤ القيس</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">أَبَعدَ الحارِثِ المَلِكِ بنِ عَمروٍ</span><span class="sep">✦</span><span class="ajz">لَهُ مُلكُ العِراقِ إِلى عُمانِ</span></div>
+<div class="bayt"><span class="sadr">مُجاوَرَةً بَني شَمجى بنِ جَرمٍ</span><span class="sep">✦</span><span class="ajz">هَوانا ما أُتيحَ مِنَ الهَوانِ</span></div>
+<div class="bayt"><span class="sadr">وَيَمنَعُها بَنو شَمجى بنِ جَرمٍ</span><span class="sep">✦</span><span class="ajz">مَعيزَهُم حَنانَكَ ذا الحَنانِ</span></div>
+<div class="bayt"><span class="sadr"></span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">أبعد الحارث الملك بن عمرو</span><span class="sep">✦</span><span class="ajz">له ملك العراق إلى عمان</span></div>
+<div class="bayt"><span class="sadr">مجاورة بني شمجى بن جرم</span><span class="sep">✦</span><span class="ajz">هوانا ما أتيح من الهوان</span></div>
+<div class="bayt"><span class="sadr">ويمنعها بنو شمجى بن جرم</span><span class="sep">✦</span><span class="ajz">معيزهم حنانك ذا الحنان</span></div>
+<div class="bayt"><span class="sadr"></span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">أَبَعُدَ الْحَارِثِ الْمَلِكِ بْن عَمْروٍ</span><span class="sep">✦</span><span class="ajz">لَهُ مُلْكُ الْعِرَاقِ إِِْلَى عُمَانِ</span></div>
+<div class="bayt"><span class="sadr">مُجَاوَرَةً بَنِي شَمجَى بْن جَرَمٍ</span><span class="sep">✦</span><span class="ajz">هَوَانَا مَا أُتِيحَ مِنَ الهَوانِ</span></div>
+<div class="bayt"><span class="sadr">وَيَمْنَعُهَا بَنَوٍ شَمجَى بْن جَرَمٍ</span><span class="sep">✦</span><span class="ajz">مَعيزَهُم حَنَانَكَ ذَا الْحَنَانِ</span></div>
+<div class="bayt"><span class="sadr"></span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">أَبَعُدَ الْحَارِثِ الْمَلِكِ بْن عَمْروٍ</span><span class="sep">✦</span><span class="ajz">لَهُ مُلْكُ الْعِرَاقِ إِلَى عُمَانِ</span></div>
+<div class="bayt"><span class="sadr">مُجَاوَرَةً بَنِي شَمجَى بْن جَرَمٍ</span><span class="sep">✦</span><span class="ajz">هَوَانَا مَا أُتِيحَ مِنَ الهَوانِ</span></div>
+<div class="bayt"><span class="sadr">وَيَمْنَعُهَا بَنَوٍ شَمجَى بْن جَرَمٍ</span><span class="sep">✦</span><span class="ajz">مَعيزَهُم حَنَانَكَ ذَا الْحَنَانِ</span></div>
+<div class="bayt"><span class="sadr"></span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">أدار الجميع الصالحين أبيني</h3>
+                <span class="poet-name">جرير</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">أَدارَ الجَميعِ الصالِحينَ أَبيني</span><span class="sep">✦</span><span class="ajz">وَعَهدي بِسَلمى قَبلَ ذاكَ بِحينِ</span></div>
+<div class="bayt"><span class="sadr">فَإِنّي لَذو حِلمٍ وَإِنّي لَلَيِّنٌ</span><span class="sep">✦</span><span class="ajz">وَإِنّي لَأَحمي بِالشَكاسَةِ ليني</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">أدار الجميع الصالحين أبيني</span><span class="sep">✦</span><span class="ajz">وعهدي بسلمى قبل ذاك بحين</span></div>
+<div class="bayt"><span class="sadr">فإني لذو حلم وإني للين</span><span class="sep">✦</span><span class="ajz">وإني لأحمي بالشكاسة ليني</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">أَدَارَ الْجَمِيعِ الصَّالِحِينَ أَبَيْنِيَّ</span><span class="sep">✦</span><span class="ajz">وَعَهْدِيٌّ بِسَلْمَى قَبِلَ ذَاُكَ بِحَيْنِ</span></div>
+<div class="bayt"><span class="sadr">فَإِِْنِّي لَذُو حِلْمٍ وَإِنّي لَلَيِّنٌ</span><span class="sep">✦</span><span class="ajz">وَإِنّي لَأَحْمِي بِالشَّكَاسَةِ لَيِّنِي</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">أَدَارَ الْجَمِيعِ الصَّالِحِينَ أَبَيْنِيٌّ</span><span class="sep">✦</span><span class="ajz">وَعَهْدِي بِسَلْمَى قَبِلَ ذَاُكَ بِحَيْنِ</span></div>
+<div class="bayt"><span class="sadr">فَإِنِّي لَذُو حِلْمٍ وَإِنّي لَلَيِّنٌ</span><span class="sep">✦</span><span class="ajz">وَإِنّي لَأَحْمِي بِالشَّكَاسَةِ لَيِّنِيٌّ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">يقول ذوو الحكومة من قريش</h3>
+                <span class="poet-name">جرير</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">يَقولُ ذَوُو الحُكومَةِ مِن قُرَيشٍ</span><span class="sep">✦</span><span class="ajz">أَتَفخَرُ بَعدَ جارِكُمُ المُصابُ</span></div>
+<div class="bayt"><span class="sadr">غَدَرتَ وَما وَفَيتَ وَفاءَ حَزنٍ</span><span class="sep">✦</span><span class="ajz">فَأَورَثتَ الوَفاءَ بَني جَنابِ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">يقول ذوو الحكومة من قريش</span><span class="sep">✦</span><span class="ajz">أتفخر بعد جاركم المصاب</span></div>
+<div class="bayt"><span class="sadr">غدرت وما وفيت وفاء حزن</span><span class="sep">✦</span><span class="ajz">فأورثت الوفاء بني جناب</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">يَقُولُ ذَوُو الْحُكُومَةِ مِنْ قُرَيْشٍ</span><span class="sep">✦</span><span class="ajz">أَتَفَخَّرُ بَعُدَ جَارِكُمُ الْمُصَابُ</span></div>
+<div class="bayt"><span class="sadr">غَدَرْتَ وَمَا وَفَيْتَ وَفَاءَ حَزَنٍ</span><span class="sep">✦</span><span class="ajz">فَأَوْرَثْتَ الْوَفَاءَ بَنِي جَنَابِ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">يَقُولُ ذَوُو الْحُكُومَةِ مِنْ قُرَيْشٍ</span><span class="sep">✦</span><span class="ajz">أَتَفَخَّرُ بَعُدَ جَارِكُمُ الْمُصَابُ</span></div>
+<div class="bayt"><span class="sadr">غَدَرْتَ وَمَا وَفَيْتَ وَفَاءَ حَزَنٍ</span><span class="sep">✦</span><span class="ajz">فَأَوْرَثْتَ الْوَفَاءَ بَنِي جَنَابِ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">أنا ابن خلدة والأغر</h3>
+                <span class="poet-name">حسان بن ثابت</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">أَنا اِبنُ خَلدَةَ وَالأَغَر</span><span class="sep">✦</span><span class="ajz">رِ وَمالِكَينِ وَساعِدَه</span></div>
+<div class="bayt"><span class="sadr">وَسَراةِ قَومِكِ إِن بَعَثتِ</span><span class="sep">✦</span><span class="ajz">لِأَهلِ يَثرِبَ ناشِدَه</span></div>
+<div class="bayt"><span class="sadr">فَسَعَيتِ في دورِ الظَوا</span><span class="sep">✦</span><span class="ajz">هِرِ وَالبَواطِنِ جاهِدَه</span></div>
+<div class="bayt"><span class="sadr">فَلتُصبِحَنَّ وَأَنتِ ما</span><span class="sep">✦</span><span class="ajz">لِيَقينِ عِلمِكِ حامِدَه</span></div>
+<div class="bayt"><span class="sadr">أَلمُطعِمونَ إِذا سِنو</span><span class="sep">✦</span><span class="ajz">نَ المَحلِ تُصبِحُ راكِدَه</span></div>
+<div class="bayt"><span class="sadr">قَمَعَ التَوامِكِ في جِفا</span><span class="sep">✦</span><span class="ajz">نِ الحورِ تُصبِحُ جامِدَه</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">أنا ابن خلدة والأغر</span><span class="sep">✦</span><span class="ajz">ر ومالكين وساعده</span></div>
+<div class="bayt"><span class="sadr">وسراة قومك إن بعثت</span><span class="sep">✦</span><span class="ajz">لأهل يثرب ناشده</span></div>
+<div class="bayt"><span class="sadr">فسعيت في دور الظوا</span><span class="sep">✦</span><span class="ajz">هر والبواطن جاهده</span></div>
+<div class="bayt"><span class="sadr">فلتصبحن وأنت ما</span><span class="sep">✦</span><span class="ajz">ليقين علمك حامده</span></div>
+<div class="bayt"><span class="sadr">ألمطعمون إذا سنو</span><span class="sep">✦</span><span class="ajz">ن المحل تصبح راكده</span></div>
+<div class="bayt"><span class="sadr">قمع التوامك في جفا</span><span class="sep">✦</span><span class="ajz">ن الحور تصبح جامده</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">أَْنَا اِبْنُ خَلَدَةَ وَالْأغَرَّ</span><span class="sep">✦</span><span class="ajz">رِ وَمَالِكَيْنِ وَسَاعِدَهُ</span></div>
+<div class="bayt"><span class="sadr">وَسَرَاةِ قَوْمِكِ إِِْن بَعَثَتْ</span><span class="sep">✦</span><span class="ajz">لِأَهِلْ يَثْرِبَ نَاشِدَهُ</span></div>
+<div class="bayt"><span class="sadr">فَسَعَيْتِ فِي دَوْرِ اِلْظَوْا</span><span class="sep">✦</span><span class="ajz">هِرِّ وَالْبَوَاطِنِ جَاهِدَهُ</span></div>
+<div class="bayt"><span class="sadr">فَلَتُصْبِحَنَّ وَأَنُتْ مَا</span><span class="sep">✦</span><span class="ajz">لِيَقِينِ عِلْمِكِ حَامِدَهُ</span></div>
+<div class="bayt"><span class="sadr">أَلمُطعِمونَ إِِْذَا سِنُو</span><span class="sep">✦</span><span class="ajz">نَ الْمَحَلِّ تُصَبِّحُ رَاكِدَهُ</span></div>
+<div class="bayt"><span class="sadr">قَمَعَ التَوامِكِ فِي جِفَّا</span><span class="sep">✦</span><span class="ajz">نِ الْحَوَرِ تُصَبِّحُ جَامِدَهُ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">أَنَا اِبْنُ خَلَدَةَ وَالْأغَرَّ</span><span class="sep">✦</span><span class="ajz">رِ وَمَالِكَيْنِ وَسَاعِدَهُ</span></div>
+<div class="bayt"><span class="sadr">وَسَرَاةِ قَوْمِكِ إِن بَعَثَتْ</span><span class="sep">✦</span><span class="ajz">لِأَهِلْ يَثْرِبَ نَاشِدَهُ</span></div>
+<div class="bayt"><span class="sadr">فَسَعَيْتِ فِي دَوْرِ اِلْظَوْا</span><span class="sep">✦</span><span class="ajz">هِرِّ وَالْبَوَاطِنِ جَاهِدَهُ</span></div>
+<div class="bayt"><span class="sadr">فَلَتُصْبِحَنَّ وَأَنُتْ مَا</span><span class="sep">✦</span><span class="ajz">لِيَقِينِ عِلْمِكِ حَامِدَهُ</span></div>
+<div class="bayt"><span class="sadr">أَلمُطعِمونَ إِذَا سِنُوَ</span><span class="sep">✦</span><span class="ajz">نَ الْمَحَلِّ تُصَبِّحُ رَاكِدَهُ</span></div>
+<div class="bayt"><span class="sadr">قَمَعَ التَوامِكِ فِي جِفَّا</span><span class="sep">✦</span><span class="ajz">نِ الْحَوَرِ تُصَبِّحُ جَامِدَهُ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">ماذا أردتم من أخي الخير باركت</h3>
+                <span class="poet-name">حسان بن ثابت</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">ماذا أَرَدتُم مِن أَخي الخَيرِ بارَكَت</span><span class="sep">✦</span><span class="ajz">يَدُ اللَهِ في ذاكَ الأَديمِ المُقَدَّدِ</span></div>
+<div class="bayt"><span class="sadr">قَتَلتُم وَلِيَّ اللَهِ في جَوفِ دارِهِ</span><span class="sep">✦</span><span class="ajz">وَجِئتُم بِأَمرٍ جائِرٍ غَيرِ مُهتَدِ</span></div>
+<div class="bayt"><span class="sadr">فَهَلّا رَعَيتُم ذِمَّةَ اللَهِ وَسطَكُم</span><span class="sep">✦</span><span class="ajz">وَأَوفَيتُمُ بِالعَهدِ عَهدِ مُحَمَّدِ</span></div>
+<div class="bayt"><span class="sadr">أَلَم يَكُ فيكُم ذا بَلاءٍ وَمَصدَقٍ</span><span class="sep">✦</span><span class="ajz">وَأَوفاكُمُ عَهداً لَدى كُلِّ مَشهَدِ</span></div>
+<div class="bayt"><span class="sadr">فَلا ظَفِرَت أَيمانُ قَومٍ تَظاهَرَت</span><span class="sep">✦</span><span class="ajz">عَلى قَتلِ عُثمانَ الرَشيدِ المُسَدَّدِ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">ماذا أردتم من أخي الخير باركت</span><span class="sep">✦</span><span class="ajz">يد الله في ذاك الأديم المقدد</span></div>
+<div class="bayt"><span class="sadr">قتلتم ولي الله في جوف داره</span><span class="sep">✦</span><span class="ajz">وجئتم بأمر جائر غير مهتد</span></div>
+<div class="bayt"><span class="sadr">فهلا رعيتم ذمة الله وسطكم</span><span class="sep">✦</span><span class="ajz">وأوفيتم بالعهد عهد محمد</span></div>
+<div class="bayt"><span class="sadr">ألم يك فيكم ذا بلاء ومصدق</span><span class="sep">✦</span><span class="ajz">وأوفاكم عهدا لدى كل مشهد</span></div>
+<div class="bayt"><span class="sadr">فلا ظفرت أيمان قوم تظاهرت</span><span class="sep">✦</span><span class="ajz">على قتل عثمان الرشيد المسدد</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">مَاذَا أَرَدْتُم مِنْ أَخِيَّ الْخَيْرِ بَارَكَتْ</span><span class="sep">✦</span><span class="ajz">يَدُ اللهِ فِي ذَاِكَ الْأَدِيمِ الْمُقَدَّدِ</span></div>
+<div class="bayt"><span class="sadr">قَتَلْتُم وَلِيَّ اللهِ فِي جَوْفِ دَارِهِ</span><span class="sep">✦</span><span class="ajz">وَجِئْتُم بِأَمْرٍ جَائِرٍ غَيْرِ مُهتَدِ</span></div>
+<div class="bayt"><span class="sadr">فَهَلَّا رَعَيْتُم ذِمَّةَ اللهِ وَسَطَكُمْ</span><span class="sep">✦</span><span class="ajz">وَأَوْفَيْتُم بِالْعَهْدِ عَهْدِ مُحَمَّدِ</span></div>
+<div class="bayt"><span class="sadr">أَلَمَّ يَكُ فَيَكُمُّ ذَا بَلَاءٍ وَمَصدَقٍ</span><span class="sep">✦</span><span class="ajz">وَأَوْفَاكُمُ عَهْدَا لَدَى كُلِّ مَشْهَدِ</span></div>
+<div class="bayt"><span class="sadr">فَلًّا ظَفِرَتْ أَيْمَانُ قَوْمٍ تَظَاهَرَتْ</span><span class="sep">✦</span><span class="ajz">عَلَّى قَتِّلْ عُثْمَانَ الرَّشيدِ الْمُسَدَّدِ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">مَاذَا أَرَدْتُم مِنْ أَخِي الْخَيْرِ بَارَكَتْ</span><span class="sep">✦</span><span class="ajz">يَدُ اللهِ فِي ذَاِكَ الْأَدِيمِ الْمُقَدَْدِ</span></div>
+<div class="bayt"><span class="sadr">قَتَلْتُم وَلِي اللهِ فِي جَوْفِ دَارِهِ</span><span class="sep">✦</span><span class="ajz">وَجِئْتُم بِأَمْرٍ جَائِرٍ غَيْرِ مُهتَدِ</span></div>
+<div class="bayt"><span class="sadr">فَهَلَّا رَعَيْتُم ذِمَّةَ اللهِ وَسَطَكُمْ</span><span class="sep">✦</span><span class="ajz">وَأَوْفَيْتُم بِالْعَهْدِ عَهْدِ مُحَمَّدِ</span></div>
+<div class="bayt"><span class="sadr">أَلَمَّ يَكُ فَيَكُمُّ ذَا بَلَاءٍ وَمَصدَقٍ</span><span class="sep">✦</span><span class="ajz">وَأَوْفَاكُمُ عَهْدَا لَدَى كُلِّ مَشْهَدِ</span></div>
+<div class="bayt"><span class="sadr">فَلًّا ظَفِرَتْ أَيْمَانُ قَوْمٍ تَظَاهَرَتْ</span><span class="sep">✦</span><span class="ajz">عَلَّى قَتِّلْ عُثْمَانَ الرَّشيدِ الْمُسَدَّدِ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">ذهب الذين عليهم وجدي</h3>
+                <span class="poet-name">علي بن أبي طالب</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">ذَهَبَ الَّذينَ عَلَيهِمُ وَجدي</span><span class="sep">✦</span><span class="ajz">وَبَقيتُ بَعدَ فِراقِهم وَحدي</span></div>
+<div class="bayt"><span class="sadr">مَن كانَ بَينَكَ في التُرابِ وَبَينَهُ</span><span class="sep">✦</span><span class="ajz">شِبرانِ فَهوَ بِغايَةِ البُعدِ</span></div>
+<div class="bayt"><span class="sadr">لَو كُشِّفَت لِلمَرءِ أَطباقُ الثَرى</span><span class="sep">✦</span><span class="ajz">لَم يُعرَفِ المَولى مِنَ العَبدِ</span></div>
+<div class="bayt"><span class="sadr">مَن كانَ لا يَطَأُ التُرابَ بِرِجلِهِ</span><span class="sep">✦</span><span class="ajz">يَطأُ التُرابَ بِناعِمِ الخَدِّ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">ذهب الذين عليهم وجدي</span><span class="sep">✦</span><span class="ajz">وبقيت بعد فراقهم وحدي</span></div>
+<div class="bayt"><span class="sadr">من كان بينك في التراب وبينه</span><span class="sep">✦</span><span class="ajz">شبران فهو بغاية البعد</span></div>
+<div class="bayt"><span class="sadr">لو كشفت للمرء أطباق الثرى</span><span class="sep">✦</span><span class="ajz">لم يعرف المولى من العبد</span></div>
+<div class="bayt"><span class="sadr">من كان لا يطأ التراب برجله</span><span class="sep">✦</span><span class="ajz">يطأ التراب بناعم الخد</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">ذَهَبَ الَّذينَ عَلَيهِمُ وَجِدِي</span><span class="sep">✦</span><span class="ajz">وَبَقِيتُ بَعُدَ فِرَاقِهِمْ وَحَدِّي</span></div>
+<div class="bayt"><span class="sadr">مَنِّ كَانَ بَيَّنَكَ فِي التُّرَابِ وَبَيْنَهُ</span><span class="sep">✦</span><span class="ajz">شِبْرَانِ فَهوَ بِغَايَةِ الْبُعْدِ</span></div>
+<div class="bayt"><span class="sadr">لَوِّ كُشِّفَتْ لِلمَرءِ أَطْبَاقُ الثَّرَى</span><span class="sep">✦</span><span class="ajz">لَمَّ يُعْرَفْ الْمَوْلَى مِنَ الْعَبْدِ</span></div>
+<div class="bayt"><span class="sadr">مَنِّ كَانَ لَا يَطَأُ التُّرَابَ بِرِجْلِهِ</span><span class="sep">✦</span><span class="ajz">يَطَأُ التُّرَابَ بِنَاعِمِ الْخَدِّ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">ذَهَبَ الَّذينَ عَلَيهِمُ وَجِدِي</span><span class="sep">✦</span><span class="ajz">وَبَقِيتُ بَعُدَ فِرَاقِهِمْ وَحَدِّيٌّ</span></div>
+<div class="bayt"><span class="sadr">مَنِّ كَانَ بَيَّنَكَ فِي التُّرَابِ وَبَيْنَهُ</span><span class="sep">✦</span><span class="ajz">شِبْرَانِ فَهوَ بِغَايَةِ الْبُعْدِ</span></div>
+<div class="bayt"><span class="sadr">لَوِّ كُشِّفَتْ لِلمَرءِ أَطْبَاقُ الثَّرَى</span><span class="sep">✦</span><span class="ajz">لَمَّ يُعْرَفْ الْمَوْلَى مِنَ الْعَبْدِ</span></div>
+<div class="bayt"><span class="sadr">مَنِّ كَانَ لَا يَطَأُ التُّرَابَ بِرِجْلِهِ</span><span class="sep">✦</span><span class="ajz">يَطَأُ التُّرَابَ بِنَاعِمِ الْخَدِّ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">ما غاض دمعي عند نازلة</h3>
+                <span class="poet-name">علي بن أبي طالب</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">ما غاضَ دَمعي عِندَ نازِلَةٍ</span><span class="sep">✦</span><span class="ajz">إِلّا جَعَلتَكَ لِلبُكا سَبَبا</span></div>
+<div class="bayt"><span class="sadr">وِإِذا ذَكَرتُكَ مَيِّتاً سَفَحَت</span><span class="sep">✦</span><span class="ajz">عَيني الدُموعُ فَفاضَ وَاِنسَكَبا</span></div>
+<div class="bayt"><span class="sadr">إِنّي أَجِلُّ ثَرىً حَلَلتَ بِهِ</span><span class="sep">✦</span><span class="ajz">عَن أَن أُرى لِسِواهُ مُكتَئِبا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">ما غاض دمعي عند نازلة</span><span class="sep">✦</span><span class="ajz">إلا جعلتك للبكا سببا</span></div>
+<div class="bayt"><span class="sadr">وإذا ذكرتك ميتا سفحت</span><span class="sep">✦</span><span class="ajz">عيني الدموع ففاض وانسكبا</span></div>
+<div class="bayt"><span class="sadr">إني أجل ثرى حللت به</span><span class="sep">✦</span><span class="ajz">عن أن أرى لسواه مكتئبا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">مَا غَاضَ دَمْعِي عِندَ نَازِلَةٍ</span><span class="sep">✦</span><span class="ajz">إِِْلَّا جَعَلْتَكَ لِلبُكَا سَبَبًا</span></div>
+<div class="bayt"><span class="sadr">وِإِذا ذَكَرْتُكَ مَيِّتاً سَفَحَتْ</span><span class="sep">✦</span><span class="ajz">عَيَّنِي الدُّموعُ فَفَاضَ وَاِنْسَكَبَا</span></div>
+<div class="bayt"><span class="sadr">إِِْنِّي أَْجِلُّ ثَرَى حَلَلْتَ بِهْ</span><span class="sep">✦</span><span class="ajz">عَنِّ أَْن أُرَى لِسِواهُ مُكْتَئِبًا</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">مَا غَاضَ دَمْعِي عِندَ نَازِلَةٍ</span><span class="sep">✦</span><span class="ajz">إِلَّا جَعَلْتَكَ لِلبُكَا سَبَبًا</span></div>
+<div class="bayt"><span class="sadr">وِإِذا ذَكَرْتُكَ مَيِّتاً سَفَحَتْ</span><span class="sep">✦</span><span class="ajz">عَيَّنِي الدُّموعُ فَفَاضَ وَاِنْسَكَبَا</span></div>
+<div class="bayt"><span class="sadr">إِنِّي أَجِلُّ ثَرَى حَلَلْتَ بِهْ</span><span class="sep">✦</span><span class="ajz">عَنِّ أَن أُرَى لِسِواهُ مُكْتَئِبًا</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">كأن السرايا بين قو وقارة</h3>
+                <span class="poet-name">عنترة بن شداد</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">كَأَنَّ السَرايا بَينَ قَوٍّ وَقارَةٍ</span><span class="sep">✦</span><span class="ajz">عَصائِبُ طَيرٍ يَنتَحَينَ لَمَشرَبِ</span></div>
+<div class="bayt"><span class="sadr">وَقَد كُنتُ أَخشى أَن أَموتَ وَلَم تَقُم</span><span class="sep">✦</span><span class="ajz">قَرائِبُ عَمروٍ وَسطَ نَوحٍ مُسَلِّبِ</span></div>
+<div class="bayt"><span class="sadr">شَفى النَفسَ مِنّي أَو دَنا مِن شِفائِها</span><span class="sep">✦</span><span class="ajz">تَرَدّيهُمُ مِن حالِقٍ مُتَصَوِّبِ</span></div>
+<div class="bayt"><span class="sadr">تَصيحُ الرُدَينِيّاتُ في حَجَباتِهِم</span><span class="sep">✦</span><span class="ajz">صِياحَ العَوالي في الثِقافِ المُثَقَّبِ</span></div>
+<div class="bayt"><span class="sadr">كَتائِبُ تُجزى فَوقَ كُلِّ كَتيبَةٍ</span><span class="sep">✦</span><span class="ajz">لِواءٌ كَظِلِّ الطائِرِ المُتَقَلِّبِ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">كأن السرايا بين قو وقارة</span><span class="sep">✦</span><span class="ajz">عصائب طير ينتحين لمشرب</span></div>
+<div class="bayt"><span class="sadr">وقد كنت أخشى أن أموت ولم تقم</span><span class="sep">✦</span><span class="ajz">قرائب عمرو وسط نوح مسلب</span></div>
+<div class="bayt"><span class="sadr">شفى النفس مني أو دنا من شفائها</span><span class="sep">✦</span><span class="ajz">ترديهم من حالق متصوب</span></div>
+<div class="bayt"><span class="sadr">تصيح الردينيات في حجباتهم</span><span class="sep">✦</span><span class="ajz">صياح العوالي في الثقاف المثقب</span></div>
+<div class="bayt"><span class="sadr">كتائب تجزى فوق كل كتيبة</span><span class="sep">✦</span><span class="ajz">لواء كظل الطائر المتقلب</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">كَأَْنّ السَّرَايَا بَيْنَ قَوٍّ وَقَارَّةٍ</span><span class="sep">✦</span><span class="ajz">عَصَائِبُ طَيْرٍ يَنتَحَينَ لَمَشْرَبِ</span></div>
+<div class="bayt"><span class="sadr">وَقَدَّ كُنتُ أَخْشَى أَْن أَمَوَّتَ وَلَمَّ تَقُمْ</span><span class="sep">✦</span><span class="ajz">قَرَائِبُ عَمْروٍ وَسَطَ نَوْحٍ مُسَلّبِ</span></div>
+<div class="bayt"><span class="sadr">شَفَى النَّفْسَ مِنِّيَّ أَوِّ دَنًّا مِنْ شِفَائِهَا</span><span class="sep">✦</span><span class="ajz">تَّرَدِّيَهُمُ مِنْ حَالِقٍ مُتَصَوِّبِ</span></div>
+<div class="bayt"><span class="sadr">تَصِيحُ الرُّدَيْنِيَّاتُ فِي حَجَباتِهِم</span><span class="sep">✦</span><span class="ajz">صِيَاحَ الْعَوَالِي فِي الثِّقَافِ المُثَقَّبِ</span></div>
+<div class="bayt"><span class="sadr">كَتَائِبُ تُجْزَى فَوَقَ كُلّ كَتِيبَةٍ</span><span class="sep">✦</span><span class="ajz">لِوَاءٌ كَظِلِّ الطَّائِرِ الْمُتَقَلِّبِ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">كَأَنّ السَّرَايَا بَيْنَ قَوٍّ وَقَارَّةٍ</span><span class="sep">✦</span><span class="ajz">عَصَائِبُ طَيْرٍ يَنتَحَينَ لَمَشْرَبِ</span></div>
+<div class="bayt"><span class="sadr">وَقَدَْ كُنتُ أَخْشَى أَن أَمَوَّتَ وَلَمَّ تَقُمْ</span><span class="sep">✦</span><span class="ajz">قَرَائِبُ عَمْروٍ وَسَطَ نَوْحٍ مُسَلّبِ</span></div>
+<div class="bayt"><span class="sadr">شَفَى النَّفْسَ مِنِّي أَوِّ دَنًّا مِنْ شِفَائِهَا</span><span class="sep">✦</span><span class="ajz">تَّرَدِّيَهُمُ مِنْ حَالِقٍ مُتَصَوِّبِ</span></div>
+<div class="bayt"><span class="sadr">تَصِيحُ الرُّدَيْنِيَّاتُ فِي حَجَباتِهِمْ</span><span class="sep">✦</span><span class="ajz">صِيَاحَ الْعَوَالِي فِي الثِّقَافِ المُثَقَّبِ</span></div>
+<div class="bayt"><span class="sadr">كَتَائِبُ تُجْزَى فَوَقَ كُلّ كَتِيبَةٍ</span><span class="sep">✦</span><span class="ajz">لِوَاءٌ كَظِلِّ الطَّائِرِ الْمُتَقَلِّبِ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">وتظل عبلة في الخدور تجره</h3>
+                <span class="poet-name">عنترة بن شداد</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">وَتَظَلُّ عَبلَةُ في الخُدورِ تَجُرُّها</span><span class="sep">✦</span><span class="ajz">وَأَظَلُّ في حَلَقِ الحَديدِ المُبهَمِ</span></div>
+<div class="bayt"><span class="sadr">يا عَبلَ لَو أَبصَرتِني لَرَأَيتِني</span><span class="sep">✦</span><span class="ajz">في الحَربِ أُقدِمُ كَالهِزَبرِ الضَيغَمِ</span></div>
+<div class="bayt"><span class="sadr">وَصِغارُها مِثلُ الدَبى وَكِبارُها</span><span class="sep">✦</span><span class="ajz">مِثلُ الضَفادِعِ في غَديرٍ مُقحَمِ</span></div>
+<div class="bayt"><span class="sadr">يَدعونَ عَنتَرَ وَالدُروعُ كَأَنَّها</span><span class="sep">✦</span><span class="ajz">حَدَقُ الضَفادِعِ في غَديرٍ أَدهَمِ</span></div>
+<div class="bayt"><span class="sadr">تَسعى حَلائِلُنا إِلى جُثمانِهِ</span><span class="sep">✦</span><span class="ajz">بِجَنى الأَراكِ تَفيئَةً وَالشَبرُمِ</span></div>
+<div class="bayt"><span class="sadr">فَأَرى مَغانِمَ لَو أَشاءُ حَوَيتُها</span><span class="sep">✦</span><span class="ajz">فَيَصُدُّني عَنها كَثيرُ تَحَشُّمي</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">وتظل عبلة في الخدور تجرها</span><span class="sep">✦</span><span class="ajz">وأظل في حلق الحديد المبهم</span></div>
+<div class="bayt"><span class="sadr">يا عبل لو أبصرتني لرأيتني</span><span class="sep">✦</span><span class="ajz">في الحرب أقدم كالهزبر الضيغم</span></div>
+<div class="bayt"><span class="sadr">وصغارها مثل الدبى وكبارها</span><span class="sep">✦</span><span class="ajz">مثل الضفادع في غدير مقحم</span></div>
+<div class="bayt"><span class="sadr">يدعون عنتر والدروع كأنها</span><span class="sep">✦</span><span class="ajz">حدق الضفادع في غدير أدهم</span></div>
+<div class="bayt"><span class="sadr">تسعى حلائلنا إلى جثمانه</span><span class="sep">✦</span><span class="ajz">بجنى الأراك تفيئة والشبرم</span></div>
+<div class="bayt"><span class="sadr">فأرى مغانم لو أشاء حويتها</span><span class="sep">✦</span><span class="ajz">فيصدني عنها كثير تحشمي</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">وَتَظَلُّ عَبْلَةُ فِي الْخُدُورِ تَجُرُّهَا</span><span class="sep">✦</span><span class="ajz">وَأَظَلَّ فِي حَلَقِ الْحَديدِ الْمُبْهَمِ</span></div>
+<div class="bayt"><span class="sadr">يَا عَبَلَ لَوِّ أَبْصَرْتِنِي لَرَأَيْتِنِي</span><span class="sep">✦</span><span class="ajz">فِي الْحَرْبِ أُقَدِّمُ كَالْْهِزَبْرِ الضَّيْغَمِ</span></div>
+<div class="bayt"><span class="sadr">وَصِغَارُهَا مِثْلُ الدَبى وَكِبَارُهَا</span><span class="sep">✦</span><span class="ajz">مِثْلُ الضَّفَادِعِ فِي غَدِيرٍ مُقْحَمِ</span></div>
+<div class="bayt"><span class="sadr">يَدْعُوَنَّ عَنْتَرَ وَالدُّرُوعُ كَأَْنّهَا</span><span class="sep">✦</span><span class="ajz">حَدَقُ الضَّفَادِعِ فِي غَدِيرٍ أَدْهَمْ</span></div>
+<div class="bayt"><span class="sadr">تَسْعَى حَلَاَئِلُنَا إِِْلَى جُثمانِهِ</span><span class="sep">✦</span><span class="ajz">بِجَنَى الْأَرَاكِ تَفِيِئََِةً وَالشَبرُمِ</span></div>
+<div class="bayt"><span class="sadr">فَأَرَى مَغَانِمَ لَوِّ أَشَاءُ حَوَيْتُهَا</span><span class="sep">✦</span><span class="ajz">فَيَصُدُّنِي عَنَّهَا كَثِيرُ تَحَشّمِي</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">وَتَظَلُّ عَبْلَةُ فِي الْخُدُورِ تَجُرُّهَا</span><span class="sep">✦</span><span class="ajz">وَأَظَلَّ فِي حَلَقِ الْحَديدِ الْمُبْهَمِ</span></div>
+<div class="bayt"><span class="sadr">يَا عَبَلَ لَوِّ أَبْصَرْتِنِي لَرَأَيْتِنِي</span><span class="sep">✦</span><span class="ajz">فِي الْحَرْبِ أُقَدِْمُ كَالْهِزَبْرِ الضَّيْغَمِ</span></div>
+<div class="bayt"><span class="sadr">وَصِغَارُهَا مِثْلُ الدَبى وَكِبَارُهَا</span><span class="sep">✦</span><span class="ajz">مِثْلُ الضَّفَادِعِ فِي غَدِيرٍ مُقْحَمِ</span></div>
+<div class="bayt"><span class="sadr">يَدْعُوَنَّ عَنْتَرَ وَالدُّرُوعُ كَأَنّهَا</span><span class="sep">✦</span><span class="ajz">حَدَقُ الضَّفَادِعِ فِي غَدِيرٍ أَدْهَمْ</span></div>
+<div class="bayt"><span class="sadr">تَسْعَى حَلَاَئِلُنَا إِلَى جُثمانِهِ</span><span class="sep">✦</span><span class="ajz">بِجَنَى الْأَرَاكِ تَفِيِئَِةً وَالشَبرُمِ</span></div>
+<div class="bayt"><span class="sadr">فَأَرَى مَغَانِمَ لَوِّ أَشَاءُ حَوَيْتُهَا</span><span class="sep">✦</span><span class="ajz">فَيَصُدُّنِي عَنَّهَا كَثِيرُ تَحَشّمِي</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">مانيكور</h3>
+                <span class="poet-name">نزار قباني</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">قامت إلى قارورةٍ</span><span class="sep">✦</span><span class="ajz">محمومة الرحيق</span></div>
+<div class="bayt"><span class="sadr">وهج الكرز الفتيق</span><span class="sep">✦</span><span class="ajz">واستلت المبرد من</span></div>
+<div class="bayt"><span class="sadr">ينحت عاج ظفرها</span><span class="sep">✦</span><span class="ajz">المدلل النميق</span></div>
+<div class="bayt"><span class="sadr">المرمر الغريق</span><span class="sep">✦</span><span class="ajz">يحصد في نقلته</span></div>
+<div class="bayt"><span class="sadr">ويأكل النور الذي</span><span class="sep">✦</span><span class="ajz">تاه عن الطريق ..</span></div>
+<div class="bayt"><span class="sadr">واهتزت الريشة</span><span class="sep">✦</span><span class="ajz">ذات المقبض الأنيق</span></div>
+<div class="bayt"><span class="sadr">فنانة الخفوق</span><span class="sep">✦</span><span class="ajz">تترك بعض قلبها</span></div>
+<div class="bayt"><span class="sadr">وتفرز الغروب</span><span class="sep">✦</span><span class="ajz">هنيهةٌ .. فالسلم العاجي</span></div>
+<div class="bayt"><span class="sadr">في حريق</span><span class="sep">✦</span><span class="ajz">في معبدٍ عتيق</span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr">سجادة العقيق</span><span class="sep">✦</span><span class="ajz">إن كفرت سيدتي</span></div>
+<div class="bayt"><span class="sadr">فقل لها : إنك قد</span><span class="sep">✦</span><span class="ajz">رضعت من عروقي</span></div>
+<div class="bayt"><span class="sadr">هنيهةٌ .. فالسلم العاجي</span><span class="sep">✦</span><span class="ajz">في حريق</span></div>
+<div class="bayt"><span class="sadr">عشر شموعٍ أوقدت</span><span class="sep">✦</span><span class="ajz">في معبدٍ عتيق</span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr">يا ظفر .. يا وردي .. يا</span><span class="sep">✦</span><span class="ajz">سجادة العقيق</span></div>
+<div class="bayt"><span class="sadr">إن كفرت سيدتي</span><span class="sep">✦</span><span class="ajz">بعهدي الوثيق</span></div>
+<div class="bayt"><span class="sadr">فقل لها : إنك قد</span><span class="sep">✦</span><span class="ajz">رضعت من عروقي</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">قامت إلى قارورة</span><span class="sep">✦</span><span class="ajz">محمومة الرحيق</span></div>
+<div class="bayt"><span class="sadr">وهج الكرز الفتيق</span><span class="sep">✦</span><span class="ajz">واستلت المبرد من</span></div>
+<div class="bayt"><span class="sadr">ينحت عاج ظفرها</span><span class="sep">✦</span><span class="ajz">المدلل النميق</span></div>
+<div class="bayt"><span class="sadr">المرمر الغريق</span><span class="sep">✦</span><span class="ajz">يحصد في نقلته</span></div>
+<div class="bayt"><span class="sadr">ويأكل النور الذي</span><span class="sep">✦</span><span class="ajz">تاه عن الطريق ..</span></div>
+<div class="bayt"><span class="sadr">واهتزت الريشة</span><span class="sep">✦</span><span class="ajz">ذات المقبض الأنيق</span></div>
+<div class="bayt"><span class="sadr">فنانة الخفوق</span><span class="sep">✦</span><span class="ajz">تترك بعض قلبها</span></div>
+<div class="bayt"><span class="sadr">وتفرز الغروب</span><span class="sep">✦</span><span class="ajz">هنيهة .. فالسلم العاجي</span></div>
+<div class="bayt"><span class="sadr">في حريق</span><span class="sep">✦</span><span class="ajz">في معبد عتيق</span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr">سجادة العقيق</span><span class="sep">✦</span><span class="ajz">إن كفرت سيدتي</span></div>
+<div class="bayt"><span class="sadr">فقل لها : إنك قد</span><span class="sep">✦</span><span class="ajz">رضعت من عروقي</span></div>
+<div class="bayt"><span class="sadr">هنيهة .. فالسلم العاجي</span><span class="sep">✦</span><span class="ajz">في حريق</span></div>
+<div class="bayt"><span class="sadr">عشر شموع أوقدت</span><span class="sep">✦</span><span class="ajz">في معبد عتيق</span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr">يا ظفر .. يا وردي .. يا</span><span class="sep">✦</span><span class="ajz">سجادة العقيق</span></div>
+<div class="bayt"><span class="sadr">إن كفرت سيدتي</span><span class="sep">✦</span><span class="ajz">بعهدي الوثيق</span></div>
+<div class="bayt"><span class="sadr">فقل لها : إنك قد</span><span class="sep">✦</span><span class="ajz">رضعت من عروقي</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">قَامَتْ إِلَى قَارُورَةٍ</span><span class="sep">✦</span><span class="ajz">مَحْمُومَةَ الرَّحِيقِ</span></div>
+<div class="bayt"><span class="sadr">وَهَجَ الْكَرَزِ الْفَتِيقِ</span><span class="sep">✦</span><span class="ajz">وَاِسْتَلَّتْ الْمُبَرَّدُ مِن</span></div>
+<div class="bayt"><span class="sadr">يَنْحَتُّ عَاجُ ظَفَرِهَا</span><span class="sep">✦</span><span class="ajz">الْمُدَلَّلَ النميق</span></div>
+<div class="bayt"><span class="sadr">الْمَرْمَرَ الْغَرِيقَ</span><span class="sep">✦</span><span class="ajz">يَحْصُدُ فِي نَقْلَتِهِ</span></div>
+<div class="bayt"><span class="sadr">وَيَأْكُلُ النُّورُ الَّذِي</span><span class="sep">✦</span><span class="ajz">تَاهَ عَن الطَّرِيقِ ..</span></div>
+<div class="bayt"><span class="sadr">وَاِهْتَزَّتْ الرِّيشَةُ</span><span class="sep">✦</span><span class="ajz">ذَات الْمَقْبِضِ الْأنِيقَ</span></div>
+<div class="bayt"><span class="sadr">فَنَّانَةَ الخفوق</span><span class="sep">✦</span><span class="ajz">تَتْرُكُ بَعْضُ قَلْبِهَا</span></div>
+<div class="bayt"><span class="sadr">وَتُفْرِزُ الْغُرُوبُ</span><span class="sep">✦</span><span class="ajz">هُنَيْهَةٌ .. فَالسُّلَّمُ الْعَاجِيُّ</span></div>
+<div class="bayt"><span class="sadr">فِي حَرِيقِ</span><span class="sep">✦</span><span class="ajz">فِي مَعْبَدٍ عَتِيقٍ</span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr">سَجَّادَةَ الْعَقِيقِ</span><span class="sep">✦</span><span class="ajz">إِن كَفَّرَتْ سَيِّدَتَي</span></div>
+<div class="bayt"><span class="sadr">فَقُلٌّ لَهَاإِنّكَ قَد</span><span class="sep">✦</span><span class="ajz">رَضَعَتْ مِن عُرُوقِي</span></div>
+<div class="bayt"><span class="sadr">هُنَيْهَةٌ .. فَالسُّلَّمُ الْعَاجِيُّ</span><span class="sep">✦</span><span class="ajz">فِي حَرِيقِ</span></div>
+<div class="bayt"><span class="sadr">عُشُرَ شُمُوعٍ أَوََقُدْتُ</span><span class="sep">✦</span><span class="ajz">فِي مَعْبَدٍ عَتِيقٍ</span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr">يَا ظَفَرٍ .. يَا وَرَدِّيٌّ .. يَا</span><span class="sep">✦</span><span class="ajz">سَجَّادَةَ الْعَقِيقِ</span></div>
+<div class="bayt"><span class="sadr">إِن كَفَّرَتْ سَيِّدَتَي</span><span class="sep">✦</span><span class="ajz">بِعَهْدِي الْوَثِيقِ</span></div>
+<div class="bayt"><span class="sadr">فَقُلٌّ لَهَاإِنّكَ قَد</span><span class="sep">✦</span><span class="ajz">رَضَعَتْ مِن عُرُوقِيٍّ</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">قَامَتْ إِلَى قَارُورَةٍ</span><span class="sep">✦</span><span class="ajz">مَحْمُومَةَ الرَّحِيقِ</span></div>
+<div class="bayt"><span class="sadr">وَهَجَ الْكَرَزِ الْفَتِيقِ</span><span class="sep">✦</span><span class="ajz">وَاِسْتَلَّتْ الْمُبَرَّدُ مِن</span></div>
+<div class="bayt"><span class="sadr">يَنْحَتُّ عَاجُ ظَفَرِهَا</span><span class="sep">✦</span><span class="ajz">الْمُدَلَّلَ النميق</span></div>
+<div class="bayt"><span class="sadr">الْمَرْمَرَ الْغَرِيقَ</span><span class="sep">✦</span><span class="ajz">يَحْصُدُ فِي نَقْلَتِهِ</span></div>
+<div class="bayt"><span class="sadr">وَيَأْكُلُ النُّورُ الَّذِي</span><span class="sep">✦</span><span class="ajz">تَاهَ عَن الطَّرِيقِ ..</span></div>
+<div class="bayt"><span class="sadr">وَاِهْتَزَّتْ الرِّيشَةُ</span><span class="sep">✦</span><span class="ajz">ذَات الْمَقْبِضِ الْأنِيقَ</span></div>
+<div class="bayt"><span class="sadr">فَنَّانَةَ الخفوق</span><span class="sep">✦</span><span class="ajz">تَتْرُكُ بَعْضُ قَلْبِهَا</span></div>
+<div class="bayt"><span class="sadr">وَتُفْرِزُ الْغُرُوبُ</span><span class="sep">✦</span><span class="ajz">هُنَيْهَةٌ .. فَالسُّلَّمُ الْعَاجِيُّ</span></div>
+<div class="bayt"><span class="sadr">فِي حَرِيقِ</span><span class="sep">✦</span><span class="ajz">فِي مَعْبَدٍ عَتِيقٍ</span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr">سَجَّادَةَ الْعَقِيقِ</span><span class="sep">✦</span><span class="ajz">إِن كَفَّرَتْ سَيِّدَتَي</span></div>
+<div class="bayt"><span class="sadr">فَقُلٌّ لَهَاإِنّكَ قَد</span><span class="sep">✦</span><span class="ajz">رَضَعَتْ مِن عُرُوقِيٌّ</span></div>
+<div class="bayt"><span class="sadr">هُنَيْهَةٌ .. فَالسُّلَّمُ الْعَاجِيُّ</span><span class="sep">✦</span><span class="ajz">فِي حَرِيقِ</span></div>
+<div class="bayt"><span class="sadr">عُشُرَ شُمُوعٍ أَوَقُدْتُ</span><span class="sep">✦</span><span class="ajz">فِي مَعْبَدٍ عَتِيقٍ</span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr"></span></div>
+<div class="bayt"><span class="sadr">يَا ظَفَرٍ .. يَا وَرَدِّي .. يَا</span><span class="sep">✦</span><span class="ajz">سَجَّادَةَ الْعَقِيقِ</span></div>
+<div class="bayt"><span class="sadr">إِن كَفَّرَتْ سَيِّدَتَي</span><span class="sep">✦</span><span class="ajz">بِعَهْدِي الْوَثِيقِ</span></div>
+<div class="bayt"><span class="sadr">فَقُلٌّ لَهَاإِنّكَ قَد</span><span class="sep">✦</span><span class="ajz">رَضَعَتْ مِن عُرُوقِيٌّ</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="poem-card">
+            <div class="poem-header">
+                <h3 class="poem-title">وداعا يا صديق العمر</h3>
+                <span class="poet-name">نزار قباني</span>
+            </div>
+            
+            <div class="pipeline-stages">
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">1</span>
+                        <span class="stage-name">المصدر الأصلي</span>
+                        <span class="stage-desc">Original from Database</span>
+                    </div>
+                    <div class="poem-text original"><div class="bayt"><span class="sadr">اليوميات</span><span class="sep">✦</span><span class="ajz">(36)</span></div>
+<div class="bayt"><span class="sadr">وداعاً .. أيها الدفتر</span><span class="sep">✦</span><span class="ajz">وداعاً يا صديق العمر، يا مصباحي الأخضر</span></div>
+<div class="bayt"><span class="sadr">ويا صدراً بكيت عليه، أعواماً، ولم يضجر .</span><span class="sep">✦</span><span class="ajz">ويا رفضي .. ويا سخطي ..</span></div>
+<div class="bayt"><span class="sadr">ويا رعدي .. ويا برقي ..</span><span class="sep">✦</span><span class="ajz">ويا ألماً تحول في يدي خنجر ..</span></div>
+<div class="bayt"><span class="sadr">تركتك في أمان الله ،</span><span class="sep">✦</span><span class="ajz">يا جرحي الذي أزهر</span></div>
+<div class="bayt"><span class="sadr">فإن سرقوك من درجي</span><span class="sep">✦</span><span class="ajz">وفضوا ختمك الأحمر</span></div>
+<div class="bayt"><span class="sadr">فلن يجدوا سوى امرأةٍ</span><span class="sep">✦</span><span class="ajz">مبعثرةٍ على دفتر ....</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">2</span>
+                        <span class="stage-name">بعد إزالة التشكيل</span>
+                        <span class="stage-desc">Stripped (Mishkal Input)</span>
+                    </div>
+                    <div class="poem-text stripped"><div class="bayt"><span class="sadr">اليوميات</span><span class="sep">✦</span><span class="ajz">(36)</span></div>
+<div class="bayt"><span class="sadr">وداعا .. أيها الدفتر</span><span class="sep">✦</span><span class="ajz">وداعا يا صديق العمر، يا مصباحي الأخضر</span></div>
+<div class="bayt"><span class="sadr">ويا صدرا بكيت عليه، أعواما، ولم يضجر .</span><span class="sep">✦</span><span class="ajz">ويا رفضي .. ويا سخطي ..</span></div>
+<div class="bayt"><span class="sadr">ويا رعدي .. ويا برقي ..</span><span class="sep">✦</span><span class="ajz">ويا ألما تحول في يدي خنجر ..</span></div>
+<div class="bayt"><span class="sadr">تركتك في أمان الله ،</span><span class="sep">✦</span><span class="ajz">يا جرحي الذي أزهر</span></div>
+<div class="bayt"><span class="sadr">فإن سرقوك من درجي</span><span class="sep">✦</span><span class="ajz">وفضوا ختمك الأحمر</span></div>
+<div class="bayt"><span class="sadr">فلن يجدوا سوى امرأة</span><span class="sep">✦</span><span class="ajz">مبعثرة على دفتر ....</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">3</span>
+                        <span class="stage-name">بعد التشكيل بمشكال</span>
+                        <span class="stage-desc">After Mishkal Diacritization</span>
+                    </div>
+                    <div class="poem-text mishkal"><div class="bayt"><span class="sadr">الْيَوْمِيَاتُ</span><span class="sep">✦</span><span class="ajz">( 36 )</span></div>
+<div class="bayt"><span class="sadr">وَدَاعًا .. أَيَّهَا الدَّفْتَرَ</span><span class="sep">✦</span><span class="ajz">وَدَاعَا يَا صَدِيقِ الْعُمَرِ ، يَا مِصْبَاحِي الْأَخْضَرِ</span></div>
+<div class="bayt"><span class="sadr">وَيَا صَدْرًا بَكَيْتُ عَلَيْهِ ، أَعَوَّامًا ، ولَم يُضْجِرُ .</span><span class="sep">✦</span><span class="ajz">وَيَا رَفْضِي .. وَيَا سُخْطِي ..</span></div>
+<div class="bayt"><span class="sadr">وَيَا رَعْدِي .. وَيَا بَرْقِي ..</span><span class="sep">✦</span><span class="ajz">وَيَا ألَمًا تَحَوَّل فِي يَدِيُّ خَنْجَرِ ..</span></div>
+<div class="bayt"><span class="sadr">تَرَكَتْكَ فِي أَمَانٍ اللهِ ،</span><span class="sep">✦</span><span class="ajz">يَا جُرْحِيَّ الَّذِي أَزْهَرُ</span></div>
+<div class="bayt"><span class="sadr">فإِن سَرَقُوكَ مِن دَرَجِيِّ</span><span class="sep">✦</span><span class="ajz">وَفَضُّوا خَتْمَكَ الْأحْمَرَ</span></div>
+<div class="bayt"><span class="sadr">فلَن يَجِدُوا سِوَى اِمْرَأَةٍ</span><span class="sep">✦</span><span class="ajz">مُبَعْثَرَةٍ عَلَى دَفْتَرٍ ....</span></div></div>
+                </div>
+                
+                <div class="stage-arrow">▼</div>
+                
+                <div class="stage">
+                    <div class="stage-label">
+                        <span class="stage-number">4</span>
+                        <span class="stage-name">بعد المعالجة النهائية</span>
+                        <span class="stage-desc">After Post-Processing (8 Rules)</span>
+                    </div>
+                    <div class="poem-text final"><div class="bayt"><span class="sadr">الْيَوْمِيَاتُ</span><span class="sep">✦</span><span class="ajz">( 36 )</span></div>
+<div class="bayt"><span class="sadr">وَدَاعًا .. أَيَّهَا الدَّفْتَرَ</span><span class="sep">✦</span><span class="ajz">وَدَاعَا يَا صَدِيقِ الْعُمَرِ ، يَا مِصْبَاحِي الْأَخْضَرِ</span></div>
+<div class="bayt"><span class="sadr">وَيَا صَدْرًا بَكَيْتُ عَلَيْهِ ، أَعَوَّامًا ، ولَم يُضْجِرُ .</span><span class="sep">✦</span><span class="ajz">وَيَا رَفْضِي .. وَيَا سُخْطِي ..</span></div>
+<div class="bayt"><span class="sadr">وَيَا رَعْدِي .. وَيَا بَرْقِي ..</span><span class="sep">✦</span><span class="ajz">وَيَا ألَمًا تَحَوَّل فِي يَدِي خَنْجَرِ ..</span></div>
+<div class="bayt"><span class="sadr">تَرَكَتْكَ فِي أَمَانٍ اللهِ ،</span><span class="sep">✦</span><span class="ajz">يَا جُرْحِي الَّذِي أَزْهَرُ</span></div>
+<div class="bayt"><span class="sadr">فإِن سَرَقُوكَ مِن دَرَجِيٌّ</span><span class="sep">✦</span><span class="ajz">وَفَضُّوا خَتْمَكَ الْأحْمَرَ</span></div>
+<div class="bayt"><span class="sadr">فلَن يَجِدُوا سِوَى اِمْرَأَةٍ</span><span class="sep">✦</span><span class="ajz">مُبَعْثَرَةٍ عَلَى دَفْتَرٍ ....</span></div></div>
+                </div>
+            </div>
+        </div>
+        
+
+        <footer>
+            Tashkeel Pipeline &mdash; Mishkal NLP + 8 post-processing rules (5 learned from Arabic quality review agent)
+            <br>Built with <a href="https://github.com/linuxscout/mishkal">Mishkal</a> + <a href="https://github.com/linuxscout/pyarabic">PyArabic</a>
+        </footer>
+    </div>
+
+    <script>
+        // Add toggle functionality
+        document.querySelectorAll('.pipeline-stages').forEach(stages => {
+            const allStages = stages.querySelectorAll('.stage');
+            const arrows = stages.querySelectorAll('.stage-arrow');
+            
+            if (allStages.length >= 4) {
+                // Wrap intermediate stages
+                const wrapper = document.createElement('div');
+                wrapper.className = 'intermediate-stages collapsed';
+                
+                // Move stages 2 and 3 (indices 1,2 - but with arrows between)
+                const toWrap = [allStages[1], arrows[1], allStages[2], arrows[2]];
+                toWrap.forEach(el => wrapper.appendChild(el.cloneNode(true)));
+                toWrap.forEach(el => el.remove());
+                
+                // Insert after first arrow
+                arrows[0].after(wrapper);
+                
+                // Add toggle button
+                const btn = document.createElement('button');
+                btn.className = 'toggle-btn';
+                btn.innerHTML = 'Show intermediate steps ▼';
+                btn.onclick = () => {
+                    wrapper.classList.toggle('collapsed');
+                    wrapper.classList.toggle('expanded');
+                    btn.innerHTML = wrapper.classList.contains('collapsed') 
+                        ? 'Show intermediate steps ▼' 
+                        : 'Hide intermediate steps ▲';
+                };
+                arrows[0].after(btn);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+{
+  "total_poems": 65297,
+  "poems_with_issues": 57932,
+  "summary": {
+    "line_ending_tashkeel": {
+      "total_hemistichs": 558291,
+      "marked_endings": 355940,
+      "ratio": 0.6376
+    },
+    "avg_density": 0.8116,
+    "issue_counts": {
+      "line_ending_tashkeel": 54467,
+      "duplicate_marks": 26937,
+      "empty_hemistich": 193,
+      "zero_tashkeel_hemistichs": 35,
+      "imbalanced_hemistichs": 25
+    }
+  },
+  "flagged_poems": {
+    "line_ending_tashkeel": [
+      5405,
+      2014,
+      44976,
+      71981,
+      76346,
+      4262,
+      6083,
+      49402,
+      44921,
+      79384,
+      47333,
+      2197,
+      44955,
+      61643,
+      6125,
+      22896,
+      5187,
+      5314,
+      55065,
+      82060,
+      76331,
+      57898,
+      76106,
+      76884,
+      12704,
+      21805,
+      17717,
+      75780,
+      32674,
+      6097,
+      3204,
+      7617,
+      7844,
+      59956,
+      28593,
+      22062,
+      6094,
+      64663,
+      7436,
+      76312,
+      59921,
+      76668,
+      17707,
+      20414,
+      28643,
+      40061,
+      40511,
+      16883,
+      5596,
+      17892
+    ],
+    "duplicate_marks": [
+      44921,
+      29627,
+      34225,
+      65697,
+      64663,
+      20414,
+      28643,
+      28653,
+      59196,
+      42748,
+      4815,
+      5166,
+      65575,
+      28589,
+      28583,
+      2167,
+      22168,
+      21592,
+      64629,
+      28654,
+      39339,
+      24592,
+      20467,
+      63106,
+      64604,
+      42806,
+      57748,
+      6193,
+      59746,
+      29023,
+      43952,
+      27421,
+      29373,
+      9474,
+      44948,
+      76300,
+      6375,
+      28744,
+      28839,
+      76194,
+      11315,
+      11369,
+      58848,
+      6444,
+      58852,
+      12773,
+      42750,
+      13941,
+      20579,
+      49387
+    ],
+    "empty_hemistich": [
+      5597,
+      67271,
+      63398,
+      63395,
+      63392,
+      63396,
+      8094,
+      43460,
+      33535,
+      63391,
+      5587,
+      67580,
+      70403,
+      77306,
+      32133,
+      65614,
+      19418,
+      14069,
+      20287,
+      76744,
+      67367,
+      18944,
+      32268,
+      5846,
+      19837,
+      10155,
+      67276,
+      7212,
+      15518,
+      15241,
+      6973,
+      20851,
+      19838,
+      20328,
+      13871,
+      13987,
+      13887,
+      18508,
+      61982,
+      15422,
+      67577,
+      26654,
+      15194,
+      8092,
+      8090,
+      66752,
+      32443,
+      20910,
+      67591,
+      67589
+    ],
+    "zero_tashkeel_hemistichs": [
+      76402,
+      74694,
+      42481,
+      15069,
+      78768,
+      10954,
+      4403,
+      59908,
+      49104,
+      45053,
+      22262,
+      44941,
+      2483,
+      21283,
+      71561,
+      2760,
+      4361,
+      21258,
+      7872,
+      49835,
+      34521,
+      2759,
+      81363,
+      2773,
+      21361,
+      14701,
+      2728,
+      40216,
+      2660,
+      22495,
+      2673,
+      7133,
+      2687,
+      34651,
+      74679
+    ],
+    "imbalanced_hemistichs": [
+      81008,
+      48580,
+      26343,
+      81292,
+      21345,
+      22188,
+      35548,
+      17988,
+      85344,
+      26910,
+      1657,
+      42395,
+      67881,
+      22477,
+      42475,
+      22490,
+      4196,
+      22480,
+      67210,
+      22473,
+      42419,
+      73,
+      22446,
+      22476,
+      22500
+    ]
+  },
+  "sample_issues": {
+    "5405": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "2014": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "44976": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "71981": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "76346": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "4262": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "6083": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "49402": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "44921": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      },
+      {
+        "type": "duplicate_marks",
+        "count": 1
+      }
+    ],
+    "79384": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "47333": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "2197": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "44955": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "61643": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "6125": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "22896": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 2,
+        "marked_endings": 1,
+        "ratio": 0.5
+      }
+    ],
+    "5187": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "5314": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "55065": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 1,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ],
+    "82060": [
+      {
+        "type": "line_ending_tashkeel",
+        "total_hemistichs": 2,
+        "marked_endings": 0,
+        "ratio": 0.0
+      }
+    ]
+  }
+}

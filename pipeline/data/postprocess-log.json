@@ -1,0 +1,25 @@
+{
+  "total_poems": 65297,
+  "fix_counts": {
+    "normalize_whitespace": 65296,
+    "deduplicate_marks": 26937,
+    "impossible_hamza_sukun": 23679,
+    "spurious_shadda_function_words": 11915,
+    "ya_possessive_nisba": 27913,
+    "alif_lam_article": 1064,
+    "sun_letter_assimilation": 448,
+    "line_ending_tashkeel": 16538
+  },
+  "rules_applied": [
+    "normalize_whitespace",
+    "deduplicate_marks",
+    "impossible_hamza_sukun",
+    "spurious_shadda_function_words",
+    "ya_possessive_nisba",
+    "alif_lam_article",
+    "sun_letter_assimilation",
+    "line_ending_tashkeel"
+  ],
+  "elapsed_sec": 56.8,
+  "dry_run": false
+}
