@@ -51,8 +51,8 @@ class TashkeelClass:
         logging.basicConfig(level=logging.ERROR)
         self.logger = logging.getLogger(__name__)
 
-        # limit of words to vocalize, default value is 1000 words.
-        self.limit = 1000
+        # limit of words to vocalize, default value is 20000 words.
+        self.limit = 20000
 
         #  set the option value to enable the Last mark on vocalize
         # words in output
