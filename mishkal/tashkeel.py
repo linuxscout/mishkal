@@ -528,11 +528,23 @@ class TashkeelClass:
         #~ text = re.sub(ur'\s%s\s+ا'%araby.SUKUN, u' %s ا' % araby.SUKUN, text)
         #ajust pounctuation
         text = re.sub(u" ([.?!, :)”—]($| ))", u"\1", text)
-        #binu = > bin 
+        #binu = > bin
         # temporary, to be analysed by syntaxical analyzer
-        text = re.sub(u'\sبْنُ\s', u' بْن ', text)        
+        text = re.sub(u'\sبْنُ\s', u' بْن ', text)
         # # # اختصارات مثل حدثنا إلى ثنا وه تكثر في كتب التراث
         # text = re.sub(ur'\seثِنَا\s', u' ثَنَا ', text)
+
+        # remove duplicate diacritical marks (e.g., doubled sukun, kasra, etc.)
+        # these originate from affix constant tables in alyahmor that contain
+        # doubled marks like كَالْْ (double sukun) and َتَانِِ (double kasra)
+        text = re.sub(u'([\u064B-\u0652])\\1+', u'\\1', text)
+
+        # remove impossible vowel+sukun combinations on hamza characters
+        # a letter cannot have both a vowel (fatha/damma/kasra) and sukun
+        # simultaneously; keep only the vowel mark
+        text = re.sub(u'([\u0621\u0623\u0625\u0626])([\u064E-\u0650])\u0652',
+                       u'\\1\\2', text)
+
         return text
 
     def ajust_vocalized_suggestion(self, _suggest_list):
