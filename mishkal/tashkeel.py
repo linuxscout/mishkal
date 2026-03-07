@@ -551,6 +551,19 @@ class TashkeelClass:
         # إِلَّى does not exist; the preposition is always إِلَى
         text = re.sub(u'إِلَّى', u'إِلَى', text)
 
+        # sun letter assimilation (الإدغام الشمسي):
+        # after the definite article ال, sun letters must carry shadda
+        # because the lam assimilates into them. E.g., الشمس = الشَّمس
+        # Match الْ followed by a sun letter that lacks shadda
+        sun_letters = u'تثدذرزسشصضطظلن'
+        _harakat = u'\u064B\u064C\u064D\u064E\u064F\u0650\u0651\u0652'
+        text = re.sub(
+            u'ال%s([%s])(?![%s]?%s)' % (
+                araby.SUKUN, sun_letters, _harakat, araby.SHADDA),
+            lambda m: u'ال' + m.group(1) + araby.SHADDA,
+            text
+        )
+
         return text
 
     def ajust_vocalized_suggestion(self, _suggest_list):
