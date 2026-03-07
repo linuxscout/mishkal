@@ -1,0 +1,158 @@
+{
+  "branch": "master",
+  "pass_count": 23,
+  "fail_count": 2,
+  "results": [
+    {
+      "fix": 1,
+      "test": "Long text (>1500 chars) fully diacritized",
+      "status": "FAIL",
+      "detail": "Input: 6439 chars, 1260 words\nOutput: 863 words (ratio: 0.68)"
+    },
+    {
+      "fix": 2,
+      "test": "No duplicate diacritics: 'كالرجل المجتهد في عمله...'",
+      "status": "PASS",
+      "detail": "Input:  كالرجل المجتهد في عمله\nOutput:  كَالْرَّجُلِ الْمُجْتَهِدِ فِي عَمَلِهِ"
+    },
+    {
+      "fix": 2,
+      "test": "No duplicate diacritics: 'والفتاتان المجتهدتان في دراسته...'",
+      "status": "FAIL",
+      "detail": "Input:  والفتاتان المجتهدتان في دراستهما\nOutput:  وَالْفَتَاتَانِ الْمُجْتَهِدَتَانِِ فِي دِرَاسَتِهِمَا\nDuplicate marks found: ['ِ']"
+    },
+    {
+      "fix": 2,
+      "test": "No duplicate diacritics: 'للعالمين رحمة وبركة...'",
+      "status": "PASS",
+      "detail": "Input:  للعالمين رحمة وبركة\nOutput:  لِلْعَالَمَيْنِ رَحْمَةً وَبَرَكَةً"
+    },
+    {
+      "fix": 2,
+      "test": "No duplicate diacritics: 'بالعلم والإيمان ترتقي الأمم...'",
+      "status": "PASS",
+      "detail": "Input:  بالعلم والإيمان ترتقي الأمم\nOutput:  بِالْعِلْمِ وَالْإيمَانِ تَرْتَقِي الْأُمَمُ"
+    },
+    {
+      "fix": 2,
+      "test": "No duplicate diacritics: 'فالكتابان مفيدان للقارئ...'",
+      "status": "PASS",
+      "detail": "Input:  فالكتابان مفيدان للقارئ\nOutput:  فَالْكِتَابَانِ مُفِيدَانِ لِلْقَارِئَ"
+    },
+    {
+      "fix": 3,
+      "test": "No hamza+vowel+sukun: 'إن العلم نور'",
+      "status": "PASS",
+      "detail": "Input:  إن العلم نور\nOutput:  إِنّ الْعِلْمِ نُورٌ"
+    },
+    {
+      "fix": 3,
+      "test": "No hamza+vowel+sukun: 'أنت الأول'",
+      "status": "PASS",
+      "detail": "Input:  أنت الأول\nOutput:  أَنْت الْأَوَّلِ"
+    },
+    {
+      "fix": 3,
+      "test": "No hamza+vowel+sukun: 'إلى الله المصير'",
+      "status": "PASS",
+      "detail": "Input:  إلى الله المصير\nOutput:  إِلَى اللهِ الْمَصِيرِ"
+    },
+    {
+      "fix": 3,
+      "test": "No hamza+vowel+sukun: 'أبو بكر الصديق'",
+      "status": "PASS",
+      "detail": "Input:  أبو بكر الصديق\nOutput:  أَبُو بِكْرِ الصَّدِيقِ"
+    },
+    {
+      "fix": 3,
+      "test": "No hamza+vowel+sukun: 'رئيس الوزراء'",
+      "status": "PASS",
+      "detail": "Input:  رئيس الوزراء\nOutput:  رَئِيسُ الْوُزَرَاءِ"
+    },
+    {
+      "fix": 4,
+      "test": "No spurious shadda: على (ala)",
+      "status": "PASS",
+      "detail": "Input:  ذهب على الطريق\nOutput:  ذَهَبَ عَلَى الطَّرِيقِ\nChecking no 'عَلَّى' present"
+    },
+    {
+      "fix": 4,
+      "test": "No spurious shadda: إلى (ila)",
+      "status": "PASS",
+      "detail": "Input:  ذهب إلى البيت\nOutput:  ذَهَبَ إِلَى الْبَيْتِ\nChecking no 'إِلَّى' present"
+    },
+    {
+      "fix": 4,
+      "test": "No spurious shadda: على in poetry",
+      "status": "PASS",
+      "detail": "Input:  على قدر أهل العزم\nOutput:  عَلَى قَدَرَ أهْلُ الْعَزْمِ\nChecking no 'عَلَّى' present"
+    },
+    {
+      "fix": 4,
+      "test": "No spurious shadda: إلى in sentence",
+      "status": "PASS",
+      "detail": "Input:  مشى إلى المسجد\nOutput:  مَشَّى إِلَى الْمَسْجِدِ\nChecking no 'إِلَّى' present"
+    },
+    {
+      "fix": 5,
+      "test": "Sun letter shadda: الشمس (ash-shams)",
+      "status": "PASS",
+      "detail": "Input:  الشمس ساطعة\nOutput:  الشَّمْسُ سَاطِعَةٌ\nMatched: الشَّ\nSun letter 'ش' has shadda: True"
+    },
+    {
+      "fix": 5,
+      "test": "Sun letter shadda: الناس (an-nas)",
+      "status": "PASS",
+      "detail": "Input:  جاء الناس إلى المسجد\nOutput:  جَاءَ النَّاسُ إِلَى الْمَسْجِدِ\nMatched: النَّ\nSun letter 'ن' has shadda: True"
+    },
+    {
+      "fix": 5,
+      "test": "Sun letter shadda: الدنيا (ad-dunya)",
+      "status": "PASS",
+      "detail": "Input:  في الدنيا والآخرة\nOutput:  فِي الدُّنْيَا وَالْآخِرَةِ\nMatched: الدُّ\nSun letter 'د' has shadda: True"
+    },
+    {
+      "fix": 5,
+      "test": "Sun letter shadda: الرحمن (ar-rahman)",
+      "status": "PASS",
+      "detail": "Input:  بسم الله الرحمن الرحيم\nOutput:  بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ\nMatched: الرَّ\nSun letter 'ر' has shadda: True"
+    },
+    {
+      "fix": 5,
+      "test": "Sun letter shadda: السلام (as-salam)",
+      "status": "PASS",
+      "detail": "Input:  السلام عليكم\nOutput:  السِّلَامُ عَلَيْكُمْ\nMatched: السِّ\nSun letter 'س' has shadda: True"
+    },
+    {
+      "fix": 5,
+      "test": "Sun letter shadda: الطريق (at-tariq)",
+      "status": "PASS",
+      "detail": "Input:  الطريق طويل\nOutput:  الطَّرِيقُ طَوِيلٌ\nMatched: الطَّ\nSun letter 'ط' has shadda: True"
+    },
+    {
+      "fix": 5,
+      "test": "Sun letter shadda: اللغة (al-lugha)",
+      "status": "PASS",
+      "detail": "Input:  اللغة العربية جميلة\nOutput:  اللُّغَةَ الْعَرَبِيَّةَ جَمِيلَةٌ\nMatched: اللُّ\nSun letter 'ل' has shadda: True"
+    },
+    {
+      "fix": 0,
+      "test": "Poem has diacritics (71 marks)",
+      "status": "PASS",
+      "detail": "Found 71 diacritical marks in output"
+    },
+    {
+      "fix": 0,
+      "test": "Poem has no duplicate diacritics",
+      "status": "PASS",
+      "detail": "Clean"
+    },
+    {
+      "fix": 0,
+      "test": "Poem has no impossible hamza+sukun",
+      "status": "PASS",
+      "detail": "Clean"
+    }
+  ],
+  "poem_output": " عَلَى قَدَرَ أهْلُ الْعَزْمِ تَأْتِي الْعَزَائِمُ \n وَتَأْتِي عَلَى قَدْرِ الْكِرَامِ الْمَكَارِمِ \n وَتُعْظِمُ فِي عَيْن الصَّغِيرِ صَغَارَهَا \n وَتُصَغِّرُ فِي عَيْن الْعَظِيمِ الْعَظَائِمَ"
+}
